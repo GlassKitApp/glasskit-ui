@@ -1,0 +1,79 @@
+{
+  "name": "@glasskit/glasses-ui",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Typed 600×600 + D-pad component library for Meta Ray-Ban Display Web Apps. The platform primitives Meta does not ship.",
+  "author": "GlassKit",
+  "homepage": "https://ui.glasskit.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GlassKitApp/glasskit-ui.git",
+    "directory": "packages/glasses-ui"
+  },
+  "bugs": "https://github.com/GlassKitApp/glasskit-ui/issues",
+  "keywords": [
+    "meta-ray-ban",
+    "ray-ban-display",
+    "glasses",
+    "react",
+    "react-hooks",
+    "d-pad",
+    "spatial-navigation",
+    "neural-band",
+    "wearable",
+    "hud",
+    "glasskit"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js"
+    },
+    "./primitives": {
+      "types": "./dist/primitives/index.d.ts",
+      "import": "./dist/primitives/index.js"
+    },
+    "./styles.css": "./styles.css"
+  },
+  "files": [
+    "dist",
+    "styles.css",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "eslint": "^9.18.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "globals": "^15.14.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0",
+    "vitest": "^3.0.0"
+  }
+}

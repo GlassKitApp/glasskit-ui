@@ -1,0 +1,135 @@
+import { useEffect } from "react";
+
+/**
+ * D-pad focus navigation for the Meta Ray-Ban Display.
+ *
+ * The Display has no touch and no pointer. The Neural Band wristband
+ * is the only input — its swipes/clicks reach the Web App as arrow
+ * keys + Enter. So navigation is: move a focus ring between elements
+ * with the arrows, activate with Enter.
+ *
+ * Convention: give any interactive element the `focusable` class.
+ * `useDpad()` (call once near the app root) does the rest — spatial
+ * navigation picks the nearest `focusable` in the pressed direction.
+ *
+ * Locally, your keyboard's arrow keys simulate the wristband.
+ */
+
+export type Dir = "up" | "down" | "left" | "right";
+
+const SELECTOR = ".focusable:not([disabled]):not([aria-disabled='true'])";
+
+const KEY_TO_DIR: Record<string, Dir> = {
+  ArrowUp: "up",
+  ArrowDown: "down",
+  ArrowLeft: "left",
+  ArrowRight: "right",
+};
+
+type RectLike = { left: number; top: number; width: number; height: number };
+
+/**
+ * Score a candidate's position relative to the current rect in a
+ * direction. Returns null if the candidate is not in `dir` at all,
+ * otherwise a positive number where lower wins. Pure — no DOM. The
+ * extraction makes the spatial-focus algorithm directly unit-testable.
+ */
+export function scoreRect(
+  current: RectLike,
+  candidate: RectLike,
+  dir: Dir,
+): number | null {
+  const cx = current.left + current.width / 2;
+  const cy = current.top + current.height / 2;
+  const dx = candidate.left + candidate.width / 2 - cx;
+  const dy = candidate.top + candidate.height / 2 - cy;
+
+  const inDir =
+    (dir === "up" && dy < -1) ||
+    (dir === "down" && dy > 1) ||
+    (dir === "left" && dx < -1) ||
+    (dir === "right" && dx > 1);
+  if (!inDir) return null;
+
+  const vertical = dir === "up" || dir === "down";
+  const along = Math.abs(vertical ? dy : dx);
+  const cross = Math.abs(vertical ? dx : dy);
+  // Distance in the travel direction, plus a penalty for drift.
+  return along + cross * 2;
+}
+
+function focusables(): HTMLElement[] {
+  return Array.from(document.querySelectorAll<HTMLElement>(SELECTOR));
+}
+
+function moveFocus(dir: Dir) {
+  const els = focusables();
+  if (els.length === 0) return;
+
+  const active = document.activeElement as HTMLElement | null;
+  const current = active && els.includes(active) ? active : els[0];
+  if (!current) return;
+
+  if (current !== active) {
+    current.focus();
+    return;
+  }
+
+  const cr = current.getBoundingClientRect();
+  let best: HTMLElement | null = null;
+  let bestScore = Infinity;
+
+  for (const el of els) {
+    if (el === current) continue;
+    const score = scoreRect(cr, el.getBoundingClientRect(), dir);
+    if (score !== null && score < bestScore) {
+      bestScore = score;
+      best = el;
+    }
+  }
+
+  best?.focus();
+}
+
+/**
+ * Move focus to the first focusable element. Exposed so a screen that
+ * swaps its content under a single `useDpad()` (no remount) can re-seed
+ * focus when its focusable set changes — `useDpad` itself only seeds once
+ * on mount. Uses the same `SELECTOR`, so it skips disabled elements.
+ */
+export function seedFocus(): void {
+  focusables()[0]?.focus();
+}
+
+/**
+ * Wire the D-pad to focus navigation. Call once, near the app root.
+ * Returns `{ seedFocus }` for screens that need to re-seed focus after
+ * swapping content within the same mount.
+ */
+export function useDpad(): { seedFocus: () => void } {
+  useEffect(() => {
+    seedFocus();
+
+    function onKey(e: KeyboardEvent) {
+      const pressed = KEY_TO_DIR[e.key];
+      if (pressed) {
+        e.preventDefault();
+        moveFocus(pressed);
+        return;
+      }
+
+      if (e.key === "Enter" || e.key === " ") {
+        const active = document.activeElement as HTMLElement | null;
+        if (active?.classList.contains("focusable")) {
+          e.preventDefault();
+          active.click();
+        }
+      }
+    }
+
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  return { seedFocus };
+}

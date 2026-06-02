@@ -1,0 +1,180 @@
+/* ───────────────────────────────────────────────────────────────
+ * @glasskit/glasses-ui — additive-display design system + platform
+ * primitives for Meta Ray-Ban Display Web Apps.
+ *
+ * The Display is additive: black (#000) emits no light and shows the
+ * real world through it. So the canvas is pure black and everything
+ * drawn is emitted light. Keep it sparse, high-contrast.
+ *
+ * Tailwind v4 stack. Consumers import this stylesheet AFTER they
+ * import tailwindcss:
+ *
+ *   @import "tailwindcss";
+ *   @import "@glasskit/glasses-ui/styles.css";
+ *
+ * The consumer's Tailwind pipeline processes the @theme and @apply
+ * directives below. Override any token by re-declaring it in your
+ * own @theme block loaded after this file.
+ * ─────────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Color tokens — `--color-*` names give us bg-bg, text-ink,
+   * border-rule, etc. as Tailwind utilities for free. */
+  --color-bg: #000; /* pure black — transparent on the device */
+  --color-ink: #f2f3f5;
+  --color-ink-dim: #9aa0a8;
+  --color-accent: #36e27f; /* phosphor green */
+  --color-surface: #14171c;
+  --color-rule: #2a2f37;
+  --color-room: #07080a; /* dark room around the viewport — local dev only */
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background: var(--color-room);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+}
+
+/* ── Semantic platform classes ──────────────────────────────────────
+ * Defined here so consumers can write `<div className="screen">` etc.
+ * with stable names; styled via @apply so Tailwind utility tokens
+ * stay the single source of truth.
+ * ──────────────────────────────────────────────────────────────── */
+
+/* The 600×600 surface — wrap the app root. */
+.glass-viewport {
+  @apply relative h-[600px] w-[600px] overflow-hidden bg-bg;
+}
+.glass-viewport--frame {
+  outline: 1px solid #1c2230;
+  border-radius: 4px;
+}
+
+/* The standard app-content layout inside the viewport. */
+.screen {
+  @apply flex h-full flex-col items-center justify-center gap-[22px] p-[52px] text-center;
+}
+
+.dim {
+  @apply max-w-[32ch] text-ink-dim;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.label {
+  @apply uppercase text-accent;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+.readout {
+  @apply flex flex-col gap-1 tabular-nums;
+}
+.readout span {
+  @apply uppercase text-ink-dim;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+.readout strong {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.row {
+  @apply flex gap-3;
+}
+
+/* `.focusable` — joins D-pad navigation; :focus shows the focus ring. */
+.focusable {
+  @apply cursor-pointer rounded-lg border border-rule bg-surface px-[18px] py-3 text-ink;
+  font: inherit;
+  font-size: 14px;
+}
+.focusable:focus {
+  @apply text-white;
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow:
+    0 0 0 2px var(--color-accent),
+    0 0 18px -2px var(--color-accent);
+}
+.focusable:disabled {
+  @apply cursor-default opacity-45;
+}
+
+/* Reusable in-app chrome — header row + meta line at the top of a screen. */
+.app-head {
+  @apply flex w-full justify-between uppercase text-ink-dim;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+}
+.app-meta {
+  @apply flex gap-4 tabular-nums text-ink-dim;
+  font-size: 13px;
+}
+
+/* ── Launcher (a pick-an-app menu, useful when shipping multiple
+ *    demos under one GlassViewport — the showcase pattern). ─────── */
+
+.launcher {
+  @apply flex h-full flex-col items-center justify-center gap-3 px-7 py-9;
+}
+.launcher-title {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.launcher-tagline {
+  @apply mb-3;
+}
+.launcher-grid {
+  @apply grid w-full grid-cols-2 gap-2.5;
+}
+.launcher-card {
+  @apply flex cursor-pointer flex-col items-start gap-0.5 rounded-lg border border-rule bg-surface px-3.5 py-3 text-left text-ink;
+  font: inherit;
+}
+.launcher-card:focus {
+  @apply text-white;
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow:
+    0 0 0 2px var(--color-accent),
+    0 0 18px -2px var(--color-accent);
+}
+.launcher-card__label {
+  font-size: 14px;
+  font-weight: 700;
+}
+.launcher-card__tagline {
+  @apply text-ink-dim;
+  font-size: 11px;
+}

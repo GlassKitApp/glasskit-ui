@@ -1,0 +1,4992 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "tsconfig.base.json",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L1",
+      "id": "tsconfig_base_json",
+      "community": 4,
+      "norm_label": "tsconfig.base.json"
+    },
+    {
+      "label": "$schema",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L2",
+      "id": "harrisburg_tsconfig_base_schema",
+      "community": 4,
+      "norm_label": "$schema"
+    },
+    {
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L3",
+      "id": "harrisburg_tsconfig_base_compileroptions",
+      "community": 4,
+      "norm_label": "compileroptions"
+    },
+    {
+      "label": "target",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L4",
+      "id": "harrisburg_tsconfig_base_compileroptions_target",
+      "community": 4,
+      "norm_label": "target"
+    },
+    {
+      "label": "lib",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L5",
+      "id": "harrisburg_tsconfig_base_compileroptions_lib",
+      "community": 4,
+      "norm_label": "lib"
+    },
+    {
+      "label": "module",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L6",
+      "id": "harrisburg_tsconfig_base_compileroptions_module",
+      "community": 4,
+      "norm_label": "module"
+    },
+    {
+      "label": "moduleResolution",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L7",
+      "id": "harrisburg_tsconfig_base_compileroptions_moduleresolution",
+      "community": 4,
+      "norm_label": "moduleresolution"
+    },
+    {
+      "label": "jsx",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L8",
+      "id": "harrisburg_tsconfig_base_compileroptions_jsx",
+      "community": 4,
+      "norm_label": "jsx"
+    },
+    {
+      "label": "strict",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L9",
+      "id": "harrisburg_tsconfig_base_compileroptions_strict",
+      "community": 4,
+      "norm_label": "strict"
+    },
+    {
+      "label": "noUncheckedIndexedAccess",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L10",
+      "id": "harrisburg_tsconfig_base_compileroptions_nouncheckedindexedaccess",
+      "community": 4,
+      "norm_label": "nouncheckedindexedaccess"
+    },
+    {
+      "label": "noUnusedLocals",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L11",
+      "id": "harrisburg_tsconfig_base_compileroptions_nounusedlocals",
+      "community": 4,
+      "norm_label": "nounusedlocals"
+    },
+    {
+      "label": "noUnusedParameters",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L12",
+      "id": "harrisburg_tsconfig_base_compileroptions_nounusedparameters",
+      "community": 4,
+      "norm_label": "nounusedparameters"
+    },
+    {
+      "label": "esModuleInterop",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L13",
+      "id": "harrisburg_tsconfig_base_compileroptions_esmoduleinterop",
+      "community": 4,
+      "norm_label": "esmoduleinterop"
+    },
+    {
+      "label": "resolveJsonModule",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L14",
+      "id": "harrisburg_tsconfig_base_compileroptions_resolvejsonmodule",
+      "community": 4,
+      "norm_label": "resolvejsonmodule"
+    },
+    {
+      "label": "isolatedModules",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L15",
+      "id": "harrisburg_tsconfig_base_compileroptions_isolatedmodules",
+      "community": 4,
+      "norm_label": "isolatedmodules"
+    },
+    {
+      "label": "verbatimModuleSyntax",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L16",
+      "id": "harrisburg_tsconfig_base_compileroptions_verbatimmodulesyntax",
+      "community": 4,
+      "norm_label": "verbatimmodulesyntax"
+    },
+    {
+      "label": "skipLibCheck",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L17",
+      "id": "harrisburg_tsconfig_base_compileroptions_skiplibcheck",
+      "community": 4,
+      "norm_label": "skiplibcheck"
+    },
+    {
+      "label": "noEmit",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L18",
+      "id": "harrisburg_tsconfig_base_compileroptions_noemit",
+      "community": 4,
+      "norm_label": "noemit"
+    },
+    {
+      "label": "turbo.json",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L1",
+      "id": "turbo_json",
+      "community": 5,
+      "norm_label": "turbo.json"
+    },
+    {
+      "label": "$schema",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L2",
+      "id": "harrisburg_turbo_schema",
+      "community": 5,
+      "norm_label": "$schema"
+    },
+    {
+      "label": "ui",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L3",
+      "id": "harrisburg_turbo_ui",
+      "community": 5,
+      "norm_label": "ui"
+    },
+    {
+      "label": "globalEnv",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L4",
+      "id": "harrisburg_turbo_globalenv",
+      "community": 5,
+      "norm_label": "globalenv"
+    },
+    {
+      "label": "tasks",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L5",
+      "id": "harrisburg_turbo_tasks",
+      "community": 5,
+      "norm_label": "tasks"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L6",
+      "id": "harrisburg_turbo_tasks_dev",
+      "community": 5,
+      "norm_label": "dev"
+    },
+    {
+      "label": "cache",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L7",
+      "id": "harrisburg_turbo_dev_cache",
+      "community": 5,
+      "norm_label": "cache"
+    },
+    {
+      "label": "persistent",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L8",
+      "id": "harrisburg_turbo_dev_persistent",
+      "community": 5,
+      "norm_label": "persistent"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L10",
+      "id": "harrisburg_turbo_tasks_build",
+      "community": 5,
+      "norm_label": "build"
+    },
+    {
+      "label": "dependsOn",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L11",
+      "id": "harrisburg_turbo_build_dependson",
+      "community": 5,
+      "norm_label": "dependson"
+    },
+    {
+      "label": "outputs",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L12",
+      "id": "harrisburg_turbo_build_outputs",
+      "community": 5,
+      "norm_label": "outputs"
+    },
+    {
+      "label": "env",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L13",
+      "id": "harrisburg_turbo_build_env",
+      "community": 5,
+      "norm_label": "env"
+    },
+    {
+      "label": "typecheck",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L15",
+      "id": "harrisburg_turbo_tasks_typecheck",
+      "community": 5,
+      "norm_label": "typecheck"
+    },
+    {
+      "label": "dependsOn",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L16",
+      "id": "harrisburg_turbo_typecheck_dependson",
+      "community": 5,
+      "norm_label": "dependson"
+    },
+    {
+      "label": "lint",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L18",
+      "id": "harrisburg_turbo_tasks_lint",
+      "community": 5,
+      "norm_label": "lint"
+    },
+    {
+      "label": "test",
+      "file_type": "code",
+      "source_file": "turbo.json",
+      "source_location": "L19",
+      "id": "harrisburg_turbo_tasks_test",
+      "community": 5,
+      "norm_label": "test"
+    },
+    {
+      "label": "prettier.config.mjs",
+      "file_type": "code",
+      "source_file": "prettier.config.mjs",
+      "source_location": "L1",
+      "id": "prettier_config_mjs",
+      "community": 20,
+      "norm_label": "prettier.config.mjs"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "id": "package_json",
+      "community": 1,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "id": "harrisburg_package_name",
+      "community": 1,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "id": "harrisburg_package_version",
+      "community": 1,
+      "norm_label": "version"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "id": "harrisburg_package_private",
+      "community": 1,
+      "norm_label": "private"
+    },
+    {
+      "label": "description",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "id": "harrisburg_package_description",
+      "community": 1,
+      "norm_label": "description"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "id": "harrisburg_package_scripts",
+      "community": 1,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "id": "harrisburg_package_scripts_dev",
+      "community": 1,
+      "norm_label": "dev"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "id": "harrisburg_package_scripts_build",
+      "community": 1,
+      "norm_label": "build"
+    },
+    {
+      "label": "lint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "id": "harrisburg_package_scripts_lint",
+      "community": 1,
+      "norm_label": "lint"
+    },
+    {
+      "label": "typecheck",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "id": "harrisburg_package_scripts_typecheck",
+      "community": 1,
+      "norm_label": "typecheck"
+    },
+    {
+      "label": "test",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "id": "harrisburg_package_scripts_test",
+      "community": 1,
+      "norm_label": "test"
+    },
+    {
+      "label": "format",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "id": "harrisburg_package_scripts_format",
+      "community": 1,
+      "norm_label": "format"
+    },
+    {
+      "label": "format:check",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "id": "harrisburg_package_scripts_format_check",
+      "community": 1,
+      "norm_label": "format:check"
+    },
+    {
+      "label": "changeset",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "id": "harrisburg_package_scripts_changeset",
+      "community": 1,
+      "norm_label": "changeset"
+    },
+    {
+      "label": "version-packages",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "id": "harrisburg_package_scripts_version_packages",
+      "community": 1,
+      "norm_label": "version-packages"
+    },
+    {
+      "label": "release",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "id": "harrisburg_package_scripts_release",
+      "community": 1,
+      "norm_label": "release"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "id": "harrisburg_package_devdependencies",
+      "community": 1,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@changesets/cli",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "id": "harrisburg_package_devdependencies_changesets_cli",
+      "community": 1,
+      "norm_label": "@changesets/cli"
+    },
+    {
+      "label": "@types/node",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "id": "harrisburg_package_devdependencies_types_node",
+      "community": 1,
+      "norm_label": "@types/node"
+    },
+    {
+      "label": "prettier",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "id": "harrisburg_package_devdependencies_prettier",
+      "community": 1,
+      "norm_label": "prettier"
+    },
+    {
+      "label": "turbo",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "id": "harrisburg_package_devdependencies_turbo",
+      "community": 1,
+      "norm_label": "turbo"
+    },
+    {
+      "label": "typescript",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "id": "harrisburg_package_devdependencies_typescript",
+      "community": 1,
+      "norm_label": "typescript"
+    },
+    {
+      "label": "engines",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "id": "harrisburg_package_engines",
+      "community": 1,
+      "norm_label": "engines"
+    },
+    {
+      "label": "node",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "id": "harrisburg_package_engines_node",
+      "community": 1,
+      "norm_label": "node"
+    },
+    {
+      "label": "pnpm",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "id": "harrisburg_package_engines_pnpm",
+      "community": 1,
+      "norm_label": "pnpm"
+    },
+    {
+      "label": "packageManager",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "id": "harrisburg_package_packagemanager",
+      "community": 1,
+      "norm_label": "packagemanager"
+    },
+    {
+      "label": "pnpm",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "id": "harrisburg_package_pnpm",
+      "community": 1,
+      "norm_label": "pnpm"
+    },
+    {
+      "label": "onlyBuiltDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "id": "harrisburg_package_pnpm_onlybuiltdependencies",
+      "community": 1,
+      "norm_label": "onlybuiltdependencies"
+    },
+    {
+      "label": "config.json",
+      "file_type": "code",
+      "source_file": ".changeset/config.json",
+      "source_location": "L1",
+      "id": "changeset_config_json",
+      "community": 11,
+      "norm_label": "config.json"
+    },
+    {
+      "label": "$schema",
+      "file_type": "code",
+      "source_file": ".changeset/config.json",
+      "source_location": "L2",
+      "id": "changeset_config_schema",
+      "community": 11,
+      "norm_label": "$schema"
+    },
+    {
+      "label": "changelog",
+      "file_type": "code",
+      "source_file": ".changeset/config.json",
+      "source_location": "L3",
+      "id": "changeset_config_changelog",
+      "community": 11,
+      "norm_label": "changelog"
+    },
+    {
+      "label": "commit",
+      "file_type": "code",
+      "source_file": ".changeset/config.json",
+      "source_location": "L4",
+      "id": "changeset_config_commit",
+      "community": 11,
+      "norm_label": "commit"
+    },
+    {
+      "label": "fixed",
+      "file_type": "code",
+      "source_file": ".changeset/config.json",
+      "source_location": "L5",
+      "id": "changeset_config_fixed",
+      "community": 11,
+      "norm_label": "fixed"
+    },
+    {
+      "label": "linked",
+      "file_type": "code",
+      "source_file": ".changeset/config.json",
+      "source_location": "L6",
+      "id": "changeset_config_linked",
+      "community": 11,
+      "norm_label": "linked"
+    },
+    {
+      "label": "access",
+      "file_type": "code",
+      "source_file": ".changeset/config.json",
+      "source_location": "L7",
+      "id": "changeset_config_access",
+      "community": 11,
+      "norm_label": "access"
+    },
+    {
+      "label": "baseBranch",
+      "file_type": "code",
+      "source_file": ".changeset/config.json",
+      "source_location": "L8",
+      "id": "changeset_config_basebranch",
+      "community": 11,
+      "norm_label": "basebranch"
+    },
+    {
+      "label": "updateInternalDependencies",
+      "file_type": "code",
+      "source_file": ".changeset/config.json",
+      "source_location": "L9",
+      "id": "changeset_config_updateinternaldependencies",
+      "community": 11,
+      "norm_label": "updateinternaldependencies"
+    },
+    {
+      "label": "ignore",
+      "file_type": "code",
+      "source_file": ".changeset/config.json",
+      "source_location": "L10",
+      "id": "changeset_config_ignore",
+      "community": 11,
+      "norm_label": "ignore"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_package_json",
+      "community": 2,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L2",
+      "id": "glasses_ui_package_name",
+      "community": 2,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L3",
+      "id": "glasses_ui_package_version",
+      "community": 2,
+      "norm_label": "version"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L4",
+      "id": "glasses_ui_package_type",
+      "community": 2,
+      "norm_label": "type"
+    },
+    {
+      "label": "description",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L5",
+      "id": "glasses_ui_package_description",
+      "community": 2,
+      "norm_label": "description"
+    },
+    {
+      "label": "author",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L6",
+      "id": "glasses_ui_package_author",
+      "community": 2,
+      "norm_label": "author"
+    },
+    {
+      "label": "homepage",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L7",
+      "id": "glasses_ui_package_homepage",
+      "community": 2,
+      "norm_label": "homepage"
+    },
+    {
+      "label": "repository",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L8",
+      "id": "glasses_ui_package_repository",
+      "community": 2,
+      "norm_label": "repository"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L9",
+      "id": "glasses_ui_package_repository_type",
+      "community": 2,
+      "norm_label": "type"
+    },
+    {
+      "label": "url",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L10",
+      "id": "glasses_ui_package_repository_url",
+      "community": 2,
+      "norm_label": "url"
+    },
+    {
+      "label": "directory",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L11",
+      "id": "glasses_ui_package_repository_directory",
+      "community": 2,
+      "norm_label": "directory"
+    },
+    {
+      "label": "bugs",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L13",
+      "id": "glasses_ui_package_bugs",
+      "community": 2,
+      "norm_label": "bugs"
+    },
+    {
+      "label": "keywords",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L14",
+      "id": "glasses_ui_package_keywords",
+      "community": 2,
+      "norm_label": "keywords"
+    },
+    {
+      "label": "sideEffects",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L27",
+      "id": "glasses_ui_package_sideeffects",
+      "community": 2,
+      "norm_label": "sideeffects"
+    },
+    {
+      "label": "exports",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L30",
+      "id": "glasses_ui_package_exports",
+      "community": 12,
+      "norm_label": "exports"
+    },
+    {
+      "label": "types",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L32",
+      "id": "glasses_ui_package_types",
+      "community": 12,
+      "norm_label": "types"
+    },
+    {
+      "label": "import",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L33",
+      "id": "glasses_ui_package_import",
+      "community": 12,
+      "norm_label": "import"
+    },
+    {
+      "label": "./hooks",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L35",
+      "id": "glasses_ui_package_exports_hooks",
+      "community": 12,
+      "norm_label": "./hooks"
+    },
+    {
+      "label": "types",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L36",
+      "id": "glasses_ui_package_hooks_types",
+      "community": 12,
+      "norm_label": "types"
+    },
+    {
+      "label": "import",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L37",
+      "id": "glasses_ui_package_hooks_import",
+      "community": 12,
+      "norm_label": "import"
+    },
+    {
+      "label": "./primitives",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L39",
+      "id": "glasses_ui_package_exports_primitives",
+      "community": 12,
+      "norm_label": "./primitives"
+    },
+    {
+      "label": "types",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L40",
+      "id": "glasses_ui_package_primitives_types",
+      "community": 12,
+      "norm_label": "types"
+    },
+    {
+      "label": "import",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L41",
+      "id": "glasses_ui_package_primitives_import",
+      "community": 12,
+      "norm_label": "import"
+    },
+    {
+      "label": "./styles.css",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L43",
+      "id": "glasses_ui_package_exports_styles_css",
+      "community": 12,
+      "norm_label": "./styles.css"
+    },
+    {
+      "label": "files",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L45",
+      "id": "glasses_ui_package_files",
+      "community": 2,
+      "norm_label": "files"
+    },
+    {
+      "label": "publishConfig",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L50",
+      "id": "glasses_ui_package_publishconfig",
+      "community": 2,
+      "norm_label": "publishconfig"
+    },
+    {
+      "label": "access",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L51",
+      "id": "glasses_ui_package_publishconfig_access",
+      "community": 2,
+      "norm_label": "access"
+    },
+    {
+      "label": "provenance",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L52",
+      "id": "glasses_ui_package_publishconfig_provenance",
+      "community": 2,
+      "norm_label": "provenance"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L54",
+      "id": "glasses_ui_package_scripts",
+      "community": 2,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L55",
+      "id": "glasses_ui_package_scripts_build",
+      "community": 2,
+      "norm_label": "build"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L56",
+      "id": "glasses_ui_package_scripts_dev",
+      "community": 2,
+      "norm_label": "dev"
+    },
+    {
+      "label": "lint",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L57",
+      "id": "glasses_ui_package_scripts_lint",
+      "community": 2,
+      "norm_label": "lint"
+    },
+    {
+      "label": "typecheck",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L58",
+      "id": "glasses_ui_package_scripts_typecheck",
+      "community": 2,
+      "norm_label": "typecheck"
+    },
+    {
+      "label": "test",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L59",
+      "id": "glasses_ui_package_scripts_test",
+      "community": 2,
+      "norm_label": "test"
+    },
+    {
+      "label": "peerDependencies",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L61",
+      "id": "glasses_ui_package_peerdependencies",
+      "community": 2,
+      "norm_label": "peerdependencies"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L62",
+      "id": "glasses_ui_package_peerdependencies_react",
+      "community": 2,
+      "norm_label": "react"
+    },
+    {
+      "label": "react-dom",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L63",
+      "id": "glasses_ui_package_peerdependencies_react_dom",
+      "community": 2,
+      "norm_label": "react-dom"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L65",
+      "id": "glasses_ui_package_devdependencies",
+      "community": 7,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@eslint/js",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L66",
+      "id": "glasses_ui_package_devdependencies_eslint_js",
+      "community": 7,
+      "norm_label": "@eslint/js"
+    },
+    {
+      "label": "@types/react",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L67",
+      "id": "glasses_ui_package_devdependencies_types_react",
+      "community": 7,
+      "norm_label": "@types/react"
+    },
+    {
+      "label": "@types/react-dom",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L68",
+      "id": "glasses_ui_package_devdependencies_types_react_dom",
+      "community": 7,
+      "norm_label": "@types/react-dom"
+    },
+    {
+      "label": "eslint",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L69",
+      "id": "glasses_ui_package_devdependencies_eslint",
+      "community": 7,
+      "norm_label": "eslint"
+    },
+    {
+      "label": "eslint-plugin-react-hooks",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L70",
+      "id": "glasses_ui_package_devdependencies_eslint_plugin_react_hooks",
+      "community": 7,
+      "norm_label": "eslint-plugin-react-hooks"
+    },
+    {
+      "label": "globals",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L71",
+      "id": "glasses_ui_package_devdependencies_globals",
+      "community": 7,
+      "norm_label": "globals"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L72",
+      "id": "glasses_ui_package_devdependencies_react",
+      "community": 7,
+      "norm_label": "react"
+    },
+    {
+      "label": "react-dom",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L73",
+      "id": "glasses_ui_package_devdependencies_react_dom",
+      "community": 7,
+      "norm_label": "react-dom"
+    },
+    {
+      "label": "tsup",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L74",
+      "id": "glasses_ui_package_devdependencies_tsup",
+      "community": 7,
+      "norm_label": "tsup"
+    },
+    {
+      "label": "typescript",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L75",
+      "id": "glasses_ui_package_devdependencies_typescript",
+      "community": 7,
+      "norm_label": "typescript"
+    },
+    {
+      "label": "typescript-eslint",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L76",
+      "id": "glasses_ui_package_devdependencies_typescript_eslint",
+      "community": 7,
+      "norm_label": "typescript-eslint"
+    },
+    {
+      "label": "vitest",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L77",
+      "id": "glasses_ui_package_devdependencies_vitest",
+      "community": 7,
+      "norm_label": "vitest"
+    },
+    {
+      "label": "tsup.config.ts",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/tsup.config.ts",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_tsup_config_ts",
+      "community": 21,
+      "norm_label": "tsup.config.ts"
+    },
+    {
+      "label": "tsconfig.json",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/tsconfig.json",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_tsconfig_json",
+      "community": 18,
+      "norm_label": "tsconfig.json"
+    },
+    {
+      "label": "extends",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/tsconfig.json",
+      "source_location": "L2",
+      "id": "glasses_ui_tsconfig_extends",
+      "community": 18,
+      "norm_label": "extends"
+    },
+    {
+      "label": "include",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/tsconfig.json",
+      "source_location": "L3",
+      "id": "glasses_ui_tsconfig_include",
+      "community": 18,
+      "norm_label": "include"
+    },
+    {
+      "label": "vitest.config.ts",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/vitest.config.ts",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_vitest_config_ts",
+      "community": 22,
+      "norm_label": "vitest.config.ts"
+    },
+    {
+      "label": "eslint.config.mjs",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/eslint.config.mjs",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_eslint_config_mjs",
+      "community": 23,
+      "norm_label": "eslint.config.mjs"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/index.ts",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_src_index_ts",
+      "community": 17,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "GlassViewport.tsx",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/primitives/GlassViewport.tsx",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_src_primitives_glassviewport_tsx",
+      "community": 17,
+      "norm_label": "glassviewport.tsx"
+    },
+    {
+      "label": "GlassViewport()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/primitives/GlassViewport.tsx",
+      "source_location": "L19",
+      "id": "primitives_glassviewport_glassviewport",
+      "community": 17,
+      "norm_label": "glassviewport()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/primitives/index.ts",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_src_primitives_index_ts",
+      "community": 17,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "dpad.test.ts",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "community": 10,
+      "norm_label": "dpad.test.ts"
+    },
+    {
+      "label": "CURRENT",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L5",
+      "id": "hooks_dpad_test_current",
+      "community": 10,
+      "norm_label": "current"
+    },
+    {
+      "label": "candidate",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L10",
+      "id": "hooks_dpad_test_candidate",
+      "community": 10,
+      "norm_label": "candidate"
+    },
+    {
+      "label": "s",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L17",
+      "id": "hooks_dpad_test_s",
+      "community": 10,
+      "norm_label": "s"
+    },
+    {
+      "label": "aligned",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L23",
+      "id": "hooks_dpad_test_aligned",
+      "community": 10,
+      "norm_label": "aligned"
+    },
+    {
+      "label": "drifted",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L24",
+      "id": "hooks_dpad_test_drifted",
+      "community": 10,
+      "norm_label": "drifted"
+    },
+    {
+      "label": "sAligned",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L25",
+      "id": "hooks_dpad_test_saligned",
+      "community": 10,
+      "norm_label": "saligned"
+    },
+    {
+      "label": "sDrifted",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L26",
+      "id": "hooks_dpad_test_sdrifted",
+      "community": 10,
+      "norm_label": "sdrifted"
+    },
+    {
+      "label": "up",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L34",
+      "id": "hooks_dpad_test_up",
+      "community": 10,
+      "norm_label": "up"
+    },
+    {
+      "label": "down",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L35",
+      "id": "hooks_dpad_test_down",
+      "community": 10,
+      "norm_label": "down"
+    },
+    {
+      "label": "left",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L36",
+      "id": "hooks_dpad_test_left",
+      "community": 10,
+      "norm_label": "left"
+    },
+    {
+      "label": "right",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L37",
+      "id": "hooks_dpad_test_right",
+      "community": 10,
+      "norm_label": "right"
+    },
+    {
+      "label": "dpad.tsx",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_src_hooks_dpad_tsx",
+      "community": 3,
+      "norm_label": "dpad.tsx"
+    },
+    {
+      "label": "Dir",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L18",
+      "id": "hooks_dpad_dir",
+      "community": 3,
+      "norm_label": "dir"
+    },
+    {
+      "label": "KEY_TO_DIR",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L22",
+      "id": "hooks_dpad_key_to_dir",
+      "community": 3,
+      "norm_label": "key_to_dir"
+    },
+    {
+      "label": "RectLike",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L29",
+      "id": "hooks_dpad_rectlike",
+      "community": 3,
+      "norm_label": "rectlike"
+    },
+    {
+      "label": "scoreRect()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L37",
+      "id": "hooks_dpad_scorerect",
+      "community": 3,
+      "norm_label": "scorerect()"
+    },
+    {
+      "label": "focusables()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L61",
+      "id": "hooks_dpad_focusables",
+      "community": 3,
+      "norm_label": "focusables()"
+    },
+    {
+      "label": "moveFocus()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L65",
+      "id": "hooks_dpad_movefocus",
+      "community": 3,
+      "norm_label": "movefocus()"
+    },
+    {
+      "label": "seedFocus()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L100",
+      "id": "hooks_dpad_seedfocus",
+      "community": 3,
+      "norm_label": "seedfocus()"
+    },
+    {
+      "label": "useDpad()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L109",
+      "id": "hooks_dpad_usedpad",
+      "community": 3,
+      "norm_label": "usedpad()"
+    },
+    {
+      "label": "sensors.test.ts",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.test.ts",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_src_hooks_sensors_test_ts",
+      "community": 3,
+      "norm_label": "sensors.test.ts"
+    },
+    {
+      "label": "a",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.test.ts",
+      "source_location": "L6",
+      "id": "hooks_sensors_test_a",
+      "community": 3,
+      "norm_label": "a"
+    },
+    {
+      "label": "b",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.test.ts",
+      "source_location": "L7",
+      "id": "hooks_sensors_test_b",
+      "community": 3,
+      "norm_label": "b"
+    },
+    {
+      "label": "base",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.test.ts",
+      "source_location": "L18",
+      "id": "hooks_sensors_test_base",
+      "community": 3,
+      "norm_label": "base"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_src_hooks_index_ts",
+      "community": 3,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "sensors.ts",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_src_hooks_sensors_ts",
+      "community": 3,
+      "norm_label": "sensors.ts"
+    },
+    {
+      "label": "Orientation",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L16",
+      "id": "hooks_sensors_orientation",
+      "community": 3,
+      "norm_label": "orientation"
+    },
+    {
+      "label": "Motion",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L22",
+      "id": "hooks_sensors_motion",
+      "community": 3,
+      "norm_label": "motion"
+    },
+    {
+      "label": "orientationEqual()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L25",
+      "id": "hooks_sensors_orientationequal",
+      "community": 3,
+      "norm_label": "orientationequal()"
+    },
+    {
+      "label": "motionEqual()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L30",
+      "id": "hooks_sensors_motionequal",
+      "community": 3,
+      "norm_label": "motionequal()"
+    },
+    {
+      "label": "useDeviceOrientation()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L35",
+      "id": "hooks_sensors_usedeviceorientation",
+      "community": 3,
+      "norm_label": "usedeviceorientation()"
+    },
+    {
+      "label": "useDeviceMotion()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L59",
+      "id": "hooks_sensors_usedevicemotion",
+      "community": 3,
+      "norm_label": "usedevicemotion()"
+    },
+    {
+      "label": "useGeolocation()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L80",
+      "id": "hooks_sensors_usegeolocation",
+      "community": 3,
+      "norm_label": "usegeolocation()"
+    },
+    {
+      "label": "useNeuralBand()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L138",
+      "id": "hooks_sensors_useneuralband",
+      "community": 3,
+      "norm_label": "useneuralband()"
+    },
+    {
+      "label": "START-HERE.md",
+      "file_type": "document",
+      "source_file": "START-HERE.md",
+      "source_location": "L1",
+      "id": "start_here_md",
+      "community": 9,
+      "norm_label": "start-here.md"
+    },
+    {
+      "label": "START HERE \u2014 glasskit-ui build kickoff",
+      "file_type": "document",
+      "source_file": "START-HERE.md",
+      "source_location": "L1",
+      "id": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
+      "community": 9,
+      "norm_label": "start here \u2014 glasskit-ui build kickoff"
+    },
+    {
+      "label": "0. How this repo was set up",
+      "file_type": "document",
+      "source_file": "START-HERE.md",
+      "source_location": "L10",
+      "id": "harrisburg_start_here_0_how_this_repo_was_set_up",
+      "community": 9,
+      "norm_label": "0. how this repo was set up"
+    },
+    {
+      "label": "1. Locked decisions (from brainstorming \u2014 do not relitigate)",
+      "file_type": "document",
+      "source_file": "START-HERE.md",
+      "source_location": "L23",
+      "id": "harrisburg_start_here_1_locked_decisions_from_brainstorming_do_not_relitigate",
+      "community": 9,
+      "norm_label": "1. locked decisions (from brainstorming \u2014 do not relitigate)"
+    },
+    {
+      "label": "2. The SDK to extract (Phase 2) \u2014 source of truth",
+      "file_type": "document",
+      "source_file": "START-HERE.md",
+      "source_location": "L37",
+      "id": "harrisburg_start_here_2_the_sdk_to_extract_phase_2_source_of_truth",
+      "community": 9,
+      "norm_label": "2. the sdk to extract (phase 2) \u2014 source of truth"
+    },
+    {
+      "label": "3. Monorepo conventions to mirror (verified from the boilerplate)",
+      "file_type": "document",
+      "source_file": "START-HERE.md",
+      "source_location": "L78",
+      "id": "harrisburg_start_here_3_monorepo_conventions_to_mirror_verified_from_the_boilerplate",
+      "community": 9,
+      "norm_label": "3. monorepo conventions to mirror (verified from the boilerplate)"
+    },
+    {
+      "label": "4. NEW build decisions for npm publish (this is where this repo differs)",
+      "file_type": "document",
+      "source_file": "START-HERE.md",
+      "source_location": "L107",
+      "id": "harrisburg_start_here_4_new_build_decisions_for_npm_publish_this_is_where_this_repo_differs",
+      "community": 9,
+      "norm_label": "4. new build decisions for npm publish (this is where this repo differs)"
+    },
+    {
+      "label": "code:jsonc (\"exports\": {)",
+      "file_type": "document",
+      "source_file": "START-HERE.md",
+      "source_location": "L119",
+      "id": "harrisburg_start_here_codeblock_1",
+      "community": 9,
+      "norm_label": "code:jsonc (\"exports\": {)"
+    },
+    {
+      "label": "5. Phase 0 \u2014 hardware gate (OWNER's manual step; doesn't block the build)",
+      "file_type": "document",
+      "source_file": "START-HERE.md",
+      "source_location": "L139",
+      "id": "harrisburg_start_here_5_phase_0_hardware_gate_owner_s_manual_step_doesn_t_block_the_build",
+      "community": 9,
+      "norm_label": "5. phase 0 \u2014 hardware gate (owner's manual step; doesn't block the build)"
+    },
+    {
+      "label": "6. \u26a0\ufe0f Boundaries \u2014 DO NOT do these without explicit owner go-ahead",
+      "file_type": "document",
+      "source_file": "START-HERE.md",
+      "source_location": "L151",
+      "id": "harrisburg_start_here_6_boundaries_do_not_do_these_without_explicit_owner_go_ahead",
+      "community": 9,
+      "norm_label": "6. \u26a0\ufe0f boundaries \u2014 do not do these without explicit owner go-ahead"
+    },
+    {
+      "label": "7. Recommended first steps (Phases 1 \u2192 2)",
+      "file_type": "document",
+      "source_file": "START-HERE.md",
+      "source_location": "L164",
+      "id": "harrisburg_start_here_7_recommended_first_steps_phases_1_2",
+      "community": 9,
+      "norm_label": "7. recommended first steps (phases 1 \u2192 2)"
+    },
+    {
+      "label": "8. Standing constraints during the build",
+      "file_type": "document",
+      "source_file": "START-HERE.md",
+      "source_location": "L188",
+      "id": "harrisburg_start_here_8_standing_constraints_during_the_build",
+      "community": 9,
+      "norm_label": "8. standing constraints during the build"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "id": "readme_md",
+      "community": 16,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "glasskit-ui",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "id": "harrisburg_readme_glasskit_ui",
+      "community": 16,
+      "norm_label": "glasskit-ui"
+    },
+    {
+      "label": "Status",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L20",
+      "id": "harrisburg_readme_status",
+      "community": 16,
+      "norm_label": "status"
+    },
+    {
+      "label": "Governance",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L33",
+      "id": "harrisburg_readme_governance",
+      "community": 16,
+      "norm_label": "governance"
+    },
+    {
+      "label": "PLAN.md",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L1",
+      "id": "plan_md",
+      "community": 0,
+      "norm_label": "plan.md"
+    },
+    {
+      "label": "GlassKit Ecosystem \u2014 Open-Source SDK + Registry (`glasskit-ui`)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L1",
+      "id": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "community": 0,
+      "norm_label": "glasskit ecosystem \u2014 open-source sdk + registry (`glasskit-ui`)"
+    },
+    {
+      "label": "Context",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L3",
+      "id": "harrisburg_plan_context",
+      "community": 0,
+      "norm_label": "context"
+    },
+    {
+      "label": "Decisions locked (from brainstorming)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L25",
+      "id": "harrisburg_plan_decisions_locked_from_brainstorming",
+      "community": 0,
+      "norm_label": "decisions locked (from brainstorming)"
+    },
+    {
+      "label": "Competitive landscape & positioning (deep research, 2026-06, verified+cited)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L36",
+      "id": "harrisburg_plan_competitive_landscape_positioning_deep_research_2026_06_verified_cited",
+      "community": 0,
+      "norm_label": "competitive landscape & positioning (deep research, 2026-06, verified+cited)"
+    },
+    {
+      "label": "Source of truth for current code",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L83",
+      "id": "harrisburg_plan_source_of_truth_for_current_code",
+      "community": 0,
+      "norm_label": "source of truth for current code"
+    },
+    {
+      "label": "What the actual source reveals (read 2026-06) \u2014 resolves most of the #1 risk",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L108",
+      "id": "harrisburg_plan_what_the_actual_source_reveals_read_2026_06_resolves_most_of_the_1_risk",
+      "community": 0,
+      "norm_label": "what the actual source reveals (read 2026-06) \u2014 resolves most of the #1 risk"
+    },
+    {
+      "label": "Architecture \u2014 the `glasskit-ui` monorepo",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L124",
+      "id": "harrisburg_plan_architecture_the_glasskit_ui_monorepo",
+      "community": 0,
+      "norm_label": "architecture \u2014 the `glasskit-ui` monorepo"
+    },
+    {
+      "label": "code:block1 (glasskit-ui/                      # NEW public repo, pnpm + )",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L126",
+      "id": "harrisburg_plan_codeblock_1",
+      "community": 0,
+      "norm_label": "code:block1 (glasskit-ui/                      # new public repo, pnpm + )"
+    },
+    {
+      "label": "npm package vs registry \u2014 the split",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L155",
+      "id": "harrisburg_plan_npm_package_vs_registry_the_split",
+      "community": 0,
+      "norm_label": "npm package vs registry \u2014 the split"
+    },
+    {
+      "label": "Component inventory \u2014 derived from first principles (the 8 jobs of a HUD)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L175",
+      "id": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "community": 0,
+      "norm_label": "component inventory \u2014 derived from first principles (the 8 jobs of a hud)"
+    },
+    {
+      "label": "Design approach \u2014 port from watch UI kits, re-skin for glasses",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L187",
+      "id": "harrisburg_plan_design_approach_port_from_watch_ui_kits_re_skin_for_glasses",
+      "community": 0,
+      "norm_label": "design approach \u2014 port from watch ui kits, re-skin for glasses"
+    },
+    {
+      "label": "Registry `ui` components (~28, archetype-complete)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L218",
+      "id": "harrisburg_plan_registry_ui_components_28_archetype_complete",
+      "community": 0,
+      "norm_label": "registry `ui` components (~28, archetype-complete)"
+    },
+    {
+      "label": "Deliberately NOT built (the medium forbids it)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L238",
+      "id": "harrisburg_plan_deliberately_not_built_the_medium_forbids_it",
+      "community": 0,
+      "norm_label": "deliberately not built (the medium forbids it)"
+    },
+    {
+      "label": "Accent color \u2014 one default, no preset system (revised 2026-06-01)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L246",
+      "id": "harrisburg_plan_accent_color_one_default_no_preset_system_revised_2026_06_01",
+      "community": 0,
+      "norm_label": "accent color \u2014 one default, no preset system (revised 2026-06-01)"
+    },
+    {
+      "label": "Registry `blocks` \u2014 generic patterns only (never named demos)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L253",
+      "id": "harrisburg_plan_registry_blocks_generic_patterns_only_never_named_demos",
+      "community": 0,
+      "norm_label": "registry `blocks` \u2014 generic patterns only (never named demos)"
+    },
+    {
+      "label": "Docs site (fumadocs at ui.glasskit.app)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L259",
+      "id": "harrisburg_plan_docs_site_fumadocs_at_ui_glasskit_app",
+      "community": 0,
+      "norm_label": "docs site (fumadocs at ui.glasskit.app)"
+    },
+    {
+      "label": "ui.glasskit.app \u2014 site design & pages",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L268",
+      "id": "harrisburg_plan_ui_glasskit_app_site_design_pages",
+      "community": 0,
+      "norm_label": "ui.glasskit.app \u2014 site design & pages"
+    },
+    {
+      "label": "GlassKit UI's own \"Apple feel\" \u2014 one look, two surfaces (revised 2026-06-01)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L306",
+      "id": "harrisburg_plan_glasskit_ui_s_own_apple_feel_one_look_two_surfaces_revised_2026_06_01",
+      "community": 0,
+      "norm_label": "glasskit ui's own \"apple feel\" \u2014 one look, two surfaces (revised 2026-06-01)"
+    },
+    {
+      "label": "Three component layers in the repo (don't conflate)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L338",
+      "id": "harrisburg_plan_three_component_layers_in_the_repo_don_t_conflate",
+      "community": 0,
+      "norm_label": "three component layers in the repo (don't conflate)"
+    },
+    {
+      "label": "Funnel mechanics \u2014 OSS \u2192 Starter Kit (\u2192 Studio)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L355",
+      "id": "harrisburg_plan_funnel_mechanics_oss_starter_kit_studio",
+      "community": 0,
+      "norm_label": "funnel mechanics \u2014 oss \u2192 starter kit (\u2192 studio)"
+    },
+    {
+      "label": "SEO & agent/LLM visibility \u2014 \"agent-native distribution\"",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L384",
+      "id": "harrisburg_plan_seo_agent_llm_visibility_agent_native_distribution",
+      "community": 0,
+      "norm_label": "seo & agent/llm visibility \u2014 \"agent-native distribution\""
+    },
+    {
+      "label": "Graphify (knowledge graph, both repos)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L414",
+      "id": "harrisburg_plan_graphify_knowledge_graph_both_repos",
+      "community": 0,
+      "norm_label": "graphify (knowledge graph, both repos)"
+    },
+    {
+      "label": "Execution setup & repo governance",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L420",
+      "id": "harrisburg_plan_execution_setup_repo_governance",
+      "community": 0,
+      "norm_label": "execution setup & repo governance"
+    },
+    {
+      "label": "Business reality, MVP slice & kill-criteria (stress test)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L436",
+      "id": "harrisburg_plan_business_reality_mvp_slice_kill_criteria_stress_test",
+      "community": 0,
+      "norm_label": "business reality, mvp slice & kill-criteria (stress test)"
+    },
+    {
+      "label": "Decomposition / phasing",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L473",
+      "id": "harrisburg_plan_decomposition_phasing",
+      "community": 0,
+      "norm_label": "decomposition / phasing"
+    },
+    {
+      "label": "Top risks (from research) & mitigations",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L521",
+      "id": "harrisburg_plan_top_risks_from_research_mitigations",
+      "community": 0,
+      "norm_label": "top risks (from research) & mitigations"
+    },
+    {
+      "label": "Out of scope",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L534",
+      "id": "harrisburg_plan_out_of_scope",
+      "community": 0,
+      "norm_label": "out of scope"
+    },
+    {
+      "label": "Internationalization \u2014 RTL & bidi (baked in from day one)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L539",
+      "id": "harrisburg_plan_internationalization_rtl_bidi_baked_in_from_day_one",
+      "community": 0,
+      "norm_label": "internationalization \u2014 rtl & bidi (baked in from day one)"
+    },
+    {
+      "label": "Automated npm release pipeline (GitHub Actions + Changesets)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L560",
+      "id": "harrisburg_plan_automated_npm_release_pipeline_github_actions_changesets",
+      "community": 0,
+      "norm_label": "automated npm release pipeline (github actions + changesets)"
+    },
+    {
+      "label": "Testing strategy \u2014 \"don't break shit\" (layered, not naive snapshots)",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L581",
+      "id": "harrisburg_plan_testing_strategy_don_t_break_shit_layered_not_naive_snapshots",
+      "community": 0,
+      "norm_label": "testing strategy \u2014 \"don't break shit\" (layered, not naive snapshots)"
+    },
+    {
+      "label": "Constraints to respect during build",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L604",
+      "id": "harrisburg_plan_constraints_to_respect_during_build",
+      "community": 0,
+      "norm_label": "constraints to respect during build"
+    },
+    {
+      "label": "Verification",
+      "file_type": "document",
+      "source_file": "PLAN.md",
+      "source_location": "L612",
+      "id": "harrisburg_plan_verification",
+      "community": 0,
+      "norm_label": "verification"
+    },
+    {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "id": "agents_md",
+      "community": 15,
+      "norm_label": "agents.md"
+    },
+    {
+      "label": "glasskit-ui \u2014 agent guide",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "id": "harrisburg_agents_glasskit_ui_agent_guide",
+      "community": 15,
+      "norm_label": "glasskit-ui \u2014 agent guide"
+    },
+    {
+      "label": "Before you build",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L7",
+      "id": "harrisburg_agents_before_you_build",
+      "community": 15,
+      "norm_label": "before you build"
+    },
+    {
+      "label": "Hard rules",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L20",
+      "id": "harrisburg_agents_hard_rules",
+      "community": 15,
+      "norm_label": "hard rules"
+    },
+    {
+      "label": "Conventions",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L34",
+      "id": "harrisburg_agents_conventions",
+      "community": 15,
+      "norm_label": "conventions"
+    },
+    {
+      "label": "CLAUDE.md",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1",
+      "id": "claude_md",
+      "community": 19,
+      "norm_label": "claude.md"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L3",
+      "id": "harrisburg_claude_graphify",
+      "community": 19,
+      "norm_label": "graphify"
+    },
+    {
+      "label": "todos.md",
+      "file_type": "document",
+      "source_file": ".context/todos.md",
+      "source_location": "L1",
+      "id": "context_todos_md",
+      "community": 24,
+      "norm_label": "todos.md"
+    },
+    {
+      "label": "sync-this-worktree-to-the-actual-folder-repull.md",
+      "file_type": "document",
+      "source_file": ".context/plans/sync-this-worktree-to-the-actual-folder-repull.md",
+      "source_location": "L1",
+      "id": "context_plans_sync_this_worktree_to_the_actual_folder_repull_md",
+      "community": 13,
+      "norm_label": "sync-this-worktree-to-the-actual-folder-repull.md"
+    },
+    {
+      "label": "Sync this worktree to the actual folder (repull)",
+      "file_type": "document",
+      "source_file": ".context/plans/sync-this-worktree-to-the-actual-folder-repull.md",
+      "source_location": "L1",
+      "id": "plans_sync_this_worktree_to_the_actual_folder_repull_sync_this_worktree_to_the_actual_folder_repull",
+      "community": 13,
+      "norm_label": "sync this worktree to the actual folder (repull)"
+    },
+    {
+      "label": "Context",
+      "file_type": "document",
+      "source_file": ".context/plans/sync-this-worktree-to-the-actual-folder-repull.md",
+      "source_location": "L3",
+      "id": "plans_sync_this_worktree_to_the_actual_folder_repull_context",
+      "community": 13,
+      "norm_label": "context"
+    },
+    {
+      "label": "The action (single, safe, fast-forward)",
+      "file_type": "document",
+      "source_file": ".context/plans/sync-this-worktree-to-the-actual-folder-repull.md",
+      "source_location": "L16",
+      "id": "plans_sync_this_worktree_to_the_actual_folder_repull_the_action_single_safe_fast_forward",
+      "community": 13,
+      "norm_label": "the action (single, safe, fast-forward)"
+    },
+    {
+      "label": "Explicitly NOT doing",
+      "file_type": "document",
+      "source_file": ".context/plans/sync-this-worktree-to-the-actual-folder-repull.md",
+      "source_location": "L27",
+      "id": "plans_sync_this_worktree_to_the_actual_folder_repull_explicitly_not_doing",
+      "community": 13,
+      "norm_label": "explicitly not doing"
+    },
+    {
+      "label": "Verification",
+      "file_type": "document",
+      "source_file": ".context/plans/sync-this-worktree-to-the-actual-folder-repull.md",
+      "source_location": "L31",
+      "id": "plans_sync_this_worktree_to_the_actual_folder_repull_verification",
+      "community": 13,
+      "norm_label": "verification"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": ".changeset/README.md",
+      "source_location": "L1",
+      "id": "changeset_readme_md",
+      "community": 14,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Changesets",
+      "file_type": "document",
+      "source_file": ".changeset/README.md",
+      "source_location": "L1",
+      "id": "changeset_readme_changesets",
+      "community": 14,
+      "norm_label": "changesets"
+    },
+    {
+      "label": "Adding a changeset",
+      "file_type": "document",
+      "source_file": ".changeset/README.md",
+      "source_location": "L6",
+      "id": "changeset_readme_adding_a_changeset",
+      "community": 14,
+      "norm_label": "adding a changeset"
+    },
+    {
+      "label": "code:sh (pnpm changeset)",
+      "file_type": "document",
+      "source_file": ".changeset/README.md",
+      "source_location": "L10",
+      "id": "changeset_readme_codeblock_1",
+      "community": 14,
+      "norm_label": "code:sh (pnpm changeset)"
+    },
+    {
+      "label": "How releases happen",
+      "file_type": "document",
+      "source_file": ".changeset/README.md",
+      "source_location": "L17",
+      "id": "changeset_readme_how_releases_happen",
+      "community": 14,
+      "norm_label": "how releases happen"
+    },
+    {
+      "label": "apple-feel.md",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L1",
+      "id": "docs_design_apple_feel_md",
+      "community": 6,
+      "norm_label": "apple-feel.md"
+    },
+    {
+      "label": "GlassKit UI \u2014 Apple-feel design reference (additive lens)",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L1",
+      "id": "design_apple_feel_glasskit_ui_apple_feel_design_reference_additive_lens",
+      "community": 6,
+      "norm_label": "glasskit ui \u2014 apple-feel design reference (additive lens)"
+    },
+    {
+      "label": "1. North star",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L18",
+      "id": "design_apple_feel_1_north_star",
+      "community": 6,
+      "norm_label": "1. north star"
+    },
+    {
+      "label": "2. Two surfaces, two recipes",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L22",
+      "id": "design_apple_feel_2_two_surfaces_two_recipes",
+      "community": 6,
+      "norm_label": "2. two surfaces, two recipes"
+    },
+    {
+      "label": "3. Design principles (watchOS-derived, additive-translated)",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L41",
+      "id": "design_apple_feel_3_design_principles_watchos_derived_additive_translated",
+      "community": 6,
+      "norm_label": "3. design principles (watchos-derived, additive-translated)"
+    },
+    {
+      "label": "4. Tokens & numbers (concrete starting set)",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L51",
+      "id": "design_apple_feel_4_tokens_numbers_concrete_starting_set",
+      "community": 6,
+      "norm_label": "4. tokens & numbers (concrete starting set)"
+    },
+    {
+      "label": "code:block1 (--green-active   #7BF0AE   /* focused/hot, brightest */)",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L68",
+      "id": "design_apple_feel_codeblock_1",
+      "community": 6,
+      "norm_label": "code:block1 (--green-active   #7bf0ae   /* focused/hot, brightest */)"
+    },
+    {
+      "label": "code:block2 (--ink-primary    #F2F4F3   /* ~90% luminance \u2014 primary value)",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L79",
+      "id": "design_apple_feel_codeblock_2",
+      "community": 6,
+      "norm_label": "code:block2 (--ink-primary    #f2f4f3   /* ~90% luminance \u2014 primary value)"
+    },
+    {
+      "label": "code:block3 (Root frame      24\u201340px (echo the physical lens curvature))",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L98",
+      "id": "design_apple_feel_codeblock_3",
+      "community": 6,
+      "norm_label": "code:block3 (root frame      24\u201340px (echo the physical lens curvature))"
+    },
+    {
+      "label": "5. \"Premium without blur\" recipe",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L111",
+      "id": "design_apple_feel_5_premium_without_blur_recipe",
+      "community": 6,
+      "norm_label": "5. \"premium without blur\" recipe"
+    },
+    {
+      "label": "6. Motion",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L122",
+      "id": "design_apple_feel_6_motion",
+      "community": 6,
+      "norm_label": "6. motion"
+    },
+    {
+      "label": "7. Iconography & typography",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L129",
+      "id": "design_apple_feel_7_iconography_typography",
+      "community": 6,
+      "norm_label": "7. iconography & typography"
+    },
+    {
+      "label": "8. watchOS \u2192 GlassKit mapping",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L138",
+      "id": "design_apple_feel_8_watchos_glasskit_mapping",
+      "community": 6,
+      "norm_label": "8. watchos \u2192 glasskit mapping"
+    },
+    {
+      "label": "9. Do / Don't",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L153",
+      "id": "design_apple_feel_9_do_don_t",
+      "community": 6,
+      "norm_label": "9. do / don't"
+    },
+    {
+      "label": "10. Sources",
+      "file_type": "document",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L177",
+      "id": "design_apple_feel_10_sources",
+      "community": 6,
+      "norm_label": "10. sources"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L1",
+      "id": "packages_glasses_ui_readme_md",
+      "community": 8,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "@glasskit/glasses-ui",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L1",
+      "id": "glasses_ui_readme_glasskit_glasses_ui",
+      "community": 8,
+      "norm_label": "@glasskit/glasses-ui"
+    },
+    {
+      "label": "code:sh (npm i @glasskit/glasses-ui)",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L6",
+      "id": "glasses_ui_readme_codeblock_1",
+      "community": 8,
+      "norm_label": "code:sh (npm i @glasskit/glasses-ui)"
+    },
+    {
+      "label": "What's in here",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L11",
+      "id": "glasses_ui_readme_what_s_in_here",
+      "community": 8,
+      "norm_label": "what's in here"
+    },
+    {
+      "label": "Usage",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L36",
+      "id": "glasses_ui_readme_usage",
+      "community": 8,
+      "norm_label": "usage"
+    },
+    {
+      "label": "code:css (@import \"tailwindcss\";)",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L40",
+      "id": "glasses_ui_readme_codeblock_2",
+      "community": 8,
+      "norm_label": "code:css (@import \"tailwindcss\";)"
+    },
+    {
+      "label": "code:tsx (import {)",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L47",
+      "id": "glasses_ui_readme_codeblock_3",
+      "community": 8,
+      "norm_label": "code:tsx (import {)"
+    },
+    {
+      "label": "Subpath entries",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L78",
+      "id": "glasses_ui_readme_subpath_entries",
+      "community": 8,
+      "norm_label": "subpath entries"
+    },
+    {
+      "label": "code:ts (import { useDpad, scoreRect } from \"@glasskit/glasses-ui/hoo)",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L82",
+      "id": "glasses_ui_readme_codeblock_4",
+      "community": 8,
+      "norm_label": "code:ts (import { usedpad, scorerect } from \"@glasskit/glasses-ui/hoo)"
+    },
+    {
+      "label": "Design constraints",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L87",
+      "id": "glasses_ui_readme_design_constraints",
+      "community": 8,
+      "norm_label": "design constraints"
+    },
+    {
+      "label": "Testing",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L102",
+      "id": "glasses_ui_readme_testing",
+      "community": 8,
+      "norm_label": "testing"
+    },
+    {
+      "label": "Part of the GlassKit ecosystem",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L107",
+      "id": "glasses_ui_readme_part_of_the_glasskit_ecosystem",
+      "community": 8,
+      "norm_label": "part of the glasskit ecosystem"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tsconfig_base_json",
+      "target": "harrisburg_tsconfig_base_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tsconfig_base_json",
+      "target": "harrisburg_tsconfig_base_compileroptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_lib",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_module",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_moduleresolution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_strict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_nouncheckedindexedaccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_nounusedlocals",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_nounusedparameters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_esmoduleinterop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_resolvejsonmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_isolatedmodules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_verbatimmodulesyntax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_skiplibcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "harrisburg_tsconfig_base_compileroptions",
+      "target": "harrisburg_tsconfig_base_compileroptions_noemit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "turbo_json",
+      "target": "harrisburg_turbo_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "turbo_json",
+      "target": "harrisburg_turbo_ui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "turbo_json",
+      "target": "harrisburg_turbo_globalenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "turbo_json",
+      "target": "harrisburg_turbo_tasks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "harrisburg_turbo_tasks",
+      "target": "harrisburg_turbo_tasks_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "harrisburg_turbo_tasks",
+      "target": "harrisburg_turbo_tasks_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "harrisburg_turbo_tasks",
+      "target": "harrisburg_turbo_tasks_typecheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "harrisburg_turbo_tasks",
+      "target": "harrisburg_turbo_tasks_lint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "harrisburg_turbo_tasks",
+      "target": "harrisburg_turbo_tasks_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "harrisburg_turbo_tasks_dev",
+      "target": "harrisburg_turbo_dev_cache",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "harrisburg_turbo_tasks_dev",
+      "target": "harrisburg_turbo_dev_persistent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "harrisburg_turbo_tasks_build",
+      "target": "harrisburg_turbo_build_dependson",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "harrisburg_turbo_tasks_build",
+      "target": "harrisburg_turbo_build_outputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "harrisburg_turbo_tasks_build",
+      "target": "harrisburg_turbo_build_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "turbo.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "harrisburg_turbo_tasks_typecheck",
+      "target": "harrisburg_turbo_typecheck_dependson",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "harrisburg_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "harrisburg_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "harrisburg_package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "harrisburg_package_description",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "harrisburg_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "harrisburg_package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "harrisburg_package_engines",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "harrisburg_package_packagemanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "harrisburg_package_pnpm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "harrisburg_package_scripts",
+      "target": "harrisburg_package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "harrisburg_package_scripts",
+      "target": "harrisburg_package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "harrisburg_package_scripts",
+      "target": "harrisburg_package_scripts_lint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "harrisburg_package_scripts",
+      "target": "harrisburg_package_scripts_typecheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "harrisburg_package_scripts",
+      "target": "harrisburg_package_scripts_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "harrisburg_package_scripts",
+      "target": "harrisburg_package_scripts_format",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "harrisburg_package_scripts",
+      "target": "harrisburg_package_scripts_format_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "harrisburg_package_scripts",
+      "target": "harrisburg_package_scripts_changeset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "harrisburg_package_scripts",
+      "target": "harrisburg_package_scripts_version_packages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "harrisburg_package_scripts",
+      "target": "harrisburg_package_scripts_release",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "harrisburg_package_devdependencies",
+      "target": "harrisburg_package_devdependencies_changesets_cli",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "harrisburg_package_devdependencies",
+      "target": "harrisburg_package_devdependencies_types_node",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "harrisburg_package_devdependencies",
+      "target": "harrisburg_package_devdependencies_prettier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "harrisburg_package_devdependencies",
+      "target": "harrisburg_package_devdependencies_turbo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "harrisburg_package_devdependencies",
+      "target": "harrisburg_package_devdependencies_typescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "harrisburg_package_engines",
+      "target": "harrisburg_package_engines_node",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "harrisburg_package_engines",
+      "target": "harrisburg_package_engines_pnpm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "harrisburg_package_pnpm",
+      "target": "harrisburg_package_pnpm_onlybuiltdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/config.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "changeset_config_json",
+      "target": "changeset_config_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/config.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "changeset_config_json",
+      "target": "changeset_config_changelog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/config.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "changeset_config_json",
+      "target": "changeset_config_commit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/config.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "changeset_config_json",
+      "target": "changeset_config_fixed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/config.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "changeset_config_json",
+      "target": "changeset_config_linked",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/config.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "changeset_config_json",
+      "target": "changeset_config_access",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/config.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "changeset_config_json",
+      "target": "changeset_config_basebranch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/config.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "changeset_config_json",
+      "target": "changeset_config_updateinternaldependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/config.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "changeset_config_json",
+      "target": "changeset_config_ignore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_description",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_author",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_homepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_repository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_bugs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_keywords",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_sideeffects",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_exports",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_publishconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_peerdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_package_json",
+      "target": "glasses_ui_package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "glasses_ui_package_repository",
+      "target": "glasses_ui_package_repository_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "glasses_ui_package_repository",
+      "target": "glasses_ui_package_repository_url",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "glasses_ui_package_repository",
+      "target": "glasses_ui_package_repository_directory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "glasses_ui_package_exports",
+      "target": "glasses_ui_package_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "glasses_ui_package_exports",
+      "target": "glasses_ui_package_import",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "glasses_ui_package_exports",
+      "target": "glasses_ui_package_exports_hooks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "glasses_ui_package_exports",
+      "target": "glasses_ui_package_exports_primitives",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "glasses_ui_package_exports",
+      "target": "glasses_ui_package_exports_styles_css",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "glasses_ui_package_exports_hooks",
+      "target": "glasses_ui_package_hooks_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "glasses_ui_package_exports_hooks",
+      "target": "glasses_ui_package_hooks_import",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "glasses_ui_package_exports_primitives",
+      "target": "glasses_ui_package_primitives_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "glasses_ui_package_exports_primitives",
+      "target": "glasses_ui_package_primitives_import",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "glasses_ui_package_publishconfig",
+      "target": "glasses_ui_package_publishconfig_access",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "glasses_ui_package_publishconfig",
+      "target": "glasses_ui_package_publishconfig_provenance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "glasses_ui_package_scripts",
+      "target": "glasses_ui_package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "glasses_ui_package_scripts",
+      "target": "glasses_ui_package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "glasses_ui_package_scripts",
+      "target": "glasses_ui_package_scripts_lint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "glasses_ui_package_scripts",
+      "target": "glasses_ui_package_scripts_typecheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "glasses_ui_package_scripts",
+      "target": "glasses_ui_package_scripts_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "glasses_ui_package_peerdependencies",
+      "target": "glasses_ui_package_peerdependencies_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "glasses_ui_package_peerdependencies",
+      "target": "glasses_ui_package_peerdependencies_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "glasses_ui_package_devdependencies",
+      "target": "glasses_ui_package_devdependencies_eslint_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "glasses_ui_package_devdependencies",
+      "target": "glasses_ui_package_devdependencies_types_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "glasses_ui_package_devdependencies",
+      "target": "glasses_ui_package_devdependencies_types_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "glasses_ui_package_devdependencies",
+      "target": "glasses_ui_package_devdependencies_eslint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "glasses_ui_package_devdependencies",
+      "target": "glasses_ui_package_devdependencies_eslint_plugin_react_hooks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "glasses_ui_package_devdependencies",
+      "target": "glasses_ui_package_devdependencies_globals",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "glasses_ui_package_devdependencies",
+      "target": "glasses_ui_package_devdependencies_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "glasses_ui_package_devdependencies",
+      "target": "glasses_ui_package_devdependencies_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "glasses_ui_package_devdependencies",
+      "target": "glasses_ui_package_devdependencies_tsup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "glasses_ui_package_devdependencies",
+      "target": "glasses_ui_package_devdependencies_typescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "glasses_ui_package_devdependencies",
+      "target": "glasses_ui_package_devdependencies_typescript_eslint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/package.json",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "glasses_ui_package_devdependencies",
+      "target": "glasses_ui_package_devdependencies_vitest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_tsconfig_json",
+      "target": "glasses_ui_tsconfig_extends",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_tsconfig_json",
+      "target": "glasses_ui_tsconfig_include",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/index.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_index_ts",
+      "target": "packages_glasses_ui_src_primitives_index_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/index.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_index_ts",
+      "target": "packages_glasses_ui_src_hooks_index_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/primitives/GlassViewport.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_primitives_glassviewport_tsx",
+      "target": "primitives_glassviewport_glassviewport",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/primitives/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_primitives_index_ts",
+      "target": "packages_glasses_ui_src_primitives_glassviewport_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/primitives/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_primitives_index_ts",
+      "target": "primitives_glassviewport_glassviewport",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "packages_glasses_ui_src_hooks_dpad_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "hooks_dpad_scorerect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "hooks_dpad_test_current",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "hooks_dpad_test_candidate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "hooks_dpad_test_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "hooks_dpad_test_aligned",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "hooks_dpad_test_drifted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "hooks_dpad_test_saligned",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "hooks_dpad_test_sdrifted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "hooks_dpad_test_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "hooks_dpad_test_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "hooks_dpad_test_left",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_test_ts",
+      "target": "hooks_dpad_test_right",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_tsx",
+      "target": "hooks_dpad_dir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_tsx",
+      "target": "hooks_dpad_key_to_dir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_tsx",
+      "target": "hooks_dpad_rectlike",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_tsx",
+      "target": "hooks_dpad_scorerect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_tsx",
+      "target": "hooks_dpad_focusables",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_tsx",
+      "target": "hooks_dpad_movefocus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_tsx",
+      "target": "hooks_dpad_seedfocus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_dpad_tsx",
+      "target": "hooks_dpad_usedpad",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_index_ts",
+      "target": "packages_glasses_ui_src_hooks_dpad_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_index_ts",
+      "target": "hooks_dpad_dir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "hooks_dpad_movefocus",
+      "target": "hooks_dpad_scorerect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_index_ts",
+      "target": "hooks_dpad_scorerect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "hooks_dpad_movefocus",
+      "target": "hooks_dpad_focusables",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "hooks_dpad_seedfocus",
+      "target": "hooks_dpad_focusables",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_index_ts",
+      "target": "hooks_dpad_seedfocus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_index_ts",
+      "target": "hooks_dpad_usedpad",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_test_ts",
+      "target": "packages_glasses_ui_src_hooks_sensors_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_test_ts",
+      "target": "hooks_sensors_orientationequal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_test_ts",
+      "target": "hooks_sensors_motionequal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.test.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_test_ts",
+      "target": "hooks_sensors_test_a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.test.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_test_ts",
+      "target": "hooks_sensors_test_b",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.test.ts",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_test_ts",
+      "target": "hooks_sensors_test_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_index_ts",
+      "target": "packages_glasses_ui_src_hooks_sensors_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_index_ts",
+      "target": "hooks_sensors_usedeviceorientation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_index_ts",
+      "target": "hooks_sensors_usedevicemotion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_index_ts",
+      "target": "hooks_sensors_usegeolocation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_index_ts",
+      "target": "hooks_sensors_useneuralband",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_index_ts",
+      "target": "hooks_sensors_orientationequal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_index_ts",
+      "target": "hooks_sensors_motionequal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_ts",
+      "target": "hooks_sensors_orientation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_ts",
+      "target": "hooks_sensors_motion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_ts",
+      "target": "hooks_sensors_orientationequal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_ts",
+      "target": "hooks_sensors_motionequal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_ts",
+      "target": "hooks_sensors_usedeviceorientation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_ts",
+      "target": "hooks_sensors_usedevicemotion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_ts",
+      "target": "hooks_sensors_usegeolocation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/sensors.ts",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_src_hooks_sensors_ts",
+      "target": "hooks_sensors_useneuralband",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "START-HERE.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "start_here_md",
+      "target": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "START-HERE.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "harrisburg_start_here_0_how_this_repo_was_set_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "START-HERE.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "harrisburg_start_here_1_locked_decisions_from_brainstorming_do_not_relitigate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "START-HERE.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "harrisburg_start_here_2_the_sdk_to_extract_phase_2_source_of_truth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "START-HERE.md",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "harrisburg_start_here_3_monorepo_conventions_to_mirror_verified_from_the_boilerplate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "START-HERE.md",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "harrisburg_start_here_4_new_build_decisions_for_npm_publish_this_is_where_this_repo_differs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "START-HERE.md",
+      "source_location": "L139",
+      "weight": 1.0,
+      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "harrisburg_start_here_5_phase_0_hardware_gate_owner_s_manual_step_doesn_t_block_the_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "START-HERE.md",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "harrisburg_start_here_6_boundaries_do_not_do_these_without_explicit_owner_go_ahead",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "START-HERE.md",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "harrisburg_start_here_7_recommended_first_steps_phases_1_2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "START-HERE.md",
+      "source_location": "L188",
+      "weight": 1.0,
+      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "harrisburg_start_here_8_standing_constraints_during_the_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "START-HERE.md",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "harrisburg_start_here_4_new_build_decisions_for_npm_publish_this_is_where_this_repo_differs",
+      "target": "harrisburg_start_here_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme_md",
+      "target": "harrisburg_readme_glasskit_ui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "harrisburg_readme_glasskit_ui",
+      "target": "harrisburg_readme_status",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "harrisburg_readme_glasskit_ui",
+      "target": "harrisburg_readme_governance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "plan_md",
+      "target": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_decisions_locked_from_brainstorming",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_competitive_landscape_positioning_deep_research_2026_06_verified_cited",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_source_of_truth_for_current_code",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_what_the_actual_source_reveals_read_2026_06_resolves_most_of_the_1_risk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_architecture_the_glasskit_ui_monorepo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L155",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_npm_package_vs_registry_the_split",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L175",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L259",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_docs_site_fumadocs_at_ui_glasskit_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L268",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_ui_glasskit_app_site_design_pages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L338",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_three_component_layers_in_the_repo_don_t_conflate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L355",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_funnel_mechanics_oss_starter_kit_studio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L384",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_seo_agent_llm_visibility_agent_native_distribution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L414",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_graphify_knowledge_graph_both_repos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L420",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_execution_setup_repo_governance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L436",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_business_reality_mvp_slice_kill_criteria_stress_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L473",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_decomposition_phasing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L521",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_top_risks_from_research_mitigations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L534",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_out_of_scope",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L539",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_internationalization_rtl_bidi_baked_in_from_day_one",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L560",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_automated_npm_release_pipeline_github_actions_changesets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L581",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_testing_strategy_don_t_break_shit_layered_not_naive_snapshots",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L604",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_constraints_to_respect_during_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L612",
+      "weight": 1.0,
+      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "harrisburg_plan_verification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "harrisburg_plan_architecture_the_glasskit_ui_monorepo",
+      "target": "harrisburg_plan_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L187",
+      "weight": 1.0,
+      "source": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "target": "harrisburg_plan_design_approach_port_from_watch_ui_kits_re_skin_for_glasses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L218",
+      "weight": 1.0,
+      "source": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "target": "harrisburg_plan_registry_ui_components_28_archetype_complete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L238",
+      "weight": 1.0,
+      "source": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "target": "harrisburg_plan_deliberately_not_built_the_medium_forbids_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L246",
+      "weight": 1.0,
+      "source": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "target": "harrisburg_plan_accent_color_one_default_no_preset_system_revised_2026_06_01",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L253",
+      "weight": 1.0,
+      "source": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "target": "harrisburg_plan_registry_blocks_generic_patterns_only_never_named_demos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L306",
+      "weight": 1.0,
+      "source": "harrisburg_plan_ui_glasskit_app_site_design_pages",
+      "target": "harrisburg_plan_glasskit_ui_s_own_apple_feel_one_look_two_surfaces_revised_2026_06_01",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "agents_md",
+      "target": "harrisburg_agents_glasskit_ui_agent_guide",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "harrisburg_agents_glasskit_ui_agent_guide",
+      "target": "harrisburg_agents_before_you_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "harrisburg_agents_glasskit_ui_agent_guide",
+      "target": "harrisburg_agents_hard_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "harrisburg_agents_glasskit_ui_agent_guide",
+      "target": "harrisburg_agents_conventions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "claude_md",
+      "target": "harrisburg_claude_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".context/plans/sync-this-worktree-to-the-actual-folder-repull.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "context_plans_sync_this_worktree_to_the_actual_folder_repull_md",
+      "target": "plans_sync_this_worktree_to_the_actual_folder_repull_sync_this_worktree_to_the_actual_folder_repull",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".context/plans/sync-this-worktree-to-the-actual-folder-repull.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "plans_sync_this_worktree_to_the_actual_folder_repull_sync_this_worktree_to_the_actual_folder_repull",
+      "target": "plans_sync_this_worktree_to_the_actual_folder_repull_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".context/plans/sync-this-worktree-to-the-actual-folder-repull.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "plans_sync_this_worktree_to_the_actual_folder_repull_sync_this_worktree_to_the_actual_folder_repull",
+      "target": "plans_sync_this_worktree_to_the_actual_folder_repull_the_action_single_safe_fast_forward",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".context/plans/sync-this-worktree-to-the-actual-folder-repull.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "plans_sync_this_worktree_to_the_actual_folder_repull_sync_this_worktree_to_the_actual_folder_repull",
+      "target": "plans_sync_this_worktree_to_the_actual_folder_repull_explicitly_not_doing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".context/plans/sync-this-worktree-to-the-actual-folder-repull.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "plans_sync_this_worktree_to_the_actual_folder_repull_sync_this_worktree_to_the_actual_folder_repull",
+      "target": "plans_sync_this_worktree_to_the_actual_folder_repull_verification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "changeset_readme_md",
+      "target": "changeset_readme_changesets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/README.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "changeset_readme_changesets",
+      "target": "changeset_readme_adding_a_changeset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/README.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "changeset_readme_changesets",
+      "target": "changeset_readme_how_releases_happen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".changeset/README.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "changeset_readme_adding_a_changeset",
+      "target": "changeset_readme_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_design_apple_feel_md",
+      "target": "design_apple_feel_glasskit_ui_apple_feel_design_reference_additive_lens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "design_apple_feel_glasskit_ui_apple_feel_design_reference_additive_lens",
+      "target": "design_apple_feel_1_north_star",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "design_apple_feel_glasskit_ui_apple_feel_design_reference_additive_lens",
+      "target": "design_apple_feel_2_two_surfaces_two_recipes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "design_apple_feel_glasskit_ui_apple_feel_design_reference_additive_lens",
+      "target": "design_apple_feel_3_design_principles_watchos_derived_additive_translated",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "design_apple_feel_glasskit_ui_apple_feel_design_reference_additive_lens",
+      "target": "design_apple_feel_4_tokens_numbers_concrete_starting_set",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "design_apple_feel_glasskit_ui_apple_feel_design_reference_additive_lens",
+      "target": "design_apple_feel_5_premium_without_blur_recipe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "design_apple_feel_glasskit_ui_apple_feel_design_reference_additive_lens",
+      "target": "design_apple_feel_6_motion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "design_apple_feel_glasskit_ui_apple_feel_design_reference_additive_lens",
+      "target": "design_apple_feel_7_iconography_typography",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "design_apple_feel_glasskit_ui_apple_feel_design_reference_additive_lens",
+      "target": "design_apple_feel_8_watchos_glasskit_mapping",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "design_apple_feel_glasskit_ui_apple_feel_design_reference_additive_lens",
+      "target": "design_apple_feel_9_do_don_t",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "design_apple_feel_glasskit_ui_apple_feel_design_reference_additive_lens",
+      "target": "design_apple_feel_10_sources",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "design_apple_feel_4_tokens_numbers_concrete_starting_set",
+      "target": "design_apple_feel_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "design_apple_feel_4_tokens_numbers_concrete_starting_set",
+      "target": "design_apple_feel_codeblock_2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/design/apple-feel.md",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "design_apple_feel_4_tokens_numbers_concrete_starting_set",
+      "target": "design_apple_feel_codeblock_3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "packages_glasses_ui_readme_md",
+      "target": "glasses_ui_readme_glasskit_glasses_ui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "glasses_ui_readme_glasskit_glasses_ui",
+      "target": "glasses_ui_readme_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "glasses_ui_readme_glasskit_glasses_ui",
+      "target": "glasses_ui_readme_what_s_in_here",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "glasses_ui_readme_glasskit_glasses_ui",
+      "target": "glasses_ui_readme_usage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "glasses_ui_readme_glasskit_glasses_ui",
+      "target": "glasses_ui_readme_design_constraints",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "glasses_ui_readme_glasskit_glasses_ui",
+      "target": "glasses_ui_readme_testing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "glasses_ui_readme_glasskit_glasses_ui",
+      "target": "glasses_ui_readme_part_of_the_glasskit_ecosystem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "glasses_ui_readme_usage",
+      "target": "glasses_ui_readme_codeblock_2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "glasses_ui_readme_usage",
+      "target": "glasses_ui_readme_codeblock_3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "glasses_ui_readme_usage",
+      "target": "glasses_ui_readme_subpath_entries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/README.md",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "glasses_ui_readme_subpath_entries",
+      "target": "glasses_ui_readme_codeblock_4",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "e424c709c64579a907e204f0de9170ab2ff244bd"
+}

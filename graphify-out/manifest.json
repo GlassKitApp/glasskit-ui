@@ -1,0 +1,162 @@
+{
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/tsconfig.base.json": {
+    "mtime": 1780381487.7591436,
+    "ast_hash": "562cdff5f429645de851b07bcd9949f1",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/turbo.json": {
+    "mtime": 1780381482.5836525,
+    "ast_hash": "7a00ec6fb8086e91d74d02b0da8455ea",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/prettier.config.mjs": {
+    "mtime": 1780381491.6585557,
+    "ast_hash": "16e204c78ba299200b052baf0ad967e3",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/package.json": {
+    "mtime": 1780381479.174186,
+    "ast_hash": "bddd325069cef2792bd992ff2ec80818",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.changeset/config.json": {
+    "mtime": 1780381499.2425969,
+    "ast_hash": "a04b3c77493872aa346c9154e1af5555",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/package.json": {
+    "mtime": 1780381432.0404606,
+    "ast_hash": "856a2ce410f64605e46cdb5d23d4dcbf",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/tsup.config.ts": {
+    "mtime": 1780381421.8765583,
+    "ast_hash": "51cc9b94b17aacd32453e196cb58c3d9",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/tsconfig.json": {
+    "mtime": 1780381445.564329,
+    "ast_hash": "8bb1844d46437a51d211241f5b951672",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/vitest.config.ts": {
+    "mtime": 1780381447.3871415,
+    "ast_hash": "47a20b365d54690ee3eb5820dc5a2c03",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/eslint.config.mjs": {
+    "mtime": 1780381452.1947503,
+    "ast_hash": "342bdd12d48837912987fb3bec398b27",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/src/index.ts": {
+    "mtime": 1780381416.998183,
+    "ast_hash": "061d6e185524a71707e18983bcb21d62",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/src/primitives/GlassViewport.tsx": {
+    "mtime": 1780381399.352242,
+    "ast_hash": "4c04cfb026527c5250855aa50524b51b",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/src/primitives/index.ts": {
+    "mtime": 1780381411.8292575,
+    "ast_hash": "a21fa3d7048143db2b6a6c5db335f8bd",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/src/hooks/dpad.test.ts": {
+    "mtime": 1780381399.3588395,
+    "ast_hash": "013196b92f3abb96dacd9e79ae4af617",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/src/hooks/dpad.tsx": {
+    "mtime": 1780381399.3543825,
+    "ast_hash": "8845a6a8e6f3258ea9e375d33eb44c29",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/src/hooks/sensors.test.ts": {
+    "mtime": 1780381399.361027,
+    "ast_hash": "a52f7520ba4061a8f66aca3337db0a71",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/src/hooks/index.ts": {
+    "mtime": 1780381413.6988883,
+    "ast_hash": "6d00eae4f897adfd386e3b302574f518",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/src/hooks/sensors.ts": {
+    "mtime": 1780381399.3567362,
+    "ast_hash": "e763e09eaaa7227133b751cf63341221",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md": {
+    "mtime": 1780343441.6415405,
+    "ast_hash": "3dede68f1d8fb95777b9e10521394c2e",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/README.md": {
+    "mtime": 1780342980.9648244,
+    "ast_hash": "29bbe5e47ab210c94bcbc6d9fd3d23ab",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md": {
+    "mtime": 1780381700.689281,
+    "ast_hash": "a57cb4b7163d08451d7e8e6be01cdaa5",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/AGENTS.md": {
+    "mtime": 1780381707.1018245,
+    "ast_hash": "faee21603893b0771fb20d4613d78449",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/CLAUDE.md": {
+    "mtime": 1780343441.6411915,
+    "ast_hash": "2e5a0e72d04410f1ba1fbf12d47d670f",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/pnpm-workspace.yaml": {
+    "mtime": 1780381480.1447935,
+    "ast_hash": "94959a14ffe26db859e218b25f9b1f52",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.context/todos.md": {
+    "mtime": 1780342981.0655181,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.context/plans/sync-this-worktree-to-the-actual-folder-repull.md": {
+    "mtime": 1780343417.5593162,
+    "ast_hash": "1af2ba1281d5f3ebf95d965e78e53300",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.changeset/README.md": {
+    "mtime": 1780381503.6320028,
+    "ast_hash": "a5d16f5f458a79437fb6ff096090778b",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/docs/design/apple-feel.md": {
+    "mtime": 1780381740.4630795,
+    "ast_hash": "1157cbf1b4a4c307e17626ee0185a085",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/README.md": {
+    "mtime": 1780381469.789574,
+    "ast_hash": "8b2288850637cfa5dbd771be08a3cb6f",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.github/workflows/beta.yml": {
+    "mtime": 1780381523.8353777,
+    "ast_hash": "f5536b63ac27970b204b2d5cb2de1ff2",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.github/workflows/release.yml": {
+    "mtime": 1780381517.0728524,
+    "ast_hash": "a1d191aaf7098e55eb0bcf70234cdf6e",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.github/workflows/ci.yml": {
+    "mtime": 1780381510.5789871,
+    "ast_hash": "38b9b0f275f3c479b7b7bd590f214b4f",
+    "semantic_hash": ""
+  }
+}

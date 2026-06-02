@@ -1,0 +1,54 @@
+name: Release
+
+# Official npm release on merge to main, via Changesets.
+#
+# INERT BY DEFAULT. This job only runs in the canonical repo AND when the
+# owner sets the repo variable `RELEASE_ENABLED=true` and adds an `NPM_TOKEN`
+# secret. Until then it is skipped entirely — no version PRs, no publishes.
+# (Settings → Secrets and variables → Actions: variable RELEASE_ENABLED=true,
+# secret NPM_TOKEN.)
+
+on:
+  push:
+    branches: [main]
+
+concurrency: release-${{ github.ref }}
+
+jobs:
+  release:
+    if: github.repository == 'GlassKitApp/glasskit-ui' && vars.RELEASE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # create the Version Packages PR + git tags
+      pull-requests: write
+      id-token: write # npm provenance via OIDC
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm turbo run build
+
+      # Opens/updates a "Version Packages" PR when changesets are pending;
+      # once that PR is merged, publishes the bumped packages to `latest`.
+      - name: Create Release PR or publish
+        uses: changesets/action@v1
+        with:
+          version: pnpm version-packages
+          publish: pnpm release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: "true"

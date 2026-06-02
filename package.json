@@ -1,0 +1,35 @@
+{
+  "name": "glasskit-ui",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The open-source SDK + component registry for Meta Ray-Ban Display apps — the ergonomic React layer Meta does not ship. pnpm + Turborepo monorepo.",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.11",
+    "@types/node": "^22.10.0",
+    "prettier": "^3.3.3",
+    "turbo": "^2.5.4",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@10.8.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

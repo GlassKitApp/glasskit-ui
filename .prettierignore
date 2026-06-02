@@ -1,0 +1,17 @@
+# Don't format generated, vendored, or external sources.
+node_modules
+**/node_modules
+**/.next
+**/dist
+**/.turbo
+pnpm-lock.yaml
+.claude/skills
+graphify-out
+
+# Conductor workspace scratch dir.
+.context
+
+# Hand-authored strategy / kickoff docs at the repo root (PLAN.md,
+# README.md, START-HERE.md, AGENTS.md, CLAUDE.md) keep their deliberate
+# manual line-wrapping and tables. Package-level docs stay formatted.
+/*.md

@@ -28,7 +28,7 @@ library must come first.
 |---|---|
 | Altitude | One free SDK foundation first; boilerplate repositioned on top; Studio is a downstream consumer (out of scope here) |
 | Component model | Headless logic where real logic exists + styled layer; styled components **vendored via shadcn-style registry** (you own/restyle them) |
-| Packaging | npm package `@glasskit/glasses-ui` (hooks + primitives + base styles) consumed as a dependency; styled components/presets/blocks distributed via registry |
+| Packaging | npm package `@glasskit/glasses-ui` (hooks + primitives + base styles) consumed as a dependency; styled components + blocks distributed via registry (single default accent, no preset palettes) |
 | Repo | **New public monorepo `glasskit-ui`** → publishes to npm; boilerplate switches to consuming it |
 | Site | Separate **`ui.glasskit.app`** = the monorepo's own Next.js + fumadocs site, fully open source (docs co-located with components). `glasskit.app` (this `adelaide` repo) stays the closed marketing/sales/Studio funnel |
 | Docs | fumadocs (already proven in this repo; reuse the setup) |
@@ -128,7 +128,7 @@ glasskit-ui/                      # NEW public repo, pnpm + turborepo
   apps/
     web/                          # Next.js + fumadocs → ui.glasskit.app
       app/(marketing)/page.tsx    # landing (hero = live emulator), CTA → /create
-      app/(marketing)/create/     # the ui.shadcn.com/create analog (preset + component picker)
+      app/(marketing)/create/     # the ui.shadcn.com/create analog (component picker)
       content/docs/               # migrated + expanded from adelaide/content/docs
       app/(docs) ...              # reuse adelaide's fumadocs wiring; live previews via emulator
       app/r/[...]/route.ts        # registry endpoints (/r/*.json)
@@ -145,8 +145,8 @@ glasskit-ui/                      # NEW public repo, pnpm + turborepo
   registry/
     registry.json                 # shadcn-format-compatible index (served by apps/web; read by the glasskit CLI)
     ui/                           # registry:ui  — styled component source (vendored)
-    presets/                      # registry:theme — optics-tuned palettes
     blocks/                       # registry:block — generic patterns (confirm-flow, wizard, captions-view, launcher, ...)
+  skills/                         # GlassKit agent skills (npx skills add) — glasskit-builder, glasskit-review
 ```
 
 The boilerplate repo then **removes its local `packages/glasses-ui`** and depends
@@ -157,12 +157,13 @@ on the published `@glasskit/glasses-ui`; its demo apps become registry blocks.
 - **npm `@glasskit/glasses-ui` (never-touch dependency):** the 5 hooks +
   `GlassViewport` + `scoreRect`/equality helpers + base `styles.css`/tokens. This
   is the SDK logic — the moat. Subpath exports so consumers can pull just hooks.
-- **Registry (vendored, you own it):** styled components, presets, blocks —
+- **Registry (vendored, you own it):** styled components + generic blocks —
   added via the **GlassKit CLI**: `npx glasskit add <name>` (own branded command — **no
   `npx shadcn` in our docs/UX**). The registry JSON stays shadcn-*format*-compatible under
   the hood purely for interop (agents/tools that grok the schema can consume it as a
   fallback), but our CLI is the only documented path. `ui.shadcn.com/create`-style flow:
-  pick components + a preset and scaffold.
+  pick components and scaffold. (No multi-palette preset system — one default accent,
+  overridable via a token; see "Apple feel" below.)
 
 **Headless-vs-styled policy (engineering honesty, not dogma):** split out
 headless logic *only where real logic exists* — focus participation
@@ -238,13 +239,16 @@ display (Readout, StatGrid, Cue, Meter, Badge) ships styled-only.
 Text inputs/keyboards (text = voice, a platform job) · tables/data grids ·
 hover/tooltips/context menus · drag-drop/resizable panels · fine sliders (use Stepper) ·
 scroll-heavy lists (paginate) · minimaps · stacked modals · **glassmorphism / backdrop-blur
-on the additive lens** (no backdrop to refract; translucent fills wash out — the `glass`
-component skin is for marketing/docs/browser-companion surfaces only; the on-device
-`additive` skin gets the Apple feel via emitted light, not blur).
+on the additive lens** (no backdrop to refract; translucent fills wash out). The components
+get the Apple feel via *emitted light*, not blur — see `docs/design/apple-feel.md`. (Real
+Liquid-Glass is allowed on the website chrome only, never on the 600×600 lens.)
 
-### Registry `presets` (optics-tuned, bright+saturated — pastels wash out)
-phosphor green (default), cyan `#5ad8ff`, orange `#ff9b52`, amber `#ffce6b`,
-coral `#ff7e6b`, forest green. (`--color-bg` stays `#000` in every preset.)
+### Accent color — one default, no preset system (revised 2026-06-01)
+**Dropped the multi-palette `registry:theme` presets.** The additive look leads with a single
+phosphor-green accent (`--color-accent: #36e27f`), overridable for free by re-declaring the
+token in a consumer `@theme` block. `--color-bg` stays `#000`. (A palette picker can return
+later if there's demand — it's past the kill-gate, not MVP.) Full token set — accent
+tints/dims, ink-on-black scale, hairline/glow specs — in `docs/design/apple-feel.md` §4.
 
 ### Registry `blocks` — generic patterns only (never named demos)
 `confirm-flow`, `wizard`, `captions-view`, `launcher-home`, `stat-dashboard`,
@@ -257,7 +261,7 @@ not registry items.
 Reuse this repo's proven fumadocs setup (`source.config.ts`, `lib/source.ts`,
 `app/(docs)`, Orama `/api/search`). Migrate `glasses-ui.mdx`, `theming.mdx`,
 `demos.mdx` as the seed; add per-component pages with live 600×600 previews and a
-**theme styler** page (live preset switcher emitting copy-paste tokens) to satisfy
+**accent/token styler** page (tweak the single accent + emit copy-paste tokens) to satisfy
 the "match docs with the components themselves" requirement — docs and component
 source live in the same repo.
 
@@ -271,9 +275,9 @@ polished ("sweet and sick") result — not generic AI aesthetic.
 - **Landing (`/`)** — hero leads with the moat: a **live in-browser glasses emulator**
   running a real 600×600 demo (the hero *is* the product), then focus engine + Neural Band
   + registry + `npx` DX. Primary CTA → `/create`.
-- **`/create`** — the `ui.shadcn.com/create` analog: pick a **preset** (optics-tuned
-  palette) + components, preview live in the emulator, copy the `npx glasskit add …` command /
-  scaffold. The funnel's first conversion step.
+- **`/create`** — the `ui.shadcn.com/create` analog: pick **components**, preview live in the
+  emulator, copy the `npx glasskit add …` command / scaffold. The funnel's first conversion
+  step. (No preset palette picker — one default phosphor-green accent, overridable via a token.)
 - **`/docs`** — fumadocs; component pages with **live previews via the emulator**.
 - **Registry** (`/r/*.json`).
 
@@ -299,29 +303,37 @@ polished ("sweet and sick") result — not generic AI aesthetic.
   needed (emulator, theme toggle, create-picker); follow `node_modules/next/dist/docs/`
   (modified Next 16) + vercel-react-best-practices / next-best-practices guidance.
 
-### GlassKit UI's own "Apple feel" — landing, brand & component skins
+### GlassKit UI's own "Apple feel" — one look, two surfaces (revised 2026-06-01)
 
-ui.glasskit.app should feel **Apple-premium** ("I NEED that"): glasskit **accent color** over
-a full **Liquid Glass** treatment + Apple typography. One honest line (physics, not taste):
-**literal backdrop-blur glassmorphism cannot render on the additive glasses lens** — black
-stays black, no backdrop to refract, a frosted panel becomes washed-out emitted gray.
-Shipping components that look glassy in-browser but break on-device = worst thing a glasses
-kit could do (trust dies on first deploy). So split it cleanly — the user still gets the lust:
+The target is **Apple-Watch-grade crisp/clean/modern, premium** — and on a see-through additive
+display that look and *renders-correctly-on-real-glasses* are the **same** design (watchOS is
+itself a black-OLED, emitted-light, glanceable system; chasing the Apple-Watch feel pushes us
+*toward* on-glasses correctness, not away). So the component library has **ONE look:
+`additive`** — premium via *emitted light* (luminous hairline edges, specular-style highlights,
+soft glow depth, concentric rounded "lens" geometry — the Apple feel **without**
+backdrop-filter), rendered correctly on the lens. **The earlier dual-skin (`glass` +
+`additive`) model is dropped** — there is no separate literal-glassmorphism component skin to
+maintain. The full, cited spec (tokens, type ramp, hairline/glow recipe, focus ring, motion,
+watchOS→GlassKit mapping) lives in **`docs/design/apple-feel.md`** — the source of truth the
+components are built to.
 
-- **Landing + docs + component *showcase* (normal screens): full Liquid Glass + Apple type +
-  glasskit accent.** Where "I NEED that" happens — go all in (refraction, specular, depth).
-- **Components ship TWO skins:** (a) **`glass`** — glassmorphic, for marketing/docs showcase
-  and *browser/phone companion* surfaces where backdrop-blur works; (b) **`additive`** — the
-  on-device truth, premium "glass-*inspired*" feel via *emitted light* (luminous hairline
-  edges, specular-style highlights, soft glow depth, rounded "lens" geometry — Apple feel
-  without backdrop-filter). **Default on-device = `additive`, clearly labeled** so the "how it
-  really looks on glasses" preview never misleads; `glass` is opt-in for non-lens use.
+The honest physics line still holds: **literal backdrop-blur glassmorphism cannot render on the
+additive lens** — black stays black, no backdrop to refract, a frosted panel becomes washed-out
+gray; components that look glassy in-browser but break on-device = trust dies on first deploy.
+That is *exactly why* the components are emitted-light, not glassy.
+
+- **The lens (the 600×600 components): `additive` only.** Emitted-light premium — no blur, no
+  translucent fills, no scrims. A single phosphor-green accent carries all emphasis on black.
+- **The website (landing / docs / `/create`): real Liquid Glass is fine** — opaque screens have
+  a real backdrop. Go all in for the "I NEED that" moment (refraction, specular, depth) + the
+  glasskit accent + Apple type. **Hard rule: Liquid Glass stops at the bezel; it never touches
+  the lens.**
 - **Typography ("modern Apple font").** SF Pro is Apple-licensed (Apple-platform UIs only —
-  can't ship on web). Use `system-ui`/`-apple-system` → Apple-device visitors get *real* SF
-  Pro free, with **Inter** or **Geist** as cross-platform fallback. (On-device font follows
-  whatever the Display runtime exposes.)
-- **References:** `carolhsiaoo/awesome-liquid-glass` (Apple HIG, Sketch templates, dev libs);
-  web impl: liquidGL (WebGL refraction), nikdelvin/liquid-glass (CSS+SVG), liquidglass-kit.dev.
+  can't ship on web). Website: `system-ui`/`-apple-system` → Apple-device visitors get *real* SF
+  free, **Inter**/**Geist** fallback. Lens: bundle one deterministic UI-tuned face (Geist/Inter,
+  or SF Rounded if the runtime is Apple-licensed) — see the design reference §7.
+- **References:** see `docs/design/apple-feel.md` §10 — 41 cited sources (watchOS HIG, SF
+  typography, WWDC25 Liquid Glass, OLED color/motion).
 
 ## Three component layers in the repo (don't conflate)
 
@@ -329,16 +341,16 @@ All three live in the public monorepo (everything is open source), but they are 
 1. **`packages/glasses-ui` — the product.** The ~28 additive-display glasses components +
    hooks. Published to npm + offered via the registry. What users build *glasses apps* with.
 2. **`apps/web/components` — the website's own components.** Builds the **landing page**
-   (hero, feature grid, CTA, footer, nav) and the **create page** (preset picker, component
-   checklist, copy-command box, emulator preview pane). Built from **shadcn/ui** primitives +
+   (hero, feature grid, CTA, footer, nav) and the **create page** (component picker/checklist,
+   copy-command box, emulator preview pane). Built from **shadcn/ui** primitives +
    custom composition (like `adelaide`'s `components/landing/*` today). Open source, but
    *app-local* — NOT published to npm, NOT registry items.
-3. **`registry/` — vendored building blocks.** Glasses `ui` components, generic `blocks`,
-   `presets` pulled via `npx`. Glasses building blocks, not website furniture.
+3. **`registry/` — vendored building blocks.** Glasses `ui` components + generic `blocks`
+   pulled via `npx`. Glasses building blocks, not website furniture.
 
 So the landing and create pages **do** have their own components, in the repo, fully open
 source — layer 2, distinct from the published glasses library (layer 1) and the registry
-(layer 3). The create page's preset-picker + emulator-preview core is the seam Studio reuses.
+(layer 3). The create page's component-picker + emulator-preview core is the seam Studio reuses.
 
 ## Funnel mechanics — OSS → Starter Kit (→ Studio)
 
@@ -355,7 +367,7 @@ QR-publish, pay per use).
 - **Contextual "graduate" callouts in ui.glasskit.app docs** — on any page touching what the
   Starter Kit solves (auth/backend/payments/deploy/AI): "Components are free; ship the whole
   production app with the Starter Kit." → glasskit.app.
-- **`/create` upsell** — after picking presets/components: "Want auth + backend + payments
+- **`/create` upsell** — after picking components: "Want auth + backend + payments
   wired in? Start from the Starter Kit."
 - **`/examples` gallery** — each demo labeled "1 of 6 fully-wired demos in the Starter Kit."
 - **npm README + post-`npx` CLI note** — "Built with GlassKit UI. Ship the full app with the
@@ -389,6 +401,15 @@ OG/Twitter cards, canonical URLs, strong Core Web Vitals, JSON-LD (reuse adelaid
 - **`npx glasskit add` installability** + clear `AGENTS.md`/READMEs in repo and scaffolded
   output, so agents in a *consumer's* repo understand and wire GlassKit. Stable canonical
   component URLs for citation. Seeds Studio (agents that "know" GlassKit generate better apps).
+- **Installable agent skills** (the Chakra-UI model) — ship Claude Code `SKILL.md` bundles in a
+  repo `skills/` dir, installed with
+  `npx skills add https://github.com/GlassKitApp/glasskit-ui/tree/main/skills/<name>`
+  (auto-discovered, no config): **`glasskit-builder`** (build glasses apps with the SDK +
+  registry, to the `docs/design/apple-feel.md` spec) and **`glasskit-review`** (audit code
+  against the platform rules — lens/additive, D-pad focus, RTL world-anchored safety — the
+  highest-value one, since those mistakes break on-device). Knowledge base = the design
+  reference + platform constraints. A minimal `glasskit-builder` can ship early with the SDK
+  and grow with the registry. The sharpest instantiation of "be the thing AI agents reach for."
 
 ## Graphify (knowledge graph, both repos)
 
@@ -481,13 +502,15 @@ is coming to church.
    emulator demo; CTA → `/create`). shadcn + Liquid Glass for site chrome, no inline CSS,
    RSC-first. Wire **SEO + agent-native visibility**: metadata, sitemap/robots, JSON-LD,
    **fumadocs `llms.txt`** + per-page Markdown.
-4. **Registry + /create + MCP**: from a **watch-kit → glasskit mapping matrix** (Horologist /
-   watchOS analogs per component), build the ~28 `ui` components, `presets`, and
-   generic-pattern `blocks` (+ a docs `/examples` gallery of the six demo apps with Starter-Kit
-   labels); wire `registry.json` + `/r/<name>.json` endpoints, the theme-styler, the
-   **`/create`** preset-picker (the `ui.shadcn.com/create` analog, with Starter-Kit upsell),
-   the **`glasskit` CLI** (`add`/`init`/`create`, vendoring from the registry), and a
-   **GlassKit MCP server** exposing docs + registry to agents.
+4. **Registry + /create + MCP + skills**: from a **watch-kit → glasskit mapping matrix**
+   (Horologist / watchOS analogs per component), build the ~28 `ui` components and
+   generic-pattern `blocks` **to the `docs/design/apple-feel.md` spec** (+ a docs `/examples`
+   gallery of the six demo apps with Starter-Kit labels); wire `registry.json` +
+   `/r/<name>.json` endpoints, the **`/create`** component-picker (the `ui.shadcn.com/create`
+   analog, with Starter-Kit upsell), the **`glasskit` CLI** (`add`/`init`/`create`, vendoring
+   from the registry), the **GlassKit MCP server** exposing docs + registry to agents, and the
+   **`glasskit-builder` / `glasskit-review` agent skills** (`npx skills add`). One default
+   phosphor-green accent — no multi-palette preset system.
 5. **Boilerplate cutover**: boilerplate consumes published npm + registry; delete its local copy.
 6. **glasskit.app two-product landing** in `adelaide`: restructure to present GlassKit UI
    (free) + Starter Kit (paid) as one **value ladder** (not two competing CTAs); add the
@@ -568,7 +591,7 @@ change and get blindly `--update`d, asserting nothing. Use a layered strategy:
    Confirm/OptionGroup callbacks, useNeuralBand one-shot semantics.
 2. **Visual-regression tests — the *right* "snapshot" for a design system: image diffs, not
    DOM.** Drive components in the **emulator / docs preview pages** with Playwright (already in
-   the ecosystem) and screenshot-diff each component + each preset. Catches "the look broke."
+   the ecosystem) and screenshot-diff each component (LTR + RTL). Catches "the look broke."
    (Chromatic/Storybook is the hosted alternative.)
 3. **Thin structural snapshots — surgical only.** Stable contracts (ARIA roles, `.focusable`
    wiring, data attributes) via inline snapshots on small output; never whole-component HTML.
@@ -595,9 +618,9 @@ snapshot; concentrate unit effort on logic-bearing pieces. Gate all of it in CI.
 - **Hooks behavior:** simulate via Chrome DevTools Sensors (orientation/motion/geo)
   and `window.dispatchEvent(new CustomEvent("neuralband",{detail:{gesture:"pinch"}}))`.
 - **Docs site:** `pnpm dev` in `apps/web`; component pages render live 600×600
-  previews; Orama search returns results; theme-styler switches presets live.
+  previews; Orama search returns results; the accent/token styler updates tokens live.
 - **Registry/CLI:** `npx glasskit add readout` into a fresh app vendors the component and it
-  renders; a preset applies; a generic-pattern block (e.g. `wizard`) scaffolds a runnable
+  renders; overriding `--color-accent` restyles it; a generic-pattern block (e.g. `wizard`) scaffolds a runnable
   screen. (The registry JSON also resolves directly for interop, but `glasskit` is the path.)
 - **Boilerplate cutover:** boilerplate builds against published npm with its local
   `packages/glasses-ui` deleted; demo apps still run.

@@ -1,0 +1,11 @@
+# Owner-only merge: every change requires the owner's review.
+#
+# Pairs with branch protection on `main` (require PR, require Code Owner
+# review, restrict merge to the owner). The repo is public for contribution
+# (fork + PR) but only the owner merges.
+#
+# TODO(owner): replace the placeholder below with your GitHub handle (e.g.
+# `@your-username`) or an org team (e.g. `@GlassKitApp/maintainers`) before
+# making the repo public / enabling branch protection. An unresolved owner
+# makes CODEOWNERS non-enforcing.
+* @GlassKitApp/maintainers

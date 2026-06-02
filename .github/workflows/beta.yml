@@ -1,0 +1,61 @@
+name: Beta Release
+
+# Snapshot beta on PRs that carry a changeset, published to the `beta`
+# dist-tag (never `latest`).
+#
+# INERT BY DEFAULT and SAME-REPO-ONLY:
+#   - fork PRs are skipped (they can't read NPM_TOKEN), and
+#   - the job only runs when the owner sets `RELEASE_ENABLED=true` and adds
+#     an `NPM_TOKEN` secret.
+# Until enabled it is skipped entirely.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+concurrency: beta-${{ github.ref }}
+
+jobs:
+  beta:
+    if: >-
+      github.repository == 'GlassKitApp/glasskit-ui' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      vars.RELEASE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm turbo run build
+
+      - name: Publish beta snapshot
+        run: |
+          # Only snapshot-publish when this PR actually carries a changeset.
+          # `changeset version --snapshot` is a no-op without one, but then
+          # `changeset publish` would push the un-bumped base version (0.1.0)
+          # to the `beta` tag — so guard on changeset presence first.
+          if [ -z "$(find .changeset -name '*.md' ! -name 'README.md')" ]; then
+            echo "No changeset in this PR — skipping beta publish."
+            exit 0
+          fi
+          pnpm changeset version --snapshot beta
+          pnpm changeset publish --tag beta --no-git-tag
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
