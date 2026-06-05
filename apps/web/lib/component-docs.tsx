@@ -8,6 +8,9 @@ import { GlowIcon } from "@registry/ui/glow-icon";
 import { List, ListRow } from "@registry/ui/list";
 import { Progress } from "@registry/ui/progress";
 import { AsyncView, Spinner } from "@registry/ui/async-view";
+import { DirectionArrow } from "@registry/ui/direction-arrow";
+import { Compass } from "@registry/ui/compass";
+import { Reticle } from "@registry/ui/reticle";
 import {
   HeartGlyph,
   NavGlyph,
@@ -316,6 +319,74 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     usage: `<AsyncView status={status} error={<Cue>Couldn’t load</Cue>}>
   <Readout label="Heart rate" value={bpm} unit="BPM" />
 </AsyncView>`,
+  },
+  {
+    slug: "direction-arrow",
+    name: "DirectionArrow",
+    category: "Spatial",
+    summary:
+      "Points toward a real-world bearing. World-anchored: it rotates via an SVG transform attribute and is never mirrored under RTL — a flipped arrow points the wrong way.",
+    preview: (
+      <Screen>
+        <DirectionArrow bearing={35} />
+        <Readout label="Market St" value="320" unit="m" />
+      </Screen>
+    ),
+    props: [
+      {
+        name: "bearing",
+        type: "number",
+        desc: "Target direction in degrees (0 = up/N, clockwise).",
+      },
+      { name: "label", type: "ReactNode", desc: "Optional caption." },
+    ],
+    usage: `// bearing from useGeolocation + the target heading
+<DirectionArrow bearing={bearing} label="Market St" />`,
+  },
+  {
+    slug: "compass",
+    name: "Compass",
+    category: "Spatial",
+    summary:
+      "A heading rose: North stays world-aligned while a fixed top marker shows where you face. World-anchored — never mirrored under RTL.",
+    preview: (
+      <Screen>
+        <Compass heading={290} />
+      </Screen>
+    ),
+    props: [
+      {
+        name: "heading",
+        type: "number",
+        desc: "Current facing in degrees (from useDeviceOrientation).",
+      },
+      { name: "label", type: "ReactNode", desc: "Optional caption." },
+    ],
+    usage: `const { alpha } = useDeviceOrientation();
+<Compass heading={alpha ?? 0} />`,
+  },
+  {
+    slug: "reticle",
+    name: "Reticle",
+    category: "Spatial",
+    summary:
+      "An aim-to-select target: four corner brackets framing the gaze center. Set active while dwelling on a hittable target to brighten it.",
+    preview: (
+      <Screen>
+        <Reticle active label="Aim at a sign" />
+        <Cue>Dwell to select</Cue>
+      </Screen>
+    ),
+    props: [
+      {
+        name: "active",
+        type: "boolean",
+        default: "false",
+        desc: "Brightens the brackets while dwelling on a target.",
+      },
+      { name: "label", type: "string", desc: "a11y label." },
+    ],
+    usage: `<Reticle active={isOnTarget} label="Aim at a sign" />`,
   },
 ];
 

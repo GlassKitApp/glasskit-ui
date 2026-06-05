@@ -1615,6 +1615,42 @@
       "norm_label": "listrow()"
     },
     {
+      "label": "direction-arrow.tsx",
+      "file_type": "code",
+      "source_file": "registry/ui/direction-arrow.tsx",
+      "source_location": "L1",
+      "id": "registry_ui_direction_arrow_tsx",
+      "community": 27,
+      "norm_label": "direction-arrow.tsx"
+    },
+    {
+      "label": "DirectionArrow()",
+      "file_type": "code",
+      "source_file": "registry/ui/direction-arrow.tsx",
+      "source_location": "L13",
+      "id": "ui_direction_arrow_directionarrow",
+      "community": 27,
+      "norm_label": "directionarrow()"
+    },
+    {
+      "label": "reticle.tsx",
+      "file_type": "code",
+      "source_file": "registry/ui/reticle.tsx",
+      "source_location": "L1",
+      "id": "registry_ui_reticle_tsx",
+      "community": 27,
+      "norm_label": "reticle.tsx"
+    },
+    {
+      "label": "Reticle()",
+      "file_type": "code",
+      "source_file": "registry/ui/reticle.tsx",
+      "source_location": "L10",
+      "id": "ui_reticle_reticle",
+      "community": 27,
+      "norm_label": "reticle()"
+    },
+    {
       "label": "glow-icon.tsx",
       "file_type": "code",
       "source_file": "registry/ui/glow-icon.tsx",
@@ -1739,6 +1775,42 @@
       "id": "ui_button_button",
       "community": 27,
       "norm_label": "button()"
+    },
+    {
+      "label": "compass.tsx",
+      "file_type": "code",
+      "source_file": "registry/ui/compass.tsx",
+      "source_location": "L1",
+      "id": "registry_ui_compass_tsx",
+      "community": 27,
+      "norm_label": "compass.tsx"
+    },
+    {
+      "label": "DIRS",
+      "file_type": "code",
+      "source_file": "registry/ui/compass.tsx",
+      "source_location": "L4",
+      "id": "ui_compass_dirs",
+      "community": 27,
+      "norm_label": "dirs"
+    },
+    {
+      "label": "cardinal()",
+      "file_type": "code",
+      "source_file": "registry/ui/compass.tsx",
+      "source_location": "L7",
+      "id": "ui_compass_cardinal",
+      "community": 27,
+      "norm_label": "cardinal()"
+    },
+    {
+      "label": "Compass()",
+      "file_type": "code",
+      "source_file": "registry/ui/compass.tsx",
+      "source_location": "L21",
+      "id": "ui_compass_compass",
+      "community": 27,
+      "norm_label": "compass()"
     },
     {
       "label": "utils.ts",
@@ -1917,7 +1989,7 @@
       "source_file": "apps/web/package.json",
       "source_location": "L16",
       "id": "web_package_dependencies_clsx",
-      "community": 27,
+      "community": 17,
       "norm_label": "clsx"
     },
     {
@@ -2466,7 +2538,7 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L1",
       "id": "apps_web_app_web_docs_components_slug_page_tsx",
-      "community": 27,
+      "community": 32,
       "norm_label": "page.tsx"
     },
     {
@@ -2475,7 +2547,7 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L10",
       "id": "slug_page_generatestaticparams",
-      "community": 27,
+      "community": 32,
       "norm_label": "generatestaticparams()"
     },
     {
@@ -2484,7 +2556,7 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L14",
       "id": "slug_page_generatemetadata",
-      "community": 27,
+      "community": 32,
       "norm_label": "generatemetadata()"
     },
     {
@@ -2493,7 +2565,7 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L25",
       "id": "slug_page_componentpage",
-      "community": 27,
+      "community": 32,
       "norm_label": "componentpage()"
     },
     {
@@ -2502,7 +2574,7 @@
       "source_file": "apps/web/components/install-command.tsx",
       "source_location": "L1",
       "id": "apps_web_components_install_command_tsx",
-      "community": 32,
+      "community": 25,
       "norm_label": "install-command.tsx"
     },
     {
@@ -2511,7 +2583,7 @@
       "source_file": "apps/web/components/install-command.tsx",
       "source_location": "L7",
       "id": "components_install_command_pms",
-      "community": 32,
+      "community": 25,
       "norm_label": "pms"
     },
     {
@@ -2520,7 +2592,7 @@
       "source_file": "apps/web/components/install-command.tsx",
       "source_location": "L15",
       "id": "components_install_command_installcommand",
-      "community": 32,
+      "community": 25,
       "norm_label": "installcommand()"
     },
     {
@@ -2565,7 +2637,7 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L3",
       "id": "components_icons_copyicon",
-      "community": 32,
+      "community": 25,
       "norm_label": "copyicon()"
     },
     {
@@ -2574,7 +2646,7 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L21",
       "id": "components_icons_checkicon",
-      "community": 32,
+      "community": 25,
       "norm_label": "checkicon()"
     },
     {
@@ -2617,7 +2689,7 @@
       "label": "Demo",
       "file_type": "code",
       "source_file": "apps/web/components/playground-client.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "id": "components_playground_client_demo",
       "community": 32,
       "norm_label": "demo"
@@ -2626,7 +2698,7 @@
       "label": "DEMOS",
       "file_type": "code",
       "source_file": "apps/web/components/playground-client.tsx",
-      "source_location": "L22",
+      "source_location": "L23",
       "id": "components_playground_client_demos",
       "community": 32,
       "norm_label": "demos"
@@ -2635,7 +2707,7 @@
       "label": "ACCENTS",
       "file_type": "code",
       "source_file": "apps/web/components/playground-client.tsx",
-      "source_location": "L97",
+      "source_location": "L114",
       "id": "components_playground_client_accents",
       "community": 32,
       "norm_label": "accents"
@@ -2644,7 +2716,7 @@
       "label": "PlaygroundClient()",
       "file_type": "code",
       "source_file": "apps/web/components/playground-client.tsx",
-      "source_location": "L104",
+      "source_location": "L121",
       "id": "components_playground_client_playgroundclient",
       "community": 32,
       "norm_label": "playgroundclient()"
@@ -2653,7 +2725,7 @@
       "label": "CodePanel()",
       "file_type": "code",
       "source_file": "apps/web/components/playground-client.tsx",
-      "source_location": "L174",
+      "source_location": "L191",
       "id": "components_playground_client_codepanel",
       "community": 32,
       "norm_label": "codepanel()"
@@ -2662,9 +2734,9 @@
       "label": "CopyButton()",
       "file_type": "code",
       "source_file": "apps/web/components/playground-client.tsx",
-      "source_location": "L202",
+      "source_location": "L219",
       "id": "components_playground_client_copybutton",
-      "community": 32,
+      "community": 25,
       "norm_label": "copybutton()"
     },
     {
@@ -2673,7 +2745,7 @@
       "source_file": "apps/web/components/props-table.tsx",
       "source_location": "L1",
       "id": "apps_web_components_props_table_tsx",
-      "community": 27,
+      "community": 32,
       "norm_label": "props-table.tsx"
     },
     {
@@ -2682,7 +2754,7 @@
       "source_file": "apps/web/components/props-table.tsx",
       "source_location": "L4",
       "id": "components_props_table_propstable",
-      "community": 27,
+      "community": 32,
       "norm_label": "propstable()"
     },
     {
@@ -2736,7 +2808,7 @@
       "source_file": "apps/web/components/lens/sync-demo.tsx",
       "source_location": "L10",
       "id": "lens_sync_demo_syncdemo",
-      "community": 27,
+      "community": 32,
       "norm_label": "syncdemo()"
     },
     {
@@ -2830,6 +2902,24 @@
       "norm_label": "lensstage()"
     },
     {
+      "label": "navigate-demo.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
+      "source_location": "L1",
+      "id": "apps_web_components_lens_navigate_demo_tsx",
+      "community": 27,
+      "norm_label": "navigate-demo.tsx"
+    },
+    {
+      "label": "NavigateDemo()",
+      "file_type": "code",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
+      "source_location": "L9",
+      "id": "lens_navigate_demo_navigatedemo",
+      "community": 32,
+      "norm_label": "navigatedemo()"
+    },
+    {
       "label": "menu-demo.tsx",
       "file_type": "code",
       "source_file": "apps/web/components/lens/menu-demo.tsx",
@@ -2844,7 +2934,7 @@
       "source_file": "apps/web/components/lens/menu-demo.tsx",
       "source_location": "L10",
       "id": "lens_menu_demo_menudemo",
-      "community": 27,
+      "community": 32,
       "norm_label": "menudemo()"
     },
     {
@@ -2983,6 +3073,51 @@
       "norm_label": "{ container }"
     },
     {
+      "label": "spatial.test.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L1",
+      "id": "apps_web_tests_registry_spatial_test_tsx",
+      "community": 27,
+      "norm_label": "spatial.test.tsx"
+    },
+    {
+      "label": "{ container }",
+      "file_type": "code",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L9",
+      "id": "registry_spatial_test_container",
+      "community": 27,
+      "norm_label": "{ container }"
+    },
+    {
+      "label": "g",
+      "file_type": "code",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L10",
+      "id": "registry_spatial_test_g",
+      "community": 27,
+      "norm_label": "g"
+    },
+    {
+      "label": "{ container: a }",
+      "file_type": "code",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L15",
+      "id": "registry_spatial_test_container_a",
+      "community": 27,
+      "norm_label": "{ container: a }"
+    },
+    {
+      "label": "{ container: b }",
+      "file_type": "code",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L19",
+      "id": "registry_spatial_test_container_b",
+      "community": 27,
+      "norm_label": "{ container: b }"
+    },
+    {
       "label": "list.test.tsx",
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/list.test.tsx",
@@ -3040,16 +3175,16 @@
       "label": "PropRow",
       "file_type": "code",
       "source_file": "apps/web/lib/component-docs.tsx",
-      "source_location": "L19",
+      "source_location": "L22",
       "id": "lib_component_docs_proprow",
-      "community": 27,
+      "community": 32,
       "norm_label": "proprow"
     },
     {
       "label": "ComponentDoc",
       "file_type": "code",
       "source_file": "apps/web/lib/component-docs.tsx",
-      "source_location": "L26",
+      "source_location": "L29",
       "id": "lib_component_docs_componentdoc",
       "community": 27,
       "norm_label": "componentdoc"
@@ -3058,18 +3193,18 @@
       "label": "COMPONENT_DOCS",
       "file_type": "code",
       "source_file": "apps/web/lib/component-docs.tsx",
-      "source_location": "L37",
+      "source_location": "L40",
       "id": "lib_component_docs_component_docs",
-      "community": 27,
+      "community": 32,
       "norm_label": "component_docs"
     },
     {
       "label": "getComponentDoc()",
       "file_type": "code",
       "source_file": "apps/web/lib/component-docs.tsx",
-      "source_location": "L322",
+      "source_location": "L393",
       "id": "lib_component_docs_getcomponentdoc",
-      "community": 27,
+      "community": 32,
       "norm_label": "getcomponentdoc()"
     },
     {
@@ -3078,7 +3213,7 @@
       "source_file": "apps/web/lib/use-copy-to-clipboard.ts",
       "source_location": "L1",
       "id": "apps_web_lib_use_copy_to_clipboard_ts",
-      "community": 32,
+      "community": 25,
       "norm_label": "use-copy-to-clipboard.ts"
     },
     {
@@ -3087,7 +3222,7 @@
       "source_file": "apps/web/lib/use-copy-to-clipboard.ts",
       "source_location": "L8",
       "id": "lib_use_copy_to_clipboard_usecopytoclipboard",
-      "community": 32,
+      "community": 25,
       "norm_label": "usecopytoclipboard()"
     },
     {
@@ -3096,7 +3231,7 @@
       "source_file": "apps/web/lib/utils.ts",
       "source_location": "L1",
       "id": "apps_web_lib_utils_ts",
-      "community": 27,
+      "community": 17,
       "norm_label": "utils.ts"
     },
     {
@@ -3105,7 +3240,7 @@
       "source_file": "apps/web/lib/utils.ts",
       "source_location": "L5",
       "id": "apps_web_lib_utils_ts_lib_utils_cn",
-      "community": 27,
+      "community": 17,
       "norm_label": "cn()"
     },
     {
@@ -4373,7 +4508,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L116",
-      "community": 27,
+      "community": 25,
       "norm_label": "ghostkey()",
       "id": "components_emulator_ghostkey"
     },
@@ -4517,7 +4652,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L136",
-      "community": 27,
+      "community": 25,
       "norm_label": "ctrlbutton()",
       "id": "components_emulator_ctrlbutton"
     },
@@ -6417,6 +6552,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "apps_web_components_lens_navigate_demo_tsx",
+      "target": "registry_ui_readout_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/__tests__/registry/spine.test.tsx",
       "source_location": "L5",
       "weight": 1.0,
@@ -6431,9 +6577,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "registry_ui_readout_tsx",
-      "confidence_score": 1.0
+      "target": "registry_ui_readout_tsx"
     },
     {
       "relation": "imports",
@@ -6461,6 +6607,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "apps_web_components_lens_navigate_demo_tsx",
+      "target": "ui_readout_readout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/__tests__/registry/spine.test.tsx",
       "source_location": "L5",
       "weight": 1.0,
@@ -6475,9 +6632,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "ui_readout_readout",
-      "confidence_score": 1.0
+      "target": "ui_readout_readout"
     },
     {
       "relation": "imports_from",
@@ -6540,9 +6697,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "registry_ui_progress_tsx",
-      "confidence_score": 1.0
+      "target": "registry_ui_progress_tsx"
     },
     {
       "relation": "imports",
@@ -6573,9 +6730,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "ui_progress_progress",
-      "confidence_score": 1.0
+      "target": "ui_progress_progress"
     },
     {
       "relation": "imports_from",
@@ -6648,9 +6805,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "registry_ui_list_tsx",
-      "confidence_score": 1.0
+      "target": "registry_ui_list_tsx"
     },
     {
       "relation": "imports",
@@ -6681,9 +6838,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "ui_list_list",
-      "confidence_score": 1.0
+      "target": "ui_list_list"
     },
     {
       "relation": "imports",
@@ -6714,8 +6871,182 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "ui_list_listrow",
+      "target": "ui_list_listrow"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "registry/ui/direction-arrow.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "registry_ui_direction_arrow_tsx",
+      "target": "registry_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "registry/ui/direction-arrow.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "registry_ui_direction_arrow_tsx",
+      "target": "lib_utils_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "registry/ui/direction-arrow.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "registry_ui_direction_arrow_tsx",
+      "target": "ui_direction_arrow_directionarrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "apps_web_components_lens_navigate_demo_tsx",
+      "target": "registry_ui_direction_arrow_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "apps_web_tests_registry_spatial_test_tsx",
+      "target": "registry_ui_direction_arrow_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/lib/component-docs.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "apps_web_lib_component_docs_tsx",
+      "target": "registry_ui_direction_arrow_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "apps_web_components_lens_navigate_demo_tsx",
+      "target": "ui_direction_arrow_directionarrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "apps_web_tests_registry_spatial_test_tsx",
+      "target": "ui_direction_arrow_directionarrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/lib/component-docs.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "apps_web_lib_component_docs_tsx",
+      "target": "ui_direction_arrow_directionarrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "registry/ui/reticle.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "registry_ui_reticle_tsx",
+      "target": "registry_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "registry/ui/reticle.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "registry_ui_reticle_tsx",
+      "target": "lib_utils_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "registry/ui/reticle.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "registry_ui_reticle_tsx",
+      "target": "ui_reticle_reticle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "apps_web_tests_registry_spatial_test_tsx",
+      "target": "registry_ui_reticle_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/lib/component-docs.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "apps_web_lib_component_docs_tsx",
+      "target": "registry_ui_reticle_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "apps_web_tests_registry_spatial_test_tsx",
+      "target": "ui_reticle_reticle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/lib/component-docs.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "apps_web_lib_component_docs_tsx",
+      "target": "ui_reticle_reticle",
       "confidence_score": 1.0
     },
     {
@@ -6790,9 +7121,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "registry_ui_glow_icon_tsx",
-      "confidence_score": 1.0
+      "target": "registry_ui_glow_icon_tsx"
     },
     {
       "relation": "imports",
@@ -6834,9 +7165,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "ui_glow_icon_glowicon",
-      "confidence_score": 1.0
+      "target": "ui_glow_icon_glowicon"
     },
     {
       "relation": "imports_from",
@@ -6896,6 +7227,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "apps_web_components_lens_navigate_demo_tsx",
+      "target": "registry_ui_cue_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/components/lens/menu-demo.tsx",
       "source_location": "L4",
       "weight": 1.0,
@@ -6921,9 +7263,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "registry_ui_cue_tsx",
-      "confidence_score": 1.0
+      "target": "registry_ui_cue_tsx"
     },
     {
       "relation": "imports",
@@ -6951,6 +7293,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "apps_web_components_lens_navigate_demo_tsx",
+      "target": "ui_cue_cue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/components/lens/menu-demo.tsx",
       "source_location": "L4",
       "weight": 1.0,
@@ -6976,9 +7329,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "ui_cue_cue",
-      "confidence_score": 1.0
+      "target": "ui_cue_cue"
     },
     {
       "relation": "imports_from",
@@ -7061,9 +7414,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "registry_ui_async_view_tsx",
-      "confidence_score": 1.0
+      "target": "registry_ui_async_view_tsx"
     },
     {
       "relation": "imports",
@@ -7094,9 +7447,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "ui_async_view_asyncview",
-      "confidence_score": 1.0
+      "target": "ui_async_view_asyncview"
     },
     {
       "relation": "imports",
@@ -7116,9 +7469,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "ui_async_view_spinner",
-      "confidence_score": 1.0
+      "target": "ui_async_view_spinner"
     },
     {
       "relation": "imports_from",
@@ -7178,36 +7531,47 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "apps/web/components/lens/menu-demo.tsx",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "apps_web_components_lens_menu_demo_tsx",
-      "target": "registry_ui_screen_tsx"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/__tests__/registry/spine.test.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "apps_web_tests_registry_spine_test_tsx",
-      "target": "registry_ui_screen_tsx"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/lib/component-docs.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "apps_web_lib_component_docs_tsx",
+      "source": "apps_web_components_lens_navigate_demo_tsx",
       "target": "registry_ui_screen_tsx",
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/lens/menu-demo.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "apps_web_components_lens_menu_demo_tsx",
+      "target": "registry_ui_screen_tsx"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/spine.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "apps_web_tests_registry_spine_test_tsx",
+      "target": "registry_ui_screen_tsx"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/lib/component-docs.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "apps_web_lib_component_docs_tsx",
+      "target": "registry_ui_screen_tsx"
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -7228,6 +7592,17 @@
       "confidence_score": 1.0,
       "source": "apps_web_components_lens_sync_demo_tsx",
       "target": "ui_screen_screen"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "apps_web_components_lens_navigate_demo_tsx",
+      "target": "ui_screen_screen",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -7258,9 +7633,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "ui_screen_screen",
-      "confidence_score": 1.0
+      "target": "ui_screen_screen"
     },
     {
       "relation": "imports_from",
@@ -7320,6 +7695,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "apps_web_components_lens_navigate_demo_tsx",
+      "target": "registry_ui_status_bar_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/components/lens/menu-demo.tsx",
       "source_location": "L3",
       "weight": 1.0,
@@ -7345,9 +7731,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "registry_ui_status_bar_tsx",
-      "confidence_score": 1.0
+      "target": "registry_ui_status_bar_tsx"
     },
     {
       "relation": "imports",
@@ -7375,6 +7761,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "apps_web_components_lens_navigate_demo_tsx",
+      "target": "ui_status_bar_statusbar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/components/lens/menu-demo.tsx",
       "source_location": "L3",
       "weight": 1.0,
@@ -7400,9 +7797,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "ui_status_bar_statusbar",
-      "confidence_score": 1.0
+      "target": "ui_status_bar_statusbar"
     },
     {
       "relation": "imports_from",
@@ -7465,9 +7862,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "registry_ui_button_tsx",
-      "confidence_score": 1.0
+      "target": "registry_ui_button_tsx"
     },
     {
       "relation": "imports",
@@ -7498,8 +7895,126 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "ui_button_button",
+      "target": "ui_button_button"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "registry/ui/compass.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "registry_ui_compass_tsx",
+      "target": "registry_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "registry/ui/compass.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "registry_ui_compass_tsx",
+      "target": "lib_utils_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "registry/ui/compass.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "registry_ui_compass_tsx",
+      "target": "ui_compass_dirs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "registry/ui/compass.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "registry_ui_compass_tsx",
+      "target": "ui_compass_cardinal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "registry/ui/compass.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "registry_ui_compass_tsx",
+      "target": "ui_compass_compass",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "apps_web_tests_registry_spatial_test_tsx",
+      "target": "registry_ui_compass_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/lib/component-docs.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "apps_web_lib_component_docs_tsx",
+      "target": "registry_ui_compass_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "registry/ui/compass.tsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "ui_compass_compass",
+      "target": "ui_compass_cardinal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "apps_web_tests_registry_spatial_test_tsx",
+      "target": "ui_compass_cardinal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "apps_web_tests_registry_spatial_test_tsx",
+      "target": "ui_compass_compass",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/lib/component-docs.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "apps_web_lib_component_docs_tsx",
+      "target": "ui_compass_compass",
       "confidence_score": 1.0
     },
     {
@@ -8671,9 +9186,9 @@
       "source_file": "apps/web/app/(web)/docs/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_page_tsx",
-      "target": "apps_web_components_code_block_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_components_code_block_tsx"
     },
     {
       "relation": "imports",
@@ -8682,9 +9197,9 @@
       "source_file": "apps/web/app/(web)/docs/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_page_tsx",
-      "target": "components_code_block_codeblock",
-      "confidence_score": 1.0
+      "target": "components_code_block_codeblock"
     },
     {
       "relation": "contains",
@@ -8723,9 +9238,9 @@
       "source_file": "apps/web/app/(web)/docs/components/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_page_tsx",
-      "target": "apps_web_components_site_header_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_components_site_header_tsx"
     },
     {
       "relation": "imports",
@@ -8734,9 +9249,9 @@
       "source_file": "apps/web/app/(web)/docs/components/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_page_tsx",
-      "target": "components_site_header_siteheader",
-      "confidence_score": 1.0
+      "target": "components_site_header_siteheader"
     },
     {
       "relation": "imports_from",
@@ -8745,9 +9260,9 @@
       "source_file": "apps/web/app/(web)/docs/components/page.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_page_tsx",
-      "target": "apps_web_lib_component_docs_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_lib_component_docs_tsx"
     },
     {
       "relation": "imports",
@@ -8756,9 +9271,9 @@
       "source_file": "apps/web/app/(web)/docs/components/page.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_page_tsx",
-      "target": "lib_component_docs_component_docs",
-      "confidence_score": 1.0
+      "target": "lib_component_docs_component_docs"
     },
     {
       "relation": "contains",
@@ -8766,9 +9281,9 @@
       "source_file": "apps/web/app/(web)/docs/components/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_page_tsx",
-      "target": "components_page_metadata",
-      "confidence_score": 1.0
+      "target": "components_page_metadata"
     },
     {
       "relation": "contains",
@@ -8776,9 +9291,9 @@
       "source_file": "apps/web/app/(web)/docs/components/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_page_tsx",
-      "target": "components_page_componentsindex",
-      "confidence_score": 1.0
+      "target": "components_page_componentsindex"
     },
     {
       "relation": "imports_from",
@@ -8787,9 +9302,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "apps_web_components_site_header_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_components_site_header_tsx"
     },
     {
       "relation": "imports",
@@ -8798,9 +9313,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "components_site_header_siteheader",
-      "confidence_score": 1.0
+      "target": "components_site_header_siteheader"
     },
     {
       "relation": "imports_from",
@@ -8809,9 +9324,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "apps_web_components_lens_lens_stage_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_components_lens_lens_stage_tsx"
     },
     {
       "relation": "imports",
@@ -8820,9 +9335,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "lens_lens_stage_lensstage",
-      "confidence_score": 1.0
+      "target": "lens_lens_stage_lensstage"
     },
     {
       "relation": "imports_from",
@@ -8831,9 +9346,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "apps_web_components_props_table_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_components_props_table_tsx"
     },
     {
       "relation": "imports",
@@ -8842,9 +9357,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "components_props_table_propstable",
-      "confidence_score": 1.0
+      "target": "components_props_table_propstable"
     },
     {
       "relation": "imports_from",
@@ -8853,9 +9368,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "apps_web_components_code_block_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_components_code_block_tsx"
     },
     {
       "relation": "imports",
@@ -8864,9 +9379,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "components_code_block_codeblock",
-      "confidence_score": 1.0
+      "target": "components_code_block_codeblock"
     },
     {
       "relation": "imports_from",
@@ -8875,9 +9390,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "apps_web_lib_component_docs_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_lib_component_docs_tsx"
     },
     {
       "relation": "imports",
@@ -8886,9 +9401,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "lib_component_docs_component_docs",
-      "confidence_score": 1.0
+      "target": "lib_component_docs_component_docs"
     },
     {
       "relation": "imports",
@@ -8897,9 +9412,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "lib_component_docs_getcomponentdoc",
-      "confidence_score": 1.0
+      "target": "lib_component_docs_getcomponentdoc"
     },
     {
       "relation": "contains",
@@ -8907,9 +9422,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "slug_page_generatestaticparams",
-      "confidence_score": 1.0
+      "target": "slug_page_generatestaticparams"
     },
     {
       "relation": "contains",
@@ -8917,9 +9432,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "slug_page_generatemetadata",
-      "confidence_score": 1.0
+      "target": "slug_page_generatemetadata"
     },
     {
       "relation": "contains",
@@ -8927,9 +9442,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "slug_page_componentpage",
-      "confidence_score": 1.0
+      "target": "slug_page_componentpage"
     },
     {
       "relation": "calls",
@@ -9218,9 +9733,9 @@
       "source_file": "apps/web/components/code-block.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_code_block_tsx",
-      "target": "apps_web_lib_utils_ts",
-      "confidence_score": 1.0
+      "target": "apps_web_lib_utils_ts"
     },
     {
       "relation": "imports",
@@ -9229,9 +9744,9 @@
       "source_file": "apps/web/components/code-block.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_code_block_tsx",
-      "target": "lib_utils_cn",
-      "confidence_score": 1.0
+      "target": "lib_utils_cn"
     },
     {
       "relation": "contains",
@@ -9239,9 +9754,9 @@
       "source_file": "apps/web/components/code-block.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_code_block_tsx",
-      "target": "components_code_block_codeblock",
-      "confidence_score": 1.0
+      "target": "components_code_block_codeblock"
     },
     {
       "relation": "imports_from",
@@ -9398,6 +9913,28 @@
       "target": "lens_sync_demo_syncdemo"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/playground-client.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "apps_web_components_playground_client_tsx",
+      "target": "apps_web_components_lens_navigate_demo_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/playground-client.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "apps_web_components_playground_client_tsx",
+      "target": "lens_navigate_demo_navigatedemo",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/components/playground-client.tsx",
@@ -9475,9 +10012,9 @@
       "source_file": "apps/web/components/props-table.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_props_table_tsx",
-      "target": "apps_web_lib_component_docs_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_lib_component_docs_tsx"
     },
     {
       "relation": "imports",
@@ -9486,9 +10023,9 @@
       "source_file": "apps/web/components/props-table.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_props_table_tsx",
-      "target": "lib_component_docs_proprow",
-      "confidence_score": 1.0
+      "target": "lib_component_docs_proprow"
     },
     {
       "relation": "contains",
@@ -9496,9 +10033,9 @@
       "source_file": "apps/web/components/props-table.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_props_table_tsx",
-      "target": "components_props_table_propstable",
-      "confidence_score": 1.0
+      "target": "components_props_table_propstable"
     },
     {
       "relation": "contains",
@@ -9662,9 +10199,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "apps_web_components_lens_icons_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_components_lens_icons_tsx"
     },
     {
       "relation": "imports",
@@ -9673,9 +10210,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "lens_icons_heartglyph",
-      "confidence_score": 1.0
+      "target": "lens_icons_heartglyph"
     },
     {
       "relation": "imports",
@@ -9684,9 +10221,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "lens_icons_batteryglyph",
-      "confidence_score": 1.0
+      "target": "lens_icons_batteryglyph"
     },
     {
       "relation": "imports",
@@ -9706,9 +10243,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "lens_icons_chevronglyph",
-      "confidence_score": 1.0
+      "target": "lens_icons_chevronglyph"
     },
     {
       "relation": "imports",
@@ -9728,9 +10265,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "lens_icons_navglyph",
-      "confidence_score": 1.0
+      "target": "lens_icons_navglyph"
     },
     {
       "relation": "imports",
@@ -9750,9 +10287,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "lens_icons_messageglyph",
-      "confidence_score": 1.0
+      "target": "lens_icons_messageglyph"
     },
     {
       "relation": "imports",
@@ -9774,6 +10311,16 @@
       "confidence_score": 1.0,
       "source": "apps_web_components_lens_lens_stage_tsx",
       "target": "lens_lens_stage_lensstage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/lens/navigate-demo.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "apps_web_components_lens_navigate_demo_tsx",
+      "target": "lens_navigate_demo_navigatedemo",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9898,6 +10445,46 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "apps_web_tests_registry_spatial_test_tsx",
+      "target": "registry_spatial_test_container",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "apps_web_tests_registry_spatial_test_tsx",
+      "target": "registry_spatial_test_g",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "apps_web_tests_registry_spatial_test_tsx",
+      "target": "registry_spatial_test_container_a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/spatial.test.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "apps_web_tests_registry_spatial_test_tsx",
+      "target": "registry_spatial_test_container_b",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/__tests__/registry/list.test.tsx",
       "source_location": "L13",
       "weight": 1.0,
@@ -9941,9 +10528,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "lib_component_docs_proprow",
-      "confidence_score": 1.0
+      "target": "lib_component_docs_proprow"
     },
     {
       "relation": "contains",
@@ -9951,9 +10538,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "lib_component_docs_componentdoc",
-      "confidence_score": 1.0
+      "target": "lib_component_docs_componentdoc"
     },
     {
       "relation": "contains",
@@ -9961,9 +10548,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "lib_component_docs_component_docs",
-      "confidence_score": 1.0
+      "target": "lib_component_docs_component_docs"
     },
     {
       "relation": "contains",
@@ -9971,9 +10558,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L322",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_component_docs_tsx",
-      "target": "lib_component_docs_getcomponentdoc",
-      "confidence_score": 1.0
+      "target": "lib_component_docs_getcomponentdoc"
     },
     {
       "relation": "contains",
@@ -11379,5 +11966,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "91a1cac89b40be32009f042a77d534fc4c353dab"
+  "built_at_commit": "504cac570a471f91f5cd0cebfec162722f799c61"
 }

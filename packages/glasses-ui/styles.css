@@ -578,3 +578,111 @@
     animation: none;
   }
 }
+
+/* ── Wave 3 spatial / world-anchored components ─────────────────────
+ * Rotations use SVG `transform` *attributes* (absolute), so these are
+ * never mirrored under RTL — a flipped bearing points the wrong way.
+ * ─────────────────────────────────────────────────────────────── */
+
+/* DirectionArrow — a bearing needle on a faint ring. */
+.glass-viewport .gk-direction,
+.glass-viewport .gk-compass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.glass-viewport .gk-direction__dial,
+.glass-viewport .gk-compass__dial {
+  inline-size: 120px;
+  block-size: 120px;
+}
+.glass-viewport .gk-direction__ring {
+  fill: none;
+  stroke: var(--green-faint);
+  stroke-width: 1.5;
+}
+.glass-viewport .gk-direction__needle {
+  fill: var(--green);
+  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--green) 45%, transparent));
+}
+.glass-viewport .gk-direction__label,
+.glass-viewport .gk-compass__label {
+  color: var(--ink-secondary);
+}
+.glass-viewport .gk-compass__label {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Compass — counter-rotating rose, fixed top marker = where you face. */
+.glass-viewport .gk-compass__ring {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 1.5;
+}
+.glass-viewport .gk-compass__marker {
+  fill: var(--green);
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--green) 50%, transparent));
+}
+.glass-viewport .gk-compass__n,
+.glass-viewport .gk-compass__tick {
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-family: var(--font-sans);
+  font-size: 11px;
+}
+.glass-viewport .gk-compass__n {
+  fill: var(--green);
+  font-weight: 700;
+}
+.glass-viewport .gk-compass__tick {
+  fill: var(--ink-tertiary);
+  font-weight: 500;
+}
+
+/* Reticle — four corner brackets framing the gaze center. */
+.glass-viewport .gk-reticle {
+  position: relative;
+  inline-size: 140px;
+  block-size: 140px;
+}
+.glass-viewport .gk-reticle__corner {
+  position: absolute;
+  inline-size: 18px;
+  block-size: 18px;
+  border: 0 solid var(--green-muted);
+  transition:
+    border-color 0.25s ease,
+    filter 0.25s ease;
+}
+.glass-viewport .gk-reticle--active .gk-reticle__corner {
+  border-color: var(--green);
+  filter: drop-shadow(0 0 4px color-mix(in oklab, var(--green) 70%, transparent));
+}
+/* PHYSICAL properties, not logical — world-anchored UI must never flip with
+ * `dir`. (The reticle is symmetric so the flip would be invisible, but keeping
+ * it physical makes the no-mirror rule explicit and safe if it ever changes.) */
+.glass-viewport .gk-reticle__corner--tl {
+  top: 0;
+  left: 0;
+  border-top-width: 1.5px;
+  border-left-width: 1.5px;
+}
+.glass-viewport .gk-reticle__corner--tr {
+  top: 0;
+  right: 0;
+  border-top-width: 1.5px;
+  border-right-width: 1.5px;
+}
+.glass-viewport .gk-reticle__corner--bl {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 1.5px;
+  border-left-width: 1.5px;
+}
+.glass-viewport .gk-reticle__corner--br {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 1.5px;
+  border-right-width: 1.5px;
+}

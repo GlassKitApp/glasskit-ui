@@ -8,6 +8,7 @@ import { DpadProvider } from "@/components/lens/dpad-provider";
 import { HeartRateDemo } from "@/components/lens/heart-rate-demo";
 import { MenuDemo } from "@/components/lens/menu-demo";
 import { SyncDemo } from "@/components/lens/sync-demo";
+import { NavigateDemo } from "@/components/lens/navigate-demo";
 
 type Demo = {
   id: string;
@@ -89,6 +90,22 @@ const DEMOS: Demo[] = [
     >
       {/* success state renders the route here */}
     </AsyncView>
+  </Screen>
+</GlassViewport>`,
+  },
+  {
+    id: "navigate",
+    label: "Navigate",
+    caption: "DirectionArrow (world-anchored) · Readout · Cue",
+    node: <NavigateDemo />,
+    code: `<GlassViewport>
+  <Screen
+    status={<StatusBar start="9:41" end="87%" />}
+    cue={<Cue tone="accent">Turn right onto Market St</Cue>}
+  >
+    {/* bearing comes from useGeolocation + useDeviceOrientation */}
+    <DirectionArrow bearing={35} />
+    <Readout label="Market St" value="320" unit="m" />
   </Screen>
 </GlassViewport>`,
   },
