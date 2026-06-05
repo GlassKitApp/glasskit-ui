@@ -571,6 +571,42 @@
       "norm_label": "onlybuiltdependencies"
     },
     {
+      "label": "conductor.json",
+      "file_type": "code",
+      "source_file": "conductor.json",
+      "source_location": "L1",
+      "id": "conductor_json",
+      "community": 10,
+      "norm_label": "conductor.json"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "conductor.json",
+      "source_location": "L2",
+      "id": "harrisburg_conductor_scripts",
+      "community": 10,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "run",
+      "file_type": "code",
+      "source_file": "conductor.json",
+      "source_location": "L3",
+      "id": "harrisburg_conductor_scripts_run",
+      "community": 10,
+      "norm_label": "run"
+    },
+    {
+      "label": "setup",
+      "file_type": "code",
+      "source_file": "conductor.json",
+      "source_location": "L4",
+      "id": "harrisburg_conductor_scripts_setup",
+      "community": 10,
+      "norm_label": "setup"
+    },
+    {
       "label": "config.json",
       "file_type": "code",
       "source_file": ".changeset/config.json",
@@ -1206,7 +1242,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L1",
       "id": "packages_glasses_ui_src_hooks_dpad_test_ts",
-      "community": 10,
+      "community": 3,
       "norm_label": "dpad.test.ts"
     },
     {
@@ -1215,7 +1251,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L5",
       "id": "hooks_dpad_test_current",
-      "community": 10,
+      "community": 3,
       "norm_label": "current"
     },
     {
@@ -1224,7 +1260,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L10",
       "id": "hooks_dpad_test_candidate",
-      "community": 10,
+      "community": 3,
       "norm_label": "candidate"
     },
     {
@@ -1233,7 +1269,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L17",
       "id": "hooks_dpad_test_s",
-      "community": 10,
+      "community": 3,
       "norm_label": "s"
     },
     {
@@ -1242,7 +1278,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L23",
       "id": "hooks_dpad_test_aligned",
-      "community": 10,
+      "community": 3,
       "norm_label": "aligned"
     },
     {
@@ -1251,7 +1287,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L24",
       "id": "hooks_dpad_test_drifted",
-      "community": 10,
+      "community": 3,
       "norm_label": "drifted"
     },
     {
@@ -1260,7 +1296,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L25",
       "id": "hooks_dpad_test_saligned",
-      "community": 10,
+      "community": 3,
       "norm_label": "saligned"
     },
     {
@@ -1269,7 +1305,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L26",
       "id": "hooks_dpad_test_sdrifted",
-      "community": 10,
+      "community": 3,
       "norm_label": "sdrifted"
     },
     {
@@ -1278,7 +1314,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L34",
       "id": "hooks_dpad_test_up",
-      "community": 10,
+      "community": 3,
       "norm_label": "up"
     },
     {
@@ -1287,7 +1323,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L35",
       "id": "hooks_dpad_test_down",
-      "community": 10,
+      "community": 3,
       "norm_label": "down"
     },
     {
@@ -1296,7 +1332,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L36",
       "id": "hooks_dpad_test_left",
-      "community": 10,
+      "community": 3,
       "norm_label": "left"
     },
     {
@@ -1305,7 +1341,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L37",
       "id": "hooks_dpad_test_right",
-      "community": 10,
+      "community": 3,
       "norm_label": "right"
     },
     {
@@ -1386,7 +1422,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
       "source_location": "L109",
       "id": "hooks_dpad_usedpad",
-      "community": 27,
+      "community": 3,
       "norm_label": "usedpad()"
     },
     {
@@ -2041,25 +2077,25 @@
       "label": "FEATURES",
       "file_type": "code",
       "source_file": "apps/web/app/(web)/page.tsx",
-      "source_location": "L12",
+      "source_location": "L11",
       "id": "web_page_features",
       "community": 25,
       "norm_label": "features"
     },
     {
-      "label": "InstallCommand()",
+      "label": "Install()",
       "file_type": "code",
       "source_file": "apps/web/app/(web)/page.tsx",
-      "source_location": "L35",
-      "id": "web_page_installcommand",
+      "source_location": "L34",
+      "id": "web_page_install",
       "community": 25,
-      "norm_label": "installcommand()"
+      "norm_label": "install()"
     },
     {
       "label": "Home()",
       "file_type": "code",
       "source_file": "apps/web/app/(web)/page.tsx",
-      "source_location": "L43",
+      "source_location": "L42",
       "id": "web_page_home",
       "community": 25,
       "norm_label": "home()"
@@ -2284,7 +2320,7 @@
       "label": "CtrlButton()",
       "file_type": "code",
       "source_file": "apps/web/components/emulator.tsx",
-      "source_location": "L138",
+      "source_location": "L136",
       "id": "components_emulator_ctrlbutton",
       "community": 25,
       "norm_label": "ctrlbutton()"
@@ -3161,6 +3197,15 @@
       "id": "glasses_ui_readme_part_of_the_glasskit_ecosystem",
       "community": 8,
       "norm_label": "part of the glasskit ecosystem"
+    },
+    {
+      "label": "InstallCommand()",
+      "file_type": "code",
+      "source_file": "apps/web/app/(web)/page.tsx",
+      "source_location": "L35",
+      "community": 25,
+      "norm_label": "installcommand()",
+      "id": "web_page_installcommand"
     }
   ],
   "links": [
@@ -3753,6 +3798,36 @@
       "confidence_score": 1.0,
       "source": "harrisburg_package_pnpm",
       "target": "harrisburg_package_pnpm_onlybuiltdependencies"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conductor.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "conductor_json",
+      "target": "harrisburg_conductor_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conductor.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "harrisburg_conductor_scripts",
+      "target": "harrisburg_conductor_scripts_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conductor.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "harrisburg_conductor_scripts",
+      "target": "harrisburg_conductor_scripts_setup",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4956,9 +5031,9 @@
       "source_file": "apps/web/postcss.config.mjs",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_postcss_config_mjs",
-      "target": "web_postcss_config_config",
-      "confidence_score": 1.0
+      "target": "web_postcss_config_config"
     },
     {
       "relation": "contains",
@@ -4966,9 +5041,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_package_json",
-      "target": "web_package_name",
-      "confidence_score": 1.0
+      "target": "web_package_name"
     },
     {
       "relation": "contains",
@@ -4976,9 +5051,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_package_json",
-      "target": "web_package_version",
-      "confidence_score": 1.0
+      "target": "web_package_version"
     },
     {
       "relation": "contains",
@@ -4986,9 +5061,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_package_json",
-      "target": "web_package_private",
-      "confidence_score": 1.0
+      "target": "web_package_private"
     },
     {
       "relation": "contains",
@@ -4996,9 +5071,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_package_json",
-      "target": "web_package_type",
-      "confidence_score": 1.0
+      "target": "web_package_type"
     },
     {
       "relation": "contains",
@@ -5006,9 +5081,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_package_json",
-      "target": "web_package_description",
-      "confidence_score": 1.0
+      "target": "web_package_description"
     },
     {
       "relation": "contains",
@@ -5016,9 +5091,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_package_json",
-      "target": "web_package_scripts",
-      "confidence_score": 1.0
+      "target": "web_package_scripts"
     },
     {
       "relation": "contains",
@@ -5026,9 +5101,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_package_json",
-      "target": "web_package_dependencies",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies"
     },
     {
       "relation": "contains",
@@ -5036,9 +5111,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_package_json",
-      "target": "web_package_devdependencies",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies"
     },
     {
       "relation": "contains",
@@ -5046,9 +5121,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_scripts",
-      "target": "web_package_scripts_dev",
-      "confidence_score": 1.0
+      "target": "web_package_scripts_dev"
     },
     {
       "relation": "contains",
@@ -5056,9 +5131,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_scripts",
-      "target": "web_package_scripts_build",
-      "confidence_score": 1.0
+      "target": "web_package_scripts_build"
     },
     {
       "relation": "contains",
@@ -5066,9 +5141,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_scripts",
-      "target": "web_package_scripts_start",
-      "confidence_score": 1.0
+      "target": "web_package_scripts_start"
     },
     {
       "relation": "contains",
@@ -5076,9 +5151,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_scripts",
-      "target": "web_package_scripts_typecheck",
-      "confidence_score": 1.0
+      "target": "web_package_scripts_typecheck"
     },
     {
       "relation": "contains",
@@ -5086,9 +5161,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_glasskit_glasses_ui",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies_glasskit_glasses_ui"
     },
     {
       "relation": "contains",
@@ -5096,9 +5171,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_clsx",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies_clsx"
     },
     {
       "relation": "contains",
@@ -5106,9 +5181,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_next",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies_next"
     },
     {
       "relation": "contains",
@@ -5116,9 +5191,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_react",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies_react"
     },
     {
       "relation": "contains",
@@ -5126,9 +5201,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_react_dom",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies_react_dom"
     },
     {
       "relation": "contains",
@@ -5136,9 +5211,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_tailwind_merge",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies_tailwind_merge"
     },
     {
       "relation": "calls",
@@ -5157,9 +5232,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_tailwindcss_postcss",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_tailwindcss_postcss"
     },
     {
       "relation": "contains",
@@ -5167,9 +5242,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_types_node",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_types_node"
     },
     {
       "relation": "contains",
@@ -5177,9 +5252,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_types_react",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_types_react"
     },
     {
       "relation": "contains",
@@ -5187,9 +5262,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_types_react_dom",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_types_react_dom"
     },
     {
       "relation": "contains",
@@ -5197,9 +5272,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_tailwindcss",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_tailwindcss"
     },
     {
       "relation": "contains",
@@ -5207,9 +5282,9 @@
       "source_file": "apps/web/package.json",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_typescript",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_typescript"
     },
     {
       "relation": "contains",
@@ -5217,9 +5292,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_tsconfig_json",
-      "target": "web_tsconfig_compileroptions",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions"
     },
     {
       "relation": "contains",
@@ -5227,9 +5302,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_tsconfig_json",
-      "target": "web_tsconfig_include",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_include"
     },
     {
       "relation": "contains",
@@ -5237,9 +5312,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_tsconfig_json",
-      "target": "web_tsconfig_exclude",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_exclude"
     },
     {
       "relation": "contains",
@@ -5247,9 +5322,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_target",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_target"
     },
     {
       "relation": "contains",
@@ -5257,9 +5332,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_lib",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_lib"
     },
     {
       "relation": "contains",
@@ -5267,9 +5342,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_allowjs",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_allowjs"
     },
     {
       "relation": "contains",
@@ -5277,9 +5352,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_skiplibcheck",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_skiplibcheck"
     },
     {
       "relation": "contains",
@@ -5287,9 +5362,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_strict",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_strict"
     },
     {
       "relation": "contains",
@@ -5297,9 +5372,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_noemit",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_noemit"
     },
     {
       "relation": "contains",
@@ -5307,9 +5382,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_esmoduleinterop",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_esmoduleinterop"
     },
     {
       "relation": "contains",
@@ -5317,9 +5392,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_module",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_module"
     },
     {
       "relation": "contains",
@@ -5327,9 +5402,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_moduleresolution",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_moduleresolution"
     },
     {
       "relation": "contains",
@@ -5337,9 +5412,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_resolvejsonmodule",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_resolvejsonmodule"
     },
     {
       "relation": "contains",
@@ -5347,9 +5422,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_isolatedmodules",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_isolatedmodules"
     },
     {
       "relation": "contains",
@@ -5357,9 +5432,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_jsx",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_jsx"
     },
     {
       "relation": "contains",
@@ -5367,9 +5442,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_incremental",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_incremental"
     },
     {
       "relation": "contains",
@@ -5377,9 +5452,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_plugins",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_plugins"
     },
     {
       "relation": "contains",
@@ -5387,9 +5462,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions",
-      "target": "web_tsconfig_compileroptions_paths",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_compileroptions_paths"
     },
     {
       "relation": "contains",
@@ -5397,9 +5472,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions_paths",
-      "target": "web_tsconfig_paths",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_paths"
     },
     {
       "relation": "contains",
@@ -5407,9 +5482,9 @@
       "source_file": "apps/web/next.config.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_next_config_ts",
-      "target": "web_next_config_nextconfig",
-      "confidence_score": 1.0
+      "target": "web_next_config_nextconfig"
     },
     {
       "relation": "contains",
@@ -5417,9 +5492,9 @@
       "source_file": "apps/web/app/(lens)/layout.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_lens_layout_tsx",
-      "target": "lens_layout_metadata",
-      "confidence_score": 1.0
+      "target": "lens_layout_metadata"
     },
     {
       "relation": "contains",
@@ -5427,9 +5502,9 @@
       "source_file": "apps/web/app/(lens)/layout.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_lens_layout_tsx",
-      "target": "lens_layout_lenslayout",
-      "confidence_score": 1.0
+      "target": "lens_layout_lenslayout"
     },
     {
       "relation": "imports_from",
@@ -5438,9 +5513,9 @@
       "source_file": "apps/web/app/(lens)/lens/page.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_lens_lens_page_tsx",
-      "target": "apps_web_components_lens_app_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_components_lens_app_tsx"
     },
     {
       "relation": "imports",
@@ -5449,9 +5524,9 @@
       "source_file": "apps/web/app/(lens)/lens/page.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_lens_lens_page_tsx",
-      "target": "components_lens_app_lensapp",
-      "confidence_score": 1.0
+      "target": "components_lens_app_lensapp"
     },
     {
       "relation": "contains",
@@ -5459,9 +5534,9 @@
       "source_file": "apps/web/app/(lens)/lens/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_lens_lens_page_tsx",
-      "target": "lens_page_lenspage",
-      "confidence_score": 1.0
+      "target": "lens_page_lenspage"
     },
     {
       "relation": "contains",
@@ -5469,9 +5544,9 @@
       "source_file": "apps/web/app/(web)/layout.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_layout_tsx",
-      "target": "web_layout_metadata",
-      "confidence_score": 1.0
+      "target": "web_layout_metadata"
     },
     {
       "relation": "contains",
@@ -5479,9 +5554,9 @@
       "source_file": "apps/web/app/(web)/layout.tsx",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_layout_tsx",
-      "target": "web_layout_weblayout",
-      "confidence_score": 1.0
+      "target": "web_layout_weblayout"
     },
     {
       "relation": "imports_from",
@@ -5490,9 +5565,9 @@
       "source_file": "apps/web/app/(web)/page.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_page_tsx",
-      "target": "apps_web_components_emulator_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_components_emulator_tsx"
     },
     {
       "relation": "imports",
@@ -5501,9 +5576,9 @@
       "source_file": "apps/web/app/(web)/page.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_page_tsx",
-      "target": "components_emulator_emulator",
-      "confidence_score": 1.0
+      "target": "components_emulator_emulator"
     },
     {
       "relation": "imports_from",
@@ -5512,9 +5587,9 @@
       "source_file": "apps/web/app/(web)/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_page_tsx",
-      "target": "apps_web_components_icons_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_components_icons_tsx"
     },
     {
       "relation": "imports",
@@ -5523,9 +5598,9 @@
       "source_file": "apps/web/app/(web)/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_page_tsx",
-      "target": "components_icons_focusicon",
-      "confidence_score": 1.0
+      "target": "components_icons_focusicon"
     },
     {
       "relation": "imports",
@@ -5534,9 +5609,9 @@
       "source_file": "apps/web/app/(web)/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_page_tsx",
-      "target": "components_icons_gestureicon",
-      "confidence_score": 1.0
+      "target": "components_icons_gestureicon"
     },
     {
       "relation": "imports",
@@ -5545,9 +5620,9 @@
       "source_file": "apps/web/app/(web)/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_page_tsx",
-      "target": "components_icons_layersicon",
-      "confidence_score": 1.0
+      "target": "components_icons_layersicon"
     },
     {
       "relation": "imports",
@@ -5556,20 +5631,9 @@
       "source_file": "apps/web/app/(web)/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_page_tsx",
-      "target": "components_icons_terminalicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/app/(web)/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "apps_web_app_web_page_tsx",
-      "target": "components_icons_githubicon",
-      "confidence_score": 1.0
+      "target": "components_icons_terminalicon"
     },
     {
       "relation": "contains",
@@ -5577,18 +5641,18 @@
       "source_file": "apps/web/app/(web)/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_page_tsx",
-      "target": "web_page_features",
-      "confidence_score": 1.0
+      "target": "web_page_features"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/app/(web)/page.tsx",
-      "source_location": "L35",
+      "source_location": "L34",
       "weight": 1.0,
       "source": "apps_web_app_web_page_tsx",
-      "target": "web_page_installcommand",
+      "target": "web_page_install",
       "confidence_score": 1.0
     },
     {
@@ -5597,9 +5661,30 @@
       "source_file": "apps/web/app/(web)/page.tsx",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_page_tsx",
-      "target": "web_page_home",
-      "confidence_score": 1.0
+      "target": "web_page_home"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/app/(web)/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "apps_web_app_web_page_tsx",
+      "target": "components_icons_githubicon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/app/(web)/page.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "apps_web_app_web_page_tsx",
+      "target": "web_page_installcommand"
     },
     {
       "relation": "contains",
@@ -5607,9 +5692,9 @@
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_lens_app_tsx",
-      "target": "components_lens_app_screen",
-      "confidence_score": 1.0
+      "target": "components_lens_app_screen"
     },
     {
       "relation": "contains",
@@ -5617,9 +5702,9 @@
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_lens_app_tsx",
-      "target": "components_lens_app_tiles",
-      "confidence_score": 1.0
+      "target": "components_lens_app_tiles"
     },
     {
       "relation": "contains",
@@ -5627,9 +5712,9 @@
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_lens_app_tsx",
-      "target": "components_lens_app_lensapp",
-      "confidence_score": 1.0
+      "target": "components_lens_app_lensapp"
     },
     {
       "relation": "contains",
@@ -5637,9 +5722,9 @@
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_lens_app_tsx",
-      "target": "components_lens_app_home",
-      "confidence_score": 1.0
+      "target": "components_lens_app_home"
     },
     {
       "relation": "contains",
@@ -5647,9 +5732,9 @@
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_lens_app_tsx",
-      "target": "components_lens_app_monitor",
-      "confidence_score": 1.0
+      "target": "components_lens_app_monitor"
     },
     {
       "relation": "contains",
@@ -5657,9 +5742,9 @@
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_lens_app_tsx",
-      "target": "components_lens_app_choose",
-      "confidence_score": 1.0
+      "target": "components_lens_app_choose"
     },
     {
       "relation": "contains",
@@ -5667,9 +5752,9 @@
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L148",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_lens_app_tsx",
-      "target": "components_lens_app_cue",
-      "confidence_score": 1.0
+      "target": "components_lens_app_cue"
     },
     {
       "relation": "contains",
@@ -5677,9 +5762,9 @@
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L167",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_lens_app_tsx",
-      "target": "components_lens_app_notify",
-      "confidence_score": 1.0
+      "target": "components_lens_app_notify"
     },
     {
       "relation": "contains",
@@ -5687,9 +5772,9 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
-      "target": "components_icons_iconprops",
-      "confidence_score": 1.0
+      "target": "components_icons_iconprops"
     },
     {
       "relation": "contains",
@@ -5697,9 +5782,9 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
-      "target": "components_icons_stroke",
-      "confidence_score": 1.0
+      "target": "components_icons_stroke"
     },
     {
       "relation": "contains",
@@ -5707,9 +5792,9 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
-      "target": "components_icons_focusicon",
-      "confidence_score": 1.0
+      "target": "components_icons_focusicon"
     },
     {
       "relation": "contains",
@@ -5717,9 +5802,9 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
-      "target": "components_icons_gestureicon",
-      "confidence_score": 1.0
+      "target": "components_icons_gestureicon"
     },
     {
       "relation": "contains",
@@ -5727,9 +5812,9 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
-      "target": "components_icons_layersicon",
-      "confidence_score": 1.0
+      "target": "components_icons_layersicon"
     },
     {
       "relation": "contains",
@@ -5737,9 +5822,9 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
-      "target": "components_icons_terminalicon",
-      "confidence_score": 1.0
+      "target": "components_icons_terminalicon"
     },
     {
       "relation": "contains",
@@ -5747,9 +5832,9 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
-      "target": "components_icons_chevronup",
-      "confidence_score": 1.0
+      "target": "components_icons_chevronup"
     },
     {
       "relation": "contains",
@@ -5757,9 +5842,9 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
-      "target": "components_icons_chevrondown",
-      "confidence_score": 1.0
+      "target": "components_icons_chevrondown"
     },
     {
       "relation": "contains",
@@ -5767,9 +5852,9 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
-      "target": "components_icons_chevronleft",
-      "confidence_score": 1.0
+      "target": "components_icons_chevronleft"
     },
     {
       "relation": "contains",
@@ -5777,9 +5862,9 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
-      "target": "components_icons_chevronright",
-      "confidence_score": 1.0
+      "target": "components_icons_chevronright"
     },
     {
       "relation": "contains",
@@ -5787,9 +5872,9 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
-      "target": "components_icons_selectdot",
-      "confidence_score": 1.0
+      "target": "components_icons_selectdot"
     },
     {
       "relation": "contains",
@@ -5797,9 +5882,9 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
-      "target": "components_icons_githubicon",
-      "confidence_score": 1.0
+      "target": "components_icons_githubicon"
     },
     {
       "relation": "imports_from",
@@ -5808,9 +5893,9 @@
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_emulator_tsx",
-      "target": "apps_web_components_icons_tsx",
-      "confidence_score": 1.0
+      "target": "apps_web_components_icons_tsx"
     },
     {
       "relation": "imports",
@@ -5819,9 +5904,9 @@
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_emulator_tsx",
-      "target": "components_icons_gestureicon",
-      "confidence_score": 1.0
+      "target": "components_icons_gestureicon"
     },
     {
       "relation": "imports",
@@ -5830,9 +5915,9 @@
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_emulator_tsx",
-      "target": "components_icons_chevronup",
-      "confidence_score": 1.0
+      "target": "components_icons_chevronup"
     },
     {
       "relation": "imports",
@@ -5841,9 +5926,9 @@
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_emulator_tsx",
-      "target": "components_icons_chevrondown",
-      "confidence_score": 1.0
+      "target": "components_icons_chevrondown"
     },
     {
       "relation": "imports",
@@ -5852,9 +5937,9 @@
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_emulator_tsx",
-      "target": "components_icons_chevronleft",
-      "confidence_score": 1.0
+      "target": "components_icons_chevronleft"
     },
     {
       "relation": "imports",
@@ -5863,9 +5948,9 @@
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_emulator_tsx",
-      "target": "components_icons_chevronright",
-      "confidence_score": 1.0
+      "target": "components_icons_chevronright"
     },
     {
       "relation": "imports",
@@ -5874,9 +5959,9 @@
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_emulator_tsx",
-      "target": "components_icons_selectdot",
-      "confidence_score": 1.0
+      "target": "components_icons_selectdot"
     },
     {
       "relation": "imports_from",
@@ -5885,9 +5970,9 @@
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_emulator_tsx",
-      "target": "apps_web_lib_utils_ts",
-      "confidence_score": 1.0
+      "target": "apps_web_lib_utils_ts"
     },
     {
       "relation": "imports",
@@ -5896,9 +5981,9 @@
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_emulator_tsx",
-      "target": "lib_utils_cn",
-      "confidence_score": 1.0
+      "target": "lib_utils_cn"
     },
     {
       "relation": "contains",
@@ -5906,9 +5991,9 @@
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_emulator_tsx",
-      "target": "components_emulator_emulator",
-      "confidence_score": 1.0
+      "target": "components_emulator_emulator"
     },
     {
       "relation": "contains",
@@ -5916,9 +6001,9 @@
       "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_emulator_tsx",
-      "target": "components_emulator_ctrlbutton",
-      "confidence_score": 1.0
+      "target": "components_emulator_ctrlbutton"
     },
     {
       "relation": "calls",
@@ -5937,9 +6022,9 @@
       "source_file": "apps/web/lib/utils.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_utils_ts",
-      "target": "lib_utils_cn",
-      "confidence_score": 1.0
+      "target": "lib_utils_cn"
     },
     {
       "relation": "contains",
@@ -6793,5 +6878,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0b8edaa4c4d5729f1ef3ebd450672fcbdb05965f"
+  "built_at_commit": "6a84b790a89ffc10f8ff27ca984acf602bae16f2"
 }

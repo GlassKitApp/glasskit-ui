@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     template: "%s — GlassKit UI",
   },
   description:
-    "The open-source SDK + component registry for Meta Ray-Ban Display apps: a glasses-tuned spatial focus engine, the Neural Band gesture vocabulary, a live in-browser emulator, and an npx registry. The ergonomic React layer Meta does not ship.",
+    "The open-source SDK for Meta Ray-Ban Display apps: a glasses-tuned spatial focus engine, the Neural Band gesture vocabulary, and an additive component system. The ergonomic React layer Meta does not ship.",
   metadataBase: new URL("https://ui.glasskit.app"),
   openGraph: {
     title: "GlassKit UI — the React layer for Meta Ray-Ban Display",

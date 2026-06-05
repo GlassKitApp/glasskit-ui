@@ -1,16 +1,16 @@
-# Graph Report - harrisburg  (2026-06-02)
+# Graph Report - harrisburg  (2026-06-05)
 
 ## Corpus Check
-- 40 files · ~17,223 words
+- 41 files · ~17,238 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 351 nodes · 358 edges · 32 communities (26 shown, 6 thin omitted)
+- 356 nodes · 362 edges · 32 communities (26 shown, 6 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0b8edaa4`
+- Built from commit: `6a84b790`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -56,10 +56,10 @@
 10. `scripts` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Choose()` --calls--> `useNeuralBand()`  [INFERRED]
-  apps/web/components/lens-app.tsx → packages/glasses-ui/src/hooks/sensors.ts
 - `LensApp()` --calls--> `useDpad()`  [INFERRED]
   apps/web/components/lens-app.tsx → packages/glasses-ui/src/hooks/dpad.tsx
+- `Choose()` --calls--> `useNeuralBand()`  [INFERRED]
+  apps/web/components/lens-app.tsx → packages/glasses-ui/src/hooks/sensors.ts
 - `cn()` --calls--> `clsx`  [INFERRED]
   apps/web/lib/utils.ts → apps/web/package.json
 - `CtrlButton()` --calls--> `cn()`  [EXTRACTED]
@@ -80,8 +80,8 @@ Cohesion: 0.07
 Nodes (26): author, bugs, description, files, homepage, keywords, name, peerDependencies (+18 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.12
-Nodes (19): Dir, focusables(), KEY_TO_DIR, moveFocus(), RectLike, scoreRect(), seedFocus(), Motion (+11 more)
+Cohesion: 0.07
+Nodes (31): Dir, focusables(), KEY_TO_DIR, moveFocus(), RectLike, scoreRect(), seedFocus(), aligned (+23 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.11
@@ -108,8 +108,8 @@ Cohesion: 0.17
 Nodes (11): 0. How this repo was set up, 1. Locked decisions (from brainstorming — do not relitigate), 2. The SDK to extract (Phase 2) — source of truth, 3. Monorepo conventions to mirror (verified from the boilerplate), 4. NEW build decisions for npm publish (this is where this repo differs), 5. Phase 0 — hardware gate (OWNER's manual step; doesn't block the build), 6. ⚠️ Boundaries — DO NOT do these without explicit owner go-ahead, 7. Recommended first steps (Phases 1 → 2) (+3 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.17
-Nodes (11): aligned, candidate, CURRENT, down, drifted, left, right, s (+3 more)
+Cohesion: 0.50
+Nodes (3): scripts, run, setup
 
 ### Community 11 - "Community 11"
 Cohesion: 0.20
@@ -140,7 +140,7 @@ Cohesion: 0.08
 Nodes (23): dependencies, @glasskit/glasses-ui, next, react, react-dom, tailwind-merge, description, devDependencies (+15 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.15
+Cohesion: 0.14
 Nodes (16): CtrlButton(), Emulator(), ChevronDown(), ChevronLeft(), ChevronRight(), ChevronUp(), FocusIcon(), GestureIcon() (+8 more)
 
 ### Community 26 - "Community 26"
@@ -148,11 +148,11 @@ Cohesion: 0.10
 Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
 
 ### Community 27 - "Community 27"
-Cohesion: 0.18
-Nodes (5): Choose(), LensApp(), Screen, TILES, useDpad()
+Cohesion: 0.20
+Nodes (4): Choose(), LensApp(), Screen, TILES
 
 ## Knowledge Gaps
-- **234 isolated node(s):** `$schema`, `target`, `lib`, `module`, `moduleResolution` (+229 more)
+- **236 isolated node(s):** `$schema`, `target`, `lib`, `module`, `moduleResolution` (+231 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -164,7 +164,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `clsx` connect `Community 25` to `Community 17`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **What connects `$schema`, `target`, `lib` to the rest of the system?**
-  _234 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _236 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
@@ -172,4 +172,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.12307692307692308 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07422402159244265 - nodes in this community are weakly interconnected._

@@ -13,9 +13,9 @@ import {
 
 /**
  * The in-browser glasses emulator. The 600×600 lens runs in an iframe (its own
- * additive stylesheet, isolated from this Liquid-Glass chrome). The control
- * panel dispatches the exact events the SDK listens for — arrow `keydown` for
- * the D-pad, a `neuralband` CustomEvent for a pinch — into the iframe's window,
+ * additive stylesheet, isolated from this clean site chrome). The control panel
+ * dispatches the exact events the SDK listens for — arrow `keydown` for the
+ * D-pad, a `neuralband` CustomEvent for a pinch — into the iframe's window,
  * which is precisely how the real Neural Band reaches a Web App.
  */
 export function Emulator() {
@@ -63,27 +63,25 @@ export function Emulator() {
   }, [sendKey]);
 
   return (
-    <div className="flex flex-col items-center gap-8 lg:flex-row lg:gap-12">
+    <div className="flex flex-col items-center gap-8 lg:flex-row lg:justify-center lg:gap-10">
       <div className="lens-stage">
-        <div className="lens-bezel specular">
-          <iframe
-            ref={frameRef}
-            src="/lens"
-            title="GlassKit glasses emulator — a live 600×600 demo running the SDK"
-            width={600}
-            height={600}
-            loading="eager"
-            className="block rounded-[1.4rem] bg-black"
-          />
-        </div>
+        <iframe
+          ref={frameRef}
+          src="/lens"
+          title="GlassKit glasses emulator — a live 600×600 demo running the SDK"
+          width={600}
+          height={600}
+          loading="eager"
+          className="block size-[600px] rounded-[28px] border border-line bg-black shadow-[0_24px_60px_-30px_rgba(0,0,0,0.45)]"
+        />
       </div>
 
-      <div className="glass-panel specular flex w-full max-w-xs flex-col gap-5 p-6 text-left">
+      <div className="surface flex w-full max-w-[280px] flex-col gap-5 p-6">
         <div>
-          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-accent">
+          <p className="text-[15px] font-semibold tracking-tight">
             Neural Band
           </p>
-          <p className="mt-1 text-sm text-ink-body">
+          <p className="mt-1 text-[13px] leading-relaxed text-ink-2">
             On-device this is your wristband. Here, drive it by hand.
           </p>
         </div>
@@ -122,12 +120,12 @@ export function Emulator() {
         <button
           type="button"
           onClick={sendPinch}
-          className="inline-flex items-center justify-center gap-2 rounded-xl border border-accent/40 bg-accent/10 px-4 py-3 text-sm font-semibold text-accent-bright transition ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-accent/20 active:scale-[0.98]"
+          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-accent-ink/25 bg-accent/15 px-4 text-sm font-medium text-accent-ink transition-colors hover:bg-accent/25 active:scale-[0.98]"
         >
           <GestureIcon className="size-5" /> Pinch
         </button>
 
-        <p className="text-xs text-ink-dim">
+        <p className="text-xs leading-relaxed text-ink-3">
           Arrow keys + Enter work too — the wristband just emits those.
         </p>
       </div>
@@ -152,10 +150,10 @@ function CtrlButton({
       aria-label={label}
       onClick={onClick}
       className={cn(
-        "flex aspect-square items-center justify-center rounded-xl border transition ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-95",
+        "flex aspect-square min-h-11 items-center justify-center rounded-2xl border transition-colors active:scale-95",
         accent
-          ? "border-accent/50 bg-accent/15 text-accent-bright"
-          : "border-white/10 bg-white/[0.04] text-ink hover:bg-white/[0.08]",
+          ? "border-accent-ink/25 bg-accent/15 text-accent-ink"
+          : "border-line bg-bg text-ink hover:bg-bg-2",
       )}
     >
       {children}
