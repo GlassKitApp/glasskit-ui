@@ -1,49 +1,50 @@
 @import "tailwindcss";
 
 /* ───────────────────────────────────────────────────────────────
- * ui.glasskit.app — SITE CHROME. Full-width, light, with personality:
- * a soft color mesh, the GlassKit green, and the additive components
- * shown as dark, glowing artifacts floating on the light page (their
- * real on-device look). Radix-style component showcase.
+ * ui.glasskit.app — SITE CHROME. Blueprint / workshop aesthetic
+ * (ref: render.com): a hairline blueprint grid, hard 1px borders, sharp
+ * corners, instrument-grade monospace labels, the GlassKit brand type
+ * (Bricolage Grotesque / Hanken Grotesk / JetBrains Mono) and green.
+ * The components are the dark "building blocks" you snap into the grid.
  * ─────────────────────────────────────────────────────────────── */
 
 @theme inline {
   --color-bg: var(--bg);
-  --color-bg-2: var(--bg-2);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-ink-3: var(--ink-3);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
-  --color-violet: var(--violet);
   --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-grid: var(--grid);
 
   --color-add: var(--add);
   --color-add-ink: var(--add-ink);
   --color-add-line: var(--add-line);
 
-  --font-sans:
-    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
-    "Helvetica Neue", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-mono:
-    ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  /* next/font already bakes a fallback into each variable; Tailwind v4 @theme
+   * chokes on `var() + extra fallback list`, so reference the variable only. */
+  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-hanken);
+  --font-mono: var(--font-jetbrains);
 }
 
 :root {
   --bg: #ffffff;
-  --bg-2: #f4f5f7;
-  --ink: #16181d;
-  --ink-2: #5b6068;
-  --ink-3: #898e98;
+  --grid: #ededf1; /* blueprint grid lines (subtle) */
+  --line: #e2e4e8; /* light hard border */
+  --line-2: #cdd1d6; /* stronger hard border */
+  --ink: #14161a;
+  --ink-2: #565b63;
+  --ink-3: #888d96;
   --accent: #36e27f; /* GlassKit green */
   --accent-ink: #07823f; /* green that passes contrast as text on white */
-  --violet: #6d6cff; /* secondary mesh hue (ambient only) */
-  --line: #e6e7ea;
 
-  /* The additive surface (dark component cards on the light page). */
+  /* The additive surface — dark building blocks on the blueprint. */
   --add: #0a0b0d;
   --add-ink: #eef2f0;
-  --add-line: #23262b;
+  --add-line: #2a2f36;
 }
 
 @layer base {
@@ -62,14 +63,8 @@
     min-height: 100dvh;
     overflow-x: hidden;
   }
-  h1,
-  h2,
-  h3 {
-    font-weight: 600;
-    letter-spacing: -0.03em;
-  }
   ::selection {
-    background: color-mix(in oklab, var(--accent) 30%, transparent);
+    background: color-mix(in oklab, var(--accent) 32%, transparent);
   }
   button,
   a,
@@ -79,54 +74,60 @@
   }
   :focus-visible {
     outline: 2px solid var(--accent-ink);
-    outline-offset: 3px;
-    border-radius: 6px;
+    outline-offset: 2px;
   }
 }
 
-/* ── Personality: a soft color mesh background ───────────────────── */
-.mesh {
-  background:
-    radial-gradient(
-      52% 50% at 82% 12%,
-      color-mix(in oklab, var(--accent) 22%, transparent),
-      transparent 62%
-    ),
-    radial-gradient(
-      46% 48% at 12% 28%,
-      color-mix(in oklab, var(--violet) 16%, transparent),
-      transparent 60%
-    ),
-    radial-gradient(80% 60% at 50% 110%, #eef0f4, transparent 70%), var(--bg);
+/* Display type — Bricolage Grotesque, tight, confident. */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.035em;
 }
 
-/* ── Additive component card (the real on-device look, on light) ──── */
-.add-card {
-  background:
-    radial-gradient(
-      120% 90% at 12% 0%,
-      rgba(255, 255, 255, 0.05),
-      transparent 60%
-    ),
-    var(--add);
+/* Instrument-grade monospace label. */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* The blueprint grid background — graph paper for the workshop. */
+.blueprint {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Hard-bordered block (sharp corners, 1px line). */
+.block {
+  border: 1px solid var(--line-2);
+  background: var(--bg);
+}
+
+/* A dark additive building block (the component, snapped into the grid). */
+.add-block {
+  background: var(--add);
   color: var(--add-ink);
   border: 1px solid var(--add-line);
-  border-radius: 20px;
-  box-shadow:
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.05),
-    0 40px 70px -34px rgba(8, 12, 18, 0.55),
-    0 12px 28px -18px rgba(8, 12, 18, 0.4);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
 }
 .add-label {
+  font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 0.18em;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #8b9bd0;
+  color: #7f8794;
 }
 .add-dim {
   color: #8a8f98;
 }
-/* Emitted-light green accents inside additive cards. */
 .add-accent {
   color: var(--accent);
 }
@@ -137,31 +138,33 @@
   border-color: var(--accent);
   box-shadow:
     0 0 0 1px var(--accent),
-    0 0 22px -4px var(--accent);
+    0 0 20px -6px var(--accent);
 }
 
-/* A glowing accent word in a headline, and the green halo behind the
- * showcase — emitted-light personality on the light page. */
-.glow-accent {
-  text-shadow: 0 0 22px color-mix(in oklab, var(--accent) 45%, transparent);
+/* Hard-edged buttons (sharp corners). */
+.btn {
+  @apply inline-flex items-center gap-2 px-5 py-3 text-[15px] font-medium transition-colors;
 }
-.glow-halo {
-  background: radial-gradient(
-    60% 60% at 60% 40%,
-    color-mix(in oklab, var(--accent) 22%, transparent),
-    transparent 70%
-  );
+.btn-solid {
+  background: var(--ink);
+  color: var(--bg);
 }
-
-/* Pills */
-.pill {
-  @apply inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[15px] font-medium transition-colors;
+.btn-solid:hover {
+  background: #000;
+}
+.btn-outline {
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: var(--bg);
+}
+.btn-outline:hover {
+  background: color-mix(in oklab, var(--ink) 5%, transparent);
 }
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -169,13 +172,13 @@
   }
 }
 .rise {
-  animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .rise-2 {
-  animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.07s both;
 }
 .rise-3 {
-  animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+  animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -183,7 +186,6 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
