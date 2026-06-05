@@ -17,7 +17,20 @@ export default function LensLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {/* The SDK seeds focus on mount (and on every D-pad move). Inside an
+         * iframe, a default focus() scrolls the PARENT page to bring the iframe
+         * into view — which would yank the homepage down past the hero. Default
+         * focus() to preventScroll here (harmless inside a 600×600 lens that
+         * never scrolls), so the host page stays put. Runs before hydration. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var f=HTMLElement.prototype.focus;HTMLElement.prototype.focus=function(o){return f.call(this,o||{preventScroll:true});};})();",
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
