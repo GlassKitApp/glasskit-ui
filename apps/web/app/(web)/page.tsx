@@ -65,7 +65,7 @@ export default function Home() {
               Open source · Meta Ray-Ban Display
             </p>
             <h1 className="rise font-display mt-5 text-[clamp(2.9rem,7vw,6.6rem)] leading-[0.95]">
-              Building blocks
+              The component library
               <br />
               for the{" "}
               <span className="bg-gradient-to-r from-[#0a7d42] to-[#37d97a] bg-clip-text text-transparent">
@@ -74,9 +74,9 @@ export default function Home() {
               .
             </h1>
             <p className="rise-2 mt-7 max-w-md text-lg leading-relaxed text-ink-2">
-              The open-source React component library for Meta Ray-Ban Display.
-              A focus engine, the Neural Band gestures, and additive components
-              that look right on the lens.
+              Accessible, additive React components for Meta Ray-Ban Display. A
+              focus engine, the Neural Band gestures, and everything a
+              glanceable display needs. Open source.
             </p>
             <div className="rise-2 mt-8 flex flex-wrap items-center gap-3">
               <a href={GITHUB} className="btn btn-solid">
@@ -119,14 +119,14 @@ export default function Home() {
           <div>
             <p className="mono-label">The kit · 28 parts</p>
             <h2 className="font-display mt-3 text-4xl leading-[0.95] sm:text-5xl">
-              A block for every part
+              A component for every
               <br />
-              of the HUD.
+              part of the HUD.
             </h2>
           </div>
           <p className="max-w-xs text-ink-2">
-            Monitor, navigate, guide, caption, notify. Derived from what a
-            glanceable display actually does.
+            Monitor, navigate, guide, caption, notify. The archetypes a
+            glanceable display actually needs.
           </p>
         </div>
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
