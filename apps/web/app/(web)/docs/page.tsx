@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { InstallCommand } from "@/components/install-command";
 import { LensStage } from "@/components/lens/lens-stage";
 import { HeartRateDemo } from "@/components/lens/heart-rate-demo";
+import { CodeBlock } from "@/components/code-block";
 
 export const metadata: Metadata = { title: "Getting started" };
 
@@ -25,14 +26,6 @@ export function App() {
     </GlassViewport>
   );
 }`;
-
-function CodeBlock({ children }: { children: string }) {
-  return (
-    <pre className="mt-4 overflow-x-auto border border-line-2 bg-bg-2 p-4 font-mono text-[13px] leading-relaxed text-ink">
-      <code>{children}</code>
-    </pre>
-  );
-}
 
 export default function DocsGettingStarted() {
   return (
@@ -66,7 +59,7 @@ export default function DocsGettingStarted() {
           <p className="mt-3 text-ink-2">
             In your app&rsquo;s CSS entry, right after Tailwind:
           </p>
-          <CodeBlock>{IMPORT_CSS}</CodeBlock>
+          <CodeBlock className="mt-4">{IMPORT_CSS}</CodeBlock>
 
           <h2 className="font-display mt-14 text-2xl">3. Build</h2>
           <p className="mt-3 text-ink-2">
@@ -75,11 +68,22 @@ export default function DocsGettingStarted() {
             <code className="font-mono text-sm">focusable</code> class joins
             D-pad navigation.
           </p>
-          <CodeBlock>{USAGE}</CodeBlock>
+          <CodeBlock className="mt-4">{USAGE}</CodeBlock>
 
-          <p className="mono-label mt-16">
-            ◇ Full docs ship with the styled components
+          <h2 className="font-display mt-14 text-2xl">4. Add components</h2>
+          <p className="mt-3 text-ink-2">
+            The styled spine &mdash; Screen, StatusBar, Readout, Button, List,
+            Progress, AsyncView and more &mdash; each with a live preview, props,
+            and usage.
           </p>
+          <div className="mt-5 flex gap-3">
+            <a href="/docs/components" className="btn btn-solid">
+              Browse components <span aria-hidden>→</span>
+            </a>
+            <a href="/playground" className="btn btn-outline">
+              Playground
+            </a>
+          </div>
         </div>
       </main>
     </>
