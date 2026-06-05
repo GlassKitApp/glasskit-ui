@@ -158,10 +158,7 @@ export function StatusBarCard({ className }: { className?: string }) {
     <Block name="StatusBar" tag="ui" className={className}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4 text-xs">
-          <span className="add-accent flex items-center gap-1.5">
-            <span className="size-1.5 bg-accent shadow-[0_0_8px_var(--accent)]" />
-            GPS
-          </span>
+          <span className="add-accent">GPS</span>
           <span className="add-dim">Connected</span>
         </div>
         <span className="tabular-nums text-sm font-medium">12:42</span>
@@ -175,7 +172,7 @@ export function ChipsCard({ className }: { className?: string }) {
     <Block name="Badge · Toggle" tag="ui" className={className}>
       <div className="flex items-center gap-2.5">
         <span className="add-accent border border-add-line px-2.5 py-1 text-xs">
-          ● Live
+          Live
         </span>
         <span className="add-dim border border-add-line px-2.5 py-1 text-xs">
           Idle

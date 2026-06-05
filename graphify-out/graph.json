@@ -2194,7 +2194,7 @@
       "label": "ChipsCard()",
       "file_type": "code",
       "source_file": "apps/web/components/showcase.tsx",
-      "source_location": "L173",
+      "source_location": "L170",
       "id": "components_showcase_chipscard",
       "community": 25,
       "norm_label": "chipscard()"
@@ -5697,9 +5697,9 @@
       "source_file": "apps/web/app/(web)/layout.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_layout_tsx",
-      "target": "web_layout_bricolage",
-      "confidence_score": 1.0
+      "target": "web_layout_bricolage"
     },
     {
       "relation": "contains",
@@ -5707,9 +5707,9 @@
       "source_file": "apps/web/app/(web)/layout.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_layout_tsx",
-      "target": "web_layout_hanken",
-      "confidence_score": 1.0
+      "target": "web_layout_hanken"
     },
     {
       "relation": "contains",
@@ -5717,9 +5717,9 @@
       "source_file": "apps/web/app/(web)/layout.tsx",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_layout_tsx",
-      "target": "web_layout_jetbrains",
-      "confidence_score": 1.0
+      "target": "web_layout_jetbrains"
     },
     {
       "relation": "contains",
@@ -5994,9 +5994,9 @@
       "source_file": "apps/web/components/showcase.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_showcase_tsx",
-      "target": "components_showcase_block",
-      "confidence_score": 1.0
+      "target": "components_showcase_block"
     },
     {
       "relation": "contains",
@@ -7301,5 +7301,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "859a35d4bedcbbffd8853695eb0beb154fce160c"
+  "built_at_commit": "4f2b10c92136215e96142119cad7817dc9a984c5"
 }

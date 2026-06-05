@@ -14,39 +14,46 @@ const GITHUB = "https://github.com/GlassKitApp/glasskit-ui";
 export default function Home() {
   return (
     <>
-      {/* NAV — hard-bordered, the "Get started" block bleeds to the corner */}
+      {/* NAV — segmented, hard-bordered cells (the brand lockup matches the
+       * sibling glasskit repo: avatar mark + GlassKit wordmark). */}
       <header className="sticky top-0 z-50 border-b border-line-2 bg-bg/85 backdrop-blur-md">
-        <div className="mx-auto flex h-14 max-w-[1320px] items-center justify-between pl-6 lg:pl-10">
-          <a href="/" className="flex items-center gap-2">
+        <div className="mx-auto flex h-14 max-w-[1320px] items-stretch">
+          <a
+            href="/"
+            className="flex items-center gap-2.5 border-r border-line-2 pl-6 pr-6 transition-colors hover:bg-bg-2 lg:pl-10"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="GlassKit" className="h-[22px] w-auto" />
-            <span className="border border-line-2 px-1.5 py-0.5 text-[11px] font-semibold text-ink-2">
-              UI
+            <img src="/avatar.png" alt="" className="size-6 rounded-[5px]" />
+            <span className="font-display text-[15px] font-bold tracking-tight">
+              GlassKit <span className="font-medium text-ink-3">UI</span>
             </span>
           </a>
-          <nav className="flex h-full items-center gap-1 text-[13px] text-ink-2">
+          <nav className="hidden items-stretch md:flex">
             <a
               href="#components"
-              className="mono-label hidden px-3 hover:text-ink sm:block"
+              className="mono-label flex items-center border-r border-line-2 px-5 transition-colors hover:bg-bg-2 hover:text-ink"
             >
               Components
             </a>
             <a
               href="#docs"
-              className="mono-label hidden px-3 hover:text-ink sm:block"
+              className="mono-label flex items-center border-r border-line-2 px-5 transition-colors hover:bg-bg-2 hover:text-ink"
             >
               Docs
             </a>
-            <a href={GITHUB} className="mono-label px-3 hover:text-ink">
-              GitHub
-            </a>
             <a
               href={GITHUB}
-              className="ml-2 flex h-14 items-center border-l border-line-2 bg-ink px-6 text-[14px] font-medium text-bg transition-colors hover:bg-black"
+              className="mono-label flex items-center border-r border-line-2 px-5 transition-colors hover:bg-bg-2 hover:text-ink"
             >
-              Get started
+              GitHub
             </a>
           </nav>
+          <a
+            href={GITHUB}
+            className="mono-label ml-auto flex items-center border-l border-line-2 bg-ink px-6 text-bg transition-colors hover:bg-black lg:pr-10"
+          >
+            Get started
+          </a>
         </div>
       </header>
 
@@ -164,9 +171,7 @@ export default function Home() {
 
       <footer className="bg-bg">
         <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-3 px-6 py-8 lg:px-10 sm:flex-row">
-          <span className="mono-label flex items-center gap-2">
-            <span className="size-1.5 bg-accent" /> GlassKit UI — open source
-          </span>
+          <span className="mono-label">GlassKit UI — open source</span>
           <div className="flex gap-6">
             <a href="#components" className="mono-label hover:text-ink">
               Components
