@@ -6,8 +6,11 @@ import { PropsTable } from "@/components/props-table";
 import { CodeBlock } from "@/components/code-block";
 import { InstallCommand } from "@/components/install-command";
 import { InstallTabs } from "@/components/install-tabs";
+import { DevicePreview } from "@/components/device-preview";
 import { COMPONENT_DOCS, getComponentDoc } from "@/lib/component-docs";
 import { getComponentFiles } from "@/lib/registry-files";
+import { qrSvg } from "@/lib/qr";
+import { SITE } from "@/lib/config";
 
 export function generateStaticParams() {
   return COMPONENT_DOCS.map((c) => ({ slug: c.slug }));
@@ -33,6 +36,8 @@ export default async function ComponentPage({
   const doc = getComponentDoc(slug);
   if (!doc) notFound();
   const files = getComponentFiles(slug);
+  const previewUrl = `${SITE}/preview/${slug}`;
+  const qr = await qrSvg(previewUrl);
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -53,7 +58,10 @@ export default async function ComponentPage({
       </p>
 
       <div className="mt-10">
-        <LensStage caption="Live preview">
+        <LensStage
+          caption="Live preview"
+          device={<DevicePreview qr={qr} url={previewUrl} />}
+        >
           <GlassViewport>{doc.preview}</GlassViewport>
         </LensStage>
       </div>
