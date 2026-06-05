@@ -25,6 +25,8 @@ import { Heading } from "@registry/ui/heading";
 import { Launcher } from "@registry/ui/launcher";
 import { Deck } from "@registry/ui/deck";
 import { QuickReplyChips } from "@registry/ui/quick-reply-chips";
+import { Pin } from "@registry/ui/pin";
+import { Callout } from "@registry/ui/callout";
 import {
   HeartGlyph,
   NavGlyph,
@@ -793,6 +795,39 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
   options={["On my way", "5 min", "Call me"]}
   onSelect={send}
 />`,
+  },
+  {
+    slug: "pin",
+    name: "Pin",
+    category: "Spatial",
+    summary:
+      "A world-anchored waypoint marker (ring + dot, name + distance above) placed at a projected screen point. World-anchored: positioned by an SVG transform attribute and never mirrored under RTL.",
+    preview: (
+      <Pin x={50} y={48} label="Blue Bottle" distance="120 m" />
+    ),
+    props: [
+      { name: "x / y", type: "number", desc: "0–100, % of the lens (you project from the world)." },
+      { name: "label", type: "ReactNode", desc: "Place name." },
+      { name: "distance", type: "ReactNode", desc: "Optional distance." },
+    ],
+    usage: `// x/y projected from the world position each frame
+<Pin x={x} y={y} label="Blue Bottle" distance="120 m" />`,
+  },
+  {
+    slug: "callout",
+    name: "Callout",
+    category: "Spatial",
+    summary:
+      "A world-object annotation: an anchor + a vertical leader up to an emitted label (no box — additive translates the card to line + type). World-anchored, never mirrored.",
+    preview: (
+      <Callout x={50} y={56} label="Powell St" detail="Muni · 3 min" />
+    ),
+    props: [
+      { name: "x / y", type: "number", desc: "0–100, % of the lens." },
+      { name: "label", type: "ReactNode", desc: "The annotation label." },
+      { name: "detail", type: "ReactNode", desc: "Optional second line." },
+    ],
+    usage: `<Callout x={x} y={y} label="Powell St" detail="Muni · 3 min" />`,
   },
 ];
 

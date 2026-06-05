@@ -12,6 +12,7 @@ import { NavigateDemo } from "@/components/lens/navigate-demo";
 import { SettingsDemo } from "@/components/lens/settings-demo";
 import { StatsDemo } from "@/components/lens/stats-demo";
 import { LauncherDemo } from "@/components/lens/launcher-demo";
+import { ExploreDemo } from "@/components/lens/explore-demo";
 
 type Demo = {
   id: string;
@@ -165,6 +166,23 @@ const DEMOS: Demo[] = [
     // …
   ]} />
 </Screen>`,
+  },
+  {
+    id: "explore",
+    label: "Explore",
+    caption: "Pin + Callout (world-anchored) · Reticle",
+    node: <ExploreDemo />,
+    code: `<GlassViewport>
+  <Screen
+    status={<StatusBar start="9:41" end={<StatusDot tone="live" label="AR" />} />}
+    cue={<Cue>Look at a pin to select</Cue>}
+  >
+    <Reticle />
+  </Screen>
+  {/* x/y are 0–100% projected from the world position */}
+  <Pin x={72} y={34} label="Blue Bottle" distance="120 m" />
+  <Callout x={26} y={62} label="Powell St" detail="Muni · 3 min" />
+</GlassViewport>`,
   },
 ];
 

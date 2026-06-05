@@ -1,16 +1,16 @@
 # Graph Report - harrisburg  (2026-06-05)
 
 ## Corpus Check
-- 97 files · ~32,126 words
+- 101 files · ~33,072 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 577 nodes · 876 edges · 41 communities (36 shown, 5 thin omitted)
+- 586 nodes · 909 edges · 41 communities (36 shown, 5 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b8ae3cf4`
+- Built from commit: `14111c32`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -52,16 +52,16 @@
 - [[_COMMUNITY_Community 40|Community 40]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `cn()` - 33 edges
+1. `cn()` - 35 edges
 2. `GlassKit Ecosystem — Open-Source SDK + Registry (`glasskit-ui`)` - 26 edges
 3. `compilerOptions` - 16 edges
 4. `compilerOptions` - 16 edges
 5. `scripts` - 11 edges
-6. `GlassKit UI — Apple-feel design reference (additive lens)` - 11 edges
-7. `Screen()` - 10 edges
-8. `StatusBar()` - 10 edges
-9. `START HERE — glasskit-ui build kickoff` - 10 edges
-10. `Cue()` - 9 edges
+6. `Screen()` - 11 edges
+7. `StatusBar()` - 11 edges
+8. `GlassKit UI — Apple-feel design reference (additive lens)` - 11 edges
+9. `Cue()` - 10 edges
+10. `START HERE — glasskit-ui build kickoff` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `DpadProvider()` --calls--> `useDpad()`  [INFERRED]
@@ -106,8 +106,8 @@ Cohesion: 0.13
 Nodes (14): 10. Sources, 1. North star, 2. Two surfaces, two recipes, 3. Design principles (watchOS-derived, additive-translated), 4. Tokens & numbers (concrete starting set), 5. "Premium without blur" recipe, 6. Motion, 7. Iconography & typography (+6 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.06
-Nodes (35): CtrlButton(), GhostKey(), ClassValue, cn(), btn, onClick, { container }, fill (+27 more)
+Cohesion: 0.07
+Nodes (35): CtrlButton(), GhostKey(), SettingsDemo(), StatsDemo(), ClassValue, cn(), { container }, map (+27 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.17
@@ -154,16 +154,16 @@ Cohesion: 0.09
 Nodes (22): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+14 more)
 
 ### Community 27 - "Community 27"
-Cohesion: 0.08
-Nodes (41): AlertGlyph(), BatteryGlyph(), CheckGlyph(), ChevronGlyph(), HeartGlyph(), MessageGlyph(), MusicGlyph(), NavGlyph() (+33 more)
+Cohesion: 0.07
+Nodes (46): AlertGlyph(), BatteryGlyph(), ChevronGlyph(), HeartGlyph(), MessageGlyph(), MusicGlyph(), NavGlyph(), LauncherDemo() (+38 more)
 
 ### Community 29 - "Community 29"
 Cohesion: 0.33
 Nodes (4): bricolage, hanken, jetbrains, metadata
 
 ### Community 32 - "Community 32"
-Cohesion: 0.07
-Nodes (26): cn(), CodeBlock(), metadata, ACCENTS, Demo, DEMOS, PlaygroundClient(), PropsTable() (+18 more)
+Cohesion: 0.09
+Nodes (21): cn(), CodeBlock(), metadata, ACCENTS, Demo, DEMOS, PlaygroundClient(), PropsTable() (+13 more)
 
 ### Community 33 - "Community 33"
 Cohesion: 0.13
@@ -178,8 +178,8 @@ Cohesion: 0.18
 Nodes (10): author, bugs, description, files, homepage, keywords, name, sideEffects (+2 more)
 
 ### Community 36 - "Community 36"
-Cohesion: 0.25
-Nodes (8): { container }, { container: a }, { container: b }, g, cardinal(), Compass(), DIRS, Reticle()
+Cohesion: 0.15
+Nodes (13): ExploreDemo(), { container }, { container: a }, { container: b }, g, { container }, g, Callout() (+5 more)
 
 ### Community 37 - "Community 37"
 Cohesion: 0.33
@@ -198,7 +198,7 @@ Cohesion: 0.67
 Nodes (3): publishConfig, access, provenance
 
 ## Knowledge Gaps
-- **312 isolated node(s):** `$schema`, `target`, `lib`, `module`, `moduleResolution` (+307 more)
+- **314 isolated node(s):** `$schema`, `target`, `lib`, `module`, `moduleResolution` (+309 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -208,11 +208,11 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `cn()` connect `Community 7` to `Community 32`, `Community 25`, `Community 27`, `Community 36`?**
   _High betweenness centrality (0.105) - this node is a cross-community bridge._
 - **Why does `useDpad()` connect `Community 3` to `Community 32`?**
-  _High betweenness centrality (0.074) - this node is a cross-community bridge._
+  _High betweenness centrality (0.075) - this node is a cross-community bridge._
 - **Why does `DpadProvider()` connect `Community 32` to `Community 3`?**
   _High betweenness centrality (0.074) - this node is a cross-community bridge._
 - **What connects `$schema`, `target`, `lib` to the rest of the system?**
-  _312 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _314 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

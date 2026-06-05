@@ -315,8 +315,8 @@
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/playground-client.tsx": {
-    "mtime": 1780691558.1887417,
-    "ast_hash": "a13d2d85e0f428b1058b366fb707c64f",
+    "mtime": 1780692466.768425,
+    "ast_hash": "0134dde9ab67f3d9d5196de0e3d85aa3",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/lens/sync-demo.tsx": {
@@ -380,8 +380,8 @@
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/lib/component-docs.tsx": {
-    "mtime": 1780691582.5692756,
-    "ast_hash": "00a232c1cfceafc6d3094963bab9612d",
+    "mtime": 1780692489.5483327,
+    "ast_hash": "709c950d01d30d9647c31dd1e831565e",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/public/llms.txt": {
@@ -512,6 +512,26 @@
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/__tests__/registry/nav.test.tsx": {
     "mtime": 1780691599.1622462,
     "ast_hash": "44ce1c1d2d6808fd438b07dd2443dab7",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/registry/ui/pin.tsx": {
+    "mtime": 1780692699.1437688,
+    "ast_hash": "267e3299e6a26f7735237826c8631c0f",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/registry/ui/callout.tsx": {
+    "mtime": 1780692706.9043853,
+    "ast_hash": "66e6632f52a7a7792dda6851b58a9267",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/lens/explore-demo.tsx": {
+    "mtime": 1780692453.1553166,
+    "ast_hash": "d66bfce51c2d094299ac783a07e0cf48",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/__tests__/registry/world.test.tsx": {
+    "mtime": 1780692500.53406,
+    "ast_hash": "51f046e1566de57e5cf46100752deccf",
     "semantic_hash": ""
   }
 }

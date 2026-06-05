@@ -1034,3 +1034,54 @@
   padding-block: 8px;
   padding-inline: 16px;
 }
+
+/* ── Wave 7 world-anchored markers (Pin, Callout) ───────────────────
+ * Full-bleed SVG overlays; markers placed by `transform` attributes, so
+ * they're never mirrored under RTL. Non-interactive over the content.
+ * ─────────────────────────────────────────────────────────────── */
+.glass-viewport .gk-worldlayer {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Pin — ring + dot waypoint, name/distance stacked above. */
+.glass-viewport .gk-pin__dot {
+  fill: var(--green);
+  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--green) 60%, transparent));
+}
+.glass-viewport .gk-pin__ring {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--green) 45%, transparent));
+}
+.glass-viewport .gk-pin__label,
+.glass-viewport .gk-callout__label {
+  fill: var(--ink-primary);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+.glass-viewport .gk-pin__dist,
+.glass-viewport .gk-callout__detail {
+  fill: var(--ink-tertiary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  text-anchor: middle;
+}
+
+/* Callout — anchor + vertical leader + emitted label (no box fill). */
+.glass-viewport .gk-callout__anchor {
+  fill: var(--green);
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--green) 55%, transparent));
+}
+.glass-viewport .gk-callout__leader {
+  stroke: var(--green-muted);
+  stroke-width: 1.5;
+}
