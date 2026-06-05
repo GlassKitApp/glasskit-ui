@@ -56,7 +56,14 @@ export default function Home() {
               Playground
             </a>
           </div>
-          <InstallCommand className="rise-3 mt-10" />
+          <InstallCommand
+            mode="exec"
+            command="glasskit add button"
+            className="rise-3 mt-10"
+          />
+          <p className="rise-3 mono-label mt-3 text-ink-3">
+            Copy components straight in — yours to own
+          </p>
         </div>
       </section>
 
@@ -112,7 +119,9 @@ export default function Home() {
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-2">
             Install the SDK from npm, then{" "}
-            <code className="font-mono text-[0.9em] text-ink">glasskit add</code>{" "}
+            <code className="font-mono text-[0.9em] text-ink">
+              glasskit add
+            </code>{" "}
             the components straight into your project. Your code to edit — no
             lock-in, no black box.
           </p>

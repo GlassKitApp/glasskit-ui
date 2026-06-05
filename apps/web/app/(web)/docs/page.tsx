@@ -67,9 +67,19 @@ export default function DocsGettingStarted() {
 
       <h2 className="font-display mt-14 text-2xl">4. Add components</h2>
       <p className="mt-3 text-ink-2">
-        The styled spine &mdash; Screen, StatusBar, Readout, Button, List,
-        Progress, AsyncView and more &mdash; each with a live preview, props,
-        and usage.
+        Vendor the source into your project with the CLI &mdash; it resolves
+        dependencies and writes the files to{" "}
+        <code className="font-mono text-sm">components/glasskit/</code>, yours
+        to edit.
+      </p>
+      <InstallCommand
+        mode="exec"
+        command="glasskit add screen readout button"
+        className="mt-4"
+      />
+      <p className="mt-5 text-ink-2">
+        All 28 &mdash; readouts, lists, progress, comms, and the world-anchored
+        set &mdash; each with a live preview, props, and usage:
       </p>
       <div className="mt-5 flex gap-3">
         <a href="/docs/components" className="btn btn-solid">

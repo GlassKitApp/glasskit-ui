@@ -4,18 +4,33 @@ import { useState } from "react";
 import { CopyIcon, CheckIcon } from "@/components/icons";
 import { useCopyToClipboard } from "@/lib/use-copy-to-clipboard";
 
-const PMS = [
-  { id: "npm", cmd: "npm i @glasskit/glasses-ui" },
-  { id: "pnpm", cmd: "pnpm add @glasskit/glasses-ui" },
-  { id: "yarn", cmd: "yarn add @glasskit/glasses-ui" },
-  { id: "bun", cmd: "bun add @glasskit/glasses-ui" },
-] as const;
+const PMS = ["npm", "pnpm", "yarn", "bun"] as const;
+type Pm = (typeof PMS)[number];
 
-/** Hard-bordered install block with a package-manager switch + copy. */
-export function InstallCommand({ className }: { className?: string }) {
-  const [pm, setPm] = useState<(typeof PMS)[number]["id"]>("npm");
+// `install` = add an npm dependency (the SDK); `exec` = run a package binary
+// without installing it (the CLI), pm-aware like shadcn's docs.
+const RUNNER: Record<"install" | "exec", Record<Pm, string>> = {
+  install: { npm: "npm i", pnpm: "pnpm add", yarn: "yarn add", bun: "bun add" },
+  exec: { npm: "npx", pnpm: "pnpm dlx", yarn: "yarn dlx", bun: "bunx" },
+};
+
+/**
+ * Hard-bordered command block with a package-manager switch + copy.
+ * Defaults to installing the SDK; pass `mode="exec"` for a CLI command
+ * (e.g. `command="glasskit add button"` → `npx glasskit add button`).
+ */
+export function InstallCommand({
+  command = "@glasskit/glasses-ui",
+  mode = "install",
+  className,
+}: {
+  command?: string;
+  mode?: "install" | "exec";
+  className?: string;
+}) {
+  const [pm, setPm] = useState<Pm>("npm");
   const { copied, copy } = useCopyToClipboard();
-  const cmd = PMS.find((p) => p.id === pm)!.cmd;
+  const cmd = `${RUNNER[mode][pm]} ${command}`;
 
   return (
     <div
@@ -24,17 +39,17 @@ export function InstallCommand({ className }: { className?: string }) {
       <div className="flex border-b border-line-2">
         {PMS.map((p) => (
           <button
-            key={p.id}
+            key={p}
             type="button"
-            onClick={() => setPm(p.id)}
-            aria-pressed={pm === p.id}
+            onClick={() => setPm(p)}
+            aria-pressed={pm === p}
             className={`mono-label flex-1 border-r border-line-2 py-2.5 transition-colors last:border-r-0 ${
-              pm === p.id
+              pm === p
                 ? "bg-ink text-bg"
                 : "text-ink-3 hover:bg-bg-2 hover:text-ink"
             }`}
           >
-            {p.id}
+            {p}
           </button>
         ))}
       </div>
@@ -43,7 +58,7 @@ export function InstallCommand({ className }: { className?: string }) {
         <button
           type="button"
           onClick={() => void copy(cmd)}
-          aria-label={copied ? "Copied" : "Copy install command"}
+          aria-label={copied ? "Copied" : "Copy command"}
           className="shrink-0 text-ink-3 transition-colors hover:text-ink"
         >
           {copied ? (
