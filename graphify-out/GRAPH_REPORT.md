@@ -1,16 +1,16 @@
 # Graph Report - harrisburg  (2026-06-05)
 
 ## Corpus Check
-- 84 files · ~29,101 words
+- 91 files · ~30,803 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 539 nodes · 763 edges · 41 communities (36 shown, 5 thin omitted)
+- 561 nodes · 825 edges · 42 communities (36 shown, 6 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0df0e1c4`
+- Built from commit: `75af127e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -50,18 +50,19 @@
 - [[_COMMUNITY_Community 38|Community 38]]
 - [[_COMMUNITY_Community 39|Community 39]]
 - [[_COMMUNITY_Community 40|Community 40]]
+- [[_COMMUNITY_Community 41|Community 41]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `GlassKit Ecosystem — Open-Source SDK + Registry (`glasskit-ui`)` - 26 edges
-2. `cn()` - 24 edges
+1. `cn()` - 29 edges
+2. `GlassKit Ecosystem — Open-Source SDK + Registry (`glasskit-ui`)` - 26 edges
 3. `compilerOptions` - 16 edges
 4. `compilerOptions` - 16 edges
 5. `scripts` - 11 edges
 6. `GlassKit UI — Apple-feel design reference (additive lens)` - 11 edges
 7. `START HERE — glasskit-ui build kickoff` - 10 edges
-8. `Cue()` - 8 edges
-9. `Screen()` - 8 edges
-10. `StatusBar()` - 8 edges
+8. `Cue()` - 9 edges
+9. `Screen()` - 9 edges
+10. `StatusBar()` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `DpadProvider()` --calls--> `useDpad()`  [INFERRED]
@@ -75,7 +76,7 @@
 - `GhostKey()` --calls--> `cn()`  [EXTRACTED]
   apps/web/components/emulator.tsx → apps/web/lib/utils.ts
 
-## Communities (41 total, 5 thin omitted)
+## Communities (42 total, 6 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
@@ -154,16 +155,16 @@ Cohesion: 0.09
 Nodes (22): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+14 more)
 
 ### Community 27 - "Community 27"
-Cohesion: 0.07
-Nodes (47): BatteryGlyph(), CheckGlyph(), ChevronGlyph(), HeartGlyph(), MessageGlyph(), MusicGlyph(), NavGlyph(), ComponentDoc (+39 more)
+Cohesion: 0.06
+Nodes (59): AlertGlyph(), BatteryGlyph(), CheckGlyph(), ChevronGlyph(), HeartGlyph(), MessageGlyph(), MusicGlyph(), NavGlyph() (+51 more)
 
 ### Community 29 - "Community 29"
 Cohesion: 0.33
 Nodes (4): bricolage, hanken, jetbrains, metadata
 
 ### Community 32 - "Community 32"
-Cohesion: 0.08
-Nodes (24): cn(), CodeBlock(), metadata, ACCENTS, Demo, DEMOS, PlaygroundClient(), PropsTable() (+16 more)
+Cohesion: 0.07
+Nodes (25): cn(), CodeBlock(), metadata, ACCENTS, Demo, DEMOS, PlaygroundClient(), PropsTable() (+17 more)
 
 ### Community 33 - "Community 33"
 Cohesion: 0.13
@@ -198,21 +199,21 @@ Cohesion: 0.67
 Nodes (3): publishConfig, access, provenance
 
 ## Knowledge Gaps
-- **299 isolated node(s):** `$schema`, `target`, `lib`, `module`, `moduleResolution` (+294 more)
+- **307 isolated node(s):** `$schema`, `target`, `lib`, `module`, `moduleResolution` (+302 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `cn()` connect `Community 27` to `Community 32`, `Community 25`, `Community 36`?**
-  _High betweenness centrality (0.090) - this node is a cross-community bridge._
+  _High betweenness centrality (0.098) - this node is a cross-community bridge._
 - **Why does `useDpad()` connect `Community 3` to `Community 32`?**
-  _High betweenness centrality (0.072) - this node is a cross-community bridge._
+  _High betweenness centrality (0.074) - this node is a cross-community bridge._
 - **Why does `DpadProvider()` connect `Community 32` to `Community 3`?**
-  _High betweenness centrality (0.072) - this node is a cross-community bridge._
+  _High betweenness centrality (0.073) - this node is a cross-community bridge._
 - **What connects `$schema`, `target`, `lib` to the rest of the system?**
-  _299 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _307 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

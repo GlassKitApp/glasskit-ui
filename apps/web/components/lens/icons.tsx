@@ -54,6 +54,16 @@ export function MessageGlyph() {
   );
 }
 
+export function AlertGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <path d="M12 3 22 20H2L12 3Z" />
+      <path d="M12 10v4" />
+      <path d="M12 17.5h.01" />
+    </svg>
+  );
+}
+
 export function MusicGlyph() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden>

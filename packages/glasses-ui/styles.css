@@ -821,3 +821,147 @@
     inset 0 0 8px color-mix(in oklab, var(--green) 18%, transparent),
     0 0 8px color-mix(in oklab, var(--green) 25%, transparent);
 }
+
+/* ── Wave 5 monitor / feedback components ─────────────────────────── */
+
+/* StatusDot — state from luminance + motion, not a second hue. */
+.glass-viewport .gk-statusdot {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.glass-viewport .gk-statusdot__dot {
+  inline-size: 8px;
+  block-size: 8px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 8px color-mix(in oklab, var(--green) 55%, transparent);
+}
+.glass-viewport .gk-statusdot__label {
+  color: var(--ink-secondary);
+}
+.glass-viewport .gk-statusdot--off .gk-statusdot__dot {
+  background: var(--ink-tertiary);
+  box-shadow: none;
+}
+@keyframes gk-dot-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+.glass-viewport .gk-statusdot--live .gk-statusdot__dot {
+  animation: gk-dot-pulse 1.8s ease-in-out infinite;
+}
+
+/* Meter — a bounded ring gauge (level), distinct from linear Progress. */
+.glass-viewport .gk-meter {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 132px;
+  block-size: 132px;
+}
+.glass-viewport .gk-meter__dial {
+  inline-size: 100%;
+  block-size: 100%;
+}
+.glass-viewport .gk-meter__track {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 5;
+}
+.glass-viewport .gk-meter__fill {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--green) 45%, transparent));
+  transition: stroke-dashoffset 0.4s ease;
+}
+.glass-viewport .gk-meter__center {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.glass-viewport .gk-meter__unit {
+  color: var(--ink-tertiary);
+  font-size: 13px;
+}
+.glass-viewport .gk-meter__label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-tertiary);
+}
+
+/* StatGrid — compact multi-metric cluster. */
+.glass-viewport .gk-statgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 28px;
+}
+.glass-viewport .gk-statgrid__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.glass-viewport .gk-statgrid__unit {
+  color: var(--ink-tertiary);
+  font-size: 13px;
+}
+.glass-viewport .gk-statgrid__label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-tertiary);
+}
+
+/* Toast — a transient luminance rise, not a modal scrim. */
+@keyframes gk-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.glass-viewport .gk-toast {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-block: 10px;
+  padding-inline: 18px;
+  border-radius: 16px;
+  color: var(--ink-primary);
+  animation: gk-toast-in 0.3s ease both;
+}
+.glass-viewport .gk-toast--accent {
+  box-shadow: 0 0 24px -6px color-mix(in oklab, var(--green) 28%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-viewport .gk-statusdot--live .gk-statusdot__dot,
+  .glass-viewport .gk-toast {
+    animation: none;
+  }
+}
+
+/* ErrorState — recoverable error screen (no red; words carry the failure). */
+.glass-viewport .gk-errorstate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+.glass-viewport .gk-errorstate__message {
+  max-inline-size: 30ch;
+  color: var(--ink-secondary);
+}

@@ -16,12 +16,18 @@ import { Stepper } from "@registry/ui/stepper";
 import { Segmented } from "@registry/ui/segmented";
 import { Confirm } from "@registry/ui/confirm";
 import { Badge } from "@registry/ui/badge";
+import { StatusDot } from "@registry/ui/status-dot";
+import { Meter } from "@registry/ui/meter";
+import { StatGrid } from "@registry/ui/stat-grid";
+import { Toast } from "@registry/ui/toast";
+import { ErrorState } from "@registry/ui/error-state";
 import {
   HeartGlyph,
   NavGlyph,
   MessageGlyph,
   BatteryGlyph,
   ChevronGlyph,
+  AlertGlyph,
 } from "@/components/lens/icons";
 
 export type PropRow = {
@@ -540,6 +546,138 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
     ],
     usage: `<Badge tone="accent">LIVE</Badge>`,
+  },
+  {
+    slug: "status-dot",
+    name: "StatusDot",
+    category: "Status",
+    summary:
+      "A glanceable sensor / permission / connection indicator. With one accent on the lens, state reads from luminance + motion: on = steady, live = pulsing, off = dim.",
+    preview: (
+      <Screen>
+        <StatusDot tone="live" label="GPS lock" />
+        <StatusDot tone="on" label="Mic ready" />
+        <StatusDot tone="off" label="Offline" />
+      </Screen>
+    ),
+    props: [
+      {
+        name: "tone",
+        type: '"on" | "live" | "off"',
+        default: '"on"',
+        desc: "Steady / pulsing / dim.",
+      },
+      { name: "label", type: "ReactNode", desc: "Optional caption." },
+    ],
+    usage: `<StatusDot tone="live" label="GPS lock" />`,
+  },
+  {
+    slug: "meter",
+    name: "Meter",
+    category: "Display",
+    summary:
+      "A bounded ring gauge for a level (battery, signal, effort) — distinct from Progress, which tracks task completion. The arc fills via an SVG stroke-dashoffset; value is clamped to [0, max].",
+    preview: (
+      <Screen>
+        <Meter value={72} max={100} label="Effort" unit="%" />
+      </Screen>
+    ),
+    props: [
+      { name: "value", type: "number", desc: "Current level (clamped to [0, max])." },
+      { name: "max", type: "number", default: "100", desc: "Upper bound." },
+      { name: "label", type: "ReactNode", desc: "Caption under the value." },
+      { name: "unit", type: "ReactNode", desc: "Trailing unit." },
+    ],
+    usage: `<Meter value={72} max={100} label="Effort" unit="%" />`,
+  },
+  {
+    slug: "stat-grid",
+    name: "StatGrid",
+    category: "Display",
+    summary:
+      "A compact grid of readouts for a multi-metric glance (a complication cluster). Pure display, tabular numerals. Keep it to 2–4 cells.",
+    preview: (
+      <Screen>
+        <StatGrid
+          items={[
+            { label: "Pace", value: "8'42", unit: "/mi" },
+            { label: "Heart", value: 128, unit: "bpm" },
+            { label: "Dist", value: "3.2", unit: "km" },
+            { label: "Time", value: "18:40" },
+          ]}
+        />
+      </Screen>
+    ),
+    props: [
+      {
+        name: "items",
+        type: "{ label, value, unit? }[]",
+        desc: "The metrics to show.",
+      },
+    ],
+    usage: `<StatGrid items={[
+  { label: "Pace", value: "8'42", unit: "/mi" },
+  { label: "Heart", value: 128, unit: "bpm" },
+]} />`,
+  },
+  {
+    slug: "toast",
+    name: "Toast",
+    category: "Status",
+    summary:
+      "A transient notice that animates in with a brief luminance rise (never a modal scrim). Controlled via open; you own the auto-dismiss timer.",
+    preview: (
+      <Screen>
+        <Toast open tone="accent">
+          Workout saved
+        </Toast>
+      </Screen>
+    ),
+    props: [
+      { name: "open", type: "boolean", desc: "Render the toast (else nothing)." },
+      { name: "children", type: "ReactNode", desc: "The message." },
+      {
+        name: "tone",
+        type: '"default" | "accent"',
+        default: '"default"',
+        desc: "Accent adds a green glow.",
+      },
+    ],
+    usage: `<Toast open={saved} tone="accent">
+  Workout saved
+</Toast>`,
+  },
+  {
+    slug: "error-state",
+    name: "ErrorState",
+    category: "Status",
+    summary:
+      "A recoverable error screen: optional glyph + title + message + a retry action. No red — the lens has one accent, so the failure reads from the words. Pairs with AsyncView's error slot.",
+    preview: (
+      <Screen>
+        <ErrorState
+          icon={
+            <GlowIcon size="lg" label="Error">
+              <AlertGlyph />
+            </GlowIcon>
+          }
+          title="No signal"
+          message="Move to an open area and try again."
+        />
+      </Screen>
+    ),
+    props: [
+      { name: "title", type: "ReactNode", default: '"Something went wrong"', desc: "The headline." },
+      { name: "message", type: "ReactNode", desc: "Supporting detail." },
+      { name: "icon", type: "ReactNode", desc: "Optional leading glyph." },
+      { name: "onRetry", type: "() => void", desc: "Shows a retry button when set." },
+      { name: "retryLabel", type: "ReactNode", default: '"Retry"', desc: "Retry button label." },
+    ],
+    usage: `<ErrorState
+  title="No signal"
+  message="Move to an open area and try again."
+  onRetry={refetch}
+/>`,
   },
 ];
 

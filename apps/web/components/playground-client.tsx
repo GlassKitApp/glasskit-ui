@@ -10,6 +10,7 @@ import { MenuDemo } from "@/components/lens/menu-demo";
 import { SyncDemo } from "@/components/lens/sync-demo";
 import { NavigateDemo } from "@/components/lens/navigate-demo";
 import { SettingsDemo } from "@/components/lens/settings-demo";
+import { StatsDemo } from "@/components/lens/stats-demo";
 
 type Demo = {
   id: string;
@@ -130,6 +131,24 @@ const DEMOS: Demo[] = [
     </Screen>
   );
 }`,
+  },
+  {
+    id: "stats",
+    label: "Stats",
+    caption: "StatusDot · Meter · StatGrid",
+    node: <StatsDemo />,
+    code: `<GlassViewport>
+  <Screen
+    status={<StatusBar start={<StatusDot tone="live" label="GPS" />} end="87%" />}
+    cue={<Cue>3.2 km · 18:40</Cue>}
+  >
+    <Meter value={72} max={100} label="Effort" unit="%" />
+    <StatGrid items={[
+      { label: "Pace", value: "8'42", unit: "/mi" },
+      { label: "Heart", value: 128, unit: "bpm" },
+    ]} />
+  </Screen>
+</GlassViewport>`,
   },
 ];
 
