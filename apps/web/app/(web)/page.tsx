@@ -151,11 +151,11 @@ export default function Home() {
             <h2 className="font-display text-[clamp(2.4rem,5vw,4.4rem)] leading-[0.95]">
               Free. Open source.
               <br />
-              Yours to vendor.
+              Yours to own.
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-2">
-              Pull the blocks straight into your repo, source and all. Never
-              blocked, never a black box.
+              Install from npm, or copy the components straight into your
+              project. Your code to edit, no lock-in, no black box.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <a href={GITHUB} className="btn btn-solid">
