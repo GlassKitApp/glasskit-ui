@@ -33,11 +33,13 @@ const items = [
     type: "registry:lib",
     title: "cn",
     description: "Class-name join utility used by every component.",
+    // Target mirrors the registry's relative layout (ui/ siblings of lib/), so
+    // the vendored components' `../lib/utils` imports resolve with no rewriting.
     files: [
       {
         path: "registry/lib/utils.ts",
         type: "registry:lib",
-        target: "lib/glasskit-utils.ts",
+        target: "components/lib/utils.ts",
       },
     ],
   },

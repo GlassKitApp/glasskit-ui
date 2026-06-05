@@ -8,6 +8,8 @@ Start with [`AGENTS.md`](./AGENTS.md) and the design source of truth,
 
 ```
 packages/glasses-ui/     # the npm SDK: hooks + GlassViewport + the lens stylesheet
+packages/cli/            # the `glasskit` CLI — vendors components from the registry
+packages/mcp/            # MCP server exposing the registry to AI agents
 registry/ui/             # the styled components (vendored, shadcn-style) — you own these
 registry/lib/utils.ts    # the cn() helper every component uses
 registry/registry.json   # generated index of the registry (do not hand-edit)
@@ -76,8 +78,11 @@ script also emits the **served distribution** to `apps/web/public/r/` — one
 shadcn-compatible client can fetch `/r/<name>.json`. That directory is gitignored
 (built on demand / in CI).
 
-The branded CLI (`npx glasskit add <name>`) that consumes these endpoints is
-planned but not built yet; the registry format is ready for it.
+The branded CLI ([`packages/cli`](./packages/cli)) consumes these endpoints —
+`glasskit add <name>` fetches `/r/<name>.json`, resolves `registryDependencies`,
+and writes the files to `components/glasskit/`. An MCP server
+([`packages/mcp`](./packages/mcp)) exposes the same registry to AI agents. Both
+are built and runnable but **not published to npm yet**.
 
 ## House rules
 

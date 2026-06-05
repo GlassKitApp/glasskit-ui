@@ -12,7 +12,7 @@
         {
           "path": "registry/lib/utils.ts",
           "type": "registry:lib",
-          "target": "lib/glasskit-utils.ts"
+          "target": "components/lib/utils.ts"
         }
       ]
     },
