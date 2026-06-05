@@ -33,6 +33,8 @@ async function fetchJson<T>(url: string): Promise<T> {
 }
 
 const text = (s: string) => ({ content: [{ type: "text" as const, text: s }] });
+const itemLines = (items: RegistryItem[]) =>
+  items.map((i) => `- ${i.name}: ${i.description ?? ""}`).join("\n");
 
 const server = new McpServer({ name: "glasskit-ui", version: "0.0.0" });
 
@@ -45,17 +47,14 @@ server.tool(
       `${REGISTRY}/registry.json`,
     );
     const ui = reg.items.filter((i) => i.type === "registry:ui");
-    const body = ui
-      .map((i) => `- ${i.name}: ${i.description ?? ""}`)
-      .join("\n");
-    return text(`GlassKit UI — ${ui.length} components\n\n${body}`);
+    return text(`GlassKit UI — ${ui.length} components\n\n${itemLines(ui)}`);
   },
 );
 
 server.tool(
   "get_component",
   "Get a GlassKit UI component's source, dependencies, and install command.",
-  { name: z.string().describe("component name, e.g. \"button\"") },
+  { name: z.string().describe('component name, e.g. "button"') },
   async ({ name }) => {
     const item = await fetchJson<RegistryItem>(`${REGISTRY}/${name}.json`);
     const deps = (item.registryDependencies ?? []).join(", ") || "none";
@@ -72,7 +71,7 @@ server.tool(
 server.tool(
   "search_components",
   "Search GlassKit UI components by name or description.",
-  { query: z.string().describe("a keyword, e.g. \"progress\" or \"gauge\"") },
+  { query: z.string().describe('a keyword, e.g. "progress" or "gauge"') },
   async ({ query }) => {
     const reg = await fetchJson<{ items: RegistryItem[] }>(
       `${REGISTRY}/registry.json`,
@@ -84,9 +83,7 @@ server.tool(
         (i.name.includes(q) || (i.description ?? "").toLowerCase().includes(q)),
     );
     if (hits.length === 0) return text(`No components match "${query}".`);
-    return text(
-      hits.map((i) => `- ${i.name}: ${i.description ?? ""}`).join("\n"),
-    );
+    return text(itemLines(hits));
   },
 );
 

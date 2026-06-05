@@ -49,7 +49,12 @@ These come from `apple-feel.md` and `AGENTS.md`:
    `packages/glasses-ui/styles.css` under a scoped `.glass-viewport` selector.
    Controlled inputs must attach `onClick` **only when a handler is given**
    (`onClick={onChange ? () => … : undefined}`) so static docs previews can be
-   server-rendered.
+   server-rendered. **Imports:** a component may import only `../lib/utils` (the
+   `cn` helper) and `./<sibling>` (another registry component) — the served
+   targets (`components/lib/utils.ts` + `components/glasskit/<name>.tsx`) mirror
+   that layout so the relative imports resolve in a consumer with no rewriting.
+   Importing across any other directory would break vendored installs unless the
+   generator's target paths are updated to match.
 2. **Docs entry** — add to `apps/web/lib/component-docs.tsx`: `slug`, `name`,
    `category` (Shell · Display · Status · Action · Navigation · Spatial), a
    `summary`, a handler-free `preview` node, a `props` table, and `usage`. This

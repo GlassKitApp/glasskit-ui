@@ -18,6 +18,8 @@ import { dirname, resolve, relative, isAbsolute } from "node:path";
 
 const DEFAULT_REGISTRY = "https://ui.glasskit.app/r";
 
+// The served registry-item shape (shadcn-format), emitted by
+// scripts/build-registry.mjs. Keep in sync if that schema changes.
 type RegistryFile = { path: string; target: string; content?: string };
 type RegistryItem = {
   name: string;
@@ -94,11 +96,14 @@ async function resolve_(
 
 async function add(names: string[], opts: Options) {
   if (names.length === 0) {
-    console.error(c.red("Specify at least one component, e.g. glasskit add button"));
+    console.error(
+      c.red("Specify at least one component, e.g. glasskit add button"),
+    );
     process.exitCode = 1;
     return;
   }
   const items = await resolve_(names, opts.registry);
+  // Dedupe by target — shared files (e.g. lib/utils) appear in several items.
   const files = new Map<string, RegistryFile>();
   for (const item of items) for (const f of item.files) files.set(f.target, f);
 
@@ -143,7 +148,9 @@ async function list(opts: Options) {
   const ui = reg.items.filter((i) => i.type === "registry:ui");
   console.log(c.bold(`\nGlassKit UI — ${ui.length} components\n`));
   for (const it of ui) {
-    console.log(`  ${c.green(it.name.padEnd(20))} ${c.dim(it.description ?? "")}`);
+    console.log(
+      `  ${c.green(it.name.padEnd(20))} ${c.dim(it.description ?? "")}`,
+    );
   }
   console.log(c.dim(`\nAdd one:  glasskit add <name>\n`));
 }
