@@ -4,7 +4,10 @@ import { GlassViewport } from "@glasskit/glasses-ui";
 import { LensStage } from "@/components/lens/lens-stage";
 import { PropsTable } from "@/components/props-table";
 import { CodeBlock } from "@/components/code-block";
+import { InstallCommand } from "@/components/install-command";
+import { InstallTabs } from "@/components/install-tabs";
 import { COMPONENT_DOCS, getComponentDoc } from "@/lib/component-docs";
+import { getComponentFiles } from "@/lib/registry-files";
 
 export function generateStaticParams() {
   return COMPONENT_DOCS.map((c) => ({ slug: c.slug }));
@@ -29,6 +32,7 @@ export default async function ComponentPage({
   const { slug } = await params;
   const doc = getComponentDoc(slug);
   if (!doc) notFound();
+  const files = getComponentFiles(slug);
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -54,7 +58,41 @@ export default async function ComponentPage({
         </LensStage>
       </div>
 
-      <h2 className="font-display mt-16 text-2xl">Usage</h2>
+      <h2 className="font-display mt-16 text-2xl">Installation</h2>
+      <InstallTabs
+        cli={<InstallCommand mode="exec" command={`glasskit add ${slug}`} />}
+        manual={
+          <div className="flex flex-col gap-6">
+            <div>
+              <p className="text-ink-2">
+                1. Install the SDK &mdash; it provides{" "}
+                <code className="font-mono text-sm">GlassViewport</code>,{" "}
+                <code className="font-mono text-sm">useDpad</code> and the
+                stylesheet:
+              </p>
+              <InstallCommand className="mt-3" />
+            </div>
+            <div>
+              <p className="text-ink-2">
+                2. Copy these files into your project (update the import paths
+                to match your setup):
+              </p>
+              <div className="mt-3 flex flex-col gap-4">
+                {files.map((f) => (
+                  <div key={f.target}>
+                    <p className="mono-label mb-1.5">{f.target}</p>
+                    <CodeBlock className="max-h-80 overflow-y-auto">
+                      {f.content}
+                    </CodeBlock>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        }
+      />
+
+      <h2 className="font-display mt-14 text-2xl">Usage</h2>
       <CodeBlock>{doc.usage}</CodeBlock>
 
       <h2 className="font-display mt-14 text-2xl">Props</h2>
