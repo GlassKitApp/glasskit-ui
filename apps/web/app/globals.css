@@ -79,6 +79,16 @@
   letter-spacing: -0.045em;
 }
 
+/* Emitted-light glow for the accent headline word — the type reads lit, not
+ * painted (matches the sibling glasskit headline's glowing word). A filter,
+ * not text-shadow, so the glow follows the gradient-clipped glyphs; tuned
+ * tighter than the dark-mode original so it reads on the white background. */
+.text-glow-accent {
+  filter: drop-shadow(
+    0 0 20px color-mix(in oklab, var(--accent) 55%, transparent)
+  );
+}
+
 /* Instrument-grade monospace label. */
 .mono-label {
   font-family: var(--font-mono);
@@ -87,36 +97,6 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-3);
-}
-
-/* Live status dot — green, glowing, pulsing. Matches the sibling glasskit
- * landing hero (.fov-dot): the on-air capture indicator, adapted to the light
- * background with a faint halo so the glow still reads on white. */
-@keyframes live-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
-}
-.live-dot {
-  display: inline-block;
-  width: 0.42rem;
-  height: 0.42rem;
-  vertical-align: middle;
-  border-radius: 9999px;
-  background: var(--accent);
-  box-shadow:
-    0 0 0 3px color-mix(in oklab, var(--accent) 20%, transparent),
-    0 0 12px var(--accent);
-  animation: live-pulse 2s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .live-dot {
-    animation: none;
-  }
 }
 
 /* The blueprint grid — graph paper for the workshop, but FADED so it reads

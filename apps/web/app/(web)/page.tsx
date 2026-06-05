@@ -29,15 +29,12 @@ export default function Home() {
       {/* HERO — centered, spacious, premium */}
       <section className="blueprint border-b border-line-2">
         <div className="mx-auto flex max-w-7xl flex-col items-center px-6 py-28 text-center lg:py-44">
-          <p className="rise mono-label">
-            Open source <span className="live-dot" aria-hidden /> Meta Ray-Ban
-            Display
-          </p>
+          <p className="rise mono-label">Open source · Meta Ray-Ban Display</p>
           <h1 className="rise font-display mt-6 text-[clamp(2.75rem,7vw,5.5rem)] leading-[0.95]">
             The component library
             <br />
             for the{" "}
-            <span className="bg-gradient-to-r from-[#0a7d42] to-[#37d97a] bg-clip-text text-transparent">
+            <span className="text-glow-accent bg-gradient-to-r from-[#0a7d42] to-[#37d97a] bg-clip-text text-transparent">
               glasses
             </span>
             .
