@@ -965,3 +965,72 @@
   max-inline-size: 30ch;
   color: var(--ink-secondary);
 }
+
+/* ── Wave 6 navigation / comms / structure ──────────────────────── */
+
+/* Heading — title with an optional green eyebrow. */
+.glass-viewport .gk-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+.glass-viewport .gk-heading__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--green);
+}
+
+/* Launcher — two-column app grid of focusable cards. */
+.glass-viewport .gk-launcher {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  inline-size: 100%;
+}
+.glass-viewport .gk-launcher-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: start;
+}
+.glass-viewport .gk-launcher-card__icon {
+  margin-block-end: 4px;
+}
+.glass-viewport .gk-launcher-card__label {
+  font-weight: 700;
+}
+.glass-viewport .gk-launcher-card__tagline {
+  color: var(--ink-tertiary);
+}
+
+/* Deck — one page at a time with step dots beneath. */
+.glass-viewport .gk-deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  inline-size: 100%;
+}
+.glass-viewport .gk-deck__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+/* QuickReplyChips — pill replies that wrap and center. */
+.glass-viewport .gk-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.glass-viewport .gk-chip {
+  border-radius: 999px;
+  padding-block: 8px;
+  padding-inline: 16px;
+}

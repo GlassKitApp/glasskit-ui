@@ -11,6 +11,7 @@ import { SyncDemo } from "@/components/lens/sync-demo";
 import { NavigateDemo } from "@/components/lens/navigate-demo";
 import { SettingsDemo } from "@/components/lens/settings-demo";
 import { StatsDemo } from "@/components/lens/stats-demo";
+import { LauncherDemo } from "@/components/lens/launcher-demo";
 
 type Demo = {
   id: string;
@@ -149,6 +150,21 @@ const DEMOS: Demo[] = [
     ]} />
   </Screen>
 </GlassViewport>`,
+  },
+  {
+    id: "launcher",
+    label: "Launcher",
+    caption: "Launcher app grid · GlowIcon",
+    node: <LauncherDemo />,
+    code: `<Screen status={<StatusBar start="9:41" end="87%" />}>
+  <Launcher apps={[
+    { id: "nav", label: "Navigate", tagline: "320 m",
+      icon: <GlowIcon active><NavIcon /></GlowIcon>, onSelect: openNav },
+    { id: "msg", label: "Messages", tagline: "2 new",
+      icon: <GlowIcon><MessageIcon /></GlowIcon>, onSelect: openMessages },
+    // …
+  ]} />
+</Screen>`,
   },
 ];
 

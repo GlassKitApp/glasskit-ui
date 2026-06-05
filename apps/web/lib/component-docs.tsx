@@ -21,6 +21,10 @@ import { Meter } from "@registry/ui/meter";
 import { StatGrid } from "@registry/ui/stat-grid";
 import { Toast } from "@registry/ui/toast";
 import { ErrorState } from "@registry/ui/error-state";
+import { Heading } from "@registry/ui/heading";
+import { Launcher } from "@registry/ui/launcher";
+import { Deck } from "@registry/ui/deck";
+import { QuickReplyChips } from "@registry/ui/quick-reply-chips";
 import {
   HeartGlyph,
   NavGlyph,
@@ -677,6 +681,117 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
   title="No signal"
   message="Move to an open area and try again."
   onRetry={refetch}
+/>`,
+  },
+  {
+    slug: "heading",
+    name: "Heading",
+    category: "Display",
+    summary:
+      "A screen/section title with an optional green eyebrow above it. Pure display — one heading per view keeps the glance cheap.",
+    preview: (
+      <Screen>
+        <Heading eyebrow="Workout">Morning Run</Heading>
+      </Screen>
+    ),
+    props: [
+      { name: "children", type: "ReactNode", desc: "The title." },
+      { name: "eyebrow", type: "ReactNode", desc: "Small tracked label above." },
+    ],
+    usage: `<Heading eyebrow="Workout">Morning Run</Heading>`,
+  },
+  {
+    slug: "launcher",
+    name: "Launcher",
+    category: "Navigation",
+    summary:
+      "The app grid: the entry screen for a multi-app surface. Cards are D-pad-focusable; keep it to ~4 apps so the whole grid is one glance.",
+    preview: (
+      <Screen>
+        <Launcher
+          apps={[
+            {
+              id: "nav",
+              label: "Navigate",
+              tagline: "320 m",
+              icon: (
+                <GlowIcon active>
+                  <NavGlyph />
+                </GlowIcon>
+              ),
+            },
+            {
+              id: "msg",
+              label: "Messages",
+              tagline: "2 new",
+              icon: (
+                <GlowIcon>
+                  <MessageGlyph />
+                </GlowIcon>
+              ),
+            },
+          ]}
+        />
+      </Screen>
+    ),
+    props: [
+      {
+        name: "apps",
+        type: "{ id, label, tagline?, icon?, onSelect? }[]",
+        desc: "The apps to show as focusable cards.",
+      },
+    ],
+    usage: `<Launcher apps={[
+  { id: "nav", label: "Navigate", tagline: "320 m",
+    icon: <GlowIcon active><NavIcon /></GlowIcon>, onSelect: openNav },
+  { id: "msg", label: "Messages", tagline: "2 new",
+    icon: <GlowIcon><MessageIcon /></GlowIcon>, onSelect: openMessages },
+]} />`,
+  },
+  {
+    slug: "deck",
+    name: "Deck",
+    category: "Navigation",
+    summary:
+      "A horizontal paged flow (wizard / onboarding). Controlled via index; shows one page with step dots beneath. Pages advance on pinch / D-pad — never scroll.",
+    preview: (
+      <Screen>
+        <Deck index={1}>
+          <Heading eyebrow="Step 1">Connect band</Heading>
+          <Heading eyebrow="Step 2">Calibrate</Heading>
+          <Heading eyebrow="Step 3">Ready</Heading>
+        </Deck>
+      </Screen>
+    ),
+    props: [
+      { name: "index", type: "number", desc: "The current page (clamped)." },
+      { name: "children", type: "ReactNode", desc: "One node per page." },
+    ],
+    usage: `<Deck index={step}>
+  <OnboardConnect />
+  <OnboardCalibrate />
+  <OnboardReady />
+</Deck>`,
+  },
+  {
+    slug: "quick-reply-chips",
+    name: "QuickReplyChips",
+    category: "Action",
+    summary:
+      "Tappable canned replies (the comms job — there is no keyboard on the lens, text is voice). Each chip is D-pad-focusable. Keep the set short and glanceable.",
+    preview: (
+      <Screen>
+        <Cue>&ldquo;Running late&rdquo;</Cue>
+        <QuickReplyChips options={["On my way", "5 min", "Call me"]} />
+      </Screen>
+    ),
+    props: [
+      { name: "options", type: "string[]", desc: "The canned replies." },
+      { name: "onSelect", type: "(reply: string) => void", desc: "Fires on tap." },
+    ],
+    usage: `<QuickReplyChips
+  options={["On my way", "5 min", "Call me"]}
+  onSelect={send}
 />`,
   },
 ];
