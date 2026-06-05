@@ -1,8 +1,7 @@
 import { SiteHeader } from "@/components/site-header";
 import { InstallCommand } from "@/components/install-command";
 import { GithubIcon } from "@/components/icons";
-
-const GITHUB = "https://github.com/GlassKitApp/glasskit-ui";
+import { GITHUB } from "@/lib/config";
 
 const VALUES = [
   {

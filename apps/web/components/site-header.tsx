@@ -1,4 +1,4 @@
-const GITHUB = "https://github.com/GlassKitApp/glasskit-ui";
+import { GITHUB } from "@/lib/config";
 
 /** Shared segmented, hard-bordered header — the brand lockup matches the
  *  sibling glasskit repo (avatar mark + GlassKit wordmark). */
