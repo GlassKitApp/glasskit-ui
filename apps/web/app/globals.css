@@ -89,6 +89,36 @@
   color: var(--ink-3);
 }
 
+/* Live status dot — green, glowing, pulsing. Matches the sibling glasskit
+ * landing hero (.fov-dot): the on-air capture indicator, adapted to the light
+ * background with a faint halo so the glow still reads on white. */
+@keyframes live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+.live-dot {
+  display: inline-block;
+  width: 0.42rem;
+  height: 0.42rem;
+  vertical-align: middle;
+  border-radius: 9999px;
+  background: var(--accent);
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--accent) 20%, transparent),
+    0 0 12px var(--accent);
+  animation: live-pulse 2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .live-dot {
+    animation: none;
+  }
+}
+
 /* The blueprint grid — graph paper for the workshop, but FADED so it reads
  * organic, not rigid. The grid lives on a masked ::before so the fade never
  * touches the content; it blooms from the upper-left and dissolves outward. */
