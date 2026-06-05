@@ -22,6 +22,42 @@ real wall. Studio (the pay-per-use no-code QR-publish builder) and the
 boilerplate both consume the same component library — which is exactly why the
 library must come first.
 
+## Current status & plan deltas (updated 2026-06-05)
+
+**This section is authoritative where it conflicts with the prose below** — the
+plan was written before the build and has drifted in a few places.
+
+**Shipped** (on `main` at `GitHubApp/glasskit-ui` — NOT public, NOT on npm):
+- **Phase 1 ✓** — monorepo scaffold (pnpm@10.8.0 + turborepo), CI + Changesets
+  wired but **inert** (gated on `RELEASE_ENABLED`), graphify (`graphify-out/`).
+- **Phase 2 ✓** — `@glasskit/glasses-ui` extracted byte-identical (5 src + 2
+  tests), public API unchanged, build green, tarball verified. Not published yet.
+- **Phase 3 (site) ~✓** — `apps/web` (Next 16 + Tailwind v4): the landing,
+  `/docs` getting-started, and a `/playground` stub are built.
+
+**Deltas — read the prose below through these:**
+- **The emulator is removed.** The plan treats an in-browser D-pad / Neural-Band
+  / sensor *emulator* as central (landing hero, live docs previews, `/create`
+  preview, verification). The owner rejected it (*"i hate the emulator… remove
+  that constraint"*) and the whole subsystem was deleted. **Decision:** the heavy
+  emulator is dead as a subsystem. The "show components live" role is carried by
+  (a) **`/playground`** — the realtime component customizer (the owner's "radix
+  playground" ask), and (b) simple **framed 600×600 live previews** that render
+  the real additive components in docs (no simulated D-pad/sensors). Wherever the
+  plan says "emulator," read "framed live preview / playground."
+- **Landing = blueprint/workshop, not an emulator hero.** Light mode, hard
+  borders, faded blueprint grid, Bricolage/Hanken/JetBrains + `#36e27f`, brand
+  lockup, real CTAs (Get started → /docs, Playground, GitHub) + a copyable
+  multi-PM install command. Phase 3's "hero = live emulator" is superseded.
+- **Site is single light-mode for now** (not the dark/light-switchable additive
+  site the plan describes). The *components* stay additive-on-black per
+  `docs/design/apple-feel.md` — that is unchanged.
+- **Repo exists** with the work merged to `main`, but is **not public and nothing
+  is on npm** — both stay gated on explicit owner go-ahead.
+
+**Next up: Phase 4** — build the real additive components to
+`docs/design/apple-feel.md`, which then fill `/playground` + the docs previews.
+
 ## Decisions locked (from brainstorming)
 
 | Decision | Choice |
@@ -126,12 +162,12 @@ API surface to preserve verbatim:
 ```
 glasskit-ui/                      # NEW public repo, pnpm + turborepo
   apps/
-    web/                          # Next.js + fumadocs → ui.glasskit.app
-      app/(marketing)/page.tsx    # landing (hero = live emulator), CTA → /create
-      app/(marketing)/create/     # the ui.shadcn.com/create analog (component picker)
-      content/docs/               # migrated + expanded from adelaide/content/docs
-      app/(docs) ...              # reuse adelaide's fumadocs wiring; live previews via emulator
-      app/r/[...]/route.ts        # registry endpoints (/r/*.json)
+    web/                          # Next 16 + Tailwind v4 → ui.glasskit.app
+      app/(web)/page.tsx          # landing (blueprint/workshop); CTAs → /docs · /playground · GitHub
+      app/(web)/docs/             # getting-started now; per-component pages + framed 600×600 previews (planned)
+      app/(web)/playground/       # realtime component customizer (the "radix playground"); supersedes /create
+      app/r/[...]/route.ts        # registry endpoints (/r/*.json) — planned, not built
+      # NOTE: no emulator subsystem (removed); fumadocs migration still planned
   packages/
     glasses-ui/                   # the published npm package @glasskit/glasses-ui
       src/
