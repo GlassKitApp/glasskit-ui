@@ -1,16 +1,16 @@
-# Graph Report - harrisburg  (2026-06-05)
+# Graph Report - harrisburg  (2026-06-06)
 
 ## Corpus Check
-- 101 files · ~33,072 words
+- 108 files · ~35,728 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 586 nodes · 909 edges · 41 communities (36 shown, 5 thin omitted)
+- 625 nodes · 953 edges · 46 communities (40 shown, 6 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `14111c32`
+- Built from commit: `f86e7542`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -50,13 +50,18 @@
 - [[_COMMUNITY_Community 38|Community 38]]
 - [[_COMMUNITY_Community 39|Community 39]]
 - [[_COMMUNITY_Community 40|Community 40]]
+- [[_COMMUNITY_Community 41|Community 41]]
+- [[_COMMUNITY_Community 42|Community 42]]
+- [[_COMMUNITY_Community 43|Community 43]]
+- [[_COMMUNITY_Community 44|Community 44]]
+- [[_COMMUNITY_Community 45|Community 45]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `cn()` - 35 edges
+1. `cn()` - 36 edges
 2. `GlassKit Ecosystem — Open-Source SDK + Registry (`glasskit-ui`)` - 26 edges
 3. `compilerOptions` - 16 edges
 4. `compilerOptions` - 16 edges
-5. `scripts` - 11 edges
+5. `scripts` - 12 edges
 6. `Screen()` - 11 edges
 7. `StatusBar()` - 11 edges
 8. `GlassKit UI — Apple-feel design reference (additive lens)` - 11 edges
@@ -72,10 +77,10 @@
   apps/web/components/lens-app.tsx → packages/glasses-ui/src/hooks/sensors.ts
 - `cn()` --calls--> `clsx`  [INFERRED]
   apps/web/lib/utils.ts → apps/web/package.json
-- `cn()` --calls--> `clsx`  [INFERRED]
-  apps/web/lib/utils.ts → apps/web/package.json
+- `GhostKey()` --calls--> `cn()`  [EXTRACTED]
+  apps/web/components/emulator.tsx → apps/web/lib/utils.ts
 
-## Communities (41 total, 5 thin omitted)
+## Communities (46 total, 6 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
@@ -83,7 +88,7 @@ Nodes (33): Accent color — one default, no preset system (revised 2026-06-01),
 
 ### Community 1 - "Community 1"
 Cohesion: 0.07
-Nodes (27): description, devDependencies, @changesets/cli, prettier, turbo, @types/node, typescript, engines (+19 more)
+Nodes (28): description, devDependencies, @changesets/cli, prettier, turbo, @types/node, typescript, engines (+20 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.15
@@ -106,8 +111,8 @@ Cohesion: 0.13
 Nodes (14): 10. Sources, 1. North star, 2. Two surfaces, two recipes, 3. Design principles (watchOS-derived, additive-translated), 4. Tokens & numbers (concrete starting set), 5. "Premium without blur" recipe, 6. Motion, 7. Iconography & typography (+6 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.07
-Nodes (35): CtrlButton(), GhostKey(), SettingsDemo(), StatsDemo(), ClassValue, cn(), { container }, map (+27 more)
+Cohesion: 0.06
+Nodes (62): AlertGlyph(), BatteryGlyph(), CheckGlyph(), ChevronGlyph(), HeartGlyph(), MessageGlyph(), MusicGlyph(), NavGlyph() (+54 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.17
@@ -146,24 +151,24 @@ Cohesion: 0.07
 Nodes (29): dependencies, @glasskit/glasses-ui, next, react, react-dom, tailwind-merge, description, devDependencies (+21 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.08
-Nodes (28): Emulator(), CheckIcon(), ChevronDown(), ChevronLeft(), ChevronRight(), ChevronUp(), CopyIcon(), FocusIcon() (+20 more)
+Cohesion: 0.07
+Nodes (30): CtrlButton(), Emulator(), GhostKey(), CheckIcon(), ChevronDown(), ChevronLeft(), ChevronRight(), ChevronUp() (+22 more)
 
 ### Community 26 - "Community 26"
 Cohesion: 0.09
 Nodes (22): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+14 more)
 
 ### Community 27 - "Community 27"
-Cohesion: 0.07
-Nodes (46): AlertGlyph(), BatteryGlyph(), ChevronGlyph(), HeartGlyph(), MessageGlyph(), MusicGlyph(), NavGlyph(), LauncherDemo() (+38 more)
+Cohesion: 0.16
+Nodes (11): cards, chips, { container }, onSelect, bar, { container }, { container: over }, { container: under } (+3 more)
 
 ### Community 29 - "Community 29"
 Cohesion: 0.33
 Nodes (4): bricolage, hanken, jetbrains, metadata
 
 ### Community 32 - "Community 32"
-Cohesion: 0.09
-Nodes (21): cn(), CodeBlock(), metadata, ACCENTS, Demo, DEMOS, PlaygroundClient(), PropsTable() (+13 more)
+Cohesion: 0.05
+Nodes (33): cn(), CodeBlock(), CATEGORY_ORDER, DocsSidebar(), GROUPS, metadata, ACCENTS, Demo (+25 more)
 
 ### Community 33 - "Community 33"
 Cohesion: 0.13
@@ -178,8 +183,8 @@ Cohesion: 0.18
 Nodes (10): author, bugs, description, files, homepage, keywords, name, sideEffects (+2 more)
 
 ### Community 36 - "Community 36"
-Cohesion: 0.15
-Nodes (13): ExploreDemo(), { container }, { container: a }, { container: b }, g, { container }, g, Callout() (+5 more)
+Cohesion: 0.31
+Nodes (7): { container }, { container: a }, { container: b }, g, cardinal(), Compass(), DIRS
 
 ### Community 37 - "Community 37"
 Cohesion: 0.33
@@ -197,25 +202,41 @@ Nodes (3): peerDependencies, react, react-dom
 Cohesion: 0.67
 Nodes (3): publishConfig, access, provenance
 
+### Community 41 - "Community 41"
+Cohesion: 0.17
+Nodes (9): deps, items, name, PUBLIC_R, registry, ROOT, served, src (+1 more)
+
+### Community 42 - "Community 42"
+Cohesion: 0.22
+Nodes (8): Adding a registry component, code:block1 (packages/glasses-ui/     # the npm SDK: hooks + GlassViewpor), code:sh (pnpm build:registry), Contributing to GlassKit UI, House rules, Repo layout, The lens design rules (non-negotiable), The registry index
+
+### Community 43 - "Community 43"
+Cohesion: 0.40
+Nodes (4): { container }, onClick, row, rows
+
+### Community 44 - "Community 44"
+Cohesion: 0.40
+Nodes (4): homepage, items, name, $schema
+
 ## Knowledge Gaps
-- **314 isolated node(s):** `$schema`, `target`, `lib`, `module`, `moduleResolution` (+309 more)
+- **337 isolated node(s):** `$schema`, `target`, `lib`, `module`, `moduleResolution` (+332 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `cn()` connect `Community 7` to `Community 32`, `Community 25`, `Community 27`, `Community 36`?**
-  _High betweenness centrality (0.105) - this node is a cross-community bridge._
+  _High betweenness centrality (0.102) - this node is a cross-community bridge._
 - **Why does `useDpad()` connect `Community 3` to `Community 32`?**
-  _High betweenness centrality (0.075) - this node is a cross-community bridge._
+  _High betweenness centrality (0.069) - this node is a cross-community bridge._
 - **Why does `DpadProvider()` connect `Community 32` to `Community 3`?**
-  _High betweenness centrality (0.074) - this node is a cross-community bridge._
+  _High betweenness centrality (0.068) - this node is a cross-community bridge._
 - **What connects `$schema`, `target`, `lib` to the rest of the system?**
-  _314 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _337 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
   _Cohesion score 0.05551020408163265 - nodes in this community are weakly interconnected._

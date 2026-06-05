@@ -19,3 +19,6 @@ build
 next-env.d.ts
 *.log
 .vercel
+
+# generated registry distribution (built from registry/ via `pnpm build:registry`)
+apps/web/public/r

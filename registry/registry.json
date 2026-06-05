@@ -1,0 +1,499 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "glasskit",
+  "homepage": "https://ui.glasskit.app",
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "cn",
+      "description": "Class-name join utility used by every component.",
+      "files": [
+        {
+          "path": "registry/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/glasskit-utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "async-view",
+      "type": "registry:ui",
+      "title": "AsyncView",
+      "description": "the four-state async renderer every data screen needs: placeholder (idle) → loading → success/error.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/async-view.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/async-view.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "a small count or status pill (notification counts, live state).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "a D-pad-focusable action.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "callout",
+      "type": "registry:ui",
+      "title": "Callout",
+      "description": "a world-object annotation: a small anchor at a screen point with a vertical leader line up to an emitted label (no box — additive translates the card to line + type).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/callout.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/callout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "compass",
+      "type": "registry:ui",
+      "title": "Compass",
+      "description": "a heading rose that keeps North pointing at real north while a fixed top marker shows where you face.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/compass.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/compass.tsx"
+        }
+      ]
+    },
+    {
+      "name": "confirm",
+      "type": "registry:ui",
+      "title": "Confirm",
+      "description": "a decision screen: a prompt + a two-button action bar (confirm / cancel).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/confirm.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/confirm.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cue",
+      "type": "registry:ui",
+      "title": "Cue",
+      "description": "a caption / hint line: what to do next, or a transient status (\"Listening…\").",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/cue.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/cue.tsx"
+        }
+      ]
+    },
+    {
+      "name": "deck",
+      "type": "registry:ui",
+      "title": "Deck",
+      "description": "a horizontal paged flow (wizard / onboarding).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/deck.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/deck.tsx"
+        }
+      ]
+    },
+    {
+      "name": "direction-arrow",
+      "type": "registry:ui",
+      "title": "DirectionArrow",
+      "description": "points toward a real-world `bearing` (degrees, 0 = up/N, clockwise).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/direction-arrow.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/direction-arrow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "error-state",
+      "type": "registry:ui",
+      "title": "ErrorState",
+      "description": "a recoverable error screen: optional glyph + title + message + a retry action.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/error-state.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/error-state.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glow-icon",
+      "type": "registry:ui",
+      "title": "GlowIcon",
+      "description": "wraps a line-icon SVG and applies the 2-tier luminance rule (apple-feel §7): inert = near-white, `active` = phosphor green with a faint glow.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/glow-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/glow-icon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "heading",
+      "type": "registry:ui",
+      "title": "Heading",
+      "description": "a screen/section title with an optional eyebrow label above it.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/heading.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/heading.tsx"
+        }
+      ]
+    },
+    {
+      "name": "launcher",
+      "type": "registry:ui",
+      "title": "Launcher",
+      "description": "the app grid: the entry screen for a multi-app surface.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/launcher.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/launcher.tsx"
+        }
+      ]
+    },
+    {
+      "name": "list",
+      "type": "registry:ui",
+      "title": "List",
+      "description": "a vertical stack of focusable rows (watchOS list spirit).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/list.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "meter",
+      "type": "registry:ui",
+      "title": "Meter",
+      "description": "a bounded ring gauge for a level (battery, signal, intensity), as opposed to <Progress> which tracks task completion.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/meter.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/meter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pin",
+      "type": "registry:ui",
+      "title": "Pin",
+      "description": "a world-anchored waypoint marker: a ring + dot at a screen point with the name and distance stacked above.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/pin.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/pin.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "emitted progress, two shapes: - \"linear\" a continuous bar (also covers countdown: feed a decreasing value and a time label).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/progress.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "quick-reply-chips",
+      "type": "registry:ui",
+      "title": "QuickReplyChips",
+      "description": "tappable canned replies (the comms job; there is no keyboard on the lens — text is voice).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/quick-reply-chips.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/quick-reply-chips.tsx"
+        }
+      ]
+    },
+    {
+      "name": "readout",
+      "type": "registry:ui",
+      "title": "Readout",
+      "description": "a single-value complication: label + value (+ optional unit).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/readout.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/readout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "reticle",
+      "type": "registry:ui",
+      "title": "Reticle",
+      "description": "an aim-to-select target: four corner brackets framing the gaze center.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/reticle.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/reticle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "screen",
+      "type": "registry:ui",
+      "title": "Screen",
+      "description": "the on-lens layout shell: a status region (block-start), a centered stage (the one task), and a cue region (block-end).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/screen.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/screen.tsx"
+        }
+      ]
+    },
+    {
+      "name": "segmented",
+      "type": "registry:ui",
+      "title": "Segmented",
+      "description": "pick one of a few options (a watchOS-style segmented control).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/segmented.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/segmented.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stat-grid",
+      "type": "registry:ui",
+      "title": "StatGrid",
+      "description": "a compact grid of readouts for a multi-metric glance (a watch \"complication cluster\").",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/stat-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/stat-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-bar",
+      "type": "registry:ui",
+      "title": "StatusBar",
+      "description": "the glanceable top status row (watchOS TimeText analog): time / battery / connection.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/status-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/status-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-dot",
+      "type": "registry:ui",
+      "title": "StatusDot",
+      "description": "a glanceable sensor / permission / connection indicator.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/status-dot.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/status-dot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "adjust a value in discrete steps (glasses have no fine slider).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/stepper.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/stepper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "a transient notice that animates in (a brief luminance rise, not a modal scrim).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/toast.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/toast.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "a binary switch, D-pad-focusable (renders a real button with the focusable class; useDpad activates it on Enter/Space).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/toggle.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/toggle.tsx"
+        }
+      ]
+    }
+  ]
+}
