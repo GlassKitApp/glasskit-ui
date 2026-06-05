@@ -686,3 +686,138 @@
   border-bottom-width: 1.5px;
   border-right-width: 1.5px;
 }
+
+/* ── Wave 4 action / input components ───────────────────────────────
+ * Controls (not world-anchored): logical CSS, mirror correctly under RTL.
+ * State is class-driven, so the knob/selection need no inline style.
+ * ─────────────────────────────────────────────────────────────── */
+
+/* Toggle — a binary switch row; the knob slides to inline-end when on. */
+.glass-viewport .gk-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  inline-size: 100%;
+}
+.glass-viewport .gk-toggle__label {
+  flex: 1 1 auto;
+  text-align: start;
+}
+.glass-viewport .gk-toggle__track {
+  display: flex;
+  flex: none;
+  align-items: center;
+  inline-size: 44px;
+  block-size: 24px;
+  padding: 3px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  transition: border-color 0.25s ease;
+}
+.glass-viewport .gk-toggle__knob {
+  inline-size: 16px;
+  block-size: 16px;
+  border-radius: 999px;
+  background: var(--ink-tertiary);
+  transition:
+    margin 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.glass-viewport .gk-toggle--on .gk-toggle__track {
+  border-color: var(--green);
+}
+.glass-viewport .gk-toggle--on .gk-toggle__knob {
+  margin-inline-start: auto; /* slide to inline-end — RTL-correct */
+  background: var(--green);
+  box-shadow: 0 0 8px color-mix(in oklab, var(--green) 55%, transparent);
+}
+
+/* Stepper — −/value/+ with circular focusable buttons. */
+.glass-viewport .gk-stepper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.glass-viewport .gk-stepper__label {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-tertiary);
+}
+.glass-viewport .gk-stepper__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.glass-viewport .gk-stepper__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 44px;
+  block-size: 44px;
+  padding: 0;
+  border-radius: 999px;
+  font-size: 22px;
+  line-height: 1;
+}
+.glass-viewport .gk-stepper__value {
+  min-inline-size: 4ch;
+  text-align: center;
+}
+.glass-viewport .gk-stepper__unit {
+  color: var(--ink-tertiary);
+  font-size: 14px;
+}
+
+/* Segmented — pick one of a few; the selected segment glows green. */
+.glass-viewport .gk-segmented {
+  display: inline-flex;
+  gap: 6px;
+}
+.glass-viewport .gk-segmented__seg--on {
+  border-color: var(--green);
+  color: #fff;
+  box-shadow: inset 0 0 14px color-mix(in oklab, var(--green) 22%, transparent);
+}
+
+/* Confirm — prompt + two-button action bar. */
+.glass-viewport .gk-confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.glass-viewport .gk-confirm__message {
+  max-inline-size: 28ch;
+  color: var(--ink-secondary);
+}
+.glass-viewport .gk-confirm__actions {
+  display: flex;
+  gap: 12px;
+  margin-block-start: 6px;
+}
+
+/* Badge — a small count / status pill (emitted, never a dark-on-light fill). */
+.glass-viewport .gk-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 20px;
+  padding-block: 2px;
+  padding-inline: 8px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--ink-secondary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.glass-viewport .gk-badge--accent {
+  border-color: var(--green);
+  color: var(--green-active);
+  box-shadow:
+    inset 0 0 8px color-mix(in oklab, var(--green) 18%, transparent),
+    0 0 8px color-mix(in oklab, var(--green) 25%, transparent);
+}

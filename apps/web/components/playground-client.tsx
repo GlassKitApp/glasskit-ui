@@ -9,6 +9,7 @@ import { HeartRateDemo } from "@/components/lens/heart-rate-demo";
 import { MenuDemo } from "@/components/lens/menu-demo";
 import { SyncDemo } from "@/components/lens/sync-demo";
 import { NavigateDemo } from "@/components/lens/navigate-demo";
+import { SettingsDemo } from "@/components/lens/settings-demo";
 
 type Demo = {
   id: string;
@@ -108,6 +109,27 @@ const DEMOS: Demo[] = [
     <Readout label="Market St" value="320" unit="m" />
   </Screen>
 </GlassViewport>`,
+  },
+  {
+    id: "settings",
+    label: "Settings",
+    caption: "Stepper · Toggle · Segmented (live — arrow + Enter)",
+    node: <SettingsDemo />,
+    code: `function Settings() {
+  const [brightness, setBrightness] = useState(3);
+  const [notify, setNotify] = useState(true);
+  const [mode, setMode] = useState("map");
+
+  return (
+    <Screen status={<StatusBar start="Settings" end="87%" />}>
+      <Stepper label="Brightness" value={brightness}
+               min={1} max={5} onChange={setBrightness} />
+      <Toggle label="Notifications" checked={notify} onChange={setNotify} />
+      <Segmented value={mode} onChange={setMode}
+        options={[{ value: "map", label: "Map" }, { value: "list", label: "List" }]} />
+    </Screen>
+  );
+}`,
   },
 ];
 

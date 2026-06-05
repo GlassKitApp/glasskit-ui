@@ -11,6 +11,11 @@ import { AsyncView, Spinner } from "@registry/ui/async-view";
 import { DirectionArrow } from "@registry/ui/direction-arrow";
 import { Compass } from "@registry/ui/compass";
 import { Reticle } from "@registry/ui/reticle";
+import { Toggle } from "@registry/ui/toggle";
+import { Stepper } from "@registry/ui/stepper";
+import { Segmented } from "@registry/ui/segmented";
+import { Confirm } from "@registry/ui/confirm";
+import { Badge } from "@registry/ui/badge";
 import {
   HeartGlyph,
   NavGlyph,
@@ -387,6 +392,154 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "label", type: "string", desc: "a11y label." },
     ],
     usage: `<Reticle active={isOnTarget} label="Aim at a sign" />`,
+  },
+  {
+    slug: "toggle",
+    name: "Toggle",
+    category: "Action",
+    summary:
+      "A binary switch, D-pad-focusable. Controlled via checked + onChange. The knob slides on a logical margin, so it mirrors correctly under RTL.",
+    preview: (
+      <Screen>
+        <Toggle checked label="Notifications" />
+        <Toggle checked={false} label="Airplane mode" />
+      </Screen>
+    ),
+    props: [
+      { name: "checked", type: "boolean", desc: "On/off state (controlled)." },
+      { name: "onChange", type: "(next: boolean) => void", desc: "Fires on toggle." },
+      { name: "label", type: "ReactNode", desc: "Row label." },
+      { name: "disabled", type: "boolean", desc: "Excluded from D-pad focus." },
+    ],
+    usage: `<Toggle
+  label="Notifications"
+  checked={on}
+  onChange={setOn}
+/>`,
+  },
+  {
+    slug: "stepper",
+    name: "Stepper",
+    category: "Action",
+    summary:
+      "Adjust a value in discrete steps (glasses have no fine slider). The − and + are D-pad-focusable; bounds disable the ends. Controlled via value + onChange.",
+    preview: (
+      <Screen>
+        <Stepper label="Brightness" value={3} min={1} max={5} unit="/ 5" />
+      </Screen>
+    ),
+    props: [
+      { name: "value", type: "number", desc: "Current value (controlled)." },
+      { name: "onChange", type: "(next: number) => void", desc: "Fires on ± (clamped)." },
+      { name: "min", type: "number", desc: "Lower bound (disables −)." },
+      { name: "max", type: "number", desc: "Upper bound (disables +)." },
+      { name: "step", type: "number", default: "1", desc: "Increment." },
+      { name: "label / unit", type: "ReactNode", desc: "Caption / trailing unit." },
+    ],
+    usage: `<Stepper
+  label="Brightness"
+  value={value} min={1} max={5}
+  onChange={setValue}
+/>`,
+  },
+  {
+    slug: "segmented",
+    name: "Segmented",
+    category: "Action",
+    summary:
+      "Pick one of a few options (a watchOS-style segmented control). Each segment is a D-pad-focusable radio; the selected one glows green. Keep it to 2–4 options.",
+    preview: (
+      <Screen>
+        <Segmented
+          value="map"
+          options={[
+            { value: "map", label: "Map" },
+            { value: "list", label: "List" },
+            { value: "ar", label: "AR" },
+          ]}
+        />
+      </Screen>
+    ),
+    props: [
+      {
+        name: "options",
+        type: "{ value, label }[]",
+        desc: "The choices (value: string | number).",
+      },
+      { name: "value", type: "T", desc: "The selected value (controlled)." },
+      { name: "onChange", type: "(next: T) => void", desc: "Fires on select." },
+    ],
+    usage: `<Segmented
+  value={mode}
+  onChange={setMode}
+  options={[
+    { value: "map", label: "Map" },
+    { value: "list", label: "List" },
+  ]}
+/>`,
+  },
+  {
+    slug: "confirm",
+    name: "Confirm",
+    category: "Action",
+    summary:
+      "A decision screen: a prompt plus a two-button action bar. Drop it into a Screen stage; useDpad seeds focus on the primary action.",
+    preview: (
+      <Screen>
+        <Confirm
+          title="End workout?"
+          message="Your route so far will be saved."
+          confirmLabel="End"
+        />
+      </Screen>
+    ),
+    props: [
+      { name: "title", type: "ReactNode", desc: "The question." },
+      { name: "message", type: "ReactNode", desc: "Supporting detail." },
+      {
+        name: "confirmLabel / cancelLabel",
+        type: "ReactNode",
+        default: '"Confirm" / "Cancel"',
+        desc: "Button labels.",
+      },
+      {
+        name: "onConfirm / onCancel",
+        type: "() => void",
+        desc: "Action handlers.",
+      },
+    ],
+    usage: `<Confirm
+  title="End workout?"
+  message="Your route so far will be saved."
+  confirmLabel="End"
+  onConfirm={end}
+  onCancel={dismiss}
+/>`,
+  },
+  {
+    slug: "badge",
+    name: "Badge",
+    category: "Display",
+    summary:
+      "A small count or status pill. Pure display — hairline by default, accent tone for the one thing that should draw the eye (emitted green, never a dark-on-light fill).",
+    preview: (
+      <Screen>
+        <div className="row">
+          <Badge>3</Badge>
+          <Badge tone="accent">LIVE</Badge>
+        </div>
+      </Screen>
+    ),
+    props: [
+      { name: "children", type: "ReactNode", desc: "Count or short label." },
+      {
+        name: "tone",
+        type: '"default" | "accent"',
+        default: '"default"',
+        desc: "Accent glows green.",
+      },
+    ],
+    usage: `<Badge tone="accent">LIVE</Badge>`,
   },
 ];
 
