@@ -62,9 +62,9 @@ export default function Home() {
         <div className="mx-auto grid max-w-[1320px] grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-12 lg:gap-8 lg:px-10 lg:py-24">
           <div className="lg:col-span-5">
             <p className="rise mono-label">
-              Open source — Meta Ray-Ban Display
+              Open source · Meta Ray-Ban Display
             </p>
-            <h1 className="rise font-display mt-5 text-[clamp(2.9rem,6vw,5.2rem)] leading-[0.94]">
+            <h1 className="rise font-display mt-5 text-[clamp(2.9rem,7vw,6.6rem)] leading-[0.95]">
               Building blocks
               <br />
               for the{" "}
@@ -74,8 +74,8 @@ export default function Home() {
               .
             </h1>
             <p className="rise-2 mt-7 max-w-md text-lg leading-relaxed text-ink-2">
-              The open-source React component library for Meta Ray-Ban Display —
-              a focus engine, the Neural Band gestures, and additive components
+              The open-source React component library for Meta Ray-Ban Display.
+              A focus engine, the Neural Band gestures, and additive components
               that look right on the lens.
             </p>
             <div className="rise-2 mt-8 flex flex-wrap items-center gap-3">
@@ -125,7 +125,7 @@ export default function Home() {
             </h2>
           </div>
           <p className="max-w-xs text-ink-2">
-            Monitor, navigate, guide, caption, notify — derived from what a
+            Monitor, navigate, guide, caption, notify. Derived from what a
             glanceable display actually does.
           </p>
         </div>
@@ -140,7 +140,7 @@ export default function Home() {
           <StatusBarCard />
         </div>
         <p className="mono-label mt-8">
-          ◇ Previews are placeholders — the styled components ship next
+          ◇ Previews are placeholders. Styled components ship next
         </p>
       </section>
 
@@ -154,7 +154,7 @@ export default function Home() {
               Yours to vendor.
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-2">
-              Pull the blocks straight into your repo — source and all. Never
+              Pull the blocks straight into your repo, source and all. Never
               blocked, never a black box.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
@@ -171,7 +171,7 @@ export default function Home() {
 
       <footer className="bg-bg">
         <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-3 px-6 py-8 lg:px-10 sm:flex-row">
-          <span className="mono-label">GlassKit UI — open source</span>
+          <span className="mono-label">GlassKit UI · open source</span>
           <div className="flex gap-6">
             <a href="#components" className="mono-label hover:text-ink">
               Components
