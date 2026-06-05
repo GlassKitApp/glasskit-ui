@@ -450,3 +450,131 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+/* ── Wave 2 spine components ─────────────────────────────────────── */
+
+/* List — vertical stack of focusable rows (watchOS list spirit). */
+.glass-viewport .gk-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  inline-size: 100%;
+}
+.glass-viewport .gk-list-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  inline-size: 100%;
+  text-align: start;
+}
+.glass-viewport .gk-list-row__label {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+}
+.glass-viewport .gk-list-row__trailing {
+  color: var(--ink-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Progress (linear) — a styled native <progress>, so the dynamic fill
+ * needs no inline style. Track is faint; fill is emitted green. */
+.glass-viewport .gk-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  inline-size: 100%;
+}
+.glass-viewport .gk-progress__el {
+  -webkit-appearance: none;
+  appearance: none;
+  inline-size: 100%;
+  block-size: 4px;
+  border: none;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--green-faint) 55%, transparent);
+  overflow: hidden;
+}
+.glass-viewport .gk-progress__el::-webkit-progress-bar {
+  background: transparent;
+}
+.glass-viewport .gk-progress__el::-webkit-progress-value {
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 12px color-mix(in oklab, var(--green) 50%, transparent);
+}
+.glass-viewport .gk-progress__el::-moz-progress-bar {
+  border-radius: 999px;
+  background: var(--green);
+}
+.glass-viewport .gk-progress__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Progress (step) — N dots, current filled. Discrete, no inline style. */
+.glass-viewport .gk-steps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.glass-viewport .gk-step {
+  inline-size: 8px;
+  block-size: 8px;
+  border-radius: 999px;
+  background: var(--green-faint);
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.glass-viewport .gk-step--on {
+  background: var(--green);
+  box-shadow: 0 0 8px color-mix(in oklab, var(--green) 50%, transparent);
+}
+
+/* AsyncView — placeholder → loading → success/error. */
+.glass-viewport .gk-async {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+@keyframes gk-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+.glass-viewport .gk-async-error {
+  color: var(--ink-secondary);
+}
+.glass-viewport .gk-spinner {
+  display: inline-flex;
+  gap: 6px;
+}
+.glass-viewport .gk-spinner span {
+  inline-size: 7px;
+  block-size: 7px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 8px color-mix(in oklab, var(--green) 50%, transparent);
+  animation: gk-pulse 1.2s ease-in-out infinite;
+}
+.glass-viewport .gk-spinner span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.glass-viewport .gk-spinner span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-viewport .gk-spinner span {
+    animation: none;
+  }
+}

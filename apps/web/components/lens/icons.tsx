@@ -29,3 +29,37 @@ export function BatteryGlyph() {
     </svg>
   );
 }
+
+export function ChevronGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <path d="m9 6 6 6-6 6" />
+    </svg>
+  );
+}
+
+export function NavGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <path d="M12 2 4.5 20.5 12 17l7.5 3.5L12 2Z" />
+    </svg>
+  );
+}
+
+export function MessageGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <path d="M20 15a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9Z" />
+    </svg>
+  );
+}
+
+export function MusicGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <path d="M9 18V5l12-2v13" />
+      <circle cx="6" cy="18" r="3" />
+      <circle cx="18" cy="16" r="3" />
+    </svg>
+  );
+}

@@ -9,6 +9,52 @@
  * utilities they use are generated. */
 @source "../../../registry";
 
+/* Playground accent presets. The lens accent is a single overridable token;
+ * these recolor it live by re-declaring the green ramp on a wrapper ABOVE the
+ * viewport (`.accent-x .glass-viewport` outspecifies `.glass-viewport`), so the
+ * swap needs no inline style. Phosphor green is the default (no class). Each
+ * ramp's base is a single source of truth, shared with the picker swatches. */
+:root {
+  --accent-phosphor: #36e27f;
+  --accent-ice: #4cc6ff;
+  --accent-amber: #ffb454;
+  --accent-violet: #a878ff;
+}
+.accent-ice .glass-viewport {
+  --green-active: #9fe4ff;
+  --green: var(--accent-ice);
+  --green-muted: #2b7fa6;
+  --green-faint: #16455c;
+  --color-accent: var(--accent-ice);
+}
+.accent-amber .glass-viewport {
+  --green-active: #ffd596;
+  --green: var(--accent-amber);
+  --green-muted: #a6742b;
+  --green-faint: #5c3f16;
+  --color-accent: var(--accent-amber);
+}
+.accent-violet .glass-viewport {
+  --green-active: #d4b6ff;
+  --green: var(--accent-violet);
+  --green-muted: #6b4aa6;
+  --green-faint: #3a285c;
+  --color-accent: var(--accent-violet);
+}
+/* Picker swatches reference the same base tokens — one source of truth. */
+.sw-phosphor {
+  background: var(--accent-phosphor);
+}
+.sw-ice {
+  background: var(--accent-ice);
+}
+.sw-amber {
+  background: var(--accent-amber);
+}
+.sw-violet {
+  background: var(--accent-violet);
+}
+
 /* ───────────────────────────────────────────────────────────────
  * ui.glasskit.app — SITE CHROME. Blueprint / workshop aesthetic
  * (ref: render.com): a hairline blueprint grid, hard 1px borders, sharp

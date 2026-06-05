@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CopyIcon, CheckIcon } from "@/components/icons";
+import { useCopyToClipboard } from "@/lib/use-copy-to-clipboard";
 
 const PMS = [
   { id: "npm", cmd: "npm i @glasskit/glasses-ui" },
@@ -13,18 +14,8 @@ const PMS = [
 /** Hard-bordered install block with a package-manager switch + copy. */
 export function InstallCommand({ className }: { className?: string }) {
   const [pm, setPm] = useState<(typeof PMS)[number]["id"]>("npm");
-  const [copied, setCopied] = useState(false);
+  const { copied, copy } = useCopyToClipboard();
   const cmd = PMS.find((p) => p.id === pm)!.cmd;
-
-  async function copy() {
-    try {
-      await navigator.clipboard.writeText(cmd);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1400);
-    } catch {
-      /* clipboard unavailable */
-    }
-  }
 
   return (
     <div
@@ -51,7 +42,7 @@ export function InstallCommand({ className }: { className?: string }) {
         <code className="truncate font-mono text-sm text-ink">{cmd}</code>
         <button
           type="button"
-          onClick={copy}
+          onClick={() => void copy(cmd)}
           aria-label={copied ? "Copied" : "Copy install command"}
           className="shrink-0 text-ink-3 transition-colors hover:text-ink"
         >
