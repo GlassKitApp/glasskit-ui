@@ -1035,7 +1035,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L65",
       "id": "glasses_ui_package_devdependencies",
-      "community": 32,
+      "community": 2,
       "norm_label": "devdependencies"
     },
     {
@@ -1044,7 +1044,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L66",
       "id": "glasses_ui_package_devdependencies_eslint_js",
-      "community": 32,
+      "community": 2,
       "norm_label": "@eslint/js"
     },
     {
@@ -1053,7 +1053,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L67",
       "id": "glasses_ui_package_devdependencies_types_react",
-      "community": 32,
+      "community": 2,
       "norm_label": "@types/react"
     },
     {
@@ -1062,7 +1062,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L68",
       "id": "glasses_ui_package_devdependencies_types_react_dom",
-      "community": 32,
+      "community": 2,
       "norm_label": "@types/react-dom"
     },
     {
@@ -1071,7 +1071,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L69",
       "id": "glasses_ui_package_devdependencies_eslint",
-      "community": 32,
+      "community": 2,
       "norm_label": "eslint"
     },
     {
@@ -1080,7 +1080,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L70",
       "id": "glasses_ui_package_devdependencies_eslint_plugin_react_hooks",
-      "community": 32,
+      "community": 2,
       "norm_label": "eslint-plugin-react-hooks"
     },
     {
@@ -1089,7 +1089,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L71",
       "id": "glasses_ui_package_devdependencies_globals",
-      "community": 32,
+      "community": 2,
       "norm_label": "globals"
     },
     {
@@ -1098,7 +1098,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L72",
       "id": "glasses_ui_package_devdependencies_react",
-      "community": 32,
+      "community": 2,
       "norm_label": "react"
     },
     {
@@ -1107,7 +1107,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L73",
       "id": "glasses_ui_package_devdependencies_react_dom",
-      "community": 32,
+      "community": 2,
       "norm_label": "react-dom"
     },
     {
@@ -1116,7 +1116,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L74",
       "id": "glasses_ui_package_devdependencies_tsup",
-      "community": 32,
+      "community": 2,
       "norm_label": "tsup"
     },
     {
@@ -1125,7 +1125,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L75",
       "id": "glasses_ui_package_devdependencies_typescript",
-      "community": 32,
+      "community": 2,
       "norm_label": "typescript"
     },
     {
@@ -1134,7 +1134,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L76",
       "id": "glasses_ui_package_devdependencies_typescript_eslint",
-      "community": 32,
+      "community": 2,
       "norm_label": "typescript-eslint"
     },
     {
@@ -1143,7 +1143,7 @@
       "source_file": "packages/glasses-ui/package.json",
       "source_location": "L77",
       "id": "glasses_ui_package_devdependencies_vitest",
-      "community": 32,
+      "community": 2,
       "norm_label": "vitest"
     },
     {
@@ -1206,7 +1206,7 @@
       "source_file": "packages/glasses-ui/src/index.ts",
       "source_location": "L1",
       "id": "packages_glasses_ui_src_index_ts",
-      "community": 33,
+      "community": 3,
       "norm_label": "index.ts"
     },
     {
@@ -1215,7 +1215,7 @@
       "source_file": "packages/glasses-ui/src/primitives/GlassViewport.tsx",
       "source_location": "L1",
       "id": "packages_glasses_ui_src_primitives_glassviewport_tsx",
-      "community": 33,
+      "community": 3,
       "norm_label": "glassviewport.tsx"
     },
     {
@@ -1224,7 +1224,7 @@
       "source_file": "packages/glasses-ui/src/primitives/GlassViewport.tsx",
       "source_location": "L19",
       "id": "primitives_glassviewport_glassviewport",
-      "community": 33,
+      "community": 3,
       "norm_label": "glassviewport()"
     },
     {
@@ -1233,7 +1233,7 @@
       "source_file": "packages/glasses-ui/src/primitives/index.ts",
       "source_location": "L1",
       "id": "packages_glasses_ui_src_primitives_index_ts",
-      "community": 33,
+      "community": 3,
       "norm_label": "index.ts"
     },
     {
@@ -1242,7 +1242,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L1",
       "id": "packages_glasses_ui_src_hooks_dpad_test_ts",
-      "community": 3,
+      "community": 7,
       "norm_label": "dpad.test.ts"
     },
     {
@@ -1251,7 +1251,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L5",
       "id": "hooks_dpad_test_current",
-      "community": 3,
+      "community": 7,
       "norm_label": "current"
     },
     {
@@ -1260,7 +1260,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L10",
       "id": "hooks_dpad_test_candidate",
-      "community": 3,
+      "community": 7,
       "norm_label": "candidate"
     },
     {
@@ -1269,7 +1269,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L17",
       "id": "hooks_dpad_test_s",
-      "community": 3,
+      "community": 7,
       "norm_label": "s"
     },
     {
@@ -1278,7 +1278,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L23",
       "id": "hooks_dpad_test_aligned",
-      "community": 3,
+      "community": 7,
       "norm_label": "aligned"
     },
     {
@@ -1287,7 +1287,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L24",
       "id": "hooks_dpad_test_drifted",
-      "community": 3,
+      "community": 7,
       "norm_label": "drifted"
     },
     {
@@ -1296,7 +1296,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L25",
       "id": "hooks_dpad_test_saligned",
-      "community": 3,
+      "community": 7,
       "norm_label": "saligned"
     },
     {
@@ -1305,7 +1305,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L26",
       "id": "hooks_dpad_test_sdrifted",
-      "community": 3,
+      "community": 7,
       "norm_label": "sdrifted"
     },
     {
@@ -1314,7 +1314,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L34",
       "id": "hooks_dpad_test_up",
-      "community": 3,
+      "community": 7,
       "norm_label": "up"
     },
     {
@@ -1323,7 +1323,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L35",
       "id": "hooks_dpad_test_down",
-      "community": 3,
+      "community": 7,
       "norm_label": "down"
     },
     {
@@ -1332,7 +1332,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L36",
       "id": "hooks_dpad_test_left",
-      "community": 3,
+      "community": 7,
       "norm_label": "left"
     },
     {
@@ -1341,7 +1341,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L37",
       "id": "hooks_dpad_test_right",
-      "community": 3,
+      "community": 7,
       "norm_label": "right"
     },
     {
@@ -1422,7 +1422,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
       "source_location": "L109",
       "id": "hooks_dpad_usedpad",
-      "community": 27,
+      "community": 3,
       "norm_label": "usedpad()"
     },
     {
@@ -2079,7 +2079,7 @@
       "source_file": "apps/web/app/(web)/playground/page.tsx",
       "source_location": "L1",
       "id": "apps_web_app_web_playground_page_tsx",
-      "community": 7,
+      "community": 25,
       "norm_label": "page.tsx"
     },
     {
@@ -2088,7 +2088,7 @@
       "source_file": "apps/web/app/(web)/playground/page.tsx",
       "source_location": "L4",
       "id": "playground_page_metadata",
-      "community": 7,
+      "community": 25,
       "norm_label": "metadata"
     },
     {
@@ -2097,7 +2097,7 @@
       "source_file": "apps/web/app/(web)/playground/page.tsx",
       "source_location": "L6",
       "id": "playground_page_playground",
-      "community": 7,
+      "community": 25,
       "norm_label": "playground()"
     },
     {
@@ -2106,7 +2106,7 @@
       "source_file": "apps/web/app/(web)/docs/page.tsx",
       "source_location": "L1",
       "id": "apps_web_app_web_docs_page_tsx",
-      "community": 7,
+      "community": 25,
       "norm_label": "page.tsx"
     },
     {
@@ -2115,7 +2115,7 @@
       "source_file": "apps/web/app/(web)/docs/page.tsx",
       "source_location": "L5",
       "id": "docs_page_metadata",
-      "community": 7,
+      "community": 25,
       "norm_label": "metadata"
     },
     {
@@ -2124,7 +2124,7 @@
       "source_file": "apps/web/app/(web)/docs/page.tsx",
       "source_location": "L27",
       "id": "docs_page_codeblock",
-      "community": 7,
+      "community": 25,
       "norm_label": "codeblock()"
     },
     {
@@ -2133,7 +2133,7 @@
       "source_file": "apps/web/app/(web)/docs/page.tsx",
       "source_location": "L35",
       "id": "docs_page_docsgettingstarted",
-      "community": 7,
+      "community": 25,
       "norm_label": "docsgettingstarted()"
     },
     {
@@ -2142,25 +2142,25 @@
       "source_file": "apps/web/components/install-command.tsx",
       "source_location": "L1",
       "id": "apps_web_components_install_command_tsx",
-      "community": 7,
+      "community": 25,
       "norm_label": "install-command.tsx"
     },
     {
       "label": "PMS",
       "file_type": "code",
       "source_file": "apps/web/components/install-command.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "id": "components_install_command_pms",
-      "community": 7,
+      "community": 25,
       "norm_label": "pms"
     },
     {
       "label": "InstallCommand()",
       "file_type": "code",
       "source_file": "apps/web/components/install-command.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "id": "components_install_command_installcommand",
-      "community": 7,
+      "community": 25,
       "norm_label": "installcommand()"
     },
     {
@@ -2169,7 +2169,7 @@
       "source_file": "apps/web/components/site-header.tsx",
       "source_location": "L1",
       "id": "apps_web_components_site_header_tsx",
-      "community": 7,
+      "community": 25,
       "norm_label": "site-header.tsx"
     },
     {
@@ -2178,7 +2178,7 @@
       "source_file": "apps/web/components/site-header.tsx",
       "source_location": "L5",
       "id": "components_site_header_siteheader",
-      "community": 7,
+      "community": 25,
       "norm_label": "siteheader()"
     },
     {
@@ -2200,10 +2200,28 @@
       "norm_label": "iconprops"
     },
     {
-      "label": "GithubIcon()",
+      "label": "CopyIcon()",
       "file_type": "code",
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L3",
+      "id": "components_icons_copyicon",
+      "community": 25,
+      "norm_label": "copyicon()"
+    },
+    {
+      "label": "CheckIcon()",
+      "file_type": "code",
+      "source_file": "apps/web/components/icons.tsx",
+      "source_location": "L21",
+      "id": "components_icons_checkicon",
+      "community": 25,
+      "norm_label": "checkicon()"
+    },
+    {
+      "label": "GithubIcon()",
+      "file_type": "code",
+      "source_file": "apps/web/components/icons.tsx",
+      "source_location": "L38",
       "id": "components_icons_githubicon",
       "community": 25,
       "norm_label": "githubicon()"
@@ -2232,7 +2250,7 @@
       "source_file": "apps/web/lib/config.ts",
       "source_location": "L1",
       "id": "apps_web_lib_config_ts",
-      "community": 7,
+      "community": 25,
       "norm_label": "config.ts"
     },
     {
@@ -3122,7 +3140,7 @@
       "file_type": "code",
       "source_file": "apps/web/app/(lens)/lens/page.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 3,
       "norm_label": "page.tsx",
       "id": "apps_web_app_lens_lens_page_tsx"
     },
@@ -3131,7 +3149,7 @@
       "file_type": "code",
       "source_file": "apps/web/app/(lens)/lens/page.tsx",
       "source_location": "L4",
-      "community": 27,
+      "community": 3,
       "norm_label": "lenspage()",
       "id": "lens_page_lenspage"
     },
@@ -3140,7 +3158,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 3,
       "norm_label": "lens-app.tsx",
       "id": "apps_web_components_lens_app_tsx"
     },
@@ -3149,7 +3167,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L18",
-      "community": 27,
+      "community": 3,
       "norm_label": "screen",
       "id": "components_lens_app_screen"
     },
@@ -3158,7 +3176,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L20",
-      "community": 27,
+      "community": 3,
       "norm_label": "tiles",
       "id": "components_lens_app_tiles"
     },
@@ -3167,7 +3185,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L28",
-      "community": 27,
+      "community": 3,
       "norm_label": "lensapp()",
       "id": "components_lens_app_lensapp"
     },
@@ -3176,7 +3194,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L50",
-      "community": 27,
+      "community": 3,
       "norm_label": "home()",
       "id": "components_lens_app_home"
     },
@@ -3185,7 +3203,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L74",
-      "community": 27,
+      "community": 3,
       "norm_label": "monitor()",
       "id": "components_lens_app_monitor"
     },
@@ -3194,7 +3212,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L103",
-      "community": 27,
+      "community": 3,
       "norm_label": "choose()",
       "id": "components_lens_app_choose"
     },
@@ -3203,7 +3221,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L148",
-      "community": 27,
+      "community": 3,
       "norm_label": "cue()",
       "id": "components_lens_app_cue"
     },
@@ -3212,7 +3230,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L167",
-      "community": 27,
+      "community": 3,
       "norm_label": "notify()",
       "id": "components_lens_app_notify"
     },
@@ -5888,9 +5906,9 @@
       "source_file": "apps/web/app/(web)/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_page_tsx",
-      "target": "apps_web_lib_config_ts",
-      "confidence_score": 1.0
+      "target": "apps_web_lib_config_ts"
     },
     {
       "relation": "contains",
@@ -6244,6 +6262,39 @@
       "target": "docs_page_docsgettingstarted"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/install-command.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "apps_web_components_install_command_tsx",
+      "target": "apps_web_components_icons_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/install-command.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "apps_web_components_install_command_tsx",
+      "target": "components_icons_copyicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/install-command.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "apps_web_components_install_command_tsx",
+      "target": "components_icons_checkicon",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/components/install-command.tsx",
@@ -6270,9 +6321,9 @@
       "source_file": "apps/web/components/site-header.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_components_site_header_tsx",
-      "target": "apps_web_lib_config_ts",
-      "confidence_score": 1.0
+      "target": "apps_web_lib_config_ts"
     },
     {
       "relation": "contains",
@@ -6293,6 +6344,26 @@
       "confidence_score": 1.0,
       "source": "apps_web_components_icons_tsx",
       "target": "components_icons_iconprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/icons.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "apps_web_components_icons_tsx",
+      "target": "components_icons_copyicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/icons.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "apps_web_components_icons_tsx",
+      "target": "components_icons_checkicon",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7649,5 +7720,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8191b034a6c02f14b45b39876565f2f63275c154"
+  "built_at_commit": "e3caccf1fb3b323475cfb1fbf1ccaf5be7b877ab"
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { CopyIcon, CheckIcon } from "@/components/icons";
 
 const PMS = [
   { id: "npm", cmd: "npm i @glasskit/glasses-ui" },
@@ -47,16 +48,18 @@ export function InstallCommand({ className }: { className?: string }) {
         ))}
       </div>
       <div className="flex items-center justify-between gap-4 px-4 py-3">
-        <code className="truncate font-mono text-sm text-ink">
-          <span className="text-accent-ink">$</span> {cmd}
-        </code>
+        <code className="truncate font-mono text-sm text-ink">{cmd}</code>
         <button
           type="button"
           onClick={copy}
-          aria-label="Copy install command"
-          className="mono-label shrink-0 text-ink-3 transition-colors hover:text-ink"
+          aria-label={copied ? "Copied" : "Copy install command"}
+          className="shrink-0 text-ink-3 transition-colors hover:text-ink"
         >
-          {copied ? "Copied" : "Copy"}
+          {copied ? (
+            <CheckIcon className="size-4 text-accent-ink" />
+          ) : (
+            <CopyIcon className="size-4" />
+          )}
         </button>
       </div>
     </div>

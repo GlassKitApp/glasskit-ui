@@ -28,9 +28,9 @@ export default function Home() {
 
       {/* HERO — centered, spacious, premium */}
       <section className="blueprint border-b border-line-2">
-        <div className="mx-auto flex max-w-3xl flex-col items-center px-6 py-28 text-center lg:py-44">
+        <div className="mx-auto flex max-w-5xl flex-col items-center px-6 py-28 text-center lg:py-44">
           <p className="rise mono-label">Open source · Meta Ray-Ban Display</p>
-          <h1 className="rise font-display mt-6 text-[clamp(3rem,8vw,7rem)] leading-[0.92]">
+          <h1 className="rise font-display mt-6 text-[clamp(2.75rem,7.5vw,6rem)] leading-[0.95]">
             The component library
             <br />
             for the{" "}
