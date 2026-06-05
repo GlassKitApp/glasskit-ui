@@ -1,16 +1,16 @@
 # Graph Report - harrisburg  (2026-06-05)
 
 ## Corpus Check
-- 42 files · ~19,524 words
+- 45 files · ~19,557 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 373 nodes · 388 edges · 32 communities (27 shown, 5 thin omitted)
+- 386 nodes · 407 edges · 33 communities (28 shown, 5 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4f2b10c9`
+- Built from commit: `2438a599`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,6 +42,7 @@
 - [[_COMMUNITY_Community 29|Community 29]]
 - [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 31|Community 31]]
+- [[_COMMUNITY_Community 32|Community 32]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `GlassKit Ecosystem — Open-Source SDK + Registry (`glasskit-ui`)` - 25 edges
@@ -56,10 +57,10 @@
 10. `scripts` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Choose()` --calls--> `useNeuralBand()`  [INFERRED]
-  apps/web/components/lens-app.tsx → packages/glasses-ui/src/hooks/sensors.ts
 - `LensApp()` --calls--> `useDpad()`  [INFERRED]
   apps/web/components/lens-app.tsx → packages/glasses-ui/src/hooks/dpad.tsx
+- `Choose()` --calls--> `useNeuralBand()`  [INFERRED]
+  apps/web/components/lens-app.tsx → packages/glasses-ui/src/hooks/sensors.ts
 - `cn()` --calls--> `clsx`  [INFERRED]
   apps/web/lib/utils.ts → apps/web/package.json
 - `GhostKey()` --calls--> `cn()`  [EXTRACTED]
@@ -67,7 +68,7 @@
 - `CtrlButton()` --calls--> `cn()`  [EXTRACTED]
   apps/web/components/emulator.tsx → apps/web/lib/utils.ts
 
-## Communities (32 total, 5 thin omitted)
+## Communities (33 total, 5 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
@@ -78,12 +79,12 @@ Cohesion: 0.07
 Nodes (27): description, devDependencies, @changesets/cli, prettier, turbo, @types/node, typescript, engines (+19 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.07
-Nodes (26): author, bugs, description, files, homepage, keywords, name, peerDependencies (+18 more)
+Cohesion: 0.05
+Nodes (39): author, bugs, description, devDependencies, eslint, @eslint/js, eslint-plugin-react-hooks, globals (+31 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.08
-Nodes (30): Dir, focusables(), KEY_TO_DIR, moveFocus(), RectLike, scoreRect(), seedFocus(), aligned (+22 more)
+Cohesion: 0.11
+Nodes (21): Choose(), Dir, focusables(), KEY_TO_DIR, moveFocus(), RectLike, scoreRect(), seedFocus() (+13 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.11
@@ -98,8 +99,8 @@ Cohesion: 0.13
 Nodes (14): 10. Sources, 1. North star, 2. Two surfaces, two recipes, 3. Design principles (watchOS-derived, additive-translated), 4. Tokens & numbers (concrete starting set), 5. "Premium without blur" recipe, 6. Motion, 7. Iconography & typography (+6 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.15
-Nodes (13): devDependencies, eslint, @eslint/js, eslint-plugin-react-hooks, globals, react, react-dom, tsup (+5 more)
+Cohesion: 0.21
+Nodes (5): InstallCommand(), PMS, SiteHeader(), metadata, metadata
 
 ### Community 8 - "Community 8"
 Cohesion: 0.17
@@ -142,23 +143,27 @@ Cohesion: 0.08
 Nodes (23): dependencies, @glasskit/glasses-ui, next, react, react-dom, tailwind-merge, description, devDependencies (+15 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.09
-Nodes (25): CtrlButton(), Emulator(), GhostKey(), ChevronDown(), ChevronLeft(), ChevronRight(), ChevronUp(), FocusIcon() (+17 more)
+Cohesion: 0.08
+Nodes (26): CtrlButton(), Emulator(), GhostKey(), ChevronDown(), ChevronLeft(), ChevronRight(), ChevronUp(), FocusIcon() (+18 more)
 
 ### Community 26 - "Community 26"
 Cohesion: 0.10
 Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
 
 ### Community 27 - "Community 27"
-Cohesion: 0.18
-Nodes (5): Choose(), LensApp(), Screen, TILES, useDpad()
+Cohesion: 0.22
+Nodes (3): LensApp(), Screen, TILES
 
 ### Community 29 - "Community 29"
 Cohesion: 0.33
 Nodes (4): bricolage, hanken, jetbrains, metadata
 
+### Community 32 - "Community 32"
+Cohesion: 0.17
+Nodes (11): aligned, candidate, CURRENT, down, drifted, left, right, s (+3 more)
+
 ## Knowledge Gaps
-- **239 isolated node(s):** `$schema`, `target`, `lib`, `module`, `moduleResolution` (+234 more)
+- **243 isolated node(s):** `$schema`, `target`, `lib`, `module`, `moduleResolution` (+238 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -166,16 +171,16 @@ Nodes (4): bricolage, hanken, jetbrains, metadata
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `Community 17` to `Community 25`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **Why does `clsx` connect `Community 25` to `Community 17`?**
-  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **What connects `$schema`, `target`, `lib` to the rest of the system?**
-  _239 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _243 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.07539118065433854 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11375661375661375 - nodes in this community are weakly interconnected._

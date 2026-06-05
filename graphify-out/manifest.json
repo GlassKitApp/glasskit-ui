@@ -195,8 +195,8 @@
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/app/(web)/page.tsx": {
-    "mtime": 1780664678.8392568,
-    "ast_hash": "21d424907b6b42361ea6c53fa06a6017",
+    "mtime": 1780665157.322493,
+    "ast_hash": "d7e888e02d38b2b4987a0a96f51412a6",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/lens-app.tsx": {
@@ -224,11 +224,6 @@
     "ast_hash": "d214d84530cfda6425cc65807727c5ef",
     "semantic_hash": ""
   },
-  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/showcase.tsx": {
-    "mtime": 1780663762.7356086,
-    "ast_hash": "edd8470ca4e6453a9571bdcb82142e39",
-    "semantic_hash": ""
-  },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/public/logo.svg": {
     "mtime": 1780661764.3123097,
     "ast_hash": "532b33de1f82edf61edbab53fbe193e6",
@@ -237,6 +232,26 @@
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/public/avatar.png": {
     "mtime": 1780663643.1729314,
     "ast_hash": "27065bf85852f2e66d2417c912e2b34d",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/app/(web)/playground/page.tsx": {
+    "mtime": 1780665250.2201846,
+    "ast_hash": "9292b34ae6c2a3a1c67df2b1260285aa",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/app/(web)/docs/page.tsx": {
+    "mtime": 1780665250.185474,
+    "ast_hash": "741a037ad8195a47de4511caeb51be01",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/install-command.tsx": {
+    "mtime": 1780665250.3435035,
+    "ast_hash": "845b5d39d6178af93c109279f0b010ef",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/site-header.tsx": {
+    "mtime": 1780665069.9388497,
+    "ast_hash": "2891e1ff4b9509f19ce139ddf9bc5533",
     "semantic_hash": ""
   }
 }
