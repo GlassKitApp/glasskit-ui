@@ -12,11 +12,12 @@ import {
 } from "@/components/icons";
 
 /**
- * The in-browser glasses emulator. The 600×600 lens runs in an iframe (its own
- * additive stylesheet, isolated from this clean site chrome). The control panel
- * dispatches the exact events the SDK listens for — arrow `keydown` for the
- * D-pad, a `neuralband` CustomEvent for a pinch — into the iframe's window,
- * which is precisely how the real Neural Band reaches a Web App.
+ * The in-browser glasses emulator, staged as a floating product: the 600×600
+ * lens runs in an iframe (its own additive stylesheet, isolated from this clean
+ * site chrome) above a slim frosted control bar. The controls dispatch the
+ * exact events the SDK listens for — arrow `keydown` for the D-pad, a
+ * `neuralband` CustomEvent for a pinch — into the iframe's window, which is how
+ * the real Neural Band reaches a Web App.
  */
 export function Emulator() {
   const frameRef = useRef<HTMLIFrameElement>(null);
@@ -63,7 +64,7 @@ export function Emulator() {
   }, [sendKey]);
 
   return (
-    <div className="flex flex-col items-center gap-8 lg:flex-row lg:justify-center lg:gap-10">
+    <div className="flex flex-col items-center gap-7">
       <div className="lens-stage">
         <iframe
           ref={frameRef}
@@ -72,68 +73,47 @@ export function Emulator() {
           width={600}
           height={600}
           loading="eager"
-          className="block size-[600px] rounded-[28px] border border-line bg-black shadow-[0_24px_60px_-30px_rgba(0,0,0,0.45)]"
+          className="product-shadow block size-[600px] rounded-[40px] bg-black"
         />
       </div>
 
-      <div className="surface flex w-full max-w-[280px] flex-col gap-5 p-6">
-        <div>
-          <p className="text-[15px] font-semibold tracking-tight">
-            Neural Band
-          </p>
-          <p className="mt-1 text-[13px] leading-relaxed text-ink-2">
-            On-device this is your wristband. Here, drive it by hand.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-3 gap-2">
-          <span />
-          <CtrlButton label="Move focus up" onClick={() => sendKey("ArrowUp")}>
-            <ChevronUp className="size-5" />
-          </CtrlButton>
-          <span />
-          <CtrlButton
-            label="Move focus left"
-            onClick={() => sendKey("ArrowLeft")}
-          >
-            <ChevronLeft className="size-5" />
-          </CtrlButton>
-          <CtrlButton label="Select" accent onClick={() => sendKey("Enter")}>
-            <SelectDot className="size-4" />
-          </CtrlButton>
-          <CtrlButton
-            label="Move focus right"
-            onClick={() => sendKey("ArrowRight")}
-          >
-            <ChevronRight className="size-5" />
-          </CtrlButton>
-          <span />
-          <CtrlButton
-            label="Move focus down"
-            onClick={() => sendKey("ArrowDown")}
-          >
-            <ChevronDown className="size-5" />
-          </CtrlButton>
-          <span />
-        </div>
-
+      <div className="ctrl-bar flex items-center gap-1 p-1.5">
+        <GhostKey label="Move focus up" onClick={() => sendKey("ArrowUp")}>
+          <ChevronUp className="size-5" />
+        </GhostKey>
+        <GhostKey label="Move focus left" onClick={() => sendKey("ArrowLeft")}>
+          <ChevronLeft className="size-5" />
+        </GhostKey>
+        <GhostKey label="Select" accent onClick={() => sendKey("Enter")}>
+          <SelectDot className="size-3.5" />
+        </GhostKey>
+        <GhostKey
+          label="Move focus right"
+          onClick={() => sendKey("ArrowRight")}
+        >
+          <ChevronRight className="size-5" />
+        </GhostKey>
+        <GhostKey label="Move focus down" onClick={() => sendKey("ArrowDown")}>
+          <ChevronDown className="size-5" />
+        </GhostKey>
+        <span className="mx-1 h-6 w-px bg-line" />
         <button
           type="button"
           onClick={sendPinch}
-          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-accent-ink/25 bg-accent/15 px-4 text-sm font-medium text-accent-ink transition-colors hover:bg-accent/25 active:scale-[0.98]"
+          className="inline-flex h-11 items-center gap-2 rounded-full px-4 text-[15px] font-medium text-accent-ink transition-colors hover:bg-accent/12"
         >
           <GestureIcon className="size-5" /> Pinch
         </button>
-
-        <p className="text-xs leading-relaxed text-ink-3">
-          Arrow keys + Enter work too — the wristband just emits those.
-        </p>
       </div>
+
+      <p className="text-[13px] text-ink-3">
+        Arrow keys + Enter drive it too — the wristband just emits those.
+      </p>
     </div>
   );
 }
 
-function CtrlButton({
+function GhostKey({
   label,
   onClick,
   accent,
@@ -150,10 +130,10 @@ function CtrlButton({
       aria-label={label}
       onClick={onClick}
       className={cn(
-        "flex aspect-square min-h-11 items-center justify-center rounded-2xl border transition-colors active:scale-95",
+        "flex size-11 items-center justify-center rounded-full transition-colors active:scale-95",
         accent
-          ? "border-accent-ink/25 bg-accent/15 text-accent-ink"
-          : "border-line bg-bg text-ink hover:bg-bg-2",
+          ? "text-accent-ink hover:bg-accent/12"
+          : "text-ink hover:bg-ink/[0.06]",
       )}
     >
       {children}

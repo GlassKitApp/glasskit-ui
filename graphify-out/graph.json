@@ -1242,7 +1242,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L1",
       "id": "packages_glasses_ui_src_hooks_dpad_test_ts",
-      "community": 3,
+      "community": 32,
       "norm_label": "dpad.test.ts"
     },
     {
@@ -1251,7 +1251,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L5",
       "id": "hooks_dpad_test_current",
-      "community": 3,
+      "community": 32,
       "norm_label": "current"
     },
     {
@@ -1260,7 +1260,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L10",
       "id": "hooks_dpad_test_candidate",
-      "community": 3,
+      "community": 32,
       "norm_label": "candidate"
     },
     {
@@ -1269,7 +1269,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L17",
       "id": "hooks_dpad_test_s",
-      "community": 3,
+      "community": 32,
       "norm_label": "s"
     },
     {
@@ -1278,7 +1278,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L23",
       "id": "hooks_dpad_test_aligned",
-      "community": 3,
+      "community": 32,
       "norm_label": "aligned"
     },
     {
@@ -1287,7 +1287,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L24",
       "id": "hooks_dpad_test_drifted",
-      "community": 3,
+      "community": 32,
       "norm_label": "drifted"
     },
     {
@@ -1296,7 +1296,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L25",
       "id": "hooks_dpad_test_saligned",
-      "community": 3,
+      "community": 32,
       "norm_label": "saligned"
     },
     {
@@ -1305,7 +1305,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L26",
       "id": "hooks_dpad_test_sdrifted",
-      "community": 3,
+      "community": 32,
       "norm_label": "sdrifted"
     },
     {
@@ -1314,7 +1314,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L34",
       "id": "hooks_dpad_test_up",
-      "community": 3,
+      "community": 32,
       "norm_label": "up"
     },
     {
@@ -1323,7 +1323,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L35",
       "id": "hooks_dpad_test_down",
-      "community": 3,
+      "community": 32,
       "norm_label": "down"
     },
     {
@@ -1332,7 +1332,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L36",
       "id": "hooks_dpad_test_left",
-      "community": 3,
+      "community": 32,
       "norm_label": "left"
     },
     {
@@ -1341,7 +1341,7 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.test.ts",
       "source_location": "L37",
       "id": "hooks_dpad_test_right",
-      "community": 3,
+      "community": 32,
       "norm_label": "right"
     },
     {
@@ -1692,7 +1692,7 @@
       "source_file": "apps/web/package.json",
       "source_location": "L15",
       "id": "web_package_dependencies_clsx",
-      "community": 25,
+      "community": 17,
       "norm_label": "clsx"
     },
     {
@@ -2083,19 +2083,28 @@
       "norm_label": "features"
     },
     {
-      "label": "Install()",
+      "label": "PillPrimary()",
       "file_type": "code",
       "source_file": "apps/web/app/(web)/page.tsx",
       "source_location": "L34",
-      "id": "web_page_install",
+      "id": "web_page_pillprimary",
       "community": 25,
-      "norm_label": "install()"
+      "norm_label": "pillprimary()"
+    },
+    {
+      "label": "PillOutline()",
+      "file_type": "code",
+      "source_file": "apps/web/app/(web)/page.tsx",
+      "source_location": "L45",
+      "id": "web_page_pilloutline",
+      "community": 25,
+      "norm_label": "pilloutline()"
     },
     {
       "label": "Home()",
       "file_type": "code",
       "source_file": "apps/web/app/(web)/page.tsx",
-      "source_location": "L42",
+      "source_location": "L56",
       "id": "web_page_home",
       "community": 25,
       "norm_label": "home()"
@@ -2160,7 +2169,7 @@
       "source_file": "apps/web/components/lens-app.tsx",
       "source_location": "L103",
       "id": "components_lens_app_choose",
-      "community": 27,
+      "community": 3,
       "norm_label": "choose()"
     },
     {
@@ -2311,19 +2320,19 @@
       "label": "Emulator()",
       "file_type": "code",
       "source_file": "apps/web/components/emulator.tsx",
-      "source_location": "L21",
+      "source_location": "L22",
       "id": "components_emulator_emulator",
       "community": 25,
       "norm_label": "emulator()"
     },
     {
-      "label": "CtrlButton()",
+      "label": "GhostKey()",
       "file_type": "code",
       "source_file": "apps/web/components/emulator.tsx",
-      "source_location": "L136",
-      "id": "components_emulator_ctrlbutton",
+      "source_location": "L116",
+      "id": "components_emulator_ghostkey",
       "community": 25,
-      "norm_label": "ctrlbutton()"
+      "norm_label": "ghostkey()"
     },
     {
       "label": "utils.ts",
@@ -3199,6 +3208,24 @@
       "norm_label": "part of the glasskit ecosystem"
     },
     {
+      "label": "Install()",
+      "file_type": "code",
+      "source_file": "apps/web/app/(web)/page.tsx",
+      "source_location": "L34",
+      "community": 25,
+      "norm_label": "install()",
+      "id": "web_page_install"
+    },
+    {
+      "label": "CtrlButton()",
+      "file_type": "code",
+      "source_file": "apps/web/components/emulator.tsx",
+      "source_location": "L136",
+      "community": 25,
+      "norm_label": "ctrlbutton()",
+      "id": "components_emulator_ctrlbutton"
+    },
+    {
       "label": "InstallCommand()",
       "file_type": "code",
       "source_file": "apps/web/app/(web)/page.tsx",
@@ -3805,9 +3832,9 @@
       "source_file": "conductor.json",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "conductor_json",
-      "target": "harrisburg_conductor_scripts",
-      "confidence_score": 1.0
+      "target": "harrisburg_conductor_scripts"
     },
     {
       "relation": "contains",
@@ -3815,9 +3842,9 @@
       "source_file": "conductor.json",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "harrisburg_conductor_scripts",
-      "target": "harrisburg_conductor_scripts_run",
-      "confidence_score": 1.0
+      "target": "harrisburg_conductor_scripts_run"
     },
     {
       "relation": "contains",
@@ -3825,9 +3852,9 @@
       "source_file": "conductor.json",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "harrisburg_conductor_scripts",
-      "target": "harrisburg_conductor_scripts_setup",
-      "confidence_score": 1.0
+      "target": "harrisburg_conductor_scripts_setup"
     },
     {
       "relation": "contains",
@@ -5652,7 +5679,17 @@
       "source_location": "L34",
       "weight": 1.0,
       "source": "apps_web_app_web_page_tsx",
-      "target": "web_page_install",
+      "target": "web_page_pillprimary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/app/(web)/page.tsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "apps_web_app_web_page_tsx",
+      "target": "web_page_pilloutline",
       "confidence_score": 1.0
     },
     {
@@ -5664,6 +5701,16 @@
       "confidence_score": 1.0,
       "source": "apps_web_app_web_page_tsx",
       "target": "web_page_home"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/app/(web)/page.tsx",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "apps_web_app_web_page_tsx",
+      "target": "web_page_install"
     },
     {
       "relation": "imports",
@@ -5999,6 +6046,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/components/emulator.tsx",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "apps_web_components_emulator_tsx",
+      "target": "components_emulator_ghostkey",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/components/emulator.tsx",
       "source_location": "L138",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -6011,9 +6068,9 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/components/emulator.tsx",
-      "source_location": "L154",
+      "source_location": "L132",
       "weight": 1.0,
-      "source": "components_emulator_ctrlbutton",
+      "source": "components_emulator_ghostkey",
       "target": "lib_utils_cn"
     },
     {
@@ -6024,6 +6081,17 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "apps_web_lib_utils_ts",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/components/emulator.tsx",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "components_emulator_ctrlbutton",
       "target": "lib_utils_cn"
     },
     {
@@ -6878,5 +6946,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6a84b790a89ffc10f8ff27ca984acf602bae16f2"
+  "built_at_commit": "e3a91e3572ea741d0bd9684b3387b7696cdf1b0e"
 }

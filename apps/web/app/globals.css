@@ -80,22 +80,32 @@
 
 /* ── Apple-clean surfaces ────────────────────────────────────────── */
 
-/* The soft, rounded product frame that holds the dark lens. */
-.product-frame {
-  border-radius: 32px;
-  background: linear-gradient(180deg, #fbfbfd 0%, #eef0f2 100%);
-  border: 1px solid var(--line);
-  box-shadow:
-    0 1px 0 0 rgba(255, 255, 255, 0.7) inset,
-    0 40px 80px -36px rgba(0, 0, 0, 0.22),
-    0 10px 24px -16px rgba(0, 0, 0, 0.12);
+/* Full-bleed hero stage — a soft light gradient the lens floats on, the way
+ * Apple stages a product. A faint green ambient nods to the brand. */
+.hero-stage {
+  background:
+    radial-gradient(
+      120% 70% at 50% -8%,
+      color-mix(in oklab, var(--accent) 8%, transparent),
+      transparent 52%
+    ),
+    radial-gradient(110% 90% at 50% 0%, #ffffff 0%, #eef0f3 60%, #e6e9ee 100%);
 }
 
-/* A clean control surface (the emulator's panel). */
-.surface {
-  background: var(--bg);
+/* Soft ambient shadow that makes the lens read as a floating product. */
+.product-shadow {
+  box-shadow:
+    0 60px 100px -45px rgba(18, 22, 30, 0.5),
+    0 22px 48px -28px rgba(18, 22, 30, 0.32);
+}
+
+/* Slim frosted control bar (ghost buttons) beneath the lens. */
+.ctrl-bar {
   border: 1px solid var(--line);
-  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-radius: 9999px;
 }
 
 /* The 600×600 lens is fixed-size; scale the stage on small screens. */
