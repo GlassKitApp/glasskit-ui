@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* The on-lens design system. Fully scoped under `.glass-viewport`, so it
+ * only paints inside a <GlassViewport> preview and never touches the
+ * light-mode site chrome. */
+@import "@glasskit/glasses-ui/styles.css";
+
+/* Tailwind scans the registry component sources (outside this app) so any
+ * utilities they use are generated. */
+@source "../../../registry";
+
 /* ───────────────────────────────────────────────────────────────
  * ui.glasskit.app — SITE CHROME. Blueprint / workshop aesthetic
  * (ref: render.com): a hairline blueprint grid, hard 1px borders, sharp

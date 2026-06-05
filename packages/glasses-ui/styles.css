@@ -1,180 +1,452 @@
 /* ───────────────────────────────────────────────────────────────
- * @glasskit/glasses-ui — additive-display design system + platform
- * primitives for Meta Ray-Ban Display Web Apps.
+ * @glasskit/glasses-ui — additive-lens design system for the
+ * 600×600 Meta Ray-Ban Display surface.
  *
  * The Display is additive: black (#000) emits no light and shows the
  * real world through it. So the canvas is pure black and everything
- * drawn is emitted light. Keep it sparse, high-contrast.
+ * drawn is *emitted light* — luminous hairline edges, specular
+ * highlights, and soft glow, never fills or backdrop-blur. Built to
+ * the spec in `docs/design/apple-feel.md` (§4–5).
  *
- * Tailwind v4 stack. Consumers import this stylesheet AFTER they
- * import tailwindcss:
+ * SCOPING — read this before importing.
+ * The entire system is scoped under `.glass-viewport`. Nothing leaks
+ * to the host document, so this stylesheet can be imported into ANY
+ * page (including the light-mode marketing site) and only takes effect
+ * inside a <GlassViewport>. Tokens are plain CSS custom properties on
+ * the viewport (no global `@theme`), so they never collide with a
+ * host's color tokens. Override the accent by re-declaring a token in
+ * your own rule, e.g. `.glass-viewport { --green: #6ad; }`.
  *
  *   @import "tailwindcss";
  *   @import "@glasskit/glasses-ui/styles.css";
- *
- * The consumer's Tailwind pipeline processes the @theme and @apply
- * directives below. Override any token by re-declaring it in your
- * own @theme block loaded after this file.
  * ─────────────────────────────────────────────────────────────── */
 
-@theme {
-  /* Color tokens — `--color-*` names give us bg-bg, text-ink,
-   * border-rule, etc. as Tailwind utilities for free. */
-  --color-bg: #000; /* pure black — transparent on the device */
-  --color-ink: #f2f3f5;
-  --color-ink-dim: #9aa0a8;
-  --color-accent: #36e27f; /* phosphor green */
-  --color-surface: #14171c;
-  --color-rule: #2a2f37;
-  --color-room: #07080a; /* dark room around the viewport — local dev only */
-
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-}
-
-@layer base {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-  }
-
-  html,
-  body,
-  #root {
-    height: 100%;
-  }
-
-  body {
-    background: var(--color-room);
-    color: var(--color-ink);
-    font-family: var(--font-sans);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  h1 {
-    font-size: 34px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-  }
-}
-
-/* ── Semantic platform classes ──────────────────────────────────────
- * Defined here so consumers can write `<div className="screen">` etc.
- * with stable names; styled via @apply so Tailwind utility tokens
- * stay the single source of truth.
- * ──────────────────────────────────────────────────────────────── */
-
-/* The 600×600 surface — wrap the app root. */
+/* ── The 600×600 surface + scoped design tokens ─────────────────── */
 .glass-viewport {
-  @apply relative h-[600px] w-[600px] overflow-hidden bg-bg;
+  /* Canvas — pure black = transparent on device. Never fill it. */
+  --color-bg: #000;
+
+  /* Accent green — the single key color (apple-feel §4). */
+  --green-active: #7bf0ae; /* focused/hot, brightest */
+  --green: #36e27f; /* base accent, primary action */
+  --green-muted: #2a8f57; /* secondary edges, idle-but-present */
+  --green-faint: #1c5c3a; /* tertiary, trailing edges (never #000) */
+
+  /* Neutral ink on black — emitted light, never pure #fff for body. */
+  --ink-primary: #f2f4f3; /* ~90% luminance — primary value/title */
+  --ink-secondary: #b8c0bc; /* ~70% — secondary text */
+  --ink-tertiary: #7c8480; /* ~45% — captions, idle labels */
+
+  --rule: #2a2f37; /* dim hairline for inert edges */
+
+  /* Back-compat aliases — the token names the SDK preserves verbatim
+   * (START-HERE.md §2). `--color-surface`/`--color-room` are kept for API
+   * compatibility; the default additive components define surfaces with light,
+   * not fills, so they're available for consumers rather than used internally. */
+  --color-accent: var(--green);
+  --color-ink: var(--ink-primary);
+  --color-ink-dim: var(--ink-tertiary);
+  --color-rule: var(--rule);
+  --color-surface: #14171c;
+  --color-room: #07080a;
+
+  /* One deterministic, UI-tuned face (apple-feel §7); fallback list is
+   * fine here — the @theme fallback-strip gotcha is @theme-only. */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  position: relative;
+  height: 600px;
+  width: 600px;
+  overflow: hidden;
+  background: var(--color-bg);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+/* Scoped reset — lens content matches device metrics without touching
+ * the host's box model. */
+.glass-viewport *,
+.glass-viewport *::before,
+.glass-viewport *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Local-dev frame so you can see the 600×600 bounds (drop with frame={false}). */
 .glass-viewport--frame {
   outline: 1px solid #1c2230;
-  border-radius: 4px;
+  border-radius: 16px;
 }
 
-/* The standard app-content layout inside the viewport. */
-.screen {
-  @apply flex h-full flex-col items-center justify-center gap-[22px] p-[52px] text-center;
+.glass-viewport h1 {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
-.dim {
-  @apply max-w-[32ch] text-ink-dim;
+/* ── Type ramp — 4 emitted tiers (apple-feel §4) ─────────────────── */
+.glass-viewport .t-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+}
+.glass-viewport .t-readout {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.018em;
+  font-variant-numeric: tabular-nums;
+}
+.glass-viewport .t-body {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.005em;
+}
+.glass-viewport .t-caption {
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.012em;
+}
+
+/* ── Recipe utilities — the "premium without blur" stack (§5) ────── */
+
+/* Luminous gradient hairline: a 1.25px stroke that *is* the surface,
+ * lit from a fixed top-left virtual light (white corner → green
+ * trailing). Rendered as a masked pseudo so the interior stays pure
+ * black — no fill. Apply to a rounded element; it inherits the radius. */
+.glass-viewport .hairline {
+  position: relative;
+}
+.glass-viewport .hairline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.25px;
+  background: linear-gradient(
+    135deg,
+    #eafff3 0%,
+    var(--green) 42%,
+    var(--green-muted) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Outer lift-glow (replaces the banned dark shadow) — makes a form float. */
+.glass-viewport .glow-lift {
+  box-shadow: 0 0 34px -2px color-mix(in oklab, var(--green) 14%, transparent);
+}
+/* Inner glow — gives a surface body/thickness. */
+.glass-viewport .glow-inner {
+  box-shadow: inset 0 0 16px color-mix(in oklab, var(--green) 18%, transparent);
+}
+
+/* ── `.focusable` — joins D-pad navigation; :focus shows the ring ── */
+.glass-viewport .focusable {
+  cursor: pointer;
+  border-radius: 16px;
+  border: 1px solid var(--rule);
+  background: transparent; /* additive — no gray fills (apple-feel §9) */
+  padding-block: 12px;
+  padding-inline: 18px;
+  color: var(--ink-primary);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  transition:
+    color 0.25s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.25s ease;
+}
+.glass-viewport .focusable:focus,
+.glass-viewport .focusable:focus-visible {
+  outline: none;
+  color: #fff;
+  border-color: var(--green);
+  /* green hairline ring + inner glow bump + faint outer lift (§4 focus). */
+  box-shadow:
+    0 0 0 1.5px var(--green),
+    inset 0 0 16px color-mix(in oklab, var(--green) 45%, transparent),
+    0 0 34px -2px color-mix(in oklab, var(--green) 16%, transparent);
+}
+.glass-viewport .focusable:disabled,
+.glass-viewport .focusable[aria-disabled="true"] {
+  cursor: default;
+  opacity: 0.45;
+}
+
+/* ── Legacy semantic classes (kept working, additive-corrected) ──── */
+
+/* Standard centered content layout. */
+.glass-viewport .screen {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 52px;
+  text-align: center;
+}
+
+.glass-viewport .dim {
+  max-width: 32ch;
+  color: var(--ink-tertiary);
   font-size: 16px;
   line-height: 1.55;
 }
 
-.label {
-  @apply uppercase text-accent;
+.glass-viewport .label {
+  text-transform: uppercase;
+  color: var(--green);
   font-size: 12px;
   letter-spacing: 0.18em;
 }
 
-.readout {
-  @apply flex flex-col gap-1 tabular-nums;
+.glass-viewport .readout {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-variant-numeric: tabular-nums;
 }
-.readout span {
-  @apply uppercase text-ink-dim;
+.glass-viewport .readout span {
+  text-transform: uppercase;
+  color: var(--ink-tertiary);
   font-size: 11px;
   letter-spacing: 0.18em;
 }
-.readout strong {
+.glass-viewport .readout strong {
   font-size: 30px;
   font-weight: 700;
 }
 
-.row {
-  @apply flex gap-3;
+.glass-viewport .row {
+  display: flex;
+  gap: 12px;
 }
 
-/* `.focusable` — joins D-pad navigation; :focus shows the focus ring. */
-.focusable {
-  @apply cursor-pointer rounded-lg border border-rule bg-surface px-[18px] py-3 text-ink;
-  font: inherit;
-  font-size: 14px;
-}
-.focusable:focus {
-  @apply text-white;
-  outline: none;
-  border-color: var(--color-accent);
-  box-shadow:
-    0 0 0 2px var(--color-accent),
-    0 0 18px -2px var(--color-accent);
-}
-.focusable:disabled {
-  @apply cursor-default opacity-45;
-}
-
-/* Reusable in-app chrome — header row + meta line at the top of a screen. */
-.app-head {
-  @apply flex w-full justify-between uppercase text-ink-dim;
+.glass-viewport .app-head {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  text-transform: uppercase;
+  color: var(--ink-tertiary);
   font-size: 12px;
   letter-spacing: 0.16em;
 }
-.app-meta {
-  @apply flex gap-4 tabular-nums text-ink-dim;
+.glass-viewport .app-meta {
+  display: flex;
+  gap: 16px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-tertiary);
   font-size: 13px;
 }
 
-/* ── Launcher (a pick-an-app menu, useful when shipping multiple
- *    demos under one GlassViewport — the showcase pattern). ─────── */
-
-.launcher {
-  @apply flex h-full flex-col items-center justify-center gap-3 px-7 py-9;
+/* Launcher — pick-an-app menu (the multi-demo showcase pattern). */
+.glass-viewport .launcher {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 36px 28px;
 }
-.launcher-title {
+.glass-viewport .launcher-title {
   font-size: 30px;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
-.launcher-tagline {
-  @apply mb-3;
+.glass-viewport .launcher-tagline {
+  margin-bottom: 12px;
+  color: var(--ink-tertiary);
 }
-.launcher-grid {
-  @apply grid w-full grid-cols-2 gap-2.5;
+.glass-viewport .launcher-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
-.launcher-card {
-  @apply flex cursor-pointer flex-col items-start gap-0.5 rounded-lg border border-rule bg-surface px-3.5 py-3 text-left text-ink;
+.glass-viewport .launcher-card {
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  border-radius: 16px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  padding: 12px 14px;
+  text-align: start;
+  color: var(--ink-primary);
   font: inherit;
 }
-.launcher-card:focus {
-  @apply text-white;
+.glass-viewport .launcher-card:focus,
+.glass-viewport .launcher-card:focus-visible {
   outline: none;
-  border-color: var(--color-accent);
+  color: #fff;
+  border-color: var(--green);
   box-shadow:
-    0 0 0 2px var(--color-accent),
-    0 0 18px -2px var(--color-accent);
+    0 0 0 1.5px var(--green),
+    0 0 34px -2px color-mix(in oklab, var(--green) 16%, transparent);
 }
-.launcher-card__label {
+.glass-viewport .launcher-card__label {
   font-size: 14px;
   font-weight: 700;
 }
-.launcher-card__tagline {
-  @apply text-ink-dim;
+.glass-viewport .launcher-card__tagline {
+  color: var(--ink-tertiary);
   font-size: 11px;
+}
+
+/* ── Wave 1 spine components (registry/ui) ──────────────────────────
+ * Bespoke semantic classes so the styled components render from this
+ * stylesheet alone — no Tailwind content-scan required by consumers.
+ * All logical properties (block/inline) for RTL safety.
+ * ─────────────────────────────────────────────────────────────── */
+
+/* Screen — status / stage / cue regions; 16–24px safe margins; the
+ * stage holds the one task, ≥50–60% of the surface stays black. */
+.glass-viewport .gk-screen {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 24px;
+}
+.glass-viewport .gk-screen__status {
+  flex: none;
+}
+.glass-viewport .gk-screen__stage {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  min-block-size: 0;
+}
+.glass-viewport .gk-screen__cue {
+  flex: none;
+  display: flex;
+  justify-content: center;
+}
+
+/* StatusBar — TimeText analog; logical start/end slots. */
+.glass-viewport .gk-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  inline-size: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+.glass-viewport .gk-status__end {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Readout — single-value complication. */
+.glass-viewport .gk-readout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.glass-viewport .gk-readout__label {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-tertiary);
+}
+.glass-viewport .gk-readout__value {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.glass-viewport .gk-readout--secondary .gk-readout__value {
+  color: var(--ink-secondary);
+}
+.glass-viewport .gk-readout__unit {
+  color: var(--ink-tertiary);
+}
+
+/* Cue — caption / hint line. No glow on body text (apple-feel §4). */
+.glass-viewport .gk-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-tertiary);
+}
+.glass-viewport .gk-cue--accent {
+  color: var(--green);
+}
+
+/* Button — composes `.focusable`; primary variant brightens the edge. */
+.glass-viewport .gk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.glass-viewport .gk-btn--primary {
+  border-color: var(--green-muted);
+}
+.glass-viewport .gk-btn--primary:focus,
+.glass-viewport .gk-btn--primary:focus-visible {
+  border-color: var(--green-active);
+}
+
+/* GlowIcon — 2-tier luminance; inert near-white, active green (§7). */
+.glass-viewport .gk-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-primary);
+  line-height: 0;
+}
+.glass-viewport .gk-icon--sm {
+  inline-size: 16px;
+  block-size: 16px;
+}
+.glass-viewport .gk-icon--md {
+  inline-size: 20px;
+  block-size: 20px;
+}
+.glass-viewport .gk-icon--lg {
+  inline-size: 28px;
+  block-size: 28px;
+}
+.glass-viewport .gk-icon--active {
+  color: var(--green);
+  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--green) 35%, transparent));
+}
+.glass-viewport .gk-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

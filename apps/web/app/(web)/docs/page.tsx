@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { InstallCommand } from "@/components/install-command";
+import { LensStage } from "@/components/lens/lens-stage";
+import { HeartRateDemo } from "@/components/lens/heart-rate-demo";
 
 export const metadata: Metadata = { title: "Getting started" };
 
@@ -47,6 +49,12 @@ export default function DocsGettingStarted() {
             Web Apps. Install the SDK, import the stylesheet once, and build
             inside a GlassViewport.
           </p>
+
+          <div className="mt-10">
+            <LensStage caption="The spine, on a 600×600 additive surface">
+              <HeartRateDemo />
+            </LensStage>
+          </div>
 
           <h2 className="font-display mt-14 text-2xl">1. Install</h2>
           <p className="mt-3 text-ink-2">

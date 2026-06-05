@@ -27,11 +27,14 @@ npm i @glasskit/glasses-ui
   `type Dir` — the focus-engine and sensor helpers, exported for
   composition and testing.
 
-Plus `styles.css` — the additive-display design system, authored as
-**Tailwind v4** with `@theme` tokens and `@apply`-powered semantic
-classes (`.glass-viewport`, `.screen`, `.focusable`, `.launcher*`,
-`.readout`, etc.). Override any token (`--color-accent`, `--color-ink`,
-…) in your own `@theme` block loaded after.
+Plus `styles.css` — the additive-lens design system (tokens, glow/hairline
+recipes, and semantic classes: `.glass-viewport`, `.screen`, `.focusable`,
+`.launcher*`, `.readout`, …). The whole system is **scoped to
+`.glass-viewport`**, so importing it never touches the rest of your page — it
+only paints inside a `<GlassViewport>`, even on a light-mode host. Tokens are
+CSS custom properties on that scope; override the accent (or any token) by
+re-declaring it, e.g. `.glass-viewport { --color-accent: #6ad9ff; }`
+(`--color-bg` stays `#000`).
 
 ## Usage
 

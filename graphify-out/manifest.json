@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md": {
-    "mtime": 1780381700.689281,
-    "ast_hash": "a57cb4b7163d08451d7e8e6be01cdaa5",
+    "mtime": 1780684184.1969721,
+    "ast_hash": "702f529f3cb1de1f1b4a4d2b3e1de7f5",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/AGENTS.md": {
@@ -140,8 +140,8 @@
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/packages/glasses-ui/README.md": {
-    "mtime": 1780381469.789574,
-    "ast_hash": "8b2288850637cfa5dbd771be08a3cb6f",
+    "mtime": 1780686674.9262567,
+    "ast_hash": "121a67e14471c02e961d99a3cb00abe6",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.github/workflows/beta.yml": {
@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/tsconfig.json": {
-    "mtime": 1780383598.0176346,
-    "ast_hash": "46d15616fda366017ea1f08b3dc9e4f6",
+    "mtime": 1780686276.9275138,
+    "ast_hash": "0644eb30287a2a22733ba0d3f9960edf",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/next.config.ts": {
@@ -210,13 +210,13 @@
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/app/(web)/playground/page.tsx": {
-    "mtime": 1780665250.2201846,
-    "ast_hash": "9292b34ae6c2a3a1c67df2b1260285aa",
+    "mtime": 1780685648.317009,
+    "ast_hash": "d31c7625392a2c90e314645c4a747997",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/app/(web)/docs/page.tsx": {
-    "mtime": 1780665250.185474,
-    "ast_hash": "741a037ad8195a47de4511caeb51be01",
+    "mtime": 1780685659.2690713,
+    "ast_hash": "73978d3bd585be22ee77415baead101f",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/install-command.tsx": {
@@ -232,6 +232,66 @@
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/lib/config.ts": {
     "mtime": 1780665929.8408465,
     "ast_hash": "5d62de82a43802e861635e4087dea2a7",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/registry/ui/readout.tsx": {
+    "mtime": 1780685456.660969,
+    "ast_hash": "eb3647cb64cdd8f4876e449a6b1b3a95",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/registry/ui/glow-icon.tsx": {
+    "mtime": 1780685498.8113391,
+    "ast_hash": "180254fa2961d03d55cc2b1912bd9fc2",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/registry/ui/cue.tsx": {
+    "mtime": 1780685460.469554,
+    "ast_hash": "06d515575114a6c14539761652287053",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/registry/ui/screen.tsx": {
+    "mtime": 1780685447.2109928,
+    "ast_hash": "7c1724f44e367cc66e57fb507e1622ad",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/registry/ui/status-bar.tsx": {
+    "mtime": 1780685451.737874,
+    "ast_hash": "320da3e4899fd9bb8a899f52f0266851",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/registry/ui/button.tsx": {
+    "mtime": 1780685476.979526,
+    "ast_hash": "f55bab27e605862798cfa2508edfacb6",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/registry/lib/utils.ts": {
+    "mtime": 1780685536.651844,
+    "ast_hash": "7469177a25c90422b9564144c99f51e2",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/lens/dpad-provider.tsx": {
+    "mtime": 1780685632.9679565,
+    "ast_hash": "a73306504b7e8a65bb7bc227296a1e22",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/lens/heart-rate-demo.tsx": {
+    "mtime": 1780685613.3528345,
+    "ast_hash": "aa7af242d854dec1f46ea503ae6a2d6c",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/lens/icons.tsx": {
+    "mtime": 1780685601.7555964,
+    "ast_hash": "9b01df60d9fc0dc3b9bae4496f6f2658",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/lens/lens-stage.tsx": {
+    "mtime": 1780685636.239505,
+    "ast_hash": "d8475f43b1a366cd86eb3cddf337182c",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.context/plans/phase-4-wave-1-the-additive-lens-spine-components.md": {
+    "mtime": 1780684906.3313417,
+    "ast_hash": "2c31dba10a4d36d31a9908a526cf8162",
     "semantic_hash": ""
   }
 }

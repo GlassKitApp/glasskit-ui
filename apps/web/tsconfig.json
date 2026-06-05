@@ -19,13 +19,22 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@registry/*": ["../../registry/*"],
+      // The registry is vendored source (not yet a package), so its files live
+      // outside this app and can't resolve `react` from their own location under
+      // pnpm. Pin React's types to this app's copy until the registry becomes a
+      // real package with its own peerDependencies (deferred past the kill-gate).
+      "react": ["./node_modules/@types/react"],
+      "react/jsx-runtime": ["./node_modules/@types/react/jsx-runtime"]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "../../registry/**/*.ts",
+    "../../registry/**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
