@@ -35,9 +35,8 @@ export default function Home() {
             <br />
             for the{" "}
             <span className="text-glow-accent bg-gradient-to-r from-[#0a7d42] to-[#37d97a] bg-clip-text text-transparent">
-              glasses
+              glasses.
             </span>
-            .
           </h1>
           <p className="rise-2 mt-8 max-w-xl text-lg leading-relaxed text-ink-2 sm:text-xl">
             Accessible, additive React components for Meta Ray-Ban Display. A
