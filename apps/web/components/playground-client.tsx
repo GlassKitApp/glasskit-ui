@@ -187,10 +187,11 @@ const DEMOS: Demo[] = [
 ];
 
 const ACCENTS = [
-  { id: "phosphor", label: "Phosphor", cls: "", sw: "sw-phosphor" },
-  { id: "ice", label: "Ice", cls: "accent-ice", sw: "sw-ice" },
+  { id: "blue", label: "Blue", cls: "", sw: "sw-blue" },
+  { id: "cyan", label: "Cyan", cls: "accent-cyan", sw: "sw-cyan" },
   { id: "amber", label: "Amber", cls: "accent-amber", sw: "sw-amber" },
   { id: "violet", label: "Violet", cls: "accent-violet", sw: "sw-violet" },
+  { id: "white", label: "Mono", cls: "accent-white", sw: "sw-white" },
 ];
 
 export function PlaygroundClient() {
@@ -272,7 +273,7 @@ function CodePanel({
 }) {
   const override =
     accent.cls === ""
-      ? "/* default — phosphor green */"
+      ? "/* default — blue */"
       : `.glass-viewport { --color-accent: var(--your-accent); }`;
 
   return (

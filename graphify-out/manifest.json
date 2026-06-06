@@ -285,8 +285,8 @@
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/lens/lens-stage.tsx": {
-    "mtime": 1780700435.7926722,
-    "ast_hash": "05356417ee870f6c318f895f426970a1",
+    "mtime": 1780742321.8726027,
+    "ast_hash": "edf970329a074cede2655a8d3d86bd41",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.context/plans/phase-4-wave-1-the-additive-lens-spine-components.md": {
@@ -315,8 +315,8 @@
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/playground-client.tsx": {
-    "mtime": 1780692466.768425,
-    "ast_hash": "0134dde9ab67f3d9d5196de0e3d85aa3",
+    "mtime": 1780742489.3293848,
+    "ast_hash": "f3694a44634714b1b605ffb5667e99ed",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/lens/sync-demo.tsx": {
@@ -365,8 +365,8 @@
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/app/(web)/docs/components/[slug]/page.tsx": {
-    "mtime": 1780738495.2080712,
-    "ast_hash": "8d52cf3b2f46f531b8ae9d0aa19ff695",
+    "mtime": 1780742349.5894492,
+    "ast_hash": "a8594b98ccf07f2793945f0f4b364054",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/components/code-block.tsx": {
@@ -662,6 +662,16 @@
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/content/docs/index.mdx": {
     "mtime": 1780739574.4686315,
     "ast_hash": "6af0450499fe92b7eb9ac073d3cb5161",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.context/plans/docs-fumadocs-migration-ui-zone-integration.md": {
+    "mtime": 1780739954.7870033,
+    "ast_hash": "2feefaedfe64d4306087c5ddeae0e04d",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.context/plans/component-visual-redesign-exploration-first-then-d.md": {
+    "mtime": 1780740959.1862965,
+    "ast_hash": "c5accf0a1687b625299513881432a9b2",
     "semantic_hash": ""
   }
 }

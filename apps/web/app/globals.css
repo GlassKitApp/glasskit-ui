@@ -10,49 +10,78 @@
 @source "../../../registry";
 
 /* Playground accent presets. The lens accent is a single overridable token;
- * these recolor it live by re-declaring the green ramp on a wrapper ABOVE the
+ * these recolor it live by re-declaring the ramp on a wrapper ABOVE the
  * viewport (`.accent-x .glass-viewport` outspecifies `.glass-viewport`), so the
- * swap needs no inline style. Phosphor green is the default (no class). Each
- * ramp's base is a single source of truth, shared with the picker swatches. */
+ * swap needs no inline style. Blue is the default (no class); these are the
+ * alternates. Each ramp base is one source of truth, shared with the swatches. */
 :root {
-  --accent-phosphor: #36e27f;
-  --accent-ice: #4cc6ff;
-  --accent-amber: #ffb454;
-  --accent-violet: #a878ff;
+  --accent-cyan: #34c8e6;
+  --accent-amber: #f5a623;
+  --accent-violet: #9b8cff;
+  --accent-white: #e9ebee;
 }
-.accent-ice .glass-viewport {
-  --green-active: #9fe4ff;
-  --green: var(--accent-ice);
-  --green-muted: #2b7fa6;
-  --green-faint: #16455c;
-  --color-accent: var(--accent-ice);
+.accent-cyan .glass-viewport {
+  --accent-active: #82e1f2;
+  --accent: var(--accent-cyan);
+  --accent-muted: #1f7d92;
+  --accent-faint: #133f4a;
+  --color-accent: var(--accent-cyan);
 }
 .accent-amber .glass-viewport {
-  --green-active: #ffd596;
-  --green: var(--accent-amber);
-  --green-muted: #a6742b;
-  --green-faint: #5c3f16;
+  --accent-active: #ffca6b;
+  --accent: var(--accent-amber);
+  --accent-muted: #a06d12;
+  --accent-faint: #4d350a;
   --color-accent: var(--accent-amber);
 }
 .accent-violet .glass-viewport {
-  --green-active: #d4b6ff;
-  --green: var(--accent-violet);
-  --green-muted: #6b4aa6;
-  --green-faint: #3a285c;
+  --accent-active: #c4baff;
+  --accent: var(--accent-violet);
+  --accent-muted: #5d52a6;
+  --accent-faint: #2f2a55;
   --color-accent: var(--accent-violet);
 }
-/* Picker swatches reference the same base tokens — one source of truth. */
-.sw-phosphor {
-  background: var(--accent-phosphor);
+.accent-white .glass-viewport {
+  --accent-active: #ffffff;
+  --accent: var(--accent-white);
+  --accent-muted: #9aa0a6;
+  --accent-faint: #3a3f46;
+  --color-accent: var(--accent-white);
 }
-.sw-ice {
-  background: var(--accent-ice);
+/* Picker swatches — one source of truth with the presets. */
+.sw-blue {
+  background: #4c8dff;
+}
+.sw-cyan {
+  background: var(--accent-cyan);
 }
 .sw-amber {
   background: var(--accent-amber);
 }
 .sw-violet {
   background: var(--accent-violet);
+}
+.sw-white {
+  background: var(--accent-white);
+}
+
+/* Scaled device tile — render the 600×600 lens as a compact, fitted preview
+ * (a glasses screen, not a tiny component in a big black box). The full-size
+ * 600×600 stays only for the /preview "open on glasses" route. */
+.lens-tile {
+  inline-size: 380px;
+  max-inline-size: 100%;
+  block-size: 380px;
+  overflow: hidden;
+  border-radius: 26px;
+}
+.lens-tile > .glass-viewport {
+  transform: scale(0.6333);
+  transform-origin: top left;
+  border-radius: 26px;
+}
+.lens-tile > .glass-viewport.glass-viewport--frame {
+  outline: none;
 }
 
 /* ───────────────────────────────────────────────────────────────

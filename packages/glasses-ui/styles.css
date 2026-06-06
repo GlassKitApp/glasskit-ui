@@ -15,7 +15,7 @@
  * inside a <GlassViewport>. Tokens are plain CSS custom properties on
  * the viewport (no global `@theme`), so they never collide with a
  * host's color tokens. Override the accent by re-declaring a token in
- * your own rule, e.g. `.glass-viewport { --green: #6ad; }`.
+ * your own rule, e.g. `.glass-viewport { --accent: #6ad; }`.
  *
  *   @import "tailwindcss";
  *   @import "@glasskit/glasses-ui/styles.css";
@@ -26,16 +26,18 @@
   /* Canvas — pure black = transparent on device. Never fill it. */
   --color-bg: #000;
 
-  /* Accent green — the single key color (apple-feel §4). */
-  --green-active: #7bf0ae; /* focused/hot, brightest */
-  --green: #36e27f; /* base accent, primary action */
-  --green-muted: #2a8f57; /* secondary edges, idle-but-present */
-  --green-faint: #1c5c3a; /* tertiary, trailing edges (never #000) */
+  /* Accent — one refined key color (default blue). The look is white-emitted-
+   * light first; the accent is a small, glow-free touch on focus + on-states.
+   * Override by re-declaring `--accent` on `.glass-viewport`. */
+  --accent-active: #8fb6ff; /* focused/hot, brightest */
+  --accent: #4c8dff; /* base accent, primary action */
+  --accent-muted: #2f5fb0; /* secondary edges, idle-but-present */
+  --accent-faint: #1b3056; /* tertiary, trailing edges (never #000) */
 
-  /* Neutral ink on black — emitted light, never pure #fff for body. */
-  --ink-primary: #f2f4f3; /* ~90% luminance — primary value/title */
-  --ink-secondary: #b8c0bc; /* ~70% — secondary text */
-  --ink-tertiary: #7c8480; /* ~45% — captions, idle labels */
+  /* Neutral ink on black — emitted light, white-dominant. */
+  --ink-primary: #ffffff; /* primary value/title */
+  --ink-secondary: #d2d7d5; /* secondary text */
+  --ink-tertiary: #888f8b; /* captions, idle labels */
 
   --rule: #2a2f37; /* dim hairline for inert edges */
 
@@ -43,7 +45,7 @@
    * (START-HERE.md §2). `--color-surface`/`--color-room` are kept for API
    * compatibility; the default additive components define surfaces with light,
    * not fills, so they're available for consumers rather than used internally. */
-  --color-accent: var(--green);
+  --color-accent: var(--accent);
   --color-ink: var(--ink-primary);
   --color-ink-dim: var(--ink-tertiary);
   --color-rule: var(--rule);
@@ -128,12 +130,11 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 1.25px;
+  padding: 1px;
   background: linear-gradient(
     135deg,
-    #eafff3 0%,
-    var(--green) 42%,
-    var(--green-muted) 100%
+    rgba(255, 255, 255, 0.5) 0%,
+    color-mix(in oklab, var(--accent) 28%, transparent) 100%
   );
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
@@ -146,13 +147,13 @@
   pointer-events: none;
 }
 
-/* Outer lift-glow (replaces the banned dark shadow) — makes a form float. */
+/* Lift — a soft neutral depth shadow (kept whisper-quiet; no neon glow). */
 .glass-viewport .glow-lift {
-  box-shadow: 0 0 34px -2px color-mix(in oklab, var(--green) 14%, transparent);
+  box-shadow: 0 8px 28px -18px rgba(0, 0, 0, 0.85);
 }
-/* Inner glow — gives a surface body/thickness. */
+/* Inner — left as a no-op hook; the clean look avoids inner glow. */
 .glass-viewport .glow-inner {
-  box-shadow: inset 0 0 16px color-mix(in oklab, var(--green) 18%, transparent);
+  box-shadow: none;
 }
 
 /* ── `.focusable` — joins D-pad navigation; :focus shows the ring ── */
@@ -177,12 +178,9 @@
 .glass-viewport .focusable:focus-visible {
   outline: none;
   color: #fff;
-  border-color: var(--green);
-  /* green hairline ring + inner glow bump + faint outer lift (§4 focus). */
-  box-shadow:
-    0 0 0 1.5px var(--green),
-    inset 0 0 16px color-mix(in oklab, var(--green) 45%, transparent),
-    0 0 34px -2px color-mix(in oklab, var(--green) 16%, transparent);
+  border-color: var(--accent);
+  /* a thin accent ring — crisp, no glow (the clean look). */
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 50%, transparent);
 }
 .glass-viewport .focusable:disabled,
 .glass-viewport .focusable[aria-disabled="true"] {
@@ -213,7 +211,7 @@
 
 .glass-viewport .label {
   text-transform: uppercase;
-  color: var(--green);
+  color: var(--accent);
   font-size: 12px;
   letter-spacing: 0.18em;
 }
@@ -300,10 +298,10 @@
 .glass-viewport .launcher-card:focus-visible {
   outline: none;
   color: #fff;
-  border-color: var(--green);
+  border-color: var(--accent);
   box-shadow:
-    0 0 0 1.5px var(--green),
-    0 0 34px -2px color-mix(in oklab, var(--green) 16%, transparent);
+    0 0 0 1.5px var(--accent),
+    0 0 34px -2px color-mix(in oklab, var(--accent) 16%, transparent);
 }
 .glass-viewport .launcher-card__label {
   font-size: 14px;
@@ -398,7 +396,7 @@
   color: var(--ink-tertiary);
 }
 .glass-viewport .gk-cue--accent {
-  color: var(--green);
+  color: var(--accent);
 }
 
 /* Button — composes `.focusable`; primary variant brightens the edge. */
@@ -409,11 +407,11 @@
   gap: 8px;
 }
 .glass-viewport .gk-btn--primary {
-  border-color: var(--green-muted);
+  border-color: var(--accent-muted);
 }
 .glass-viewport .gk-btn--primary:focus,
 .glass-viewport .gk-btn--primary:focus-visible {
-  border-color: var(--green-active);
+  border-color: var(--accent-active);
 }
 
 /* GlowIcon — 2-tier luminance; inert near-white, active green (§7). */
@@ -437,8 +435,8 @@
   block-size: 28px;
 }
 .glass-viewport .gk-icon--active {
-  color: var(--green);
-  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--green) 35%, transparent));
+  color: var(--accent);
+  filter: none;
 }
 .glass-viewport .gk-icon svg {
   display: block;
@@ -491,7 +489,7 @@
   block-size: 4px;
   border: none;
   border-radius: 999px;
-  background: color-mix(in oklab, var(--green-faint) 55%, transparent);
+  background: color-mix(in oklab, var(--accent-faint) 55%, transparent);
   overflow: hidden;
 }
 .glass-viewport .gk-progress__el::-webkit-progress-bar {
@@ -499,12 +497,12 @@
 }
 .glass-viewport .gk-progress__el::-webkit-progress-value {
   border-radius: 999px;
-  background: var(--green);
-  box-shadow: 0 0 12px color-mix(in oklab, var(--green) 50%, transparent);
+  background: var(--accent);
+  box-shadow: none;
 }
 .glass-viewport .gk-progress__el::-moz-progress-bar {
   border-radius: 999px;
-  background: var(--green);
+  background: var(--accent);
 }
 .glass-viewport .gk-progress__meta {
   display: flex;
@@ -524,14 +522,14 @@
   inline-size: 8px;
   block-size: 8px;
   border-radius: 999px;
-  background: var(--green-faint);
+  background: var(--accent-faint);
   transition:
     background 0.25s ease,
     box-shadow 0.25s ease;
 }
 .glass-viewport .gk-step--on {
-  background: var(--green);
-  box-shadow: 0 0 8px color-mix(in oklab, var(--green) 50%, transparent);
+  background: var(--accent);
+  box-shadow: none;
 }
 
 /* AsyncView — placeholder → loading → success/error. */
@@ -563,8 +561,8 @@
   inline-size: 7px;
   block-size: 7px;
   border-radius: 999px;
-  background: var(--green);
-  box-shadow: 0 0 8px color-mix(in oklab, var(--green) 50%, transparent);
+  background: var(--accent);
+  box-shadow: none;
   animation: gk-pulse 1.2s ease-in-out infinite;
 }
 .glass-viewport .gk-spinner span:nth-child(2) {
@@ -599,12 +597,12 @@
 }
 .glass-viewport .gk-direction__ring {
   fill: none;
-  stroke: var(--green-faint);
+  stroke: var(--accent-faint);
   stroke-width: 1.5;
 }
 .glass-viewport .gk-direction__needle {
-  fill: var(--green);
-  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--green) 45%, transparent));
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--accent) 45%, transparent));
 }
 .glass-viewport .gk-direction__label,
 .glass-viewport .gk-compass__label {
@@ -621,8 +619,8 @@
   stroke-width: 1.5;
 }
 .glass-viewport .gk-compass__marker {
-  fill: var(--green);
-  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--green) 50%, transparent));
+  fill: var(--accent);
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--accent) 50%, transparent));
 }
 .glass-viewport .gk-compass__n,
 .glass-viewport .gk-compass__tick {
@@ -632,7 +630,7 @@
   font-size: 11px;
 }
 .glass-viewport .gk-compass__n {
-  fill: var(--green);
+  fill: var(--accent);
   font-weight: 700;
 }
 .glass-viewport .gk-compass__tick {
@@ -650,14 +648,14 @@
   position: absolute;
   inline-size: 18px;
   block-size: 18px;
-  border: 0 solid var(--green-muted);
+  border: 0 solid var(--accent-muted);
   transition:
     border-color 0.25s ease,
     filter 0.25s ease;
 }
 .glass-viewport .gk-reticle--active .gk-reticle__corner {
-  border-color: var(--green);
-  filter: drop-shadow(0 0 4px color-mix(in oklab, var(--green) 70%, transparent));
+  border-color: var(--accent);
+  filter: drop-shadow(0 0 4px color-mix(in oklab, var(--accent) 70%, transparent));
 }
 /* PHYSICAL properties, not logical — world-anchored UI must never flip with
  * `dir`. (The reticle is symmetric so the flip would be invisible, but keeping
@@ -726,12 +724,12 @@
     box-shadow 0.25s ease;
 }
 .glass-viewport .gk-toggle--on .gk-toggle__track {
-  border-color: var(--green);
+  border-color: var(--accent);
 }
 .glass-viewport .gk-toggle--on .gk-toggle__knob {
   margin-inline-start: auto; /* slide to inline-end — RTL-correct */
-  background: var(--green);
-  box-shadow: 0 0 8px color-mix(in oklab, var(--green) 55%, transparent);
+  background: var(--accent);
+  box-shadow: none;
 }
 
 /* Stepper — −/value/+ with circular focusable buttons. */
@@ -777,9 +775,9 @@
   gap: 6px;
 }
 .glass-viewport .gk-segmented__seg--on {
-  border-color: var(--green);
+  border-color: var(--accent);
   color: #fff;
-  box-shadow: inset 0 0 14px color-mix(in oklab, var(--green) 22%, transparent);
+  box-shadow: none;
 }
 
 /* Confirm — prompt + two-button action bar. */
@@ -815,11 +813,11 @@
   line-height: 1;
 }
 .glass-viewport .gk-badge--accent {
-  border-color: var(--green);
-  color: var(--green-active);
+  border-color: var(--accent);
+  color: var(--accent-active);
   box-shadow:
-    inset 0 0 8px color-mix(in oklab, var(--green) 18%, transparent),
-    0 0 8px color-mix(in oklab, var(--green) 25%, transparent);
+    inset 0 0 8px color-mix(in oklab, var(--accent) 18%, transparent),
+    0 0 8px color-mix(in oklab, var(--accent) 25%, transparent);
 }
 
 /* ── Wave 5 monitor / feedback components ─────────────────────────── */
@@ -834,8 +832,8 @@
   inline-size: 8px;
   block-size: 8px;
   border-radius: 999px;
-  background: var(--green);
-  box-shadow: 0 0 8px color-mix(in oklab, var(--green) 55%, transparent);
+  background: var(--accent);
+  box-shadow: none;
 }
 .glass-viewport .gk-statusdot__label {
   color: var(--ink-secondary);
@@ -877,10 +875,10 @@
 }
 .glass-viewport .gk-meter__fill {
   fill: none;
-  stroke: var(--green);
+  stroke: var(--accent);
   stroke-width: 5;
   stroke-linecap: round;
-  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--green) 45%, transparent));
+  filter: none;
   transition: stroke-dashoffset 0.4s ease;
 }
 .glass-viewport .gk-meter__center {
@@ -944,7 +942,7 @@
   animation: gk-toast-in 0.3s ease both;
 }
 .glass-viewport .gk-toast--accent {
-  box-shadow: 0 0 24px -6px color-mix(in oklab, var(--green) 28%, transparent);
+  box-shadow: none;
 }
 @media (prefers-reduced-motion: reduce) {
   .glass-viewport .gk-statusdot--live .gk-statusdot__dot,
@@ -979,7 +977,7 @@
 .glass-viewport .gk-heading__eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--green);
+  color: var(--accent);
 }
 
 /* Launcher — two-column app grid of focusable cards. */
@@ -1050,14 +1048,14 @@
 
 /* Pin — ring + dot waypoint, name/distance stacked above. */
 .glass-viewport .gk-pin__dot {
-  fill: var(--green);
-  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--green) 60%, transparent));
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--accent) 60%, transparent));
 }
 .glass-viewport .gk-pin__ring {
   fill: none;
-  stroke: var(--green);
+  stroke: var(--accent);
   stroke-width: 2;
-  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--green) 45%, transparent));
+  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--accent) 45%, transparent));
 }
 .glass-viewport .gk-pin__label,
 .glass-viewport .gk-callout__label {
@@ -1078,10 +1076,10 @@
 
 /* Callout — anchor + vertical leader + emitted label (no box fill). */
 .glass-viewport .gk-callout__anchor {
-  fill: var(--green);
-  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--green) 55%, transparent));
+  fill: var(--accent);
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--accent) 55%, transparent));
 }
 .glass-viewport .gk-callout__leader {
-  stroke: var(--green-muted);
+  stroke: var(--accent-muted);
   stroke-width: 1.5;
 }

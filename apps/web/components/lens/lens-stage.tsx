@@ -1,12 +1,10 @@
 import type { ReactNode } from "react";
-import { cn } from "@/lib/utils";
 
 /**
- * Site-chrome frame that holds a 600×600 lens preview: a dark device-like
- * mat (so the additive black surface reads as a screen) inside the
- * blueprint's hard 1px border. The mat is website chrome — the additive
- * rules stop at the bezel. `device` adds a toolbar affordance (e.g. the
- * "open on your glasses" QR button) beside the caption.
+ * A compact, fitted preview of a 600×600 lens — scaled to a clean rounded
+ * device tile (`.lens-tile`) so the sparse additive content reads like a
+ * glasses screen, not a small component lost in a big black box. `device` adds
+ * a quiet action (the "open on your glasses" QR) below; `caption` is optional.
  */
 export function LensStage({
   children,
@@ -18,18 +16,11 @@ export function LensStage({
   device?: ReactNode;
 }) {
   return (
-    <figure className="flex flex-col items-center gap-4">
-      <div className="max-w-full overflow-x-auto border border-line-2 bg-[#050507] p-5">
-        {children}
-      </div>
+    <figure className="flex flex-col items-center gap-3">
+      <div className="lens-tile ring-1 ring-white/10">{children}</div>
       {caption || device ? (
-        <figcaption
-          className={cn(
-            "flex w-full items-center gap-3",
-            device ? "justify-between" : "justify-center",
-          )}
-        >
-          {caption ? <span className="mono-label">{caption}</span> : <span />}
+        <figcaption className="flex items-center gap-3">
+          {caption ? <span className="mono-label">{caption}</span> : null}
           {device}
         </figcaption>
       ) : null}

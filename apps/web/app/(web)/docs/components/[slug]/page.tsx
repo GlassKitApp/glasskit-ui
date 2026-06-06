@@ -59,10 +59,7 @@ export default async function ComponentPage({
       </p>
 
       <div className="mt-10">
-        <LensStage
-          caption="Live preview"
-          device={<DevicePreview qr={qr} url={previewUrl} />}
-        >
+        <LensStage device={<DevicePreview qr={qr} url={previewUrl} />}>
           <GlassViewport>{doc.preview}</GlassViewport>
         </LensStage>
       </div>

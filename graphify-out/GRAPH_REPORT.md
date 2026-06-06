@@ -1,16 +1,16 @@
 # Graph Report - harrisburg  (2026-06-06)
 
 ## Corpus Check
-- 127 files · ~39,294 words
+- 129 files · ~41,654 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 779 nodes · 1131 edges · 63 communities (54 shown, 9 thin omitted)
+- 802 nodes · 1152 edges · 70 communities (62 shown, 8 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 7 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0f205fbf`
+- Built from commit: `26adf03a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -68,7 +68,14 @@
 - [[_COMMUNITY_Community 57|Community 57]]
 - [[_COMMUNITY_Community 58|Community 58]]
 - [[_COMMUNITY_Community 59|Community 59]]
+- [[_COMMUNITY_Community 60|Community 60]]
 - [[_COMMUNITY_Community 61|Community 61]]
+- [[_COMMUNITY_Community 64|Community 64]]
+- [[_COMMUNITY_Community 65|Community 65]]
+- [[_COMMUNITY_Community 66|Community 66]]
+- [[_COMMUNITY_Community 67|Community 67]]
+- [[_COMMUNITY_Community 68|Community 68]]
+- [[_COMMUNITY_Community 69|Community 69]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 38 edges
@@ -94,7 +101,7 @@
 - `add()` --calls--> `resolve()`  [INFERRED]
   packages/cli/src/index.ts → apps/web/lib/registry-files.ts
 
-## Communities (63 total, 9 thin omitted)
+## Communities (70 total, 8 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
@@ -125,8 +132,8 @@ Cohesion: 0.13
 Nodes (14): 10. Sources, 1. North star, 2. Two surfaces, two recipes, 3. Design principles (watchOS-derived, additive-translated), 4. Tokens & numbers (concrete starting set), 5. "Premium without blur" recipe, 6. Motion, 7. Iconography & typography (+6 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.05
-Nodes (68): AlertGlyph(), BatteryGlyph(), CheckGlyph(), ChevronGlyph(), HeartGlyph(), MessageGlyph(), MusicGlyph(), NavGlyph() (+60 more)
+Cohesion: 0.24
+Nodes (14): BatteryGlyph(), CheckGlyph(), ChevronGlyph(), HeartGlyph(), MessageGlyph(), MusicGlyph(), NavGlyph(), { container } (+6 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.17
@@ -162,27 +169,27 @@ Nodes (11): code:sh (pnpm add @glasskit/glasses-ui          # the SDK (react 19 
 
 ### Community 17 - "Community 17"
 Cohesion: 0.05
-Nodes (37): dependencies, fumadocs-core, fumadocs-mdx, fumadocs-ui, @glasskit/glasses-ui, next, qrcode, react (+29 more)
+Nodes (39): cn(), dependencies, clsx, fumadocs-core, fumadocs-mdx, fumadocs-ui, @glasskit/glasses-ui, next (+31 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.06
-Nodes (34): DevicePreview(), CtrlButton(), Emulator(), GhostKey(), CheckIcon(), ChevronDown(), ChevronLeft(), ChevronRight() (+26 more)
+Cohesion: 0.14
+Nodes (16): DevicePreview(), CtrlButton(), Emulator(), GhostKey(), ChevronDown(), ChevronLeft(), ChevronRight(), ChevronUp() (+8 more)
 
 ### Community 26 - "Community 26"
 Cohesion: 0.09
 Nodes (22): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+14 more)
 
 ### Community 27 - "Community 27"
-Cohesion: 0.22
-Nodes (7): CATEGORY_ORDER, DocsSidebar(), GROUPS, COMPONENT_DOCS, COMPONENT_NAV, ComponentNav, n
+Cohesion: 0.15
+Nodes (8): CATEGORY_ORDER, DocsSidebar(), GROUPS, metadata, COMPONENT_DOCS, COMPONENT_NAV, ComponentNav, n
 
 ### Community 29 - "Community 29"
 Cohesion: 0.33
 Nodes (4): bricolage, hanken, jetbrains, metadata
 
 ### Community 32 - "Community 32"
-Cohesion: 0.22
-Nodes (7): InstallTabs(), PropsTable(), PropRow, mrbdDeepLink(), qrSvg(), getComponentFiles(), ComponentPage()
+Cohesion: 0.15
+Nodes (12): generateMetadata(), generateMetadata(), PropsTable(), SiteHeader(), getComponentDoc(), PropRow, mrbdDeepLink(), qrSvg() (+4 more)
 
 ### Community 33 - "Community 33"
 Cohesion: 0.13
@@ -229,12 +236,12 @@ Cohesion: 0.32
 Nodes (6): { container }, onClick, row, rows, List(), ListRow()
 
 ### Community 44 - "Community 44"
-Cohesion: 0.22
-Nodes (5): cn(), CodeBlock(), metadata, HeartRateDemo(), clsx
+Cohesion: 0.25
+Nodes (3): CodeBlock(), InstallTabs(), metadata
 
 ### Community 45 - "Community 45"
-Cohesion: 0.20
-Nodes (8): ComponentFile, ITEMS, RegItem, REPO_ROOT, homepage, items, name, $schema
+Cohesion: 0.14
+Nodes (16): AlertGlyph(), ComponentDoc, { container }, map, onCancel, onChange, onConfirm, radios (+8 more)
 
 ### Community 46 - "Community 46"
 Cohesion: 0.08
@@ -248,21 +255,25 @@ Nodes (23): bin, glasskit-mcp, dependencies, @modelcontextprotocol/sdk, zod, des
 Cohesion: 0.22
 Nodes (8): 1. Install the SDK, 2. Import the styles, 3. Build, 4. Add components, code:package-install (@glasskit/glasses-ui), code:css (@import "tailwindcss";), code:tsx (import { GlassViewport, useDpad } from "@glasskit/glasses-ui), code:bash (npx glasskit add screen readout button)
 
+### Community 49 - "Community 49"
+Cohesion: 0.15
+Nodes (10): ButtonCard(), ChipsCard(), CueCard(), DirectionCard(), LauncherCard(), ProgressCard(), ReadoutCard(), StatusBarCard() (+2 more)
+
 ### Community 50 - "Community 50"
-Cohesion: 0.14
-Nodes (14): ACCENTS, Demo, DEMOS, PlaygroundClient(), DpadProvider(), ExploreDemo(), LauncherDemo(), LensStage() (+6 more)
+Cohesion: 0.13
+Nodes (15): ACCENTS, Demo, DEMOS, PlaygroundClient(), DpadProvider(), ExploreDemo(), HeartRateDemo(), LauncherDemo() (+7 more)
 
 ### Community 51 - "Community 51"
 Cohesion: 0.12
 Nodes (12): RegistryFile, RegistryItem, body, files, hits, item, q, reg (+4 more)
 
 ### Community 52 - "Community 52"
-Cohesion: 0.21
-Nodes (13): resolve(), RegistryFile, RegistryItem, add(), c, exists(), help(), init() (+5 more)
+Cohesion: 0.11
+Nodes (21): ComponentFile, ITEMS, RegItem, REPO_ROOT, resolve(), RegistryFile, RegistryItem, homepage (+13 more)
 
 ### Community 53 - "Community 53"
-Cohesion: 0.38
-Nodes (5): generateMetadata(), generateMetadata(), getComponentDoc(), DevicePreviewPage(), generateMetadata()
+Cohesion: 0.18
+Nodes (11): cn(), cards, chips, { container }, onSelect, Deck(), Heading(), Launcher() (+3 more)
 
 ### Community 58 - "Community 58"
 Cohesion: 0.29
@@ -272,26 +283,54 @@ Nodes (6): compilerOptions, module, moduleResolution, types, extends, include
 Cohesion: 0.29
 Nodes (6): compilerOptions, module, moduleResolution, types, extends, include
 
+### Community 60 - "Community 60"
+Cohesion: 0.15
+Nodes (12): { container }, fill, m, off, onRetry, { rerender }, { rerender, container }, ErrorState() (+4 more)
+
 ### Community 61 - "Community 61"
 Cohesion: 0.33
 Nodes (5): bar, { container }, { container: over }, { container: under }, el
 
+### Community 64 - "Community 64"
+Cohesion: 0.14
+Nodes (13): Component visual redesign (exploration-first) → then docs/fumadocs, Context, Context — the redesign (NEW, top priority), Cross-cutting notes, Open follow-ups (post-migration, not in scope unless asked), ✅ Phase 1 — foundation (DONE, committed `26adf03`, non-breaking), Phase 2 — shell + dark fov theme (build at a TEMP baseUrl), Phase 3 — components as MDX + shared primitives (+5 more)
+
+### Community 65 - "Community 65"
+Cohesion: 0.27
+Nodes (6): { container }, g, Callout(), Pin(), Reticle(), StatusDot()
+
+### Community 66 - "Community 66"
+Cohesion: 0.24
+Nodes (8): CheckIcon(), CopyIcon(), InstallCommand(), Pm, PMS, RUNNER, CopyButton(), useCopyToClipboard()
+
+### Community 67 - "Community 67"
+Cohesion: 0.31
+Nodes (4): ClassValue, btn, onClick, Button()
+
+### Community 68 - "Community 68"
+Cohesion: 0.22
+Nodes (8): Context, Cross-cutting notes, Docs → fumadocs migration + `/ui` zone integration, Open follow-ups (post-migration, not in scope unless asked), ✅ Phase 1 — foundation (DONE, committed `26adf03`, non-breaking), Phase 2 — shell + dark fov theme (build at a TEMP baseUrl), Phase 3 — components as MDX + shared primitives, Phase 4 — the swap + umbrella header
+
+### Community 69 - "Community 69"
+Cohesion: 0.33
+Nodes (5): { container }, status, AsyncStatus, AsyncView(), Spinner()
+
 ## Knowledge Gaps
-- **429 isolated node(s):** `$schema`, `target`, `lib`, `module`, `moduleResolution` (+424 more)
+- **447 isolated node(s):** `$schema`, `target`, `lib`, `module`, `moduleResolution` (+442 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `cn()` connect `Community 7` to `Community 32`, `Community 36`, `Community 43`, `Community 44`, `Community 50`, `Community 25`, `Community 27`?**
-  _High betweenness centrality (0.076) - this node is a cross-community bridge._
+- **Why does `cn()` connect `Community 53` to `Community 65`, `Community 67`, `Community 36`, `Community 69`, `Community 7`, `Community 43`, `Community 44`, `Community 45`, `Community 17`, `Community 50`, `Community 25`, `Community 27`, `Community 60`?**
+  _High betweenness centrality (0.072) - this node is a cross-community bridge._
 - **Why does `useDpad()` connect `Community 3` to `Community 50`?**
-  _High betweenness centrality (0.052) - this node is a cross-community bridge._
+  _High betweenness centrality (0.049) - this node is a cross-community bridge._
 - **Why does `DpadProvider()` connect `Community 50` to `Community 3`?**
-  _High betweenness centrality (0.052) - this node is a cross-community bridge._
+  _High betweenness centrality (0.049) - this node is a cross-community bridge._
 - **What connects `$schema`, `target`, `lib` to the rest of the system?**
-  _429 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _447 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
