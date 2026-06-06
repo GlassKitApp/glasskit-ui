@@ -1,16 +1,16 @@
 # Graph Report - harrisburg  (2026-06-06)
 
 ## Corpus Check
-- 121 files · ~38,789 words
+- 122 files · ~38,897 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 752 nodes · 1107 edges · 55 communities (50 shown, 5 thin omitted)
+- 754 nodes · 1111 edges · 53 communities (48 shown, 5 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 7 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0f99e481`
+- Built from commit: `a1305375`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -36,7 +36,6 @@
 - [[_COMMUNITY_Community 19|Community 19]]
 - [[_COMMUNITY_Community 25|Community 25]]
 - [[_COMMUNITY_Community 26|Community 26]]
-- [[_COMMUNITY_Community 27|Community 27]]
 - [[_COMMUNITY_Community 28|Community 28]]
 - [[_COMMUNITY_Community 29|Community 29]]
 - [[_COMMUNITY_Community 30|Community 30]]
@@ -53,7 +52,6 @@
 - [[_COMMUNITY_Community 41|Community 41]]
 - [[_COMMUNITY_Community 42|Community 42]]
 - [[_COMMUNITY_Community 43|Community 43]]
-- [[_COMMUNITY_Community 44|Community 44]]
 - [[_COMMUNITY_Community 46|Community 46]]
 - [[_COMMUNITY_Community 47|Community 47]]
 - [[_COMMUNITY_Community 50|Community 50]]
@@ -87,7 +85,7 @@
 - `add()` --calls--> `resolve()`  [INFERRED]
   packages/cli/src/index.ts → apps/web/lib/registry-files.ts
 
-## Communities (55 total, 5 thin omitted)
+## Communities (53 total, 5 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
@@ -119,7 +117,7 @@ Nodes (14): 10. Sources, 1. North star, 2. Two surfaces, two recipes, 3. Design 
 
 ### Community 7 - "Community 7"
 Cohesion: 0.05
-Nodes (68): AlertGlyph(), BatteryGlyph(), CheckGlyph(), ChevronGlyph(), HeartGlyph(), MessageGlyph(), MusicGlyph(), NavGlyph() (+60 more)
+Nodes (70): AlertGlyph(), BatteryGlyph(), CheckGlyph(), ChevronGlyph(), HeartGlyph(), MessageGlyph(), MusicGlyph(), NavGlyph() (+62 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.17
@@ -158,16 +156,12 @@ Cohesion: 0.06
 Nodes (31): dependencies, @glasskit/glasses-ui, next, qrcode, react, react-dom, tailwind-merge, description (+23 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.15
-Nodes (10): ButtonCard(), ChipsCard(), CueCard(), DirectionCard(), LauncherCard(), ProgressCard(), ReadoutCard(), StatusBarCard() (+2 more)
+Cohesion: 0.08
+Nodes (29): CtrlButton(), Emulator(), GhostKey(), CheckIcon(), ChevronDown(), ChevronLeft(), ChevronRight(), ChevronUp() (+21 more)
 
 ### Community 26 - "Community 26"
 Cohesion: 0.09
 Nodes (22): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+14 more)
-
-### Community 27 - "Community 27"
-Cohesion: 0.16
-Nodes (14): CtrlButton(), Emulator(), GhostKey(), ChevronDown(), ChevronLeft(), ChevronRight(), ChevronUp(), FocusIcon() (+6 more)
 
 ### Community 29 - "Community 29"
 Cohesion: 0.33
@@ -175,7 +169,7 @@ Nodes (4): bricolage, hanken, jetbrains, metadata
 
 ### Community 32 - "Community 32"
 Cohesion: 0.06
-Nodes (25): generateMetadata(), generateMetadata(), cn(), CodeBlock(), DevicePreview(), CATEGORY_ORDER, DocsSidebar(), GROUPS (+17 more)
+Nodes (31): generateMetadata(), generateMetadata(), DevicePreview(), CATEGORY_ORDER, DocsSidebar(), GROUPS, GlassesIcon(), InstallTabs() (+23 more)
 
 ### Community 33 - "Community 33"
 Cohesion: 0.13
@@ -218,12 +212,8 @@ Cohesion: 0.22
 Nodes (8): Adding a registry component, code:block1 (packages/glasses-ui/     # the npm SDK: hooks + GlassViewpor), code:sh (pnpm build:registry), Contributing to GlassKit UI, House rules, Repo layout, The lens design rules (non-negotiable), The registry index
 
 ### Community 43 - "Community 43"
-Cohesion: 0.32
-Nodes (6): { container }, onClick, row, rows, List(), ListRow()
-
-### Community 44 - "Community 44"
-Cohesion: 0.24
-Nodes (8): CheckIcon(), CopyIcon(), InstallCommand(), Pm, PMS, RUNNER, CopyButton(), useCopyToClipboard()
+Cohesion: 0.40
+Nodes (4): { container }, onClick, row, rows
 
 ### Community 46 - "Community 46"
 Cohesion: 0.08
@@ -234,16 +224,16 @@ Cohesion: 0.08
 Nodes (23): bin, glasskit-mcp, dependencies, @modelcontextprotocol/sdk, zod, description, devDependencies, tsup (+15 more)
 
 ### Community 50 - "Community 50"
-Cohesion: 0.13
-Nodes (15): ACCENTS, Demo, DEMOS, PlaygroundClient(), DpadProvider(), ExploreDemo(), HeartRateDemo(), LauncherDemo() (+7 more)
+Cohesion: 0.09
+Nodes (22): cn(), CodeBlock(), InstallCommand(), ACCENTS, CopyButton(), Demo, DEMOS, PlaygroundClient() (+14 more)
 
 ### Community 51 - "Community 51"
 Cohesion: 0.12
 Nodes (12): RegistryFile, RegistryItem, body, files, hits, item, q, reg (+4 more)
 
 ### Community 52 - "Community 52"
-Cohesion: 0.10
-Nodes (22): ComponentFile, getComponentFiles(), ITEMS, RegItem, REPO_ROOT, resolve(), RegistryFile, RegistryItem (+14 more)
+Cohesion: 0.21
+Nodes (13): resolve(), RegistryFile, RegistryItem, add(), c, exists(), help(), init() (+5 more)
 
 ### Community 58 - "Community 58"
 Cohesion: 0.29
@@ -265,7 +255,7 @@ Nodes (5): bar, { container }, { container: over }, { container: under }, el
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `cn()` connect `Community 7` to `Community 32`, `Community 36`, `Community 43`, `Community 50`, `Community 27`?**
+- **Why does `cn()` connect `Community 7` to `Community 32`, `Community 25`, `Community 50`, `Community 36`?**
   _High betweenness centrality (0.075) - this node is a cross-community bridge._
 - **Why does `useDpad()` connect `Community 3` to `Community 50`?**
   _High betweenness centrality (0.055) - this node is a cross-community bridge._

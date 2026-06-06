@@ -10,6 +10,7 @@ import { DevicePreview } from "@/components/device-preview";
 import { COMPONENT_DOCS, getComponentDoc } from "@/lib/component-docs";
 import { getComponentFiles } from "@/lib/registry-files";
 import { qrSvg } from "@/lib/qr";
+import { mrbdDeepLink } from "@/lib/meta-deeplink";
 import { SITE } from "@/lib/config";
 
 export function generateStaticParams() {
@@ -37,7 +38,7 @@ export default async function ComponentPage({
   if (!doc) notFound();
   const files = getComponentFiles(slug);
   const previewUrl = `${SITE}/preview/${slug}`;
-  const qr = await qrSvg(previewUrl);
+  const qr = await qrSvg(mrbdDeepLink(`GlassKit ${doc.name}`, previewUrl));
 
   return (
     <div className="mx-auto max-w-3xl">

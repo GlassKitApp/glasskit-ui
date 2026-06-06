@@ -46,10 +46,10 @@ export function DevicePreview({ qr, url }: { qr: string; url: string }) {
           aria-label="Open on your glasses"
           className="absolute end-0 z-20 mt-2 w-60 border border-line-2 bg-bg p-4 shadow-xl"
         >
-          <p className="mono-label">Scan to open</p>
+          <p className="mono-label">Add to your glasses</p>
           <p className="mt-1.5 text-sm leading-relaxed text-ink-2">
-            Open the full-screen preview on your Ray-Ban Display — or any
-            device.
+            Scan with your phone to add this preview to your Ray-Ban Display via
+            the Meta AI app (Developer Mode required).
           </p>
           <div
             className="mt-3 border border-line [&>svg]:block [&>svg]:h-auto [&>svg]:w-full"
@@ -61,7 +61,7 @@ export function DevicePreview({ qr, url }: { qr: string; url: string }) {
             rel="noreferrer"
             className="mt-3 block truncate font-mono text-[11px] text-ink-3 hover:text-ink"
           >
-            {url}
+            or open on any device ↗
           </a>
         </div>
       ) : null}

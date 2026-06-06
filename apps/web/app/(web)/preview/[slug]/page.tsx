@@ -32,7 +32,7 @@ export default async function DevicePreviewPage({
   if (!doc) notFound();
 
   return (
-    <main className="flex min-h-dvh items-center justify-center overflow-auto bg-black p-4">
+    <main className="flex min-h-dvh items-center justify-center overflow-auto bg-black">
       <GlassViewport frame={false}>{doc.preview}</GlassViewport>
     </main>
   );
