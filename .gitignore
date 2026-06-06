@@ -22,3 +22,6 @@ next-env.d.ts
 
 # generated registry distribution (built from registry/ via `pnpm build:registry`)
 apps/web/public/r
+
+# fumadocs generated source
+apps/web/.source

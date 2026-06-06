@@ -165,8 +165,8 @@
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json": {
-    "mtime": 1780700340.6718338,
-    "ast_hash": "cc7cdd1a25df1eb0688f1e682bb351fe",
+    "mtime": 1780739547.820822,
+    "ast_hash": "9a9d7f44ca8940059d605eb0abf3528b",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/tsconfig.json": {
@@ -175,8 +175,8 @@
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/next.config.ts": {
-    "mtime": 1780382765.925012,
-    "ast_hash": "8e085723587542789313c5923b484b84",
+    "mtime": 1780739585.3231966,
+    "ast_hash": "d41580828fcd076cd24b19abd31b00fa",
     "semantic_hash": ""
   },
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/app/(web)/layout.tsx": {
@@ -637,6 +637,31 @@
   "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/lib/meta-deeplink.ts": {
     "mtime": 1780738484.5970895,
     "ast_hash": "d4b7a2a4a8e4ba94906a5d0a747a3844",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/mdx-components.tsx": {
+    "mtime": 1780739620.9703305,
+    "ast_hash": "d4a444cb700ff1687d2e35a65cef3161",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/source.config.ts": {
+    "mtime": 1780739556.6008148,
+    "ast_hash": "d927c1667dd196a5f8e3b10dcb350447",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/content/docs/meta.json": {
+    "mtime": 1780739561.2287488,
+    "ast_hash": "5c148d581ced50ef67c2d5a9128fe70d",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/lib/source.ts": {
+    "mtime": 1780739614.451697,
+    "ast_hash": "69362bce74f3fc7c7e8274cd7e885c57",
+    "semantic_hash": ""
+  },
+  "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/content/docs/index.mdx": {
+    "mtime": 1780739574.4686315,
+    "ast_hash": "6af0450499fe92b7eb9ac073d3cb5161",
     "semantic_hash": ""
   }
 }

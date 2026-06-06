@@ -2520,7 +2520,7 @@
       "source_file": "registry/registry.json",
       "source_location": "L1",
       "id": "registry_registry_json",
-      "community": 32,
+      "community": 45,
       "norm_label": "registry.json"
     },
     {
@@ -2529,7 +2529,7 @@
       "source_file": "registry/registry.json",
       "source_location": "L2",
       "id": "registry_registry_schema",
-      "community": 32,
+      "community": 45,
       "norm_label": "$schema"
     },
     {
@@ -2538,7 +2538,7 @@
       "source_file": "registry/registry.json",
       "source_location": "L3",
       "id": "registry_registry_name",
-      "community": 32,
+      "community": 45,
       "norm_label": "name"
     },
     {
@@ -2547,7 +2547,7 @@
       "source_file": "registry/registry.json",
       "source_location": "L4",
       "id": "registry_registry_homepage",
-      "community": 32,
+      "community": 45,
       "norm_label": "homepage"
     },
     {
@@ -2556,7 +2556,7 @@
       "source_file": "registry/registry.json",
       "source_location": "L5",
       "id": "registry_registry_items",
-      "community": 32,
+      "community": 45,
       "norm_label": "items"
     },
     {
@@ -2646,7 +2646,7 @@
       "source_file": "registry/ui/list.tsx",
       "source_location": "L1",
       "id": "registry_ui_list_tsx",
-      "community": 7,
+      "community": 43,
       "norm_label": "list.tsx"
     },
     {
@@ -2655,7 +2655,7 @@
       "source_file": "registry/ui/list.tsx",
       "source_location": "L9",
       "id": "ui_list_list",
-      "community": 7,
+      "community": 43,
       "norm_label": "list()"
     },
     {
@@ -2664,7 +2664,7 @@
       "source_file": "registry/ui/list.tsx",
       "source_location": "L24",
       "id": "ui_list_listrow",
-      "community": 7,
+      "community": 43,
       "norm_label": "listrow()"
     },
     {
@@ -3181,6 +3181,24 @@
       "norm_label": "config"
     },
     {
+      "label": "mdx-components.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/mdx-components.tsx",
+      "source_location": "L1",
+      "id": "apps_web_mdx_components_tsx",
+      "community": 56,
+      "norm_label": "mdx-components.tsx"
+    },
+    {
+      "label": "getMDXComponents()",
+      "file_type": "code",
+      "source_file": "apps/web/mdx-components.tsx",
+      "source_location": "L10",
+      "id": "web_mdx_components_getmdxcomponents",
+      "community": 56,
+      "norm_label": "getmdxcomponents()"
+    },
+    {
       "label": "package.json",
       "file_type": "code",
       "source_file": "apps/web/package.json",
@@ -3289,10 +3307,19 @@
       "norm_label": "test"
     },
     {
+      "label": "postinstall",
+      "file_type": "code",
+      "source_file": "apps/web/package.json",
+      "source_location": "L13",
+      "id": "web_package_scripts_postinstall",
+      "community": 17,
+      "norm_label": "postinstall"
+    },
+    {
       "label": "dependencies",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L14",
+      "source_location": "L15",
       "id": "web_package_dependencies",
       "community": 17,
       "norm_label": "dependencies"
@@ -3301,7 +3328,7 @@
       "label": "@glasskit/glasses-ui",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L15",
+      "source_location": "L16",
       "id": "web_package_dependencies_glasskit_glasses_ui",
       "community": 17,
       "norm_label": "@glasskit/glasses-ui"
@@ -3310,16 +3337,43 @@
       "label": "clsx",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L16",
+      "source_location": "L17",
       "id": "web_package_dependencies_clsx",
-      "community": 50,
+      "community": 44,
       "norm_label": "clsx"
+    },
+    {
+      "label": "fumadocs-core",
+      "file_type": "code",
+      "source_file": "apps/web/package.json",
+      "source_location": "L18",
+      "id": "web_package_dependencies_fumadocs_core",
+      "community": 17,
+      "norm_label": "fumadocs-core"
+    },
+    {
+      "label": "fumadocs-mdx",
+      "file_type": "code",
+      "source_file": "apps/web/package.json",
+      "source_location": "L19",
+      "id": "web_package_dependencies_fumadocs_mdx",
+      "community": 17,
+      "norm_label": "fumadocs-mdx"
+    },
+    {
+      "label": "fumadocs-ui",
+      "file_type": "code",
+      "source_file": "apps/web/package.json",
+      "source_location": "L20",
+      "id": "web_package_dependencies_fumadocs_ui",
+      "community": 17,
+      "norm_label": "fumadocs-ui"
     },
     {
       "label": "next",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L17",
+      "source_location": "L21",
       "id": "web_package_dependencies_next",
       "community": 17,
       "norm_label": "next"
@@ -3328,7 +3382,7 @@
       "label": "qrcode",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L18",
+      "source_location": "L22",
       "id": "web_package_dependencies_qrcode",
       "community": 17,
       "norm_label": "qrcode"
@@ -3337,7 +3391,7 @@
       "label": "react",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L19",
+      "source_location": "L23",
       "id": "web_package_dependencies_react",
       "community": 17,
       "norm_label": "react"
@@ -3346,16 +3400,25 @@
       "label": "react-dom",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L20",
+      "source_location": "L24",
       "id": "web_package_dependencies_react_dom",
       "community": 17,
       "norm_label": "react-dom"
     },
     {
+      "label": "shiki",
+      "file_type": "code",
+      "source_file": "apps/web/package.json",
+      "source_location": "L25",
+      "id": "web_package_dependencies_shiki",
+      "community": 17,
+      "norm_label": "shiki"
+    },
+    {
       "label": "tailwind-merge",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L21",
+      "source_location": "L26",
       "id": "web_package_dependencies_tailwind_merge",
       "community": 17,
       "norm_label": "tailwind-merge"
@@ -3364,7 +3427,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L23",
+      "source_location": "L28",
       "id": "web_package_devdependencies",
       "community": 17,
       "norm_label": "devdependencies"
@@ -3373,7 +3436,7 @@
       "label": "@tailwindcss/postcss",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L24",
+      "source_location": "L29",
       "id": "web_package_devdependencies_tailwindcss_postcss",
       "community": 17,
       "norm_label": "@tailwindcss/postcss"
@@ -3382,7 +3445,7 @@
       "label": "@testing-library/dom",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L25",
+      "source_location": "L30",
       "id": "web_package_devdependencies_testing_library_dom",
       "community": 17,
       "norm_label": "@testing-library/dom"
@@ -3391,16 +3454,25 @@
       "label": "@testing-library/react",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L26",
+      "source_location": "L31",
       "id": "web_package_devdependencies_testing_library_react",
       "community": 17,
       "norm_label": "@testing-library/react"
     },
     {
+      "label": "@types/mdx",
+      "file_type": "code",
+      "source_file": "apps/web/package.json",
+      "source_location": "L32",
+      "id": "web_package_devdependencies_types_mdx",
+      "community": 17,
+      "norm_label": "@types/mdx"
+    },
+    {
       "label": "@types/node",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L27",
+      "source_location": "L33",
       "id": "web_package_devdependencies_types_node",
       "community": 17,
       "norm_label": "@types/node"
@@ -3409,7 +3481,7 @@
       "label": "@types/qrcode",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L28",
+      "source_location": "L34",
       "id": "web_package_devdependencies_types_qrcode",
       "community": 17,
       "norm_label": "@types/qrcode"
@@ -3418,7 +3490,7 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L29",
+      "source_location": "L35",
       "id": "web_package_devdependencies_types_react",
       "community": 17,
       "norm_label": "@types/react"
@@ -3427,7 +3499,7 @@
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L30",
+      "source_location": "L36",
       "id": "web_package_devdependencies_types_react_dom",
       "community": 17,
       "norm_label": "@types/react-dom"
@@ -3436,7 +3508,7 @@
       "label": "@vitejs/plugin-react",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L31",
+      "source_location": "L37",
       "id": "web_package_devdependencies_vitejs_plugin_react",
       "community": 17,
       "norm_label": "@vitejs/plugin-react"
@@ -3445,7 +3517,7 @@
       "label": "jsdom",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L32",
+      "source_location": "L38",
       "id": "web_package_devdependencies_jsdom",
       "community": 17,
       "norm_label": "jsdom"
@@ -3454,7 +3526,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L33",
+      "source_location": "L39",
       "id": "web_package_devdependencies_tailwindcss",
       "community": 17,
       "norm_label": "tailwindcss"
@@ -3463,7 +3535,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L34",
+      "source_location": "L40",
       "id": "web_package_devdependencies_typescript",
       "community": 17,
       "norm_label": "typescript"
@@ -3472,7 +3544,7 @@
       "label": "vitest",
       "file_type": "code",
       "source_file": "apps/web/package.json",
-      "source_location": "L35",
+      "source_location": "L41",
       "id": "web_package_devdependencies_vitest",
       "community": 17,
       "norm_label": "vitest"
@@ -3685,6 +3757,24 @@
       "norm_label": "exclude"
     },
     {
+      "label": "source.config.ts",
+      "file_type": "code",
+      "source_file": "apps/web/source.config.ts",
+      "source_location": "L1",
+      "id": "apps_web_source_config_ts",
+      "community": 57,
+      "norm_label": "source.config.ts"
+    },
+    {
+      "label": "docs",
+      "file_type": "code",
+      "source_file": "apps/web/source.config.ts",
+      "source_location": "L3",
+      "id": "web_source_config_docs",
+      "community": 57,
+      "norm_label": "docs"
+    },
+    {
       "label": "vitest.config.ts",
       "file_type": "code",
       "source_file": "apps/web/vitest.config.ts",
@@ -3706,10 +3796,19 @@
       "label": "nextConfig",
       "file_type": "code",
       "source_file": "apps/web/next.config.ts",
-      "source_location": "L12",
+      "source_location": "L17",
       "id": "web_next_config_nextconfig",
       "community": 30,
       "norm_label": "nextconfig"
+    },
+    {
+      "label": "withMDX",
+      "file_type": "code",
+      "source_file": "apps/web/next.config.ts",
+      "source_location": "L22",
+      "id": "web_next_config_withmdx",
+      "community": 30,
+      "norm_label": "withmdx"
     },
     {
       "label": "layout.tsx",
@@ -3825,7 +3924,7 @@
       "source_file": "apps/web/app/(web)/docs/layout.tsx",
       "source_location": "L1",
       "id": "apps_web_app_web_docs_layout_tsx",
-      "community": 32,
+      "community": 49,
       "norm_label": "layout.tsx"
     },
     {
@@ -3834,7 +3933,7 @@
       "source_file": "apps/web/app/(web)/docs/layout.tsx",
       "source_location": "L5",
       "id": "docs_layout_docslayout",
-      "community": 32,
+      "community": 49,
       "norm_label": "docslayout()"
     },
     {
@@ -3843,7 +3942,7 @@
       "source_file": "apps/web/app/(web)/docs/page.tsx",
       "source_location": "L1",
       "id": "apps_web_app_web_docs_page_tsx",
-      "community": 50,
+      "community": 44,
       "norm_label": "page.tsx"
     },
     {
@@ -3852,7 +3951,7 @@
       "source_file": "apps/web/app/(web)/docs/page.tsx",
       "source_location": "L7",
       "id": "docs_page_metadata",
-      "community": 50,
+      "community": 44,
       "norm_label": "metadata"
     },
     {
@@ -3861,7 +3960,7 @@
       "source_file": "apps/web/app/(web)/docs/page.tsx",
       "source_location": "L29",
       "id": "docs_page_docsgettingstarted",
-      "community": 50,
+      "community": 44,
       "norm_label": "docsgettingstarted()"
     },
     {
@@ -3870,7 +3969,7 @@
       "source_file": "apps/web/app/(web)/docs/components/page.tsx",
       "source_location": "L1",
       "id": "apps_web_app_web_docs_components_page_tsx",
-      "community": 32,
+      "community": 49,
       "norm_label": "page.tsx"
     },
     {
@@ -3879,7 +3978,7 @@
       "source_file": "apps/web/app/(web)/docs/components/page.tsx",
       "source_location": "L4",
       "id": "components_page_metadata",
-      "community": 32,
+      "community": 49,
       "norm_label": "metadata"
     },
     {
@@ -3888,7 +3987,7 @@
       "source_file": "apps/web/app/(web)/docs/components/page.tsx",
       "source_location": "L10",
       "id": "components_page_componentsindex",
-      "community": 32,
+      "community": 49,
       "norm_label": "componentsindex()"
     },
     {
@@ -3915,7 +4014,7 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L20",
       "id": "apps_web_app_web_docs_components_slug_page_tsx_slug_page_generatemetadata",
-      "community": 32,
+      "community": 53,
       "norm_label": "generatemetadata()"
     },
     {
@@ -3933,7 +4032,7 @@
       "source_file": "apps/web/app/(web)/preview/[slug]/page.tsx",
       "source_location": "L1",
       "id": "apps_web_app_web_preview_slug_page_tsx",
-      "community": 32,
+      "community": 53,
       "norm_label": "page.tsx"
     },
     {
@@ -3942,7 +4041,7 @@
       "source_file": "apps/web/app/(web)/preview/[slug]/page.tsx",
       "source_location": "L6",
       "id": "apps_web_app_web_preview_slug_page_tsx_slug_page_generatestaticparams",
-      "community": 32,
+      "community": 53,
       "norm_label": "generatestaticparams()"
     },
     {
@@ -3951,7 +4050,7 @@
       "source_file": "apps/web/app/(web)/preview/[slug]/page.tsx",
       "source_location": "L10",
       "id": "apps_web_app_web_preview_slug_page_tsx_slug_page_generatemetadata",
-      "community": 32,
+      "community": 53,
       "norm_label": "generatemetadata()"
     },
     {
@@ -3960,8 +4059,35 @@
       "source_file": "apps/web/app/(web)/preview/[slug]/page.tsx",
       "source_location": "L25",
       "id": "slug_page_devicepreviewpage",
-      "community": 32,
+      "community": 53,
       "norm_label": "devicepreviewpage()"
+    },
+    {
+      "label": "meta.json",
+      "file_type": "code",
+      "source_file": "apps/web/content/docs/meta.json",
+      "source_location": "L1",
+      "id": "apps_web_content_docs_meta_json",
+      "community": 54,
+      "norm_label": "meta.json"
+    },
+    {
+      "label": "title",
+      "file_type": "code",
+      "source_file": "apps/web/content/docs/meta.json",
+      "source_location": "L2",
+      "id": "docs_meta_title",
+      "community": 54,
+      "norm_label": "title"
+    },
+    {
+      "label": "pages",
+      "file_type": "code",
+      "source_file": "apps/web/content/docs/meta.json",
+      "source_location": "L3",
+      "id": "docs_meta_pages",
+      "community": 54,
+      "norm_label": "pages"
     },
     {
       "label": "install-command.tsx",
@@ -4005,7 +4131,7 @@
       "source_file": "apps/web/components/install-command.tsx",
       "source_location": "L22",
       "id": "components_install_command_installcommand",
-      "community": 50,
+      "community": 25,
       "norm_label": "installcommand()"
     },
     {
@@ -4014,7 +4140,7 @@
       "source_file": "apps/web/components/site-header.tsx",
       "source_location": "L1",
       "id": "apps_web_components_site_header_tsx",
-      "community": 32,
+      "community": 49,
       "norm_label": "site-header.tsx"
     },
     {
@@ -4023,7 +4149,7 @@
       "source_file": "apps/web/components/site-header.tsx",
       "source_location": "L5",
       "id": "components_site_header_siteheader",
-      "community": 32,
+      "community": 49,
       "norm_label": "siteheader()"
     },
     {
@@ -4032,7 +4158,7 @@
       "source_file": "apps/web/components/device-preview.tsx",
       "source_location": "L1",
       "id": "apps_web_components_device_preview_tsx",
-      "community": 32,
+      "community": 25,
       "norm_label": "device-preview.tsx"
     },
     {
@@ -4041,7 +4167,7 @@
       "source_file": "apps/web/components/device-preview.tsx",
       "source_location": "L11",
       "id": "components_device_preview_devicepreview",
-      "community": 32,
+      "community": 25,
       "norm_label": "devicepreview()"
     },
     {
@@ -4104,7 +4230,7 @@
       "source_file": "apps/web/components/icons.tsx",
       "source_location": "L38",
       "id": "components_icons_glassesicon",
-      "community": 32,
+      "community": 25,
       "norm_label": "glassesicon()"
     },
     {
@@ -4122,7 +4248,7 @@
       "source_file": "apps/web/components/code-block.tsx",
       "source_location": "L1",
       "id": "apps_web_components_code_block_tsx",
-      "community": 50,
+      "community": 44,
       "norm_label": "code-block.tsx"
     },
     {
@@ -4131,7 +4257,7 @@
       "source_file": "apps/web/components/code-block.tsx",
       "source_location": "L4",
       "id": "components_code_block_codeblock",
-      "community": 50,
+      "community": 44,
       "norm_label": "codeblock()"
     },
     {
@@ -4140,7 +4266,7 @@
       "source_file": "apps/web/components/docs-sidebar.tsx",
       "source_location": "L1",
       "id": "apps_web_components_docs_sidebar_tsx",
-      "community": 32,
+      "community": 27,
       "norm_label": "docs-sidebar.tsx"
     },
     {
@@ -4149,7 +4275,7 @@
       "source_file": "apps/web/components/docs-sidebar.tsx",
       "source_location": "L7",
       "id": "components_docs_sidebar_category_order",
-      "community": 32,
+      "community": 27,
       "norm_label": "category_order"
     },
     {
@@ -4158,7 +4284,7 @@
       "source_file": "apps/web/components/docs-sidebar.tsx",
       "source_location": "L16",
       "id": "components_docs_sidebar_groups",
-      "community": 32,
+      "community": 27,
       "norm_label": "groups"
     },
     {
@@ -4167,7 +4293,7 @@
       "source_file": "apps/web/components/docs-sidebar.tsx",
       "source_location": "L22",
       "id": "components_docs_sidebar_docssidebar",
-      "community": 32,
+      "community": 27,
       "norm_label": "docssidebar()"
     },
     {
@@ -4176,7 +4302,7 @@
       "source_file": "apps/web/components/docs-sidebar.tsx",
       "source_location": "L57",
       "id": "components_docs_sidebar_sidelink",
-      "community": 32,
+      "community": 27,
       "norm_label": "sidelink()"
     },
     {
@@ -4239,7 +4365,7 @@
       "source_file": "apps/web/components/playground-client.tsx",
       "source_location": "L294",
       "id": "components_playground_client_copybutton",
-      "community": 50,
+      "community": 25,
       "norm_label": "copybutton()"
     },
     {
@@ -4311,7 +4437,7 @@
       "source_file": "apps/web/components/lens/heart-rate-demo.tsx",
       "source_location": "L16",
       "id": "lens_heart_rate_demo_heartratedemo",
-      "community": 50,
+      "community": 44,
       "norm_label": "heartratedemo()"
     },
     {
@@ -4527,7 +4653,7 @@
       "source_file": "apps/web/__tests__/component-nav.test.tsx",
       "source_location": "L1",
       "id": "apps_web_tests_component_nav_test_tsx",
-      "community": 32,
+      "community": 27,
       "norm_label": "component-nav.test.tsx"
     },
     {
@@ -4536,7 +4662,7 @@
       "source_file": "apps/web/__tests__/component-nav.test.tsx",
       "source_location": "L11",
       "id": "tests_component_nav_test_n",
-      "community": 32,
+      "community": 27,
       "norm_label": "n"
     },
     {
@@ -5013,7 +5139,7 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L57",
       "id": "lib_component_docs_component_docs",
-      "community": 32,
+      "community": 27,
       "norm_label": "component_docs"
     },
     {
@@ -5022,8 +5148,26 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L834",
       "id": "lib_component_docs_getcomponentdoc",
-      "community": 32,
+      "community": 53,
       "norm_label": "getcomponentdoc()"
+    },
+    {
+      "label": "source.ts",
+      "file_type": "code",
+      "source_file": "apps/web/lib/source.ts",
+      "source_location": "L1",
+      "id": "apps_web_lib_source_ts",
+      "community": 55,
+      "norm_label": "source.ts"
+    },
+    {
+      "label": "source",
+      "file_type": "code",
+      "source_file": "apps/web/lib/source.ts",
+      "source_location": "L5",
+      "id": "lib_source_source",
+      "community": 55,
+      "norm_label": "source"
     },
     {
       "label": "use-copy-to-clipboard.ts",
@@ -5031,7 +5175,7 @@
       "source_file": "apps/web/lib/use-copy-to-clipboard.ts",
       "source_location": "L1",
       "id": "apps_web_lib_use_copy_to_clipboard_ts",
-      "community": 50,
+      "community": 25,
       "norm_label": "use-copy-to-clipboard.ts"
     },
     {
@@ -5040,7 +5184,7 @@
       "source_file": "apps/web/lib/use-copy-to-clipboard.ts",
       "source_location": "L8",
       "id": "lib_use_copy_to_clipboard_usecopytoclipboard",
-      "community": 50,
+      "community": 25,
       "norm_label": "usecopytoclipboard()"
     },
     {
@@ -5049,7 +5193,7 @@
       "source_file": "apps/web/lib/utils.ts",
       "source_location": "L1",
       "id": "apps_web_lib_utils_ts",
-      "community": 50,
+      "community": 44,
       "norm_label": "utils.ts"
     },
     {
@@ -5058,7 +5202,7 @@
       "source_file": "apps/web/lib/utils.ts",
       "source_location": "L5",
       "id": "apps_web_lib_utils_ts_lib_utils_cn",
-      "community": 50,
+      "community": 44,
       "norm_label": "cn()"
     },
     {
@@ -5085,7 +5229,7 @@
       "source_file": "apps/web/lib/component-nav.ts",
       "source_location": "L1",
       "id": "apps_web_lib_component_nav_ts",
-      "community": 32,
+      "community": 27,
       "norm_label": "component-nav.ts"
     },
     {
@@ -5094,7 +5238,7 @@
       "source_file": "apps/web/lib/component-nav.ts",
       "source_location": "L6",
       "id": "lib_component_nav_componentnav",
-      "community": 32,
+      "community": 27,
       "norm_label": "componentnav"
     },
     {
@@ -5103,7 +5247,7 @@
       "source_file": "apps/web/lib/component-nav.ts",
       "source_location": "L8",
       "id": "lib_component_nav_component_nav",
-      "community": 32,
+      "community": 27,
       "norm_label": "component_nav"
     },
     {
@@ -5112,7 +5256,7 @@
       "source_file": "apps/web/lib/config.ts",
       "source_location": "L1",
       "id": "apps_web_lib_config_ts",
-      "community": 32,
+      "community": 49,
       "norm_label": "config.ts"
     },
     {
@@ -5121,7 +5265,7 @@
       "source_file": "apps/web/lib/registry-files.ts",
       "source_location": "L1",
       "id": "apps_web_lib_registry_files_ts",
-      "community": 32,
+      "community": 45,
       "norm_label": "registry-files.ts"
     },
     {
@@ -5130,7 +5274,7 @@
       "source_file": "apps/web/lib/registry-files.ts",
       "source_location": "L11",
       "id": "lib_registry_files_regitem",
-      "community": 32,
+      "community": 45,
       "norm_label": "regitem"
     },
     {
@@ -5139,7 +5283,7 @@
       "source_file": "apps/web/lib/registry-files.ts",
       "source_location": "L17",
       "id": "lib_registry_files_items",
-      "community": 32,
+      "community": 45,
       "norm_label": "items"
     },
     {
@@ -5148,7 +5292,7 @@
       "source_file": "apps/web/lib/registry-files.ts",
       "source_location": "L18",
       "id": "lib_registry_files_repo_root",
-      "community": 32,
+      "community": 45,
       "norm_label": "repo_root"
     },
     {
@@ -5166,7 +5310,7 @@
       "source_file": "apps/web/lib/registry-files.ts",
       "source_location": "L29",
       "id": "lib_registry_files_componentfile",
-      "community": 32,
+      "community": 45,
       "norm_label": "componentfile"
     },
     {
@@ -6340,6 +6484,87 @@
       "norm_label": "part of the glasskit ecosystem"
     },
     {
+      "label": "index.mdx",
+      "file_type": "document",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L1",
+      "id": "apps_web_content_docs_index_mdx",
+      "community": 48,
+      "norm_label": "index.mdx"
+    },
+    {
+      "label": "1. Install the SDK",
+      "file_type": "document",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L10",
+      "id": "docs_index_1_install_the_sdk",
+      "community": 48,
+      "norm_label": "1. install the sdk"
+    },
+    {
+      "label": "code:package-install (@glasskit/glasses-ui)",
+      "file_type": "document",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L14",
+      "id": "docs_index_codeblock_1",
+      "community": 48,
+      "norm_label": "code:package-install (@glasskit/glasses-ui)"
+    },
+    {
+      "label": "2. Import the styles",
+      "file_type": "document",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L18",
+      "id": "docs_index_2_import_the_styles",
+      "community": 48,
+      "norm_label": "2. import the styles"
+    },
+    {
+      "label": "code:css (@import \"tailwindcss\";)",
+      "file_type": "document",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L22",
+      "id": "docs_index_codeblock_2",
+      "community": 48,
+      "norm_label": "code:css (@import \"tailwindcss\";)"
+    },
+    {
+      "label": "3. Build",
+      "file_type": "document",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L27",
+      "id": "docs_index_3_build",
+      "community": 48,
+      "norm_label": "3. build"
+    },
+    {
+      "label": "code:tsx (import { GlassViewport, useDpad } from \"@glasskit/glasses-ui)",
+      "file_type": "document",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L32",
+      "id": "docs_index_codeblock_3",
+      "community": 48,
+      "norm_label": "code:tsx (import { glassviewport, usedpad } from \"@glasskit/glasses-ui)"
+    },
+    {
+      "label": "4. Add components",
+      "file_type": "document",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L51",
+      "id": "docs_index_4_add_components",
+      "community": 48,
+      "norm_label": "4. add components"
+    },
+    {
+      "label": "code:bash (npx glasskit add screen readout button)",
+      "file_type": "document",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L56",
+      "id": "docs_index_codeblock_4",
+      "community": 48,
+      "norm_label": "code:bash (npx glasskit add screen readout button)"
+    },
+    {
       "label": "generateStaticParams()",
       "file_type": "code",
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
@@ -6353,7 +6578,7 @@
       "file_type": "code",
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L13",
-      "community": 32,
+      "community": 53,
       "norm_label": "generatemetadata()",
       "id": "slug_page_generatemetadata"
     },
@@ -6380,7 +6605,7 @@
       "file_type": "code",
       "source_file": "apps/web/app/(web)/docs/page.tsx",
       "source_location": "L29",
-      "community": 50,
+      "community": 44,
       "norm_label": "codeblock()",
       "id": "docs_page_codeblock"
     },
@@ -13132,6 +13357,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/mdx-components.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "apps_web_mdx_components_tsx",
+      "target": "web_mdx_components_getmdxcomponents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/package.json",
       "source_location": "L2",
       "weight": 1.0,
@@ -13263,6 +13498,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "web_package_scripts",
+      "target": "web_package_scripts_postinstall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/package.json",
       "source_location": "L14",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -13278,6 +13523,36 @@
       "confidence_score": 1.0,
       "source": "web_package_dependencies",
       "target": "web_package_dependencies_clsx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "web_package_dependencies",
+      "target": "web_package_dependencies_fumadocs_core",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "web_package_dependencies",
+      "target": "web_package_dependencies_fumadocs_mdx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "web_package_dependencies",
+      "target": "web_package_dependencies_fumadocs_ui",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13318,6 +13593,16 @@
       "confidence_score": 1.0,
       "source": "web_package_dependencies",
       "target": "web_package_dependencies_react_dom"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "web_package_dependencies",
+      "target": "web_package_dependencies_shiki",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13380,6 +13665,16 @@
       "confidence_score": 1.0,
       "source": "web_package_devdependencies",
       "target": "web_package_devdependencies_testing_library_react"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/package.json",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "web_package_devdependencies",
+      "target": "web_package_devdependencies_types_mdx",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13694,12 +13989,32 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/source.config.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "apps_web_source_config_ts",
+      "target": "web_source_config_docs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/next.config.ts",
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "apps_web_next_config_ts",
       "target": "web_next_config_nextconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/next.config.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "apps_web_next_config_ts",
+      "target": "web_next_config_withmdx",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -14711,9 +15026,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "apps_web_lib_meta_deeplink_ts",
-      "confidence_score": 1.0
+      "target": "apps_web_lib_meta_deeplink_ts"
     },
     {
       "relation": "imports",
@@ -14722,9 +15037,9 @@
       "source_file": "apps/web/app/(web)/docs/components/[slug]/page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_app_web_docs_components_slug_page_tsx",
-      "target": "lib_meta_deeplink_mrbddeeplink",
-      "confidence_score": 1.0
+      "target": "lib_meta_deeplink_mrbddeeplink"
     },
     {
       "relation": "imports_from",
@@ -14948,6 +15263,26 @@
       "weight": 1.0,
       "source": "slug_page_devicepreviewpage",
       "target": "lib_component_docs_getcomponentdoc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/content/docs/meta.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "apps_web_content_docs_meta_json",
+      "target": "docs_meta_title",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/content/docs/meta.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "apps_web_content_docs_meta_json",
+      "target": "docs_meta_pages",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -16715,6 +17050,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/lib/source.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "apps_web_lib_source_ts",
+      "target": "lib_source_source",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/lib/use-copy-to-clipboard.ts",
       "source_location": "L8",
       "weight": 1.0,
@@ -16860,9 +17205,9 @@
       "source_file": "apps/web/lib/meta-deeplink.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "apps_web_lib_meta_deeplink_ts",
-      "target": "lib_meta_deeplink_mrbddeeplink",
-      "confidence_score": 1.0
+      "target": "lib_meta_deeplink_mrbddeeplink"
     },
     {
       "relation": "contains",
@@ -18025,6 +18370,86 @@
       "target": "glasses_ui_readme_codeblock_4"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "apps_web_content_docs_index_mdx",
+      "target": "docs_index_1_install_the_sdk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "apps_web_content_docs_index_mdx",
+      "target": "docs_index_2_import_the_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "apps_web_content_docs_index_mdx",
+      "target": "docs_index_3_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "apps_web_content_docs_index_mdx",
+      "target": "docs_index_4_add_components",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "docs_index_1_install_the_sdk",
+      "target": "docs_index_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "docs_index_2_import_the_styles",
+      "target": "docs_index_codeblock_2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "docs_index_3_build",
+      "target": "docs_index_codeblock_3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/content/docs/index.mdx",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "docs_index_4_add_components",
+      "target": "docs_index_codeblock_4",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -18387,5 +18812,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a130537573272d814f4faf42996439a8a26221a9"
+  "built_at_commit": "0f205fbf424250f6ef2514382ccb1d463083a62c"
 }

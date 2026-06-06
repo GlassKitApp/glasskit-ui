@@ -1,0 +1,60 @@
+---
+title: Getting started
+description: GlassKit UI — the additive-lens React component library for Meta Ray-Ban Display apps. Install the SDK, then vendor components with the CLI.
+---
+
+GlassKit UI is a React component library for **Meta Ray-Ban Display** apps. It
+ships an SDK (the focus engine, the Neural Band hooks, `GlassViewport`, and the
+additive-lens stylesheet) plus 28 styled components you vendor and own.
+
+## 1. Install the SDK
+
+react and react-dom 19 are peer dependencies.
+
+```package-install
+@glasskit/glasses-ui
+```
+
+## 2. Import the styles
+
+In your app's CSS entry, right after Tailwind:
+
+```css
+@import "tailwindcss";
+@import "@glasskit/glasses-ui/styles.css";
+```
+
+## 3. Build
+
+Wrap your app in `GlassViewport` and call `useDpad()` once near the root. Any
+element with the `focusable` class joins D-pad navigation.
+
+```tsx
+import { GlassViewport, useDpad } from "@glasskit/glasses-ui";
+
+export function App() {
+  useDpad(); // arrow keys → spatial focus, Enter → click
+
+  return (
+    <GlassViewport>
+      <div className="screen">
+        <h1>Hello, glasses</h1>
+        <button type="button" className="focusable">
+          Get directions
+        </button>
+      </div>
+    </GlassViewport>
+  );
+}
+```
+
+## 4. Add components
+
+Vendor the source into your project with the CLI — it resolves dependencies and
+writes the files to `components/glasskit/`, yours to edit.
+
+```bash
+npx glasskit add screen readout button
+```
+
+Browse all 28 in the sidebar, each with a live preview, props, and usage.
