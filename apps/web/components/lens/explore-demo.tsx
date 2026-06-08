@@ -1,6 +1,5 @@
 import { GlassViewport } from "@glasskit/glasses-ui";
 import { Screen } from "@registry/ui/screen";
-import { StatusBar } from "@registry/ui/status-bar";
 import { Cue } from "@registry/ui/cue";
 import { Reticle } from "@registry/ui/reticle";
 import { StatusDot } from "@registry/ui/status-dot";
@@ -12,13 +11,11 @@ export function ExploreDemo() {
   return (
     <GlassViewport>
       <Screen
-        status={
-          <StatusBar
-            start="9:41"
-            end={<StatusDot tone="live" label="AR" />}
-          />
+        cue={
+          <Cue icon={<StatusDot tone="live" label="AR" />}>
+            Look at a pin to select
+          </Cue>
         }
-        cue={<Cue>Look at a pin to select</Cue>}
       >
         <Reticle />
       </Screen>

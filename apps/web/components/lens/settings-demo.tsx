@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { GlassViewport } from "@glasskit/glasses-ui";
 import { Screen } from "@registry/ui/screen";
-import { StatusBar } from "@registry/ui/status-bar";
 import { Cue } from "@registry/ui/cue";
 import { Stepper } from "@registry/ui/stepper";
 import { Toggle } from "@registry/ui/toggle";
@@ -17,10 +16,7 @@ export function SettingsDemo() {
 
   return (
     <GlassViewport>
-      <Screen
-        status={<StatusBar start="Settings" end="87%" />}
-        cue={<Cue>Pinch to go back</Cue>}
-      >
+      <Screen cue={<Cue>Pinch to go back</Cue>}>
         <Stepper
           label="Brightness"
           value={brightness}

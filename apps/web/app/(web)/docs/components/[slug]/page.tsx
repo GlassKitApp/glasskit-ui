@@ -38,7 +38,8 @@ export default async function ComponentPage({
   if (!doc) notFound();
   const files = getComponentFiles(slug);
   const previewUrl = `${SITE}/preview/${slug}`;
-  const qr = await qrSvg(mrbdDeepLink(`GlassKit ${doc.name}`, previewUrl));
+  const deepLink = mrbdDeepLink(`GlassKit ${doc.name}`, previewUrl);
+  const qr = await qrSvg(deepLink);
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -59,7 +60,16 @@ export default async function ComponentPage({
       </p>
 
       <div className="mt-10">
-        <LensStage device={<DevicePreview qr={qr} url={previewUrl} />}>
+        <LensStage
+          device={
+            <DevicePreview
+              qr={qr}
+              deepLink={deepLink}
+              url={previewUrl}
+              appName={doc.name}
+            />
+          }
+        >
           <GlassViewport>{doc.preview}</GlassViewport>
         </LensStage>
       </div>

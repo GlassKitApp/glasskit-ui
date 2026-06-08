@@ -29,10 +29,10 @@ export function DirectionArrow({
         role="img"
         aria-label={`Bearing ${Math.round(deg)} degrees`}
       >
-        <circle cx="50" cy="50" r="46" className="gk-direction__ring" />
+        <circle cx="50" cy="50" r="40" className="gk-direction__ring" />
         <g transform={`rotate(${deg} 50 50)`}>
           <path
-            d="M50 16 L64 58 L50 49 L36 58 Z"
+            d="M50 22 L67 70 L50 60 L33 70 Z"
             className="gk-direction__needle"
           />
         </g>

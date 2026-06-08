@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { Screen } from "@registry/ui/screen";
-import { StatusBar } from "@registry/ui/status-bar";
 import { Readout } from "@registry/ui/readout";
 import { Cue } from "@registry/ui/cue";
 import { Button } from "@registry/ui/button";
@@ -27,13 +26,36 @@ import { Deck } from "@registry/ui/deck";
 import { QuickReplyChips } from "@registry/ui/quick-reply-chips";
 import { Pin } from "@registry/ui/pin";
 import { Callout } from "@registry/ui/callout";
+import { Avatar } from "@registry/ui/avatar";
+import { NotificationCard } from "@registry/ui/notification-card";
+import { NowPlaying } from "@registry/ui/now-playing";
+import { AssistantOrb } from "@registry/ui/assistant-orb";
+import { MessageThread, ChatBubble } from "@registry/ui/chat-bubble";
+import { CallCard } from "@registry/ui/call-card";
+import { Dictation } from "@registry/ui/dictation";
+import { MediaThumb } from "@registry/ui/media-thumb";
+import { Viewfinder } from "@registry/ui/viewfinder";
+import { LiveCaptions } from "@registry/ui/live-captions";
+import { Tabs } from "@registry/ui/tabs";
+import { Clock } from "@registry/ui/clock";
+import { WeatherTile } from "@registry/ui/weather-tile";
+import { Slider } from "@registry/ui/slider";
+import { TextField } from "@registry/ui/text-field";
+import { PermissionPrompt } from "@registry/ui/permission-prompt";
 import {
   HeartGlyph,
   NavGlyph,
   MessageGlyph,
-  BatteryGlyph,
+  MusicGlyph,
   ChevronGlyph,
   AlertGlyph,
+  BatteryGlyph,
+  CheckGlyph,
+  PhoneGlyph,
+  PhoneOffGlyph,
+  SunGlyph,
+  VolumeGlyph,
+  MicGlyph,
 } from "@/components/lens/icons";
 
 export type PropRow = {
@@ -62,57 +84,19 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     summary:
       "The on-lens layout shell: a status region, a centered stage for the one task, and a cue region — with safe margins that keep the surface mostly black.",
     preview: (
-      <Screen
-        status={<StatusBar start="9:41" end="87%" />}
-        cue={<Cue>One task per view</Cue>}
-      >
+      <Screen cue={<Cue>One task per view</Cue>}>
         <Readout label="Pace" value="8'42" unit="/mi" />
       </Screen>
     ),
     props: [
       { name: "children", type: "ReactNode", desc: "The stage content." },
-      { name: "status", type: "ReactNode", desc: "Top status row." },
+      { name: "status", type: "ReactNode", desc: "Optional top region." },
       { name: "cue", type: "ReactNode", desc: "Bottom hint line." },
       { name: "className", type: "string", desc: "Extra classes." },
     ],
-    usage: `<Screen
-  status={<StatusBar start="9:41" end="87%" />}
-  cue={<Cue>One task per view</Cue>}
->
+    usage: `<Screen cue={<Cue>One task per view</Cue>}>
   <Readout label="Pace" value="8'42" unit="/mi" />
 </Screen>`,
-  },
-  {
-    slug: "status-bar",
-    name: "StatusBar",
-    category: "Status",
-    summary:
-      "The glanceable top status row (a watchOS TimeText analog): time, battery, connection. Logical start/end slots so it mirrors correctly under RTL.",
-    preview: (
-      <Screen
-        status={
-          <StatusBar
-            start="9:41"
-            end={
-              <>
-                <GlowIcon size="sm" label="Battery">
-                  <BatteryGlyph />
-                </GlowIcon>
-                87%
-              </>
-            }
-          />
-        }
-      >
-        <Cue>Status pinned to the top edge</Cue>
-      </Screen>
-    ),
-    props: [
-      { name: "start", type: "ReactNode", desc: "Inline-start content." },
-      { name: "end", type: "ReactNode", desc: "Inline-end content." },
-      { name: "className", type: "string", desc: "Extra classes." },
-    ],
-    usage: `<StatusBar start="9:41" end="87%" />`,
   },
   {
     slug: "readout",
@@ -235,28 +219,52 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       <Screen>
         <List>
           <ListRow
-            leading={
-              <GlowIcon active size="sm">
-                <NavGlyph />
-              </GlowIcon>
-            }
-            trailing={
-              <GlowIcon size="sm">
-                <ChevronGlyph />
-              </GlowIcon>
-            }
+            leading={<GlowIcon plate tone="blue" size="sm"><NavGlyph /></GlowIcon>}
+            trailing={<GlowIcon size="sm"><ChevronGlyph /></GlowIcon>}
           >
             Navigate
           </ListRow>
           <ListRow
-            leading={
-              <GlowIcon size="sm">
-                <MessageGlyph />
-              </GlowIcon>
-            }
+            leading={<GlowIcon plate tone="green" size="sm"><MessageGlyph /></GlowIcon>}
             trailing="2"
           >
             Messages
+          </ListRow>
+          <ListRow
+            leading={<GlowIcon plate tone="peach" size="sm"><MusicGlyph /></GlowIcon>}
+            trailing={<GlowIcon size="sm"><ChevronGlyph /></GlowIcon>}
+          >
+            Music
+          </ListRow>
+          <ListRow
+            leading={<GlowIcon plate tone="violet" size="sm"><HeartGlyph /></GlowIcon>}
+            trailing="128"
+          >
+            Vitals
+          </ListRow>
+          <ListRow
+            leading={<GlowIcon plate tone="cyan" size="sm"><NavGlyph /></GlowIcon>}
+            trailing={<GlowIcon size="sm"><ChevronGlyph /></GlowIcon>}
+          >
+            Maps
+          </ListRow>
+          <ListRow
+            leading={<GlowIcon plate tone="amber" size="sm"><AlertGlyph /></GlowIcon>}
+            trailing={<GlowIcon size="sm"><ChevronGlyph /></GlowIcon>}
+          >
+            Alerts
+          </ListRow>
+          <ListRow
+            leading={<GlowIcon plate tone="cyan" size="sm"><BatteryGlyph /></GlowIcon>}
+            trailing="87%"
+          >
+            Battery
+          </ListRow>
+          <ListRow
+            leading={<GlowIcon plate tone="green" size="sm"><CheckGlyph /></GlowIcon>}
+            trailing={<GlowIcon size="sm"><ChevronGlyph /></GlowIcon>}
+          >
+            Updates
           </ListRow>
         </List>
       </Screen>
@@ -663,7 +671,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       <Screen>
         <ErrorState
           icon={
-            <GlowIcon size="lg" label="Error">
+            <GlowIcon size="lg" plate tone="amber" label="Error">
               <AlertGlyph />
             </GlowIcon>
           }
@@ -828,6 +836,471 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "detail", type: "ReactNode", desc: "Optional second line." },
     ],
     usage: `<Callout x={x} y={y} label="Powell St" detail="Muni · 3 min" />`,
+  },
+  {
+    slug: "avatar",
+    name: "Avatar",
+    category: "Comms",
+    summary:
+      "A contact / sender avatar — a photo when you have one, else initials on a gradient plate. The building block for notifications, chats, and calls.",
+    preview: (
+      <Screen>
+        <div className="row">
+          <Avatar name="Mara Lin" tone="violet" size="lg" />
+          <Avatar name="Sam Ortiz" tone="green" size="lg" />
+          <Avatar name="Devon Reyes" tone="amber" size="lg" />
+        </div>
+      </Screen>
+    ),
+    props: [
+      { name: "name", type: "string", desc: "Display name → initials + a11y label." },
+      { name: "src", type: "string", desc: "Optional photo URL." },
+      {
+        name: "tone",
+        type: '"blue" | "green" | "peach" | "violet" | "cyan" | "amber"',
+        default: '"blue"',
+        desc: "Gradient tone for the initials plate.",
+      },
+      { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', desc: "46 / 62 / 92px." },
+    ],
+    usage: `<Avatar name="Mara Lin" tone="violet" />
+<Avatar name="Sam Ortiz" src={photoUrl} />`,
+  },
+  {
+    slug: "notification-card",
+    name: "NotificationCard",
+    category: "Comms",
+    summary:
+      "An incoming notification — avatar + sender + time, a message preview, and optional quick actions. The glanceable comms surface (richer than a Toast).",
+    preview: (
+      <Screen>
+        <NotificationCard
+          avatar={<Avatar name="Mara Lin" tone="violet" size="sm" />}
+          title="Mara Lin"
+          time="now"
+        >
+          On my way — be there in 5
+        </NotificationCard>
+      </Screen>
+    ),
+    props: [
+      { name: "avatar", type: "ReactNode", desc: "Leading <Avatar> or app glyph." },
+      { name: "title", type: "ReactNode", desc: "Sender / app name." },
+      { name: "time", type: "ReactNode", desc: "Optional timestamp." },
+      { name: "children", type: "ReactNode", desc: "The message preview." },
+      { name: "actions", type: "ReactNode", desc: "Optional action row." },
+    ],
+    usage: `<NotificationCard
+  avatar={<Avatar name="Mara Lin" tone="violet" size="sm" />}
+  title="Mara Lin" time="now"
+>
+  On my way — be there in 5
+</NotificationCard>`,
+  },
+  {
+    slug: "now-playing",
+    name: "NowPlaying",
+    category: "Media",
+    summary:
+      "A media now-playing card: album art, title + artist, a scrub bar, and elapsed / remaining times. Pass transport controls for play/skip.",
+    preview: (
+      <Screen>
+        <NowPlaying
+          art={<span className="gk-grad-peach" />}
+          title="Midnight City"
+          artist="M83"
+          progress={42}
+          elapsed="1:48"
+          remaining="-2:31"
+        />
+      </Screen>
+    ),
+    props: [
+      { name: "art", type: "ReactNode", desc: "Album art — <img> or a gradient tile." },
+      { name: "title / artist", type: "ReactNode", desc: "Track + artist." },
+      { name: "progress", type: "number", default: "0", desc: "0–100 scrub position." },
+      { name: "elapsed / remaining", type: "ReactNode", desc: "Time labels." },
+      { name: "controls", type: "ReactNode", desc: "Optional transport row." },
+    ],
+    usage: `<NowPlaying
+  art={<img src={cover} alt="" />}
+  title="Midnight City" artist="M83"
+  progress={42} elapsed="1:48" remaining="-2:31"
+/>`,
+  },
+  {
+    slug: "assistant-orb",
+    name: "AssistantOrb",
+    category: "AI",
+    summary:
+      "The Meta-AI presence: a glowing gradient orb that animates per state — idle breathe, listening pulse, thinking swirl, speaking. Pair with a transcript line.",
+    preview: (
+      <Screen>
+        <AssistantOrb state="listening" label="Listening…" />
+      </Screen>
+    ),
+    props: [
+      {
+        name: "state",
+        type: '"idle" | "listening" | "thinking" | "speaking"',
+        default: '"idle"',
+        desc: "Drives the orb animation.",
+      },
+      { name: "label", type: "ReactNode", desc: "Caption / transcript line." },
+    ],
+    usage: `<AssistantOrb state={aiState} label={transcript} />`,
+  },
+  {
+    slug: "toaster",
+    name: "Toaster",
+    category: "Status",
+    summary:
+      "The toast / notification SYSTEM — Sonner (Emil Kowalski's library) themed to the lens. Mount <Toaster> once, then fire imperatively with toast(); it handles the queue, stacking, auto-dismiss, and enter/exit motion. Bottom-anchored (below the sightline), like the real Display.",
+    preview: (
+      <Screen>
+        <div className="gk-toaster__toast">
+          <span className="gk-toaster__icon">
+            <Avatar name="Mara Lin" tone="violet" size="sm" />
+          </span>
+          <div>
+            <div className="gk-toaster__title">Mara Lin</div>
+            <div className="gk-toaster__desc">On my way — be there in 5</div>
+          </div>
+        </div>
+      </Screen>
+    ),
+    props: [
+      { name: "position", type: "Position", default: '"bottom-center"', desc: "Anchor; bottom = device-accurate." },
+      { name: "(Sonner props)", type: "ToasterProps", desc: "offset, gap, visibleToasts, theme, etc." },
+      { name: "toast()", type: "imperative API", desc: "toast(msg) · toast(t,{description,icon,action}) · toast.custom()." },
+    ],
+    usage: `// once at your app root (inside the 600×600 window)
+<Toaster />
+
+// then anywhere:
+toast("Workout saved");
+toast("Mara Lin", {
+  description: "On my way",
+  icon: <Avatar name="Mara Lin" tone="violet" size="sm" />,
+});`,
+  },
+  {
+    slug: "chat-bubble",
+    name: "ChatBubble",
+    category: "Comms",
+    summary:
+      "A conversation view. <MessageThread> stacks <ChatBubble>s — from=\"them\" is a surface bubble at the start, from=\"me\" is the accent-gradient bubble at the end. RTL-safe.",
+    preview: (
+      <Screen>
+        <MessageThread>
+          <ChatBubble from="them">Where are you?</ChatBubble>
+          <ChatBubble from="me">Two blocks away</ChatBubble>
+          <ChatBubble from="them">Grab a table?</ChatBubble>
+          <ChatBubble from="me">On it 👍</ChatBubble>
+        </MessageThread>
+      </Screen>
+    ),
+    props: [
+      { name: "MessageThread · children", type: "ReactNode", desc: "ChatBubble elements." },
+      { name: "ChatBubble · from", type: '"me" | "them"', default: '"them"', desc: "Alignment + style." },
+      { name: "ChatBubble · children", type: "ReactNode", desc: "The message." },
+    ],
+    usage: `<MessageThread>
+  <ChatBubble from="them">Where are you?</ChatBubble>
+  <ChatBubble from="me">Two blocks away</ChatBubble>
+</MessageThread>`,
+  },
+  {
+    slug: "call-card",
+    name: "CallCard",
+    category: "Comms",
+    summary:
+      "An incoming / active call: a big avatar, caller name, a status line, and round accept / decline actions (the one place a semantic green/red reads clearer than the single accent).",
+    preview: (
+      <Screen>
+        <CallCard
+          avatar={<Avatar name="Devon Reyes" tone="cyan" size="lg" />}
+          name="Devon Reyes"
+          status="Incoming call"
+          actions={
+            <>
+              <button type="button" className="focusable gk-callbtn gk-callbtn--decline" aria-label="Decline">
+                <GlowIcon size="md"><PhoneOffGlyph /></GlowIcon>
+              </button>
+              <button type="button" className="focusable gk-callbtn gk-callbtn--accept" aria-label="Accept">
+                <GlowIcon size="md"><PhoneGlyph /></GlowIcon>
+              </button>
+            </>
+          }
+        />
+      </Screen>
+    ),
+    props: [
+      { name: "avatar", type: "ReactNode", desc: "A large <Avatar>." },
+      { name: "name", type: "ReactNode", desc: "Caller name." },
+      { name: "status", type: "ReactNode", desc: "\"Incoming call\", a timer, etc." },
+      { name: "actions", type: "ReactNode", desc: "Accept / decline controls." },
+    ],
+    usage: `<CallCard
+  avatar={<Avatar name="Devon Reyes" tone="cyan" size="lg" />}
+  name="Devon Reyes" status="Incoming call"
+  actions={<><DeclineButton /><AcceptButton /></>}
+/>`,
+  },
+  {
+    slug: "dictation",
+    name: "Dictation",
+    category: "Input",
+    summary:
+      "The voice-to-text surface (no keyboard on the lens — text is voice or Neural-Band handwriting): a live waveform + the running transcript. You own the recognition and feed transcript.",
+    preview: (
+      <Screen>
+        <Dictation transcript="Running five minutes late" listening />
+      </Screen>
+    ),
+    props: [
+      { name: "transcript", type: "ReactNode", desc: "The recognized text so far." },
+      { name: "listening", type: "boolean", default: "true", desc: "Animates the waveform." },
+      { name: "placeholder", type: "ReactNode", default: '"Speak now…"', desc: "Shown before any text." },
+    ],
+    usage: `<Dictation transcript={text} listening={isListening} />`,
+  },
+  {
+    slug: "media-thumb",
+    name: "MediaThumb",
+    category: "Media",
+    summary:
+      "A photo / reel tile (Photos, Instagram): a rounded media tile with optional duration pill and caption overlay. Compose in a grid for a gallery.",
+    preview: (
+      <Screen>
+        <div className="row">
+          <MediaThumb label="Trail" />
+          <MediaThumb duration="0:14" />
+          <MediaThumb label="Café" />
+        </div>
+      </Screen>
+    ),
+    props: [
+      { name: "src", type: "string", desc: "Image URL (else a gradient placeholder)." },
+      { name: "label", type: "ReactNode", desc: "Caption overlay." },
+      { name: "duration", type: "ReactNode", desc: "Duration pill (for video/reels)." },
+      { name: "aspect", type: '"square" | "portrait"', default: '"square"', desc: "Tile ratio." },
+    ],
+    usage: `<MediaThumb src={photo} label="Trail" />
+<MediaThumb src={reel} duration="0:14" aspect="portrait" />`,
+  },
+  {
+    slug: "viewfinder",
+    name: "Viewfinder",
+    category: "Capture",
+    summary:
+      "The camera POV frame: bold corner brackets framing the shot, with optional zoom and REC badges. The lens shows the real world inside; overlay a focus reticle via children.",
+    preview: (
+      <Screen>
+        <Viewfinder zoom="1×" recording />
+      </Screen>
+    ),
+    props: [
+      { name: "zoom", type: "ReactNode", desc: "Zoom badge, e.g. \"1×\" / \"3×\"." },
+      { name: "recording", type: "boolean", default: "false", desc: "Shows the pulsing REC indicator." },
+      { name: "children", type: "ReactNode", desc: "Overlays (e.g. a Reticle)." },
+    ],
+    usage: `<Viewfinder zoom="3×" recording>
+  <Reticle active />
+</Viewfinder>`,
+  },
+  {
+    slug: "live-captions",
+    name: "LiveCaptions",
+    category: "Capture",
+    summary:
+      "Real-time transcription / translation read at a glance: a speaker label and the running caption text on a low-anchored surface (the Captions app).",
+    preview: (
+      <Screen>
+        <LiveCaptions speaker="Maya" translated>
+          It's just down the street, on the left.
+        </LiveCaptions>
+      </Screen>
+    ),
+    props: [
+      { name: "speaker", type: "ReactNode", desc: "Who is speaking." },
+      { name: "children", type: "ReactNode", desc: "Caption text (latest line[s])." },
+      { name: "translated", type: "boolean", default: "false", desc: "Shows a \"Translated\" badge." },
+    ],
+    usage: `<LiveCaptions speaker="Maya" translated>
+  {captionText}
+</LiveCaptions>`,
+  },
+  {
+    slug: "tabs",
+    name: "Tabs",
+    category: "Navigation",
+    summary:
+      "A top-level tab strip (the home's quick-controls | home | apps pager). Each tab is D-pad-focusable; the active one gets an accent underline. Controlled via value + onChange.",
+    preview: (
+      <Screen
+        status={
+          <Tabs
+            value="home"
+            items={[
+              { id: "controls", label: "Controls" },
+              { id: "home", label: "Home" },
+              { id: "apps", label: "Apps" },
+            ]}
+          />
+        }
+      >
+        <Readout label="Tuesday" value="9:41" />
+      </Screen>
+    ),
+    props: [
+      { name: "items", type: "{ id, label }[]", desc: "The tabs." },
+      { name: "value", type: "string", desc: "Active tab id (controlled)." },
+      { name: "onChange", type: "(id: string) => void", desc: "Fires on select." },
+    ],
+    usage: `<Tabs
+  value={tab}
+  onChange={setTab}
+  items={[
+    { id: "controls", label: "Controls" },
+    { id: "home", label: "Home" },
+    { id: "apps", label: "Apps" },
+  ]}
+/>`,
+  },
+  {
+    slug: "clock",
+    name: "Clock",
+    category: "Display",
+    summary:
+      "The home time / date complication: a big tabular time, a quieter date, and an optional meta line (weather, alarm). Pass preformatted strings — you own the locale.",
+    preview: (
+      <Screen>
+        <Clock time="9:41" date="Tuesday, June 9" meta="72° · Sunny" />
+      </Screen>
+    ),
+    props: [
+      { name: "time", type: "ReactNode", desc: "Preformatted time." },
+      { name: "date", type: "ReactNode", desc: "Optional date line." },
+      { name: "meta", type: "ReactNode", desc: "Optional trailing line." },
+    ],
+    usage: `<Clock time="9:41" date="Tuesday, June 9" meta="72° · Sunny" />`,
+  },
+  {
+    slug: "weather-tile",
+    name: "WeatherTile",
+    category: "Display",
+    summary:
+      "A glanceable weather complication: a condition glyph + big temperature, the condition, and an optional location / hi-lo line. A popping surface.",
+    preview: (
+      <Screen>
+        <WeatherTile
+          icon={<GlowIcon size="lg"><SunGlyph /></GlowIcon>}
+          temp="72°"
+          condition="Sunny"
+          location="San Francisco"
+          range="H:78° L:61°"
+        />
+      </Screen>
+    ),
+    props: [
+      { name: "temp", type: "ReactNode", desc: "Temperature." },
+      { name: "condition", type: "ReactNode", desc: "Condition text." },
+      { name: "icon", type: "ReactNode", desc: "Condition glyph." },
+      { name: "location / range", type: "ReactNode", desc: "Place · hi-lo line." },
+    ],
+    usage: `<WeatherTile
+  icon={<GlowIcon size="lg"><SunIcon /></GlowIcon>}
+  temp="72°" condition="Sunny" location="San Francisco" range="H:78° L:61°"
+/>`,
+  },
+  {
+    slug: "slider",
+    name: "Slider",
+    category: "Action",
+    summary:
+      "A continuous level control (volume, brightness — the quick controls). A native range tinted with accent-color; arrow keys / Neural-Band pinch-twist adjust it. Controlled via value + onChange.",
+    preview: (
+      <Screen>
+        <Slider value={70} icon={<GlowIcon size="md"><VolumeGlyph /></GlowIcon>} label="Volume" />
+        <Slider value={40} icon={<GlowIcon size="md"><SunGlyph /></GlowIcon>} label="Brightness" />
+      </Screen>
+    ),
+    props: [
+      { name: "value", type: "number", desc: "Current value (controlled)." },
+      { name: "min / max", type: "number", default: "0 / 100", desc: "Bounds." },
+      { name: "onChange", type: "(next: number) => void", desc: "Fires on adjust." },
+      { name: "icon / label", type: "ReactNode", desc: "Leading glyph / caption." },
+    ],
+    usage: `<Slider
+  value={volume} onChange={setVolume}
+  icon={<GlowIcon size="md"><VolumeIcon /></GlowIcon>}
+  label="Volume"
+/>`,
+  },
+  {
+    slug: "text-field",
+    name: "TextField",
+    category: "Input",
+    summary:
+      "A text-entry surface. No keyboard on the lens — this is a focusable field showing the value (or placeholder) + a mic affordance; activating it opens dictation / Neural-Band handwriting.",
+    preview: (
+      <Screen>
+        <TextField
+          label="Reply"
+          placeholder="Tap to speak"
+          icon={<GlowIcon size="md"><MicGlyph /></GlowIcon>}
+        />
+      </Screen>
+    ),
+    props: [
+      { name: "label", type: "ReactNode", desc: "Field label." },
+      { name: "value", type: "ReactNode", desc: "Current value (else placeholder)." },
+      { name: "placeholder", type: "ReactNode", default: '"Tap to speak"', desc: "Empty hint." },
+      { name: "icon", type: "ReactNode", desc: "Trailing affordance (mic)." },
+      { name: "onActivate", type: "() => void", desc: "Opens dictation / handwriting." },
+    ],
+    usage: `<TextField
+  label="Reply" value={draft} onActivate={startDictation}
+  icon={<GlowIcon size="md"><MicIcon /></GlowIcon>}
+/>`,
+  },
+  {
+    slug: "permission-prompt",
+    name: "PermissionPrompt",
+    category: "Input",
+    summary:
+      "An explicit access request (sensors, location, camera, mic) — which MRBD apps must ask for before use. A gradient-plate icon, a clear title, the reason, and allow / deny actions.",
+    preview: (
+      <Screen>
+        <PermissionPrompt
+          icon={<GlowIcon size="lg" plate tone="cyan"><NavGlyph /></GlowIcon>}
+          title="Use your location?"
+          actions={
+            <>
+              <Button>Not now</Button>
+              <Button variant="primary">Allow</Button>
+            </>
+          }
+        >
+          Maps needs your location for walking directions.
+        </PermissionPrompt>
+      </Screen>
+    ),
+    props: [
+      { name: "icon", type: "ReactNode", desc: "A gradient-plate GlowIcon." },
+      { name: "title", type: "ReactNode", desc: "The request." },
+      { name: "children", type: "ReactNode", desc: "Why the app needs it." },
+      { name: "actions", type: "ReactNode", desc: "Allow / deny controls." },
+    ],
+    usage: `<PermissionPrompt
+  icon={<GlowIcon size="lg" plate tone="cyan"><LocationIcon /></GlowIcon>}
+  title="Use your location?"
+  actions={<><Button onClick={deny}>Not now</Button>
+            <Button variant="primary" onClick={allow}>Allow</Button></>}
+>
+  Maps needs your location for walking directions.
+</PermissionPrompt>`,
   },
 ];
 

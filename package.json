@@ -32,5 +32,8 @@
     "onlyBuiltDependencies": [
       "esbuild"
     ]
+  },
+  "dependencies": {
+    "sonner": "^2.0.7"
   }
 }

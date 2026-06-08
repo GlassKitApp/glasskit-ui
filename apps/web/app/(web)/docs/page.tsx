@@ -3,6 +3,7 @@ import { InstallCommand } from "@/components/install-command";
 import { LensStage } from "@/components/lens/lens-stage";
 import { HeartRateDemo } from "@/components/lens/heart-rate-demo";
 import { CodeBlock } from "@/components/code-block";
+import { COMPONENT_NAV } from "@/lib/component-nav";
 
 export const metadata: Metadata = { title: "Getting started" };
 
@@ -78,7 +79,7 @@ export default function DocsGettingStarted() {
         className="mt-4"
       />
       <p className="mt-5 text-ink-2">
-        All 28 &mdash; readouts, lists, progress, comms, and the world-anchored
+        All {COMPONENT_NAV.length} &mdash; readouts, lists, progress, comms, and the world-anchored
         set &mdash; each with a live preview, props, and usage:
       </p>
       <div className="mt-5 flex gap-3">

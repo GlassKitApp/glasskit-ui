@@ -1,19 +1,39 @@
 import type { ReactNode } from "react";
 import { cn } from "../lib/utils";
 
+/** Tasteful gradient tones for the app plates (see styles.css `.gk-grad-*`). */
+export type LauncherTone =
+  | "blue"
+  | "green"
+  | "peach"
+  | "violet"
+  | "cyan"
+  | "amber";
+
+const TONES: LauncherTone[] = [
+  "blue",
+  "green",
+  "peach",
+  "violet",
+  "cyan",
+  "amber",
+];
+
 export type LauncherApp = {
   id: string;
   label: ReactNode;
   tagline?: ReactNode;
-  /** Optional glyph — typically a <GlowIcon>. */
+  /** Optional glyph — a stroke SVG (rendered white on the gradient plate). */
   icon?: ReactNode;
+  /** Gradient tone for the icon plate; defaults to a cycled palette color. */
+  tone?: LauncherTone;
   onSelect?: () => void;
 };
 
 /**
- * <Launcher> — the app grid: the entry screen for a multi-app surface. Cards are
- * D-pad-focusable (useDpad walks them, Enter activates). Two columns; keep it to
- * ~4 apps so the whole grid is a single glance. RTL-safe (logical grid).
+ * <Launcher> — the app grid: a home screen of gradient app-icon plates + labels.
+ * Cards are D-pad-focusable (useDpad walks them, Enter activates); focus lifts
+ * the plate. Two columns; keep it to ~6 apps so the grid is one glance. RTL-safe.
  */
 export function Launcher({
   apps,
@@ -24,7 +44,7 @@ export function Launcher({
 }) {
   return (
     <div className={cn("gk-launcher", className)}>
-      {apps.map((a) => (
+      {apps.map((a, i) => (
         <button
           key={a.id}
           type="button"
@@ -32,7 +52,14 @@ export function Launcher({
           className="focusable gk-launcher-card"
         >
           {a.icon != null ? (
-            <span className="gk-launcher-card__icon">{a.icon}</span>
+            <span
+              className={cn(
+                "gk-launcher-card__icon gk-plate",
+                `gk-grad-${a.tone ?? TONES[i % TONES.length]}`,
+              )}
+            >
+              {a.icon}
+            </span>
           ) : null}
           <span className="gk-launcher-card__label t-body">{a.label}</span>
           {a.tagline != null ? (

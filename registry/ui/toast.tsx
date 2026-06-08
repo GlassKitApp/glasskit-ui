@@ -22,7 +22,7 @@ export function Toast({
     <div
       role="status"
       className={cn(
-        "gk-toast hairline t-body",
+        "gk-toast gk-surface t-body",
         tone === "accent" && "gk-toast--accent",
         className,
       )}

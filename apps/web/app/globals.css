@@ -65,20 +65,25 @@
   background: var(--accent-white);
 }
 
-/* Scaled device tile — render the 600×600 lens as a compact, fitted preview
- * (a glasses screen, not a tiny component in a big black box). The full-size
- * 600×600 stays only for the /preview "open on glasses" route. */
+/* Scaled device tile — render the 600×600 lens as a calm dark device screen
+ * (premium-surfaces direction): the component carries its own dark base; the
+ * tile just frames it with rounded corners + a soft device shadow. The full-size
+ * 600×600 stays only for the /preview "open on glasses" route. The world-behind
+ * `scene` composite is retired by default (see meta-hud-language.md). */
 .lens-tile {
-  inline-size: 380px;
+  position: relative;
+  inline-size: 462px;
   max-inline-size: 100%;
-  block-size: 380px;
+  block-size: 462px;
   overflow: hidden;
-  border-radius: 26px;
+  border-radius: 36px;
+  background: #090b11;
+  box-shadow: 0 30px 80px -34px rgba(0, 0, 0, 0.75);
 }
 .lens-tile > .glass-viewport {
-  transform: scale(0.6333);
+  transform: scale(0.77); /* 600 → 462 */
   transform-origin: top left;
-  border-radius: 26px;
+  border-radius: 36px;
 }
 .lens-tile > .glass-viewport.glass-viewport--frame {
   outline: none;
@@ -262,5 +267,141 @@
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ── "Add to your glasses" — Meta-logo badge on a demo tile + popover ──
+ * Site chrome (not lens content), so a glassy badge + a dark device-style
+ * popover are fine here. */
+.device-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 38px;
+  block-size: 38px;
+  border-radius: 12px;
+  background: rgba(10, 12, 18, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #4a9bff;
+  box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.7);
+  transition:
+    transform 0.15s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+.device-badge:hover {
+  background: rgba(22, 26, 36, 0.7);
+  color: #6fb0ff;
+}
+.device-badge:active {
+  transform: scale(0.93);
+}
+.device-badge:focus-visible {
+  outline: 2px solid #4a9bff;
+  outline-offset: 2px;
+}
+
+.device-popover {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: calc(100% + 10px);
+  z-index: 40;
+  inline-size: 460px;
+  max-inline-size: 84vw;
+  padding: 22px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #14171f 0%, #0c0f15 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 70px -24px rgba(0, 0, 0, 0.85);
+  color: #e9ebf0;
+  text-align: start;
+}
+.device-popover__grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+}
+.device-popover__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #868c98;
+}
+.device-popover__qr {
+  margin-block-start: 10px;
+  inline-size: 134px;
+  padding: 9px;
+  border-radius: 12px;
+  background: #fff;
+}
+.device-popover__qr svg {
+  display: block;
+  inline-size: 100%;
+  height: auto;
+}
+.device-popover__desc {
+  margin-block-start: 9px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #b6bcc8;
+}
+.device-popover__linkrow {
+  margin-block-start: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+.device-popover__link {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: #c9ced8;
+  overflow-wrap: anywhere;
+}
+.device-popover__copy {
+  flex: none;
+  padding: 0 16px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #5b9dff 0%, #3567e6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+.device-popover__copy:hover {
+  filter: brightness(1.08);
+}
+.device-popover__open {
+  display: inline-block;
+  margin-block-start: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #9fb6e8;
+  text-decoration: none;
+}
+.device-popover__open:hover {
+  color: #fff;
+}
+@media (max-width: 560px) {
+  .device-popover {
+    inline-size: 320px;
+  }
+  .device-popover__grid {
+    grid-template-columns: 1fr;
   }
 }

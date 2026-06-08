@@ -23,12 +23,24 @@
 
 /* ── The 600×600 surface + scoped design tokens ─────────────────── */
 .glass-viewport {
-  /* Canvas — pure black = transparent on device. Never fill it. */
-  --color-bg: #000;
+  /* Base — a calm deep near-black (premium-surfaces direction, 2026-06; see
+   * docs/design/meta-hud-language.md). Surfaces + gradient icons pop on top;
+   * the base stays quiet. */
+  --color-bg: #0a0d14;
+  --surface-fill: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.075),
+    rgba(255, 255, 255, 0.028)
+  );
+  --surface-edge: rgba(255, 255, 255, 0.1);
+  --surface-lift: inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 14px 30px -18px rgba(0, 0, 0, 0.85);
 
   /* Accent — one refined key color (default blue). The look is white-emitted-
-   * light first; the accent is a small, glow-free touch on focus + on-states.
-   * Override by re-declaring `--accent` on `.glass-viewport`. */
+   * light first; the accent is a small touch on focus + on-states, with a soft,
+   * low-alpha emitted bloom (the real waveguide bleed — never tight neon; see
+   * docs/design/apple-feel.md "Update 2026-06"). Override by re-declaring
+   * `--accent` on `.glass-viewport`. */
   --accent-active: #8fb6ff; /* focused/hot, brightest */
   --accent: #4c8dff; /* base accent, primary action */
   --accent-muted: #2f5fb0; /* secondary edges, idle-but-present */
@@ -60,7 +72,13 @@
   height: 600px;
   width: 600px;
   overflow: hidden;
-  background: var(--color-bg);
+  background:
+    radial-gradient(
+      100% 72% at 50% -10%,
+      rgba(86, 116, 196, 0.14) 0%,
+      transparent 55%
+    ),
+    linear-gradient(168deg, #0b0e16 0%, #090b11 100%);
   color: var(--ink-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -83,37 +101,47 @@
 }
 
 .glass-viewport h1 {
-  font-size: 34px;
+  font-size: 56px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.05;
 }
 
-/* ── Type ramp — 4 emitted tiers (apple-feel §4) ─────────────────── */
+/* Emitted-light bleed — large luminous text on an additive lens isn't painted,
+ * it glows; the real Display's content "mildly bleeds into the empty space
+ * around it." A soft, low-alpha halo (never on body/caption — keeps prose
+ * crisp). currentColor so white reads white-warm, the accent reads accent. */
+.glass-viewport h1,
+.glass-viewport .t-title,
+.glass-viewport .t-readout {
+  text-shadow: 0 0 14px color-mix(in oklab, currentColor 20%, transparent);
+}
+
+/* ── Type ramp — 4 emitted tiers (apple-feel §4), scaled up for glance ── */
 .glass-viewport .t-title {
-  font-size: 32px;
+  font-size: 56px;
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.005em;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
 }
 .glass-viewport .t-readout {
-  font-size: 21px;
+  font-size: 38px;
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.018em;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
 .glass-viewport .t-body {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 500;
-  line-height: 1.35;
-  letter-spacing: 0.005em;
+  line-height: 1.3;
+  letter-spacing: 0.002em;
 }
 .glass-viewport .t-caption {
-  font-size: 12.5px;
+  font-size: 18px;
   font-weight: 500;
-  line-height: 1.35;
-  letter-spacing: 0.012em;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
 }
 
 /* ── Recipe utilities — the "premium without blur" stack (§5) ────── */
@@ -147,26 +175,120 @@
   pointer-events: none;
 }
 
-/* Lift — a soft neutral depth shadow (kept whisper-quiet; no neon glow). */
+/* Lift — neutral depth + a soft, low-alpha emitted halo. This is the real
+ * waveguide bleed (the Display's content glows into the space around it), NOT
+ * the old neon-green ring: large radius, single-digit alpha, accent-tinted. */
 .glass-viewport .glow-lift {
-  box-shadow: 0 8px 28px -18px rgba(0, 0, 0, 0.85);
+  box-shadow:
+    0 8px 28px -18px rgba(0, 0, 0, 0.85),
+    0 0 26px -6px color-mix(in oklab, var(--accent) 15%, transparent);
 }
-/* Inner — left as a no-op hook; the clean look avoids inner glow. */
+/* Inner — a faint top-edge emission, like light caught on a rim. */
 .glass-viewport .glow-inner {
-  box-shadow: none;
+  box-shadow: inset 0 1px 12px -6px color-mix(in oklab, var(--ink-primary) 16%, transparent);
+}
+
+/* ── Premium surfaces + gradient icon plates (2026-06 direction) ─────
+ * docs/design/meta-hud-language.md. Background stays calm; surfaces + icons
+ * pop. */
+
+/* A surface that lifts off the base — top-lit fill, specular top edge, depth. */
+.glass-viewport .gk-surface {
+  background: var(--surface-fill);
+  border: 1px solid var(--surface-edge);
+  border-radius: 18px;
+  box-shadow: var(--surface-lift);
+}
+
+/* Gradient icon plate — an app-icon squircle: white glyph, inner top highlight,
+ * soft colored shadow. The gradient comes from a .gk-grad-* class. */
+.glass-viewport .gk-plate {
+  display: grid;
+  place-items: center;
+  border-radius: 28%;
+  position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 9px 22px -10px rgba(0, 0, 0, 0.75);
+}
+.glass-viewport .gk-plate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+.glass-viewport .gk-plate .gk-icon {
+  color: #fff;
+}
+.glass-viewport .gk-plate .gk-icon svg {
+  stroke-width: 2;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
+}
+.glass-viewport .gk-plate.gk-icon--active .gk-icon,
+.glass-viewport .gk-plate .gk-icon--active {
+  color: #fff;
+  filter: none;
+}
+
+/* Tasteful gradient palette (≈150°), cycled per app or picked by tone. */
+.glass-viewport .gk-grad-blue {
+  background: linear-gradient(150deg, #5b9dff, #2f5fe0);
+}
+.glass-viewport .gk-grad-green {
+  background: linear-gradient(150deg, #3fe0a3, #11a36f);
+}
+.glass-viewport .gk-grad-peach {
+  background: linear-gradient(150deg, #ff7eb3, #ff8a5b);
+}
+.glass-viewport .gk-grad-violet {
+  background: linear-gradient(150deg, #b08bff, #7c3aed);
+}
+.glass-viewport .gk-grad-cyan {
+  background: linear-gradient(150deg, #36d6ee, #0e8fc7);
+}
+.glass-viewport .gk-grad-amber {
+  background: linear-gradient(150deg, #ffd66b, #f5a623);
+}
+
+/* Icon-plate sizes (GlowIcon `plate` mode) — HUD-scale. */
+.glass-viewport .gk-iconplate--sm {
+  inline-size: 46px;
+  block-size: 46px;
+}
+.glass-viewport .gk-iconplate--md {
+  inline-size: 66px;
+  block-size: 66px;
+}
+.glass-viewport .gk-iconplate--lg {
+  inline-size: 132px;
+  block-size: 132px;
+}
+.glass-viewport .gk-iconplate--sm .gk-icon {
+  inline-size: 24px;
+  block-size: 24px;
+}
+.glass-viewport .gk-iconplate--md .gk-icon {
+  inline-size: 34px;
+  block-size: 34px;
+}
+.glass-viewport .gk-iconplate--lg .gk-icon {
+  inline-size: 64px;
+  block-size: 64px;
 }
 
 /* ── `.focusable` — joins D-pad navigation; :focus shows the ring ── */
 .glass-viewport .focusable {
   cursor: pointer;
-  border-radius: 16px;
+  border-radius: 18px;
   border: 1px solid var(--rule);
   background: transparent; /* additive — no gray fills (apple-feel §9) */
-  padding-block: 12px;
-  padding-inline: 18px;
+  padding-block: 16px;
+  padding-inline: 24px;
   color: var(--ink-primary);
   font: inherit;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 500;
   transition:
     color 0.25s ease,
@@ -179,8 +301,10 @@
   outline: none;
   color: #fff;
   border-color: var(--accent);
-  /* a thin accent ring — crisp, no glow (the clean look). */
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 50%, transparent);
+  /* thin accent ring + a soft emitted bloom — focus reads as the lit element. */
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent) 60%, transparent),
+    0 0 20px -4px color-mix(in oklab, var(--accent) 34%, transparent);
 }
 .glass-viewport .focusable:disabled,
 .glass-viewport .focusable[aria-disabled="true"] {
@@ -229,7 +353,7 @@
   letter-spacing: 0.18em;
 }
 .glass-viewport .readout strong {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 700;
 }
 
@@ -266,7 +390,7 @@
   padding: 36px 28px;
 }
 .glass-viewport .launcher-title {
-  font-size: 30px;
+  font-size: 36px;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -278,18 +402,18 @@
   display: grid;
   width: 100%;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: 14px;
 }
 .glass-viewport .launcher-card {
   display: flex;
   cursor: pointer;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2px;
-  border-radius: 16px;
+  gap: 6px;
+  border-radius: 20px;
   border: 1px solid var(--rule);
   background: transparent;
-  padding: 12px 14px;
+  padding: 18px 20px;
   text-align: start;
   color: var(--ink-primary);
   font: inherit;
@@ -304,12 +428,12 @@
     0 0 34px -2px color-mix(in oklab, var(--accent) 16%, transparent);
 }
 .glass-viewport .launcher-card__label {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
 }
 .glass-viewport .launcher-card__tagline {
   color: var(--ink-tertiary);
-  font-size: 11px;
+  font-size: 12.5px;
 }
 
 /* ── Wave 1 spine components (registry/ui) ──────────────────────────
@@ -324,7 +448,10 @@
   display: flex;
   height: 100%;
   flex-direction: column;
-  padding: 24px;
+  /* Tight safe margin (mrbd uses 8px; we keep a little more breathing room) so
+   * content fills the precious 600×600 instead of floating in a void. */
+  padding: 22px;
+  gap: 14px;
 }
 .glass-viewport .gk-screen__status {
   flex: none;
@@ -335,7 +462,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 20px;
   text-align: center;
   min-block-size: 0;
 }
@@ -343,24 +470,6 @@
   flex: none;
   display: flex;
   justify-content: center;
-}
-
-/* StatusBar — TimeText analog; logical start/end slots. */
-.glass-viewport .gk-status {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  inline-size: 100%;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--ink-tertiary);
-  font-variant-numeric: tabular-nums;
-}
-.glass-viewport .gk-status__end {
-  display: flex;
-  align-items: center;
-  gap: 12px;
 }
 
 /* Readout — single-value complication. */
@@ -399,19 +508,48 @@
   color: var(--accent);
 }
 
-/* Button — composes `.focusable`; primary variant brightens the edge. */
+/* Button — a popping surface pill. Secondary = top-lit glass surface; primary =
+ * accent gradient. Press scale (Emil). */
 .glass-viewport .gk-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  background: var(--surface-fill);
+  border: 1px solid var(--surface-edge);
+  border-radius: 16px;
+  box-shadow: var(--surface-lift);
+  transition:
+    transform 0.14s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.glass-viewport .gk-btn:active {
+  transform: scale(0.97);
 }
 .glass-viewport .gk-btn--primary {
-  border-color: var(--accent-muted);
+  background: linear-gradient(180deg, #5b9dff 0%, #3567e6 100%);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    0 10px 24px -10px rgba(47, 95, 224, 0.6);
 }
 .glass-viewport .gk-btn--primary:focus,
 .glass-viewport .gk-btn--primary:focus-visible {
-  border-color: var(--accent-active);
+  border-color: rgba(255, 255, 255, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    0 0 0 1px color-mix(in oklab, var(--accent) 55%, transparent),
+    0 12px 28px -10px rgba(47, 95, 224, 0.7);
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-viewport .gk-btn {
+    transition: none;
+  }
+  .glass-viewport .gk-btn:active {
+    transform: none;
+  }
 }
 
 /* GlowIcon — 2-tier luminance; inert near-white, active green (§7). */
@@ -436,7 +574,7 @@
 }
 .glass-viewport .gk-icon--active {
   color: var(--accent);
-  filter: none;
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--accent) 32%, transparent));
 }
 .glass-viewport .gk-icon svg {
   display: block;
@@ -451,23 +589,89 @@
 
 /* ── Wave 2 spine components ─────────────────────────────────────── */
 
-/* List — vertical stack of focusable rows (watchOS list spirit). */
+/* List — a full-height stack of focusable rows that scrolls (D-pad
+ * scrollIntoView) and fills the stage instead of floating centered. A thin
+ * accent rail on the inline-end edge shows scroll progress. */
 .glass-viewport .gk-list {
+  position: relative;
+  inline-size: 100%;
+  block-size: 100%;
+  align-self: stretch;
+}
+.glass-viewport .gk-list__scroll {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  inline-size: 100%;
+  gap: 10px;
+  block-size: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-inline-end: 14px;
+  /* Hide the native bar; the List component draws its own JS-driven thumb
+   * (works in every browser, sized to the content). */
+  scrollbar-width: none;
+}
+.glass-viewport .gk-list__scroll::-webkit-scrollbar {
+  display: none;
+}
+/* Position indicator — a thin rail with a thumb the component sizes + moves via
+ * scrollTop. Shown only when the list overflows (data-show). */
+.glass-viewport .gk-list__rail {
+  position: absolute;
+  inset-block: 8px;
+  inset-inline-end: 2px;
+  inline-size: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.glass-viewport .gk-list__rail[data-show="true"] {
+  opacity: 1;
+}
+.glass-viewport .gk-list__bar {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0;
+  block-size: 30%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.34);
+  will-change: transform;
 }
 .glass-viewport .gk-list-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 13px;
   inline-size: 100%;
   text-align: start;
+  /* Popping surface row (premium-surfaces direction), sized near the 88px
+   * min target so it's an easy D-pad/glance hit. */
+  background: var(--surface-fill);
+  border: 1px solid var(--surface-edge);
+  border-radius: 18px;
+  box-shadow: var(--surface-lift);
+  min-block-size: 74px;
+  padding-block: 16px;
+  padding-inline: 20px;
+  flex: none;
+  transition:
+    transform 0.14s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.glass-viewport .gk-list-row:active {
+  transform: scale(0.985);
 }
 .glass-viewport .gk-list-row__label {
   flex: 1 1 auto;
   min-inline-size: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-viewport .gk-list-row {
+    transition: none;
+  }
+  .glass-viewport .gk-list-row:active {
+    transform: none;
+  }
 }
 .glass-viewport .gk-list-row__trailing {
   color: var(--ink-tertiary);
@@ -486,10 +690,11 @@
   -webkit-appearance: none;
   appearance: none;
   inline-size: 100%;
-  block-size: 4px;
+  block-size: 10px;
   border: none;
   border-radius: 999px;
-  background: color-mix(in oklab, var(--accent-faint) 55%, transparent);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
 .glass-viewport .gk-progress__el::-webkit-progress-bar {
@@ -497,12 +702,12 @@
 }
 .glass-viewport .gk-progress__el::-webkit-progress-value {
   border-radius: 999px;
-  background: var(--accent);
-  box-shadow: none;
+  background: linear-gradient(90deg, var(--accent), var(--accent-active));
+  box-shadow: 0 0 10px color-mix(in oklab, var(--accent) 50%, transparent);
 }
 .glass-viewport .gk-progress__el::-moz-progress-bar {
   border-radius: 999px;
-  background: var(--accent);
+  background: linear-gradient(90deg, var(--accent), var(--accent-active));
 }
 .glass-viewport .gk-progress__meta {
   display: flex;
@@ -519,17 +724,17 @@
   gap: 8px;
 }
 .glass-viewport .gk-step {
-  inline-size: 8px;
-  block-size: 8px;
+  inline-size: 12px;
+  block-size: 12px;
   border-radius: 999px;
-  background: var(--accent-faint);
+  background: rgba(255, 255, 255, 0.16);
   transition:
     background 0.25s ease,
     box-shadow 0.25s ease;
 }
 .glass-viewport .gk-step--on {
   background: var(--accent);
-  box-shadow: none;
+  box-shadow: 0 0 7px color-mix(in oklab, var(--accent) 45%, transparent);
 }
 
 /* AsyncView — placeholder → loading → success/error. */
@@ -555,14 +760,14 @@
 }
 .glass-viewport .gk-spinner {
   display: inline-flex;
-  gap: 6px;
+  gap: 9px;
 }
 .glass-viewport .gk-spinner span {
-  inline-size: 7px;
-  block-size: 7px;
+  inline-size: 11px;
+  block-size: 11px;
   border-radius: 999px;
   background: var(--accent);
-  box-shadow: none;
+  box-shadow: 0 0 7px color-mix(in oklab, var(--accent) 45%, transparent);
   animation: gk-pulse 1.2s ease-in-out infinite;
 }
 .glass-viewport .gk-spinner span:nth-child(2) {
@@ -582,27 +787,44 @@
  * never mirrored under RTL — a flipped bearing points the wrong way.
  * ─────────────────────────────────────────────────────────────── */
 
-/* DirectionArrow — a bearing needle on a faint ring. */
+/* DirectionArrow / Compass — premium instrument discs: a surface "puck" with a
+ * top-lit fill, depth, and a faint inner accent ring; a bold glowing indicator
+ * on top. */
 .glass-viewport .gk-direction,
 .glass-viewport .gk-compass {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 18px;
 }
 .glass-viewport .gk-direction__dial,
 .glass-viewport .gk-compass__dial {
-  inline-size: 120px;
-  block-size: 120px;
+  inline-size: 212px;
+  block-size: 212px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      115% 115% at 50% 0%,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.02) 52%,
+      transparent 100%
+    ),
+    radial-gradient(100% 100% at 50% 55%, #121a2e 0%, #0a0e18 100%);
+  border: 1px solid var(--surface-edge);
+  box-shadow:
+    var(--surface-lift),
+    inset 0 0 36px -12px rgba(0, 0, 0, 0.85);
 }
 .glass-viewport .gk-direction__ring {
   fill: none;
-  stroke: var(--accent-faint);
+  stroke: color-mix(in oklab, var(--accent) 26%, transparent);
   stroke-width: 1.5;
 }
 .glass-viewport .gk-direction__needle {
-  fill: var(--accent);
-  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--accent) 45%, transparent));
+  fill: var(--accent-active);
+  filter: drop-shadow(
+    0 0 12px color-mix(in oklab, var(--accent) 65%, transparent)
+  );
 }
 .glass-viewport .gk-direction__label,
 .glass-viewport .gk-compass__label {
@@ -612,50 +834,72 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Compass — counter-rotating rose, fixed top marker = where you face. */
+/* Compass — bold tick ring, fixed top marker = where you face, big center
+ * heading readout (Apple-Watch spirit). */
 .glass-viewport .gk-compass__ring {
   fill: none;
-  stroke: var(--rule);
+  stroke: rgba(255, 255, 255, 0.08);
   stroke-width: 1.5;
 }
 .glass-viewport .gk-compass__marker {
-  fill: var(--accent);
-  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--accent) 50%, transparent));
+  fill: var(--accent-active);
+  filter: drop-shadow(
+    0 0 7px color-mix(in oklab, var(--accent) 60%, transparent)
+  );
 }
 .glass-viewport .gk-compass__n,
 .glass-viewport .gk-compass__tick {
   text-anchor: middle;
   dominant-baseline: middle;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 9px;
 }
 .glass-viewport .gk-compass__n {
-  fill: var(--accent);
-  font-weight: 700;
+  fill: var(--accent-active);
+  font-weight: 800;
 }
 .glass-viewport .gk-compass__tick {
   fill: var(--ink-tertiary);
-  font-weight: 500;
+  font-weight: 600;
+}
+.glass-viewport .gk-compass__deg {
+  text-anchor: middle;
+  dominant-baseline: middle;
+  fill: #fff;
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.glass-viewport .gk-compass__card {
+  text-anchor: middle;
+  dominant-baseline: middle;
+  fill: var(--ink-tertiary);
+  font-family: var(--font-sans);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
 }
 
-/* Reticle — four corner brackets framing the gaze center. */
+/* Reticle — four bold corner brackets framing the gaze center. */
 .glass-viewport .gk-reticle {
   position: relative;
-  inline-size: 140px;
-  block-size: 140px;
+  inline-size: 220px;
+  block-size: 220px;
 }
 .glass-viewport .gk-reticle__corner {
   position: absolute;
-  inline-size: 18px;
-  block-size: 18px;
-  border: 0 solid var(--accent-muted);
+  inline-size: 34px;
+  block-size: 34px;
+  border: 0 solid color-mix(in oklab, var(--accent) 55%, transparent);
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--accent) 28%, transparent));
   transition:
     border-color 0.25s ease,
     filter 0.25s ease;
 }
 .glass-viewport .gk-reticle--active .gk-reticle__corner {
-  border-color: var(--accent);
-  filter: drop-shadow(0 0 4px color-mix(in oklab, var(--accent) 70%, transparent));
+  border-color: var(--accent-active);
+  filter: drop-shadow(0 0 8px color-mix(in oklab, var(--accent) 75%, transparent));
 }
 /* PHYSICAL properties, not logical — world-anchored UI must never flip with
  * `dir`. (The reticle is symmetric so the flip would be invisible, but keeping
@@ -663,26 +907,26 @@
 .glass-viewport .gk-reticle__corner--tl {
   top: 0;
   left: 0;
-  border-top-width: 1.5px;
-  border-left-width: 1.5px;
+  border-top-width: 2.5px;
+  border-left-width: 2.5px;
 }
 .glass-viewport .gk-reticle__corner--tr {
   top: 0;
   right: 0;
-  border-top-width: 1.5px;
-  border-right-width: 1.5px;
+  border-top-width: 2.5px;
+  border-right-width: 2.5px;
 }
 .glass-viewport .gk-reticle__corner--bl {
   bottom: 0;
   left: 0;
-  border-bottom-width: 1.5px;
-  border-left-width: 1.5px;
+  border-bottom-width: 2.5px;
+  border-left-width: 2.5px;
 }
 .glass-viewport .gk-reticle__corner--br {
   bottom: 0;
   right: 0;
-  border-bottom-width: 1.5px;
-  border-right-width: 1.5px;
+  border-bottom-width: 2.5px;
+  border-right-width: 2.5px;
 }
 
 /* ── Wave 4 action / input components ───────────────────────────────
@@ -706,30 +950,39 @@
   display: flex;
   flex: none;
   align-items: center;
-  inline-size: 44px;
-  block-size: 24px;
+  inline-size: 48px;
+  block-size: 28px;
   padding: 3px;
-  border: 1px solid var(--rule);
+  border: 1px solid var(--surface-edge);
   border-radius: 999px;
-  transition: border-color 0.25s ease;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+  transition:
+    background 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.25s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .glass-viewport .gk-toggle__knob {
-  inline-size: 16px;
-  block-size: 16px;
+  inline-size: 22px;
+  block-size: 22px;
   border-radius: 999px;
-  background: var(--ink-tertiary);
-  transition:
-    margin 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  transition: margin 0.25s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .glass-viewport .gk-toggle--on .gk-toggle__track {
-  border-color: var(--accent);
+  background: linear-gradient(180deg, #5b9dff 0%, #3567e6 100%);
+  border-color: rgba(255, 255, 255, 0.28);
 }
 .glass-viewport .gk-toggle--on .gk-toggle__knob {
   margin-inline-start: auto; /* slide to inline-end — RTL-correct */
-  background: var(--accent);
-  box-shadow: none;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-viewport .gk-toggle__track,
+  .glass-viewport .gk-toggle__knob {
+    transition: none;
+  }
 }
 
 /* Stepper — −/value/+ with circular focusable buttons. */
@@ -753,12 +1006,30 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  inline-size: 44px;
-  block-size: 44px;
+  inline-size: 46px;
+  block-size: 46px;
   padding: 0;
   border-radius: 999px;
   font-size: 22px;
   line-height: 1;
+  background: var(--surface-fill);
+  border: 1px solid var(--surface-edge);
+  box-shadow: var(--surface-lift);
+  transition:
+    transform 0.14s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.glass-viewport .gk-stepper__btn:active:not(:disabled) {
+  transform: scale(0.94);
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-viewport .gk-stepper__btn {
+    transition: none;
+  }
+  .glass-viewport .gk-stepper__btn:active:not(:disabled) {
+    transform: none;
+  }
 }
 .glass-viewport .gk-stepper__value {
   min-inline-size: 4ch;
@@ -769,15 +1040,38 @@
   font-size: 14px;
 }
 
-/* Segmented — pick one of a few; the selected segment glows green. */
+/* Segmented — pick one of a few; the selected segment is an accent gradient. */
 .glass-viewport .gk-segmented {
   display: inline-flex;
-  gap: 6px;
+  gap: 8px;
+}
+.glass-viewport .gk-segmented__seg {
+  background: var(--surface-fill);
+  border: 1px solid var(--surface-edge);
+  box-shadow: var(--surface-lift);
+  transition:
+    transform 0.14s cubic-bezier(0.23, 1, 0.32, 1),
+    background 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.glass-viewport .gk-segmented__seg:active {
+  transform: scale(0.96);
 }
 .glass-viewport .gk-segmented__seg--on {
-  border-color: var(--accent);
+  background: linear-gradient(180deg, #5b9dff 0%, #3567e6 100%);
+  border-color: rgba(255, 255, 255, 0.28);
   color: #fff;
-  box-shadow: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.36),
+    0 8px 18px -10px rgba(47, 95, 224, 0.6);
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-viewport .gk-segmented__seg {
+    transition: none;
+  }
+  .glass-viewport .gk-segmented__seg:active {
+    transform: none;
+  }
 }
 
 /* Confirm — prompt + two-button action bar. */
@@ -798,26 +1092,31 @@
   margin-block-start: 6px;
 }
 
-/* Badge — a small count / status pill (emitted, never a dark-on-light fill). */
+/* Badge — a small count / status pill. Default = subtle surface; accent = the
+ * blue gradient for the one thing that should draw the eye. */
 .glass-viewport .gk-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-inline-size: 20px;
-  padding-block: 2px;
-  padding-inline: 8px;
-  border: 1px solid var(--rule);
+  min-inline-size: 26px;
+  padding-block: 5px;
+  padding-inline: 11px;
   border-radius: 999px;
+  background: var(--surface-fill);
+  border: 1px solid var(--surface-edge);
+  box-shadow: var(--surface-lift);
   color: var(--ink-secondary);
   font-variant-numeric: tabular-nums;
+  font-weight: 700;
   line-height: 1;
 }
 .glass-viewport .gk-badge--accent {
-  border-color: var(--accent);
-  color: var(--accent-active);
+  background: linear-gradient(180deg, #5b9dff 0%, #3567e6 100%);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #fff;
   box-shadow:
-    inset 0 0 8px color-mix(in oklab, var(--accent) 18%, transparent),
-    0 0 8px color-mix(in oklab, var(--accent) 25%, transparent);
+    inset 0 1px 0 rgba(255, 255, 255, 0.36),
+    0 6px 16px -8px rgba(47, 95, 224, 0.6);
 }
 
 /* ── Wave 5 monitor / feedback components ─────────────────────────── */
@@ -861,8 +1160,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  inline-size: 132px;
-  block-size: 132px;
+  inline-size: 168px;
+  block-size: 168px;
 }
 .glass-viewport .gk-meter__dial {
   inline-size: 100%;
@@ -870,15 +1169,17 @@
 }
 .glass-viewport .gk-meter__track {
   fill: none;
-  stroke: var(--rule);
-  stroke-width: 5;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 7;
 }
 .glass-viewport .gk-meter__fill {
   fill: none;
   stroke: var(--accent);
-  stroke-width: 5;
+  stroke-width: 7;
   stroke-linecap: round;
-  filter: none;
+  filter: drop-shadow(
+    0 0 6px color-mix(in oklab, var(--accent) 45%, transparent)
+  );
   transition: stroke-dashoffset 0.4s ease;
 }
 .glass-viewport .gk-meter__center {
@@ -898,25 +1199,33 @@
   color: var(--ink-tertiary);
 }
 
-/* StatGrid — compact multi-metric cluster. */
+/* StatGrid — a cluster of surface stat cards (mrbd StatusCard spirit): small
+ * label on top, big value below, each on a popping surface. */
 .glass-viewport .gk-statgrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px 28px;
+  gap: 12px;
+  inline-size: 100%;
 }
 .glass-viewport .gk-statgrid__cell {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2px;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 18px 18px;
+  border-radius: 20px;
+  text-align: start;
+}
+.glass-viewport .gk-statgrid__value {
+  font-weight: 700;
 }
 .glass-viewport .gk-statgrid__unit {
   color: var(--ink-tertiary);
-  font-size: 13px;
+  font-size: 16px;
 }
 .glass-viewport .gk-statgrid__label {
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: var(--ink-tertiary);
 }
 
@@ -934,15 +1243,21 @@
 .glass-viewport .gk-toast {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding-block: 10px;
-  padding-inline: 18px;
-  border-radius: 16px;
+  gap: 12px;
+  padding-block: 16px;
+  padding-inline: 22px;
+  border-radius: 18px;
   color: var(--ink-primary);
-  animation: gk-toast-in 0.3s ease both;
+  font-weight: 600;
+  animation: gk-toast-in 0.3s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 .glass-viewport .gk-toast--accent {
-  box-shadow: none;
+  background: linear-gradient(180deg, #5b9dff 0%, #3567e6 100%);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.36),
+    0 12px 28px -12px rgba(47, 95, 224, 0.6);
 }
 @media (prefers-reduced-motion: reduce) {
   .glass-viewport .gk-statusdot--live .gk-statusdot__dot,
@@ -980,28 +1295,80 @@
   color: var(--accent);
 }
 
-/* Launcher — two-column app grid of focusable cards. */
+/* Launcher — a glanceable app grid (phone/watch home-screen spirit): 2 columns
+ * of app tiles, each a rounded icon plate + label. No idle card border (clean
+ * grid); focus lights the plate, not the whole card. Motion: ease-out, sub-200ms,
+ * with a press scale (Emil). */
 .glass-viewport .gk-launcher {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: 16px;
   inline-size: 100%;
 }
 .glass-viewport .gk-launcher-card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  text-align: start;
+  align-items: center;
+  gap: 9px;
+  border-color: transparent; /* clean grid — the plate carries structure */
+  border-radius: 22px;
+  padding-block: 14px;
+  padding-inline: 10px;
+  text-align: center;
+  transition:
+    color 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.14s cubic-bezier(0.23, 1, 0.32, 1);
 }
+.glass-viewport .gk-launcher-card:active {
+  transform: scale(0.97);
+}
+/* Cancel the generic focus ring on the card — the plate below carries focus. */
+.glass-viewport .gk-launcher-card:focus,
+.glass-viewport .gk-launcher-card:focus-visible {
+  border-color: transparent;
+  box-shadow: none;
+}
+/* The app plate — a gradient squircle (composes .gk-plate .gk-grad-*) holding a
+ * white glyph. Size only here; the gradient/shadow live on .gk-plate. */
 .glass-viewport .gk-launcher-card__icon {
-  margin-block-end: 4px;
+  inline-size: 94px;
+  block-size: 94px;
+  margin-block-end: 2px;
+  transition:
+    transform 0.18s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.glass-viewport .gk-launcher-card__icon .gk-icon {
+  inline-size: 46px;
+  block-size: 46px;
+}
+/* Focused tile: the plate lifts + gains a soft accent bloom under it. */
+.glass-viewport .gk-launcher-card:focus .gk-launcher-card__icon,
+.glass-viewport .gk-launcher-card:focus-visible .gk-launcher-card__icon {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 16px 28px -10px rgba(0, 0, 0, 0.7),
+    0 0 24px -6px color-mix(in oklab, var(--accent) 30%, transparent);
+}
+.glass-viewport .gk-launcher-card:focus .gk-launcher-card__label,
+.glass-viewport .gk-launcher-card:focus-visible .gk-launcher-card__label {
+  color: #fff;
 }
 .glass-viewport .gk-launcher-card__label {
-  font-weight: 700;
+  font-weight: 600;
 }
 .glass-viewport .gk-launcher-card__tagline {
   color: var(--ink-tertiary);
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-viewport .gk-launcher-card,
+  .glass-viewport .gk-launcher-card__icon {
+    transition: none;
+  }
+  .glass-viewport .gk-launcher-card:active {
+    transform: none;
+  }
 }
 
 /* Deck — one page at a time with step dots beneath. */
@@ -1029,8 +1396,18 @@
 }
 .glass-viewport .gk-chip {
   border-radius: 999px;
-  padding-block: 8px;
-  padding-inline: 16px;
+  padding-block: 14px;
+  padding-inline: 22px;
+  background: var(--surface-fill);
+  border: 1px solid var(--surface-edge);
+  box-shadow: var(--surface-lift);
+  transition:
+    transform 0.14s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.glass-viewport .gk-chip:active {
+  transform: scale(0.96);
 }
 
 /* ── Wave 7 world-anchored markers (Pin, Callout) ───────────────────
@@ -1046,40 +1423,805 @@
   pointer-events: none;
 }
 
-/* Pin — ring + dot waypoint, name/distance stacked above. */
+/* Pin — bold glowing waypoint marker, name/distance stacked above. Labels get a
+ * dark stroke halo (paint-order) so they stay legible over any real-world view. */
 .glass-viewport .gk-pin__dot {
-  fill: var(--accent);
-  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--accent) 60%, transparent));
+  fill: var(--accent-active);
+  filter: drop-shadow(
+    0 0 9px color-mix(in oklab, var(--accent) 75%, transparent)
+  );
 }
 .glass-viewport .gk-pin__ring {
   fill: none;
   stroke: var(--accent);
-  stroke-width: 2;
-  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--accent) 45%, transparent));
+  stroke-width: 2.5;
+  filter: drop-shadow(
+    0 0 9px color-mix(in oklab, var(--accent) 55%, transparent)
+  );
 }
 .glass-viewport .gk-pin__label,
 .glass-viewport .gk-callout__label {
-  fill: var(--ink-primary);
+  fill: #fff;
   font-family: var(--font-sans);
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 23px;
+  font-weight: 700;
   text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(0, 0, 0, 0.55);
+  stroke-width: 5px;
+  stroke-linejoin: round;
 }
 .glass-viewport .gk-pin__dist,
 .glass-viewport .gk-callout__detail {
-  fill: var(--ink-tertiary);
+  fill: var(--ink-secondary);
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 16px;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(0, 0, 0, 0.5);
+  stroke-width: 4px;
+  stroke-linejoin: round;
 }
 
-/* Callout — anchor + vertical leader + emitted label (no box fill). */
+/* Callout — bold anchor + vertical leader + emitted label. */
 .glass-viewport .gk-callout__anchor {
-  fill: var(--accent);
-  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--accent) 55%, transparent));
+  fill: var(--accent-active);
+  filter: drop-shadow(
+    0 0 8px color-mix(in oklab, var(--accent) 65%, transparent)
+  );
 }
 .glass-viewport .gk-callout__leader {
-  stroke: var(--accent-muted);
-  stroke-width: 1.5;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  filter: drop-shadow(
+    0 0 5px color-mix(in oklab, var(--accent) 45%, transparent)
+  );
+}
+
+/* ── Wave 8 — app-surface components (comms / media / AI) ──────────── */
+
+/* Avatar — photo or initials on a gradient plate. */
+.glass-viewport .gk-avatar {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  border-radius: 50%;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 700;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 6px 14px -8px rgba(0, 0, 0, 0.6);
+}
+.glass-viewport .gk-avatar--sm {
+  inline-size: 46px;
+  block-size: 46px;
+  font-size: 17px;
+}
+.glass-viewport .gk-avatar--md {
+  inline-size: 62px;
+  block-size: 62px;
+  font-size: 23px;
+}
+.glass-viewport .gk-avatar--lg {
+  inline-size: 92px;
+  block-size: 92px;
+  font-size: 34px;
+}
+.glass-viewport .gk-avatar__img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+/* NotificationCard — a popping surface with avatar + sender + preview + actions. */
+.glass-viewport .gk-notif {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  inline-size: 100%;
+  padding: 20px;
+  border-radius: 22px;
+}
+.glass-viewport .gk-notif__head {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.glass-viewport .gk-notif__avatar {
+  flex: none;
+  display: inline-flex;
+}
+.glass-viewport .gk-notif__title {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  font-weight: 700;
+}
+.glass-viewport .gk-notif__time {
+  flex: none;
+  color: var(--ink-tertiary);
+}
+.glass-viewport .gk-notif__body {
+  color: var(--ink-secondary);
+}
+.glass-viewport .gk-notif__actions {
+  display: flex;
+  gap: 10px;
+  margin-block-start: 3px;
+}
+
+/* NowPlaying — album art + meta + scrub bar + times. */
+.glass-viewport .gk-nowplaying {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  inline-size: 100%;
+}
+.glass-viewport .gk-nowplaying__top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.glass-viewport .gk-nowplaying__art {
+  inline-size: 92px;
+  block-size: 92px;
+  border-radius: 18px;
+  overflow: hidden;
+  flex: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 10px 24px -10px rgba(0, 0, 0, 0.7);
+}
+.glass-viewport .gk-nowplaying__art img,
+.glass-viewport .gk-nowplaying__art > span {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+.glass-viewport .gk-nowplaying__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-inline-size: 0;
+}
+.glass-viewport .gk-nowplaying__title {
+  font-weight: 700;
+}
+.glass-viewport .gk-nowplaying__artist {
+  color: var(--ink-secondary);
+}
+.glass-viewport .gk-nowplaying__times {
+  display: flex;
+  justify-content: space-between;
+  color: var(--ink-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+.glass-viewport .gk-nowplaying__controls {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-block-start: 2px;
+}
+
+/* AssistantOrb — a glowing gradient orb with per-state motion (Meta-AI presence). */
+.glass-viewport .gk-orb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+.glass-viewport .gk-orb__core {
+  inline-size: 120px;
+  block-size: 120px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 36% 30%,
+    #aecbff 0%,
+    #4c8dff 38%,
+    #7b5cff 72%,
+    #b56bff 100%
+  );
+  box-shadow:
+    inset 0 3px 10px rgba(255, 255, 255, 0.45),
+    inset 0 -6px 16px rgba(40, 30, 120, 0.5),
+    0 0 60px -6px rgba(123, 92, 255, 0.6);
+}
+.glass-viewport .gk-orb__label {
+  color: var(--ink-secondary);
+  text-align: center;
+  max-inline-size: 26ch;
+}
+@keyframes gk-orb-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+@keyframes gk-orb-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      inset 0 3px 10px rgba(255, 255, 255, 0.45),
+      0 0 60px -6px rgba(123, 92, 255, 0.6);
+  }
+  50% {
+    transform: scale(1.09);
+    box-shadow:
+      inset 0 3px 10px rgba(255, 255, 255, 0.5),
+      0 0 80px -2px rgba(123, 92, 255, 0.8);
+  }
+}
+@keyframes gk-orb-swirl {
+  to {
+    background-position: 200% 50%;
+  }
+}
+.glass-viewport .gk-orb--idle .gk-orb__core {
+  animation: gk-orb-breathe 3.4s ease-in-out infinite;
+}
+.glass-viewport .gk-orb--listening .gk-orb__core {
+  animation: gk-orb-pulse 1.4s ease-in-out infinite;
+}
+.glass-viewport .gk-orb--speaking .gk-orb__core {
+  animation: gk-orb-pulse 0.7s ease-in-out infinite;
+}
+.glass-viewport .gk-orb--thinking .gk-orb__core {
+  background-size: 200% 200%;
+  animation: gk-orb-swirl 2.4s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-viewport .gk-orb__core {
+    animation: none !important;
+  }
+}
+
+/* ── Toaster (Sonner) ───────────────────────────────────────────────
+ * The toast/notification SYSTEM portals to the window edge — OUTSIDE any
+ * .glass-viewport — so these rules are intentionally UNSCOPED and use literal
+ * values (the surface look without the scoped tokens). Applied via the
+ * <Toaster> component's `toastOptions.classNames`. */
+.gk-toaster__toast {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  inline-size: 100%;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #1b2230 0%, #131a26 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 18px 40px -18px rgba(0, 0, 0, 0.9);
+  color: #fff;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.gk-toaster__icon {
+  display: inline-flex;
+  flex: none;
+}
+.gk-toaster__title {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.gk-toaster__desc {
+  margin-block-start: 2px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #cdd2dd;
+}
+.gk-toaster__action {
+  margin-inline-start: auto;
+  flex: none;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #5b9dff 0%, #3567e6 100%);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.gk-toaster__cancel {
+  margin-inline-start: 8px;
+  flex: none;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #cdd2dd;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ── Wave 9 — comms / media app surfaces ──────────────────────────── */
+
+/* MessageThread / ChatBubble — conversation view; me = accent gradient, them =
+ * surface; logical tail radius keeps it RTL-correct. */
+.glass-viewport .gk-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  inline-size: 100%;
+  block-size: 100%;
+  overflow-y: auto;
+  justify-content: flex-end;
+}
+.glass-viewport .gk-bubble {
+  max-inline-size: 82%;
+  padding: 14px 18px;
+  border-radius: 22px;
+}
+.glass-viewport .gk-bubble--them {
+  align-self: flex-start;
+  background: var(--surface-fill);
+  border: 1px solid var(--surface-edge);
+  box-shadow: var(--surface-lift);
+  border-end-start-radius: 7px;
+}
+.glass-viewport .gk-bubble--me {
+  align-self: flex-end;
+  background: linear-gradient(180deg, #5b9dff 0%, #3567e6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 10px 22px -12px rgba(47, 95, 224, 0.6);
+  border-end-end-radius: 7px;
+  color: #fff;
+}
+
+/* CallCard — big avatar + name + status + round accept/decline (semantic
+ * green/red — the one justified two-colour case). */
+.glass-viewport .gk-call {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+.glass-viewport .gk-call__name {
+  font-weight: 700;
+}
+.glass-viewport .gk-call__status {
+  color: var(--ink-secondary);
+}
+.glass-viewport .gk-call__actions {
+  display: flex;
+  gap: 28px;
+  margin-block-start: 12px;
+}
+.glass-viewport .gk-callbtn {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 76px;
+  block-size: 76px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    0 10px 22px -10px rgba(0, 0, 0, 0.7);
+  color: #fff;
+  transition: transform 0.14s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.glass-viewport .gk-callbtn:active {
+  transform: scale(0.95);
+}
+.glass-viewport .gk-callbtn .gk-icon {
+  inline-size: 32px;
+  block-size: 32px;
+}
+.glass-viewport .gk-callbtn--accept {
+  background: linear-gradient(180deg, #3fe0a3 0%, #11a36f 100%);
+}
+.glass-viewport .gk-callbtn--decline {
+  background: linear-gradient(180deg, #ff6b6b 0%, #e03131 100%);
+}
+
+/* Dictation — live waveform + transcript (voice / Neural-Band input). */
+.glass-viewport .gk-dictation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+.glass-viewport .gk-dictation__wave {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  block-size: 48px;
+}
+.glass-viewport .gk-dictation__wave span {
+  inline-size: 7px;
+  block-size: 16px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent-active), var(--accent));
+  box-shadow: 0 0 8px color-mix(in oklab, var(--accent) 40%, transparent);
+}
+.glass-viewport .gk-dictation--listening .gk-dictation__wave span {
+  animation: gk-wave 1s ease-in-out infinite;
+}
+.glass-viewport .gk-dictation__wave span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.glass-viewport .gk-dictation__wave span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.glass-viewport .gk-dictation__wave span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.glass-viewport .gk-dictation__wave span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+@keyframes gk-wave {
+  0%,
+  100% {
+    block-size: 14px;
+  }
+  50% {
+    block-size: 42px;
+  }
+}
+.glass-viewport .gk-dictation__text {
+  color: #fff;
+  max-inline-size: 22ch;
+}
+.glass-viewport .gk-dictation__placeholder {
+  color: var(--ink-tertiary);
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-viewport .gk-dictation__wave span {
+    animation: none;
+  }
+}
+
+/* MediaThumb — photo / reel tile with optional duration + caption overlays. */
+.glass-viewport .gk-mediathumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--surface-edge);
+  box-shadow: var(--surface-lift);
+}
+.glass-viewport .gk-mediathumb--square {
+  inline-size: 168px;
+  aspect-ratio: 1;
+}
+.glass-viewport .gk-mediathumb--portrait {
+  inline-size: 150px;
+  aspect-ratio: 3 / 4;
+}
+.glass-viewport .gk-mediathumb__img,
+.glass-viewport .gk-mediathumb__ph {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+.glass-viewport .gk-mediathumb__dur {
+  position: absolute;
+  inset-block-start: 9px;
+  inset-inline-end: 9px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.glass-viewport .gk-mediathumb__label {
+  position: absolute;
+  inset-block-end: 9px;
+  inset-inline-start: 11px;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Wave 10 — capture / shell ────────────────────────────────────── */
+
+/* Viewfinder — camera POV frame: bold corner brackets + zoom / REC badges. */
+.glass-viewport .gk-viewfinder {
+  position: relative;
+  inline-size: 100%;
+  block-size: 100%;
+  min-block-size: 300px;
+  border-radius: 24px;
+}
+.glass-viewport .gk-viewfinder__c {
+  position: absolute;
+  inline-size: 36px;
+  block-size: 36px;
+  border: 0 solid rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
+}
+.glass-viewport .gk-viewfinder__c--tl {
+  top: 0;
+  left: 0;
+  border-top-width: 3px;
+  border-left-width: 3px;
+}
+.glass-viewport .gk-viewfinder__c--tr {
+  top: 0;
+  right: 0;
+  border-top-width: 3px;
+  border-right-width: 3px;
+}
+.glass-viewport .gk-viewfinder__c--bl {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 3px;
+  border-left-width: 3px;
+}
+.glass-viewport .gk-viewfinder__c--br {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 3px;
+  border-right-width: 3px;
+}
+.glass-viewport .gk-viewfinder__zoom {
+  position: absolute;
+  inset-block-start: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 13px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.glass-viewport .gk-viewfinder__rec {
+  position: absolute;
+  inset-block-start: 16px;
+  inset-inline-start: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 13px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.glass-viewport .gk-viewfinder__dot {
+  inline-size: 11px;
+  block-size: 11px;
+  border-radius: 50%;
+  background: #ff4d4d;
+  box-shadow: 0 0 8px #ff4d4d;
+  animation: gk-pulse 1.3s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-viewport .gk-viewfinder__dot {
+    animation: none;
+  }
+}
+
+/* LiveCaptions — surface block, speaker label + big glanceable caption text. */
+.glass-viewport .gk-captions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  inline-size: 100%;
+  padding: 18px 20px;
+  border-radius: 20px;
+}
+.glass-viewport .gk-captions__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.glass-viewport .gk-captions__speaker {
+  color: var(--accent-active);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+.glass-viewport .gk-captions__badge {
+  padding: 2px 9px;
+  border: 1px solid var(--surface-edge);
+  border-radius: 999px;
+  color: var(--ink-tertiary);
+}
+.glass-viewport .gk-captions__text {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Tabs — top-level tab strip; active tab gets an accent underline. */
+.glass-viewport .gk-tabs {
+  display: flex;
+  gap: 6px;
+  inline-size: 100%;
+}
+.glass-viewport .gk-tab {
+  flex: 1 1 0;
+  border: 0;
+  border-block-end: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding-block: 14px;
+  padding-inline: 8px;
+  text-align: center;
+  color: var(--ink-tertiary);
+}
+.glass-viewport .gk-tab--on {
+  color: #fff;
+  border-block-end-color: var(--accent);
+}
+.glass-viewport .gk-tab:focus,
+.glass-viewport .gk-tab:focus-visible {
+  color: #fff;
+  border-block-end-color: var(--accent);
+  box-shadow: none;
+}
+
+/* Clock — big tabular time + date (the home complication). */
+.glass-viewport .gk-clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+.glass-viewport .gk-clock__time {
+  font-size: 88px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
+}
+.glass-viewport .gk-clock__date {
+  color: var(--ink-secondary);
+}
+.glass-viewport .gk-clock__meta {
+  color: var(--ink-tertiary);
+}
+
+/* ── Wave 11 — shell / input / system ─────────────────────────────── */
+
+/* WeatherTile — condition glyph + big temp + condition + meta. */
+.glass-viewport .gk-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  inline-size: 100%;
+  padding: 20px 22px;
+  border-radius: 22px;
+}
+.glass-viewport .gk-weather__top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.glass-viewport .gk-weather__icon .gk-icon {
+  inline-size: 44px;
+  block-size: 44px;
+  color: #ffd66b;
+  filter: drop-shadow(0 0 8px rgba(255, 214, 107, 0.4));
+}
+.glass-viewport .gk-weather__temp {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.glass-viewport .gk-weather__cond {
+  color: var(--ink-secondary);
+}
+.glass-viewport .gk-weather__meta {
+  color: var(--ink-tertiary);
+}
+
+/* Slider — native range tinted with accent-color (fill + thumb, no inline
+ * style); arrow keys / pinch-twist adjust. */
+.glass-viewport .gk-slider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  inline-size: 100%;
+}
+.glass-viewport .gk-slider__icon .gk-icon {
+  inline-size: 30px;
+  block-size: 30px;
+  color: var(--ink-secondary);
+}
+.glass-viewport .gk-slider__input {
+  flex: 1 1 auto;
+  inline-size: 100%;
+  block-size: 16px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+.glass-viewport .gk-slider__input:focus,
+.glass-viewport .gk-slider__input:focus-visible {
+  outline: none;
+  border-radius: 999px;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 32%, transparent);
+}
+.glass-viewport .gk-slider__label {
+  flex: none;
+  color: var(--ink-tertiary);
+}
+
+/* TextField — a focusable field (value or placeholder) + mic affordance; opens
+ * dictation / handwriting (no keyboard on the lens). */
+.glass-viewport .gk-textfield {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  inline-size: 100%;
+  text-align: start;
+  background: var(--surface-fill);
+  border: 1px solid var(--surface-edge);
+  box-shadow: var(--surface-lift);
+  border-radius: 18px;
+  padding: 16px 20px;
+}
+.glass-viewport .gk-textfield__main {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  text-align: start;
+}
+.glass-viewport .gk-textfield__label {
+  color: var(--ink-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.glass-viewport .gk-textfield__value {
+  color: #fff;
+}
+.glass-viewport .gk-textfield__value--empty {
+  color: var(--ink-tertiary);
+}
+.glass-viewport .gk-textfield__icon .gk-icon {
+  inline-size: 26px;
+  block-size: 26px;
+  color: var(--accent-active);
+}
+
+/* PermissionPrompt — gradient-plate icon + title + reason + allow/deny. */
+.glass-viewport .gk-permission {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+.glass-viewport .gk-permission__title {
+  font-weight: 700;
+}
+.glass-viewport .gk-permission__body {
+  color: var(--ink-secondary);
+  max-inline-size: 30ch;
+}
+.glass-viewport .gk-permission__actions {
+  display: flex;
+  gap: 12px;
+  margin-block-start: 8px;
 }

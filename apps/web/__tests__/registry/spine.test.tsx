@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Screen } from "@registry/ui/screen";
-import { StatusBar } from "@registry/ui/status-bar";
 import { Readout } from "@registry/ui/readout";
 import { Cue } from "@registry/ui/cue";
 import { GlowIcon } from "@registry/ui/glow-icon";
@@ -22,17 +21,6 @@ describe("Screen", () => {
     );
     expect(container.querySelector(".gk-screen__status")).not.toBeNull();
     expect(container.querySelector(".gk-screen__cue")).not.toBeNull();
-  });
-});
-
-describe("StatusBar", () => {
-  it("renders start always and end only when provided", () => {
-    const { container, rerender } = render(<StatusBar start="9:41" />);
-    expect(screen.getByText("9:41")).toBeTruthy();
-    expect(container.querySelector(".gk-status__end")).toBeNull();
-
-    rerender(<StatusBar start="9:41" end="87%" />);
-    expect(container.querySelector(".gk-status__end")?.textContent).toBe("87%");
   });
 });
 

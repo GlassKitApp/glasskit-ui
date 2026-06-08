@@ -11,6 +11,11 @@ const CATEGORY_ORDER = [
   "Action",
   "Navigation",
   "Spatial",
+  "Comms",
+  "Media",
+  "AI",
+  "Capture",
+  "Input",
 ];
 
 const GROUPS = CATEGORY_ORDER.map((cat) => ({

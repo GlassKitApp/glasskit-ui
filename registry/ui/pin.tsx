@@ -36,17 +36,17 @@ export function Pin({
     >
       <g transform={`translate(${cx} ${cy})`}>
         {distance != null ? (
-          <text y={-46} className="gk-pin__dist">
+          <text y={-58} className="gk-pin__dist">
             {distance}
           </text>
         ) : null}
         {label != null ? (
-          <text y={-26} className="gk-pin__label">
+          <text y={-33} className="gk-pin__label">
             {label}
           </text>
         ) : null}
-        <circle r={14} className="gk-pin__ring" />
-        <circle r={5} className="gk-pin__dot" />
+        <circle r={20} className="gk-pin__ring" />
+        <circle r={8} className="gk-pin__dot" />
       </g>
     </svg>
   );
