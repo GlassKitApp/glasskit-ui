@@ -1,0 +1,166 @@
+/* Docs-only theme — the (docs) route group runs on Fumadocs UI, kept SEPARATE
+ * from the custom (web) "blueprint" chrome so the two themes never clobber each
+ * other. Tailwind + Fumadocs preset + the on-lens styles (for live previews). */
+@import "tailwindcss";
+@import "fumadocs-ui/css/shadcn.css";
+@import "fumadocs-ui/css/preset.css";
+
+/* The on-lens design system (scoped under .glass-viewport) for component
+ * previews, and the registry sources so their utilities are generated. */
+@import "@glasskit/glasses-ui/styles.css";
+@source "../../../../registry";
+@source "../../node_modules/fumadocs-ui/dist/**/*.js";
+
+@theme inline {
+  --font-sans: var(--font-hanken);
+  --font-mono: var(--font-jetbrains);
+  --font-display: var(--font-bricolage);
+}
+
+/* Brand display type (used for the GlassKit wordmark in the docs). */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+/* ── Preview tile + Meta-logo install popover (shared with the site) ──
+ * Re-declared here because the (docs) group doesn't load the (web) globals.
+ * Self-contained (no (web) @theme tokens). */
+.lens-tile {
+  position: relative;
+  inline-size: 462px;
+  max-inline-size: 100%;
+  block-size: 462px;
+  overflow: hidden;
+  border-radius: 36px;
+  background: #090b11;
+  box-shadow: 0 30px 80px -34px rgba(0, 0, 0, 0.75);
+}
+.lens-tile > .glass-viewport {
+  transform: scale(0.77);
+  transform-origin: top left;
+  border-radius: 36px;
+}
+.lens-tile > .glass-viewport.glass-viewport--frame {
+  outline: none;
+}
+
+.device-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 38px;
+  block-size: 38px;
+  border-radius: 12px;
+  background: rgba(10, 12, 18, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #4a9bff;
+  box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.7);
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+}
+.device-badge:hover {
+  background: rgba(22, 26, 36, 0.7);
+  color: #6fb0ff;
+}
+.device-badge:active {
+  transform: scale(0.93);
+}
+.device-popover {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: calc(100% + 10px);
+  z-index: 40;
+  inline-size: 460px;
+  max-inline-size: 84vw;
+  padding: 22px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #14171f 0%, #0c0f15 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 70px -24px rgba(0, 0, 0, 0.85);
+  color: #e9ebf0;
+  text-align: start;
+}
+.device-popover__grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+}
+.device-popover__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #868c98;
+}
+.device-popover__qr {
+  margin-block-start: 10px;
+  inline-size: 134px;
+  padding: 9px;
+  border-radius: 12px;
+  background: #fff;
+}
+.device-popover__qr svg {
+  display: block;
+  inline-size: 100%;
+  height: auto;
+}
+.device-popover__desc {
+  margin-block-start: 9px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #b6bcc8;
+}
+.device-popover__linkrow {
+  margin-block-start: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+.device-popover__link {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: #c9ced8;
+  overflow-wrap: anywhere;
+}
+.device-popover__copy {
+  flex: none;
+  padding: 0 16px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #5b9dff 0%, #3567e6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.device-popover__open {
+  display: inline-block;
+  margin-block-start: 14px;
+  font-size: 13px;
+  color: #9fb6e8;
+  text-decoration: none;
+}
+.device-popover__open:hover {
+  color: #fff;
+}
+@media (max-width: 560px) {
+  .device-popover {
+    inline-size: 320px;
+  }
+  .device-popover__grid {
+    grid-template-columns: 1fr;
+  }
+}
