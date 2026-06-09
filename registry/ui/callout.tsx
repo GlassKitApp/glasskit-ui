@@ -35,14 +35,14 @@ export function Callout({
       aria-label={typeof label === "string" ? label : "Annotation"}
     >
       <g transform={`translate(${cx} ${cy})`}>
-        <circle r={4} className="gk-callout__anchor" />
-        <line x1={0} y1={0} x2={0} y2={-32} className="gk-callout__leader" />
+        <circle r={6} className="gk-callout__anchor" />
+        <line x1={0} y1={0} x2={0} y2={-46} className="gk-callout__leader" />
         {detail != null ? (
-          <text y={-58} className="gk-callout__detail">
+          <text y={-82} className="gk-callout__detail">
             {detail}
           </text>
         ) : null}
-        <text y={-40} className="gk-callout__label">
+        <text y={-58} className="gk-callout__label">
           {label}
         </text>
       </g>

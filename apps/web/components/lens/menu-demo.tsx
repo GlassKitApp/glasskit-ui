@@ -1,6 +1,5 @@
 import { GlassViewport } from "@glasskit/glasses-ui";
 import { Screen } from "@registry/ui/screen";
-import { StatusBar } from "@registry/ui/status-bar";
 import { Cue } from "@registry/ui/cue";
 import { List, ListRow } from "@registry/ui/list";
 import { GlowIcon } from "@registry/ui/glow-icon";
@@ -10,10 +9,7 @@ import { NavGlyph, MessageGlyph, MusicGlyph, ChevronGlyph } from "./icons";
 export function MenuDemo() {
   return (
     <GlassViewport>
-      <Screen
-        status={<StatusBar start="9:41" end="87%" />}
-        cue={<Cue>Look down to dismiss</Cue>}
-      >
+      <Screen cue={<Cue>Look down to dismiss</Cue>}>
         <List>
           <ListRow
             leading={

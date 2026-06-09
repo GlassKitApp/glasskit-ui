@@ -22,14 +22,14 @@ export function StatGrid({
   return (
     <div className={cn("gk-statgrid", className)}>
       {items.map((it, i) => (
-        <div key={i} className="gk-statgrid__cell">
+        <div key={i} className="gk-statgrid__cell gk-surface">
+          <span className="gk-statgrid__label t-caption">{it.label}</span>
           <span className="gk-statgrid__value t-readout">
             {it.value}
             {it.unit != null ? (
               <span className="gk-statgrid__unit"> {it.unit}</span>
             ) : null}
           </span>
-          <span className="gk-statgrid__label t-caption">{it.label}</span>
         </div>
       ))}
     </div>

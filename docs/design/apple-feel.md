@@ -15,6 +15,15 @@
 > feel") and the lens rules in `AGENTS.md`. The SDK's `styles.css` will adopt these tokens when
 > the styled components land (Phase 4); the extracted base stylesheet stays as-is until then.
 
+> **⚠ Superseded (2026-06) — read [`meta-hud-language.md`](./meta-hud-language.md)
+> first.** The owner pivoted away from this strict additive-lens model to a
+> **premium app-UI look**: a calm dark base (not pure `#000`), surfaces that pop
+> (gradient fills + depth), and tasteful gradient icon plates. This document is
+> kept for history — its type ramp, motion, RTL, and glanceability principles
+> still apply, but where it says "pure `#000`", "no fills", "no
+> gradients/shadows", or "green accent", the Meta-HUD spec wins. The accent is a
+> refined blue (`#4c8dff`), not the old phosphor green.
+
 ## 1. North star
 
 GlassKit is **Apple-Watch-grade crisp, clean, modern, and premium — built entirely from emitted light on a true-black additive lens.** Every surface is defined by luminous hairline edges, specular highlights, and soft glow rather than fills or blur; the canvas is real transparency (#000 = the world showing through), and a single phosphor-green key color carries all emphasis against white emitted type. The result reads as one luminous material floating in the void — never a "page," never frosted glass.

@@ -28,13 +28,10 @@ const DEMOS: Demo[] = [
   {
     id: "vitals",
     label: "Vitals",
-    caption: "Screen · StatusBar · Readout · Cue · Button · GlowIcon",
+    caption: "Screen · Readout · Cue · Button · GlowIcon",
     node: <HeartRateDemo />,
     code: `<GlassViewport>
-  <Screen
-    status={<StatusBar start="9:41" end="87%" />}
-    cue={<Cue tone="accent">Recording · tap to log</Cue>}
-  >
+  <Screen cue={<Cue tone="accent">Recording · tap to log</Cue>}>
     <GlowIcon size="lg" active><HeartIcon /></GlowIcon>
     <Readout label="Heart rate" value="128" unit="BPM" />
     <div className="row">
@@ -52,10 +49,7 @@ const DEMOS: Demo[] = [
     caption: "List · ListRow · GlowIcon",
     node: <MenuDemo />,
     code: `<GlassViewport>
-  <Screen
-    status={<StatusBar start="9:41" end="87%" />}
-    cue={<Cue>Look down to dismiss</Cue>}
-  >
+  <Screen cue={<Cue>Look down to dismiss</Cue>}>
     <List>
       <ListRow leading={<GlowIcon active size="sm"><NavIcon /></GlowIcon>}
                trailing={<GlowIcon size="sm"><ChevronIcon /></GlowIcon>}>
@@ -78,10 +72,7 @@ const DEMOS: Demo[] = [
     caption: "AsyncView · Spinner · Progress",
     node: <SyncDemo />,
     code: `<GlassViewport>
-  <Screen
-    status={<StatusBar start="9:41" end="87%" />}
-    cue={<Cue tone="accent">Keep glasses on</Cue>}
-  >
+  <Screen cue={<Cue tone="accent">Keep glasses on</Cue>}>
     <AsyncView
       status="loading"
       loading={
@@ -103,10 +94,7 @@ const DEMOS: Demo[] = [
     caption: "DirectionArrow (world-anchored) · Readout · Cue",
     node: <NavigateDemo />,
     code: `<GlassViewport>
-  <Screen
-    status={<StatusBar start="9:41" end="87%" />}
-    cue={<Cue tone="accent">Turn right onto Market St</Cue>}
-  >
+  <Screen cue={<Cue tone="accent">Turn right onto Market St</Cue>}>
     {/* bearing comes from useGeolocation + useDeviceOrientation */}
     <DirectionArrow bearing={35} />
     <Readout label="Market St" value="320" unit="m" />
@@ -124,7 +112,7 @@ const DEMOS: Demo[] = [
   const [mode, setMode] = useState("map");
 
   return (
-    <Screen status={<StatusBar start="Settings" end="87%" />}>
+    <Screen cue={<Cue>Pinch to go back</Cue>}>
       <Stepper label="Brightness" value={brightness}
                min={1} max={5} onChange={setBrightness} />
       <Toggle label="Notifications" checked={notify} onChange={setNotify} />
@@ -140,10 +128,7 @@ const DEMOS: Demo[] = [
     caption: "StatusDot · Meter · StatGrid",
     node: <StatsDemo />,
     code: `<GlassViewport>
-  <Screen
-    status={<StatusBar start={<StatusDot tone="live" label="GPS" />} end="87%" />}
-    cue={<Cue>3.2 km · 18:40</Cue>}
-  >
+  <Screen cue={<Cue icon={<StatusDot tone="live" label="GPS" />}>3.2 km · 18:40</Cue>}>
     <Meter value={72} max={100} label="Effort" unit="%" />
     <StatGrid items={[
       { label: "Pace", value: "8'42", unit: "/mi" },
@@ -157,7 +142,7 @@ const DEMOS: Demo[] = [
     label: "Launcher",
     caption: "Launcher app grid · GlowIcon",
     node: <LauncherDemo />,
-    code: `<Screen status={<StatusBar start="9:41" end="87%" />}>
+    code: `<Screen>
   <Launcher apps={[
     { id: "nav", label: "Navigate", tagline: "320 m",
       icon: <GlowIcon active><NavIcon /></GlowIcon>, onSelect: openNav },
@@ -173,10 +158,7 @@ const DEMOS: Demo[] = [
     caption: "Pin + Callout (world-anchored) · Reticle",
     node: <ExploreDemo />,
     code: `<GlassViewport>
-  <Screen
-    status={<StatusBar start="9:41" end={<StatusDot tone="live" label="AR" />} />}
-    cue={<Cue>Look at a pin to select</Cue>}
-  >
+  <Screen cue={<Cue icon={<StatusDot tone="live" label="AR" />}>Look at a pin to select</Cue>}>
     <Reticle />
   </Screen>
   {/* x/y are 0–100% projected from the world position */}

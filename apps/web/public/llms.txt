@@ -1,29 +1,42 @@
 # GlassKit UI
 
-> The open-source React component library for Meta Ray-Ban Display (smart-glasses) web apps. It ships the platform primitives Meta does not: a glasses-tuned D-pad focus engine, the Neural Band gesture hooks, and additive-light components for the 600×600 see-through lens.
+> The open-source React component library for Meta Ray-Ban Display (smart-glasses) web apps. It ships the platform primitives Meta does not: a glasses-tuned D-pad focus engine, Neural Band gesture hooks, and a full set of premium HUD components for the 600×600 lens.
 
-The lens is an *additive* display: pure black (`#000`) emits no light and shows the real world through it. So components are built from emitted light — luminous hairline edges, a single phosphor-green accent (`#36e27f`), and soft glow — never fills or backdrop-blur. Design rules: one task per view, 3–5 focusable elements max, tabular numerals, RTL-safe logical CSS, and never mirror world-anchored components.
+Design language (2026-06, "premium surfaces"): a **calm dark base** (`#0b0e16`→`#090b11`), **surfaces that pop** (top-lit gradient fill + 1px light edge + soft depth), and **tasteful gradient icon plates** (iOS/Meta app-icon style). One refined blue accent (`--accent: #4c8dff`), white-dominant ink, HUD-scale type, and tight glasses spacing (≈8–22px margins, ~88px touch targets, fill the screen — not a shrunk webpage). Rules: one task per view, glanceable, tabular numerals, RTL-safe logical CSS, never mirror world-anchored components, motion is ease-out + reduced-motion-safe. See `docs/design/meta-hud-language.md`.
 
 ## SDK (`@glasskit/glasses-ui`)
 
 - `GlassViewport` — the 600×600 lens surface; wrap your app in it.
 - `useDpad()` — arrow keys / Neural Band move a focus ring between `.focusable` elements; Enter activates.
 - `useDeviceOrientation()`, `useDeviceMotion()`, `useGeolocation()`, `useNeuralBand()` — W3C sensor + gesture hooks.
-- `styles.css` — the additive-lens design system, scoped under `.glass-viewport`.
+- `styles.css` — the premium-surfaces design system, scoped under `.glass-viewport`.
 
-## Spine components
+## Components
 
-Vendored shadcn-style (you own the source). Each has a live preview, props table, and usage:
+Vendored shadcn-style (you own the source). Each has a live preview, props table, and usage at `/docs/components/<slug>`.
 
-- Screen — status / stage / cue layout shell.
-- StatusBar — glanceable top status row (time, battery), RTL logical slots.
-- Readout — single-value complication with tabular numerals.
-- Cue — caption / hint line; accent tone for live states.
-- Button — D-pad-focusable action; emitted-light focus ring.
-- GlowIcon — line-icon with a two-tier luminance rule (inert white / active green).
-- List + ListRow — vertical stack of focusable rows.
-- Progress — linear (native `<progress>`) or step-of-N dots.
-- AsyncView — placeholder → loading → success / error renderer.
+- **Shell** — Screen (status / stage / cue layout).
+- **Display** — Readout, Cue, GlowIcon (line glyph or gradient plate), Heading, Badge, Meter (ring gauge), StatGrid (surface stat cards), Progress (bar / step dots).
+- **Action** — Button, List + ListRow (fills + scroll-progress), Toggle, Stepper, Segmented, Confirm, QuickReplyChips.
+- **Status / feedback** — AsyncView, StatusDot, ErrorState, Toast (static surface), **Toaster** (the dynamic toast/notification system — see below).
+- **Navigation** — Launcher (gradient app grid), Deck (paged flow).
+- **Spatial (world-anchored, never mirrored)** — DirectionArrow, Compass, Reticle, Pin, Callout.
+- **Comms** — Avatar (initials / photo), NotificationCard (avatar + sender + preview + actions).
+- **Media** — NowPlaying (art + scrubber + times).
+- **AI** — AssistantOrb (Meta-AI presence; idle / listening / thinking / speaking).
+
+## Toasts & notifications
+
+`<Toaster>` + `toast()` is the dynamic system, built on **Sonner** (themed to the lens). Mount `<Toaster>` once at your app root; it is **bottom-anchored** (below the sightline, like the real Display) and handles the queue, stacking, auto-dismiss, and enter/exit motion.
+
+```tsx
+<Toaster />                                  // once, at the root
+toast("Workout saved");
+toast("Mara Lin", { description: "On my way", icon: <Avatar name="Mara Lin" /> });
+toast.custom((id) => <NotificationCard … />);
+```
+
+`NotificationCard` is the inline/static notification surface; `Toast` is the static one-liner surface; `Toaster`/`toast()` is the live system that shows them.
 
 ## Links
 
@@ -31,7 +44,6 @@ Vendored shadcn-style (you own the source). Each has a live preview, props table
 - Components reference: https://ui.glasskit.app/docs/components
 - Playground (live customizer): https://ui.glasskit.app/playground
 - Source: https://github.com/GlassKitApp/glasskit-ui
-- Design spec (Apple-feel additive lens): https://ui.glasskit.app
 
 ## Notes
 

@@ -4,6 +4,7 @@ import { GithubIcon } from "@/components/icons";
 import { GITHUB } from "@/lib/config";
 import { LensStage } from "@/components/lens/lens-stage";
 import { HeartRateDemo } from "@/components/lens/heart-rate-demo";
+import { COMPONENT_NAV } from "@/lib/component-nav";
 
 const VALUES = [
   {
@@ -86,11 +87,11 @@ export default function Home() {
                 Open the playground <span aria-hidden>→</span>
               </a>
               <a href="/docs/components" className="btn btn-outline">
-                All 28 components
+                All {COMPONENT_NAV.length} components
               </a>
             </div>
           </div>
-          <LensStage caption="Live · Screen · StatusBar · Readout · Button · GlowIcon">
+          <LensStage caption="Live · Screen · Readout · Button · GlowIcon">
             <HeartRateDemo />
           </LensStage>
         </div>

@@ -1,6 +1,5 @@
 import { GlassViewport } from "@glasskit/glasses-ui";
 import { Screen } from "@registry/ui/screen";
-import { StatusBar } from "@registry/ui/status-bar";
 import { Launcher } from "@registry/ui/launcher";
 import { GlowIcon } from "@registry/ui/glow-icon";
 import { NavGlyph, MessageGlyph, MusicGlyph, HeartGlyph } from "./icons";
@@ -9,7 +8,7 @@ import { NavGlyph, MessageGlyph, MusicGlyph, HeartGlyph } from "./icons";
 export function LauncherDemo() {
   return (
     <GlassViewport>
-      <Screen status={<StatusBar start="9:41" end="87%" />}>
+      <Screen>
         <Launcher
           apps={[
             {

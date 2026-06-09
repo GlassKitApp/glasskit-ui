@@ -15,7 +15,8 @@ export function Screen({
   children,
   className,
 }: {
-  /** Top status row — typically a <StatusBar>. */
+  /** Optional top region (e.g. a Heading). System status is OS chrome, not an
+   * app component, so most app screens leave this empty. */
   status?: ReactNode;
   /** Bottom hint line — typically a <Cue>. */
   cue?: ReactNode;

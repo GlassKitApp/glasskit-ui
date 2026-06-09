@@ -1,23 +1,19 @@
 import { GlassViewport } from "@glasskit/glasses-ui";
 import { Screen } from "@registry/ui/screen";
-import { StatusBar } from "@registry/ui/status-bar";
 import { Cue } from "@registry/ui/cue";
 import { Meter } from "@registry/ui/meter";
 import { StatGrid } from "@registry/ui/stat-grid";
 import { StatusDot } from "@registry/ui/status-dot";
 
-/** A live workout monitor — StatusDot, Meter ring gauge, and a StatGrid cluster. */
+/** A live workout monitor — a Meter ring gauge and a StatGrid cluster, with a
+ * live StatusDot in the cue. */
 export function StatsDemo() {
   return (
     <GlassViewport>
       <Screen
-        status={
-          <StatusBar
-            start={<StatusDot tone="live" label="GPS" />}
-            end="87%"
-          />
+        cue={
+          <Cue icon={<StatusDot tone="live" label="GPS" />}>3.2 km · 18:40</Cue>
         }
-        cue={<Cue>3.2 km · 18:40</Cue>}
       >
         <Meter value={72} max={100} label="Effort" unit="%" />
         <StatGrid
