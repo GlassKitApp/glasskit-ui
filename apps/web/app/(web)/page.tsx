@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { InstallCommand } from "@/components/install-command";
 import { GithubIcon } from "@/components/icons";
@@ -47,15 +48,15 @@ export default function Home() {
             see-through display needs. Open source.
           </p>
           <div className="rise-2 mt-10 flex flex-wrap items-center justify-center gap-3">
-            <a href="/docs" className="btn btn-solid">
+            <Link href="/docs" className="btn btn-solid">
               Get started <span aria-hidden>→</span>
-            </a>
-            <a href="/docs/components" className="btn btn-outline">
+            </Link>
+            <Link href="/docs/components" className="btn btn-outline">
               Browse components
-            </a>
-            <a href="/playground" className="btn btn-outline">
+            </Link>
+            <Link href="/playground" className="btn btn-outline">
               Playground
-            </a>
+            </Link>
           </div>
           <InstallCommand
             mode="exec"
@@ -83,12 +84,12 @@ export default function Home() {
               world.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-              <a href="/playground" className="btn btn-solid">
+              <Link href="/playground" className="btn btn-solid">
                 Open the playground <span aria-hidden>→</span>
-              </a>
-              <a href="/docs/components" className="btn btn-outline">
+              </Link>
+              <Link href="/docs/components" className="btn btn-outline">
                 All {COMPONENT_NAV.length} components
-              </a>
+              </Link>
             </div>
           </div>
           <LensStage caption="Live · Screen · Readout · Button · GlowIcon">
@@ -127,9 +128,9 @@ export default function Home() {
             lock-in, no black box.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <a href="/docs" className="btn btn-solid">
+            <Link href="/docs" className="btn btn-solid">
               Get started <span aria-hidden>→</span>
-            </a>
+            </Link>
             <a href={GITHUB} className="btn btn-outline">
               <GithubIcon className="size-4" /> Star on GitHub
             </a>
@@ -141,12 +142,12 @@ export default function Home() {
         <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-3 px-6 py-8 lg:px-10 sm:flex-row">
           <span className="mono-label">GlassKit UI · open source</span>
           <div className="flex gap-6">
-            <a href="/docs" className="mono-label hover:text-ink">
+            <Link href="/docs" className="mono-label hover:text-ink">
               Docs
-            </a>
-            <a href="/playground" className="mono-label hover:text-ink">
+            </Link>
+            <Link href="/playground" className="mono-label hover:text-ink">
               Playground
-            </a>
+            </Link>
             <a href={GITHUB} className="mono-label hover:text-ink">
               GitHub
             </a>

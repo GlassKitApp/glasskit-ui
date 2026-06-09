@@ -31,12 +31,12 @@ export const metadata: Metadata = {
   },
   description:
     "The open-source React component library for Meta Ray-Ban Display apps: a glasses-tuned focus engine, the Neural Band gesture vocabulary, and additive components. The building blocks Meta does not ship.",
-  metadataBase: new URL("https://ui.glasskit.app"),
+  metadataBase: new URL("https://glasskit.app/ui"),
   openGraph: {
     title: "GlassKit UI — building blocks for Meta Ray-Ban Display",
     description:
       "The open-source React component library for Meta Ray-Ban Display apps.",
-    url: "https://ui.glasskit.app",
+    url: "https://glasskit.app/ui",
     siteName: "GlassKit UI",
     type: "website",
   },

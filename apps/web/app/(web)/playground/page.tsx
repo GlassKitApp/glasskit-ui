@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { PlaygroundClient } from "@/components/playground-client";
 
@@ -27,12 +28,12 @@ export default function Playground() {
           <PlaygroundClient />
 
           <div className="mt-16 flex justify-center gap-3">
-            <a href="/docs" className="btn btn-solid">
+            <Link href="/docs" className="btn btn-solid">
               Get started <span aria-hidden>→</span>
-            </a>
-            <a href="/" className="btn btn-outline">
+            </Link>
+            <Link href="/" className="btn btn-outline">
               Back home
-            </a>
+            </Link>
           </div>
         </div>
       </main>

@@ -10,11 +10,19 @@ import { createMDX } from "fumadocs-mdx/next";
  * `searchParams`, `cookies`, `headers`) are async in Next 16 regardless — always
  * `await` them.
  *
- * No `basePath`: glasskit-ui is served as the `/ui` zone of glasskit.app via
- * Vercel Microfrontends (which doesn't support basePath) — routes stay
- * root-relative and the umbrella maps the prefix at cutover.
+ * `basePath: '/ui'`: glasskit-ui is served as the `/ui` zone of glasskit.app
+ * via Next.js Multi-Zones. The parent `glasskit` app rewrites `/ui` + `/ui/:path*`
+ * to this deployment, and `basePath` makes every route, `next/link`, and
+ * `_next/*` asset resolve under `/ui` so they don't collide with the parent.
+ * (Vercel Microfrontends was considered but rejected — it forbids `basePath`
+ * and locks routing to Vercel; Multi-Zones is host-portable.)
+ *
+ * NOTE: `basePath` is NOT applied to `next/image` src, raw `public/` paths, or
+ * metadata URLs — those are prefixed manually (see `BASE_PATH`/`SITE` in
+ * `lib/config.ts`). Keep this `/ui` in sync with the parent's rewrite + `SITE`.
  */
 const nextConfig: NextConfig = {
+  basePath: "/ui",
   // The glasses SDK ships pre-built ESM; no transpilePackages needed.
 };
 

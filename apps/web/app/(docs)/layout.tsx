@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   title: { default: "GlassKit UI — Docs", template: "%s — GlassKit UI" },
   description:
     "Documentation for GlassKit UI — the React component library for Meta Ray-Ban Display apps.",
-  metadataBase: new URL("https://ui.glasskit.app"),
+  metadataBase: new URL("https://glasskit.app/ui"),
 };
 
 export default function DocsRootLayout({
