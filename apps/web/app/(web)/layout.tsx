@@ -4,7 +4,15 @@ import {
   Hanken_Grotesk,
   JetBrains_Mono,
 } from "next/font/google";
+import Script from "next/script";
 import "../globals.css";
+
+// No-flash theme init — runs before paint, outside React's tree. Reads the
+// SAME `theme` localStorage key the parent glasskit app uses (shared across the
+// glasskit.app ↔ /ui zones, same origin) and applies `.dark` accordingly.
+// Default is light; only adds `dark` when the user chose it.
+const THEME_INIT =
+  "try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}";
 
 // The GlassKit brand type system: Bricolage Grotesque (display), Hanken
 // Grotesk (body), JetBrains Mono (instrument-grade technical labels).
@@ -52,6 +60,9 @@ export default function WebLayout({
       suppressHydrationWarning
     >
       <body>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {THEME_INIT}
+        </Script>
         {children}
         <div aria-hidden className="grain" />
       </body>

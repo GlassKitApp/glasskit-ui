@@ -1,4 +1,5 @@
 import { BASE_PATH } from "@/lib/config";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 /**
  * Umbrella footer — replicated from the parent glasskit app's
@@ -6,11 +7,11 @@ import { BASE_PATH } from "@/lib/config";
  * rest of glasskit.app (same reasoning as ProductNav — the navbar/footer are a
  * design contract this zone replicates).
  *
- * Dark FOV palette via Tailwind arbitrary values (this app lacks those tokens;
- * green reuses the `accent` token). Product/About/Legal links are cross-zone
+ * Uses the site theme tokens (bg/ink/line/accent), which flip light↔dark with
+ * the shared `theme` toggle. Product/About/Legal links are cross-zone
  * (parent-owned pages), so plain root-relative `<a>` that resolve against the
- * shared glasskit.app origin. The parent's ThemeToggle is omitted — this zone's
- * marketing surface is light-only.
+ * shared glasskit.app origin. The ThemeToggle in the bottom bar writes the same
+ * `theme` key the parent's footer toggle uses.
  *
  * TODO(clerk): fold into the same shared package as ProductNav when extracted.
  */
@@ -50,13 +51,13 @@ const COLS: { title: string; links: FooterLink[] }[] = [
 ];
 
 const colTitle =
-  "font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-[#80858e]";
+  "font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-ink-3";
 const colLink =
-  "text-[13px] text-[#80858e] transition-colors hover:text-[#f2f3f5]";
+  "text-[13px] text-ink-3 transition-colors hover:text-ink";
 
 export function ProductFooter() {
   return (
-    <footer className="bg-[#08090b]">
+    <footer className="bg-bg">
       <div className="mx-auto max-w-[1280px] px-5 py-16 sm:px-7">
         <div className="grid gap-12 md:grid-cols-[2fr_3fr]">
           <div>
@@ -67,14 +68,14 @@ export function ProductFooter() {
                 alt=""
                 className="size-6 rounded-[5px]"
               />
-              <span className="font-display text-[15px] font-bold tracking-[-0.02em] text-[#f2f3f5]">
+              <span className="font-display text-[15px] font-bold tracking-[-0.02em] text-ink">
                 GlassKit
               </span>
             </div>
-            <p className="mt-5 max-w-xs text-[14px] leading-relaxed text-[#80858e]">
+            <p className="mt-5 max-w-xs text-[14px] leading-relaxed text-ink-3">
               Everything you need to build glasses apps.
             </p>
-            <div className="mt-6 flex items-center gap-2 text-[13px] text-[#80858e]">
+            <div className="mt-6 flex items-center gap-2 text-[13px] text-ink-3">
               <span>Built by</span>
               <a
                 href={X_URL}
@@ -88,7 +89,7 @@ export function ProductFooter() {
                   alt="Jeries Nasrawi"
                   className="size-6 rounded-full"
                 />
-                <span className="font-medium text-[#f2f3f5] transition-colors group-hover:text-accent">
+                <span className="font-medium text-ink transition-colors group-hover:text-accent">
                   Jeries Nasrawi
                 </span>
               </a>
@@ -119,8 +120,11 @@ export function ProductFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-[#1f2125] pt-6 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-[#80858e] sm:flex-row sm:items-center">
-          <span>© 2026 GlassKit · All rights reserved</span>
+        <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-line pt-6 sm:flex-row sm:items-center">
+          <span className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-ink-3">
+            © 2026 GlassKit · All rights reserved
+          </span>
+          <ThemeToggle />
         </div>
       </div>
     </footer>

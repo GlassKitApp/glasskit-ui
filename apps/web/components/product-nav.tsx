@@ -5,12 +5,8 @@ import { BASE_PATH } from "@/lib/config";
  * `components/landing/header.tsx`, which documents itself as a "design contract
  * this repo must replicate" (the navbar is NOT shared code yet).
  *
- * Rendered in the parent's dark FOV palette so crossing glasskit.app ↔
- * glasskit.app/ui feels continuous, even though this zone's page body is the
- * light blueprint theme. glasskit-ui doesn't define the FOV color tokens, so
- * those hexes are Tailwind arbitrary values (the green active state reuses this
- * app's existing `accent` token); they get proper tokens when this is extracted
- * to a shared package.
+ * Uses the site theme tokens (bg/ink/line/accent), which flip light↔dark with
+ * the shared `theme` toggle — so the band matches the parent in BOTH modes.
  *
  * Cross-zone links (brand → umbrella home, Studio, Stack) are plain root-relative
  * `<a>` so they resolve against the shared glasskit.app origin and hard-navigate
@@ -41,7 +37,7 @@ const XIcon = () => (
 
 export function ProductNav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[#1f2125] bg-[#08090b]/[0.88] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-line bg-bg/85 backdrop-blur-xl">
       <div className="mx-auto flex h-14 max-w-[1280px] items-center gap-3 px-5 sm:px-7">
         {/* Brand → umbrella home (cross-zone) */}
         <a
@@ -55,31 +51,25 @@ export function ProductNav() {
             alt=""
             className="size-6 rounded-[5px]"
           />
-          <span className="font-display text-[15px] font-bold tracking-[-0.02em] text-[#f2f3f5]">
+          <span className="font-display text-[15px] font-bold tracking-[-0.02em] text-ink">
             GlassKit
           </span>
         </a>
 
         {/* Product pills — UI is this zone (active); Studio/Stack are cross-zone */}
         <nav className="hidden flex-1 justify-center md:flex">
-          <div className="flex items-center gap-1 rounded-full border border-[#1f2125] bg-[#0d0e11]/60 p-1">
+          <div className="flex items-center gap-1 rounded-full border border-line bg-bg-2/60 p-1">
             <a
               href="/ui"
               aria-current="page"
-              className={`${pill} bg-accent/[0.12] text-[#f2f3f5]`}
+              className={`${pill} bg-accent/[0.12] text-ink`}
             >
               UI
             </a>
-            <a
-              href="/studio"
-              className={`${pill} text-[#80858e] hover:text-[#f2f3f5]`}
-            >
+            <a href="/studio" className={`${pill} text-ink-3 hover:text-ink`}>
               Studio
             </a>
-            <a
-              href="/stack"
-              className={`${pill} text-[#80858e] hover:text-[#f2f3f5]`}
-            >
+            <a href="/stack" className={`${pill} text-ink-3 hover:text-ink`}>
               Stack
             </a>
           </div>
@@ -92,7 +82,7 @@ export function ProductNav() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Discord"
-            className="grid size-9 place-items-center rounded-full text-[#80858e] transition-colors hover:bg-[#0d0e11] hover:text-[#f2f3f5]"
+            className="grid size-9 place-items-center rounded-full text-ink-3 transition-colors hover:bg-bg-2 hover:text-ink"
           >
             <DiscordIcon />
           </a>
@@ -101,7 +91,7 @@ export function ProductNav() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="X (Twitter)"
-            className="grid size-9 place-items-center rounded-full text-[#80858e] transition-colors hover:bg-[#0d0e11] hover:text-[#f2f3f5]"
+            className="grid size-9 place-items-center rounded-full text-ink-3 transition-colors hover:bg-bg-2 hover:text-ink"
           >
             <XIcon />
           </a>

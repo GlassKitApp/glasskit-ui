@@ -97,6 +97,12 @@
  * The components are the dark "building blocks" you snap into the grid.
  * ─────────────────────────────────────────────────────────────── */
 
+/* Dark mode is class-based (`.dark` on <html>), toggled by the footer
+ * ThemeToggle + the no-flash script in the (web) layout — same `theme`
+ * localStorage key + `.dark` class as the parent glasskit app, so the choice
+ * is shared across the glasskit.app ↔ /ui zones (same origin). */
+@custom-variant dark (&:is(.dark *));
+
 @theme inline {
   --color-bg: var(--bg);
   --color-bg-2: var(--bg-2);
@@ -105,6 +111,7 @@
   --color-ink-3: var(--ink-3);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
+  --color-accent-fg: var(--accent-fg);
   --color-line: var(--line);
   --color-line-2: var(--line-2);
   --color-grid: var(--grid);
@@ -116,21 +123,37 @@
   --font-mono: var(--font-jetbrains);
 }
 
-/* Dark "Field of View" palette — matched to the parent glasskit app's
- * `:root.fov` so glasskit.app/ui shares one canvas (true-near-black, emitted
- * light, phosphor-green). Token NAMES are kept; only the values flip from the
- * old light "blueprint" theme to dark. */
+/* Site theme — light + dark, matched to the parent glasskit app's two-mode
+ * marketing palette (`:root.fov` light / `:root.fov.dark` dark). Default is
+ * LIGHT (warm cream); the footer ThemeToggle adds `.dark` on <html>. Token
+ * NAMES are kept so the pages, nav, and footer flip automatically. */
 :root {
-  --bg: #08090b; /* canvas — true near-black (parent --background) */
-  --bg-2: #0d0e11; /* faint hover / panel (parent --surface-1) */
-  --grid: #1f2125; /* grid lines — drawn in hairlines now (parent --rule) */
-  --line: #1f2125; /* hairline border (parent --rule) */
-  --line-2: #303339; /* stronger hairline (parent --rule-strong) */
-  --ink: #f2f3f5; /* primary emitted light (parent --foreground) */
-  --ink-2: #b7bbc2; /* running body copy (parent --ink-body) */
-  --ink-3: #80858e; /* captions / telemetry (parent --muted-foreground) */
-  --accent: #36e27f; /* GlassKit green (parent --primary) */
-  --accent-ink: #6df3a6; /* bright green — legible as text/focus on black */
+  --bg: #f7f7f4; /* warm cream (parent --background) */
+  --bg-2: #fafaf7; /* subtle alt panel (parent --surface-1) */
+  --grid: #e6e3da; /* grid hairlines (parent --rule) */
+  --line: #e6e3da; /* hairline border */
+  --line-2: #d2cec3; /* stronger hairline (parent --rule-strong) */
+  --ink: #1b1a14; /* near-black ink (parent --foreground) */
+  --ink-2: #57554d; /* running body copy (parent --ink-body) */
+  --ink-3: #86837a; /* captions (parent --muted-foreground) */
+  --accent: #0b7e43; /* forest green, readable on cream (parent --primary) */
+  --accent-ink: #0e9a52; /* brighter green (parent --primary-bright) */
+  --accent-fg: #ffffff; /* text on accent fills (parent --primary-foreground) */
+}
+
+/* DARK — the "Field of View" additive-display look (parent :root.fov.dark) */
+.dark {
+  --bg: #08090b; /* true near-black canvas */
+  --bg-2: #0d0e11;
+  --grid: #1f2125;
+  --line: #1f2125;
+  --line-2: #303339;
+  --ink: #f2f3f5; /* primary emitted light */
+  --ink-2: #b7bbc2;
+  --ink-3: #80858e;
+  --accent: #36e27f; /* phosphor green */
+  --accent-ink: #6df3a6;
+  --accent-fg: #04210f; /* dark green-black on phosphor fills */
 }
 
 @layer base {
@@ -230,7 +253,7 @@
 }
 .btn-solid {
   background: var(--accent);
-  color: #04210f; /* dark green-black — reads on phosphor green */
+  color: var(--accent-fg);
 }
 .btn-solid:hover {
   background: var(--accent-ink);
@@ -257,6 +280,11 @@
   opacity: 0.42;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* Grain gives the dark canvas depth; on the light cream canvas it only dirties
+ * the page — hide it in light mode (matches the parent). */
+:root:not(.dark) .grain {
+  display: none;
 }
 
 @keyframes rise {
