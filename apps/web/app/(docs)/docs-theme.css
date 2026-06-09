@@ -17,6 +17,83 @@
   --font-display: var(--font-bricolage);
 }
 
+/* ── Docs theme — ported VERBATIM from the sibling `glasskit` app's
+ * globals.css so /docs reads identically across both repos. Fumadocs maps
+ * --color-fd-* from these shadcn tokens.
+ * ─────────────────────────────────────────────────────────────────── */
+
+/* Docs theme — light (default) */
+:root {
+  --background: #ffffff;
+  --foreground: #0b0c0e;
+
+  --card: #ffffff;
+  --card-foreground: #0b0c0e;
+  --popover: #ffffff;
+  --popover-foreground: #0b0c0e;
+
+  --primary: #0b7e43; /* GlassKit green, readable on white */
+  --primary-foreground: #ffffff;
+
+  --secondary: #f4f4f2;
+  --secondary-foreground: #0b0c0e;
+  --muted: #f4f4f2;
+  --muted-foreground: #63635e;
+  --accent: #f1f1ee;
+  --accent-foreground: #0b0c0e;
+
+  --destructive: #c0392b;
+  --border: #e6e5e0;
+  --input: #e6e5e0;
+  --ring: #0b7e43;
+
+  --radius: 0.5rem;
+
+  --sidebar: #fafaf8;
+  --sidebar-foreground: #0b0c0e;
+  --sidebar-primary: #0b7e43;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1f1ee;
+  --sidebar-accent-foreground: #0b0c0e;
+  --sidebar-border: #e6e5e0;
+  --sidebar-ring: #0b7e43;
+}
+
+/* Docs theme — dark (applied when Fumadocs toggles .dark) */
+.dark {
+  --background: #0c0d0f;
+  --foreground: #f2f3f5;
+
+  --card: #141519;
+  --card-foreground: #f2f3f5;
+  --popover: #141519;
+  --popover-foreground: #f2f3f5;
+
+  --primary: #36e27f;
+  --primary-foreground: #04210f;
+
+  --secondary: #1c1d22;
+  --secondary-foreground: #f2f3f5;
+  --muted: #1c1d22;
+  --muted-foreground: #9a9ea7;
+  --accent: #22242a;
+  --accent-foreground: #f2f3f5;
+
+  --destructive: #f0533d;
+  --border: #26282d;
+  --input: #26282d;
+  --ring: #36e27f;
+
+  --sidebar: #101113;
+  --sidebar-foreground: #f2f3f5;
+  --sidebar-primary: #36e27f;
+  --sidebar-primary-foreground: #04210f;
+  --sidebar-accent: #1c1d22;
+  --sidebar-accent-foreground: #f2f3f5;
+  --sidebar-border: #26282d;
+  --sidebar-ring: #36e27f;
+}
+
 /* Brand display type (used for the GlassKit wordmark in the docs). */
 .font-display {
   font-family: var(--font-display);
