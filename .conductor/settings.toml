@@ -1,0 +1,5 @@
+"$schema" = "https://conductor.build/schemas/settings.repo.schema.json"
+
+[scripts]
+run = "pnpm run dev"
+setup = "pnpm install && pnpm build"
