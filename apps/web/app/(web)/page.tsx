@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { SiteHeader } from "@/components/site-header";
+import { ProductNav } from "@/components/product-nav";
+import { ProductFooter } from "@/components/product-footer";
 import { InstallCommand } from "@/components/install-command";
 import { GithubIcon } from "@/components/icons";
 import { GITHUB } from "@/lib/config";
@@ -28,7 +29,7 @@ const VALUES = [
 export default function Home() {
   return (
     <>
-      <SiteHeader />
+      <ProductNav />
 
       {/* HERO — centered, spacious, premium */}
       <section className="blueprint border-b border-line-2">
@@ -138,22 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-bg">
-        <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-3 px-6 py-8 lg:px-10 sm:flex-row">
-          <span className="mono-label">GlassKit UI · open source</span>
-          <div className="flex gap-6">
-            <Link href="/docs" className="mono-label hover:text-ink">
-              Docs
-            </Link>
-            <Link href="/playground" className="mono-label hover:text-ink">
-              Playground
-            </Link>
-            <a href={GITHUB} className="mono-label hover:text-ink">
-              GitHub
-            </a>
-          </div>
-        </div>
-      </footer>
+      <ProductFooter />
     </>
   );
 }

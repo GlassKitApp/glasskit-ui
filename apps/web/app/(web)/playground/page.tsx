@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SiteHeader } from "@/components/site-header";
+import { ProductNav } from "@/components/product-nav";
+import { ProductFooter } from "@/components/product-footer";
 import { PlaygroundClient } from "@/components/playground-client";
 
 export const metadata: Metadata = { title: "Playground" };
@@ -8,7 +9,7 @@ export const metadata: Metadata = { title: "Playground" };
 export default function Playground() {
   return (
     <>
-      <SiteHeader />
+      <ProductNav />
       <main className="blueprint min-h-[calc(100dvh-3.5rem)] border-t border-line-2">
         <div className="mx-auto max-w-5xl px-6 py-16">
           <div className="text-center">
@@ -37,6 +38,7 @@ export default function Playground() {
           </div>
         </div>
       </main>
+      <ProductFooter />
     </>
   );
 }
