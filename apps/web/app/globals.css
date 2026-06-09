@@ -116,17 +116,21 @@
   --font-mono: var(--font-jetbrains);
 }
 
+/* Dark "Field of View" palette — matched to the parent glasskit app's
+ * `:root.fov` so glasskit.app/ui shares one canvas (true-near-black, emitted
+ * light, phosphor-green). Token NAMES are kept; only the values flip from the
+ * old light "blueprint" theme to dark. */
 :root {
-  --bg: #ffffff;
-  --bg-2: #f5f6f8; /* faint hover / panel */
-  --grid: #e8e9ee; /* blueprint grid lines (subtle) */
-  --line: #e2e4e8; /* light hard border */
-  --line-2: #cdd1d6; /* stronger hard border */
-  --ink: #14161a;
-  --ink-2: #565b63;
-  --ink-3: #888d96;
-  --accent: #36e27f; /* GlassKit green */
-  --accent-ink: #07823f; /* green that passes contrast as text on white */
+  --bg: #08090b; /* canvas — true near-black (parent --background) */
+  --bg-2: #0d0e11; /* faint hover / panel (parent --surface-1) */
+  --grid: #1f2125; /* grid lines — drawn in hairlines now (parent --rule) */
+  --line: #1f2125; /* hairline border (parent --rule) */
+  --line-2: #303339; /* stronger hairline (parent --rule-strong) */
+  --ink: #f2f3f5; /* primary emitted light (parent --foreground) */
+  --ink-2: #b7bbc2; /* running body copy (parent --ink-body) */
+  --ink-3: #80858e; /* captions / telemetry (parent --muted-foreground) */
+  --accent: #36e27f; /* GlassKit green (parent --primary) */
+  --accent-ink: #6df3a6; /* bright green — legible as text/focus on black */
 }
 
 @layer base {
@@ -225,19 +229,34 @@
   @apply inline-flex items-center gap-2 px-5 py-3 text-[15px] font-medium transition-colors;
 }
 .btn-solid {
-  background: var(--ink);
-  color: var(--bg);
+  background: var(--accent);
+  color: #04210f; /* dark green-black — reads on phosphor green */
 }
 .btn-solid:hover {
-  background: #000;
+  background: var(--accent-ink);
 }
 .btn-outline {
-  border: 1px solid var(--ink);
+  border: 1px solid var(--line-2);
   color: var(--ink);
-  background: var(--bg);
+  background: transparent;
 }
 .btn-outline:hover {
-  background: color-mix(in oklab, var(--ink) 5%, transparent);
+  background: var(--bg-2);
+  border-color: color-mix(in oklab, var(--ink) 24%, transparent);
+}
+
+/* Film grain — gives the near-black canvas depth instead of dead flatness.
+ * Replicated from the parent glasskit app so the texture matches. Applied once,
+ * fixed, over the whole (web) surface via a <div className="grain"> in the
+ * layout. */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.42;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 @keyframes rise {

@@ -39,7 +39,7 @@ export default function Home() {
             The component library
             <br />
             for the{" "}
-            <span className="text-glow-accent bg-gradient-to-r from-[#0a7d42] to-[#37d97a] bg-clip-text text-transparent">
+            <span className="text-glow-accent bg-gradient-to-r from-[#36e27f] to-[#6df3a6] bg-clip-text text-transparent">
               glasses.
             </span>
           </h1>

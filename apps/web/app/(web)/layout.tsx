@@ -51,7 +51,10 @@ export default function WebLayout({
       className={`${bricolage.variable} ${hanken.variable} ${jetbrains.variable}`}
       suppressHydrationWarning
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <div aria-hidden className="grain" />
+      </body>
     </html>
   );
 }
