@@ -229,22 +229,17 @@
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  opacity: 0.8;
   background-image:
     linear-gradient(to right, var(--grid) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
-  background-size: 56px 56px;
+  background-size: 64px 64px;
   -webkit-mask-image: radial-gradient(
-    135% 105% at 20% 4%,
-    #000 0%,
-    #000 26%,
-    transparent 72%
+    80% 70% at 50% 22%,
+    #000,
+    transparent 78%
   );
-  mask-image: radial-gradient(
-    135% 105% at 20% 4%,
-    #000 0%,
-    #000 26%,
-    transparent 72%
-  );
+  mask-image: radial-gradient(80% 70% at 50% 22%, #000, transparent 78%);
 }
 
 /* Hard-edged buttons (sharp corners). */
