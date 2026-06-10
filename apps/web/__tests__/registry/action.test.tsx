@@ -5,6 +5,7 @@ import { Stepper } from "@registry/ui/stepper";
 import { Segmented } from "@registry/ui/segmented";
 import { Confirm } from "@registry/ui/confirm";
 import { Badge } from "@registry/ui/badge";
+import { Slider } from "@registry/ui/slider";
 
 describe("Toggle", () => {
   it("is a focusable switch reflecting checked", () => {
@@ -27,7 +28,14 @@ describe("Stepper", () => {
   it("increments and decrements by step, clamped to bounds", () => {
     const onChange = vi.fn();
     render(
-      <Stepper label="Brightness" value={3} min={1} max={5} step={1} onChange={onChange} />,
+      <Stepper
+        label="Brightness"
+        value={3}
+        min={1}
+        max={5}
+        step={1}
+        onChange={onChange}
+      />,
     );
     screen.getByRole("button", { name: /Increase/ }).click();
     screen.getByRole("button", { name: /Decrease/ }).click();
@@ -113,6 +121,22 @@ describe("read-only (no onChange)", () => {
     const sw = screen.getByRole("switch", { name: "X" });
     expect(() => sw.click()).not.toThrow();
     expect(sw.getAttribute("aria-checked")).toBe("true");
+  });
+
+  it("removes a read-only Slider from the D-pad focus order", () => {
+    render(<Slider value={60} label="Volume" />);
+    const input = screen.getByLabelText("Volume");
+    expect(input.classList.contains("focusable")).toBe(false);
+    expect(input.getAttribute("tabindex")).toBe("-1");
+    expect(input.getAttribute("aria-readonly")).toBe("true");
+  });
+
+  it("keeps an interactive Slider focusable", () => {
+    render(<Slider value={60} label="Volume" onChange={() => {}} />);
+    const input = screen.getByLabelText("Volume");
+    expect(input.classList.contains("focusable")).toBe(true);
+    expect(input.hasAttribute("tabindex")).toBe(false);
+    expect(input.hasAttribute("aria-readonly")).toBe(false);
   });
 });
 

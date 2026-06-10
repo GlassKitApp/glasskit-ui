@@ -34,6 +34,7 @@ export function Meter({
       aria-valuenow={clamped}
       aria-valuemin={0}
       aria-valuemax={max}
+      aria-label={typeof label === "string" ? label : undefined}
     >
       <svg viewBox="0 0 100 100" className="gk-meter__dial">
         <circle cx="50" cy="50" r={R} className="gk-meter__track" />
@@ -50,9 +51,7 @@ export function Meter({
       <span className="gk-meter__center">
         <span className="gk-meter__value t-readout">
           {value}
-          {unit != null ? (
-            <span className="gk-meter__unit">{unit}</span>
-          ) : null}
+          {unit != null ? <span className="gk-meter__unit">{unit}</span> : null}
         </span>
         {label != null ? (
           <span className="gk-meter__label t-caption">{label}</span>

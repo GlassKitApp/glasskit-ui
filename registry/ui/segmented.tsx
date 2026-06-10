@@ -8,8 +8,9 @@ export type SegmentedOption<T extends string | number> = {
 
 /**
  * <Segmented> — pick one of a few options (a watchOS-style segmented control).
- * Each segment is a D-pad-focusable radio; the selected one glows green.
- * Controlled: pass `value` + `onChange`. Keep it to 2–4 options on the lens.
+ * Each segment is a D-pad-focusable radio; the selected one lifts with the
+ * accent. Controlled: pass `value` + `onChange`. Keep it to 2–4 options on
+ * the lens.
  */
 export function Segmented<T extends string | number>({
   options,

@@ -33,9 +33,7 @@ export function NowPlaying({
   return (
     <div className={cn("gk-nowplaying", className)}>
       <div className="gk-nowplaying__top">
-        {art != null ? (
-          <span className="gk-nowplaying__art">{art}</span>
-        ) : null}
+        {art != null ? <span className="gk-nowplaying__art">{art}</span> : null}
         <div className="gk-nowplaying__meta">
           <span className="gk-nowplaying__title t-readout">{title}</span>
           {artist != null ? (
@@ -47,6 +45,7 @@ export function NowPlaying({
         className="gk-nowplaying__bar gk-progress__el"
         value={pct}
         max={100}
+        aria-label="Playback position"
       />
       {elapsed != null || remaining != null ? (
         <div className="gk-nowplaying__times t-caption">

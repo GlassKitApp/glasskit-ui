@@ -27,15 +27,19 @@ export function Progress({
   const clamped = Math.max(0, Math.min(value, max));
 
   if (variant === "step") {
+    // Steps must be a sane integer count — a fractional or negative max
+    // would make Array.from misrender the dots.
+    const steps = Math.max(0, Math.floor(max));
     return (
       <div
         className={cn("gk-steps", className)}
         role="progressbar"
         aria-valuenow={clamped}
         aria-valuemin={0}
-        aria-valuemax={max}
+        aria-valuemax={steps}
+        aria-label={typeof label === "string" ? label : undefined}
       >
-        {Array.from({ length: max }, (_, i) => (
+        {Array.from({ length: steps }, (_, i) => (
           <span
             key={i}
             className={cn("gk-step", i < clamped && "gk-step--on")}
@@ -47,7 +51,12 @@ export function Progress({
 
   return (
     <div className={cn("gk-progress", className)}>
-      <progress className="gk-progress__el" value={clamped} max={max} />
+      <progress
+        className="gk-progress__el"
+        value={clamped}
+        max={max}
+        aria-label={typeof label === "string" ? label : undefined}
+      />
       {label != null ? (
         <div className="gk-progress__meta t-caption">{label}</div>
       ) : null}

@@ -7,6 +7,10 @@ export type TabItem = { id: string; label: ReactNode };
  * <Tabs> — a top-level tab strip (the home's quick-controls | home | apps
  * pager). Each tab is D-pad-focusable; the active one gets an accent underline.
  * Controlled via `value` + `onChange`. RTL-safe (logical layout).
+ *
+ * Deliberate ARIA deviation: no `aria-controls`/`tabpanel` wiring — on the
+ * lens a tab switch swaps the whole 600×600 screen, so there is no co-rendered
+ * panel to point at.
  */
 export function Tabs({
   items,
