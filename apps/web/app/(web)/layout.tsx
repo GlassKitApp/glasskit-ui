@@ -5,6 +5,8 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import Script from "next/script";
+import { SITE } from "@/lib/config";
+import { SEO } from "@/lib/seo";
 import "../globals.css";
 
 // No-flash theme init — runs before paint, outside React's tree. Reads the
@@ -32,21 +34,50 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
+const TITLE = `${SEO.name} — ${SEO.tagline}`;
+
 export const metadata: Metadata = {
-  title: {
-    default: "GlassKit UI — building blocks for Meta Ray-Ban Display",
-    template: "%s — GlassKit UI",
-  },
-  description:
-    "The open-source React component library for Meta Ray-Ban Display apps: a glasses-tuned focus engine, the Neural Band gesture vocabulary, and additive components. The building blocks Meta does not ship.",
-  metadataBase: new URL("https://glasskit.app/ui"),
+  title: { default: TITLE, template: `%s — ${SEO.name}` },
+  description: SEO.description,
+  // metadataBase MUST include the /ui basePath: Next composes file-based image
+  // routes (opengraph-image) from metadataBase + the *bare* route path (no
+  // basePath), so an origin-only base would drop /ui from og:image. With SITE,
+  // Next resolves the image path relative to the end of the base → correct
+  // /ui/opengraph-image. Canonical + OG URLs are absolute SITE strings, so the
+  // base is moot for them.
+  metadataBase: new URL(SITE),
+  applicationName: SEO.name,
+  authors: [{ name: SEO.author, url: "https://x.com/JarJarMadeIt" }],
+  creator: SEO.author,
+  publisher: "GlassKit",
+  keywords: [...SEO.keywords],
+  category: "technology",
+  alternates: { canonical: SITE },
   openGraph: {
-    title: "GlassKit UI — building blocks for Meta Ray-Ban Display",
-    description:
-      "The open-source React component library for Meta Ray-Ban Display apps.",
-    url: "https://glasskit.app/ui",
-    siteName: "GlassKit UI",
     type: "website",
+    siteName: SEO.name,
+    title: TITLE,
+    description: SEO.description,
+    url: SITE,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: SEO.shortDescription,
+    creator: SEO.twitterHandle,
+    site: SEO.twitterHandle,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 

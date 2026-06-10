@@ -40,9 +40,9 @@ toast.custom((id) => <NotificationCard … />);
 
 ## Links
 
-- Docs / getting started: https://ui.glasskit.app/docs
-- Components reference: https://ui.glasskit.app/docs/components
-- Playground (live customizer): https://ui.glasskit.app/playground
+- Docs / getting started: https://glasskit.app/ui/docs
+- Components reference: https://glasskit.app/ui/docs/components
+- Playground (live customizer): https://glasskit.app/ui/playground
 - Source: https://github.com/GlassKitApp/glasskit-ui
 
 ## Notes

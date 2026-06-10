@@ -14,6 +14,12 @@ export const X_URL = "https://x.com/JarJarMadeIt";
  *  (`next/image` src, plain `<img>`) which Next does NOT auto-prefix. */
 export const BASE_PATH = "/ui";
 
+/** Umbrella origin (the shared domain both zones live on). `metadataBase` is set
+ *  to this ORIGIN — not `SITE` — so Next composes auto-generated metadata image
+ *  routes (which already carry the `/ui` basePath) without double-prefixing. */
+export const ORIGIN = "https://glasskit.app";
+
 /** Canonical public URL of this zone, INCLUDING the `/ui` base path — used for
- *  absolute links like the QR deep link to a live preview. */
-export const SITE = `https://glasskit.app${BASE_PATH}`;
+ *  absolute links like the QR deep link to a live preview, and for every
+ *  canonical / OG URL so they resolve unambiguously under basePath. */
+export const SITE = `${ORIGIN}${BASE_PATH}`;
