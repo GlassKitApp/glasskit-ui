@@ -31,8 +31,10 @@ export default function Home() {
     <>
       <ProductNav />
 
-      {/* HERO — centered, spacious, premium */}
-      <section className="blueprint border-b border-line-2">
+      {/* HERO — centered, spacious, premium. Bleeds up under the transparent
+          nav (-mt-14 = nav height) so the blueprint grid shows behind it, like
+          the parent; pt-14 puts the content back below the nav. */}
+      <section className="blueprint -mt-14 border-b border-line-2 pt-14">
         <div className="mx-auto flex max-w-7xl flex-col items-center px-6 py-24 text-center lg:py-32">
           <h1 className="rise font-display text-[clamp(2.75rem,7vw,5.5rem)] leading-[0.95]">
             The component library

@@ -10,7 +10,9 @@ export default function Playground() {
   return (
     <>
       <ProductNav />
-      <main className="blueprint min-h-[calc(100dvh-3.5rem)] border-t border-line-2">
+      {/* Bleeds up under the transparent nav (-mt-14 = nav height) so the grid
+          shows behind it; pt-14 keeps content below the nav. */}
+      <main className="blueprint -mt-14 min-h-dvh pt-14">
         <div className="mx-auto max-w-5xl px-6 py-16">
           <div className="text-center">
             <p className="mono-label">Playground</p>
