@@ -1,5 +1,6 @@
-import { BASE_PATH } from "@/lib/config";
+import { BASE_PATH, DISCORD_URL, GITHUB_ORG, X_URL } from "@/lib/config";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { BrandLockup } from "@/components/brand-lockup";
 
 /**
  * Umbrella footer — replicated from the parent glasskit app's
@@ -15,10 +16,6 @@ import { ThemeToggle } from "@/components/theme-toggle";
  *
  * TODO(clerk): fold into the same shared package as ProductNav when extracted.
  */
-
-const GITHUB_ORG = "https://github.com/GlassKitApp";
-const DISCORD_URL = "https://discord.gg/DRe5SmSjyE";
-const X_URL = "https://x.com/JarJarMadeIt";
 
 type FooterLink = { label: string; href: string; external?: boolean };
 
@@ -62,15 +59,7 @@ export function ProductFooter() {
         <div className="grid gap-12 md:grid-cols-[2fr_3fr]">
           <div>
             <div className="flex items-center gap-2.5">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`${BASE_PATH}/avatar.png`}
-                alt=""
-                className="size-6 rounded-[5px]"
-              />
-              <span className="font-display text-[15px] font-bold tracking-[-0.02em] text-ink">
-                GlassKit
-              </span>
+              <BrandLockup />
             </div>
             <p className="mt-5 max-w-xs text-[14px] leading-relaxed text-ink-3">
               Everything you need to build glasses apps.

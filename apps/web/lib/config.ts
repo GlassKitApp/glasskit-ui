@@ -1,6 +1,13 @@
 /** Shared site constants. */
 export const GITHUB = "https://github.com/GlassKitApp/glasskit-ui";
 
+/** Umbrella social + org links — shared by ProductNav and ProductFooter so the
+ *  handles live in one place (and travel together into the future shared nav
+ *  package). */
+export const GITHUB_ORG = "https://github.com/GlassKitApp";
+export const DISCORD_URL = "https://discord.gg/DRe5SmSjyE";
+export const X_URL = "https://x.com/JarJarMadeIt";
+
 /** The Next.js `basePath` this zone is mounted under (glasskit.app/ui).
  *  Must match `basePath` in next.config.ts. `next/link` + `_next/*` assets get
  *  this automatically; use it to manually prefix raw `public/` asset URLs
