@@ -2,9 +2,11 @@
 /**
  * Generate registry/registry.json — a shadcn-format index of the GlassKit UI
  * registry. Single source of truth = the component files themselves: this reads
- * registry/ui/*.tsx, derives each item's title (PascalCase of the file name),
- * description (first sentence of its component JSDoc), and registryDependencies
- * (cross-component `./x` imports + the shared `utils`). Re-run after adding or
+ * registry/ui/*.tsx + registry/lib/*.ts and derives each item's title
+ * (PascalCase of the file name), description (first sentence of its component
+ * JSDoc), registryDependencies (cross-component `./x` + shared `../lib/x`
+ * imports), and npm dependencies (bare import specifiers; the SDK is pinned to
+ * the version in packages/glasses-ui/package.json). Re-run after adding or
  * renaming a component:  node scripts/build-registry.mjs
  */
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
@@ -13,6 +15,12 @@ import { dirname, join, basename } from "node:path";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const UI_DIR = join(ROOT, "registry", "ui");
+const LIB_DIR = join(ROOT, "registry", "lib");
+
+const SDK_NAME = "@glasskit/glasses-ui";
+const SDK_VERSION = JSON.parse(
+  readFileSync(join(ROOT, "packages", "glasses-ui", "package.json"), "utf8"),
+).version;
 
 const pascal = (name) =>
   name.replace(/(^|-)([a-z])/g, (_, __, c) => c.toUpperCase());
@@ -21,36 +29,80 @@ const pascal = (name) =>
 function description(src, name) {
   for (const block of src.matchAll(/\/\*\*([\s\S]*?)\*\//g)) {
     const text = block[1].replace(/^\s*\*\s?/gm, "").trim();
-    const m = text.match(new RegExp(`<${name}>\\s*—\\s*([\\s\\S]*?\\.)(\\s|$)`));
+    const m = text.match(
+      new RegExp(`<${name}>\\s*—\\s*([\\s\\S]*?\\.)(\\s|$)`),
+    );
     if (m) return m[1].replace(/\s+/g, " ").trim();
   }
   return `${name} component.`;
 }
 
-const items = [
-  {
-    name: "utils",
+/** First sentence of the first JSDoc block (for lib files, no <Name> form). */
+function libDescription(src, name) {
+  const block = src.match(/\/\*\*([\s\S]*?)\*\//);
+  if (block) {
+    const text = block[1].replace(/^\s*\*\s?/gm, "").trim();
+    const m = text.match(/([\s\S]*?\.)(\s|$)/);
+    if (m) return m[1].replace(/\s+/g, " ").trim();
+  }
+  return `${name} utility.`;
+}
+
+/**
+ * npm dependencies = bare import specifiers, normalized to package names
+ * (subpaths stripped, scoped names kept whole). react/react-dom are peer
+ * assumptions of every React project, never emitted. The SDK carries a version
+ * range synced to packages/glasses-ui so Changesets version bumps flow into
+ * the registry via `pnpm build:registry`.
+ */
+function npmDependencies(src) {
+  const deps = new Set();
+  for (const m of src.matchAll(/from\s+["']([^."'][^"']*)["']/g)) {
+    const spec = m[1];
+    const pkg = spec.startsWith("@")
+      ? spec.split("/").slice(0, 2).join("/")
+      : spec.split("/")[0];
+    if (pkg === "react" || pkg === "react-dom") continue;
+    deps.add(pkg === SDK_NAME ? `${SDK_NAME}@^${SDK_VERSION}` : pkg);
+  }
+  return [...deps].sort();
+}
+
+const items = [];
+
+for (const file of readdirSync(LIB_DIR)
+  .filter((f) => f.endsWith(".ts"))
+  .sort()) {
+  const name = basename(file, ".ts");
+  const src = readFileSync(join(LIB_DIR, file), "utf8");
+  items.push({
+    name,
     type: "registry:lib",
-    title: "cn",
-    description: "Class-name join utility used by every component.",
+    title: name,
+    description: libDescription(src, name),
+    dependencies: npmDependencies(src),
+    registryDependencies: [],
     // Target mirrors the registry's relative layout (ui/ siblings of lib/), so
-    // the vendored components' `../lib/utils` imports resolve with no rewriting.
+    // the vendored components' `../lib/<name>` imports resolve with no rewriting.
     files: [
       {
-        path: "registry/lib/utils.ts",
+        path: `registry/lib/${file}`,
         type: "registry:lib",
-        target: "components/lib/utils.ts",
+        target: `components/lib/${file}`,
       },
     ],
-  },
-];
+  });
+}
 
-for (const file of readdirSync(UI_DIR).filter((f) => f.endsWith(".tsx")).sort()) {
+for (const file of readdirSync(UI_DIR)
+  .filter((f) => f.endsWith(".tsx"))
+  .sort()) {
   const name = basename(file, ".tsx");
   const src = readFileSync(join(UI_DIR, file), "utf8");
 
   const deps = new Set();
-  if (/from\s+["']\.\.\/lib\/utils["']/.test(src)) deps.add("utils");
+  for (const m of src.matchAll(/from\s+["']\.\.\/lib\/([a-z-]+)["']/g))
+    deps.add(m[1]);
   for (const m of src.matchAll(/from\s+["']\.\/([a-z-]+)["']/g)) deps.add(m[1]);
 
   items.push({
@@ -58,7 +110,7 @@ for (const file of readdirSync(UI_DIR).filter((f) => f.endsWith(".tsx")).sort())
     type: "registry:ui",
     title: pascal(name),
     description: description(src, pascal(name)),
-    dependencies: [],
+    dependencies: npmDependencies(src),
     registryDependencies: [...deps],
     files: [
       {
@@ -73,7 +125,7 @@ for (const file of readdirSync(UI_DIR).filter((f) => f.endsWith(".tsx")).sort())
 const registry = {
   $schema: "https://ui.shadcn.com/schema/registry.json",
   name: "glasskit",
-  homepage: "https://ui.glasskit.app",
+  homepage: "https://glasskit.app/ui",
   items,
 };
 

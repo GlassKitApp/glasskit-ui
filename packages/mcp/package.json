@@ -5,7 +5,7 @@
   "type": "module",
   "description": "MCP server exposing the GlassKit UI registry to AI agents (list + fetch additive-lens components).",
   "keywords": ["glasskit", "mcp", "model-context-protocol", "registry"],
-  "homepage": "https://ui.glasskit.app",
+  "homepage": "https://glasskit.app/ui",
   "bin": {
     "glasskit-mcp": "./dist/index.js"
   },
