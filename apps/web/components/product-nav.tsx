@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { DISCORD_URL, X_URL } from "@/lib/config";
 import { BrandLockup } from "@/components/brand-lockup";
 
@@ -8,6 +11,8 @@ import { BrandLockup } from "@/components/brand-lockup";
  *
  * Uses the site theme tokens (bg/ink/line/accent), which flip light↔dark with
  * the shared `theme` toggle — so the band matches the parent in BOTH modes.
+ * Like the parent, it starts transparent over the hero and only fades in its
+ * fill + border + blur once scrolled past 8px.
  *
  * Cross-zone links (brand → umbrella home, Studio, Stack) are plain root-relative
  * `<a>` so they resolve against the shared glasskit.app origin and hard-navigate
@@ -36,8 +41,23 @@ const XIcon = () => (
 );
 
 export function ProductNav() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-bg/85 backdrop-blur-xl">
+    <header
+      className={`sticky top-0 z-50 transition-colors duration-200 ${
+        scrolled
+          ? "border-b border-line bg-bg/70 backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex h-14 max-w-[1280px] items-center gap-3 px-5 sm:px-7">
         {/* Brand → umbrella home (cross-zone) */}
         <a
