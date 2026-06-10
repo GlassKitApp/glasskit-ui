@@ -34,8 +34,7 @@ export default function Home() {
       {/* HERO — centered, spacious, premium */}
       <section className="blueprint border-b border-line-2">
         <div className="mx-auto flex max-w-7xl flex-col items-center px-6 py-24 text-center lg:py-32">
-          <p className="rise mono-label">Open source · Meta Ray-Ban Display</p>
-          <h1 className="rise font-display mt-6 text-[clamp(2.75rem,7vw,5.5rem)] leading-[0.95]">
+          <h1 className="rise font-display text-[clamp(2.75rem,7vw,5.5rem)] leading-[0.95]">
             The component library
             <br />
             for the{" "}
@@ -64,9 +63,6 @@ export default function Home() {
             command="glasskit add button"
             className="rise-3 mt-10"
           />
-          <p className="rise-3 mono-label mt-3 text-ink-3">
-            Copy components straight in — yours to own
-          </p>
         </div>
       </section>
 
