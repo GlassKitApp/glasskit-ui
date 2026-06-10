@@ -3,8 +3,21 @@ import Link from "next/link";
 import { ProductNav } from "@/components/product-nav";
 import { ProductFooter } from "@/components/product-footer";
 import { PlaygroundClient } from "@/components/playground-client";
+import { SITE } from "@/lib/config";
 
-export const metadata: Metadata = { title: "Playground" };
+const DESCRIPTION =
+  "Live playground for GlassKit UI — pick a component, recolor the accent token, drive the focus ring with the keyboard or Neural Band, and copy the JSX.";
+
+export const metadata: Metadata = {
+  title: "Playground",
+  description: DESCRIPTION,
+  alternates: { canonical: `${SITE}/playground` },
+  openGraph: {
+    title: "Playground — GlassKit UI",
+    description: DESCRIPTION,
+    url: `${SITE}/playground`,
+  },
+};
 
 export default function Playground() {
   return (

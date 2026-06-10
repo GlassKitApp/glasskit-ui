@@ -7,6 +7,13 @@ import { GITHUB } from "@/lib/config";
 import { LensStage } from "@/components/lens/lens-stage";
 import { HeartRateDemo } from "@/components/lens/heart-rate-demo";
 import { COMPONENT_NAV } from "@/lib/component-nav";
+import { JsonLd } from "@/components/json-ld";
+import {
+  jsonLdGraph,
+  organizationSchema,
+  webSiteSchema,
+  softwareSchema,
+} from "@/lib/seo";
 
 const VALUES = [
   {
@@ -29,6 +36,13 @@ const VALUES = [
 export default function Home() {
   return (
     <>
+      <JsonLd
+        data={jsonLdGraph(
+          organizationSchema(),
+          webSiteSchema(),
+          softwareSchema(),
+        )}
+      />
       <ProductNav />
 
       {/* HERO — centered, spacious, premium. Bleeds up under the transparent
