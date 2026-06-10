@@ -4,6 +4,21 @@
   "homepage": "https://glasskit.app/ui",
   "items": [
     {
+      "name": "geo",
+      "type": "registry:lib",
+      "title": "geo",
+      "description": "Bearing math for world-anchored components (DirectionArrow, Compass).",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/lib/geo.ts",
+          "type": "registry:lib",
+          "target": "components/lib/geo.ts"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "title": "utils",
@@ -176,9 +191,12 @@
       "type": "registry:ui",
       "title": "Compass",
       "description": "a heading rose that keeps North pointing at real north while a fixed top marker shows where you face.",
-      "dependencies": [],
+      "dependencies": [
+        "@glasskit/glasses-ui@^0.1.0"
+      ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "geo"
       ],
       "files": [
         {
@@ -228,7 +246,9 @@
       "type": "registry:ui",
       "title": "Deck",
       "description": "a horizontal paged flow (wizard / onboarding).",
-      "dependencies": [],
+      "dependencies": [
+        "@glasskit/glasses-ui@^0.1.0"
+      ],
       "registryDependencies": [
         "utils",
         "progress"
@@ -262,10 +282,13 @@
       "name": "direction-arrow",
       "type": "registry:ui",
       "title": "DirectionArrow",
-      "description": "points toward a real-world `bearing` (degrees, 0 = up/N, clockwise).",
-      "dependencies": [],
+      "description": "points toward a real-world direction.",
+      "dependencies": [
+        "@glasskit/glasses-ui@^0.1.0"
+      ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "geo"
       ],
       "files": [
         {
