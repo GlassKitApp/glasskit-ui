@@ -1,4 +1,5 @@
-import { BASE_PATH } from "@/lib/config";
+import { DISCORD_URL, X_URL } from "@/lib/config";
+import { BrandLockup } from "@/components/brand-lockup";
 
 /**
  * Umbrella product band — replicated from the parent glasskit app's
@@ -17,11 +18,10 @@ import { BASE_PATH } from "@/lib/config";
  * renders its own copy against the same session — see the deploy notes.
  */
 
-const DISCORD_URL = "https://discord.gg/DRe5SmSjyE";
-const X_URL = "https://x.com/JarJarMadeIt";
-
 const pill =
   "rounded-full px-3.5 py-1.5 text-[13px] font-medium transition-colors";
+const pillActive = `${pill} bg-accent/[0.12] text-ink`;
+const pillIdle = `${pill} text-ink-3 hover:text-ink`;
 
 const DiscordIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden className="size-4" fill="currentColor">
@@ -45,31 +45,19 @@ export function ProductNav() {
           className="flex shrink-0 items-center gap-2.5"
           aria-label="GlassKit home"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`${BASE_PATH}/avatar.png`}
-            alt=""
-            className="size-6 rounded-[5px]"
-          />
-          <span className="font-display text-[15px] font-bold tracking-[-0.02em] text-ink">
-            GlassKit
-          </span>
+          <BrandLockup />
         </a>
 
         {/* Product pills — UI is this zone (active); Studio/Stack are cross-zone */}
         <nav className="hidden flex-1 justify-center md:flex">
           <div className="flex items-center gap-1 rounded-full border border-line bg-bg-2/60 p-1">
-            <a
-              href="/ui"
-              aria-current="page"
-              className={`${pill} bg-accent/[0.12] text-ink`}
-            >
+            <a href="/ui" aria-current="page" className={pillActive}>
               UI
             </a>
-            <a href="/studio" className={`${pill} text-ink-3 hover:text-ink`}>
+            <a href="/studio" className={pillIdle}>
               Studio
             </a>
-            <a href="/stack" className={`${pill} text-ink-3 hover:text-ink`}>
+            <a href="/stack" className={pillIdle}>
               Stack
             </a>
           </div>
