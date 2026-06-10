@@ -36,3 +36,89 @@ jobs:
 
       - name: Build
         run: pnpm turbo run build
+
+  # Validates the publishable surface of @glasskit/glasses-ui on every PR and
+  # push: tarball contents, package.json/exports hygiene (publint), and type
+  # resolution from consumer perspectives (attw). Broken exports fail the PR
+  # long before a release.
+  package-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build package
+        run: pnpm --filter @glasskit/glasses-ui build
+
+      - name: Verify tarball contents
+        working-directory: packages/glasses-ui
+        run: |
+          npm pack --dry-run --json > /tmp/pack.json
+          node -e '
+            const files = require("/tmp/pack.json")[0].files.map((f) => f.path);
+            const required = [
+              "dist/index.js", "dist/index.d.ts",
+              "dist/hooks/index.js", "dist/hooks/index.d.ts",
+              "dist/primitives/index.js", "dist/primitives/index.d.ts",
+              "styles.css", "README.md", "LICENSE", "package.json",
+            ];
+            const missing = required.filter((f) => !files.includes(f));
+            if (missing.length) {
+              console.error("tarball missing: " + missing.join(", "));
+              process.exit(1);
+            }
+            console.log("tarball ok — " + files.length + " files");
+          '
+
+      - name: publint
+        working-directory: packages/glasses-ui
+        run: pnpm dlx publint --strict
+
+      - name: Are the types wrong?
+        working-directory: packages/glasses-ui
+        run: pnpm dlx @arethetypeswrong/cli --pack . --profile esm-only --exclude-entrypoints styles.css
+
+  # Releases can't silently skip: changes to the published package must carry
+  # a changeset (or the PR must opt out with the `no-changeset-needed` label).
+  changeset-guard:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require a changeset for package changes
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: |
+          if [[ ",$LABELS," == *",no-changeset-needed,"* ]]; then
+            echo "Label no-changeset-needed set — skipping."
+            exit 0
+          fi
+          changed=$(git diff --name-only "origin/$BASE_REF"...HEAD)
+          pkg=$(echo "$changed" | grep -E '^packages/glasses-ui/(src/|styles\.css|package\.json)' | grep -v '\.test\.' || true)
+          if [ -z "$pkg" ]; then
+            echo "No publishable package changes — ok."
+            exit 0
+          fi
+          if echo "$changed" | grep -qE '^\.changeset/.*\.md$'; then
+            echo "Changeset present — ok."
+            exit 0
+          fi
+          echo "::error::This PR changes @glasskit/glasses-ui but has no changeset."
+          echo "Run 'pnpm changeset' and commit the result, or add the"
+          echo "'no-changeset-needed' label if this change should not release."
+          exit 1

@@ -4,7 +4,8 @@
   "type": "module",
   "description": "Typed 600×600 + D-pad component library for Meta Ray-Ban Display Web Apps. The platform primitives Meta does not ship.",
   "author": "GlassKit",
-  "homepage": "https://ui.glasskit.app",
+  "license": "MIT",
+  "homepage": "https://glasskit.app/ui",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GlassKitApp/glasskit-ui.git",
@@ -47,6 +48,9 @@
     "styles.css",
     "README.md"
   ],
+  "engines": {
+    "node": ">=18"
+  },
   "publishConfig": {
     "access": "public",
     "provenance": true

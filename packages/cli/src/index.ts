@@ -7,16 +7,18 @@
  *   glasskit list                        # list available components
  *   glasskit init                        # print setup steps
  *
- * Flags: --registry <url> (default https://ui.glasskit.app/r), --cwd <dir>,
- *        --overwrite, --help. Zero runtime deps — Node 18+ (global fetch).
+ * Flags: --registry <url> (default https://glasskit.app/ui/r), --cwd <dir>,
+ *        --overwrite, --no-install, --help. Zero runtime deps — Node 18+
+ *        (global fetch).
  *
  * NOTE: not published to npm yet. Run locally against a built registry, e.g.
- *   pnpm build:registry && (serve apps/web) && glasskit add button --registry http://localhost:3000/r
+ *   pnpm build:registry && (serve apps/web) && glasskit add button --registry http://localhost:3000/ui/r
  */
-import { mkdir, writeFile, access } from "node:fs/promises";
-import { dirname, resolve, relative, isAbsolute } from "node:path";
+import { mkdir, writeFile, readFile, access } from "node:fs/promises";
+import { dirname, join, resolve, relative, isAbsolute } from "node:path";
+import { spawnSync } from "node:child_process";
 
-const DEFAULT_REGISTRY = "https://ui.glasskit.app/r";
+const DEFAULT_REGISTRY = "https://glasskit.app/ui/r";
 
 // The served registry-item shape (shadcn-format), emitted by
 // scripts/build-registry.mjs. Keep in sync if that schema changes.
@@ -25,10 +27,16 @@ type RegistryItem = {
   name: string;
   description?: string;
   type: string;
+  dependencies?: string[];
   registryDependencies?: string[];
   files: RegistryFile[];
 };
-type Options = { registry: string; cwd: string; overwrite: boolean };
+type Options = {
+  registry: string;
+  cwd: string;
+  overwrite: boolean;
+  install: boolean;
+};
 
 const c = {
   green: (s: string) => `\x1b[32m${s}\x1b[0m`,
@@ -43,6 +51,7 @@ function parse(argv: string[]) {
     registry: process.env.GLASSKIT_REGISTRY ?? DEFAULT_REGISTRY,
     cwd: process.cwd(),
     overwrite: false,
+    install: true,
   };
   let help = false;
   const value = (flag: string, i: number) => {
@@ -58,6 +67,7 @@ function parse(argv: string[]) {
     if (a === "--registry") opts.registry = value(a, ++i);
     else if (a === "--cwd") opts.cwd = resolve(value(a, ++i));
     else if (a === "--overwrite") opts.overwrite = true;
+    else if (a === "--no-install") opts.install = false;
     else if (a === "--help" || a === "-h") help = true;
     else positionals.push(a!);
   }
@@ -76,6 +86,78 @@ const exists = (p: string) =>
     () => true,
     () => false,
   );
+
+/** Bare package name of an npm dep spec ("@scope/pkg@^1.0.0" → "@scope/pkg"). */
+const depName = (spec: string) =>
+  spec.startsWith("@")
+    ? spec.slice(
+        0,
+        spec.indexOf("@", 1) === -1 ? spec.length : spec.indexOf("@", 1),
+      )
+    : spec.split("@")[0]!;
+
+/** Detect the consumer's package manager from its lockfile (default npm). */
+async function packageManager(cwd: string): Promise<string> {
+  const lockfiles: Array<[string, string]> = [
+    ["pnpm-lock.yaml", "pnpm"],
+    ["yarn.lock", "yarn"],
+    ["bun.lockb", "bun"],
+    ["bun.lock", "bun"],
+    ["package-lock.json", "npm"],
+  ];
+  for (const [file, pm] of lockfiles) {
+    if (await exists(join(cwd, file))) return pm;
+  }
+  return "npm";
+}
+
+/**
+ * Install the npm dependencies declared by the resolved registry items,
+ * skipping any already present in the consumer's package.json. With
+ * --no-install (or when no package.json exists), prints the command instead.
+ */
+async function installDependencies(items: RegistryItem[], opts: Options) {
+  const specs = new Map<string, string>();
+  for (const item of items)
+    for (const spec of item.dependencies ?? []) specs.set(depName(spec), spec);
+  if (specs.size === 0) return;
+
+  let declared: Record<string, string> = {};
+  const pkgPath = join(opts.cwd, "package.json");
+  const hasPkg = await exists(pkgPath);
+  if (hasPkg) {
+    const pkg = JSON.parse(await readFile(pkgPath, "utf8"));
+    declared = {
+      ...pkg.dependencies,
+      ...pkg.devDependencies,
+      ...pkg.peerDependencies,
+    };
+  }
+  const missing = [...specs.entries()]
+    .filter(([name]) => !(name in declared))
+    .map(([, spec]) => spec);
+  if (missing.length === 0) return;
+
+  const pm = await packageManager(opts.cwd);
+  const command = `${pm} add ${missing.join(" ")}`;
+  if (!opts.install || !hasPkg) {
+    console.log(`\nInstall the required dependencies:\n  ${c.bold(command)}`);
+    return;
+  }
+  console.log(
+    `\n${c.green("install")} ${missing.join(" ")} ${c.dim(`(${pm})`)}`,
+  );
+  const result = spawnSync(pm, ["add", ...missing], {
+    cwd: opts.cwd,
+    stdio: "inherit",
+  });
+  if (result.status !== 0) {
+    console.error(
+      c.red(`Dependency install failed — run it yourself:\n  ${command}`),
+    );
+    process.exitCode = 1;
+  }
+}
 
 /** Resolve items + their registryDependencies (depth-first, deduped). */
 async function resolve_(
@@ -134,6 +216,7 @@ async function add(names: string[], opts: Options) {
     `\n${c.green("✓")} ${written} file${written === 1 ? "" : "s"} written` +
       (skipped ? c.dim(` · ${skipped} skipped (use --overwrite)`) : ""),
   );
+  await installDependencies(items, opts);
   if (written > 0) {
     console.log(
       c.dim("Make sure your CSS imports @glasskit/glasses-ui/styles.css."),
@@ -166,7 +249,7 @@ ${c.bold("GlassKit UI — getting started")}
   3. Add components:
        ${c.green("glasskit add button readout")}
 
-  Docs: https://ui.glasskit.app/docs
+  Docs: https://glasskit.app/ui/docs
 `);
 }
 
@@ -183,6 +266,7 @@ ${c.bold("Flags")}
   --registry <url>           registry base url (default ${DEFAULT_REGISTRY})
   --cwd <dir>                target project directory (default: cwd)
   --overwrite                overwrite files that already exist
+  --no-install               print npm deps instead of installing them
   -h, --help                 show this help
 `);
 }

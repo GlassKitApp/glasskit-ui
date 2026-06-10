@@ -14,7 +14,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 
 const REGISTRY = (
-  process.env.GLASSKIT_REGISTRY ?? "https://ui.glasskit.app/r"
+  process.env.GLASSKIT_REGISTRY ?? "https://glasskit.app/ui/r"
 ).replace(/\/$/, "");
 
 type RegistryFile = { target: string; content?: string };

@@ -5,7 +5,7 @@
   "type": "module",
   "description": "The GlassKit UI CLI — vendor additive-lens components for Meta Ray-Ban Display apps from the registry.",
   "keywords": ["glasskit", "meta-ray-ban", "cli", "registry", "components"],
-  "homepage": "https://ui.glasskit.app",
+  "homepage": "https://glasskit.app/ui",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GlassKitApp/glasskit-ui.git",

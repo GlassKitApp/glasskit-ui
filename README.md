@@ -21,7 +21,7 @@ vocabulary.
   jobs: Monitor, Navigate, Guide, Caption, Notify/Comms, Capture/Control,
   Annotate, Launch/Select — including the world-anchored set (DirectionArrow,
   Compass, Pin, Callout, Reticle) that a watch kit can't do.
-- **`ui.glasskit.app`** ([`apps/web`](./apps/web)) — docs, per-component pages
+- **`glasskit.app/ui`** ([`apps/web`](./apps/web)) — docs, per-component pages
   with live previews, and a realtime playground.
 
 ## Quick start
@@ -66,7 +66,7 @@ glasskit list                          # browse all 28
 packages/glasses-ui/   the npm SDK (hooks + viewport + base stylesheet)
 packages/cli/          the `glasskit` CLI (vendors from the registry)
 registry/ui/           the 28 styled components (you own these)
-apps/web/              ui.glasskit.app — docs, playground, served registry (/r/*.json)
+apps/web/              glasskit.app/ui — docs, playground, served registry (/r/*.json)
 docs/design/           the additive-lens design spec
 ```
 
