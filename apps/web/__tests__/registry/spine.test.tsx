@@ -41,9 +41,9 @@ describe("Readout", () => {
       <Readout label="x" value="1" emphasis="secondary" />,
     );
     expect(
-      container.querySelector(".gk-readout")?.classList.contains(
-        "gk-readout--secondary",
-      ),
+      container
+        .querySelector(".gk-readout")
+        ?.classList.contains("gk-readout--secondary"),
     ).toBe(true);
   });
 });

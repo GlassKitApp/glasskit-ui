@@ -3,8 +3,8 @@ import { cn } from "../lib/utils";
 
 /**
  * <Badge> — a small count or status pill (notification counts, live state).
- * Pure display. Hairline by default; tone='accent' fills it green for the one
- * thing that needs to draw the eye.
+ * Pure display. Subtle surface by default; tone='accent' gives it the accent
+ * gradient for the one thing that needs to draw the eye.
  */
 export function Badge({
   children,

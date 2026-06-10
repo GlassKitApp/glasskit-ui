@@ -5,7 +5,10 @@ import { cn } from "../lib/utils";
  * <Slider> — a continuous level control (volume, brightness — the quick
  * controls). A native range so the fill + thumb need no inline style
  * (`accent-color` tints them); arrow keys / Neural-Band pinch-twist adjust it.
- * Controlled via `value` + `onChange`; omit `onChange` for a read-only display.
+ * Controlled via `value` + `onChange`. Omit `onChange` for a read-only
+ * display — the slider then leaves the D-pad focus order (`readOnly` is
+ * meaningless on a range input; an adjustable-looking dead control is worse
+ * than a plain level display).
  */
 export function Slider({
   value,
@@ -31,11 +34,16 @@ export function Slider({
       {icon != null ? <span className="gk-slider__icon">{icon}</span> : null}
       <input
         type="range"
-        className="gk-slider__input focusable"
+        className={cn("gk-slider__input", onChange != null && "focusable")}
         min={min}
         max={max}
         value={value}
+        // readOnly only suppresses React's controlled-input warning (the
+        // attribute itself is meaningless on type="range") — the real
+        // read-only mechanism is leaving the focus order above.
         readOnly={onChange == null}
+        tabIndex={onChange == null ? -1 : undefined}
+        aria-readonly={onChange == null || undefined}
         aria-label={typeof label === "string" ? label : undefined}
         onChange={
           onChange ? (e) => onChange(Number(e.currentTarget.value)) : undefined

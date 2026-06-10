@@ -23,6 +23,18 @@ describe("Progress", () => {
     expect(under.querySelectorAll(".gk-step--on")).toHaveLength(0);
   });
 
+  it("floors a fractional max to a sane dot count", () => {
+    const { container } = render(
+      <Progress variant="step" value={1} max={3.7} />,
+    );
+    expect(container.querySelectorAll(".gk-step")).toHaveLength(3);
+  });
+
+  it("names the bar from a string label", () => {
+    render(<Progress value={40} label="Download" />);
+    expect(screen.getByRole("progressbar", { name: "Download" })).toBeTruthy();
+  });
+
   it("renders a native <progress> for the linear variant", () => {
     const { container } = render(<Progress value={40} />);
     const el = container.querySelector("progress");

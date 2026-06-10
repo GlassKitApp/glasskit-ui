@@ -24,6 +24,11 @@ describe("Meter", () => {
     expect(m.getAttribute("aria-valuemax")).toBe("100");
   });
 
+  it("takes its accessible name from a string label", () => {
+    render(<Meter value={80} label="Battery" />);
+    expect(screen.getByRole("meter", { name: "Battery" })).toBeTruthy();
+  });
+
   it("reveals the arc via a stroke-dashoffset attribute (not inline style)", () => {
     const { container } = render(<Meter value={50} max={100} />);
     const fill = container.querySelector(".gk-meter__fill");
@@ -51,11 +56,13 @@ describe("StatGrid", () => {
 
 describe("Toast", () => {
   it("renders only when open", () => {
-    const { rerender, container } = render(
-      <Toast open={false}>Saved</Toast>,
-    );
+    const { rerender, container } = render(<Toast open={false}>Saved</Toast>);
     expect(container.firstChild).toBeNull();
-    rerender(<Toast open tone="accent">Saved</Toast>);
+    rerender(
+      <Toast open tone="accent">
+        Saved
+      </Toast>,
+    );
     expect(screen.getByRole("status").textContent).toBe("Saved");
     expect(
       screen.getByRole("status").classList.contains("gk-toast--accent"),

@@ -4,8 +4,8 @@ import { cn } from "../lib/utils";
 /**
  * <Cue> — a caption / hint line: what to do next, or a transient status
  * ("Listening…"). Pure display. Caption-tier type, dim by default; set
- * `tone="accent"` for a live/green state. No glow on this body text
- * (apple-feel §4 — glow on running text kills legibility).
+ * `tone="accent"` for a live state. No glow on this body text
+ * (glow on running text kills legibility).
  */
 export function Cue({
   children,
