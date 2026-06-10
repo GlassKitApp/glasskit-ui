@@ -1,18 +1,22 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { useDeviceOrientation } from "@glasskit/glasses-ui";
 import { cn } from "../lib/utils";
+import { normalizeDeg } from "../lib/geo";
 
 const DIRS = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
 
 /** Nearest cardinal/intercardinal label for a heading in degrees. */
 export function cardinal(deg: number): string {
-  const d = ((deg % 360) + 360) % 360;
-  return DIRS[Math.round(d / 45) % 8]!;
+  return DIRS[Math.round(normalizeDeg(deg) / 45) % 8]!;
 }
 
 /**
  * <Compass> — a heading rose that keeps North pointing at real north while a
- * fixed top marker shows where you face. Feed `heading` from
- * useDeviceOrientation (alpha).
+ * fixed top marker shows where you face. Self-connects to
+ * useDeviceOrientation; pass `heading` to control it instead (the prop always
+ * wins, e.g. for demos or your own sensor fusion).
  *
  * WORLD-ANCHORED — never mirror under RTL. The rose counter-rotates via the SVG
  * `transform` attribute (absolute), so the spatial mapping is preserved in any
@@ -23,11 +27,16 @@ export function Compass({
   label,
   className,
 }: {
-  heading: number;
+  /** Controlled heading in degrees. Omit to read the live head orientation. */
+  heading?: number;
   label?: ReactNode;
   className?: string;
 }) {
-  const deg = ((heading % 360) + 360) % 360;
+  // Always subscribed (rules of hooks); the controlled prop wins afterwards.
+  // Server render and first client render both see alpha === null → 0, so
+  // the live mode is hydration-safe.
+  const live = useDeviceOrientation();
+  const deg = normalizeDeg(heading ?? live.alpha ?? 0);
   return (
     <div className={cn("gk-compass", className)}>
       <svg

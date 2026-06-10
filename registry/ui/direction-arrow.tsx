@@ -1,10 +1,21 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { useDeviceOrientation, useGeolocation } from "@glasskit/glasses-ui";
 import { cn } from "../lib/utils";
+import {
+  bearingBetween,
+  normalizeDeg,
+  relativeBearing,
+  type LatLon,
+} from "../lib/geo";
 
 /**
- * <DirectionArrow> — points toward a real-world `bearing` (degrees, 0 = up/N,
- * clockwise). Feed it a bearing computed from useGeolocation + the target, or
- * useDeviceOrientation for head-relative aiming.
+ * <DirectionArrow> — points toward a real-world direction. Three modes:
+ *   - `bearing` — controlled: you computed the screen angle yourself
+ *   - `target`  — self-connects: live GPS + head orientation aim the needle
+ *                 at a {lat, lon} (bearing wins if both are given)
+ *   - neither   — points up until a sensor mode is chosen
  *
  * WORLD-ANCHORED — never mirror under RTL (safety: a flipped arrow points the
  * wrong way). The needle rotates via the SVG `transform` *attribute* (absolute,
@@ -12,15 +23,28 @@ import { cn } from "../lib/utils";
  */
 export function DirectionArrow({
   bearing,
+  target,
   label,
   className,
 }: {
-  bearing: number;
+  /** Controlled screen angle in degrees (0 = up, clockwise). Always wins. */
+  bearing?: number;
+  /** Aim at a world coordinate using live geolocation + head orientation. */
+  target?: LatLon;
   /** Optional caption (e.g. street name). */
   label?: ReactNode;
   className?: string;
 }) {
-  const deg = ((bearing % 360) + 360) % 360;
+  // Always subscribed (rules of hooks); precedence is bearing > target > 0.
+  // Sensors start null on the server and first client render → deterministic
+  // 0° until real data arrives, so live mode is hydration-safe.
+  const { position } = useGeolocation();
+  const { alpha } = useDeviceOrientation();
+  const live =
+    target && position
+      ? relativeBearing(bearingBetween(position, target), alpha ?? 0)
+      : 0;
+  const deg = normalizeDeg(bearing ?? live);
   return (
     <div className={cn("gk-direction", className)}>
       <svg

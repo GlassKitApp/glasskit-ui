@@ -46,6 +46,40 @@ describe("Compass", () => {
   });
 });
 
+describe("world-anchored components never mirror under RTL", () => {
+  it("DirectionArrow transform is identical in an RTL tree", () => {
+    const ltr = render(
+      <div dir="ltr">
+        <DirectionArrow bearing={35} />
+      </div>,
+    );
+    const rtl = render(
+      <div dir="rtl">
+        <DirectionArrow bearing={35} />
+      </div>,
+    );
+    expect(rtl.container.querySelector("g")?.getAttribute("transform")).toBe(
+      ltr.container.querySelector("g")?.getAttribute("transform"),
+    );
+  });
+
+  it("Compass transform is identical in an RTL tree", () => {
+    const ltr = render(
+      <div dir="ltr">
+        <Compass heading={290} />
+      </div>,
+    );
+    const rtl = render(
+      <div dir="rtl">
+        <Compass heading={290} />
+      </div>,
+    );
+    expect(rtl.container.querySelector("g")?.getAttribute("transform")).toBe(
+      ltr.container.querySelector("g")?.getAttribute("transform"),
+    );
+  });
+});
+
 describe("Reticle", () => {
   it("renders four corner brackets", () => {
     const { container } = render(<Reticle />);

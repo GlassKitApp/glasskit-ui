@@ -111,7 +111,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     ),
     props: [
       { name: "label", type: "ReactNode", desc: "The metric label." },
-      { name: "value", type: "ReactNode", desc: "The value (tabular numerals)." },
+      {
+        name: "value",
+        type: "ReactNode",
+        desc: "The value (tabular numerals).",
+      },
       { name: "unit", type: "ReactNode", desc: "Optional trailing unit." },
       {
         name: "emphasis",
@@ -170,7 +174,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       { name: "icon", type: "ReactNode", desc: "Optional leading glyph." },
       { name: "disabled", type: "boolean", desc: "Excluded from D-pad focus." },
-      { name: "onClick", type: "() => void", desc: "Fires on Enter/Space/click." },
+      {
+        name: "onClick",
+        type: "() => void",
+        desc: "Fires on Enter/Space/click.",
+      },
     ],
     usage: `<Button variant="primary" onClick={log}>
   Confirm
@@ -196,14 +204,23 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     ),
     props: [
       { name: "children", type: "ReactNode", desc: "A stroke-based SVG." },
-      { name: "active", type: "boolean", default: "false", desc: "Green + glow tier." },
+      {
+        name: "active",
+        type: "boolean",
+        default: "false",
+        desc: "Green + glow tier.",
+      },
       {
         name: "size",
         type: '"sm" | "md" | "lg"',
         default: '"md"',
         desc: "16 / 20 / 28px.",
       },
-      { name: "label", type: "string", desc: "a11y label; omit for decorative." },
+      {
+        name: "label",
+        type: "string",
+        desc: "a11y label; omit for decorative.",
+      },
     ],
     usage: `<GlowIcon active size="lg" label="Heart rate">
   <HeartIcon />
@@ -219,50 +236,102 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       <Screen>
         <List>
           <ListRow
-            leading={<GlowIcon plate tone="blue" size="sm"><NavGlyph /></GlowIcon>}
-            trailing={<GlowIcon size="sm"><ChevronGlyph /></GlowIcon>}
+            leading={
+              <GlowIcon plate tone="blue" size="sm">
+                <NavGlyph />
+              </GlowIcon>
+            }
+            trailing={
+              <GlowIcon size="sm">
+                <ChevronGlyph />
+              </GlowIcon>
+            }
           >
             Navigate
           </ListRow>
           <ListRow
-            leading={<GlowIcon plate tone="green" size="sm"><MessageGlyph /></GlowIcon>}
+            leading={
+              <GlowIcon plate tone="green" size="sm">
+                <MessageGlyph />
+              </GlowIcon>
+            }
             trailing="2"
           >
             Messages
           </ListRow>
           <ListRow
-            leading={<GlowIcon plate tone="peach" size="sm"><MusicGlyph /></GlowIcon>}
-            trailing={<GlowIcon size="sm"><ChevronGlyph /></GlowIcon>}
+            leading={
+              <GlowIcon plate tone="peach" size="sm">
+                <MusicGlyph />
+              </GlowIcon>
+            }
+            trailing={
+              <GlowIcon size="sm">
+                <ChevronGlyph />
+              </GlowIcon>
+            }
           >
             Music
           </ListRow>
           <ListRow
-            leading={<GlowIcon plate tone="violet" size="sm"><HeartGlyph /></GlowIcon>}
+            leading={
+              <GlowIcon plate tone="violet" size="sm">
+                <HeartGlyph />
+              </GlowIcon>
+            }
             trailing="128"
           >
             Vitals
           </ListRow>
           <ListRow
-            leading={<GlowIcon plate tone="cyan" size="sm"><NavGlyph /></GlowIcon>}
-            trailing={<GlowIcon size="sm"><ChevronGlyph /></GlowIcon>}
+            leading={
+              <GlowIcon plate tone="cyan" size="sm">
+                <NavGlyph />
+              </GlowIcon>
+            }
+            trailing={
+              <GlowIcon size="sm">
+                <ChevronGlyph />
+              </GlowIcon>
+            }
           >
             Maps
           </ListRow>
           <ListRow
-            leading={<GlowIcon plate tone="amber" size="sm"><AlertGlyph /></GlowIcon>}
-            trailing={<GlowIcon size="sm"><ChevronGlyph /></GlowIcon>}
+            leading={
+              <GlowIcon plate tone="amber" size="sm">
+                <AlertGlyph />
+              </GlowIcon>
+            }
+            trailing={
+              <GlowIcon size="sm">
+                <ChevronGlyph />
+              </GlowIcon>
+            }
           >
             Alerts
           </ListRow>
           <ListRow
-            leading={<GlowIcon plate tone="cyan" size="sm"><BatteryGlyph /></GlowIcon>}
+            leading={
+              <GlowIcon plate tone="cyan" size="sm">
+                <BatteryGlyph />
+              </GlowIcon>
+            }
             trailing="87%"
           >
             Battery
           </ListRow>
           <ListRow
-            leading={<GlowIcon plate tone="green" size="sm"><CheckGlyph /></GlowIcon>}
-            trailing={<GlowIcon size="sm"><ChevronGlyph /></GlowIcon>}
+            leading={
+              <GlowIcon plate tone="green" size="sm">
+                <CheckGlyph />
+              </GlowIcon>
+            }
+            trailing={
+              <GlowIcon size="sm">
+                <ChevronGlyph />
+              </GlowIcon>
+            }
           >
             Updates
           </ListRow>
@@ -272,9 +341,21 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     props: [
       { name: "List · children", type: "ReactNode", desc: "ListRow elements." },
       { name: "ListRow · children", type: "ReactNode", desc: "The row label." },
-      { name: "ListRow · leading", type: "ReactNode", desc: "Inline-start glyph." },
-      { name: "ListRow · trailing", type: "ReactNode", desc: "Inline-end value." },
-      { name: "ListRow · onClick", type: "() => void", desc: "Row activation." },
+      {
+        name: "ListRow · leading",
+        type: "ReactNode",
+        desc: "Inline-start glyph.",
+      },
+      {
+        name: "ListRow · trailing",
+        type: "ReactNode",
+        desc: "Inline-end value.",
+      },
+      {
+        name: "ListRow · onClick",
+        type: "() => void",
+        desc: "Row activation.",
+      },
     ],
     usage: `<List>
   <ListRow leading={<GlowIcon size="sm"><NavIcon /></GlowIcon>}>
@@ -296,8 +377,17 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       </Screen>
     ),
     props: [
-      { name: "value", type: "number", desc: "Current value (clamped to [0, max])." },
-      { name: "max", type: "number", default: "100", desc: "Total / step count." },
+      {
+        name: "value",
+        type: "number",
+        desc: "Current value (clamped to [0, max]).",
+      },
+      {
+        name: "max",
+        type: "number",
+        default: "100",
+        desc: "Total / step count.",
+      },
       {
         name: "variant",
         type: '"linear" | "step"',
@@ -337,8 +427,16 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         desc: "Which view to render.",
       },
       { name: "children", type: "ReactNode", desc: "Success content." },
-      { name: "loading", type: "ReactNode", desc: "Override the default Spinner." },
-      { name: "error", type: "ReactNode", desc: "Override the default error line." },
+      {
+        name: "loading",
+        type: "ReactNode",
+        desc: "Override the default Spinner.",
+      },
+      {
+        name: "error",
+        type: "ReactNode",
+        desc: "Override the default error line.",
+      },
       { name: "placeholder", type: "ReactNode", desc: "Shown when idle." },
     ],
     usage: `<AsyncView status={status} error={<Cue>Couldn’t load</Cue>}>
@@ -361,11 +459,19 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       {
         name: "bearing",
         type: "number",
-        desc: "Target direction in degrees (0 = up/N, clockwise).",
+        desc: "Controlled screen angle in degrees (0 = up, clockwise). Always wins.",
+      },
+      {
+        name: "target",
+        type: "{ lat, lon }",
+        desc: "Self-connects: live GPS + head orientation aim the needle at this coordinate.",
       },
       { name: "label", type: "ReactNode", desc: "Optional caption." },
     ],
-    usage: `// bearing from useGeolocation + the target heading
+    usage: `// self-wired: live geolocation + head orientation
+<DirectionArrow target={{ lat: 37.7749, lon: -122.4194 }} label="Market St" />
+
+// or controlled, if you computed the angle yourself
 <DirectionArrow bearing={bearing} label="Market St" />`,
   },
   {
@@ -383,12 +489,15 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       {
         name: "heading",
         type: "number",
-        desc: "Current facing in degrees (from useDeviceOrientation).",
+        desc: "Controlled heading in degrees. Omit to read the live head orientation.",
       },
       { name: "label", type: "ReactNode", desc: "Optional caption." },
     ],
-    usage: `const { alpha } = useDeviceOrientation();
-<Compass heading={alpha ?? 0} />`,
+    usage: `// self-wired: follows useDeviceOrientation
+<Compass />
+
+// or controlled (demos, your own sensor fusion)
+<Compass heading={290} />`,
   },
   {
     slug: "reticle",
@@ -427,7 +536,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     ),
     props: [
       { name: "checked", type: "boolean", desc: "On/off state (controlled)." },
-      { name: "onChange", type: "(next: boolean) => void", desc: "Fires on toggle." },
+      {
+        name: "onChange",
+        type: "(next: boolean) => void",
+        desc: "Fires on toggle.",
+      },
       { name: "label", type: "ReactNode", desc: "Row label." },
       { name: "disabled", type: "boolean", desc: "Excluded from D-pad focus." },
     ],
@@ -450,11 +563,19 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     ),
     props: [
       { name: "value", type: "number", desc: "Current value (controlled)." },
-      { name: "onChange", type: "(next: number) => void", desc: "Fires on ± (clamped)." },
+      {
+        name: "onChange",
+        type: "(next: number) => void",
+        desc: "Fires on ± (clamped).",
+      },
       { name: "min", type: "number", desc: "Lower bound (disables −)." },
       { name: "max", type: "number", desc: "Upper bound (disables +)." },
       { name: "step", type: "number", default: "1", desc: "Increment." },
-      { name: "label / unit", type: "ReactNode", desc: "Caption / trailing unit." },
+      {
+        name: "label / unit",
+        type: "ReactNode",
+        desc: "Caption / trailing unit.",
+      },
     ],
     usage: `<Stepper
   label="Brightness"
@@ -597,7 +718,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       </Screen>
     ),
     props: [
-      { name: "value", type: "number", desc: "Current level (clamped to [0, max])." },
+      {
+        name: "value",
+        type: "number",
+        desc: "Current level (clamped to [0, max]).",
+      },
       { name: "max", type: "number", default: "100", desc: "Upper bound." },
       { name: "label", type: "ReactNode", desc: "Caption under the value." },
       { name: "unit", type: "ReactNode", desc: "Trailing unit." },
@@ -648,7 +773,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       </Screen>
     ),
     props: [
-      { name: "open", type: "boolean", desc: "Render the toast (else nothing)." },
+      {
+        name: "open",
+        type: "boolean",
+        desc: "Render the toast (else nothing).",
+      },
       { name: "children", type: "ReactNode", desc: "The message." },
       {
         name: "tone",
@@ -681,11 +810,25 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       </Screen>
     ),
     props: [
-      { name: "title", type: "ReactNode", default: '"Something went wrong"', desc: "The headline." },
+      {
+        name: "title",
+        type: "ReactNode",
+        default: '"Something went wrong"',
+        desc: "The headline.",
+      },
       { name: "message", type: "ReactNode", desc: "Supporting detail." },
       { name: "icon", type: "ReactNode", desc: "Optional leading glyph." },
-      { name: "onRetry", type: "() => void", desc: "Shows a retry button when set." },
-      { name: "retryLabel", type: "ReactNode", default: '"Retry"', desc: "Retry button label." },
+      {
+        name: "onRetry",
+        type: "() => void",
+        desc: "Shows a retry button when set.",
+      },
+      {
+        name: "retryLabel",
+        type: "ReactNode",
+        default: '"Retry"',
+        desc: "Retry button label.",
+      },
     ],
     usage: `<ErrorState
   title="No signal"
@@ -706,7 +849,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     ),
     props: [
       { name: "children", type: "ReactNode", desc: "The title." },
-      { name: "eyebrow", type: "ReactNode", desc: "Small tracked label above." },
+      {
+        name: "eyebrow",
+        type: "ReactNode",
+        desc: "Small tracked label above.",
+      },
     ],
     usage: `<Heading eyebrow="Workout">Morning Run</Heading>`,
   },
@@ -763,7 +910,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Deck",
     category: "Navigation",
     summary:
-      "A horizontal paged flow (wizard / onboarding). Controlled via index; shows one page with step dots beneath. Pages advance on pinch / D-pad — never scroll.",
+      "A horizontal paged flow (wizard / onboarding). Self-connects to the Neural Band — a wristband swipe advances the page. Pass index to control it; step dots beneath. Never scrolls.",
     preview: (
       <Screen>
         <Deck index={1}>
@@ -774,14 +921,33 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       </Screen>
     ),
     props: [
-      { name: "index", type: "number", desc: "The current page (clamped)." },
+      {
+        name: "index",
+        type: "number",
+        desc: "Controlled page (clamped). Omit for uncontrolled — Neural Band swipes advance.",
+      },
+      {
+        name: "defaultIndex",
+        type: "number",
+        default: "0",
+        desc: "Starting page when uncontrolled.",
+      },
+      {
+        name: "onIndexChange",
+        type: "(index: number) => void",
+        desc: "Fires with the next page on every swipe (both modes).",
+      },
       { name: "children", type: "ReactNode", desc: "One node per page." },
     ],
-    usage: `<Deck index={step}>
+    usage: `// self-wired: Neural Band swipes advance
+<Deck>
   <OnboardConnect />
   <OnboardCalibrate />
   <OnboardReady />
-</Deck>`,
+</Deck>
+
+// or controlled
+<Deck index={step} onIndexChange={setStep}>…</Deck>`,
   },
   {
     slug: "quick-reply-chips",
@@ -797,7 +963,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     ),
     props: [
       { name: "options", type: "string[]", desc: "The canned replies." },
-      { name: "onSelect", type: "(reply: string) => void", desc: "Fires on tap." },
+      {
+        name: "onSelect",
+        type: "(reply: string) => void",
+        desc: "Fires on tap.",
+      },
     ],
     usage: `<QuickReplyChips
   options={["On my way", "5 min", "Call me"]}
@@ -810,11 +980,13 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     category: "Spatial",
     summary:
       "A world-anchored waypoint marker (ring + dot, name + distance above) placed at a projected screen point. World-anchored: positioned by an SVG transform attribute and never mirrored under RTL.",
-    preview: (
-      <Pin x={50} y={48} label="Blue Bottle" distance="120 m" />
-    ),
+    preview: <Pin x={50} y={48} label="Blue Bottle" distance="120 m" />,
     props: [
-      { name: "x / y", type: "number", desc: "0–100, % of the lens (you project from the world)." },
+      {
+        name: "x / y",
+        type: "number",
+        desc: "0–100, % of the lens (you project from the world).",
+      },
       { name: "label", type: "ReactNode", desc: "Place name." },
       { name: "distance", type: "ReactNode", desc: "Optional distance." },
     ],
@@ -827,9 +999,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     category: "Spatial",
     summary:
       "A world-object annotation: an anchor + a vertical leader up to an emitted label (no box — additive translates the card to line + type). World-anchored, never mirrored.",
-    preview: (
-      <Callout x={50} y={56} label="Powell St" detail="Muni · 3 min" />
-    ),
+    preview: <Callout x={50} y={56} label="Powell St" detail="Muni · 3 min" />,
     props: [
       { name: "x / y", type: "number", desc: "0–100, % of the lens." },
       { name: "label", type: "ReactNode", desc: "The annotation label." },
@@ -853,7 +1023,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       </Screen>
     ),
     props: [
-      { name: "name", type: "string", desc: "Display name → initials + a11y label." },
+      {
+        name: "name",
+        type: "string",
+        desc: "Display name → initials + a11y label.",
+      },
       { name: "src", type: "string", desc: "Optional photo URL." },
       {
         name: "tone",
@@ -861,7 +1035,12 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         default: '"blue"',
         desc: "Gradient tone for the initials plate.",
       },
-      { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', desc: "46 / 62 / 92px." },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        desc: "46 / 62 / 92px.",
+      },
     ],
     usage: `<Avatar name="Mara Lin" tone="violet" />
 <Avatar name="Sam Ortiz" src={photoUrl} />`,
@@ -884,7 +1063,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       </Screen>
     ),
     props: [
-      { name: "avatar", type: "ReactNode", desc: "Leading <Avatar> or app glyph." },
+      {
+        name: "avatar",
+        type: "ReactNode",
+        desc: "Leading <Avatar> or app glyph.",
+      },
       { name: "title", type: "ReactNode", desc: "Sender / app name." },
       { name: "time", type: "ReactNode", desc: "Optional timestamp." },
       { name: "children", type: "ReactNode", desc: "The message preview." },
@@ -916,9 +1099,18 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       </Screen>
     ),
     props: [
-      { name: "art", type: "ReactNode", desc: "Album art — <img> or a gradient tile." },
+      {
+        name: "art",
+        type: "ReactNode",
+        desc: "Album art — <img> or a gradient tile.",
+      },
       { name: "title / artist", type: "ReactNode", desc: "Track + artist." },
-      { name: "progress", type: "number", default: "0", desc: "0–100 scrub position." },
+      {
+        name: "progress",
+        type: "number",
+        default: "0",
+        desc: "0–100 scrub position.",
+      },
       { name: "elapsed / remaining", type: "ReactNode", desc: "Time labels." },
       { name: "controls", type: "ReactNode", desc: "Optional transport row." },
     ],
@@ -970,9 +1162,22 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       </Screen>
     ),
     props: [
-      { name: "position", type: "Position", default: '"bottom-center"', desc: "Anchor; bottom = device-accurate." },
-      { name: "(Sonner props)", type: "ToasterProps", desc: "offset, gap, visibleToasts, theme, etc." },
-      { name: "toast()", type: "imperative API", desc: "toast(msg) · toast(t,{description,icon,action}) · toast.custom()." },
+      {
+        name: "position",
+        type: "Position",
+        default: '"bottom-center"',
+        desc: "Anchor; bottom = device-accurate.",
+      },
+      {
+        name: "(Sonner props)",
+        type: "ToasterProps",
+        desc: "offset, gap, visibleToasts, theme, etc.",
+      },
+      {
+        name: "toast()",
+        type: "imperative API",
+        desc: "toast(msg) · toast(t,{description,icon,action}) · toast.custom().",
+      },
     ],
     usage: `// once at your app root (inside the 600×600 window)
 <Toaster />
@@ -989,7 +1194,7 @@ toast("Mara Lin", {
     name: "ChatBubble",
     category: "Comms",
     summary:
-      "A conversation view. <MessageThread> stacks <ChatBubble>s — from=\"them\" is a surface bubble at the start, from=\"me\" is the accent-gradient bubble at the end. RTL-safe.",
+      'A conversation view. <MessageThread> stacks <ChatBubble>s — from="them" is a surface bubble at the start, from="me" is the accent-gradient bubble at the end. RTL-safe.',
     preview: (
       <Screen>
         <MessageThread>
@@ -1001,9 +1206,22 @@ toast("Mara Lin", {
       </Screen>
     ),
     props: [
-      { name: "MessageThread · children", type: "ReactNode", desc: "ChatBubble elements." },
-      { name: "ChatBubble · from", type: '"me" | "them"', default: '"them"', desc: "Alignment + style." },
-      { name: "ChatBubble · children", type: "ReactNode", desc: "The message." },
+      {
+        name: "MessageThread · children",
+        type: "ReactNode",
+        desc: "ChatBubble elements.",
+      },
+      {
+        name: "ChatBubble · from",
+        type: '"me" | "them"',
+        default: '"them"',
+        desc: "Alignment + style.",
+      },
+      {
+        name: "ChatBubble · children",
+        type: "ReactNode",
+        desc: "The message.",
+      },
     ],
     usage: `<MessageThread>
   <ChatBubble from="them">Where are you?</ChatBubble>
@@ -1024,11 +1242,23 @@ toast("Mara Lin", {
           status="Incoming call"
           actions={
             <>
-              <button type="button" className="focusable gk-callbtn gk-callbtn--decline" aria-label="Decline">
-                <GlowIcon size="md"><PhoneOffGlyph /></GlowIcon>
+              <button
+                type="button"
+                className="focusable gk-callbtn gk-callbtn--decline"
+                aria-label="Decline"
+              >
+                <GlowIcon size="md">
+                  <PhoneOffGlyph />
+                </GlowIcon>
               </button>
-              <button type="button" className="focusable gk-callbtn gk-callbtn--accept" aria-label="Accept">
-                <GlowIcon size="md"><PhoneGlyph /></GlowIcon>
+              <button
+                type="button"
+                className="focusable gk-callbtn gk-callbtn--accept"
+                aria-label="Accept"
+              >
+                <GlowIcon size="md">
+                  <PhoneGlyph />
+                </GlowIcon>
               </button>
             </>
           }
@@ -1038,8 +1268,16 @@ toast("Mara Lin", {
     props: [
       { name: "avatar", type: "ReactNode", desc: "A large <Avatar>." },
       { name: "name", type: "ReactNode", desc: "Caller name." },
-      { name: "status", type: "ReactNode", desc: "\"Incoming call\", a timer, etc." },
-      { name: "actions", type: "ReactNode", desc: "Accept / decline controls." },
+      {
+        name: "status",
+        type: "ReactNode",
+        desc: '"Incoming call", a timer, etc.',
+      },
+      {
+        name: "actions",
+        type: "ReactNode",
+        desc: "Accept / decline controls.",
+      },
     ],
     usage: `<CallCard
   avatar={<Avatar name="Devon Reyes" tone="cyan" size="lg" />}
@@ -1059,9 +1297,23 @@ toast("Mara Lin", {
       </Screen>
     ),
     props: [
-      { name: "transcript", type: "ReactNode", desc: "The recognized text so far." },
-      { name: "listening", type: "boolean", default: "true", desc: "Animates the waveform." },
-      { name: "placeholder", type: "ReactNode", default: '"Speak now…"', desc: "Shown before any text." },
+      {
+        name: "transcript",
+        type: "ReactNode",
+        desc: "The recognized text so far.",
+      },
+      {
+        name: "listening",
+        type: "boolean",
+        default: "true",
+        desc: "Animates the waveform.",
+      },
+      {
+        name: "placeholder",
+        type: "ReactNode",
+        default: '"Speak now…"',
+        desc: "Shown before any text.",
+      },
     ],
     usage: `<Dictation transcript={text} listening={isListening} />`,
   },
@@ -1081,10 +1333,23 @@ toast("Mara Lin", {
       </Screen>
     ),
     props: [
-      { name: "src", type: "string", desc: "Image URL (else a gradient placeholder)." },
+      {
+        name: "src",
+        type: "string",
+        desc: "Image URL (else a gradient placeholder).",
+      },
       { name: "label", type: "ReactNode", desc: "Caption overlay." },
-      { name: "duration", type: "ReactNode", desc: "Duration pill (for video/reels)." },
-      { name: "aspect", type: '"square" | "portrait"', default: '"square"', desc: "Tile ratio." },
+      {
+        name: "duration",
+        type: "ReactNode",
+        desc: "Duration pill (for video/reels).",
+      },
+      {
+        name: "aspect",
+        type: '"square" | "portrait"',
+        default: '"square"',
+        desc: "Tile ratio.",
+      },
     ],
     usage: `<MediaThumb src={photo} label="Trail" />
 <MediaThumb src={reel} duration="0:14" aspect="portrait" />`,
@@ -1101,9 +1366,22 @@ toast("Mara Lin", {
       </Screen>
     ),
     props: [
-      { name: "zoom", type: "ReactNode", desc: "Zoom badge, e.g. \"1×\" / \"3×\"." },
-      { name: "recording", type: "boolean", default: "false", desc: "Shows the pulsing REC indicator." },
-      { name: "children", type: "ReactNode", desc: "Overlays (e.g. a Reticle)." },
+      {
+        name: "zoom",
+        type: "ReactNode",
+        desc: 'Zoom badge, e.g. "1×" / "3×".',
+      },
+      {
+        name: "recording",
+        type: "boolean",
+        default: "false",
+        desc: "Shows the pulsing REC indicator.",
+      },
+      {
+        name: "children",
+        type: "ReactNode",
+        desc: "Overlays (e.g. a Reticle).",
+      },
     ],
     usage: `<Viewfinder zoom="3×" recording>
   <Reticle active />
@@ -1124,8 +1402,17 @@ toast("Mara Lin", {
     ),
     props: [
       { name: "speaker", type: "ReactNode", desc: "Who is speaking." },
-      { name: "children", type: "ReactNode", desc: "Caption text (latest line[s])." },
-      { name: "translated", type: "boolean", default: "false", desc: "Shows a \"Translated\" badge." },
+      {
+        name: "children",
+        type: "ReactNode",
+        desc: "Caption text (latest line[s]).",
+      },
+      {
+        name: "translated",
+        type: "boolean",
+        default: "false",
+        desc: 'Shows a "Translated" badge.',
+      },
     ],
     usage: `<LiveCaptions speaker="Maya" translated>
   {captionText}
@@ -1156,7 +1443,11 @@ toast("Mara Lin", {
     props: [
       { name: "items", type: "{ id, label }[]", desc: "The tabs." },
       { name: "value", type: "string", desc: "Active tab id (controlled)." },
-      { name: "onChange", type: "(id: string) => void", desc: "Fires on select." },
+      {
+        name: "onChange",
+        type: "(id: string) => void",
+        desc: "Fires on select.",
+      },
     ],
     usage: `<Tabs
   value={tab}
@@ -1173,18 +1464,40 @@ toast("Mara Lin", {
     name: "Clock",
     category: "Display",
     summary:
-      "The home time / date complication: a big tabular time, a quieter date, and an optional meta line (weather, alarm). Pass preformatted strings — you own the locale.",
+      "The home time / date complication: a big tabular time, a quieter date, and an optional meta line (weather, alarm). Self-ticking by default (minute-aligned); pass time to control the formatting yourself.",
     preview: (
       <Screen>
         <Clock time="9:41" date="Tuesday, June 9" meta="72° · Sunny" />
       </Screen>
     ),
     props: [
-      { name: "time", type: "ReactNode", desc: "Preformatted time." },
-      { name: "date", type: "ReactNode", desc: "Optional date line." },
+      {
+        name: "time",
+        type: "ReactNode",
+        desc: "Controlled, preformatted time. Omit to tick live.",
+      },
+      {
+        name: "date",
+        type: "ReactNode",
+        desc: "Date line. In live mode, omitting it shows the live date.",
+      },
       { name: "meta", type: "ReactNode", desc: "Optional trailing line." },
+      {
+        name: "locale",
+        type: "string",
+        desc: "BCP 47 locale for live formatting (default: device locale).",
+      },
+      {
+        name: "hour12",
+        type: "boolean",
+        desc: "Force 12/24-hour live time (default: locale convention).",
+      },
     ],
-    usage: `<Clock time="9:41" date="Tuesday, June 9" meta="72° · Sunny" />`,
+    usage: `// self-ticking, device locale
+<Clock meta="72° · Sunny" />
+
+// or controlled — you own the formatting
+<Clock time="9:41" date="Tuesday, June 9" />`,
   },
   {
     slug: "weather-tile",
@@ -1195,7 +1508,11 @@ toast("Mara Lin", {
     preview: (
       <Screen>
         <WeatherTile
-          icon={<GlowIcon size="lg"><SunGlyph /></GlowIcon>}
+          icon={
+            <GlowIcon size="lg">
+              <SunGlyph />
+            </GlowIcon>
+          }
           temp="72°"
           condition="Sunny"
           location="San Francisco"
@@ -1207,7 +1524,11 @@ toast("Mara Lin", {
       { name: "temp", type: "ReactNode", desc: "Temperature." },
       { name: "condition", type: "ReactNode", desc: "Condition text." },
       { name: "icon", type: "ReactNode", desc: "Condition glyph." },
-      { name: "location / range", type: "ReactNode", desc: "Place · hi-lo line." },
+      {
+        name: "location / range",
+        type: "ReactNode",
+        desc: "Place · hi-lo line.",
+      },
     ],
     usage: `<WeatherTile
   icon={<GlowIcon size="lg"><SunIcon /></GlowIcon>}
@@ -1222,15 +1543,44 @@ toast("Mara Lin", {
       "A continuous level control (volume, brightness — the quick controls). A native range tinted with accent-color; arrow keys / Neural-Band pinch-twist adjust it. Controlled via value + onChange.",
     preview: (
       <Screen>
-        <Slider value={70} icon={<GlowIcon size="md"><VolumeGlyph /></GlowIcon>} label="Volume" />
-        <Slider value={40} icon={<GlowIcon size="md"><SunGlyph /></GlowIcon>} label="Brightness" />
+        <Slider
+          value={70}
+          icon={
+            <GlowIcon size="md">
+              <VolumeGlyph />
+            </GlowIcon>
+          }
+          label="Volume"
+        />
+        <Slider
+          value={40}
+          icon={
+            <GlowIcon size="md">
+              <SunGlyph />
+            </GlowIcon>
+          }
+          label="Brightness"
+        />
       </Screen>
     ),
     props: [
       { name: "value", type: "number", desc: "Current value (controlled)." },
-      { name: "min / max", type: "number", default: "0 / 100", desc: "Bounds." },
-      { name: "onChange", type: "(next: number) => void", desc: "Fires on adjust." },
-      { name: "icon / label", type: "ReactNode", desc: "Leading glyph / caption." },
+      {
+        name: "min / max",
+        type: "number",
+        default: "0 / 100",
+        desc: "Bounds.",
+      },
+      {
+        name: "onChange",
+        type: "(next: number) => void",
+        desc: "Fires on adjust.",
+      },
+      {
+        name: "icon / label",
+        type: "ReactNode",
+        desc: "Leading glyph / caption.",
+      },
     ],
     usage: `<Slider
   value={volume} onChange={setVolume}
@@ -1249,16 +1599,33 @@ toast("Mara Lin", {
         <TextField
           label="Reply"
           placeholder="Tap to speak"
-          icon={<GlowIcon size="md"><MicGlyph /></GlowIcon>}
+          icon={
+            <GlowIcon size="md">
+              <MicGlyph />
+            </GlowIcon>
+          }
         />
       </Screen>
     ),
     props: [
       { name: "label", type: "ReactNode", desc: "Field label." },
-      { name: "value", type: "ReactNode", desc: "Current value (else placeholder)." },
-      { name: "placeholder", type: "ReactNode", default: '"Tap to speak"', desc: "Empty hint." },
+      {
+        name: "value",
+        type: "ReactNode",
+        desc: "Current value (else placeholder).",
+      },
+      {
+        name: "placeholder",
+        type: "ReactNode",
+        default: '"Tap to speak"',
+        desc: "Empty hint.",
+      },
       { name: "icon", type: "ReactNode", desc: "Trailing affordance (mic)." },
-      { name: "onActivate", type: "() => void", desc: "Opens dictation / handwriting." },
+      {
+        name: "onActivate",
+        type: "() => void",
+        desc: "Opens dictation / handwriting.",
+      },
     ],
     usage: `<TextField
   label="Reply" value={draft} onActivate={startDictation}
@@ -1274,7 +1641,11 @@ toast("Mara Lin", {
     preview: (
       <Screen>
         <PermissionPrompt
-          icon={<GlowIcon size="lg" plate tone="cyan"><NavGlyph /></GlowIcon>}
+          icon={
+            <GlowIcon size="lg" plate tone="cyan">
+              <NavGlyph />
+            </GlowIcon>
+          }
           title="Use your location?"
           actions={
             <>
