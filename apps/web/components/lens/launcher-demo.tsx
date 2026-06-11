@@ -1,4 +1,4 @@
-import { GlassViewport } from "@glasskit/glasses-ui";
+import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
 import { Launcher } from "@registry/ui/launcher";
 import { GlowIcon } from "@registry/ui/glow-icon";

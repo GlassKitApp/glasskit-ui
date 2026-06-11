@@ -39,9 +39,7 @@
       "title": "AssistantOrb",
       "description": "the Meta-AI presence: a glowing gradient orb that animates per `state` (idle = gentle breathe, listening = pulse, thinking = swirl, speaking = quick pulse).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/assistant-orb.tsx",
@@ -56,9 +54,7 @@
       "title": "AsyncView",
       "description": "the four-state async renderer every data screen needs: placeholder (idle) → loading → success/error.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/async-view.tsx",
@@ -73,9 +69,7 @@
       "title": "Avatar",
       "description": "a contact / sender avatar: a photo when you have one, else initials on a gradient plate.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/avatar.tsx",
@@ -90,9 +84,7 @@
       "title": "Badge",
       "description": "a small count or status pill (notification counts, live state).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/badge.tsx",
@@ -107,9 +99,7 @@
       "title": "Button",
       "description": "a D-pad-focusable action.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/button.tsx",
@@ -124,9 +114,7 @@
       "title": "CallCard",
       "description": "an incoming / active call: a big avatar, caller name, a status line (\"Incoming…\", \"02:14\"), and an action row (accept / decline via D-pad-focusable <Button>s).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/call-card.tsx",
@@ -141,9 +129,7 @@
       "title": "Callout",
       "description": "a world-object annotation: a small anchor at a screen point with a vertical leader line up to an emitted label (no box — additive translates the card to line + type).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/callout.tsx",
@@ -158,9 +144,7 @@
       "title": "ChatBubble",
       "description": "one message.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/chat-bubble.tsx",
@@ -175,9 +159,7 @@
       "title": "Clock",
       "description": "the home time/date complication: a big tabular time and a quieter date line.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/clock.tsx",
@@ -191,13 +173,8 @@
       "type": "registry:ui",
       "title": "Compass",
       "description": "a heading rose that keeps North pointing at real north while a fixed top marker shows where you face.",
-      "dependencies": [
-        "@glasskit/glasses-ui@^0.1.0"
-      ],
-      "registryDependencies": [
-        "utils",
-        "geo"
-      ],
+      "dependencies": ["@glasskit-ui/react@^0.1.0"],
+      "registryDependencies": ["utils", "geo"],
       "files": [
         {
           "path": "registry/ui/compass.tsx",
@@ -212,10 +189,7 @@
       "title": "Confirm",
       "description": "a decision screen: a prompt + a two-button action bar (confirm / cancel).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils",
-        "button"
-      ],
+      "registryDependencies": ["utils", "button"],
       "files": [
         {
           "path": "registry/ui/confirm.tsx",
@@ -230,9 +204,7 @@
       "title": "Cue",
       "description": "a caption / hint line: what to do next, or a transient status (\"Listening…\").",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/cue.tsx",
@@ -246,13 +218,8 @@
       "type": "registry:ui",
       "title": "Deck",
       "description": "a horizontal paged flow (wizard / onboarding).",
-      "dependencies": [
-        "@glasskit/glasses-ui@^0.1.0"
-      ],
-      "registryDependencies": [
-        "utils",
-        "progress"
-      ],
+      "dependencies": ["@glasskit-ui/react@^0.1.0"],
+      "registryDependencies": ["utils", "progress"],
       "files": [
         {
           "path": "registry/ui/deck.tsx",
@@ -267,9 +234,7 @@
       "title": "Dictation",
       "description": "the voice-to-text surface (there is no keyboard on the lens — text is voice or Neural-Band handwriting).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/dictation.tsx",
@@ -283,13 +248,8 @@
       "type": "registry:ui",
       "title": "DirectionArrow",
       "description": "points toward a real-world direction.",
-      "dependencies": [
-        "@glasskit/glasses-ui@^0.1.0"
-      ],
-      "registryDependencies": [
-        "utils",
-        "geo"
-      ],
+      "dependencies": ["@glasskit-ui/react@^0.1.0"],
+      "registryDependencies": ["utils", "geo"],
       "files": [
         {
           "path": "registry/ui/direction-arrow.tsx",
@@ -304,10 +264,7 @@
       "title": "ErrorState",
       "description": "a recoverable error screen: optional glyph + title + message + a retry action.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils",
-        "button"
-      ],
+      "registryDependencies": ["utils", "button"],
       "files": [
         {
           "path": "registry/ui/error-state.tsx",
@@ -322,9 +279,7 @@
       "title": "GlowIcon",
       "description": "wraps a line-icon SVG.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/glow-icon.tsx",
@@ -339,9 +294,7 @@
       "title": "Heading",
       "description": "a screen/section title with an optional eyebrow label above it.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/heading.tsx",
@@ -356,9 +309,7 @@
       "title": "Launcher",
       "description": "the app grid: a home screen of gradient app-icon plates + labels.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/launcher.tsx",
@@ -373,9 +324,7 @@
       "title": "List",
       "description": "a vertical stack of focusable rows (watchOS list spirit) that fills the stage and scrolls (D-pad scrollIntoView).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/list.tsx",
@@ -390,9 +339,7 @@
       "title": "LiveCaptions",
       "description": "real-time transcription / translation, read at a glance: an optional speaker label and the running caption text on a surface, anchored low (like the real Captions app).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/live-captions.tsx",
@@ -407,9 +354,7 @@
       "title": "MediaThumb",
       "description": "a photo / reel tile (Photos, Instagram).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/media-thumb.tsx",
@@ -424,9 +369,7 @@
       "title": "Meter",
       "description": "a bounded ring gauge for a level (battery, signal, intensity), as opposed to <Progress> which tracks task completion.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/meter.tsx",
@@ -440,12 +383,8 @@
       "type": "registry:ui",
       "title": "Navigator",
       "description": "a screen stack for glasses apps (react-navigation semantics, glasses-native mechanics).",
-      "dependencies": [
-        "@glasskit/glasses-ui@^0.1.0"
-      ],
-      "registryDependencies": [
-        "utils"
-      ],
+      "dependencies": ["@glasskit-ui/react@^0.1.0"],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/navigator.tsx",
@@ -460,9 +399,7 @@
       "title": "NotificationCard",
       "description": "an incoming notification (message, mention, alert): a leading avatar/glyph, sender + time, a message preview, and optional quick actions.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/notification-card.tsx",
@@ -477,9 +414,7 @@
       "title": "NowPlaying",
       "description": "a media \"now playing\" card: album art, title + artist, a scrub bar, and elapsed / remaining times.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/now-playing.tsx",
@@ -494,9 +429,7 @@
       "title": "PermissionPrompt",
       "description": "an explicit access request (sensors, location, camera, mic), which MRBD apps must ask for before use.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/permission-prompt.tsx",
@@ -511,9 +444,7 @@
       "title": "Pin",
       "description": "a world-anchored waypoint marker: a ring + dot at a screen point with the name and distance stacked above.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/pin.tsx",
@@ -528,9 +459,7 @@
       "title": "Progress",
       "description": "emitted progress, two shapes: - \"linear\" a continuous bar (also covers countdown: feed a decreasing value and a time label).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/progress.tsx",
@@ -545,9 +474,7 @@
       "title": "QuickReplyChips",
       "description": "tappable canned replies (the comms job; there is no keyboard on the lens — text is voice).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/quick-reply-chips.tsx",
@@ -562,9 +489,7 @@
       "title": "Readout",
       "description": "a single-value complication: label + value (+ optional unit).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/readout.tsx",
@@ -579,9 +504,7 @@
       "title": "Reticle",
       "description": "an aim-to-select target: four corner brackets framing the gaze center.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/reticle.tsx",
@@ -596,9 +519,7 @@
       "title": "Screen",
       "description": "the on-lens layout shell: a status region (block-start), a centered stage (the one task), and a cue region (block-end).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/screen.tsx",
@@ -613,9 +534,7 @@
       "title": "Segmented",
       "description": "pick one of a few options (a watchOS-style segmented control).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/segmented.tsx",
@@ -630,9 +549,7 @@
       "title": "Slider",
       "description": "a continuous level control (volume, brightness — the quick controls).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/slider.tsx",
@@ -647,9 +564,7 @@
       "title": "StatGrid",
       "description": "a compact grid of readouts for a multi-metric glance (a watch \"complication cluster\").",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/stat-grid.tsx",
@@ -664,9 +579,7 @@
       "title": "StatusDot",
       "description": "a glanceable sensor / permission / connection indicator.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/status-dot.tsx",
@@ -681,9 +594,7 @@
       "title": "Stepper",
       "description": "adjust a value in discrete steps (glasses have no fine slider).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/stepper.tsx",
@@ -698,9 +609,7 @@
       "title": "Tabs",
       "description": "a top-level tab strip (the home's quick-controls | home | apps pager).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/tabs.tsx",
@@ -715,9 +624,7 @@
       "title": "TextField",
       "description": "a text entry surface.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/text-field.tsx",
@@ -732,9 +639,7 @@
       "title": "Toast",
       "description": "a transient notice that animates in (a brief luminance rise, not a modal scrim).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/toast.tsx",
@@ -748,9 +653,7 @@
       "type": "registry:ui",
       "title": "Toaster",
       "description": "the GlassKit toast / notification system, built on Sonner (Emil Kowalski's library) and themed to the lens surfaces.",
-      "dependencies": [
-        "sonner"
-      ],
+      "dependencies": ["sonner"],
       "registryDependencies": [],
       "files": [
         {
@@ -766,9 +669,7 @@
       "title": "Toggle",
       "description": "a binary switch, D-pad-focusable (renders a real button with the focusable class; useDpad activates it on Enter/Space).",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/toggle.tsx",
@@ -783,9 +684,7 @@
       "title": "Viewfinder",
       "description": "the camera POV frame: corner brackets framing the shot, an optional zoom badge and a REC indicator.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/viewfinder.tsx",
@@ -800,9 +699,7 @@
       "title": "WeatherTile",
       "description": "a glanceable weather complication: a condition glyph + big temperature, the condition text, and an optional location / hi-lo line.",
       "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/ui/weather-tile.tsx",

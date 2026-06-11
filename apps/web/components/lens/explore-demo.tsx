@@ -1,4 +1,4 @@
-import { GlassViewport } from "@glasskit/glasses-ui";
+import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
 import { Cue } from "@registry/ui/cue";
 import { Reticle } from "@registry/ui/reticle";

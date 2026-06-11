@@ -29,9 +29,7 @@ export function ChatBubble({
   className?: string;
 }) {
   return (
-    <div
-      className={cn("gk-bubble", `gk-bubble--${from}`, "t-body", className)}
-    >
+    <div className={cn("gk-bubble", `gk-bubble--${from}`, "t-body", className)}>
       {children}
     </div>
   );

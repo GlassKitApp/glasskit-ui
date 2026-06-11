@@ -94,14 +94,14 @@ if (!existsSync(PREVIEW_DIR)) {
 // ── 2. The SDK dist ───────────────────────────────────────────────────────
 const SDK_DIST = join(ROOT, "packages", "glasses-ui", "dist");
 if (!existsSync(SDK_DIST)) {
-  fail(`${SDK_DIST} missing — build @glasskit/glasses-ui first.`);
+  fail(`${SDK_DIST} missing — build @glasskit-ui/react first.`);
 } else {
   let total = 0;
   for (const f of readdirSync(SDK_DIST).filter((f) => f.endsWith(".js"))) {
     total += gzipSync(readFileSync(join(SDK_DIST, f))).length;
   }
   console.log(
-    `@glasskit/glasses-ui dist —${fmt(total)} gzipped JS (budget ${HARD_SDK_KB} KB)`,
+    `@glasskit-ui/react dist —${fmt(total)} gzipped JS (budget ${HARD_SDK_KB} KB)`,
   );
   if (kb(total) > HARD_SDK_KB) {
     fail(`SDK dist ${fmt(total)} exceeds its ${HARD_SDK_KB} KB budget`);

@@ -64,7 +64,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build packages
-        run: pnpm --filter @glasskit/glasses-ui --filter @glasskit/cli --filter @glasskit/mcp build
+        run: pnpm --filter @glasskit-ui/react --filter @glasskit-ui/cli --filter @glasskit-ui/mcp build
 
       - name: Verify tarball contents
         run: |
@@ -104,14 +104,14 @@ jobs:
       # be on npm yet) and gzip-measure the Vite output.
       - name: Scaffold compiles within budget
         run: |
-          pnpm --filter @glasskit/glasses-ui exec pnpm pack --out /tmp/gk-sdk.tgz
+          pnpm --filter @glasskit-ui/react exec pnpm pack --out /tmp/gk-sdk.tgz
           mkdir -p /tmp/scaffold
           node packages/cli/dist/index.js init app --cwd /tmp/scaffold --no-install
           cd /tmp/scaffold/app
           node -e '
             const fs = require("fs");
             const p = JSON.parse(fs.readFileSync("package.json", "utf8"));
-            p.dependencies["@glasskit/glasses-ui"] = "file:/tmp/gk-sdk.tgz";
+            p.dependencies["@glasskit-ui/react"] = "file:/tmp/gk-sdk.tgz";
             fs.writeFileSync("package.json", JSON.stringify(p, null, 2));
           '
           npm install --no-audit --no-fund

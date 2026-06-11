@@ -20,7 +20,9 @@ describe("Button", () => {
 
   it("reflects disabled so the D-pad selector skips it", () => {
     render(<Button disabled>Off</Button>);
-    const btn = screen.getByRole("button", { name: "Off" }) as HTMLButtonElement;
+    const btn = screen.getByRole("button", {
+      name: "Off",
+    }) as HTMLButtonElement;
     expect(btn.disabled).toBe(true);
   });
 
@@ -32,9 +34,7 @@ describe("Button", () => {
   });
 
   it("renders a leading icon slot", () => {
-    render(
-      <Button icon={<span data-testid="ic" />}>Labeled</Button>,
-    );
+    render(<Button icon={<span data-testid="ic" />}>Labeled</Button>);
     expect(screen.getByTestId("ic")).toBeTruthy();
   });
 });

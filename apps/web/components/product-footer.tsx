@@ -49,8 +49,7 @@ const COLS: { title: string; links: FooterLink[] }[] = [
 
 const colTitle =
   "font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-ink-3";
-const colLink =
-  "text-[13px] text-ink-3 transition-colors hover:text-ink";
+const colLink = "text-[13px] text-ink-3 transition-colors hover:text-ink";
 
 export function ProductFooter() {
   return (

@@ -76,7 +76,7 @@ export default function Home() {
           </div>
           <InstallCommand
             mode="exec"
-            command="@glasskit/cli add button"
+            command="@glasskit-ui/cli add button"
             className="rise-3 mt-10"
           />
         </div>

@@ -19,7 +19,9 @@ export function LensStage({
       <div className="lens-tile ring-1 ring-white/10">{children}</div>
       {/* The Meta-logo "add to your glasses" badge sits on the tile corner; its
        * popover escapes the tile's overflow (the figure isn't clipped). */}
-      {device ? <div className="absolute end-3 top-3 z-30">{device}</div> : null}
+      {device ? (
+        <div className="absolute end-3 top-3 z-30">{device}</div>
+      ) : null}
       {caption ? (
         <figcaption className="flex items-center gap-3">
           <span className="mono-label">{caption}</span>

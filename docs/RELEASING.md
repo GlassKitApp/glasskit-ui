@@ -1,15 +1,15 @@
 # Releasing the GlassKit packages
 
-Three packages publish from this repo — `@glasskit/glasses-ui` (the SDK),
-`@glasskit/cli` (bin: `glasskit`), and `@glasskit/mcp` — all through the same
+Three packages publish from this repo — `@glasskit-ui/react` (the SDK),
+`@glasskit-ui/cli` (bin: `glasskit`), and `@glasskit-ui/mcp` — all through the same
 GitHub Actions + [Changesets](https://github.com/changesets/changesets)
 pipeline. Nothing publishes until the owner flips the activation switches
 (bottom of this doc); until then every workflow is inert and skipped.
 
-> **Naming:** the bare `glasskit` npm name is owned by an unrelated package —
-> everything ships under the `@glasskit` scope, and docs must always show the
-> scoped form (`npx @glasskit/cli …`). The installed binary is still
-> `glasskit`.
+> **Naming:** the bare `glasskit` npm name _and_ the `glasskit` npm org are
+> both owned by others — everything ships under the **`@glasskit-ui`** scope
+> (org claimed 2026-06), and docs must always show the scoped form
+> (`npx @glasskit-ui/cli …`). The installed binary is still `glasskit`.
 
 ## The pipeline
 
@@ -24,7 +24,7 @@ PR opened ──► CI: lint · typecheck · test · build
 merge to main ──► Release: changesets/action opens/updates the
                   "Version Packages" PR (runs `pnpm version-packages`,
                   which also regenerates registry.json so the registry's
-                  @glasskit/glasses-ui dep range tracks the new version)
+                  @glasskit-ui/react dep range tracks the new version)
 
 merge "Version Packages" PR ──► Release: publishes to npm `latest`
                                 with OIDC provenance + git tags
@@ -48,7 +48,7 @@ add the `no-changeset-needed` label to the PR to satisfy the guard.
 ## Local verification (what package-checks runs in CI)
 
 ```sh
-pnpm --filter @glasskit/glasses-ui build
+pnpm --filter @glasskit-ui/react build
 cd packages/glasses-ui
 npm pack --dry-run                  # expect dist/*, styles.css, README, LICENSE
 pnpm dlx publint --strict
@@ -67,18 +67,15 @@ without needing a changeset.
 
 ## Activation (owner-only, one time)
 
-0. **Claim the `glasskit` org on npmjs.com first** (npmjs.com → Add
-   Organization). All three packages live under the `@glasskit` scope — if
-   the org name is unavailable, every package needs a rename before anything
-   ships. (Anonymous availability checks are blocked by npm; this can only be
-   confirmed logged-in.)
+0. ~~Claim the npm org~~ — done: the **`glasskit-ui`** org was claimed
+   2026-06 (the bare `glasskit` name and org were already taken).
 
 Then in GitHub → Settings → Secrets and variables → Actions:
 
 1. Variable `RELEASE_ENABLED` = `true`
 2. Secret `NPM_TOKEN` — a granular automation token with publish rights for
-   the `@glasskit` org (Settings → Access Tokens on npmjs.com; scope it to
-   the `@glasskit` packages, no 2FA prompt for automation).
+   the `glasskit-ui` org (Settings → Access Tokens on npmjs.com; scope it to
+   the `@glasskit-ui` packages, no 2FA prompt for automation).
 
 Both `beta.yml` and `release.yml` stay skipped until both exist. To pause all
 publishing, set `RELEASE_ENABLED` to anything other than `true`.

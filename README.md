@@ -13,7 +13,7 @@ vocabulary.
 
 ## What's here
 
-- **`@glasskit/glasses-ui`** ([`packages/glasses-ui`](./packages/glasses-ui)) —
+- **`@glasskit-ui/react`** ([`packages/glasses-ui`](./packages/glasses-ui)) —
   the SDK: `GlassViewport`, the spatial focus engine (`useDpad` / `scoreRect`),
   the four W3C sensor + Neural Band hooks, and the scoped additive stylesheet.
 - **The registry** ([`registry/ui`](./registry/ui)) — 28 styled components you
@@ -27,17 +27,17 @@ vocabulary.
 ## Quick start
 
 ```sh
-pnpm add @glasskit/glasses-ui          # the SDK (react 19 peer dep)
+pnpm add @glasskit-ui/react          # the SDK (react 19 peer dep)
 ```
 
 ```css
 /* your CSS entry, after Tailwind v4 */
 @import "tailwindcss";
-@import "@glasskit/glasses-ui/styles.css";
+@import "@glasskit-ui/react/styles.css";
 ```
 
 ```tsx
-import { GlassViewport, useDpad } from "@glasskit/glasses-ui";
+import { GlassViewport, useDpad } from "@glasskit-ui/react";
 import { Screen } from "@/components/glasskit/screen";
 import { Readout } from "@/components/glasskit/readout";
 
@@ -56,15 +56,15 @@ export function App() {
 Add components with the CLI (vendors the source into your project):
 
 ```sh
-npx @glasskit/cli add screen readout button  # also pulls their dependencies
-npx @glasskit/cli list                       # browse all 45
+npx @glasskit-ui/cli add screen readout button  # also pulls their dependencies
+npx @glasskit-ui/cli list                       # browse all 45
 ```
 
 ## Monorepo
 
 ```
 packages/glasses-ui/   the npm SDK (hooks + viewport + base stylesheet)
-packages/cli/          @glasskit/cli — scaffold + vendor from the registry
+packages/cli/          @glasskit-ui/cli — scaffold + vendor from the registry
 registry/ui/           the 45 styled components (you own these)
 apps/web/              glasskit.app/ui — docs, playground, served registry (/r/*.json)
 docs/design/           the additive-lens design spec

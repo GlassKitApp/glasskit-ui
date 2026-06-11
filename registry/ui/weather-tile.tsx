@@ -26,9 +26,7 @@ export function WeatherTile({
   return (
     <div className={cn("gk-weather gk-surface", className)}>
       <div className="gk-weather__top">
-        {icon != null ? (
-          <span className="gk-weather__icon">{icon}</span>
-        ) : null}
+        {icon != null ? <span className="gk-weather__icon">{icon}</span> : null}
         <span className="gk-weather__temp">{temp}</span>
       </div>
       {condition != null ? (

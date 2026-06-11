@@ -26,7 +26,7 @@ This repo is the `glasskit-ui` of the plan and lives at
 |---|---|
 | Altitude | One free SDK foundation first; boilerplate repositioned on top; Studio is a downstream consumer (out of scope) |
 | Component model | Headless logic only where real logic exists + a styled layer; styled components vendored via a shadcn-style registry |
-| Packaging | npm package `@glasskit/glasses-ui` (hooks + primitives + base styles); styled components/presets/blocks via the registry |
+| Packaging | npm package `@glasskit-ui/react` (hooks + primitives + base styles); styled components/presets/blocks via the registry |
 | Repo | This **new public monorepo** `GlassKitApp/glasskit-ui`, pnpm + turborepo → publishes to npm |
 | Site | Separate `ui.glasskit.app` = this monorepo's own Next.js + fumadocs site (`apps/web`), fully OSS |
 | Docs | fumadocs (reuse the proven setup from `adelaide`) |
@@ -172,7 +172,7 @@ the SDK in parallel regardless.
    `packages/glasses-ui` (reorg per §4, **API unchanged**), add `tsup.config.ts`,
    the `package.json` exports map (§4), `tsconfig.json` (extends base),
    `vitest.config.ts`, `eslint.config.mjs`, `README.md`.
-3. **Verify:** `pnpm install` → `pnpm --filter @glasskit/glasses-ui build` →
+3. **Verify:** `pnpm install` → `pnpm --filter @glasskit-ui/react build` →
    `pnpm test` (the inherited unit tests must pass) → `npm pack` and confirm the
    `.` and subpath exports resolve. Import into a scratch app and confirm the 5
    hooks + `GlassViewport` work; simulate sensors via Chrome DevTools + a

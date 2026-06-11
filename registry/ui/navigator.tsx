@@ -10,7 +10,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { seedFocus } from "@glasskit/glasses-ui";
+import { seedFocus } from "@glasskit-ui/react";
 import { cn } from "../lib/utils";
 
 /**

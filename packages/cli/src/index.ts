@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * @glasskit/cli (bin: glasskit) — the GlassKit UI CLI. Scaffolds glasses
+ * @glasskit-ui/cli (bin: glasskit) — the GlassKit UI CLI. Scaffolds glasses
  * apps and vendors lens components from the registry (the branded
  * `npx shadcn` equivalent). The bare `glasskit` npm name belongs to an
  * unrelated package — always document the scoped form.
  *
- *   npx @glasskit/cli init my-app        # scaffold a Vite glasses app
- *   npx @glasskit/cli add button readout # add components (+ their deps)
- *   npx @glasskit/cli list               # list available components
+ *   npx @glasskit-ui/cli init my-app        # scaffold a Vite glasses app
+ *   npx @glasskit-ui/cli add button readout # add components (+ their deps)
+ *   npx @glasskit-ui/cli list               # list available components
  *
  * Flags: --registry <url> (default https://glasskit.app/ui/r), --cwd <dir>,
  *        --overwrite, --no-install, --help. Zero runtime deps — Node 18+
@@ -226,7 +226,7 @@ async function add(names: string[], opts: Options) {
   await installDependencies(items, opts);
   if (written > 0) {
     console.log(
-      c.dim("Make sure your CSS imports @glasskit/glasses-ui/styles.css."),
+      c.dim("Make sure your CSS imports @glasskit-ui/react/styles.css."),
     );
   }
 }
@@ -258,12 +258,12 @@ async function init(dir: string | undefined, opts: Options) {
     console.log(`
 ${c.bold("GlassKit UI — add to an existing project")}
 
-  1. ${c.green("pnpm add @glasskit/glasses-ui")}   ${c.dim("# the SDK (hooks + GlassViewport)")}
+  1. ${c.green("pnpm add @glasskit-ui/react")}   ${c.dim("# the SDK (hooks + GlassViewport)")}
   2. In your CSS, after Tailwind:
        ${c.dim('@import "tailwindcss";')}
-       ${c.dim('@import "@glasskit/glasses-ui/styles.css";')}
+       ${c.dim('@import "@glasskit-ui/react/styles.css";')}
   3. Add components:
-       ${c.green("npx @glasskit/cli add button readout")}
+       ${c.green("npx @glasskit-ui/cli add button readout")}
 
   Docs: https://glasskit.app/ui/docs
 `);
@@ -317,7 +317,7 @@ Run init in an empty directory (or pass one: glasskit init my-app).`),
 ${c.green("✓")} ${c.bold(name)} is ready — a 600×600 glasses app.
 
   ${cd && cd !== "." ? c.green(`cd ${cd}`) + "\n  " : ""}${opts.install ? "" : c.green(`${pm} install`) + "\n  "}${c.green(`${pm} run dev`)}        ${c.dim("# arrow keys = D-pad, Enter = pinch")}
-  ${c.green("npx @glasskit/cli add list button readout")}
+  ${c.green("npx @glasskit-ui/cli add list button readout")}
 
   Ship it: build, deploy to any HTTPS host, add the URL in the Meta AI app.
 `);

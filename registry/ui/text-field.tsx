@@ -35,14 +35,15 @@ export function TextField({
           <span className="gk-textfield__label t-caption">{label}</span>
         ) : null}
         <span
-          className={cn("gk-textfield__value t-body", !filled && "gk-textfield__value--empty")}
+          className={cn(
+            "gk-textfield__value t-body",
+            !filled && "gk-textfield__value--empty",
+          )}
         >
           {filled ? value : placeholder}
         </span>
       </span>
-      {icon != null ? (
-        <span className="gk-textfield__icon">{icon}</span>
-      ) : null}
+      {icon != null ? <span className="gk-textfield__icon">{icon}</span> : null}
     </button>
   );
 }

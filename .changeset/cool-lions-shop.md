@@ -1,5 +1,5 @@
 ---
-"@glasskit/glasses-ui": patch
+"@glasskit-ui/react": patch
 ---
 
 Publish-readiness: add MIT `license` field + LICENSE file to the package,

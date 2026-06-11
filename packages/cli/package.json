@@ -1,5 +1,5 @@
 {
-  "name": "@glasskit/cli",
+  "name": "@glasskit-ui/cli",
   "version": "0.0.0",
   "type": "module",
   "description": "The GlassKit UI CLI — vendor lens components for Meta Ray-Ban Display apps from the registry.",

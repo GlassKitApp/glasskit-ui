@@ -17,11 +17,11 @@ const RUNNER: Record<"install" | "exec", Record<Pm, string>> = {
 /**
  * Hard-bordered command block with a package-manager switch + copy.
  * Defaults to installing the SDK; pass `mode="exec"` for a CLI command
- * (e.g. `command="@glasskit/cli add button"` → `npx @glasskit/cli add button`).
+ * (e.g. `command="@glasskit-ui/cli add button"` → `npx @glasskit-ui/cli add button`).
  * Always the scoped package — the bare `glasskit` npm name is unrelated.
  */
 export function InstallCommand({
-  command = "@glasskit/glasses-ui",
+  command = "@glasskit-ui/react",
   mode = "install",
   className,
 }: {

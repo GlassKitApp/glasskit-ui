@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useDeviceOrientation, useGeolocation } from "@glasskit/glasses-ui";
+import { useDeviceOrientation, useGeolocation } from "@glasskit-ui/react";
 import { cn } from "../lib/utils";
 import {
   bearingBetween,

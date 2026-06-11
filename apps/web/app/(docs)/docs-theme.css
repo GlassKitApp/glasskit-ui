@@ -7,7 +7,7 @@
 
 /* The on-lens design system (scoped under .glass-viewport) for component
  * previews, and the registry sources so their utilities are generated. */
-@import "@glasskit/glasses-ui/styles.css";
+@import "@glasskit-ui/react/styles.css";
 @source "../../../../registry";
 @source "../../node_modules/fumadocs-ui/dist/**/*.js";
 
@@ -136,7 +136,10 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: #4a9bff;
   box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.7);
-  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.2s ease,
+    color 0.2s ease;
 }
 .device-badge:hover {
   background: rgba(22, 26, 36, 0.7);

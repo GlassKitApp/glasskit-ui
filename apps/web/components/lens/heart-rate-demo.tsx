@@ -1,4 +1,4 @@
-import { GlassViewport } from "@glasskit/glasses-ui";
+import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
 import { Readout } from "@registry/ui/readout";
 import { Cue } from "@registry/ui/cue";
@@ -21,7 +21,14 @@ export function HeartRateDemo() {
         </GlowIcon>
         <Readout label="Heart rate" value="128" unit="BPM" />
         <div className="row">
-          <Button variant="primary" icon={<GlowIcon size="sm"><CheckGlyph /></GlowIcon>}>
+          <Button
+            variant="primary"
+            icon={
+              <GlowIcon size="sm">
+                <CheckGlyph />
+              </GlowIcon>
+            }
+          >
             Log
           </Button>
           <Button>Dismiss</Button>

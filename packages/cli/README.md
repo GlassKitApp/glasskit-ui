@@ -1,17 +1,17 @@
-# @glasskit/cli
+# @glasskit-ui/cli
 
 The GlassKit UI CLI (bin: `glasskit`) — scaffold Meta Ray-Ban Display web
 apps and vendor lens components from the [GlassKit registry](https://glasskit.app/ui).
 
 ```sh
 # scaffold a complete Vite + React glasses app (600×600, D-pad wired)
-npx @glasskit/cli init my-app
+npx @glasskit-ui/cli init my-app
 
 # vendor components into any project — you own the source
-npx @glasskit/cli add list button readout compass
+npx @glasskit-ui/cli add list button readout compass
 
 # browse what's available
-npx @glasskit/cli list
+npx @glasskit-ui/cli list
 ```
 
 `add` resolves component dependencies, writes the source to

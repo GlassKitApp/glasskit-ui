@@ -23,8 +23,14 @@ export function PermissionPrompt({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-permission", className)} role="dialog" aria-label={typeof title === "string" ? title : "Permission"}>
-      {icon != null ? <span className="gk-permission__icon">{icon}</span> : null}
+    <div
+      className={cn("gk-permission", className)}
+      role="dialog"
+      aria-label={typeof title === "string" ? title : "Permission"}
+    >
+      {icon != null ? (
+        <span className="gk-permission__icon">{icon}</span>
+      ) : null}
       <span className="gk-permission__title t-title">{title}</span>
       {children != null ? (
         <p className="gk-permission__body t-body">{children}</p>

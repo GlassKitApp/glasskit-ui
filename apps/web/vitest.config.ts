@@ -21,7 +21,7 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./", import.meta.url)),
       // Run against SDK source so registry-component tests don't depend on a
       // built dist/ (and hook mocks see the same module graph).
-      "@glasskit/glasses-ui": fileURLToPath(
+      "@glasskit-ui/react": fileURLToPath(
         new URL("../../packages/glasses-ui/src/index.ts", import.meta.url),
       ),
     },

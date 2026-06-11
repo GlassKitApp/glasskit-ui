@@ -36,7 +36,7 @@ importers:
 
   apps/web:
     dependencies:
-      '@glasskit/glasses-ui':
+      '@glasskit-ui/react':
         specifier: workspace:*
         version: link:../../packages/glasses-ui
       '@tabler/icons-react':

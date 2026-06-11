@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useDpad } from "@glasskit/glasses-ui";
+import { useDpad } from "@glasskit-ui/react";
 
 /**
  * Enables D-pad navigation for a live preview: the arrow keys move the

@@ -1,5 +1,5 @@
 ---
-"@glasskit/glasses-ui": patch
+"@glasskit-ui/react": patch
 ---
 
 styles.css: add `.gk-nav` screen-stack entrance styles for the new Navigator

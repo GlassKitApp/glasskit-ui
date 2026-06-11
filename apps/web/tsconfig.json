@@ -27,10 +27,10 @@
       // real package with its own peerDependencies (deferred past the kill-gate).
       "react": ["./node_modules/@types/react"],
       "react/jsx-runtime": ["./node_modules/@types/react/jsx-runtime"],
-      // Same story for the SDK: registry files import @glasskit/glasses-ui but
+      // Same story for the SDK: registry files import @glasskit-ui/react but
       // can't resolve it from their own location under pnpm. Point at the
       // workspace source (mirrors the vitest alias).
-      "@glasskit/glasses-ui": ["../../packages/glasses-ui/src/index.ts"]
+      "@glasskit-ui/react": ["../../packages/glasses-ui/src/index.ts"]
     }
   },
   "include": [

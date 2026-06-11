@@ -1,4 +1,4 @@
-import { GlassViewport } from "@glasskit/glasses-ui";
+import { GlassViewport } from "@glasskit-ui/react";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
@@ -58,7 +58,7 @@ export async function ComponentDoc({ slug }: { slug: string }) {
         <Tab value="CLI">
           <DynamicCodeBlock
             lang="bash"
-            code={`npx @glasskit/cli add ${slug}`}
+            code={`npx @glasskit-ui/cli add ${slug}`}
           />
         </Tab>
         <Tab value="Manual">
@@ -69,7 +69,7 @@ export async function ComponentDoc({ slug }: { slug: string }) {
           </p>
           <DynamicCodeBlock
             lang="bash"
-            code={`npm install @glasskit/glasses-ui`}
+            code={`npm install @glasskit-ui/react`}
           />
           {files.map((f) => (
             <DynamicCodeBlock
