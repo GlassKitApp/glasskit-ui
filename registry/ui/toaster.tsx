@@ -17,6 +17,11 @@ export { toast };
  * the `position` prop. Sonner handles the queue, stacking, auto-dismiss, and the
  * enter/exit motion. Toasts portal to the window edge, so their theme lives in
  * the (intentionally unscoped) `.gk-toaster__*` rules.
+ *
+ * Keep toasts non-interactive: no `focusable` elements inside (including in
+ * `toast.custom()` content). A toast auto-dismisses, and the D-pad ring would
+ * be stranded mid-read when it unmounts — if the wearer must act on it, use a
+ * <NotificationCard> on the screen instead (see the Patterns guide).
  */
 export function Toaster(props: ToasterProps) {
   return (
