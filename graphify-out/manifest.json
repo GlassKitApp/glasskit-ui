@@ -120,8 +120,8 @@
     "semantic_hash": ""
   },
   "apps/web/app/(web)/page.tsx": {
-    "mtime": 1781111225.869683,
-    "ast_hash": "9a26406529da4ad1bb65ba2109cc2198",
+    "mtime": 1781186743.8147235,
+    "ast_hash": "2db8970adb510f609e5c4bd09d702116",
     "semantic_hash": ""
   },
   "apps/web/app/(web)/playground/opengraph-image.tsx": {
@@ -155,8 +155,8 @@
     "semantic_hash": ""
   },
   "apps/web/components/component-doc.tsx": {
-    "mtime": 1781180049.7888734,
-    "ast_hash": "88a7f47b134e65f02d7d2d2ab2ab4209",
+    "mtime": 1781186743.8149571,
+    "ast_hash": "016ed5d48b5651fc0d7da6dd4e4df638",
     "semantic_hash": ""
   },
   "apps/web/components/device-preview.tsx": {
@@ -180,8 +180,8 @@
     "semantic_hash": ""
   },
   "apps/web/components/install-command.tsx": {
-    "mtime": 1781022572.6960537,
-    "ast_hash": "082a70a4775f9adcbb2c7a7a30c41d58",
+    "mtime": 1781186743.8151596,
+    "ast_hash": "2d1a33d1587c340b3554bc52aedb4752",
     "semantic_hash": ""
   },
   "apps/web/components/install-tabs.tsx": {
@@ -385,13 +385,13 @@
     "semantic_hash": ""
   },
   "packages/cli/package.json": {
-    "mtime": 1781113774.711762,
-    "ast_hash": "1cf8e890440f0ee0e24359ddb7cb2083",
+    "mtime": 1781186743.8162882,
+    "ast_hash": "e129d072a4597f3ba8c3e33ec615a5d1",
     "semantic_hash": ""
   },
   "packages/cli/src/index.ts": {
-    "mtime": 1781180435.0251524,
-    "ast_hash": "21d4b23528d7ea3a14e4d33fcc93a8f2",
+    "mtime": 1781186743.8165872,
+    "ast_hash": "fc2987f7f93c179736db09c439fd620c",
     "semantic_hash": ""
   },
   "packages/cli/tsconfig.json": {
@@ -470,13 +470,13 @@
     "semantic_hash": ""
   },
   "packages/mcp/package.json": {
-    "mtime": 1781113774.7125733,
-    "ast_hash": "169b534ab525ce3e3ec3a51fc8e5cbba",
+    "mtime": 1781186743.817188,
+    "ast_hash": "456b575bae5f95562db45cc738737db7",
     "semantic_hash": ""
   },
   "packages/mcp/src/index.ts": {
-    "mtime": 1781113774.7127342,
-    "ast_hash": "37a1d16c76b9750c328bd85bf0cbf098",
+    "mtime": 1781186743.8173864,
+    "ast_hash": "087b96dfbf77f3409f3672b659039452",
     "semantic_hash": ""
   },
   "packages/mcp/tsconfig.json": {
@@ -765,8 +765,8 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1781113774.710787,
-    "ast_hash": "e7f1746a0a8e055d24911e1661d4caa4",
+    "mtime": 1781186743.814105,
+    "ast_hash": "79475d3562ce45431f8473fdb49b065f",
     "semantic_hash": ""
   },
   ".github/workflows/release.yml": {
@@ -785,8 +785,8 @@
     "semantic_hash": ""
   },
   "CONTRIBUTING.md": {
-    "mtime": 1781114841.5022202,
-    "ast_hash": "2ebf819cdd26379e00c21adcd8373a18",
+    "mtime": 1781186743.814332,
+    "ast_hash": "7c4c02c4cb9178caf43b69ca06114734",
     "semantic_hash": ""
   },
   "PLAN.md": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1781113774.7110856,
-    "ast_hash": "b32d9dd46c0ea93de1f607c4dfe810f3",
+    "mtime": 1781186743.8145242,
+    "ast_hash": "891d69884cc95a726d3bba667660eef4",
     "semantic_hash": ""
   },
   "START-HERE.md": {
@@ -1030,8 +1030,8 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/index.mdx": {
-    "mtime": 1781026984.8165605,
-    "ast_hash": "f04e1468d90bee92b2f1bb8855314a19",
+    "mtime": 1781186743.8153393,
+    "ast_hash": "4e4d53c740d40405bf016e27465a748a",
     "semantic_hash": ""
   },
   "apps/web/public/llms.txt": {
@@ -1040,8 +1040,8 @@
     "semantic_hash": ""
   },
   "docs/RELEASING.md": {
-    "mtime": 1781113774.7114344,
-    "ast_hash": "983093004d3e6b52b13a1aa200b5eb8d",
+    "mtime": 1781186743.8155227,
+    "ast_hash": "d121ed4a29eb2deeb011d0afe1ce57f8",
     "semantic_hash": ""
   },
   "docs/design/apple-feel.md": {
@@ -1102,6 +1102,26 @@
   "docs/platform-audit-2026-06.md": {
     "mtime": 1781182535.0836198,
     "ast_hash": "6713cf30d7dc1e5f70642a8f2f6be776",
+    "semantic_hash": ""
+  },
+  "packages/cli/src/templates.ts": {
+    "mtime": 1781186743.8167303,
+    "ast_hash": "203c07327715a79eff45260d861837a5",
+    "semantic_hash": ""
+  },
+  ".changeset/three-glasses-ship.md": {
+    "mtime": 1781186743.813852,
+    "ast_hash": "7892312d6a7749d942f9672cb617b521",
+    "semantic_hash": ""
+  },
+  "packages/cli/README.md": {
+    "mtime": 1781186743.8160038,
+    "ast_hash": "b8e1e36af020ba33a7fc14d187bf8e35",
+    "semantic_hash": ""
+  },
+  "packages/mcp/README.md": {
+    "mtime": 1781186743.8170066,
+    "ast_hash": "3ed25d2be78b02aed6f4e6c5c384dcb2",
     "semantic_hash": ""
   }
 }
