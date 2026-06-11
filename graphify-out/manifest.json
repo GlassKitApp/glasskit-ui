@@ -765,8 +765,8 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1781186743.814105,
-    "ast_hash": "79475d3562ce45431f8473fdb49b065f",
+    "mtime": 1781187311.0646772,
+    "ast_hash": "ace9c5af8911306866e74508eaa08be2",
     "semantic_hash": ""
   },
   ".github/workflows/release.yml": {
@@ -1122,6 +1122,11 @@
   "packages/mcp/README.md": {
     "mtime": 1781186743.8170066,
     "ast_hash": "3ed25d2be78b02aed6f4e6c5c384dcb2",
+    "semantic_hash": ""
+  },
+  "scripts/check-bundle-budget.mjs": {
+    "mtime": 1781187311.0647893,
+    "ast_hash": "a16f1a3ef3982686b5a9c1cc79a4c913",
     "semantic_hash": ""
   }
 }
