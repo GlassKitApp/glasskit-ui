@@ -48,17 +48,21 @@ export function DevicePreview({
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        aria-label="Add to your glasses"
-        className="device-badge"
+        className={`mono-label flex items-center gap-2 border px-3 py-2 transition-colors ${
+          open
+            ? "border-ink bg-ink text-bg"
+            : "border-line-2 text-ink-3 hover:bg-bg-2 hover:text-ink"
+        }`}
       >
-        <IconBrandMeta className="size-5" />
+        <IconBrandMeta className="size-4" />
+        Run on glasses
       </button>
 
       {open ? (
         <div
           role="dialog"
           aria-label="Add to your glasses"
-          className="device-popover"
+          className="device-popover absolute end-0 bottom-full z-40 mb-2.5"
         >
           <div className="device-popover__grid">
             <div className="device-popover__scan">
