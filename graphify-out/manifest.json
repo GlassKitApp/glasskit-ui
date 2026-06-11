@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "apps/web/app/(glass)/layout.tsx": {
-    "mtime": 1781180049.7881014,
-    "ast_hash": "6cb9e59840223fb4ea1ab92a1739ce84",
+    "mtime": 1781182535.0825365,
+    "ast_hash": "413f2a5dfccb9c98f90104ae680902c7",
     "semantic_hash": ""
   },
   "apps/web/app/(glass)/preview/[slug]/page.tsx": {
@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "apps/web/components/glass-demos/demos.tsx": {
-    "mtime": 1781180049.789331,
-    "ast_hash": "77b7377fd43755ded61ddf3a8182a5b9",
+    "mtime": 1781182535.0827074,
+    "ast_hash": "49694618cb29fc9c202d20f419d3777e",
     "semantic_hash": ""
   },
   "apps/web/components/icons.tsx": {
@@ -275,8 +275,8 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/components/meta.json": {
-    "mtime": 1781026984.8152964,
-    "ast_hash": "1530cfcdcaa109365f3663d43dc50d3c",
+    "mtime": 1781182535.082861,
+    "ast_hash": "44cd68d71921886494dd823b8ee03baa",
     "semantic_hash": ""
   },
   "apps/web/content/docs/meta.json": {
@@ -285,13 +285,13 @@
     "semantic_hash": ""
   },
   "apps/web/lib/component-docs.tsx": {
-    "mtime": 1781114408.6771033,
-    "ast_hash": "513dc7e473c6b6d6b1477f65d4eb7673",
+    "mtime": 1781182535.0832255,
+    "ast_hash": "c92adb2f8f4ebd8c54f92cb6d7fc17c8",
     "semantic_hash": ""
   },
   "apps/web/lib/component-nav.ts": {
-    "mtime": 1781026984.816863,
-    "ast_hash": "892694fa5361ad962285e5aa3ba07106",
+    "mtime": 1781182535.0833702,
+    "ast_hash": "4daeed858603552f25c2b4f8cf3a7ca3",
     "semantic_hash": ""
   },
   "apps/web/lib/config.ts": {
@@ -300,8 +300,8 @@
     "semantic_hash": ""
   },
   "apps/web/lib/glass-demos.tsx": {
-    "mtime": 1781180049.789755,
-    "ast_hash": "9977b9cce43372158da6043f63512c97",
+    "mtime": 1781182535.083501,
+    "ast_hash": "292ca5ff90ea3284957b4acaca101fb6",
     "semantic_hash": ""
   },
   "apps/web/lib/meta-deeplink.ts": {
@@ -505,8 +505,8 @@
     "semantic_hash": ""
   },
   "registry/registry.json": {
-    "mtime": 1781180295.7725186,
-    "ast_hash": "5c438003aca915cb15f2bd0e356a845b",
+    "mtime": 1781182535.084025,
+    "ast_hash": "363f61573bd2e2b83234b145c068e8c2",
     "semantic_hash": ""
   },
   "registry/ui/assistant-orb.tsx": {
@@ -570,8 +570,8 @@
     "semantic_hash": ""
   },
   "registry/ui/deck.tsx": {
-    "mtime": 1781114408.6780553,
-    "ast_hash": "6e94dcc7d810606c45f315eb2f670e2d",
+    "mtime": 1781182535.0841663,
+    "ast_hash": "c6f71b5213a316f81b54337a90833a82",
     "semantic_hash": ""
   },
   "registry/ui/dictation.tsx": {
@@ -775,8 +775,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1781026984.8118815,
-    "ast_hash": "ceef4480e36b9e47f270ae234331a660",
+    "mtime": 1781182535.0822582,
+    "ast_hash": "31460566249727c1a67bbc9e8a0b8c35",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -1077,6 +1077,31 @@
   "apps/web/public/founder.jpg": {
     "mtime": 1781029267.8601813,
     "ast_hash": "5153f93babc9bdaa20b9a596260c8d0a",
+    "semantic_hash": ""
+  },
+  "apps/web/__tests__/registry/navigator.test.tsx": {
+    "mtime": 1781182535.0823908,
+    "ast_hash": "bc642f34bf45ceb289edc9489c9aad2a",
+    "semantic_hash": ""
+  },
+  "registry/ui/navigator.tsx": {
+    "mtime": 1781182535.084273,
+    "ast_hash": "df81ebbf7732132522fde91773d652df",
+    "semantic_hash": ""
+  },
+  ".changeset/brave-routers-march.md": {
+    "mtime": 1781182535.0821083,
+    "ast_hash": "ae14aaa177e6182c5a94a8e5ad50cf1e",
+    "semantic_hash": ""
+  },
+  "apps/web/content/docs/components/navigator.mdx": {
+    "mtime": 1781182535.0830112,
+    "ast_hash": "e149831f4ce0d5e75526ad5cd09394d4",
+    "semantic_hash": ""
+  },
+  "docs/platform-audit-2026-06.md": {
+    "mtime": 1781182535.0836198,
+    "ast_hash": "6713cf30d7dc1e5f70642a8f2f6be776",
     "semantic_hash": ""
   }
 }
