@@ -88,10 +88,11 @@ jobs:
             styles.css README.md LICENSE package.json
           PKG=cli check cli dist/index.js README.md LICENSE package.json
           PKG=mcp check mcp dist/index.js README.md LICENSE package.json
+          PKG=create-glasskit check create-glasskit bin.mjs README.md LICENSE package.json
 
       - name: publint (all published packages)
         run: |
-          for pkg in glasses-ui cli mcp; do
+          for pkg in glasses-ui cli mcp create-glasskit; do
             (cd "packages/$pkg" && pnpm dlx publint --strict)
           done
 
@@ -148,7 +149,7 @@ jobs:
             exit 0
           fi
           changed=$(git diff --name-only "origin/$BASE_REF"...HEAD)
-          pkg=$(echo "$changed" | grep -E '^packages/(glasses-ui|cli|mcp)/(src/|styles\.css|package\.json)' | grep -v '\.test\.' || true)
+          pkg=$(echo "$changed" | grep -E '^packages/(glasses-ui|cli|mcp|create-glasskit)/(src/|bin\.mjs|styles\.css|package\.json)' | grep -v '\.test\.' || true)
           if [ -z "$pkg" ]; then
             echo "No publishable package changes — ok."
             exit 0

@@ -1,0 +1,45 @@
+name: Bug report
+description: Something in GlassKit UI is broken
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - "Registry component (vendored via the CLI)"
+        - "@glasskit-ui/react (SDK — hooks / GlassViewport / styles)"
+        - "@glasskit-ui/cli / create-glasskit"
+        - "@glasskit-ui/mcp"
+        - "Docs site (glasskit.app/ui)"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: >
+        Smallest possible steps or repo. For component bugs, a snippet that
+        renders inside <GlassViewport> is ideal.
+      render: tsx
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where does it reproduce?
+      multiple: true
+      options:
+        - "Desktop browser (600×600 simulation)"
+        - "On the glasses (Ray-Ban Display)"
+        - "Both"
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: "@glasskit-ui/react 0.1.1, glasses OS v125.1, Chrome 13x"

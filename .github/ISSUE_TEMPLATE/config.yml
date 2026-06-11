@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://glasskit.app/ui/docs
+    about: Getting started, component pages with live previews, and the playground.
+  - name: Discord
+    url: https://discord.gg/DRe5SmSjyE
+    about: Questions and show-and-tell.

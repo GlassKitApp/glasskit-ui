@@ -128,6 +128,12 @@ importers:
         specifier: ^5.7.3
         version: 5.9.3
 
+  packages/create-glasskit:
+    dependencies:
+      '@glasskit-ui/cli':
+        specifier: ^0.1.0
+        version: 0.1.0
+
   packages/glasses-ui:
     devDependencies:
       '@eslint/js':
@@ -743,6 +749,11 @@ packages:
         optional: true
       tailwindcss:
         optional: true
+
+  '@glasskit-ui/cli@0.1.0':
+    resolution: {integrity: sha512-qxT01xgYgu2hz6WZkCY3tF1EfAtf4KyM6scPds4nLY3IzinMPSB+0DaIiP7C8qOuWtcT6I9X93fW4u/mzfSE/A==}
+    engines: {node: '>=18'}
+    hasBin: true
 
   '@hono/node-server@1.19.14':
     resolution: {integrity: sha512-GwtvgtXxnWsucXvbQXkRgqksiH2Qed37H9xHZocE5sA3N8O8O8/8FA3uclQXxXVzc9XBZuEOMK7+r02FmSpHtw==}
@@ -4695,6 +4706,8 @@ snapshots:
     optionalDependencies:
       '@tailwindcss/oxide': 4.3.0
       tailwindcss: 4.3.0
+
+  '@glasskit-ui/cli@0.1.0': {}
 
   '@hono/node-server@1.19.14(hono@4.12.23)':
     dependencies:

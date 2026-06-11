@@ -1,0 +1,40 @@
+{
+  "name": "create-glasskit",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Scaffold a Meta Ray-Ban Display web app — `npm create glasskit my-app`. Wraps the GlassKit CLI's init.",
+  "author": "GlassKit",
+  "license": "MIT",
+  "keywords": [
+    "create",
+    "glasskit",
+    "meta-ray-ban",
+    "glasses",
+    "scaffold",
+    "vite"
+  ],
+  "homepage": "https://glasskit.app/ui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GlassKitApp/glasskit-ui.git",
+    "directory": "packages/create-glasskit"
+  },
+  "bugs": "https://github.com/GlassKitApp/glasskit-ui/issues",
+  "bin": {
+    "create-glasskit": "./bin.mjs"
+  },
+  "files": [
+    "bin.mjs",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "dependencies": {
+    "@glasskit-ui/cli": "^0.1.0"
+  }
+}

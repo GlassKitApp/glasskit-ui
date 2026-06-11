@@ -1,30 +1,45 @@
 # GlassKit UI
 
-The open-source React component library for **Meta Ray-Ban Display** apps — the
-ergonomic, additive-lens layer Meta does not ship. An SDK + a shadcn-style
-registry of 28 components, built for the see-through 600×600 HUD: emitted light
-on true black, a glasses-tuned D-pad focus engine, and the Neural Band gesture
-vocabulary.
+[![npm](https://img.shields.io/npm/v/%40glasskit-ui%2Freact?label=%40glasskit-ui%2Freact)](https://www.npmjs.com/package/@glasskit-ui/react)
+[![npm](https://img.shields.io/npm/v/%40glasskit-ui%2Fcli?label=%40glasskit-ui%2Fcli)](https://www.npmjs.com/package/@glasskit-ui/cli)
+[![CI](https://github.com/GlassKitApp/glasskit-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/GlassKitApp/glasskit-ui/actions/workflows/ci.yml)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-> **Additive, not glass.** On a see-through waveguide, black (`#000`) emits no
-> light and shows the real world through it. So every component is built from
-> *emitted light* — luminous hairline edges, a single phosphor-green accent, soft
-> glow — never fills or backdrop-blur. See [`docs/design/apple-feel.md`](./docs/design/apple-feel.md).
+The open-source React component library for **Meta Ray-Ban Display** apps —
+the ergonomic layer Meta does not ship. An SDK + a shadcn-style registry of
+45 components, built for the 600×600 lens: a glasses-tuned D-pad focus
+engine, system-back-aware navigation, live sensor wiring, and a premium HUD
+visual language. Every component is QR-launchable as a working app on real
+glasses from its [docs page](https://glasskit.app/ui/docs/components).
+
+> **Built for the lens.** Black renders transparent on the Display's
+> waveguide, input is Neural Band gestures arriving as arrow/Enter keys, and
+> the system back gesture pops browser history. Components are verified
+> against the actual platform — see
+> [`docs/platform-audit-2026-06.md`](./docs/platform-audit-2026-06.md) and
+> the design spec, [`docs/design/meta-hud-language.md`](./docs/design/meta-hud-language.md).
 
 ## What's here
 
 - **`@glasskit-ui/react`** ([`packages/glasses-ui`](./packages/glasses-ui)) —
   the SDK: `GlassViewport`, the spatial focus engine (`useDpad` / `scoreRect`),
-  the four W3C sensor + Neural Band hooks, and the scoped additive stylesheet.
-- **The registry** ([`registry/ui`](./registry/ui)) — 28 styled components you
+  the W3C sensor + Neural Band hooks, and the scoped lens stylesheet.
+- **The registry** ([`registry/ui`](./registry/ui)) — 45 styled components you
   vendor and own, shadcn-style, via the `glasskit` CLI. Covers all eight HUD
   jobs: Monitor, Navigate, Guide, Caption, Notify/Comms, Capture/Control,
   Annotate, Launch/Select — including the world-anchored set (DirectionArrow,
-  Compass, Pin, Callout, Reticle) that a watch kit can't do.
+  Compass, Pin, Callout, Reticle) that a watch kit can't do, and a
+  system-back-integrated `Navigator`.
 - **`glasskit.app/ui`** ([`apps/web`](./apps/web)) — docs, per-component pages
-  with live previews, and a realtime playground.
+  with live previews + on-glasses QR install, and a realtime playground.
 
 ## Quick start
+
+```sh
+npm create glasskit my-app           # a complete glasses app, D-pad wired
+```
+
+Or add the SDK to an existing project:
 
 ```sh
 pnpm add @glasskit-ui/react          # the SDK (react 19 peer dep)
@@ -63,11 +78,13 @@ npx @glasskit-ui/cli list                       # browse all 45
 ## Monorepo
 
 ```
-packages/glasses-ui/   the npm SDK (hooks + viewport + base stylesheet)
-packages/cli/          @glasskit-ui/cli — scaffold + vendor from the registry
-registry/ui/           the 45 styled components (you own these)
-apps/web/              glasskit.app/ui — docs, playground, served registry (/r/*.json)
-docs/design/           the additive-lens design spec
+packages/glasses-ui/       @glasskit-ui/react — the SDK (hooks + viewport + stylesheet)
+packages/cli/              @glasskit-ui/cli — scaffold + vendor from the registry
+packages/create-glasskit/  npm create glasskit
+packages/mcp/              @glasskit-ui/mcp — the registry for AI agents
+registry/ui/               the 45 styled components (you own these)
+apps/web/                  glasskit.app/ui — docs, playground, served registry (/r/*.json)
+docs/                      design spec + platform audit + release process
 ```
 
 pnpm + Turborepo. Contributing and the "add a component" flow:
@@ -75,7 +92,8 @@ pnpm + Turborepo. Contributing and the "add a component" flow:
 
 ## Status
 
-Built and complete as a surface — 28 components, generated registry, docs site,
-55+ tests. **Not yet public on npm.** The repo, the npm packages, and the branded
-CLI publish stay gated on the owner's go-ahead; CI + Changesets are wired but
-inert. License: TBD before going public.
+Live: packages publish to npm with provenance through an automated
+Changesets pipeline, the registry serves from production, and every change
+runs the full gate — 100+ behavior tests, package audits (`publint`/`attw`),
+and Meta's device bundle budget enforced in CI. Releases: see
+[`docs/RELEASING.md`](./docs/RELEASING.md). License: [MIT](./LICENSE).
