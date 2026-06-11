@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cn } from "../lib/utils";
+import { cn, stringLabel } from "../lib/utils";
 
 /**
  * <Slider> — a continuous level control (volume, brightness — the quick
@@ -43,8 +43,8 @@ export function Slider({
         // read-only mechanism is leaving the focus order above.
         readOnly={onChange == null}
         tabIndex={onChange == null ? -1 : undefined}
-        aria-readonly={onChange == null || undefined}
-        aria-label={typeof label === "string" ? label : undefined}
+        aria-readonly={onChange == null ? true : undefined}
+        aria-label={stringLabel(label)}
         onChange={
           onChange ? (e) => onChange(Number(e.currentTarget.value)) : undefined
         }

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cn } from "../lib/utils";
+import { cn, stringLabel } from "../lib/utils";
 
 /**
  * <Progress> — emitted progress, two shapes:
@@ -37,7 +37,7 @@ export function Progress({
         aria-valuenow={clamped}
         aria-valuemin={0}
         aria-valuemax={steps}
-        aria-label={typeof label === "string" ? label : undefined}
+        aria-label={stringLabel(label)}
       >
         {Array.from({ length: steps }, (_, i) => (
           <span
@@ -55,7 +55,7 @@ export function Progress({
         className="gk-progress__el"
         value={clamped}
         max={max}
-        aria-label={typeof label === "string" ? label : undefined}
+        aria-label={stringLabel(label)}
       />
       {label != null ? (
         <div className="gk-progress__meta t-caption">{label}</div>

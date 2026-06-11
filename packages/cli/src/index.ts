@@ -88,13 +88,10 @@ const exists = (p: string) =>
   );
 
 /** Bare package name of an npm dep spec ("@scope/pkg@^1.0.0" → "@scope/pkg"). */
-const depName = (spec: string) =>
-  spec.startsWith("@")
-    ? spec.slice(
-        0,
-        spec.indexOf("@", 1) === -1 ? spec.length : spec.indexOf("@", 1),
-      )
-    : spec.split("@")[0]!;
+function depName(spec: string): string {
+  const at = spec.indexOf("@", spec.startsWith("@") ? 1 : 0);
+  return at === -1 ? spec : spec.slice(0, at);
+}
 
 /** Detect the consumer's package manager from its lockfile (default npm). */
 async function packageManager(cwd: string): Promise<string> {
