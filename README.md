@@ -56,16 +56,16 @@ export function App() {
 Add components with the CLI (vendors the source into your project):
 
 ```sh
-glasskit add screen readout button     # also pulls their dependencies
-glasskit list                          # browse all 28
+npx @glasskit/cli add screen readout button  # also pulls their dependencies
+npx @glasskit/cli list                       # browse all 45
 ```
 
 ## Monorepo
 
 ```
 packages/glasses-ui/   the npm SDK (hooks + viewport + base stylesheet)
-packages/cli/          the `glasskit` CLI (vendors from the registry)
-registry/ui/           the 28 styled components (you own these)
+packages/cli/          @glasskit/cli — scaffold + vendor from the registry
+registry/ui/           the 45 styled components (you own these)
 apps/web/              glasskit.app/ui — docs, playground, served registry (/r/*.json)
 docs/design/           the additive-lens design spec
 ```

@@ -7,7 +7,7 @@
  *
  * Tools: list_components, get_component, search_components.
  * Run (stdio):  GLASSKIT_REGISTRY=http://localhost:3000/r glasskit-mcp
- * NOTE: scaffold — not published yet.
+ * Published as @glasskit/mcp (bin: glasskit-mcp).
  */
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -63,7 +63,7 @@ server.tool(
       .join("\n\n");
     return text(
       `# ${item.name}\n${item.description ?? ""}\n\n` +
-        `Install:  glasskit add ${name}\nDependencies: ${deps}\n\n${files}`,
+        `Install:  npx @glasskit/cli add ${name}\nDependencies: ${deps}\n\n${files}`,
     );
   },
 );

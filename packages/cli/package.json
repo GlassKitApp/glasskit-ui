@@ -1,22 +1,37 @@
 {
-  "name": "glasskit",
+  "name": "@glasskit/cli",
   "version": "0.0.0",
-  "private": true,
   "type": "module",
-  "description": "The GlassKit UI CLI — vendor additive-lens components for Meta Ray-Ban Display apps from the registry.",
-  "keywords": ["glasskit", "meta-ray-ban", "cli", "registry", "components"],
+  "description": "The GlassKit UI CLI — vendor lens components for Meta Ray-Ban Display apps from the registry.",
+  "author": "GlassKit",
+  "license": "MIT",
+  "keywords": [
+    "glasskit",
+    "meta-ray-ban",
+    "cli",
+    "registry",
+    "components"
+  ],
   "homepage": "https://glasskit.app/ui",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GlassKitApp/glasskit-ui.git",
     "directory": "packages/cli"
   },
+  "bugs": "https://github.com/GlassKitApp/glasskit-ui/issues",
   "bin": {
     "glasskit": "./dist/index.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   },
   "scripts": {
     "build": "tsup",

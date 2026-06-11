@@ -1,8 +1,15 @@
-# Releasing `@glasskit/glasses-ui`
+# Releasing the GlassKit packages
 
-Publishing is fully automated through GitHub Actions + [Changesets](https://github.com/changesets/changesets).
-Nothing publishes until the owner flips the activation switches (bottom of this
-doc); until then every workflow is inert and skipped.
+Three packages publish from this repo — `@glasskit/glasses-ui` (the SDK),
+`@glasskit/cli` (bin: `glasskit`), and `@glasskit/mcp` — all through the same
+GitHub Actions + [Changesets](https://github.com/changesets/changesets)
+pipeline. Nothing publishes until the owner flips the activation switches
+(bottom of this doc); until then every workflow is inert and skipped.
+
+> **Naming:** the bare `glasskit` npm name is owned by an unrelated package —
+> everything ships under the `@glasskit` scope, and docs must always show the
+> scoped form (`npx @glasskit/cli …`). The installed binary is still
+> `glasskit`.
 
 ## The pipeline
 
@@ -23,9 +30,10 @@ merge "Version Packages" PR ──► Release: publishes to npm `latest`
                                 with OIDC provenance + git tags
 ```
 
-## Day-to-day: shipping a change to the package
+## Day-to-day: shipping a change to a package
 
-1. Make your change under `packages/glasses-ui/`.
+1. Make your change under `packages/glasses-ui/`, `packages/cli/`, or
+   `packages/mcp/`.
 2. Run `pnpm changeset` — pick the bump (patch/minor/major per semver; the
    public API is locked, so breaking changes need explicit owner sign-off)
    and write a changelog entry. Commit the generated `.changeset/*.md`.
@@ -59,12 +67,18 @@ without needing a changeset.
 
 ## Activation (owner-only, one time)
 
-In GitHub → Settings → Secrets and variables → Actions:
+0. **Claim the `glasskit` org on npmjs.com first** (npmjs.com → Add
+   Organization). All three packages live under the `@glasskit` scope — if
+   the org name is unavailable, every package needs a rename before anything
+   ships. (Anonymous availability checks are blocked by npm; this can only be
+   confirmed logged-in.)
+
+Then in GitHub → Settings → Secrets and variables → Actions:
 
 1. Variable `RELEASE_ENABLED` = `true`
 2. Secret `NPM_TOKEN` — a granular automation token with publish rights for
    the `@glasskit` org (Settings → Access Tokens on npmjs.com; scope it to
-   `@glasskit/glasses-ui`, no 2FA prompt for automation).
+   the `@glasskit` packages, no 2FA prompt for automation).
 
 Both `beta.yml` and `release.yml` stay skipped until both exist. To pause all
 publishing, set `RELEASE_ENABLED` to anything other than `true`.
