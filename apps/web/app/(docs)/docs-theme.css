@@ -123,36 +123,9 @@
   outline: none;
 }
 
-.device-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  inline-size: 38px;
-  block-size: 38px;
-  border-radius: 12px;
-  background: rgba(10, 12, 18, 0.5);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #4a9bff;
-  box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.7);
-  transition:
-    transform 0.15s ease,
-    background 0.2s ease,
-    color 0.2s ease;
-}
-.device-badge:hover {
-  background: rgba(22, 26, 36, 0.7);
-  color: #6fb0ff;
-}
-.device-badge:active {
-  transform: scale(0.93);
-}
+/* Positioned by utilities at the call site (opens upward from the
+ * stage bar); this class is only the card's cosmetics. */
 .device-popover {
-  position: absolute;
-  inset-inline-end: 0;
-  inset-block-start: calc(100% + 10px);
-  z-index: 40;
   inline-size: 460px;
   max-inline-size: 84vw;
   padding: 22px;
