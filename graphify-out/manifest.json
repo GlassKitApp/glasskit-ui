@@ -100,12 +100,12 @@
     "semantic_hash": ""
   },
   "apps/web/app/(glass)/layout.tsx": {
-    "mtime": 1781114867.7348733,
+    "mtime": 1781180049.7881014,
     "ast_hash": "6cb9e59840223fb4ea1ab92a1739ce84",
     "semantic_hash": ""
   },
   "apps/web/app/(glass)/preview/[slug]/page.tsx": {
-    "mtime": 1781179464.456474,
+    "mtime": 1781180049.78835,
     "ast_hash": "4821c695be4b2bc380df611c6cb1d163",
     "semantic_hash": ""
   },
@@ -155,7 +155,7 @@
     "semantic_hash": ""
   },
   "apps/web/components/component-doc.tsx": {
-    "mtime": 1781179475.039561,
+    "mtime": 1781180049.7888734,
     "ast_hash": "88a7f47b134e65f02d7d2d2ab2ab4209",
     "semantic_hash": ""
   },
@@ -165,12 +165,12 @@
     "semantic_hash": ""
   },
   "apps/web/components/glass-app-shell.tsx": {
-    "mtime": 1781114878.1266286,
+    "mtime": 1781180049.789078,
     "ast_hash": "b9dd377e1b1190133810b87e3e8fe71e",
     "semantic_hash": ""
   },
   "apps/web/components/glass-demos/demos.tsx": {
-    "mtime": 1781179746.9239016,
+    "mtime": 1781180049.789331,
     "ast_hash": "77b7377fd43755ded61ddf3a8182a5b9",
     "semantic_hash": ""
   },
@@ -295,12 +295,12 @@
     "semantic_hash": ""
   },
   "apps/web/lib/config.ts": {
-    "mtime": 1781179486.008881,
+    "mtime": 1781180049.7895615,
     "ast_hash": "4ec9d4b62a9489f8b68141571c141491",
     "semantic_hash": ""
   },
   "apps/web/lib/glass-demos.tsx": {
-    "mtime": 1781179421.682825,
+    "mtime": 1781180049.789755,
     "ast_hash": "9977b9cce43372158da6043f63512c97",
     "semantic_hash": ""
   },
@@ -390,8 +390,8 @@
     "semantic_hash": ""
   },
   "packages/cli/src/index.ts": {
-    "mtime": 1781113774.7119796,
-    "ast_hash": "238987718828cbc67da81437a0d2351a",
+    "mtime": 1781180435.0251524,
+    "ast_hash": "21d4b23528d7ea3a14e4d33fcc93a8f2",
     "semantic_hash": ""
   },
   "packages/cli/tsconfig.json": {
@@ -500,12 +500,12 @@
     "semantic_hash": ""
   },
   "registry/lib/utils.ts": {
-    "mtime": 1781022572.7092903,
-    "ast_hash": "7469177a25c90422b9564144c99f51e2",
+    "mtime": 1781180435.0253148,
+    "ast_hash": "964e60366d7ecb18f827ec40e49d76e3",
     "semantic_hash": ""
   },
   "registry/registry.json": {
-    "mtime": 1781114670.2271373,
+    "mtime": 1781180295.7725186,
     "ast_hash": "5c438003aca915cb15f2bd0e356a845b",
     "semantic_hash": ""
   },
@@ -550,8 +550,8 @@
     "semantic_hash": ""
   },
   "registry/ui/clock.tsx": {
-    "mtime": 1781114408.6777594,
-    "ast_hash": "fb37cf5b3c957c1443063159f3afdfd8",
+    "mtime": 1781180435.025465,
+    "ast_hash": "2561c93767b0b847f5313fcb7e89e622",
     "semantic_hash": ""
   },
   "registry/ui/compass.tsx": {
@@ -620,8 +620,8 @@
     "semantic_hash": ""
   },
   "registry/ui/meter.tsx": {
-    "mtime": 1781114841.504514,
-    "ast_hash": "ca6278a02ab6f74c8e644c0e4aac9964",
+    "mtime": 1781180435.0256076,
+    "ast_hash": "48d21abac68aaae12d2c28907b4f91be",
     "semantic_hash": ""
   },
   "registry/ui/notification-card.tsx": {
@@ -645,8 +645,8 @@
     "semantic_hash": ""
   },
   "registry/ui/progress.tsx": {
-    "mtime": 1781114841.5050046,
-    "ast_hash": "b84dd621da21977477e64de67dcbe9b7",
+    "mtime": 1781180435.0257688,
+    "ast_hash": "09def09205efc727a019e311a1253fbe",
     "semantic_hash": ""
   },
   "registry/ui/quick-reply-chips.tsx": {
@@ -675,8 +675,8 @@
     "semantic_hash": ""
   },
   "registry/ui/slider.tsx": {
-    "mtime": 1781114841.5055504,
-    "ast_hash": "2f77e00be0d9aaf299b8d59527407833",
+    "mtime": 1781180435.0258994,
+    "ast_hash": "60d29f205b91a9059cc643beaef6ce78",
     "semantic_hash": ""
   },
   "registry/ui/stat-grid.tsx": {
