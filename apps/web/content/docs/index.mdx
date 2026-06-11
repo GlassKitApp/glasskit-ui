@@ -1,15 +1,34 @@
 ---
 title: Getting started
-description: GlassKit UI — the React component library for Meta Ray-Ban Display apps. Install the SDK, then vendor 44 premium HUD components with the CLI.
+description: GlassKit UI — the React component library for Meta Ray-Ban Display apps. Scaffold a glasses app in one command, or add the SDK and vendor 45 premium HUD components with the CLI.
 ---
 
 GlassKit UI is a React component library for **Meta Ray-Ban Display** apps. It
-ships an SDK (the focus engine, the Neural Band hooks, `GlassViewport`, and the
-on-lens stylesheet) plus **44 styled components** you vendor and own — built to
-the premium-surfaces HUD language (calm dark base, popping gradient surfaces,
-gradient icon plates, glanceable type).
+ships an SDK (the focus engine, the sensor + Neural Band hooks, `GlassViewport`,
+and the on-lens stylesheet) plus **45 styled components** you vendor and own —
+built to the premium-surfaces HUD language (calm dark base, popping gradient
+surfaces, gradient icon plates, glanceable type).
 
-## 1. Install the SDK
+## Fastest path: scaffold an app
+
+One command gives you a complete Vite + React glasses app — the required
+600×600 + `mrbd-web-app-capable` meta tags, `GlassViewport` and D-pad
+navigation pre-wired, ready to deploy:
+
+```bash
+npm create glasskit my-app
+```
+
+`cd my-app && npm run dev`, then drive it with your keyboard: **arrow keys**
+move focus (that's a Neural Band swipe), **Enter** activates (a pinch),
+**Escape** goes back. Skip to [step 4](#4-add-components) to add components.
+
+> The bare `glasskit` package on npm is unrelated to this project — always use
+> `create-glasskit`, `@glasskit-ui/react`, and `@glasskit-ui/cli`.
+
+## Or add GlassKit to an existing app
+
+### 1. Install the SDK
 
 react and react-dom 19 are peer dependencies.
 
@@ -17,16 +36,16 @@ react and react-dom 19 are peer dependencies.
 @glasskit-ui/react
 ```
 
-## 2. Import the styles
+### 2. Import the styles
 
-In your app's CSS entry, right after Tailwind:
+In your app's CSS entry (after Tailwind, if you use it):
 
 ```css
 @import "tailwindcss";
 @import "@glasskit-ui/react/styles.css";
 ```
 
-## 3. Build
+### 3. Build
 
 Wrap your app in `GlassViewport` and call `useDpad()` once near the root. Any
 element with the `focusable` class joins D-pad navigation.
@@ -52,8 +71,9 @@ export function App() {
 
 ## 4. Add components
 
-Vendor the source into your project with the CLI — it resolves dependencies and
-writes the files to `components/glasskit/`, yours to edit.
+Vendor the source into your project with the CLI — it resolves dependencies,
+writes the files to `components/glasskit/`, and installs any npm deps they
+declare. Yours to edit.
 
 ```bash
 npx @glasskit-ui/cli add screen readout button
@@ -61,4 +81,20 @@ npx @glasskit-ui/cli add screen readout button
 
 Browse all **45** in the [Components](/docs/components) section — each with a
 live 600×600 preview, props, and usage. Click the **Meta logo** on any preview
-to scan a QR and add it to your glasses.
+to scan a QR and run that component as an app on your glasses.
+
+## On-device behaviors worth knowing
+
+- **Sensors auto-wire.** Sensor-driven components self-connect when their data
+  prop is omitted: [`<Compass />`](/docs/components/compass) follows live head
+  orientation, [`<DirectionArrow target={{lat, lon}} />`](/docs/components/direction-arrow)
+  aims via GPS + heading, [`<Clock />`](/docs/components/clock) ticks itself.
+  Pass the prop and they're fully controlled — the prop always wins.
+- **The system back gesture is real history.** On glasses OS v125.1+ a middle
+  pinch pops browser history (your page gets `popstate`). Use
+  [`<Navigator>`](/docs/components/navigator) and every `push` adds a history
+  entry, so back just works — at the root it exits to the system, exactly like
+  Android.
+- **Input is keys.** Swipes arrive as arrow-key events and pinch as Enter — no
+  cursor, touch, or text input. Anything interactive needs the `focusable`
+  class (every GlassKit component already has it).

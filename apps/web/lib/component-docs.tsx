@@ -131,7 +131,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Cue",
     category: "Display",
     summary:
-      "A caption / hint line: what to do next, or a transient status. Dim by default; set tone='accent' for a live/green state. No glow on body text.",
+      "A caption / hint line: what to do next, or a transient status. Dim by default; set tone='accent' for a live state. No glow on body text.",
     preview: (
       <Screen>
         <Cue tone="accent">Listening…</Cue>
@@ -144,7 +144,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         name: "tone",
         type: '"default" | "accent"',
         default: '"default"',
-        desc: "Accent turns it green for live states.",
+        desc: "Accent highlights it for live states.",
       },
       { name: "icon", type: "ReactNode", desc: "Optional leading glyph." },
     ],
@@ -189,7 +189,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "GlowIcon",
     category: "Display",
     summary:
-      "Wraps a stroke-only line-icon SVG and applies the two-tier luminance rule: inert = near-white, active = phosphor green with a faint glow. Token sizes, no inline style.",
+      "Wraps a stroke-only line-icon SVG and applies the two-tier luminance rule: inert = near-white, active = the accent with a faint glow — or an iOS-style gradient plate via `plate`. Token sizes, no inline style.",
     preview: (
       <Screen>
         <div className="row">
@@ -208,7 +208,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         name: "active",
         type: "boolean",
         default: "false",
-        desc: "Green + glow tier.",
+        desc: "Accent + glow tier.",
       },
       {
         name: "size",
@@ -404,7 +404,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "AsyncView",
     category: "Status",
     summary:
-      "The four-state async renderer every data screen needs: placeholder → loading → success / error. You own the async work and pass the status; AsyncView picks the view, with additive defaults.",
+      "The four-state async renderer every data screen needs: placeholder → loading → success / error. You own the async work and pass the status; AsyncView picks the view, with lens-ready defaults.",
     preview: (
       <Screen>
         <AsyncView
@@ -588,7 +588,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Segmented",
     category: "Action",
     summary:
-      "Pick one of a few options (a watchOS-style segmented control). Each segment is a D-pad-focusable radio; the selected one glows green. Keep it to 2–4 options.",
+      "Pick one of a few options (a watchOS-style segmented control). Each segment is a D-pad-focusable radio; the selected one lifts with the accent. Keep it to 2–4 options.",
     preview: (
       <Screen>
         <Segmented
@@ -662,7 +662,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Badge",
     category: "Display",
     summary:
-      "A small count or status pill. Pure display — hairline by default, accent tone for the one thing that should draw the eye (emitted green, never a dark-on-light fill).",
+      "A small count or status pill. Pure display — hairline by default, accent tone for the one thing that should draw the eye (the accent gradient, for the one thing that needs the eye).",
     preview: (
       <Screen>
         <div className="row">
@@ -677,7 +677,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         name: "tone",
         type: '"default" | "accent"',
         default: '"default"',
-        desc: "Accent glows green.",
+        desc: "Accent gradient tone.",
       },
     ],
     usage: `<Badge tone="accent">LIVE</Badge>`,
@@ -783,7 +783,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         name: "tone",
         type: '"default" | "accent"',
         default: '"default"',
-        desc: "Accent adds a green glow.",
+        desc: "Accent adds a soft glow.",
       },
     ],
     usage: `<Toast open={saved} tone="accent">
@@ -841,7 +841,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Heading",
     category: "Display",
     summary:
-      "A screen/section title with an optional green eyebrow above it. Pure display — one heading per view keeps the glance cheap.",
+      "A screen/section title with an optional accent eyebrow above it. Pure display — one heading per view keeps the glance cheap.",
     preview: (
       <Screen>
         <Heading eyebrow="Workout">Morning Run</Heading>
@@ -1039,7 +1039,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
     name: "Callout",
     category: "Spatial",
     summary:
-      "A world-object annotation: an anchor + a vertical leader up to an emitted label (no box — additive translates the card to line + type). World-anchored, never mirrored.",
+      "A world-object annotation: an anchor + a vertical leader up to an emitted label (no box — just a leader line + emitted type). World-anchored, never mirrored.",
     preview: <Callout x={50} y={56} label="Powell St" detail="Muni · 3 min" />,
     props: [
       { name: "x / y", type: "number", desc: "0–100, % of the lens." },
