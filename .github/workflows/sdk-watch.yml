@@ -1,6 +1,6 @@
 name: SDK Watch
 
-# Daily diff of the Meta Display platform surfaces GlassKit depends on —
+# Weekly diff of the Meta Display platform surfaces GlassKit depends on —
 # the wearables toolkit repo, the Web Apps docs, the FAQ, the DAT llms.txt,
 # and the glasses-OS release notes. Changes post to Discord.
 #
@@ -13,7 +13,7 @@ name: SDK Watch
 
 on:
   schedule:
-    - cron: "0 14 * * *" # daily, ~7am PT
+    - cron: "0 14 * * 1" # weekly, Mondays ~7am PT
   workflow_dispatch:
 
 permissions:

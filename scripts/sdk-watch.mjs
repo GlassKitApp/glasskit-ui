@@ -50,6 +50,16 @@ const PAGES = [
     url: "https://wearables.developer.meta.com/docs/develop/webapps/troubleshooting",
   },
   {
+    id: "webapps-setup-guide",
+    name: "Web Apps · setup guide",
+    url: "https://wearables.developer.meta.com/docs/develop/webapps/setup",
+  },
+  {
+    id: "webapps-ai-mcp",
+    name: "Web Apps · AI-assisted / MCP",
+    url: "https://wearables.developer.meta.com/docs/develop/webapps/ai-assisted-mcp",
+  },
+  {
     id: "wearables-faq",
     name: "Wearables FAQ",
     url: "https://developers.meta.com/wearables/faq/",
@@ -71,26 +81,34 @@ const firstRun = !existsSync(join(STATE_DIR, "repo.json"));
 
 // ── fetch helpers ───────────────────────────────────────────────────────────
 
+async function firecrawl(url, extra = {}) {
+  const res = await fetch("https://api.firecrawl.dev/v1/scrape", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${FIRECRAWL}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      url,
+      formats: ["markdown"],
+      onlyMainContent: true,
+      ...extra,
+    }),
+  });
+  if (!res.ok) return { status: res.status };
+  const json = await res.json();
+  return { status: res.status, markdown: json?.data?.markdown };
+}
+
 async function fetchMarkdown(url) {
   if (FIRECRAWL) {
-    const res = await fetch("https://api.firecrawl.dev/v1/scrape", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${FIRECRAWL}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        url,
-        formats: ["markdown"],
-        onlyMainContent: true,
-      }),
-    });
-    if (res.ok) {
-      const json = await res.json();
-      if (json?.data?.markdown) return json.data.markdown;
-    }
+    // wearables.developer.meta.com 403s scraping services (robots policy —
+    // stealth proxies don't help, verified), so those pages flow through the
+    // raw-fetch fallback below; Firecrawl cleans up the rest.
+    const r = await firecrawl(url);
+    if (r.markdown) return r.markdown;
     console.warn(
-      `firecrawl failed for ${url} (${res.status}) — falling back to raw fetch`,
+      `firecrawl failed for ${url} (${r.status}) — falling back to raw fetch`,
     );
   }
   const res = await fetch(url, {
@@ -215,6 +233,56 @@ for (const page of PAGES) {
   } catch (err) {
     console.warn(`skip ${page.id}: ${err.message}`);
   }
+}
+
+// 3. Page discovery: extract every /docs/ link from the raw HTML of the
+//    wearables docs pages (their sidebars list the full tree) and diff the
+//    URL set — a NEW docs page gets an explicit alert, not just incidental
+//    sidebar-link noise inside a page diff. Raw fetch on purpose: Firecrawl
+//    is robots-blocked on this subdomain, plain fetch is not.
+try {
+  const hrefs = new Set();
+  for (const docUrl of [
+    "https://wearables.developer.meta.com/docs/develop/webapps",
+    "https://wearables.developer.meta.com/docs",
+  ]) {
+    const res = await fetch(docUrl, {
+      headers: { "User-Agent": "glasskit-sdk-watch" },
+    }).catch(() => null);
+    if (!res?.ok) continue;
+    const html = await res.text();
+    for (const m of html.matchAll(/href="([^"]*\/docs\/[^"#?]*)"/g)) {
+      const u = m[1].startsWith("http")
+        ? m[1]
+        : `https://wearables.developer.meta.com${m[1]}`;
+      if (u.includes("wearables.developer.meta.com/docs/")) {
+        hrefs.add(u.replace(/\/$/, ""));
+      }
+    }
+  }
+  const unique = [...hrefs].sort();
+  if (unique.length > 0) {
+    const file = join(STATE_DIR, "sitemap.txt");
+    const prev = existsSync(file)
+      ? new Set(readFileSync(file, "utf8").split("\n").filter(Boolean))
+      : null;
+    writeFileSync(file, unique.join("\n") + "\n");
+    if (prev) {
+      const added = unique.filter((u) => !prev.has(u));
+      const removed = [...prev].filter((u) => !hrefs.has(u));
+      if (added.length || removed.length) {
+        findings.push({
+          title: `🆕 Docs pages added/removed (+${added.length} / −${removed.length})`,
+          url: "https://wearables.developer.meta.com/docs",
+          body: [...added.map((u) => `+ ${u}`), ...removed.map((u) => `- ${u}`)]
+            .slice(0, 25)
+            .join("\n"),
+        });
+      }
+    }
+  }
+} catch (err) {
+  console.warn(`sitemap check skipped: ${err.message}`);
 }
 
 // ── report ──────────────────────────────────────────────────────────────────
