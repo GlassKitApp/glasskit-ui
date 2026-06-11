@@ -1,22 +1,32 @@
 #!/usr/bin/env node
 /**
- * glasskit — the GlassKit UI CLI. Vendors additive-lens components from the
- * registry into your project (the branded `npx shadcn add` equivalent).
+ * @glasskit/cli (bin: glasskit) — the GlassKit UI CLI. Scaffolds glasses
+ * apps and vendors lens components from the registry (the branded
+ * `npx shadcn` equivalent). The bare `glasskit` npm name belongs to an
+ * unrelated package — always document the scoped form.
  *
- *   glasskit add button readout          # add components (+ their deps)
- *   glasskit list                        # list available components
- *   glasskit init                        # print setup steps
+ *   npx @glasskit/cli init my-app        # scaffold a Vite glasses app
+ *   npx @glasskit/cli add button readout # add components (+ their deps)
+ *   npx @glasskit/cli list               # list available components
  *
  * Flags: --registry <url> (default https://glasskit.app/ui/r), --cwd <dir>,
  *        --overwrite, --no-install, --help. Zero runtime deps — Node 18+
  *        (global fetch).
  *
- * NOTE: not published to npm yet. Run locally against a built registry, e.g.
+ * Local dev against a built registry:
  *   pnpm build:registry && (serve apps/web) && glasskit add button --registry http://localhost:3000/ui/r
  */
-import { mkdir, writeFile, readFile, access } from "node:fs/promises";
-import { dirname, join, resolve, relative, isAbsolute } from "node:path";
+import { mkdir, writeFile, readFile, readdir, access } from "node:fs/promises";
+import {
+  basename,
+  dirname,
+  join,
+  resolve,
+  relative,
+  isAbsolute,
+} from "node:path";
 import { spawnSync } from "node:child_process";
+import { scaffoldFiles } from "./templates";
 
 const DEFAULT_REGISTRY = "https://glasskit.app/ui/r";
 
@@ -235,18 +245,81 @@ async function list(opts: Options) {
   console.log(c.dim(`\nAdd one:  glasskit add <name>\n`));
 }
 
-function init() {
-  console.log(`
-${c.bold("GlassKit UI — getting started")}
+/**
+ * `glasskit init [dir]` — dual-mode like shadcn's init:
+ *   - inside an existing project (package.json present): print setup steps
+ *   - in an empty / new directory: scaffold a complete Vite + React glasses
+ *     app (required 600×600 + mrbd meta tags, GlassViewport + useDpad wired)
+ */
+async function init(dir: string | undefined, opts: Options) {
+  const target = resolve(opts.cwd, dir ?? ".");
+
+  if (await exists(join(target, "package.json"))) {
+    console.log(`
+${c.bold("GlassKit UI — add to an existing project")}
 
   1. ${c.green("pnpm add @glasskit/glasses-ui")}   ${c.dim("# the SDK (hooks + GlassViewport)")}
   2. In your CSS, after Tailwind:
        ${c.dim('@import "tailwindcss";')}
        ${c.dim('@import "@glasskit/glasses-ui/styles.css";')}
   3. Add components:
-       ${c.green("glasskit add button readout")}
+       ${c.green("npx @glasskit/cli add button readout")}
 
   Docs: https://glasskit.app/ui/docs
+`);
+    return;
+  }
+
+  const existing = (await exists(target)) ? await readdir(target) : [];
+  if (existing.filter((f) => f !== ".git").length > 0) {
+    console.error(
+      c.red(`${relative(opts.cwd, target) || "."} is not empty and has no package.json.
+Run init in an empty directory (or pass one: glasskit init my-app).`),
+    );
+    process.exitCode = 1;
+    return;
+  }
+
+  // Valid npm name from the directory.
+  const name =
+    basename(target)
+      .toLowerCase()
+      .replace(/[^a-z0-9-_.]+/g, "-") || "glasses-app";
+  for (const [path, content] of Object.entries(scaffoldFiles(name))) {
+    const dest = join(target, path);
+    await mkdir(dirname(dest), { recursive: true });
+    await writeFile(dest, content);
+    console.log(
+      `${c.green("create")} ${join(relative(opts.cwd, target), path)}`,
+    );
+  }
+
+  // Install with whichever package manager invoked us (npx → npm,
+  // pnpm dlx → pnpm, …); a fresh scaffold has no lockfile to detect from.
+  const pm = process.env.npm_config_user_agent?.split("/")[0] || "npm";
+  if (opts.install) {
+    console.log(`\n${c.green("install")} ${c.dim(`(${pm})`)}`);
+    const result = spawnSync(pm, ["install"], {
+      cwd: target,
+      stdio: "inherit",
+    });
+    if (result.status !== 0) {
+      console.error(
+        c.red(`Install failed — run it yourself: cd ${name} && ${pm} install`),
+      );
+      process.exitCode = 1;
+      return;
+    }
+  }
+
+  const cd = relative(opts.cwd, target);
+  console.log(`
+${c.green("✓")} ${c.bold(name)} is ready — a 600×600 glasses app.
+
+  ${cd && cd !== "." ? c.green(`cd ${cd}`) + "\n  " : ""}${opts.install ? "" : c.green(`${pm} install`) + "\n  "}${c.green(`${pm} run dev`)}        ${c.dim("# arrow keys = D-pad, Enter = pinch")}
+  ${c.green("npx @glasskit/cli add list button readout")}
+
+  Ship it: build, deploy to any HTTPS host, add the URL in the Meta AI app.
 `);
 }
 
@@ -255,9 +328,10 @@ function help() {
 ${c.bold("glasskit")} — vendor additive-lens components into your project
 
 ${c.bold("Usage")}
+  glasskit init [dir]        scaffold a Vite glasses app (or print setup
+                             steps inside an existing project)
   glasskit add <name...>     add components (and their dependencies)
   glasskit list              list available components
-  glasskit init              print setup steps
 
 ${c.bold("Flags")}
   --registry <url>           registry base url (default ${DEFAULT_REGISTRY})
@@ -274,7 +348,7 @@ async function main() {
   try {
     if (command === "add") await add(names, opts);
     else if (command === "list" || command === "ls") await list(opts);
-    else if (command === "init") init();
+    else if (command === "init") await init(names[0], opts);
     else {
       console.error(c.red(`Unknown command: ${command}`));
       help();

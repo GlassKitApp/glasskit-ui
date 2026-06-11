@@ -1,17 +1,36 @@
 {
   "name": "@glasskit/mcp",
   "version": "0.0.0",
-  "private": true,
   "type": "module",
-  "description": "MCP server exposing the GlassKit UI registry to AI agents (list + fetch additive-lens components).",
-  "keywords": ["glasskit", "mcp", "model-context-protocol", "registry"],
+  "description": "MCP server exposing the GlassKit UI registry to AI agents (list + fetch lens components).",
+  "author": "GlassKit",
+  "license": "MIT",
+  "keywords": [
+    "glasskit",
+    "mcp",
+    "model-context-protocol",
+    "registry"
+  ],
   "homepage": "https://glasskit.app/ui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GlassKitApp/glasskit-ui.git",
+    "directory": "packages/mcp"
+  },
+  "bugs": "https://github.com/GlassKitApp/glasskit-ui/issues",
   "bin": {
     "glasskit-mcp": "./dist/index.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   },
   "scripts": {
     "build": "tsup",

@@ -134,7 +134,9 @@ The branded CLI ([`packages/cli`](./packages/cli)) consumes these endpoints —
 writes the files to `components/glasskit/`, and installs the npm
 `dependencies` (skip with `--no-install`). An MCP server
 ([`packages/mcp`](./packages/mcp)) exposes the same registry to AI agents. Both
-are built and runnable but **not published to npm yet**.
+ship as `@glasskit/cli` and `@glasskit/mcp` through the same Changesets
+pipeline as the SDK (the bare `glasskit` npm name belongs to an unrelated
+package — always document the scoped form).
 
 ## House rules
 

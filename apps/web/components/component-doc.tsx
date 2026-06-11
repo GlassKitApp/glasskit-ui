@@ -56,7 +56,10 @@ export async function ComponentDoc({ slug }: { slug: string }) {
       <h2>Installation</h2>
       <Tabs items={["CLI", "Manual"]}>
         <Tab value="CLI">
-          <DynamicCodeBlock lang="bash" code={`glasskit add ${slug}`} />
+          <DynamicCodeBlock
+            lang="bash"
+            code={`npx @glasskit/cli add ${slug}`}
+          />
         </Tab>
         <Tab value="Manual">
           <p>
