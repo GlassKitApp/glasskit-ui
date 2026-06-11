@@ -87,7 +87,6 @@ Microphone
 Text Input
 Offline Support
 Notifications
-Back Navigation
 Also, there is no continuous cursor support for Web Apps.
 Display
 The display is an additive waveguide that overlays rendered pixels onto the wearer’s real-world view. This has a direct impact on how your app looks.
