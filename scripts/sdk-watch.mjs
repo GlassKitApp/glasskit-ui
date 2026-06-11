@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Meta Display SDK watcher — diffs the platform surfaces GlassKit depends on
+ * Meta SDK Watch — diffs the Meta Display platform surfaces GlassKit depends on
  * and posts changes to Discord. Run daily by .github/workflows/sdk-watch.yml.
  *
  * Sources:
@@ -295,14 +295,18 @@ async function postDiscord(content) {
   const res = await fetch(WEBHOOK, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ content, allowed_mentions: { parse: [] } }),
+    body: JSON.stringify({
+      content,
+      username: "Meta SDK Watch",
+      allowed_mentions: { parse: [] },
+    }),
   });
   if (!res.ok) throw new Error(`Discord webhook ${res.status}`);
 }
 
 if (firstRun) {
   await postDiscord(
-    "👓 **GlassKit SDK watch is live.** Watching the Meta wearables toolkit repo, the Web Apps docs, the FAQ, the DAT llms.txt, and the glasses-OS release notes. Daily diffs will land here — quiet days stay quiet.",
+    "👓 **Meta SDK Watch is live.** Watching the wearables toolkit repo, the Web Apps docs, the FAQ, the DAT llms.txt, and the glasses-OS release notes. Diffs land here when Meta changes something — quiet weeks stay quiet.",
   );
   console.log("first run: snapshots initialized");
 } else if (findings.length === 0) {

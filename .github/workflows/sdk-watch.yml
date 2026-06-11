@@ -1,4 +1,4 @@
-name: SDK Watch
+name: Meta SDK Watch
 
 # Weekly diff of the Meta Display platform surfaces GlassKit depends on —
 # the wearables toolkit repo, the Web Apps docs, the FAQ, the DAT llms.txt,
