@@ -130,7 +130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_async_view_test",
-      "community": 50,
+      "community": 60,
       "norm_label": "async-view.test.tsx"
     },
     {
@@ -200,7 +200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_clock_test",
-      "community": 25,
+      "community": 27,
       "norm_label": "clock.test.tsx"
     },
     {
@@ -250,7 +250,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_list_test",
-      "community": 53,
+      "community": 49,
       "norm_label": "list.test.tsx"
     },
     {
@@ -260,7 +260,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_monitor_test",
-      "community": 50,
+      "community": 53,
       "norm_label": "monitor.test.tsx"
     },
     {
@@ -420,7 +420,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_world_test",
-      "community": 27,
+      "community": 36,
       "norm_label": "world.test.tsx"
     },
     {
@@ -547,7 +547,7 @@
       "label": "DocsRootLayout()",
       "file_type": "code",
       "source_file": "apps/web/app/(docs)/layout.tsx",
-      "source_location": "L58",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "docs_layout_docsrootlayout",
       "community": 28,
@@ -760,7 +760,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "playground_page",
-      "community": 28,
+      "community": 50,
       "norm_label": "page.tsx"
     },
     {
@@ -770,7 +770,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "playground_page_metadata",
-      "community": 28,
+      "community": 50,
       "norm_label": "metadata"
     },
     {
@@ -780,7 +780,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "playground_page_playground",
-      "community": 28,
+      "community": 50,
       "norm_label": "playground()"
     },
     {
@@ -850,7 +850,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_code_block",
-      "community": 32,
+      "community": 50,
       "norm_label": "code-block.tsx"
     },
     {
@@ -860,7 +860,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "components_code_block_codeblock",
-      "community": 32,
+      "community": 50,
       "norm_label": "codeblock()"
     },
     {
@@ -1350,7 +1350,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_install_tabs",
-      "community": 32,
+      "community": 50,
       "norm_label": "install-tabs.tsx"
     },
     {
@@ -1360,7 +1360,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_install_tabs_installtabs",
-      "community": 32,
+      "community": 50,
       "norm_label": "installtabs()"
     },
     {
@@ -1410,7 +1410,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_explore_demo",
-      "community": 50,
+      "community": 36,
       "norm_label": "explore-demo.tsx"
     },
     {
@@ -1420,7 +1420,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "lens_explore_demo_exploredemo",
-      "community": 50,
+      "community": 36,
       "norm_label": "exploredemo()"
     },
     {
@@ -1450,7 +1450,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_icons",
-      "community": 53,
+      "community": 50,
       "norm_label": "icons.tsx"
     },
     {
@@ -1460,7 +1460,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_launcher_demo",
-      "community": 53,
+      "community": 50,
       "norm_label": "launcher-demo.tsx"
     },
     {
@@ -1480,7 +1480,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_lens_stage",
-      "community": 32,
+      "community": 50,
       "norm_label": "lens-stage.tsx"
     },
     {
@@ -1490,7 +1490,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "lens_lens_stage_lensstage",
-      "community": 32,
+      "community": 50,
       "norm_label": "lensstage()"
     },
     {
@@ -1500,7 +1500,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_menu_demo",
-      "community": 53,
+      "community": 50,
       "norm_label": "menu-demo.tsx"
     },
     {
@@ -1697,7 +1697,7 @@
       "label": "ProductFooter()",
       "file_type": "code",
       "source_file": "apps/web/components/product-footer.tsx",
-      "source_location": "L55",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "components_product_footer_productfooter",
       "community": 28,
@@ -1737,7 +1737,7 @@
       "label": "ProductNav()",
       "file_type": "code",
       "source_file": "apps/web/components/product-nav.tsx",
-      "source_location": "L43",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "components_product_nav_productnav",
       "community": 28,
@@ -1750,7 +1750,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_props_table",
-      "community": 181,
+      "community": 27,
       "norm_label": "props-table.tsx"
     },
     {
@@ -1760,7 +1760,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "components_props_table_propstable",
-      "community": 181,
+      "community": 27,
       "norm_label": "propstable()"
     },
     {
@@ -1787,7 +1787,7 @@
       "label": "MoonIcon()",
       "file_type": "code",
       "source_file": "apps/web/components/theme-toggle.tsx",
-      "source_location": "L20",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "components_theme_toggle_moonicon",
       "community": 28,
@@ -1797,7 +1797,7 @@
       "label": "ThemeToggle()",
       "file_type": "code",
       "source_file": "apps/web/components/theme-toggle.tsx",
-      "source_location": "L26",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "components_theme_toggle_themetoggle",
       "community": 28,
@@ -1836,17 +1836,17 @@
     {
       "label": "meta.json",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/content/docs/meta.json",
+      "source_file": "apps/web/content/docs/meta.json",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_apps_web_content_docs_meta_json",
+      "id": "docs_meta",
       "community": 54,
       "norm_label": "meta.json"
     },
     {
       "label": "title",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/content/docs/meta.json",
+      "source_file": "apps/web/content/docs/meta.json",
       "source_location": "L2",
       "_origin": "ast",
       "id": "docs_meta_title",
@@ -1856,7 +1856,7 @@
     {
       "label": "pages",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/content/docs/meta.json",
+      "source_file": "apps/web/content/docs/meta.json",
       "source_location": "L3",
       "_origin": "ast",
       "id": "docs_meta_pages",
@@ -1880,7 +1880,7 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "lib_component_docs_proprow",
-      "community": 181,
+      "community": 27,
       "norm_label": "proprow"
     },
     {
@@ -1900,7 +1900,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "lib_component_docs_component_docs",
-      "community": 53,
+      "community": 27,
       "norm_label": "component_docs"
     },
     {
@@ -2137,7 +2137,7 @@
       "label": "SEO",
       "file_type": "code",
       "source_file": "apps/web/lib/seo.ts",
-      "source_location": "L8",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "lib_seo_seo",
       "community": 28,
@@ -2147,7 +2147,7 @@
       "label": "jsonLdGraph()",
       "file_type": "code",
       "source_file": "apps/web/lib/seo.ts",
-      "source_location": "L33",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "lib_seo_jsonldgraph",
       "community": 28,
@@ -2157,7 +2157,7 @@
       "label": "organizationSchema()",
       "file_type": "code",
       "source_file": "apps/web/lib/seo.ts",
-      "source_location": "L37",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "lib_seo_organizationschema",
       "community": 28,
@@ -2167,7 +2167,7 @@
       "label": "webSiteSchema()",
       "file_type": "code",
       "source_file": "apps/web/lib/seo.ts",
-      "source_location": "L48",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "lib_seo_websiteschema",
       "community": 28,
@@ -2177,7 +2177,7 @@
       "label": "softwareSchema()",
       "file_type": "code",
       "source_file": "apps/web/lib/seo.ts",
-      "source_location": "L60",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "lib_seo_softwareschema",
       "community": 28,
@@ -2187,7 +2187,7 @@
       "label": "breadcrumbSchema()",
       "file_type": "code",
       "source_file": "apps/web/lib/seo.ts",
-      "source_location": "L79",
+      "source_location": "L86",
       "_origin": "ast",
       "id": "lib_seo_breadcrumbschema",
       "community": 28,
@@ -2240,7 +2240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "apps_web_lib_utils_ts_lib_utils",
-      "community": 32,
+      "community": 50,
       "norm_label": "utils.ts"
     },
     {
@@ -2250,7 +2250,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "apps_web_lib_utils_ts_lib_utils_cn",
-      "community": 32,
+      "community": 50,
       "norm_label": "cn()"
     },
     {
@@ -2260,7 +2260,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "web_mdx_components",
-      "community": 28,
+      "community": 32,
       "norm_label": "mdx-components.tsx"
     },
     {
@@ -2306,17 +2306,17 @@
     {
       "label": "package.json",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_apps_web_package_json",
+      "id": "web_package",
       "community": 17,
       "norm_label": "package.json"
     },
     {
       "label": "name",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L2",
       "_origin": "ast",
       "id": "web_package_name",
@@ -2326,7 +2326,7 @@
     {
       "label": "version",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L3",
       "_origin": "ast",
       "id": "web_package_version",
@@ -2336,7 +2336,7 @@
     {
       "label": "private",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L4",
       "_origin": "ast",
       "id": "web_package_private",
@@ -2346,7 +2346,7 @@
     {
       "label": "type",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L5",
       "_origin": "ast",
       "id": "web_package_type",
@@ -2356,7 +2356,7 @@
     {
       "label": "description",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L6",
       "_origin": "ast",
       "id": "web_package_description",
@@ -2366,7 +2366,7 @@
     {
       "label": "scripts",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L7",
       "_origin": "ast",
       "id": "web_package_scripts",
@@ -2376,7 +2376,7 @@
     {
       "label": "dev",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L8",
       "_origin": "ast",
       "id": "web_package_scripts_dev",
@@ -2386,7 +2386,7 @@
     {
       "label": "build",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L9",
       "_origin": "ast",
       "id": "web_package_scripts_build",
@@ -2396,7 +2396,7 @@
     {
       "label": "start",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L10",
       "_origin": "ast",
       "id": "web_package_scripts_start",
@@ -2406,7 +2406,7 @@
     {
       "label": "typecheck",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L11",
       "_origin": "ast",
       "id": "web_package_scripts_typecheck",
@@ -2416,7 +2416,7 @@
     {
       "label": "test",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L12",
       "_origin": "ast",
       "id": "web_package_scripts_test",
@@ -2426,7 +2426,7 @@
     {
       "label": "postinstall",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L13",
       "_origin": "ast",
       "id": "web_package_scripts_postinstall",
@@ -2436,7 +2436,7 @@
     {
       "label": "dependencies",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L15",
       "_origin": "ast",
       "id": "web_package_dependencies",
@@ -2444,19 +2444,19 @@
       "norm_label": "dependencies"
     },
     {
-      "label": "@glasskit/glasses-ui",
+      "label": "@glasskit-ui/react",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "web_package_dependencies_glasskit_glasses_ui",
+      "id": "web_package_dependencies_glasskit_ui_react",
       "community": 17,
-      "norm_label": "@glasskit/glasses-ui"
+      "norm_label": "@glasskit-ui/react"
     },
     {
       "label": "@tabler/icons-react",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L17",
       "_origin": "ast",
       "id": "web_package_dependencies_tabler_icons_react",
@@ -2466,7 +2466,7 @@
     {
       "label": "clsx",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L18",
       "_origin": "ast",
       "id": "web_package_dependencies_clsx",
@@ -2476,7 +2476,7 @@
     {
       "label": "fumadocs-core",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L19",
       "_origin": "ast",
       "id": "web_package_dependencies_fumadocs_core",
@@ -2486,7 +2486,7 @@
     {
       "label": "fumadocs-mdx",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L20",
       "_origin": "ast",
       "id": "web_package_dependencies_fumadocs_mdx",
@@ -2496,7 +2496,7 @@
     {
       "label": "fumadocs-ui",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L21",
       "_origin": "ast",
       "id": "web_package_dependencies_fumadocs_ui",
@@ -2506,7 +2506,7 @@
     {
       "label": "next",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L22",
       "_origin": "ast",
       "id": "web_package_dependencies_next",
@@ -2516,7 +2516,7 @@
     {
       "label": "qrcode",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L23",
       "_origin": "ast",
       "id": "web_package_dependencies_qrcode",
@@ -2526,7 +2526,7 @@
     {
       "label": "react",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L24",
       "_origin": "ast",
       "id": "web_package_dependencies_react",
@@ -2536,7 +2536,7 @@
     {
       "label": "react-dom",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L25",
       "_origin": "ast",
       "id": "web_package_dependencies_react_dom",
@@ -2546,7 +2546,7 @@
     {
       "label": "shiki",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L26",
       "_origin": "ast",
       "id": "web_package_dependencies_shiki",
@@ -2556,7 +2556,7 @@
     {
       "label": "sonner",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L27",
       "_origin": "ast",
       "id": "web_package_dependencies_sonner",
@@ -2566,7 +2566,7 @@
     {
       "label": "tailwind-merge",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L28",
       "_origin": "ast",
       "id": "web_package_dependencies_tailwind_merge",
@@ -2576,7 +2576,7 @@
     {
       "label": "devDependencies",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L30",
       "_origin": "ast",
       "id": "web_package_devdependencies",
@@ -2586,7 +2586,7 @@
     {
       "label": "@tailwindcss/postcss",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L31",
       "_origin": "ast",
       "id": "web_package_devdependencies_tailwindcss_postcss",
@@ -2596,7 +2596,7 @@
     {
       "label": "@testing-library/dom",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L32",
       "_origin": "ast",
       "id": "web_package_devdependencies_testing_library_dom",
@@ -2606,7 +2606,7 @@
     {
       "label": "@testing-library/react",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L33",
       "_origin": "ast",
       "id": "web_package_devdependencies_testing_library_react",
@@ -2616,7 +2616,7 @@
     {
       "label": "@types/mdx",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L34",
       "_origin": "ast",
       "id": "web_package_devdependencies_types_mdx",
@@ -2626,7 +2626,7 @@
     {
       "label": "@types/node",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L35",
       "_origin": "ast",
       "id": "web_package_devdependencies_types_node",
@@ -2636,7 +2636,7 @@
     {
       "label": "@types/qrcode",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L36",
       "_origin": "ast",
       "id": "web_package_devdependencies_types_qrcode",
@@ -2646,7 +2646,7 @@
     {
       "label": "@types/react",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L37",
       "_origin": "ast",
       "id": "web_package_devdependencies_types_react",
@@ -2656,7 +2656,7 @@
     {
       "label": "@types/react-dom",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L38",
       "_origin": "ast",
       "id": "web_package_devdependencies_types_react_dom",
@@ -2666,7 +2666,7 @@
     {
       "label": "@vitejs/plugin-react",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L39",
       "_origin": "ast",
       "id": "web_package_devdependencies_vitejs_plugin_react",
@@ -2676,7 +2676,7 @@
     {
       "label": "jsdom",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L40",
       "_origin": "ast",
       "id": "web_package_devdependencies_jsdom",
@@ -2686,7 +2686,7 @@
     {
       "label": "tailwindcss",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L41",
       "_origin": "ast",
       "id": "web_package_devdependencies_tailwindcss",
@@ -2696,7 +2696,7 @@
     {
       "label": "typescript",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L42",
       "_origin": "ast",
       "id": "web_package_devdependencies_typescript",
@@ -2706,7 +2706,7 @@
     {
       "label": "vitest",
       "file_type": "code",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L43",
       "_origin": "ast",
       "id": "web_package_devdependencies_vitest",
@@ -2964,14 +2964,14 @@
       "norm_label": "react/jsx-runtime"
     },
     {
-      "label": "@glasskit/glasses-ui",
+      "label": "@glasskit-ui/react",
       "file_type": "code",
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "web_tsconfig_paths_glasskit_glasses_ui",
+      "id": "web_tsconfig_paths_glasskit_ui_react",
       "community": 26,
-      "norm_label": "@glasskit/glasses-ui"
+      "norm_label": "@glasskit-ui/react"
     },
     {
       "label": "include",
@@ -5430,7 +5430,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_async_view",
-      "community": 50,
+      "community": 60,
       "norm_label": "async-view.tsx"
     },
     {
@@ -5440,7 +5440,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "ui_async_view_asyncstatus",
-      "community": 50,
+      "community": 60,
       "norm_label": "asyncstatus"
     },
     {
@@ -5450,7 +5450,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "ui_async_view_asyncview",
-      "community": 50,
+      "community": 60,
       "norm_label": "asyncview()"
     },
     {
@@ -5460,7 +5460,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "ui_async_view_spinner",
-      "community": 50,
+      "community": 60,
       "norm_label": "spinner()"
     },
     {
@@ -5560,7 +5560,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_callout",
-      "community": 27,
+      "community": 36,
       "norm_label": "callout.tsx"
     },
     {
@@ -5570,7 +5570,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_callout_callout",
-      "community": 27,
+      "community": 36,
       "norm_label": "callout()"
     },
     {
@@ -5580,7 +5580,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_chat_bubble",
-      "community": 182,
+      "community": 27,
       "norm_label": "chat-bubble.tsx"
     },
     {
@@ -5590,7 +5590,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "ui_chat_bubble_messagethread",
-      "community": 182,
+      "community": 27,
       "norm_label": "messagethread()"
     },
     {
@@ -5600,7 +5600,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "ui_chat_bubble_chatbubble",
-      "community": 182,
+      "community": 27,
       "norm_label": "chatbubble()"
     },
     {
@@ -5610,7 +5610,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_clock",
-      "community": 25,
+      "community": 27,
       "norm_label": "clock.tsx"
     },
     {
@@ -5620,7 +5620,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_clock_clock",
-      "community": 25,
+      "community": 27,
       "norm_label": "clock()"
     },
     {
@@ -5790,7 +5790,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_glow_icon",
-      "community": 53,
+      "community": 50,
       "norm_label": "glow-icon.tsx"
     },
     {
@@ -5800,7 +5800,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "ui_glow_icon_glowtone",
-      "community": 53,
+      "community": 50,
       "norm_label": "glowtone"
     },
     {
@@ -5810,7 +5810,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "ui_glow_icon_glowicon",
-      "community": 53,
+      "community": 50,
       "norm_label": "glowicon()"
     },
     {
@@ -5890,7 +5890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_list",
-      "community": 53,
+      "community": 49,
       "norm_label": "list.tsx"
     },
     {
@@ -5900,7 +5900,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "ui_list_list",
-      "community": 53,
+      "community": 49,
       "norm_label": "list()"
     },
     {
@@ -5910,7 +5910,7 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "ui_list_listrow",
-      "community": 53,
+      "community": 49,
       "norm_label": "listrow()"
     },
     {
@@ -5960,7 +5960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_meter",
-      "community": 50,
+      "community": 53,
       "norm_label": "meter.tsx"
     },
     {
@@ -5970,7 +5970,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_meter_meter",
-      "community": 50,
+      "community": 53,
       "norm_label": "meter()"
     },
     {
@@ -6080,7 +6080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_now_playing",
-      "community": 27,
+      "community": 71,
       "norm_label": "now-playing.tsx"
     },
     {
@@ -6090,7 +6090,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "ui_now_playing_nowplaying",
-      "community": 27,
+      "community": 71,
       "norm_label": "nowplaying()"
     },
     {
@@ -6120,7 +6120,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_pin",
-      "community": 27,
+      "community": 36,
       "norm_label": "pin.tsx"
     },
     {
@@ -6130,7 +6130,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_pin_pin",
-      "community": 27,
+      "community": 36,
       "norm_label": "pin()"
     },
     {
@@ -6200,7 +6200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_reticle",
-      "community": 27,
+      "community": 36,
       "norm_label": "reticle.tsx"
     },
     {
@@ -6210,7 +6210,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "ui_reticle_reticle",
-      "community": 27,
+      "community": 36,
       "norm_label": "reticle()"
     },
     {
@@ -6240,7 +6240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_segmented",
-      "community": 50,
+      "community": 70,
       "norm_label": "segmented.tsx"
     },
     {
@@ -6250,7 +6250,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "ui_segmented_segmentedoption",
-      "community": 50,
+      "community": 70,
       "norm_label": "segmentedoption"
     },
     {
@@ -6260,7 +6260,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "ui_segmented_segmented",
-      "community": 50,
+      "community": 70,
       "norm_label": "segmented()"
     },
     {
@@ -6290,7 +6290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_stat_grid",
-      "community": 50,
+      "community": 53,
       "norm_label": "stat-grid.tsx"
     },
     {
@@ -6300,7 +6300,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "ui_stat_grid_stat",
-      "community": 50,
+      "community": 53,
       "norm_label": "stat"
     },
     {
@@ -6310,7 +6310,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "ui_stat_grid_statgrid",
-      "community": 50,
+      "community": 53,
       "norm_label": "statgrid()"
     },
     {
@@ -6320,7 +6320,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_status_dot",
-      "community": 50,
+      "community": 53,
       "norm_label": "status-dot.tsx"
     },
     {
@@ -6330,7 +6330,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "ui_status_dot_statusdot",
-      "community": 50,
+      "community": 53,
       "norm_label": "statusdot()"
     },
     {
@@ -6410,7 +6410,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_toast",
-      "community": 27,
+      "community": 53,
       "norm_label": "toast.tsx"
     },
     {
@@ -6420,7 +6420,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "ui_toast_toast",
-      "community": 27,
+      "community": 53,
       "norm_label": "toast()"
     },
     {
@@ -6620,7 +6620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget",
-      "community": 49,
+      "community": 78,
       "norm_label": "check-bundle-budget.mjs"
     },
     {
@@ -6630,7 +6630,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_root",
-      "community": 49,
+      "community": 78,
       "norm_label": "root"
     },
     {
@@ -6640,7 +6640,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_next",
-      "community": 49,
+      "community": 78,
       "norm_label": "next"
     },
     {
@@ -6650,7 +6650,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_preview_dir",
-      "community": 49,
+      "community": 78,
       "norm_label": "preview_dir"
     },
     {
@@ -6660,7 +6660,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_kb",
-      "community": 49,
+      "community": 78,
       "norm_label": "kb()"
     },
     {
@@ -6670,7 +6670,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_fmt",
-      "community": 49,
+      "community": 78,
       "norm_label": "fmt()"
     },
     {
@@ -6680,7 +6680,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_fail",
-      "community": 49,
+      "community": 78,
       "norm_label": "fail()"
     },
     {
@@ -6690,7 +6690,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_sdk_dist",
-      "community": 49,
+      "community": 78,
       "norm_label": "sdk_dist"
     },
     {
@@ -7036,17 +7036,17 @@
     {
       "label": "README.md",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.changeset/README.md",
+      "source_file": ".changeset/README.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_changeset_readme_md",
+      "id": "changeset_readme",
       "community": 14,
       "norm_label": "readme.md"
     },
     {
       "label": "Changesets",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.changeset/README.md",
+      "source_file": ".changeset/README.md",
       "source_location": "L1",
       "_origin": "ast",
       "id": "changeset_readme_changesets",
@@ -7056,7 +7056,7 @@
     {
       "label": "Adding a changeset",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.changeset/README.md",
+      "source_file": ".changeset/README.md",
       "source_location": "L6",
       "_origin": "ast",
       "id": "changeset_readme_adding_a_changeset",
@@ -7064,19 +7064,9 @@
       "norm_label": "adding a changeset"
     },
     {
-      "label": "code:sh (pnpm changeset)",
-      "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.changeset/README.md",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "changeset_readme_codeblock_1",
-      "community": 14,
-      "norm_label": "code:sh (pnpm changeset)"
-    },
-    {
       "label": "How releases happen",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.changeset/README.md",
+      "source_file": ".changeset/README.md",
       "source_location": "L17",
       "_origin": "ast",
       "id": "changeset_readme_how_releases_happen",
@@ -7276,341 +7266,331 @@
     {
       "label": "PLAN.md",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_plan_md",
-      "community": 0,
+      "id": "plan",
+      "community": 25,
       "norm_label": "plan.md"
     },
     {
       "label": "GlassKit Ecosystem \u2014 Open-Source SDK + Registry (`glasskit-ui`)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "community": 0,
+      "id": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "community": 25,
       "norm_label": "glasskit ecosystem \u2014 open-source sdk + registry (`glasskit-ui`)"
     },
     {
       "label": "Context",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "harrisburg_plan_context",
-      "community": 0,
+      "id": "plan_context",
+      "community": 25,
       "norm_label": "context"
     },
     {
       "label": "Current status & plan deltas (updated 2026-06-05)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "harrisburg_plan_current_status_plan_deltas_updated_2026_06_05",
-      "community": 0,
+      "id": "plan_current_status_plan_deltas_updated_2026_06_05",
+      "community": 25,
       "norm_label": "current status & plan deltas (updated 2026-06-05)"
     },
     {
       "label": "Decisions locked (from brainstorming)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L61",
       "_origin": "ast",
-      "id": "harrisburg_plan_decisions_locked_from_brainstorming",
-      "community": 0,
+      "id": "plan_decisions_locked_from_brainstorming",
+      "community": 25,
       "norm_label": "decisions locked (from brainstorming)"
     },
     {
       "label": "Competitive landscape & positioning (deep research, 2026-06, verified+cited)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L72",
       "_origin": "ast",
-      "id": "harrisburg_plan_competitive_landscape_positioning_deep_research_2026_06_verified_cited",
-      "community": 0,
+      "id": "plan_competitive_landscape_positioning_deep_research_2026_06_verified_cited",
+      "community": 25,
       "norm_label": "competitive landscape & positioning (deep research, 2026-06, verified+cited)"
     },
     {
       "label": "Source of truth for current code",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L119",
       "_origin": "ast",
-      "id": "harrisburg_plan_source_of_truth_for_current_code",
-      "community": 0,
+      "id": "plan_source_of_truth_for_current_code",
+      "community": 25,
       "norm_label": "source of truth for current code"
     },
     {
       "label": "What the actual source reveals (read 2026-06) \u2014 resolves most of the #1 risk",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L144",
       "_origin": "ast",
-      "id": "harrisburg_plan_what_the_actual_source_reveals_read_2026_06_resolves_most_of_the_1_risk",
-      "community": 0,
+      "id": "plan_what_the_actual_source_reveals_read_2026_06_resolves_most_of_the_1_risk",
+      "community": 25,
       "norm_label": "what the actual source reveals (read 2026-06) \u2014 resolves most of the #1 risk"
     },
     {
       "label": "Architecture \u2014 the `glasskit-ui` monorepo",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L160",
       "_origin": "ast",
-      "id": "harrisburg_plan_architecture_the_glasskit_ui_monorepo",
-      "community": 0,
+      "id": "plan_architecture_the_glasskit_ui_monorepo",
+      "community": 25,
       "norm_label": "architecture \u2014 the `glasskit-ui` monorepo"
-    },
-    {
-      "label": "code:block1 (glasskit-ui/                      # NEW public repo, pnpm + )",
-      "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
-      "source_location": "L162",
-      "_origin": "ast",
-      "id": "harrisburg_plan_codeblock_1",
-      "community": 0,
-      "norm_label": "code:block1 (glasskit-ui/                      # new public repo, pnpm + )"
     },
     {
       "label": "npm package vs registry \u2014 the split",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L191",
       "_origin": "ast",
-      "id": "harrisburg_plan_npm_package_vs_registry_the_split",
-      "community": 0,
+      "id": "plan_npm_package_vs_registry_the_split",
+      "community": 25,
       "norm_label": "npm package vs registry \u2014 the split"
     },
     {
       "label": "Component inventory \u2014 derived from first principles (the 8 jobs of a HUD)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L211",
       "_origin": "ast",
-      "id": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
-      "community": 0,
+      "id": "plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "community": 25,
       "norm_label": "component inventory \u2014 derived from first principles (the 8 jobs of a hud)"
     },
     {
       "label": "Design approach \u2014 port from watch UI kits, re-skin for glasses",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L223",
       "_origin": "ast",
-      "id": "harrisburg_plan_design_approach_port_from_watch_ui_kits_re_skin_for_glasses",
-      "community": 0,
+      "id": "plan_design_approach_port_from_watch_ui_kits_re_skin_for_glasses",
+      "community": 25,
       "norm_label": "design approach \u2014 port from watch ui kits, re-skin for glasses"
     },
     {
       "label": "Registry `ui` components (~28, archetype-complete)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L254",
       "_origin": "ast",
-      "id": "harrisburg_plan_registry_ui_components_28_archetype_complete",
-      "community": 0,
+      "id": "plan_registry_ui_components_28_archetype_complete",
+      "community": 25,
       "norm_label": "registry `ui` components (~28, archetype-complete)"
     },
     {
       "label": "Deliberately NOT built (the medium forbids it)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L274",
       "_origin": "ast",
-      "id": "harrisburg_plan_deliberately_not_built_the_medium_forbids_it",
-      "community": 0,
+      "id": "plan_deliberately_not_built_the_medium_forbids_it",
+      "community": 25,
       "norm_label": "deliberately not built (the medium forbids it)"
     },
     {
       "label": "Accent color \u2014 one default, no preset system (revised 2026-06-01)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L282",
       "_origin": "ast",
-      "id": "harrisburg_plan_accent_color_one_default_no_preset_system_revised_2026_06_01",
-      "community": 0,
+      "id": "plan_accent_color_one_default_no_preset_system_revised_2026_06_01",
+      "community": 25,
       "norm_label": "accent color \u2014 one default, no preset system (revised 2026-06-01)"
     },
     {
       "label": "Registry `blocks` \u2014 generic patterns only (never named demos)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L289",
       "_origin": "ast",
-      "id": "harrisburg_plan_registry_blocks_generic_patterns_only_never_named_demos",
-      "community": 0,
+      "id": "plan_registry_blocks_generic_patterns_only_never_named_demos",
+      "community": 25,
       "norm_label": "registry `blocks` \u2014 generic patterns only (never named demos)"
     },
     {
       "label": "Docs site (fumadocs at ui.glasskit.app)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L295",
       "_origin": "ast",
-      "id": "harrisburg_plan_docs_site_fumadocs_at_ui_glasskit_app",
-      "community": 0,
+      "id": "plan_docs_site_fumadocs_at_ui_glasskit_app",
+      "community": 25,
       "norm_label": "docs site (fumadocs at ui.glasskit.app)"
     },
     {
       "label": "ui.glasskit.app \u2014 site design & pages",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L304",
       "_origin": "ast",
-      "id": "harrisburg_plan_ui_glasskit_app_site_design_pages",
-      "community": 0,
+      "id": "plan_ui_glasskit_app_site_design_pages",
+      "community": 25,
       "norm_label": "ui.glasskit.app \u2014 site design & pages"
     },
     {
       "label": "GlassKit UI's own \"Apple feel\" \u2014 one look, two surfaces (revised 2026-06-01)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L342",
       "_origin": "ast",
-      "id": "harrisburg_plan_glasskit_ui_s_own_apple_feel_one_look_two_surfaces_revised_2026_06_01",
-      "community": 0,
+      "id": "plan_glasskit_ui_s_own_apple_feel_one_look_two_surfaces_revised_2026_06_01",
+      "community": 25,
       "norm_label": "glasskit ui's own \"apple feel\" \u2014 one look, two surfaces (revised 2026-06-01)"
     },
     {
       "label": "Three component layers in the repo (don't conflate)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L374",
       "_origin": "ast",
-      "id": "harrisburg_plan_three_component_layers_in_the_repo_don_t_conflate",
-      "community": 0,
+      "id": "plan_three_component_layers_in_the_repo_don_t_conflate",
+      "community": 25,
       "norm_label": "three component layers in the repo (don't conflate)"
     },
     {
       "label": "Funnel mechanics \u2014 OSS \u2192 Starter Kit (\u2192 Studio)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L391",
       "_origin": "ast",
-      "id": "harrisburg_plan_funnel_mechanics_oss_starter_kit_studio",
-      "community": 0,
+      "id": "plan_funnel_mechanics_oss_starter_kit_studio",
+      "community": 25,
       "norm_label": "funnel mechanics \u2014 oss \u2192 starter kit (\u2192 studio)"
     },
     {
       "label": "SEO & agent/LLM visibility \u2014 \"agent-native distribution\"",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L420",
       "_origin": "ast",
-      "id": "harrisburg_plan_seo_agent_llm_visibility_agent_native_distribution",
-      "community": 0,
+      "id": "plan_seo_agent_llm_visibility_agent_native_distribution",
+      "community": 25,
       "norm_label": "seo & agent/llm visibility \u2014 \"agent-native distribution\""
     },
     {
       "label": "Graphify (knowledge graph, both repos)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L450",
       "_origin": "ast",
-      "id": "harrisburg_plan_graphify_knowledge_graph_both_repos",
-      "community": 0,
+      "id": "plan_graphify_knowledge_graph_both_repos",
+      "community": 25,
       "norm_label": "graphify (knowledge graph, both repos)"
     },
     {
       "label": "Execution setup & repo governance",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L456",
       "_origin": "ast",
-      "id": "harrisburg_plan_execution_setup_repo_governance",
-      "community": 0,
+      "id": "plan_execution_setup_repo_governance",
+      "community": 25,
       "norm_label": "execution setup & repo governance"
     },
     {
       "label": "Business reality, MVP slice & kill-criteria (stress test)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L472",
       "_origin": "ast",
-      "id": "harrisburg_plan_business_reality_mvp_slice_kill_criteria_stress_test",
-      "community": 0,
+      "id": "plan_business_reality_mvp_slice_kill_criteria_stress_test",
+      "community": 25,
       "norm_label": "business reality, mvp slice & kill-criteria (stress test)"
     },
     {
       "label": "Decomposition / phasing",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L509",
       "_origin": "ast",
-      "id": "harrisburg_plan_decomposition_phasing",
-      "community": 0,
+      "id": "plan_decomposition_phasing",
+      "community": 25,
       "norm_label": "decomposition / phasing"
     },
     {
       "label": "Top risks (from research) & mitigations",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L557",
       "_origin": "ast",
-      "id": "harrisburg_plan_top_risks_from_research_mitigations",
-      "community": 0,
+      "id": "plan_top_risks_from_research_mitigations",
+      "community": 25,
       "norm_label": "top risks (from research) & mitigations"
     },
     {
       "label": "Out of scope",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L570",
       "_origin": "ast",
-      "id": "harrisburg_plan_out_of_scope",
-      "community": 0,
+      "id": "plan_out_of_scope",
+      "community": 25,
       "norm_label": "out of scope"
     },
     {
       "label": "Internationalization \u2014 RTL & bidi (baked in from day one)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L575",
       "_origin": "ast",
-      "id": "harrisburg_plan_internationalization_rtl_bidi_baked_in_from_day_one",
-      "community": 0,
+      "id": "plan_internationalization_rtl_bidi_baked_in_from_day_one",
+      "community": 25,
       "norm_label": "internationalization \u2014 rtl & bidi (baked in from day one)"
     },
     {
       "label": "Automated npm release pipeline (GitHub Actions + Changesets)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L596",
       "_origin": "ast",
-      "id": "harrisburg_plan_automated_npm_release_pipeline_github_actions_changesets",
-      "community": 0,
+      "id": "plan_automated_npm_release_pipeline_github_actions_changesets",
+      "community": 25,
       "norm_label": "automated npm release pipeline (github actions + changesets)"
     },
     {
       "label": "Testing strategy \u2014 \"don't break shit\" (layered, not naive snapshots)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L617",
       "_origin": "ast",
-      "id": "harrisburg_plan_testing_strategy_don_t_break_shit_layered_not_naive_snapshots",
-      "community": 0,
+      "id": "plan_testing_strategy_don_t_break_shit_layered_not_naive_snapshots",
+      "community": 25,
       "norm_label": "testing strategy \u2014 \"don't break shit\" (layered, not naive snapshots)"
     },
     {
       "label": "Constraints to respect during build",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L640",
       "_origin": "ast",
-      "id": "harrisburg_plan_constraints_to_respect_during_build",
-      "community": 0,
+      "id": "plan_constraints_to_respect_during_build",
+      "community": 25,
       "norm_label": "constraints to respect during build"
     },
     {
       "label": "Verification",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L648",
       "_origin": "ast",
-      "id": "harrisburg_plan_verification",
-      "community": 0,
+      "id": "plan_verification",
+      "community": 25,
       "norm_label": "verification"
     },
     {
@@ -7676,121 +7656,111 @@
     {
       "label": "START-HERE.md",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
+      "source_file": "START-HERE.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_start_here_md",
-      "community": 9,
+      "id": "start_here",
+      "community": 69,
       "norm_label": "start-here.md"
     },
     {
       "label": "START HERE \u2014 glasskit-ui build kickoff",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
+      "source_file": "START-HERE.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
-      "community": 9,
+      "id": "start_here_start_here_glasskit_ui_build_kickoff",
+      "community": 69,
       "norm_label": "start here \u2014 glasskit-ui build kickoff"
     },
     {
       "label": "0. How this repo was set up",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
+      "source_file": "START-HERE.md",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "harrisburg_start_here_0_how_this_repo_was_set_up",
-      "community": 9,
+      "id": "start_here_0_how_this_repo_was_set_up",
+      "community": 69,
       "norm_label": "0. how this repo was set up"
     },
     {
       "label": "1. Locked decisions (from brainstorming \u2014 do not relitigate)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
+      "source_file": "START-HERE.md",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "harrisburg_start_here_1_locked_decisions_from_brainstorming_do_not_relitigate",
-      "community": 9,
+      "id": "start_here_1_locked_decisions_from_brainstorming_do_not_relitigate",
+      "community": 69,
       "norm_label": "1. locked decisions (from brainstorming \u2014 do not relitigate)"
     },
     {
       "label": "2. The SDK to extract (Phase 2) \u2014 source of truth",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
+      "source_file": "START-HERE.md",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "harrisburg_start_here_2_the_sdk_to_extract_phase_2_source_of_truth",
-      "community": 9,
+      "id": "start_here_2_the_sdk_to_extract_phase_2_source_of_truth",
+      "community": 69,
       "norm_label": "2. the sdk to extract (phase 2) \u2014 source of truth"
     },
     {
       "label": "3. Monorepo conventions to mirror (verified from the boilerplate)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
+      "source_file": "START-HERE.md",
       "source_location": "L78",
       "_origin": "ast",
-      "id": "harrisburg_start_here_3_monorepo_conventions_to_mirror_verified_from_the_boilerplate",
-      "community": 9,
+      "id": "start_here_3_monorepo_conventions_to_mirror_verified_from_the_boilerplate",
+      "community": 69,
       "norm_label": "3. monorepo conventions to mirror (verified from the boilerplate)"
     },
     {
       "label": "4. NEW build decisions for npm publish (this is where this repo differs)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
+      "source_file": "START-HERE.md",
       "source_location": "L107",
       "_origin": "ast",
-      "id": "harrisburg_start_here_4_new_build_decisions_for_npm_publish_this_is_where_this_repo_differs",
-      "community": 9,
+      "id": "start_here_4_new_build_decisions_for_npm_publish_this_is_where_this_repo_differs",
+      "community": 69,
       "norm_label": "4. new build decisions for npm publish (this is where this repo differs)"
-    },
-    {
-      "label": "code:jsonc (\"exports\": {)",
-      "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
-      "source_location": "L119",
-      "_origin": "ast",
-      "id": "harrisburg_start_here_codeblock_1",
-      "community": 9,
-      "norm_label": "code:jsonc (\"exports\": {)"
     },
     {
       "label": "5. Phase 0 \u2014 hardware gate (OWNER's manual step; doesn't block the build)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
+      "source_file": "START-HERE.md",
       "source_location": "L139",
       "_origin": "ast",
-      "id": "harrisburg_start_here_5_phase_0_hardware_gate_owner_s_manual_step_doesn_t_block_the_build",
-      "community": 9,
+      "id": "start_here_5_phase_0_hardware_gate_owner_s_manual_step_doesn_t_block_the_build",
+      "community": 69,
       "norm_label": "5. phase 0 \u2014 hardware gate (owner's manual step; doesn't block the build)"
     },
     {
       "label": "6. \u26a0\ufe0f Boundaries \u2014 DO NOT do these without explicit owner go-ahead",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
+      "source_file": "START-HERE.md",
       "source_location": "L151",
       "_origin": "ast",
-      "id": "harrisburg_start_here_6_boundaries_do_not_do_these_without_explicit_owner_go_ahead",
-      "community": 9,
+      "id": "start_here_6_boundaries_do_not_do_these_without_explicit_owner_go_ahead",
+      "community": 69,
       "norm_label": "6. \u26a0\ufe0f boundaries \u2014 do not do these without explicit owner go-ahead"
     },
     {
       "label": "7. Recommended first steps (Phases 1 \u2192 2)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
+      "source_file": "START-HERE.md",
       "source_location": "L164",
       "_origin": "ast",
-      "id": "harrisburg_start_here_7_recommended_first_steps_phases_1_2",
-      "community": 9,
+      "id": "start_here_7_recommended_first_steps_phases_1_2",
+      "community": 69,
       "norm_label": "7. recommended first steps (phases 1 \u2192 2)"
     },
     {
       "label": "8. Standing constraints during the build",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
+      "source_file": "START-HERE.md",
       "source_location": "L188",
       "_origin": "ast",
-      "id": "harrisburg_start_here_8_standing_constraints_during_the_build",
-      "community": 9,
+      "id": "start_here_8_standing_constraints_during_the_build",
+      "community": 69,
       "norm_label": "8. standing constraints during the build"
     },
     {
@@ -8526,17 +8496,17 @@
     {
       "label": "meta-hud-language.md",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/docs/design/meta-hud-language.md",
+      "source_file": "docs/design/meta-hud-language.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_docs_design_meta_hud_language_md",
+      "id": "design_meta_hud_language",
       "community": 74,
       "norm_label": "meta-hud-language.md"
     },
     {
       "label": "GlassKit visual language \u2014 \"premium surfaces\" (owner-approved 2026-06)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/docs/design/meta-hud-language.md",
+      "source_file": "docs/design/meta-hud-language.md",
       "source_location": "L1",
       "_origin": "ast",
       "id": "design_meta_hud_language_glasskit_visual_language_premium_surfaces_owner_approved_2026_06",
@@ -8546,7 +8516,7 @@
     {
       "label": "The decision (supersedes strict additive purity)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/docs/design/meta-hud-language.md",
+      "source_file": "docs/design/meta-hud-language.md",
       "source_location": "L8",
       "_origin": "ast",
       "id": "design_meta_hud_language_the_decision_supersedes_strict_additive_purity",
@@ -8556,8 +8526,8 @@
     {
       "label": "Tokens",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/docs/design/meta-hud-language.md",
-      "source_location": "L25",
+      "source_file": "docs/design/meta-hud-language.md",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "design_meta_hud_language_tokens",
       "community": 74,
@@ -8566,8 +8536,8 @@
     {
       "label": "Motion (Emil)",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/docs/design/meta-hud-language.md",
-      "source_location": "L41",
+      "source_file": "docs/design/meta-hud-language.md",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "design_meta_hud_language_motion_emil",
       "community": 74,
@@ -8576,8 +8546,8 @@
     {
       "label": "Preview tile",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/docs/design/meta-hud-language.md",
-      "source_location": "L47",
+      "source_file": "docs/design/meta-hud-language.md",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "design_meta_hud_language_preview_tile",
       "community": 74,
@@ -8586,8 +8556,8 @@
     {
       "label": "Per-component application",
       "file_type": "document",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/docs/design/meta-hud-language.md",
-      "source_location": "L53",
+      "source_file": "docs/design/meta-hud-language.md",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "design_meta_hud_language_per_component_application",
       "community": 74,
@@ -8664,14 +8634,14 @@
       "norm_label": "readme.md"
     },
     {
-      "label": "@glasskit/cli",
+      "label": "@glasskit-ui/cli",
       "file_type": "document",
       "source_file": "packages/cli/README.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "cli_readme_glasskit_cli",
+      "id": "cli_readme_glasskit_ui_cli",
       "community": 183,
-      "norm_label": "@glasskit/cli"
+      "norm_label": "@glasskit-ui/cli"
     },
     {
       "label": "License",
@@ -8694,14 +8664,14 @@
       "norm_label": "readme.md"
     },
     {
-      "label": "@glasskit/glasses-ui",
+      "label": "@glasskit-ui/react",
       "file_type": "document",
       "source_file": "packages/glasses-ui/README.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "glasses_ui_readme_glasskit_glasses_ui",
+      "id": "glasses_ui_readme_glasskit_ui_react",
       "community": 8,
-      "norm_label": "@glasskit/glasses-ui"
+      "norm_label": "@glasskit-ui/react"
     },
     {
       "label": "What's in here",
@@ -8794,14 +8764,14 @@
       "norm_label": "readme.md"
     },
     {
-      "label": "@glasskit/mcp",
+      "label": "@glasskit-ui/mcp",
       "file_type": "document",
       "source_file": "packages/mcp/README.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "mcp_readme_glasskit_mcp",
+      "id": "mcp_readme_glasskit_ui_mcp",
       "community": 184,
-      "norm_label": "@glasskit/mcp"
+      "norm_label": "@glasskit-ui/mcp"
     },
     {
       "label": "License",
@@ -9547,7 +9517,7 @@
       "file_type": "code",
       "source_file": "registry/ui/pin.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 36,
       "norm_label": "pin.tsx",
       "id": "registry_ui_pin_tsx"
     },
@@ -9556,7 +9526,7 @@
       "file_type": "code",
       "source_file": "registry/ui/now-playing.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 71,
       "norm_label": "now-playing.tsx",
       "id": "registry_ui_now_playing_tsx"
     },
@@ -9628,7 +9598,7 @@
       "file_type": "code",
       "source_file": "registry/ui/readout.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 60,
       "norm_label": "readout.tsx",
       "id": "registry_ui_readout_tsx"
     },
@@ -9673,7 +9643,7 @@
       "file_type": "code",
       "source_file": "registry/ui/list.tsx",
       "source_location": "L1",
-      "community": 53,
+      "community": 49,
       "norm_label": "list.tsx",
       "id": "registry_ui_list_tsx"
     },
@@ -9682,7 +9652,7 @@
       "file_type": "code",
       "source_file": "registry/ui/meter.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 53,
       "norm_label": "meter.tsx",
       "id": "registry_ui_meter_tsx"
     },
@@ -9691,7 +9661,7 @@
       "file_type": "code",
       "source_file": "registry/ui/direction-arrow.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 29,
       "norm_label": "direction-arrow.tsx",
       "id": "registry_ui_direction_arrow_tsx"
     },
@@ -9718,7 +9688,7 @@
       "file_type": "code",
       "source_file": "registry/ui/status-dot.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 53,
       "norm_label": "status-dot.tsx",
       "id": "registry_ui_status_dot_tsx"
     },
@@ -9727,7 +9697,7 @@
       "file_type": "code",
       "source_file": "registry/ui/chat-bubble.tsx",
       "source_location": "L1",
-      "community": 182,
+      "community": 27,
       "norm_label": "chat-bubble.tsx",
       "id": "registry_ui_chat_bubble_tsx"
     },
@@ -9754,7 +9724,7 @@
       "file_type": "code",
       "source_file": "registry/ui/reticle.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 36,
       "norm_label": "reticle.tsx",
       "id": "registry_ui_reticle_tsx"
     },
@@ -9772,7 +9742,7 @@
       "file_type": "code",
       "source_file": "registry/ui/glow-icon.tsx",
       "source_location": "L1",
-      "community": 53,
+      "community": 50,
       "norm_label": "glow-icon.tsx",
       "id": "registry_ui_glow_icon_tsx"
     },
@@ -9781,7 +9751,7 @@
       "file_type": "code",
       "source_file": "registry/ui/stat-grid.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 53,
       "norm_label": "stat-grid.tsx",
       "id": "registry_ui_stat_grid_tsx"
     },
@@ -9790,7 +9760,7 @@
       "file_type": "code",
       "source_file": "registry/ui/clock.tsx",
       "source_location": "L1",
-      "community": 25,
+      "community": 27,
       "norm_label": "clock.tsx",
       "id": "registry_ui_clock_tsx"
     },
@@ -9817,7 +9787,7 @@
       "file_type": "code",
       "source_file": "registry/ui/cue.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 60,
       "norm_label": "cue.tsx",
       "id": "registry_ui_cue_tsx"
     },
@@ -9826,7 +9796,7 @@
       "file_type": "code",
       "source_file": "registry/ui/async-view.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 60,
       "norm_label": "async-view.tsx",
       "id": "registry_ui_async_view_tsx"
     },
@@ -9844,7 +9814,7 @@
       "file_type": "code",
       "source_file": "registry/ui/screen.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 60,
       "norm_label": "screen.tsx",
       "id": "registry_ui_screen_tsx"
     },
@@ -9853,7 +9823,7 @@
       "file_type": "code",
       "source_file": "registry/ui/segmented.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 70,
       "norm_label": "segmented.tsx",
       "id": "registry_ui_segmented_tsx"
     },
@@ -9898,7 +9868,7 @@
       "file_type": "code",
       "source_file": "registry/ui/toast.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 53,
       "norm_label": "toast.tsx",
       "id": "registry_ui_toast_tsx"
     },
@@ -9907,7 +9877,7 @@
       "file_type": "code",
       "source_file": "registry/ui/callout.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 36,
       "norm_label": "callout.tsx",
       "id": "registry_ui_callout_tsx"
     },
@@ -9943,7 +9913,7 @@
       "file_type": "code",
       "source_file": "registry/lib/utils.ts",
       "source_location": "L1",
-      "community": 27,
+      "community": 29,
       "norm_label": "utils.ts",
       "id": "registry_lib_utils_ts"
     },
@@ -9961,7 +9931,7 @@
       "file_type": "code",
       "source_file": "apps/web/mdx-components.tsx",
       "source_location": "L1",
-      "community": 32,
+      "community": 28,
       "norm_label": "mdx-components.tsx",
       "id": "apps_web_mdx_components_tsx"
     },
@@ -10033,7 +10003,7 @@
       "file_type": "code",
       "source_file": "apps/web/app/(web)/playground/page.tsx",
       "source_location": "L1",
-      "community": 32,
+      "community": 50,
       "norm_label": "page.tsx",
       "id": "apps_web_app_web_playground_page_tsx"
     },
@@ -10105,7 +10075,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/install-tabs.tsx",
       "source_location": "L1",
-      "community": 32,
+      "community": 50,
       "norm_label": "install-tabs.tsx",
       "id": "apps_web_components_install_tabs_tsx"
     },
@@ -10123,7 +10093,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/code-block.tsx",
       "source_location": "L1",
-      "community": 32,
+      "community": 50,
       "norm_label": "code-block.tsx",
       "id": "apps_web_components_code_block_tsx"
     },
@@ -10141,7 +10111,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/props-table.tsx",
       "source_location": "L1",
-      "community": 181,
+      "community": 27,
       "norm_label": "props-table.tsx",
       "id": "apps_web_components_props_table_tsx"
     },
@@ -10159,7 +10129,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/launcher-demo.tsx",
       "source_location": "L1",
-      "community": 53,
+      "community": 50,
       "norm_label": "launcher-demo.tsx",
       "id": "apps_web_components_lens_launcher_demo_tsx"
     },
@@ -10168,7 +10138,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/dpad-provider.tsx",
       "source_location": "L1",
-      "community": 32,
+      "community": 50,
       "norm_label": "dpad-provider.tsx",
       "id": "apps_web_components_lens_dpad_provider_tsx"
     },
@@ -10186,7 +10156,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/stats-demo.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 53,
       "norm_label": "stats-demo.tsx",
       "id": "apps_web_components_lens_stats_demo_tsx"
     },
@@ -10195,7 +10165,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/sync-demo.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 60,
       "norm_label": "sync-demo.tsx",
       "id": "apps_web_components_lens_sync_demo_tsx"
     },
@@ -10204,7 +10174,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/settings-demo.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 70,
       "norm_label": "settings-demo.tsx",
       "id": "apps_web_components_lens_settings_demo_tsx"
     },
@@ -10213,7 +10183,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L1",
-      "community": 53,
+      "community": 50,
       "norm_label": "icons.tsx",
       "id": "apps_web_components_lens_icons_tsx"
     },
@@ -10222,7 +10192,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/explore-demo.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 36,
       "norm_label": "explore-demo.tsx",
       "id": "apps_web_components_lens_explore_demo_tsx"
     },
@@ -10231,7 +10201,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/lens-stage.tsx",
       "source_location": "L1",
-      "community": 32,
+      "community": 50,
       "norm_label": "lens-stage.tsx",
       "id": "apps_web_components_lens_lens_stage_tsx"
     },
@@ -10249,7 +10219,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/menu-demo.tsx",
       "source_location": "L1",
-      "community": 53,
+      "community": 50,
       "norm_label": "menu-demo.tsx",
       "id": "apps_web_components_lens_menu_demo_tsx"
     },
@@ -10258,7 +10228,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/component-nav.test.tsx",
       "source_location": "L1",
-      "community": 53,
+      "community": 27,
       "norm_label": "component-nav.test.tsx",
       "id": "apps_web_tests_component_nav_test_tsx"
     },
@@ -10267,7 +10237,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/component-nav.test.tsx",
       "source_location": "L11",
-      "community": 53,
+      "community": 27,
       "norm_label": "n",
       "id": "tests_component_nav_test_n"
     },
@@ -10303,7 +10273,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 181,
       "norm_label": "progress.test.tsx",
       "id": "apps_web_tests_registry_progress_test_tsx"
     },
@@ -10312,7 +10282,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
       "source_location": "L7",
-      "community": 29,
+      "community": 181,
       "norm_label": "{ container }",
       "id": "registry_progress_test_container"
     },
@@ -10321,7 +10291,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
       "source_location": "L10",
-      "community": 29,
+      "community": 181,
       "norm_label": "bar",
       "id": "registry_progress_test_bar"
     },
@@ -10330,7 +10300,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
       "source_location": "L16",
-      "community": 29,
+      "community": 181,
       "norm_label": "{ container: over }",
       "id": "registry_progress_test_container_over"
     },
@@ -10339,7 +10309,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
       "source_location": "L20",
-      "community": 29,
+      "community": 181,
       "norm_label": "{ container: under }",
       "id": "registry_progress_test_container_under"
     },
@@ -10348,7 +10318,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
       "source_location": "L28",
-      "community": 29,
+      "community": 181,
       "norm_label": "el",
       "id": "registry_progress_test_el"
     },
@@ -10357,7 +10327,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/world.test.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 36,
       "norm_label": "world.test.tsx",
       "id": "apps_web_tests_registry_world_test_tsx"
     },
@@ -10366,7 +10336,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/world.test.tsx",
       "source_location": "L8",
-      "community": 27,
+      "community": 36,
       "norm_label": "{ container }",
       "id": "registry_world_test_container"
     },
@@ -10375,7 +10345,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/world.test.tsx",
       "source_location": "L11",
-      "community": 27,
+      "community": 36,
       "norm_label": "g",
       "id": "registry_world_test_g"
     },
@@ -10384,7 +10354,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/async-view.test.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 60,
       "norm_label": "async-view.test.tsx",
       "id": "apps_web_tests_registry_async_view_test_tsx"
     },
@@ -10393,7 +10363,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/async-view.test.tsx",
       "source_location": "L7",
-      "community": 50,
+      "community": 60,
       "norm_label": "{ container }",
       "id": "registry_async_view_test_container"
     },
@@ -10402,7 +10372,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/async-view.test.tsx",
       "source_location": "L18",
-      "community": 50,
+      "community": 60,
       "norm_label": "status",
       "id": "registry_async_view_test_status"
     },
@@ -10411,7 +10381,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/spine.test.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 60,
       "norm_label": "spine.test.tsx",
       "id": "apps_web_tests_registry_spine_test_tsx"
     },
@@ -10420,7 +10390,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/spine.test.tsx",
       "source_location": "L10",
-      "community": 50,
+      "community": 60,
       "norm_label": "{ container, rerender }",
       "id": "registry_spine_test_container_rerender"
     },
@@ -10429,7 +10399,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/spine.test.tsx",
       "source_location": "L29",
-      "community": 50,
+      "community": 60,
       "norm_label": "{ container }",
       "id": "registry_spine_test_container"
     },
@@ -10555,7 +10525,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/list.test.tsx",
       "source_location": "L1",
-      "community": 53,
+      "community": 49,
       "norm_label": "list.test.tsx",
       "id": "apps_web_tests_registry_list_test_tsx"
     },
@@ -10564,7 +10534,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/list.test.tsx",
       "source_location": "L13",
-      "community": 53,
+      "community": 49,
       "norm_label": "rows",
       "id": "registry_list_test_rows"
     },
@@ -10573,7 +10543,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/list.test.tsx",
       "source_location": "L20",
-      "community": 53,
+      "community": 49,
       "norm_label": "onclick",
       "id": "registry_list_test_onclick"
     },
@@ -10582,7 +10552,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/list.test.tsx",
       "source_location": "L26",
-      "community": 53,
+      "community": 49,
       "norm_label": "row",
       "id": "registry_list_test_row"
     },
@@ -10591,7 +10561,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/list.test.tsx",
       "source_location": "L33",
-      "community": 53,
+      "community": 49,
       "norm_label": "{ container }",
       "id": "registry_list_test_container"
     },
@@ -10645,7 +10615,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/monitor.test.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 53,
       "norm_label": "monitor.test.tsx",
       "id": "apps_web_tests_registry_monitor_test_tsx"
     },
@@ -10654,7 +10624,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/monitor.test.tsx",
       "source_location": "L11",
-      "community": 50,
+      "community": 53,
       "norm_label": "{ container }",
       "id": "registry_monitor_test_container"
     },
@@ -10663,7 +10633,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/monitor.test.tsx",
       "source_location": "L22",
-      "community": 50,
+      "community": 53,
       "norm_label": "m",
       "id": "registry_monitor_test_m"
     },
@@ -10672,7 +10642,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/monitor.test.tsx",
       "source_location": "L29",
-      "community": 50,
+      "community": 53,
       "norm_label": "fill",
       "id": "registry_monitor_test_fill"
     },
@@ -10681,7 +10651,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/monitor.test.tsx",
       "source_location": "L30",
-      "community": 50,
+      "community": 53,
       "norm_label": "off",
       "id": "registry_monitor_test_off"
     },
@@ -10690,7 +10660,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/monitor.test.tsx",
       "source_location": "L54",
-      "community": 50,
+      "community": 53,
       "norm_label": "{ rerender, container }",
       "id": "registry_monitor_test_rerender_container"
     },
@@ -10699,7 +10669,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/monitor.test.tsx",
       "source_location": "L68",
-      "community": 50,
+      "community": 53,
       "norm_label": "onretry",
       "id": "registry_monitor_test_onretry"
     },
@@ -10708,7 +10678,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/monitor.test.tsx",
       "source_location": "L69",
-      "community": 50,
+      "community": 53,
       "norm_label": "{ rerender }",
       "id": "registry_monitor_test_rerender"
     },
@@ -10717,7 +10687,7 @@
       "file_type": "code",
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L1",
-      "community": 53,
+      "community": 27,
       "norm_label": "component-docs.tsx",
       "id": "apps_web_lib_component_docs_tsx"
     },
@@ -10744,7 +10714,7 @@
       "file_type": "code",
       "source_file": "apps/web/lib/utils.ts",
       "source_location": "L1",
-      "community": 32,
+      "community": 50,
       "norm_label": "utils.ts",
       "id": "apps_web_lib_utils_ts"
     },
@@ -11554,7 +11524,7 @@
       "file_type": "document",
       "source_file": "packages/glasses-ui/README.md",
       "source_location": "L1",
-      "community": 8,
+      "community": 186,
       "norm_label": "readme.md",
       "id": "packages_glasses_ui_readme_md"
     },
@@ -11563,7 +11533,7 @@
       "file_type": "document",
       "source_file": "packages/glasses-ui/README.md",
       "source_location": "L6",
-      "community": 8,
+      "community": 182,
       "norm_label": "code:sh (npm i @glasskit/glasses-ui)",
       "id": "glasses_ui_readme_codeblock_1"
     },
@@ -12013,7 +11983,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L6",
-      "community": 53,
+      "community": 50,
       "norm_label": "heartglyph()",
       "id": "lens_icons_heartglyph"
     },
@@ -12022,7 +11992,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L14",
-      "community": 53,
+      "community": 50,
       "norm_label": "checkglyph()",
       "id": "lens_icons_checkglyph"
     },
@@ -12031,7 +12001,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L22",
-      "community": 53,
+      "community": 50,
       "norm_label": "batteryglyph()",
       "id": "lens_icons_batteryglyph"
     },
@@ -12040,7 +12010,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L33",
-      "community": 53,
+      "community": 50,
       "norm_label": "chevronglyph()",
       "id": "lens_icons_chevronglyph"
     },
@@ -12049,7 +12019,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L41",
-      "community": 53,
+      "community": 50,
       "norm_label": "navglyph()",
       "id": "lens_icons_navglyph"
     },
@@ -12058,7 +12028,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L49",
-      "community": 53,
+      "community": 50,
       "norm_label": "messageglyph()",
       "id": "lens_icons_messageglyph"
     },
@@ -12067,7 +12037,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L57",
-      "community": 53,
+      "community": 27,
       "norm_label": "alertglyph()",
       "id": "lens_icons_alertglyph"
     },
@@ -12076,7 +12046,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L67",
-      "community": 53,
+      "community": 50,
       "norm_label": "musicglyph()",
       "id": "lens_icons_musicglyph"
     },
@@ -12103,7 +12073,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/lens-stage.tsx",
       "source_location": "L8",
-      "community": 32,
+      "community": 50,
       "norm_label": "lensscene",
       "id": "lens_lens_stage_lensscene"
     },
@@ -12130,7 +12100,7 @@
       "file_type": "code",
       "source_file": "apps/web/lib/utils.ts",
       "source_location": "L5",
-      "community": 27,
+      "community": 71,
       "norm_label": "cn()",
       "id": "lib_utils_cn"
     },
@@ -19304,22 +19274,22 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/content/docs/meta.json",
+      "source_file": "apps/web/content/docs/meta.json",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_apps_web_content_docs_meta_json",
-      "target": "docs_meta_pages"
+      "source": "docs_meta",
+      "target": "docs_meta_pages",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/content/docs/meta.json",
+      "source_file": "apps/web/content/docs/meta.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_apps_web_content_docs_meta_json",
-      "target": "docs_meta_title"
+      "source": "docs_meta",
+      "target": "docs_meta_title",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -21131,82 +21101,82 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L15",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_apps_web_package_json",
-      "target": "web_package_dependencies"
+      "source": "web_package",
+      "target": "web_package_dependencies",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L6",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_apps_web_package_json",
-      "target": "web_package_description"
+      "source": "web_package",
+      "target": "web_package_description",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L30",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_apps_web_package_json",
-      "target": "web_package_devdependencies"
+      "source": "web_package",
+      "target": "web_package_devdependencies",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_apps_web_package_json",
-      "target": "web_package_name"
+      "source": "web_package",
+      "target": "web_package_name",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L4",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_apps_web_package_json",
-      "target": "web_package_private"
+      "source": "web_package",
+      "target": "web_package_private",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L7",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_apps_web_package_json",
-      "target": "web_package_scripts"
+      "source": "web_package",
+      "target": "web_package_scripts",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_apps_web_package_json",
-      "target": "web_package_type"
+      "source": "web_package",
+      "target": "web_package_type",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/apps/web/package.json",
+      "source_file": "apps/web/package.json",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_apps_web_package_json",
-      "target": "web_package_version"
+      "source": "web_package",
+      "target": "web_package_version",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -21382,11 +21352,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/package.json",
-      "source_location": "L14",
+      "source_location": "L16",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_glasskit_glasses_ui"
+      "target": "web_package_dependencies_glasskit_ui_react",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -21854,9 +21824,9 @@
       "source_file": "apps/web/tsconfig.json",
       "source_location": "L33",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "web_tsconfig_compileroptions_paths",
-      "target": "web_tsconfig_paths_glasskit_glasses_ui"
+      "target": "web_tsconfig_paths_glasskit_ui_react",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -29091,9 +29061,9 @@
       "source_file": "scripts/check-bundle-budget.mjs",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_check_bundle_budget",
-      "target": "scripts_check_bundle_budget_fail",
-      "confidence_score": 1.0
+      "target": "scripts_check_bundle_budget_fail"
     },
     {
       "relation": "contains",
@@ -29101,9 +29071,9 @@
       "source_file": "scripts/check-bundle-budget.mjs",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_check_bundle_budget",
-      "target": "scripts_check_bundle_budget_fmt",
-      "confidence_score": 1.0
+      "target": "scripts_check_bundle_budget_fmt"
     },
     {
       "relation": "contains",
@@ -29111,9 +29081,9 @@
       "source_file": "scripts/check-bundle-budget.mjs",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_check_bundle_budget",
-      "target": "scripts_check_bundle_budget_kb",
-      "confidence_score": 1.0
+      "target": "scripts_check_bundle_budget_kb"
     },
     {
       "relation": "contains",
@@ -29121,9 +29091,9 @@
       "source_file": "scripts/check-bundle-budget.mjs",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_check_bundle_budget",
-      "target": "scripts_check_bundle_budget_next",
-      "confidence_score": 1.0
+      "target": "scripts_check_bundle_budget_next"
     },
     {
       "relation": "contains",
@@ -29131,9 +29101,9 @@
       "source_file": "scripts/check-bundle-budget.mjs",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_check_bundle_budget",
-      "target": "scripts_check_bundle_budget_preview_dir",
-      "confidence_score": 1.0
+      "target": "scripts_check_bundle_budget_preview_dir"
     },
     {
       "relation": "contains",
@@ -29141,9 +29111,9 @@
       "source_file": "scripts/check-bundle-budget.mjs",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_check_bundle_budget",
-      "target": "scripts_check_bundle_budget_root",
-      "confidence_score": 1.0
+      "target": "scripts_check_bundle_budget_root"
     },
     {
       "relation": "contains",
@@ -29151,9 +29121,9 @@
       "source_file": "scripts/check-bundle-budget.mjs",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_check_bundle_budget",
-      "target": "scripts_check_bundle_budget_sdk_dist",
-      "confidence_score": 1.0
+      "target": "scripts_check_bundle_budget_sdk_dist"
     },
     {
       "relation": "calls",
@@ -29162,9 +29132,9 @@
       "source_file": "scripts/check-bundle-budget.mjs",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_check_bundle_budget_fmt",
-      "target": "scripts_check_bundle_budget_kb",
-      "confidence_score": 1.0
+      "target": "scripts_check_bundle_budget_kb"
     },
     {
       "relation": "contains",
@@ -29549,12 +29519,12 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/.changeset/README.md",
+      "source_file": ".changeset/README.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_changeset_readme_md",
-      "target": "changeset_readme_changesets"
+      "source": "changeset_readme",
+      "target": "changeset_readme_changesets",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -29585,16 +29555,6 @@
       "confidence_score": 1.0,
       "source": "changeset_readme_md",
       "target": "changeset_readme_changesets"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".changeset/README.md",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "changeset_readme_adding_a_changeset",
-      "target": "changeset_readme_codeblock_1"
     },
     {
       "relation": "contains",
@@ -29729,72 +29689,72 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/PLAN.md",
+      "source_file": "PLAN.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_plan_md",
-      "target": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui"
+      "source": "plan",
+      "target": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L124",
+      "source_location": "L160",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_architecture_the_glasskit_ui_monorepo"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_architecture_the_glasskit_ui_monorepo",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L560",
+      "source_location": "L596",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_automated_npm_release_pipeline_github_actions_changesets"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_automated_npm_release_pipeline_github_actions_changesets",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L436",
+      "source_location": "L472",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_business_reality_mvp_slice_kill_criteria_stress_test"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_business_reality_mvp_slice_kill_criteria_stress_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L36",
+      "source_location": "L72",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_competitive_landscape_positioning_deep_research_2026_06_verified_cited"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_competitive_landscape_positioning_deep_research_2026_06_verified_cited",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L175",
+      "source_location": "L211",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L604",
+      "source_location": "L640",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_constraints_to_respect_during_build"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_constraints_to_respect_during_build",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -29802,9 +29762,9 @@
       "source_file": "PLAN.md",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_context"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_context",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -29812,39 +29772,99 @@
       "source_file": "PLAN.md",
       "source_location": "L25",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_current_status_plan_deltas_updated_2026_06_05"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_current_status_plan_deltas_updated_2026_06_05",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L25",
+      "source_location": "L61",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_decisions_locked_from_brainstorming"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_decisions_locked_from_brainstorming",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L473",
+      "source_location": "L509",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_decomposition_phasing"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_decomposition_phasing",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L259",
+      "source_location": "L295",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_docs_site_fumadocs_at_ui_glasskit_app"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_docs_site_fumadocs_at_ui_glasskit_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L456",
+      "weight": 1.0,
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_execution_setup_repo_governance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L391",
+      "weight": 1.0,
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_funnel_mechanics_oss_starter_kit_studio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L450",
+      "weight": 1.0,
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_graphify_knowledge_graph_both_repos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L575",
+      "weight": 1.0,
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_internationalization_rtl_bidi_baked_in_from_day_one",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L191",
+      "weight": 1.0,
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_npm_package_vs_registry_the_split",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PLAN.md",
+      "source_location": "L570",
+      "weight": 1.0,
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_out_of_scope",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -29852,219 +29872,139 @@
       "source_file": "PLAN.md",
       "source_location": "L420",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_execution_setup_repo_governance"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_seo_agent_llm_visibility_agent_native_distribution",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L355",
+      "source_location": "L119",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_funnel_mechanics_oss_starter_kit_studio"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_source_of_truth_for_current_code",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L414",
+      "source_location": "L617",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_graphify_knowledge_graph_both_repos"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_testing_strategy_don_t_break_shit_layered_not_naive_snapshots",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L539",
+      "source_location": "L374",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_internationalization_rtl_bidi_baked_in_from_day_one"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_three_component_layers_in_the_repo_don_t_conflate",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L155",
+      "source_location": "L557",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_npm_package_vs_registry_the_split"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_top_risks_from_research_mitigations",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L534",
+      "source_location": "L304",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_out_of_scope"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_ui_glasskit_app_site_design_pages",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L384",
+      "source_location": "L648",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_seo_agent_llm_visibility_agent_native_distribution"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_verification",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L83",
+      "source_location": "L144",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_source_of_truth_for_current_code"
+      "source": "plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
+      "target": "plan_what_the_actual_source_reveals_read_2026_06_resolves_most_of_the_1_risk",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L581",
+      "source_location": "L282",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_testing_strategy_don_t_break_shit_layered_not_naive_snapshots"
+      "source": "plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "target": "plan_accent_color_one_default_no_preset_system_revised_2026_06_01",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L338",
+      "source_location": "L274",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_three_component_layers_in_the_repo_don_t_conflate"
+      "source": "plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "target": "plan_deliberately_not_built_the_medium_forbids_it",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L521",
+      "source_location": "L223",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_top_risks_from_research_mitigations"
+      "source": "plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "target": "plan_design_approach_port_from_watch_ui_kits_re_skin_for_glasses",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L268",
+      "source_location": "L289",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_ui_glasskit_app_site_design_pages"
+      "source": "plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "target": "plan_registry_blocks_generic_patterns_only_never_named_demos",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L612",
+      "source_location": "L254",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_verification"
+      "source": "plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
+      "target": "plan_registry_ui_components_28_archetype_complete",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PLAN.md",
-      "source_location": "L108",
+      "source_location": "L342",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui",
-      "target": "harrisburg_plan_what_the_actual_source_reveals_read_2026_06_resolves_most_of_the_1_risk"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "plan_md",
-      "target": "harrisburg_plan_glasskit_ecosystem_open_source_sdk_registry_glasskit_ui"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L126",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_architecture_the_glasskit_ui_monorepo",
-      "target": "harrisburg_plan_codeblock_1"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L246",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
-      "target": "harrisburg_plan_accent_color_one_default_no_preset_system_revised_2026_06_01"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L238",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
-      "target": "harrisburg_plan_deliberately_not_built_the_medium_forbids_it"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L187",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
-      "target": "harrisburg_plan_design_approach_port_from_watch_ui_kits_re_skin_for_glasses"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L253",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
-      "target": "harrisburg_plan_registry_blocks_generic_patterns_only_never_named_demos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L218",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_component_inventory_derived_from_first_principles_the_8_jobs_of_a_hud",
-      "target": "harrisburg_plan_registry_ui_components_28_archetype_complete"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L306",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_plan_ui_glasskit_app_site_design_pages",
-      "target": "harrisburg_plan_glasskit_ui_s_own_apple_feel_one_look_two_surfaces_revised_2026_06_01"
+      "source": "plan_ui_glasskit_app_site_design_pages",
+      "target": "plan_glasskit_ui_s_own_apple_feel_one_look_two_surfaces_revised_2026_06_01",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30119,12 +30059,12 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/START-HERE.md",
+      "source_file": "START-HERE.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_start_here_md",
-      "target": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff"
+      "source": "start_here",
+      "target": "start_here_start_here_glasskit_ui_build_kickoff",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30132,9 +30072,9 @@
       "source_file": "START-HERE.md",
       "source_location": "L10",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
-      "target": "harrisburg_start_here_0_how_this_repo_was_set_up"
+      "source": "start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "start_here_0_how_this_repo_was_set_up",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30142,9 +30082,9 @@
       "source_file": "START-HERE.md",
       "source_location": "L23",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
-      "target": "harrisburg_start_here_1_locked_decisions_from_brainstorming_do_not_relitigate"
+      "source": "start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "start_here_1_locked_decisions_from_brainstorming_do_not_relitigate",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30152,9 +30092,9 @@
       "source_file": "START-HERE.md",
       "source_location": "L37",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
-      "target": "harrisburg_start_here_2_the_sdk_to_extract_phase_2_source_of_truth"
+      "source": "start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "start_here_2_the_sdk_to_extract_phase_2_source_of_truth",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30162,9 +30102,9 @@
       "source_file": "START-HERE.md",
       "source_location": "L78",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
-      "target": "harrisburg_start_here_3_monorepo_conventions_to_mirror_verified_from_the_boilerplate"
+      "source": "start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "start_here_3_monorepo_conventions_to_mirror_verified_from_the_boilerplate",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30172,9 +30112,9 @@
       "source_file": "START-HERE.md",
       "source_location": "L107",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
-      "target": "harrisburg_start_here_4_new_build_decisions_for_npm_publish_this_is_where_this_repo_differs"
+      "source": "start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "start_here_4_new_build_decisions_for_npm_publish_this_is_where_this_repo_differs",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30182,9 +30122,9 @@
       "source_file": "START-HERE.md",
       "source_location": "L139",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
-      "target": "harrisburg_start_here_5_phase_0_hardware_gate_owner_s_manual_step_doesn_t_block_the_build"
+      "source": "start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "start_here_5_phase_0_hardware_gate_owner_s_manual_step_doesn_t_block_the_build",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30192,9 +30132,9 @@
       "source_file": "START-HERE.md",
       "source_location": "L151",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
-      "target": "harrisburg_start_here_6_boundaries_do_not_do_these_without_explicit_owner_go_ahead"
+      "source": "start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "start_here_6_boundaries_do_not_do_these_without_explicit_owner_go_ahead",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30202,9 +30142,9 @@
       "source_file": "START-HERE.md",
       "source_location": "L164",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
-      "target": "harrisburg_start_here_7_recommended_first_steps_phases_1_2"
+      "source": "start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "start_here_7_recommended_first_steps_phases_1_2",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30212,29 +30152,9 @@
       "source_file": "START-HERE.md",
       "source_location": "L188",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff",
-      "target": "harrisburg_start_here_8_standing_constraints_during_the_build"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "START-HERE.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "start_here_md",
-      "target": "harrisburg_start_here_start_here_glasskit_ui_build_kickoff"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "START-HERE.md",
-      "source_location": "L119",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "harrisburg_start_here_4_new_build_decisions_for_npm_publish_this_is_where_this_repo_differs",
-      "target": "harrisburg_start_here_codeblock_1"
+      "source": "start_here_start_here_glasskit_ui_build_kickoff",
+      "target": "start_here_8_standing_constraints_during_the_build",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30529,12 +30449,12 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/jarrius/conductor/workspaces/glasskit-ui/harrisburg/docs/design/meta-hud-language.md",
+      "source_file": "docs/design/meta-hud-language.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "users_jarrius_conductor_workspaces_glasskit_ui_harrisburg_docs_design_meta_hud_language_md",
-      "target": "design_meta_hud_language_glasskit_visual_language_premium_surfaces_owner_approved_2026_06"
+      "source": "design_meta_hud_language",
+      "target": "design_meta_hud_language_glasskit_visual_language_premium_surfaces_owner_approved_2026_06",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30652,9 +30572,9 @@
       "source_file": "packages/cli/README.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "cli_readme",
-      "target": "cli_readme_glasskit_cli"
+      "target": "cli_readme_glasskit_ui_cli",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30662,9 +30582,9 @@
       "source_file": "packages/cli/README.md",
       "source_location": "L26",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "cli_readme_glasskit_cli",
-      "target": "cli_readme_license"
+      "source": "cli_readme_glasskit_ui_cli",
+      "target": "cli_readme_license",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30672,29 +30592,19 @@
       "source_file": "packages/glasses-ui/README.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "glasses_ui_readme",
-      "target": "glasses_ui_readme_glasskit_glasses_ui"
+      "target": "glasses_ui_readme_glasskit_ui_react",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L6",
+      "source_location": "L90",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "glasses_ui_readme_glasskit_glasses_ui",
-      "target": "glasses_ui_readme_codeblock_1"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L87",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "glasses_ui_readme_glasskit_glasses_ui",
-      "target": "glasses_ui_readme_design_constraints"
+      "source": "glasses_ui_readme_glasskit_ui_react",
+      "target": "glasses_ui_readme_design_constraints",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30702,9 +30612,9 @@
       "source_file": "packages/glasses-ui/README.md",
       "source_location": "L116",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "glasses_ui_readme_glasskit_glasses_ui",
-      "target": "glasses_ui_readme_documentation"
+      "source": "glasses_ui_readme_glasskit_ui_react",
+      "target": "glasses_ui_readme_documentation",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30712,39 +30622,39 @@
       "source_file": "packages/glasses-ui/README.md",
       "source_location": "L121",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "glasses_ui_readme_glasskit_glasses_ui",
-      "target": "glasses_ui_readme_license"
+      "source": "glasses_ui_readme_glasskit_ui_react",
+      "target": "glasses_ui_readme_license",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L107",
+      "source_location": "L110",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "glasses_ui_readme_glasskit_glasses_ui",
-      "target": "glasses_ui_readme_part_of_the_glasskit_ecosystem"
+      "source": "glasses_ui_readme_glasskit_ui_react",
+      "target": "glasses_ui_readme_part_of_the_glasskit_ecosystem",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L102",
+      "source_location": "L105",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "glasses_ui_readme_glasskit_glasses_ui",
-      "target": "glasses_ui_readme_testing"
+      "source": "glasses_ui_readme_glasskit_ui_react",
+      "target": "glasses_ui_readme_testing",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L36",
+      "source_location": "L39",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "glasses_ui_readme_glasskit_glasses_ui",
-      "target": "glasses_ui_readme_usage"
+      "source": "glasses_ui_readme_glasskit_ui_react",
+      "target": "glasses_ui_readme_usage",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30752,19 +30662,9 @@
       "source_file": "packages/glasses-ui/README.md",
       "source_location": "L11",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "glasses_ui_readme_glasskit_glasses_ui",
-      "target": "glasses_ui_readme_what_s_in_here"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "packages_glasses_ui_readme_md",
-      "target": "glasses_ui_readme_glasskit_glasses_ui"
+      "source": "glasses_ui_readme_glasskit_ui_react",
+      "target": "glasses_ui_readme_what_s_in_here",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30812,9 +30712,9 @@
       "source_file": "packages/mcp/README.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "mcp_readme",
-      "target": "mcp_readme_glasskit_mcp"
+      "target": "mcp_readme_glasskit_ui_mcp",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30822,9 +30722,9 @@
       "source_file": "packages/mcp/README.md",
       "source_location": "L24",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mcp_readme_glasskit_mcp",
-      "target": "mcp_readme_license"
+      "source": "mcp_readme_glasskit_ui_mcp",
+      "target": "mcp_readme_license",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -35786,5 +35686,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f699dec76d515526897a2be5530f3aef34fd5a50"
+  "built_at_commit": "6594a7cf93107d113940bfec70f680d5bc3dfce3"
 }
