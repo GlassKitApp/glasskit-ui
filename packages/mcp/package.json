@@ -1,6 +1,6 @@
 {
   "name": "@glasskit-ui/mcp",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "description": "MCP server exposing the GlassKit UI registry to AI agents (list + fetch lens components).",
   "author": "GlassKit",

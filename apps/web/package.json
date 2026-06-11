@@ -1,6 +1,6 @@
 {
   "name": "@glasskit-ui/web",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "description": "ui.glasskit.app — the GlassKit UI docs + marketing site.",
