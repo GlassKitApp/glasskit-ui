@@ -159,6 +159,18 @@ for (const item of items) {
   );
 }
 
+// llms.txt — generated from a handwritten template + the live component
+// inventory, so the LLM-facing reference can't drift from the registry the
+// way a hand-maintained list does.
+const ui = items.filter((i) => i.type === "registry:ui");
+const componentLines = ui
+  .map((i) => `- **${i.title}** (\`${i.name}\`) — ${i.description}`)
+  .join("\n");
+const llms = readFileSync(join(ROOT, "apps", "web", "llms-template.md"), "utf8")
+  .replaceAll("{{COUNT}}", String(ui.length))
+  .replace("{{COMPONENTS}}", componentLines);
+writeFileSync(join(ROOT, "apps", "web", "public", "llms.txt"), llms);
+
 console.log(
-  `registry.json — ${items.length} items (manifest + served /r/*.json)`,
+  `registry.json — ${items.length} items (manifest + served /r/*.json) + llms.txt (${ui.length} components)`,
 );
