@@ -65,7 +65,7 @@ renders 290°. The pattern:
 
 ```tsx
 "use client";
-import { useDeviceOrientation } from "@glasskit/glasses-ui";
+import { useDeviceOrientation } from "@glasskit-ui/react";
 
 // Hooks are always called (rules of hooks); the prop wins by selection.
 const live = useDeviceOrientation();
@@ -93,7 +93,7 @@ Requirements:
    (`onClick={onChange ? () => … : undefined}`) so static docs previews can be
    server-rendered. **Imports:** a component may import `../lib/<helper>` (the
    shared `registry/lib` files), `./<sibling>` (another registry component),
-   and **npm packages — including `@glasskit/glasses-ui`** (the generator
+   and **npm packages — including `@glasskit-ui/react`** (the generator
    detects bare imports and declares them as the item's `dependencies`, which
    the CLI installs). The served targets (`components/lib/*` +
    `components/glasskit/<name>.tsx`) mirror the registry layout so relative
@@ -108,8 +108,8 @@ Requirements:
    auto-wire precedence). World-anchored components get a never-mirrors-under-
    RTL assertion.
 4. **Regenerate the index** — `pnpm build:registry`.
-5. **Verify** — `pnpm --filter @glasskit/web typecheck && pnpm --filter
-   @glasskit/web test`. Then run the site (`pnpm --filter @glasskit/web dev`)
+5. **Verify** — `pnpm --filter @glasskit-ui/web typecheck && pnpm --filter
+   @glasskit-ui/web test`. Then run the site (`pnpm --filter @glasskit-ui/web dev`)
    and check the component's docs page + the playground.
 
 ## The registry index
@@ -134,7 +134,7 @@ The branded CLI ([`packages/cli`](./packages/cli)) consumes these endpoints —
 writes the files to `components/glasskit/`, and installs the npm
 `dependencies` (skip with `--no-install`). An MCP server
 ([`packages/mcp`](./packages/mcp)) exposes the same registry to AI agents. Both
-ship as `@glasskit/cli` and `@glasskit/mcp` through the same Changesets
+ship as `@glasskit-ui/cli` and `@glasskit-ui/mcp` through the same Changesets
 pipeline as the SDK (the bare `glasskit` npm name belongs to an unrelated
 package — always document the scoped form).
 

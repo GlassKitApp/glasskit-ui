@@ -1,4 +1,11 @@
-import { SITE, ORIGIN, GITHUB, GITHUB_ORG, DISCORD_URL, X_URL } from "@/lib/config";
+import {
+  SITE,
+  ORIGIN,
+  GITHUB,
+  GITHUB_ORG,
+  DISCORD_URL,
+  X_URL,
+} from "@/lib/config";
 
 /**
  * Shared SEO copy + schema.org structured-data builders. Structured data is

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { GlassViewport } from "@glasskit/glasses-ui";
+import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
 import { Cue } from "@registry/ui/cue";
 import { Stepper } from "@registry/ui/stepper";
@@ -24,11 +24,7 @@ export function SettingsDemo() {
           max={5}
           onChange={setBrightness}
         />
-        <Toggle
-          label="Notifications"
-          checked={notify}
-          onChange={setNotify}
-        />
+        <Toggle label="Notifications" checked={notify} onChange={setNotify} />
         <Segmented
           value={mode}
           onChange={setMode}

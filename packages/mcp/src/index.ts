@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * @glasskit/mcp — a Model Context Protocol server that exposes the GlassKit UI
+ * @glasskit-ui/mcp — a Model Context Protocol server that exposes the GlassKit UI
  * registry to AI coding agents, so they can discover and pull additive-lens
  * components into a project. A thin client over the served registry (the same
  * /r/*.json the CLI uses), configured by GLASSKIT_REGISTRY.
  *
  * Tools: list_components, get_component, search_components.
  * Run (stdio):  GLASSKIT_REGISTRY=http://localhost:3000/r glasskit-mcp
- * Published as @glasskit/mcp (bin: glasskit-mcp).
+ * Published as @glasskit-ui/mcp (bin: glasskit-mcp).
  */
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -63,7 +63,7 @@ server.tool(
       .join("\n\n");
     return text(
       `# ${item.name}\n${item.description ?? ""}\n\n` +
-        `Install:  npx @glasskit/cli add ${name}\nDependencies: ${deps}\n\n${files}`,
+        `Install:  npx @glasskit-ui/cli add ${name}\nDependencies: ${deps}\n\n${files}`,
     );
   },
 );

@@ -17,7 +17,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const UI_DIR = join(ROOT, "registry", "ui");
 const LIB_DIR = join(ROOT, "registry", "lib");
 
-const SDK_NAME = "@glasskit/glasses-ui";
+const SDK_NAME = "@glasskit-ui/react";
 const SDK_VERSION = JSON.parse(
   readFileSync(join(ROOT, "packages", "glasses-ui", "package.json"), "utf8"),
 ).version;

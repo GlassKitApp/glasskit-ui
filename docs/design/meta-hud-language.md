@@ -13,6 +13,7 @@ This intentionally relaxes the old "additive lens" rules in `AGENTS.md` /
 useful history; this doc wins where they conflict.
 
 **The rule of three:**
+
 1. **Background stays calm** — a deep near-black base (`#0b0e16` → `#090b11`,
    with a faint cool radial highlight up top). Never a loud gradient bg.
 2. **Surfaces pop** — cards, rows, pills, buttons are real surfaces: a subtle
@@ -27,12 +28,12 @@ useful history; this doc wins where they conflict.
 - **Base:** `--lens-bg: radial(cool highlight top) + linear(#0b0e16→#090b11)`.
 - **Surface:** fill `linear(rgba(255,255,255,.08)→.028)`, edge
   `1px rgba(255,255,255,.10)`, lift `inset 0 1px 0 rgba(255,255,255,.14),
-  0 14px 30px -18px rgba(0,0,0,.85)`. Radii: cards/plates 19–22px, pills full.
+0 14px 30px -18px rgba(0,0,0,.85)`. Radii: cards/plates 19–22px, pills full.
 - **Gradient icon palette** (6 tasteful, ~150° angle): nav/maps blue
   `#5b9dff→#2f5fe0`, msg green `#3fe0a3→#11a36f`, music `#ff7eb3→#ff8a5b`,
   camera violet `#b08bff→#7C3AED`, location cyan `#36d6ee→#0e8fc7`, captions
   amber `#ffd66b→#f5a623`. Plate: inner `0 1px 0 rgba(255,255,255,.32)` highlight
-  + soft colored drop shadow. Glyph: white, 2px stroke, round caps.
+  - soft colored drop shadow. Glyph: white, 2px stroke, round caps.
 - **Type:** system SF. Title 30–38/700, readout 25–40/700 tabular, body 15–18/
   500–600, label 12–13 caps tracked dim. Value = the one bright thing.
 - **Ink:** `#fff` / `#9aa3b5` / `#7c8498`.

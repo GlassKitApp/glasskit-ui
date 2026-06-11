@@ -21,7 +21,11 @@ export function LiveCaptions({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-captions gk-surface", className)} role="status" aria-live="polite">
+    <div
+      className={cn("gk-captions gk-surface", className)}
+      role="status"
+      aria-live="polite"
+    >
       {speaker != null || translated ? (
         <div className="gk-captions__head">
           {speaker != null ? (

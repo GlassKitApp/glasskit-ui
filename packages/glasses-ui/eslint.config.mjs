@@ -4,13 +4,13 @@ import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 
 /**
- * @glasskit/glasses-ui ESLint — TypeScript + React (hooks rules
+ * @glasskit-ui/react ESLint — TypeScript + React (hooks rules
  * apply to GlassViewport + the sensor / dpad hooks).
  *
  * Library code targets the browser (Vite consumers, on-glasses
  * runtime) so browser globals are the right baseline.
  *
- * Run: `pnpm --filter @glasskit/glasses-ui lint`
+ * Run: `pnpm --filter @glasskit-ui/react lint`
  */
 export default tseslint.config(
   {

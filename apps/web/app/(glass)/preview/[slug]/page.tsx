@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { GlassViewport } from "@glasskit/glasses-ui";
+import { GlassViewport } from "@glasskit-ui/react";
 import { COMPONENT_DOCS, getComponentDoc } from "@/lib/component-docs";
 import { getGlassDemo } from "@/lib/glass-demos";
 import { GlassAppShell } from "@/components/glass-app-shell";

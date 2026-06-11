@@ -1,7 +1,7 @@
 # Changesets
 
 This folder is managed by [Changesets](https://github.com/changesets/changesets).
-It drives the automated npm release of `@glasskit/glasses-ui`.
+It drives the automated npm release of `@glasskit-ui/react`.
 
 ## Adding a changeset
 

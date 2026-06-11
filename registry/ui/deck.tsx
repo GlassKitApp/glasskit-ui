@@ -1,7 +1,7 @@
 "use client";
 
 import { Children, useEffect, useRef, useState, type ReactNode } from "react";
-import { useNeuralBand } from "@glasskit/glasses-ui";
+import { useNeuralBand } from "@glasskit-ui/react";
 import { cn } from "../lib/utils";
 import { Progress } from "./progress";
 

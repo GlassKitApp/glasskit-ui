@@ -79,7 +79,7 @@ jobs:
               "**Beta snapshot published** :package:",
               "",
               "```sh",
-              `pnpm add @glasskit/glasses-ui@${process.env.VERSION}`,
+              `pnpm add @glasskit-ui/react@${process.env.VERSION}`,
               "```",
               "",
               "Also available on the `beta` dist-tag until the next snapshot.",

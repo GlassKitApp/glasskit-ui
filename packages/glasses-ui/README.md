@@ -1,10 +1,10 @@
-# @glasskit/glasses-ui
+# @glasskit-ui/react
 
 The typed 600×600 + D-pad component library for **Meta Ray-Ban Display**
 Web Apps. The platform primitives Meta does not ship.
 
 ```sh
-npm i @glasskit/glasses-ui
+npm i @glasskit-ui/react
 # react + react-dom ^19 are peer dependencies
 ```
 
@@ -42,7 +42,7 @@ In your app's `index.css` (after importing Tailwind):
 
 ```css
 @import "tailwindcss";
-@import "@glasskit/glasses-ui/styles.css";
+@import "@glasskit-ui/react/styles.css";
 ```
 
 In your components:
@@ -53,7 +53,7 @@ import {
   useDpad,
   useDeviceOrientation,
   useGeolocation,
-} from "@glasskit/glasses-ui";
+} from "@glasskit-ui/react";
 
 export function App() {
   useDpad();
@@ -83,8 +83,8 @@ export function App() {
 Pull only part of the surface if you don't need the rest:
 
 ```ts
-import { useDpad, scoreRect } from "@glasskit/glasses-ui/hooks";
-import { GlassViewport } from "@glasskit/glasses-ui/primitives";
+import { useDpad, scoreRect } from "@glasskit-ui/react/hooks";
+import { GlassViewport } from "@glasskit-ui/react/primitives";
 ```
 
 ## Design constraints
@@ -104,7 +104,7 @@ distance, sparse default styling).
 
 ## Testing
 
-`pnpm --filter @glasskit/glasses-ui test` runs the unit suite (focus
+`pnpm --filter @glasskit-ui/react test` runs the unit suite (focus
 scoring + sensor no-op guards). Pure helpers, no DOM dependency.
 
 ## Part of the GlassKit ecosystem

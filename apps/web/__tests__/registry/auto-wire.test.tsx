@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { act, render, renderHook } from "@testing-library/react";
 import { Compass } from "@registry/ui/compass";
 import { DirectionArrow } from "@registry/ui/direction-arrow";
-import { useNeuralBand } from "@glasskit/glasses-ui";
+import { useNeuralBand } from "@glasskit-ui/react";
 import { bearingBetween, relativeBearing } from "@registry/lib/geo";
 
 /**

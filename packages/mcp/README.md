@@ -1,4 +1,4 @@
-# @glasskit/mcp
+# @glasskit-ui/mcp
 
 A Model Context Protocol server exposing the
 [GlassKit UI registry](https://glasskit.app/ui) to AI coding agents — so they
@@ -12,7 +12,7 @@ can discover and vendor Meta Ray-Ban Display components into a project.
   "mcpServers": {
     "glasskit": {
       "command": "npx",
-      "args": ["@glasskit/mcp"],
+      "args": ["@glasskit-ui/mcp"],
     },
   },
 }

@@ -3,7 +3,7 @@
 /* The on-lens design system. Fully scoped under `.glass-viewport`, so it
  * only paints inside a <GlassViewport> preview and never touches the
  * light-mode site chrome. */
-@import "@glasskit/glasses-ui/styles.css";
+@import "@glasskit-ui/react/styles.css";
 
 /* Tailwind scans the registry component sources (outside this app) so any
  * utilities they use are generated. */

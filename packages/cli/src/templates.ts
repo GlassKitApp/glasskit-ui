@@ -19,7 +19,7 @@ const PACKAGE_JSON = `{
     "preview": "vite preview"
   },
   "dependencies": {
-    "@glasskit/glasses-ui": "^0.1.0",
+    "@glasskit-ui/react": "^0.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -82,7 +82,7 @@ const INDEX_HTML = `<!doctype html>
 
 const MAIN_TSX = `import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "@glasskit/glasses-ui/styles.css";
+import "@glasskit-ui/react/styles.css";
 import "./index.css";
 import { App } from "./App";
 
@@ -93,7 +93,7 @@ createRoot(document.getElementById("root")!).render(
 );
 `;
 
-const APP_TSX = `import { GlassViewport, useDpad } from "@glasskit/glasses-ui";
+const APP_TSX = `import { GlassViewport, useDpad } from "@glasskit-ui/react";
 
 /**
  * Your glasses app. The D-pad hook is wired once here: on the Display,
@@ -124,7 +124,7 @@ export function App() {
 `;
 
 const INDEX_CSS = `/* App-level styles. The lens design system ships with
- * @glasskit/glasses-ui/styles.css (imported in main.tsx) and is scoped under
+ * @glasskit-ui/react/styles.css (imported in main.tsx) and is scoped under
  * .glass-viewport, so nothing here can break it. */
 body {
   margin: 0;
@@ -159,7 +159,7 @@ simulate orientation and location.
 ## Add components
 
 \`\`\`sh
-npx @glasskit/cli add list button readout compass
+npx @glasskit-ui/cli add list button readout compass
 \`\`\`
 
 Components vendor into \`components/glasskit/\` — you own the source.

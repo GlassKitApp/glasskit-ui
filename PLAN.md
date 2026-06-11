@@ -30,7 +30,7 @@ plan was written before the build and has drifted in a few places.
 **Shipped** (on `main` at `GitHubApp/glasskit-ui` — NOT public, NOT on npm):
 - **Phase 1 ✓** — monorepo scaffold (pnpm@10.8.0 + turborepo), CI + Changesets
   wired but **inert** (gated on `RELEASE_ENABLED`), graphify (`graphify-out/`).
-- **Phase 2 ✓** — `@glasskit/glasses-ui` extracted byte-identical (5 src + 2
+- **Phase 2 ✓** — `@glasskit-ui/react` extracted byte-identical (5 src + 2
   tests), public API unchanged, build green, tarball verified. Not published yet.
 - **Phase 3 (site) ~✓** — `apps/web` (Next 16 + Tailwind v4): the landing,
   `/docs` getting-started, and a `/playground` stub are built.
@@ -64,7 +64,7 @@ plan was written before the build and has drifted in a few places.
 |---|---|
 | Altitude | One free SDK foundation first; boilerplate repositioned on top; Studio is a downstream consumer (out of scope here) |
 | Component model | Headless logic where real logic exists + styled layer; styled components **vendored via shadcn-style registry** (you own/restyle them) |
-| Packaging | npm package `@glasskit/glasses-ui` (hooks + primitives + base styles) consumed as a dependency; styled components + blocks distributed via registry (single default accent, no preset palettes) |
+| Packaging | npm package `@glasskit-ui/react` (hooks + primitives + base styles) consumed as a dependency; styled components + blocks distributed via registry (single default accent, no preset palettes) |
 | Repo | **New public monorepo `glasskit-ui`** → publishes to npm; boilerplate switches to consuming it |
 | Site | Separate **`ui.glasskit.app`** = the monorepo's own Next.js + fumadocs site, fully open source (docs co-located with components). `glasskit.app` (this `adelaide` repo) stays the closed marketing/sales/Studio funnel |
 | Docs | fumadocs (already proven in this repo; reuse the setup) |
@@ -118,7 +118,7 @@ hooks ship as polished table-stakes, not the pitch.
 
 ## Source of truth for current code
 
-The current `@glasskit/glasses-ui` source is **locally available** at
+The current `@glasskit-ui/react` source is **locally available** at
 `/Users/jarrius/Documents/GitHub/glasskit-boilerplate/packages/glasses-ui` (the boilerplate
 is a pnpm + turborepo: `app/` Vite glasses app, `companion/` Next.js, `packages/{glasses-ui,
 backend}/`, `docs/`). The package is tiny and clean — **5 source files + 2 test files** — so
@@ -169,14 +169,14 @@ glasskit-ui/                      # NEW public repo, pnpm + turborepo
       app/r/[...]/route.ts        # registry endpoints (/r/*.json) — planned, not built
       # NOTE: no emulator subsystem (removed); fumadocs migration still planned
   packages/
-    glasses-ui/                   # the published npm package @glasskit/glasses-ui
+    glasses-ui/                   # the published npm package @glasskit-ui/react
       src/
         primitives/               # GlassViewport, Screen
         hooks/                    # the 5 hooks + scoreRect/equal helpers (unchanged API)
         components/               # styled+headless components (see inventory)
         ai/                       # AiResponse state machine (headless) + styled view
       styles.css                  # base stylesheet + @theme tokens
-      package.json                # exports map, "@glasskit/glasses-ui" + subpaths
+      package.json                # exports map, "@glasskit-ui/react" + subpaths
     cli/                          # `glasskit` CLI — add/init/create (vendors from the registry)
   registry/
     registry.json                 # shadcn-format-compatible index (served by apps/web; read by the glasskit CLI)
@@ -186,11 +186,11 @@ glasskit-ui/                      # NEW public repo, pnpm + turborepo
 ```
 
 The boilerplate repo then **removes its local `packages/glasses-ui`** and depends
-on the published `@glasskit/glasses-ui`; its demo apps become registry blocks.
+on the published `@glasskit-ui/react`; its demo apps become registry blocks.
 
 ## npm package vs registry — the split
 
-- **npm `@glasskit/glasses-ui` (never-touch dependency):** the 5 hooks +
+- **npm `@glasskit-ui/react` (never-touch dependency):** the 5 hooks +
   `GlassViewport` + `scoreRect`/equality helpers + base `styles.css`/tokens. This
   is the SDK logic — the moat. Subpath exports so consumers can pull just hooks.
 - **Registry (vendored, you own it):** styled components + generic blocks —
@@ -530,7 +530,7 @@ is coming to church.
    official, path-gated, same-repo-only betas); init **graphify** (`graphify-out/`, CLAUDE.md rules).
 2. **Extract the SDK**: migrate the 5 hooks + `GlassViewport` + helpers + base
    `styles.css` from the boilerplate repo, **API unchanged**; add unit tests for
-   `scoreRect`/equality helpers; publish `@glasskit/glasses-ui@0.x` to npm.
+   `scoreRect`/equality helpers; publish `@glasskit-ui/react@0.x` to npm.
 3. **Site + docs + emulator** (`apps/web`, fumadocs) → `ui.glasskit.app`: migrate seed
    docs; build the **in-browser glasses emulator** (simulated D-pad/gestures/sensors, layered
    on Chrome DevTools Sensors / Web APIs) powering live previews; build the **landing page**
@@ -595,7 +595,7 @@ Support RTL from the start — near-free if designed in, painful to retrofit. Ru
 
 ## Automated npm release pipeline (GitHub Actions + Changesets)
 
-Auto-publish `@glasskit/glasses-ui`: **beta on PRs**, **official on merge to main**, **only
+Auto-publish `@glasskit-ui/react`: **beta on PRs**, **official on merge to main**, **only
 when the package changed**. Backbone: **Changesets** (per-package detection, changelogs,
 native snapshot/prerelease) — explicit changeset file per change.
 
@@ -650,7 +650,7 @@ snapshot; concentrate unit effort on logic-bearing pieces. Gate all of it in CI.
 - **Package:** `pnpm build` in `packages/glasses-ui`; import in a scratch app and
   confirm the 5 hooks + `GlassViewport` work; unit tests for `scoreRect`,
   `orientationEqual`, `motionEqual` pass; `npm pack` exports map resolves
-  (`@glasskit/glasses-ui` and subpaths).
+  (`@glasskit-ui/react` and subpaths).
 - **Hooks behavior:** simulate via Chrome DevTools Sensors (orientation/motion/geo)
   and `window.dispatchEvent(new CustomEvent("neuralband",{detail:{gesture:"pinch"}}))`.
 - **Docs site:** `pnpm dev` in `apps/web`; component pages render live 600×600

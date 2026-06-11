@@ -30,7 +30,8 @@ export function DevicePreview({
   useEffect(() => {
     if (!open) return;
     const onDown = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node))
+        setOpen(false);
     };
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     document.addEventListener("mousedown", onDown);
@@ -54,7 +55,11 @@ export function DevicePreview({
       </button>
 
       {open ? (
-        <div role="dialog" aria-label="Add to your glasses" className="device-popover">
+        <div
+          role="dialog"
+          aria-label="Add to your glasses"
+          className="device-popover"
+        >
           <div className="device-popover__grid">
             <div className="device-popover__scan">
               <p className="device-popover__label">Scan to install</p>

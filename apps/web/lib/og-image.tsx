@@ -19,44 +19,42 @@ export const contentType = "image/png";
 
 export function OgImage() {
   return new ImageResponse(
-    (
-      <div
-        tw="flex h-full w-full flex-col justify-between bg-[#08090b] p-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(#1f2125 1px, transparent 1px), linear-gradient(90deg, #1f2125 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-      >
-        <div tw="flex items-center">
-          <div tw="h-14 w-14 rounded-2xl bg-[#36e27f]" />
-          <div tw="ml-4 text-4xl font-bold text-white">GlassKit</div>
-        </div>
+    <div
+      tw="flex h-full w-full flex-col justify-between bg-[#08090b] p-20"
+      style={{
+        backgroundImage:
+          "linear-gradient(#1f2125 1px, transparent 1px), linear-gradient(90deg, #1f2125 1px, transparent 1px)",
+        backgroundSize: "64px 64px",
+      }}
+    >
+      <div tw="flex items-center">
+        <div tw="h-14 w-14 rounded-2xl bg-[#36e27f]" />
+        <div tw="ml-4 text-4xl font-bold text-white">GlassKit</div>
+      </div>
 
-        <div tw="flex flex-col">
-          <div
-            tw="text-8xl font-bold text-white"
-            style={{ letterSpacing: "-0.03em", lineHeight: 1 }}
-          >
-            The component library
-          </div>
-          <div
-            tw="text-8xl font-bold"
-            style={{
-              color: "#36e27f",
-              letterSpacing: "-0.03em",
-              lineHeight: 1.05,
-            }}
-          >
-            for the glasses.
-          </div>
+      <div tw="flex flex-col">
+        <div
+          tw="text-8xl font-bold text-white"
+          style={{ letterSpacing: "-0.03em", lineHeight: 1 }}
+        >
+          The component library
         </div>
-
-        <div tw="text-3xl text-[#80858e]">
-          Open source · Meta Ray-Ban Display · glasskit.app/ui
+        <div
+          tw="text-8xl font-bold"
+          style={{
+            color: "#36e27f",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.05,
+          }}
+        >
+          for the glasses.
         </div>
       </div>
-    ),
+
+      <div tw="text-3xl text-[#80858e]">
+        Open source · Meta Ray-Ban Display · glasskit.app/ui
+      </div>
+    </div>,
     { ...size },
   );
 }

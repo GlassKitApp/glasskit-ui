@@ -33,9 +33,7 @@ export function Toggle({
         className,
       )}
     >
-      {label != null ? (
-        <span className="gk-toggle__label">{label}</span>
-      ) : null}
+      {label != null ? <span className="gk-toggle__label">{label}</span> : null}
       <span className="gk-toggle__track">
         <span className="gk-toggle__knob" />
       </span>

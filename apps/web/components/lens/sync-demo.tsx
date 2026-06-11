@@ -1,4 +1,4 @@
-import { GlassViewport } from "@glasskit/glasses-ui";
+import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
 import { Cue } from "@registry/ui/cue";
 import { Readout } from "@registry/ui/readout";
@@ -15,7 +15,12 @@ export function SyncDemo() {
           loading={
             <div className="gk-async">
               <Spinner label="Syncing" />
-              <Readout label="Syncing route" value="3" unit="/ 5" emphasis="secondary" />
+              <Readout
+                label="Syncing route"
+                value="3"
+                unit="/ 5"
+                emphasis="secondary"
+              />
               <Progress variant="step" value={3} max={5} />
             </div>
           }

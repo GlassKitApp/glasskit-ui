@@ -14,7 +14,7 @@ gradient icon plates, glanceable type).
 react and react-dom 19 are peer dependencies.
 
 ```package-install
-@glasskit/glasses-ui
+@glasskit-ui/react
 ```
 
 ## 2. Import the styles
@@ -23,7 +23,7 @@ In your app's CSS entry, right after Tailwind:
 
 ```css
 @import "tailwindcss";
-@import "@glasskit/glasses-ui/styles.css";
+@import "@glasskit-ui/react/styles.css";
 ```
 
 ## 3. Build
@@ -32,7 +32,7 @@ Wrap your app in `GlassViewport` and call `useDpad()` once near the root. Any
 element with the `focusable` class joins D-pad navigation.
 
 ```tsx
-import { GlassViewport, useDpad } from "@glasskit/glasses-ui";
+import { GlassViewport, useDpad } from "@glasskit-ui/react";
 
 export function App() {
   useDpad(); // arrow keys → spatial focus, Enter → click
@@ -56,7 +56,7 @@ Vendor the source into your project with the CLI — it resolves dependencies an
 writes the files to `components/glasskit/`, yours to edit.
 
 ```bash
-npx @glasskit/cli add screen readout button
+npx @glasskit-ui/cli add screen readout button
 ```
 
 Browse all **45** in the [Components](/docs/components) section — each with a

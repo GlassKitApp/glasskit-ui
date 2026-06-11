@@ -1,5 +1,5 @@
 /* ───────────────────────────────────────────────────────────────
- * @glasskit/glasses-ui — additive-lens design system for the
+ * @glasskit-ui/react — additive-lens design system for the
  * 600×600 Meta Ray-Ban Display surface.
  *
  * The Display is additive: black (#000) emits no light and shows the
@@ -18,7 +18,7 @@
  * your own rule, e.g. `.glass-viewport { --accent: #6ad; }`.
  *
  *   @import "tailwindcss";
- *   @import "@glasskit/glasses-ui/styles.css";
+ *   @import "@glasskit-ui/react/styles.css";
  * ─────────────────────────────────────────────────────────────── */
 
 /* ── The 600×600 surface + scoped design tokens ─────────────────── */
