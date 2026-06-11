@@ -89,6 +89,27 @@
   outline: none;
 }
 
+/* Glass-app shell (/preview/*) — scale-fit the 600×600 surface to the window.
+ * --glass-scale is written by GlassAppShell's resize effect; on the glasses'
+ * own 600×600 webview it is exactly 1 (full-bleed). */
+.glass-fit > .glass-viewport {
+  transform: scale(var(--glass-scale, 1));
+  transform-origin: center;
+}
+.glass-fit__hint {
+  position: fixed;
+  inset-inline: 0;
+  inset-block-end: 16px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+}
+/* The glasses webview is exactly 600×600 — no room (or need) for the hint. */
+@media (max-width: 640px) and (max-height: 640px) {
+  .glass-fit__hint {
+    display: none;
+  }
+}
+
 /* ───────────────────────────────────────────────────────────────
  * ui.glasskit.app — SITE CHROME. Blueprint / workshop aesthetic
  * (ref: render.com): a hairline blueprint grid, hard 1px borders, sharp
