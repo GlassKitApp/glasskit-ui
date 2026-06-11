@@ -78,7 +78,8 @@ export function softwareSchema() {
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     author: { "@type": "Person", name: SEO.author, url: X_URL },
     codeRepository: GITHUB,
-    sameAs: [GITHUB],
+    installUrl: "https://www.npmjs.com/package/@glasskit-ui/react",
+    sameAs: [GITHUB, "https://www.npmjs.com/package/@glasskit-ui/react"],
   };
 }
 

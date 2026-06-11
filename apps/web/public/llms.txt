@@ -1,51 +1,98 @@
 # GlassKit UI
 
-> The open-source React component library for Meta Ray-Ban Display (smart-glasses) web apps. It ships the platform primitives Meta does not: a glasses-tuned D-pad focus engine, Neural Band gesture hooks, and a full set of premium HUD components for the 600×600 lens.
+> The open-source React component library for Meta Ray-Ban Display (smart-glasses) web apps. It ships the platform primitives Meta does not: a glasses-tuned D-pad focus engine, system-back-aware navigation, W3C sensor + Neural Band hooks, and 45 premium HUD components for the 600×600 lens. Published on npm under the `@glasskit-ui` scope; components vendor shadcn-style (you own the source).
 
-Design language (2026-06, "premium surfaces"): a **calm dark base** (`#0b0e16`→`#090b11`), **surfaces that pop** (top-lit gradient fill + 1px light edge + soft depth), and **tasteful gradient icon plates** (iOS/Meta app-icon style). One refined blue accent (`--accent: #4c8dff`), white-dominant ink, HUD-scale type, and tight glasses spacing (≈8–22px margins, ~88px touch targets, fill the screen — not a shrunk webpage). Rules: one task per view, glanceable, tabular numerals, RTL-safe logical CSS, never mirror world-anchored components, motion is ease-out + reduced-motion-safe. See `docs/design/meta-hud-language.md`.
+## Install
 
-## SDK (`@glasskit/glasses-ui`)
+```sh
+npm create glasskit my-app                 # scaffold a complete Vite glasses app
+npx @glasskit-ui/cli add list button compass navigator   # vendor components (writes to components/glasskit/)
+npm i @glasskit-ui/react                   # the SDK alone (hooks + GlassViewport + styles.css); React 19 peer dep, ESM only
+```
+
+IMPORTANT: the bare `glasskit` npm package is UNRELATED to this project — always use the scoped names (`@glasskit-ui/react`, `@glasskit-ui/cli`, `@glasskit-ui/mcp`) or `create-glasskit`. An MCP server (`npx @glasskit-ui/mcp`) exposes this registry to AI agents.
+
+## SDK (`@glasskit-ui/react`)
 
 - `GlassViewport` — the 600×600 lens surface; wrap your app in it.
-- `useDpad()` — arrow keys / Neural Band move a focus ring between `.focusable` elements; Enter activates.
-- `useDeviceOrientation()`, `useDeviceMotion()`, `useGeolocation()`, `useNeuralBand()` — W3C sensor + gesture hooks.
-- `styles.css` — the premium-surfaces design system, scoped under `.glass-viewport`.
+- `useDpad()` — call once at the root: arrow keys / Neural Band swipes move a focus ring between `.focusable` elements; Enter / pinch activates.
+- `useDeviceOrientation()`, `useDeviceMotion()`, `useGeolocation()` — W3C sensor hooks (GPS is proxied from the paired phone).
+- `useNeuralBand()` — one-shot CustomEvent seam for richer gestures (forward-compat: the platform currently delivers only arrows/Enter to web apps).
+- `import "@glasskit-ui/react/styles.css"` — the design system, scoped under `.glass-viewport`.
 
-## Components
+## Platform facts (verified 2026-06 against Meta's docs/toolkit)
 
-Vendored shadcn-style (you own the source). Each has a live preview, props table, and usage at `/docs/components/<slug>`.
+- Input arrives as `ArrowUp/Down/Left/Right` + `Enter` keydowns; no cursor, touch, or text input.
+- The system back gesture (middle pinch, glasses OS v125.1+) pops browser history → your page gets `popstate`. `Escape` is the desktop-simulator mapping only.
+- Fixed 600×600 viewport; required meta tags: `width=600, height=600, user-scalable=no` + `<meta name="mrbd-web-app-capable" content="yes">`.
+- Black renders transparent (waveguide); camera/mic/WebXR not yet available to web apps; apps must be served over public HTTPS.
+- Perf budget: <500 KB gzipped JS, <10 requests, <3 s on 4G (enforced in this repo's CI).
 
-- **Shell** — Screen (status / stage / cue layout).
-- **Display** — Readout, Cue, GlowIcon (line glyph or gradient plate), Heading, Badge, Meter (ring gauge), StatGrid (surface stat cards), Progress (bar / step dots).
-- **Action** — Button, List + ListRow (fills + scroll-progress), Toggle, Stepper, Segmented, Confirm, QuickReplyChips.
-- **Status / feedback** — AsyncView, StatusDot, ErrorState, Toast (static surface), **Toaster** (the dynamic toast/notification system — see below).
-- **Navigation** — Launcher (gradient app grid), Deck (paged flow).
-- **Spatial (world-anchored, never mirrored)** — DirectionArrow, Compass, Reticle, Pin, Callout.
-- **Comms** — Avatar (initials / photo), NotificationCard (avatar + sender + preview + actions).
-- **Media** — NowPlaying (art + scrubber + times).
-- **AI** — AssistantOrb (Meta-AI presence; idle / listening / thinking / speaking).
+## Conventions
+
+- **Auto-wiring**: sensor components self-connect when their data prop is omitted — `<Compass />` follows live head orientation, `<Compass heading={290} />` is controlled (the prop always wins). Same for DirectionArrow (`target={{lat,lon}}`), Clock (self-ticking), Deck (Neural Band swipe).
+- **Navigation**: `<Navigator screens={{...}} initial="home" />` + `useNavigator()` (`push/pop/popToTop/replace`) — every push adds a real history entry so the system back gesture just works; `useBackHandler(fn)` lets overlays consume back.
+- Design language ("premium surfaces", 2026-06): calm dark base (`#0b0e16`→`#090b11`), surfaces that pop (top-lit gradient + 1px light edge + soft depth), gradient icon plates, one blue accent (`--accent: #4c8dff`). One task per view, tabular numerals, logical RTL-safe CSS — but world-anchored components (DirectionArrow, Compass, Pin, Callout, Reticle, Viewfinder) never mirror.
+
+## Components (45)
+
+Vendored shadcn-style. Live preview + props + usage at `https://glasskit.app/ui/docs/components/<slug>`; machine-readable source + deps at `https://glasskit.app/ui/r/<slug>.json` (shadcn-compatible registry: `https://glasskit.app/ui/r/registry.json`). Every docs page has a QR that installs the component as a runnable app on real glasses.
+
+- **AssistantOrb** (`assistant-orb`) — the Meta-AI presence: a glowing gradient orb that animates per `state` (idle = gentle breathe, listening = pulse, thinking = swirl, speaking = quick pulse).
+- **AsyncView** (`async-view`) — the four-state async renderer every data screen needs: placeholder (idle) → loading → success/error.
+- **Avatar** (`avatar`) — a contact / sender avatar: a photo when you have one, else initials on a gradient plate.
+- **Badge** (`badge`) — a small count or status pill (notification counts, live state).
+- **Button** (`button`) — a D-pad-focusable action.
+- **CallCard** (`call-card`) — an incoming / active call: a big avatar, caller name, a status line ("Incoming…", "02:14"), and an action row (accept / decline via D-pad-focusable <Button>s).
+- **Callout** (`callout`) — a world-object annotation: a small anchor at a screen point with a vertical leader line up to an emitted label (no box — additive translates the card to line + type).
+- **ChatBubble** (`chat-bubble`) — one message.
+- **Clock** (`clock`) — the home time/date complication: a big tabular time and a quieter date line.
+- **Compass** (`compass`) — a heading rose that keeps North pointing at real north while a fixed top marker shows where you face.
+- **Confirm** (`confirm`) — a decision screen: a prompt + a two-button action bar (confirm / cancel).
+- **Cue** (`cue`) — a caption / hint line: what to do next, or a transient status ("Listening…").
+- **Deck** (`deck`) — a horizontal paged flow (wizard / onboarding).
+- **Dictation** (`dictation`) — the voice-to-text surface (there is no keyboard on the lens — text is voice or Neural-Band handwriting).
+- **DirectionArrow** (`direction-arrow`) — points toward a real-world direction.
+- **ErrorState** (`error-state`) — a recoverable error screen: optional glyph + title + message + a retry action.
+- **GlowIcon** (`glow-icon`) — wraps a line-icon SVG.
+- **Heading** (`heading`) — a screen/section title with an optional eyebrow label above it.
+- **Launcher** (`launcher`) — the app grid: a home screen of gradient app-icon plates + labels.
+- **List** (`list`) — a vertical stack of focusable rows (watchOS list spirit) that fills the stage and scrolls (D-pad scrollIntoView).
+- **LiveCaptions** (`live-captions`) — real-time transcription / translation, read at a glance: an optional speaker label and the running caption text on a surface, anchored low (like the real Captions app).
+- **MediaThumb** (`media-thumb`) — a photo / reel tile (Photos, Instagram).
+- **Meter** (`meter`) — a bounded ring gauge for a level (battery, signal, intensity), as opposed to <Progress> which tracks task completion.
+- **Navigator** (`navigator`) — a screen stack for glasses apps (react-navigation semantics, glasses-native mechanics).
+- **NotificationCard** (`notification-card`) — an incoming notification (message, mention, alert): a leading avatar/glyph, sender + time, a message preview, and optional quick actions.
+- **NowPlaying** (`now-playing`) — a media "now playing" card: album art, title + artist, a scrub bar, and elapsed / remaining times.
+- **PermissionPrompt** (`permission-prompt`) — an explicit access request (sensors, location, camera, mic), which MRBD apps must ask for before use.
+- **Pin** (`pin`) — a world-anchored waypoint marker: a ring + dot at a screen point with the name and distance stacked above.
+- **Progress** (`progress`) — emitted progress, two shapes: - "linear" a continuous bar (also covers countdown: feed a decreasing value and a time label).
+- **QuickReplyChips** (`quick-reply-chips`) — tappable canned replies (the comms job; there is no keyboard on the lens — text is voice).
+- **Readout** (`readout`) — a single-value complication: label + value (+ optional unit).
+- **Reticle** (`reticle`) — an aim-to-select target: four corner brackets framing the gaze center.
+- **Screen** (`screen`) — the on-lens layout shell: a status region (block-start), a centered stage (the one task), and a cue region (block-end).
+- **Segmented** (`segmented`) — pick one of a few options (a watchOS-style segmented control).
+- **Slider** (`slider`) — a continuous level control (volume, brightness — the quick controls).
+- **StatGrid** (`stat-grid`) — a compact grid of readouts for a multi-metric glance (a watch "complication cluster").
+- **StatusDot** (`status-dot`) — a glanceable sensor / permission / connection indicator.
+- **Stepper** (`stepper`) — adjust a value in discrete steps (glasses have no fine slider).
+- **Tabs** (`tabs`) — a top-level tab strip (the home's quick-controls | home | apps pager).
+- **TextField** (`text-field`) — a text entry surface.
+- **Toast** (`toast`) — a transient notice that animates in (a brief luminance rise, not a modal scrim).
+- **Toaster** (`toaster`) — the GlassKit toast / notification system, built on Sonner (Emil Kowalski's library) and themed to the lens surfaces.
+- **Toggle** (`toggle`) — a binary switch, D-pad-focusable (renders a real button with the focusable class; useDpad activates it on Enter/Space).
+- **Viewfinder** (`viewfinder`) — the camera POV frame: corner brackets framing the shot, an optional zoom badge and a REC indicator.
+- **WeatherTile** (`weather-tile`) — a glanceable weather complication: a condition glyph + big temperature, the condition text, and an optional location / hi-lo line.
 
 ## Toasts & notifications
 
-`<Toaster>` + `toast()` is the dynamic system, built on **Sonner** (themed to the lens). Mount `<Toaster>` once at your app root; it is **bottom-anchored** (below the sightline, like the real Display) and handles the queue, stacking, auto-dismiss, and enter/exit motion.
-
-```tsx
-<Toaster />                                  // once, at the root
-toast("Workout saved");
-toast("Mara Lin", { description: "On my way", icon: <Avatar name="Mara Lin" /> });
-toast.custom((id) => <NotificationCard … />);
-```
-
-`NotificationCard` is the inline/static notification surface; `Toast` is the static one-liner surface; `Toaster`/`toast()` is the live system that shows them.
+`<Toaster />` + `toast()` (built on Sonner, themed to the lens, bottom-anchored): mount once at the root; it owns queueing, stacking, auto-dismiss. `Toast` is the static one-liner surface; `NotificationCard` the inline notification.
 
 ## Links
 
 - Docs / getting started: https://glasskit.app/ui/docs
 - Components reference: https://glasskit.app/ui/docs/components
-- Playground (live customizer): https://glasskit.app/ui/playground
-- Source: https://github.com/GlassKitApp/glasskit-ui
-
-## Notes
-
-- React 19 is a peer dependency. ESM only.
-- The repo is not yet public and nothing is published to npm — these are the intended URLs.
+- Playground: https://glasskit.app/ui/playground
+- npm: https://www.npmjs.com/package/@glasskit-ui/react
+- Source (MIT): https://github.com/GlassKitApp/glasskit-ui
+- Platform audit: https://github.com/GlassKitApp/glasskit-ui/blob/main/docs/platform-audit-2026-06.md
