@@ -10,6 +10,11 @@ full strategy and 7-phase plan.
   may differ from your training data. Read the relevant guide in
   `node_modules/next/dist/docs/` before writing any Next code, and heed
   deprecation notices.
+- **Platform truth = [`docs/platform-audit-2026-06.md`](./docs/platform-audit-2026-06.md)** —
+  what the Display's Web Apps runtime actually delivers (verified against
+  Meta's docs/toolkit, 2026-06): arrows/Enter keydowns, back as history-pop →
+  `popstate` (OS v125.1+; Escape is desktop-sim only), no custom gesture
+  events, required 600×600 + `mrbd-web-app-capable` meta tags.
 - The SDK to extract lives in a sibling repo:
   `/Users/jarrius/Documents/GitHub/glasskit-boilerplate/packages/glasses-ui`.
   Preserve its public API verbatim (see `START-HERE.md` §2).

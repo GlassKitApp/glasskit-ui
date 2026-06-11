@@ -30,6 +30,7 @@ export const COMPONENT_NAV: ComponentNav[] = [
   { slug: "heading", name: "Heading", category: "Display" },
   { slug: "launcher", name: "Launcher", category: "Navigation" },
   { slug: "deck", name: "Deck", category: "Navigation" },
+  { slug: "navigator", name: "Navigator", category: "Navigation" },
   { slug: "quick-reply-chips", name: "QuickReplyChips", category: "Action" },
   { slug: "pin", name: "Pin", category: "Spatial" },
   { slug: "callout", name: "Callout", category: "Spatial" },

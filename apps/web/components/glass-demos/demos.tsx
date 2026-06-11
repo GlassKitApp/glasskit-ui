@@ -25,6 +25,7 @@ import { Dictation } from "@registry/ui/dictation";
 import { Viewfinder } from "@registry/ui/viewfinder";
 import { Reticle } from "@registry/ui/reticle";
 import { List, ListRow } from "@registry/ui/list";
+import { Navigator, useNavigator } from "@registry/ui/navigator";
 import { Compass } from "@registry/ui/compass";
 import { DirectionArrow } from "@registry/ui/direction-arrow";
 import { Heading } from "@registry/ui/heading";
@@ -576,6 +577,86 @@ export function ButtonDemo() {
         <Button onClick={() => setCount(0)}>Reset</Button>
       </div>
     </Screen>
+  );
+}
+
+function NavHome() {
+  const nav = useNavigator();
+  return (
+    <Screen cue={<Cue>Middle pinch (Esc here) goes back</Cue>}>
+      <Heading eyebrow="Navigator">Workout</Heading>
+      <List>
+        <ListRow
+          onClick={() => nav.push("session", { kind: "Run" })}
+          trailing={<ChevronGlyph />}
+        >
+          Start a run
+        </ListRow>
+        <ListRow
+          onClick={() => nav.push("session", { kind: "Ride" })}
+          trailing={<ChevronGlyph />}
+        >
+          Start a ride
+        </ListRow>
+        <ListRow
+          onClick={() => nav.push("history")}
+          trailing={<ChevronGlyph />}
+        >
+          History
+        </ListRow>
+      </List>
+    </Screen>
+  );
+}
+
+function NavSession({ kind }: { kind?: string }) {
+  const nav = useNavigator();
+  return (
+    <Screen cue={<Cue tone="accent">Recording — back pauses</Cue>}>
+      <Heading eyebrow={kind}>In progress</Heading>
+      <Readout label="Elapsed" value="12:08" />
+      <Button variant="primary" onClick={() => nav.push("summary")}>
+        Finish
+      </Button>
+    </Screen>
+  );
+}
+
+function NavSummary() {
+  const nav = useNavigator();
+  return (
+    <Screen cue={<Cue>popToTop unwinds the whole stack</Cue>}>
+      <Heading eyebrow="Saved">Nice run</Heading>
+      <Readout label="Distance" value="5.2" unit="km" />
+      <Button variant="primary" onClick={() => nav.popToTop()}>
+        Done
+      </Button>
+    </Screen>
+  );
+}
+
+function NavHistory() {
+  const nav = useNavigator();
+  return (
+    <Screen cue={<Cue>System back returns home</Cue>}>
+      <Heading eyebrow="History">This week</Heading>
+      <Readout label="Sessions" value="4" />
+      <Button onClick={() => nav.pop()}>Back</Button>
+    </Screen>
+  );
+}
+
+export function NavigatorDemo() {
+  return (
+    <Navigator
+      initial="home"
+      screens={{
+        home: () => <NavHome />,
+        session: (params) => <NavSession {...(params as { kind: string })} />,
+        summary: () => <NavSummary />,
+        history: () => <NavHistory />,
+      }}
+    />
   );
 }
 
