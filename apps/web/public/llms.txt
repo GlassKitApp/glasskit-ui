@@ -1,6 +1,6 @@
 # GlassKit UI
 
-> The open-source React component library for Meta Ray-Ban Display (smart-glasses) web apps. It ships the platform primitives Meta does not: a glasses-tuned D-pad focus engine, system-back-aware navigation, W3C sensor + Neural Band hooks, and 45 premium HUD components for the 600×600 lens. Published on npm under the `@glasskit-ui` scope; components vendor shadcn-style (you own the source).
+> The open-source React component library for Meta Ray-Ban Display (smart-glasses) web apps. It ships the platform primitives Meta does not: a glasses-tuned D-pad focus engine, system-back-aware navigation, W3C sensor + Neural Band hooks, and 47 premium HUD components for the 600×600 lens. Published on npm under the `@glasskit-ui` scope; components vendor shadcn-style (you own the source).
 
 ## Install
 
@@ -34,7 +34,7 @@ IMPORTANT: the bare `glasskit` npm package is UNRELATED to this project — alwa
 - **Navigation**: `<Navigator screens={{...}} initial="home" />` + `useNavigator()` (`push/pop/popToTop/replace`) — every push adds a real history entry so the system back gesture just works; `useBackHandler(fn)` lets overlays consume back.
 - Design language ("premium surfaces", 2026-06): calm dark base (`#0b0e16`→`#090b11`), surfaces that pop (top-lit gradient + 1px light edge + soft depth), gradient icon plates, one blue accent (`--accent: #4c8dff`). One task per view, tabular numerals, logical RTL-safe CSS — but world-anchored components (DirectionArrow, Compass, Pin, Callout, Reticle, Viewfinder) never mirror.
 
-## Components (45)
+## Components (47)
 
 Vendored shadcn-style. Live preview + props + usage at `https://glasskit.app/ui/docs/components/<slug>`; machine-readable source + deps at `https://glasskit.app/ui/r/<slug>.json` (shadcn-compatible registry: `https://glasskit.app/ui/r/registry.json`). Every docs page has a QR that installs the component as a runnable app on real glasses.
 
@@ -53,6 +53,7 @@ Vendored shadcn-style. Live preview + props + usage at `https://glasskit.app/ui/
 - **Deck** (`deck`) — a horizontal paged flow (wizard / onboarding).
 - **Dictation** (`dictation`) — the voice-to-text surface (there is no keyboard on the lens — text is voice or Neural-Band handwriting).
 - **DirectionArrow** (`direction-arrow`) — points toward a real-world direction.
+- **EmptyState** (`empty-state`) — the nothing-here screen: optional glyph + title + hint + one action.
 - **ErrorState** (`error-state`) — a recoverable error screen: optional glyph + title + message + a retry action.
 - **GlowIcon** (`glow-icon`) — wraps a line-icon SVG.
 - **Heading** (`heading`) — a screen/section title with an optional eyebrow label above it.
@@ -69,7 +70,7 @@ Vendored shadcn-style. Live preview + props + usage at `https://glasskit.app/ui/
 - **Progress** (`progress`) — emitted progress, two shapes: - "linear" a continuous bar (also covers countdown: feed a decreasing value and a time label).
 - **QuickReplyChips** (`quick-reply-chips`) — tappable canned replies (the comms job; there is no keyboard on the lens — text is voice).
 - **Readout** (`readout`) — a single-value complication: label + value (+ optional unit).
-- **Reticle** (`reticle`) — an aim-to-select target: four corner brackets framing the gaze center.
+- **Reticle** (`reticle`) — an aim-to-select target: four corner brackets framing the center of the lens.
 - **Screen** (`screen`) — the on-lens layout shell: a status region (block-start), a centered stage (the one task), and a cue region (block-end).
 - **Segmented** (`segmented`) — pick one of a few options (a watchOS-style segmented control).
 - **Slider** (`slider`) — a continuous level control (volume, brightness — the quick controls).
@@ -78,10 +79,11 @@ Vendored shadcn-style. Live preview + props + usage at `https://glasskit.app/ui/
 - **Stepper** (`stepper`) — adjust a value in discrete steps (glasses have no fine slider).
 - **Tabs** (`tabs`) — a top-level tab strip (the home's quick-controls | home | apps pager).
 - **TextField** (`text-field`) — a text entry surface.
+- **Timer** (`timer`) — a countdown readout: big tabular m:ss (h:mm:ss past an hour), an optional label, and a bar draining toward zero.
 - **Toast** (`toast`) — a transient notice that animates in (a brief luminance rise, not a modal scrim).
 - **Toaster** (`toaster`) — the GlassKit toast / notification system, built on Sonner (Emil Kowalski's library) and themed to the lens surfaces.
 - **Toggle** (`toggle`) — a binary switch, D-pad-focusable (renders a real button with the focusable class; useDpad activates it on Enter/Space).
-- **Viewfinder** (`viewfinder`) — the camera POV frame: corner brackets framing the shot, an optional zoom badge and a REC indicator.
+- **Viewfinder** (`viewfinder`) — camera-POV chrome: corner brackets framing the shot, an optional zoom badge and a REC indicator.
 - **WeatherTile** (`weather-tile`) — a glanceable weather complication: a condition glyph + big temperature, the condition text, and an optional location / hi-lo line.
 
 ## Toasts & notifications

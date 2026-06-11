@@ -9,6 +9,11 @@ import { cn } from "../lib/utils";
  * WORLD-ANCHORED — placed by an SVG `transform="translate()"` *attribute*, so it
  * never mirrors under RTL. The leader is vertical (no inline-direction), keeping
  * the annotation tied to its real-world point in any writing direction.
+ *
+ * Projection: same recipe as <Pin> — the platform exposes heading + GPS but no
+ * 3D pose, so derive x from the target's relative bearing (`lib/geo`:
+ * `relativeBearing(bearingBetween(me, target), heading)` mapped across the
+ * FOV) and keep y a fixed band. Hide it once the target leaves the FOV.
  */
 export function Callout({
   x,

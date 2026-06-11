@@ -299,6 +299,24 @@
       ]
     },
     {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "EmptyState",
+      "description": "the nothing-here screen: optional glyph + title + hint + one action.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/empty-state.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/empty-state.tsx"
+        }
+      ]
+    },
+    {
       "name": "error-state",
       "type": "registry:ui",
       "title": "ErrorState",
@@ -577,7 +595,7 @@
       "name": "reticle",
       "type": "registry:ui",
       "title": "Reticle",
-      "description": "an aim-to-select target: four corner brackets framing the gaze center.",
+      "description": "an aim-to-select target: four corner brackets framing the center of the lens.",
       "dependencies": [],
       "registryDependencies": [
         "utils"
@@ -727,6 +745,24 @@
       ]
     },
     {
+      "name": "timer",
+      "type": "registry:ui",
+      "title": "Timer",
+      "description": "a countdown readout: big tabular m:ss (h:mm:ss past an hour), an optional label, and a bar draining toward zero.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/timer.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/timer.tsx"
+        }
+      ]
+    },
+    {
       "name": "toast",
       "type": "registry:ui",
       "title": "Toast",
@@ -781,7 +817,7 @@
       "name": "viewfinder",
       "type": "registry:ui",
       "title": "Viewfinder",
-      "description": "the camera POV frame: corner brackets framing the shot, an optional zoom badge and a REC indicator.",
+      "description": "camera-POV chrome: corner brackets framing the shot, an optional zoom badge and a REC indicator.",
       "dependencies": [],
       "registryDependencies": [
         "utils"

@@ -2,10 +2,15 @@ import type { ReactNode } from "react";
 import { cn } from "../lib/utils";
 
 /**
- * <Viewfinder> — the camera POV frame: corner brackets framing the shot, an
- * optional zoom badge and a REC indicator. The lens shows the real world inside;
- * `children` overlays (e.g. a focus reticle). World-anchored framing — corners
- * use physical positioning, never mirrored.
+ * <Viewfinder> — camera-POV chrome: corner brackets framing the shot, an
+ * optional zoom badge and a REC indicator. `children` overlays (e.g. a focus
+ * reticle). World-anchored framing — corners use physical positioning, never
+ * mirrored.
+ *
+ * Platform note (2026-06): web apps on the Display have NO camera access —
+ * no getUserMedia, no capture API. This is presentation scaffolding for a
+ * camera-style UI (the lens shows the real world through the brackets), not
+ * a working viewfinder. `recording` is app state you set; nothing records.
  */
 export function Viewfinder({
   zoom,

@@ -3,9 +3,14 @@ import { cn } from "../lib/utils";
 
 /**
  * <TextField> — a text entry surface. There is no keyboard on the lens, so this
- * is a D-pad-focusable field that shows the current value (or a placeholder) and
- * a trailing affordance (a mic glyph); activating it opens dictation / Neural-
- * Band handwriting. Pure display + onActivate — you own the capture.
+ * is a D-pad-focusable field that shows the current value (or a placeholder)
+ * and a trailing affordance (a mic glyph). Pure display + `onActivate` — you
+ * own the capture flow it opens.
+ *
+ * Platform note (2026-06): web apps get no microphone (no getUserMedia) and
+ * no system text-input API, so on-device capture means your own picker UI
+ * (e.g. a <List> of choices) or text relayed from the phone. The mic glyph is
+ * a familiar affordance, not a promise of dictation.
  */
 export function TextField({
   label,

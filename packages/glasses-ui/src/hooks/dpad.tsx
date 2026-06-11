@@ -59,7 +59,28 @@ export function scoreRect(
 }
 
 function focusables(): HTMLElement[] {
-  return Array.from(document.querySelectorAll<HTMLElement>(SELECTOR));
+  // Zero-size elements (display:none pages, collapsed containers) are not
+  // real focus targets — without this filter the spatial scorer can route
+  // focus to something invisible.
+  return Array.from(document.querySelectorAll<HTMLElement>(SELECTOR)).filter(
+    (el) => {
+      const r = el.getBoundingClientRect();
+      return r.width > 0 && r.height > 0;
+    },
+  );
+}
+
+/**
+ * A focused range input owns its horizontal axis: ArrowLeft/Right must
+ * adjust the value natively (volume, brightness), not move focus away.
+ * Vertical arrows still navigate — the watch/TV convention.
+ */
+function rangeOwnsKey(active: Element | null, dir: Dir): boolean {
+  return (
+    active instanceof HTMLInputElement &&
+    active.type === "range" &&
+    (dir === "left" || dir === "right")
+  );
 }
 
 function moveFocus(dir: Dir) {
@@ -113,6 +134,9 @@ export function useDpad(): { seedFocus: () => void } {
     function onKey(e: KeyboardEvent) {
       const pressed = KEY_TO_DIR[e.key];
       if (pressed) {
+        // A focused slider consumes its own axis (native value adjust);
+        // preventDefault here would make ranges impossible to operate.
+        if (rangeOwnsKey(document.activeElement, pressed)) return;
         e.preventDefault();
         moveFocus(pressed);
         return;

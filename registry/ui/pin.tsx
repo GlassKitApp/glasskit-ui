@@ -9,6 +9,12 @@ import { cn } from "../lib/utils";
  * WORLD-ANCHORED — placed by an SVG `transform="translate()"` *attribute* (not
  * inline style), absolute, so it is never mirrored under RTL: a flipped pin sits
  * over the wrong thing. The overlay is non-interactive (pointer-events: none).
+ *
+ * Projection: the Display gives web apps heading (`useDeviceOrientation`) and
+ * phone-proxied GPS (`useGeolocation`) but no 3D pose, so a stable projection
+ * is bearing-based: `relativeBearing(bearingBetween(me, target), heading)`
+ * (see `lib/geo`) → map ±FOV/2 onto x 0–100, pick a fixed y band. Off-screen
+ * targets are your call — hide the Pin or switch to <DirectionArrow>.
  */
 export function Pin({
   x,

@@ -15,6 +15,8 @@ import { Deck } from "@registry/ui/deck";
 import { Launcher } from "@registry/ui/launcher";
 import { TextField } from "@registry/ui/text-field";
 import { PermissionPrompt } from "@registry/ui/permission-prompt";
+import { Timer } from "@registry/ui/timer";
+import { EmptyState } from "@registry/ui/empty-state";
 import { NotificationCard } from "@registry/ui/notification-card";
 import { NowPlaying } from "@registry/ui/now-playing";
 import { CallCard } from "@registry/ui/call-card";
@@ -731,6 +733,75 @@ export function DirectionArrowDemo() {
         label="Ferry Building"
       />
       <Readout label="Distance" value="320" unit="m" />
+    </Screen>
+  );
+}
+
+export function TimerDemo() {
+  const [running, setRunning] = useState(true);
+  const [round, setRound] = useState(0);
+  const [done, setDone] = useState(false);
+  return (
+    <Screen
+      cue={
+        <Cue tone={done ? "accent" : undefined}>
+          {done ? "Done — time's up" : "Pause, resume, or restart"}
+        </Cue>
+      }
+    >
+      <Timer
+        key={round}
+        duration={90}
+        running={running}
+        label="Rest"
+        onComplete={() => setDone(true)}
+      />
+      <div className="row">
+        <Button variant="primary" onClick={() => setRunning((r) => !r)}>
+          {running ? "Pause" : "Resume"}
+        </Button>
+        <Button
+          onClick={() => {
+            setRound((r) => r + 1);
+            setRunning(true);
+            setDone(false);
+          }}
+        >
+          Restart
+        </Button>
+      </div>
+    </Screen>
+  );
+}
+
+export function EmptyStateDemo() {
+  const [messages, setMessages] = useState<string[]>([]);
+  if (messages.length > 0) {
+    return (
+      <Screen cue={<Cue>Filled — this is the same screen</Cue>}>
+        <List>
+          {messages.map((m) => (
+            <ListRow key={m} trailing={<ChevronGlyph />}>
+              {m}
+            </ListRow>
+          ))}
+        </List>
+      </Screen>
+    );
+  }
+  return (
+    <Screen cue={<Cue>The action invites the first content</Cue>}>
+      <EmptyState
+        icon={
+          <GlowIcon size="lg" plate label="Messages">
+            <MessageGlyph />
+          </GlowIcon>
+        }
+        title="No messages"
+        hint="New conversations land here."
+        actionLabel="Check now"
+        onAction={() => setMessages(["Maya", "Dispatch", "Group ride"])}
+      />
     </Screen>
   );
 }

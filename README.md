@@ -7,7 +7,7 @@
 
 The open-source React component library for **Meta Ray-Ban Display** apps —
 the ergonomic layer Meta does not ship. An SDK + a shadcn-style registry of
-45 components, built for the 600×600 lens: a glasses-tuned D-pad focus
+47 components, built for the 600×600 lens: a glasses-tuned D-pad focus
 engine, system-back-aware navigation, live sensor wiring, and a premium HUD
 visual language. Every component is QR-launchable as a working app on real
 glasses from its [docs page](https://glasskit.app/ui/docs/components).
@@ -24,7 +24,7 @@ glasses from its [docs page](https://glasskit.app/ui/docs/components).
 - **`@glasskit-ui/react`** ([`packages/glasses-ui`](./packages/glasses-ui)) —
   the SDK: `GlassViewport`, the spatial focus engine (`useDpad` / `scoreRect`),
   the W3C sensor + Neural Band hooks, and the scoped lens stylesheet.
-- **The registry** ([`registry/ui`](./registry/ui)) — 45 styled components you
+- **The registry** ([`registry/ui`](./registry/ui)) — 47 styled components you
   vendor and own, shadcn-style, via the `glasskit` CLI. Covers all eight HUD
   jobs: Monitor, Navigate, Guide, Caption, Notify/Comms, Capture/Control,
   Annotate, Launch/Select — including the world-anchored set (DirectionArrow,
@@ -82,7 +82,7 @@ packages/glasses-ui/       @glasskit-ui/react — the SDK (hooks + viewport + st
 packages/cli/              @glasskit-ui/cli — scaffold + vendor from the registry
 packages/create-glasskit/  npm create glasskit
 packages/mcp/              @glasskit-ui/mcp — the registry for AI agents
-registry/ui/               the 45 styled components (you own these)
+registry/ui/               the 47 styled components (you own these)
 apps/web/                  glasskit.app/ui — docs, playground, served registry (/r/*.json)
 docs/                      design spec + platform audit + release process
 ```

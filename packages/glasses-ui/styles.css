@@ -2263,3 +2263,46 @@
     animation: none;
   }
 }
+
+/* ── Wave 12 — quality pass ───────────────────────────────────────── */
+
+/* Timer — countdown readout: big tabular time + a bar draining to zero. */
+.glass-viewport .gk-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.glass-viewport .gk-timer__time {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
+}
+.glass-viewport .gk-timer__label {
+  color: var(--ink-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.glass-viewport .gk-timer__bar {
+  inline-size: 220px;
+}
+
+/* EmptyState — the nothing-here screen (quieter sibling of ErrorState). */
+.glass-viewport .gk-emptystate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+.glass-viewport .gk-emptystate__title {
+  color: var(--ink-secondary);
+}
+.glass-viewport .gk-emptystate__hint {
+  max-inline-size: 30ch;
+  color: var(--ink-tertiary);
+}
