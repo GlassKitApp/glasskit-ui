@@ -65,17 +65,16 @@ publishes go through `release.yml`.
 the registry, so the first enabled run on `main` ships the current `0.1.0`
 without needing a changeset.
 
-## Activation (owner-only, one time)
+## Activation (owner-only, one time) — DONE 2026-06-11
 
-0. ~~Claim the npm org~~ — done: the **`glasskit-ui`** org was claimed
-   2026-06 (the bare `glasskit` name and org were already taken).
+All three switches are live:
 
-Then in GitHub → Settings → Secrets and variables → Actions:
+0. ~~Claim the npm org~~ — the **`glasskit-ui`** org is claimed (the bare
+   `glasskit` name and org were already taken).
+1. ~~Variable `RELEASE_ENABLED` = `true`~~ — set.
+2. ~~Secret `NPM_TOKEN`~~ — a granular token (read/write on the
+   `@glasskit-ui` scope only, 2FA-bypass for CI, expires **2026-09-09** —
+   rotate before then: generate a new token on npmjs.com and update the
+   repo secret).
 
-1. Variable `RELEASE_ENABLED` = `true`
-2. Secret `NPM_TOKEN` — a granular automation token with publish rights for
-   the `glasskit-ui` org (Settings → Access Tokens on npmjs.com; scope it to
-   the `@glasskit-ui` packages, no 2FA prompt for automation).
-
-Both `beta.yml` and `release.yml` stay skipped until both exist. To pause all
-publishing, set `RELEASE_ENABLED` to anything other than `true`.
+To pause all publishing, set `RELEASE_ENABLED` to anything other than `true`.
