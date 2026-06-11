@@ -1,0 +1,83 @@
+name: SDK Watch
+
+# Daily diff of the Meta Display platform surfaces GlassKit depends on —
+# the wearables toolkit repo, the Web Apps docs, the FAQ, the DAT llms.txt,
+# and the glasses-OS release notes. Changes post to Discord.
+#
+# INERT until the owner adds the DISCORD_SDK_WEBHOOK secret (a Discord
+# channel webhook URL). Optional: FIRECRAWL_API_KEY for clean markdown
+# extraction of the JS-rendered docs pages (falls back to raw fetch).
+#
+# State lives on the `sdk-watch-state` branch — every day's snapshot is a
+# commit, so every change is a permanent, reviewable git diff.
+
+on:
+  schedule:
+    - cron: "0 14 * * *" # daily, ~7am PT
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: sdk-watch
+
+jobs:
+  watch:
+    if: github.repository == 'GlassKitApp/glasskit-ui'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check webhook configured
+        id: gate
+        env:
+          HOOK: ${{ secrets.DISCORD_SDK_WEBHOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "DISCORD_SDK_WEBHOOK not set — watcher inert."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Node
+        if: steps.gate.outputs.ready == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Checkout state branch
+        if: steps.gate.outputs.ready == 'true'
+        run: |
+          git fetch origin sdk-watch-state:sdk-watch-state 2>/dev/null || true
+          if git rev-parse --verify sdk-watch-state >/dev/null 2>&1; then
+            git worktree add .sdk-watch-state sdk-watch-state
+          else
+            git worktree add --detach .sdk-watch-state
+            cd .sdk-watch-state
+            git checkout --orphan sdk-watch-state
+            git rm -rf --quiet . 2>/dev/null || true
+          fi
+
+      - name: Run watcher
+        if: steps.gate.outputs.ready == 'true'
+        env:
+          DISCORD_SDK_WEBHOOK: ${{ secrets.DISCORD_SDK_WEBHOOK }}
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STATE_DIR: .sdk-watch-state
+        run: node scripts/sdk-watch.mjs
+
+      - name: Commit state
+        if: steps.gate.outputs.ready == 'true'
+        run: |
+          cd .sdk-watch-state
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "state unchanged"
+          else
+            git commit -m "sdk-watch: snapshot $(date -u +%Y-%m-%d)"
+            git push origin HEAD:sdk-watch-state
+          fi
