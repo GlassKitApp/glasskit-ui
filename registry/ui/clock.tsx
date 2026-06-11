@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { cn } from "../lib/utils";
 
 /**
@@ -50,20 +50,28 @@ export function Clock({
     return () => clearTimeout(timer);
   }, [live]);
 
-  const liveTime = now
-    ? new Intl.DateTimeFormat(locale, {
+  // Intl formatters are expensive to construct — build once per locale, not
+  // per minute tick.
+  const timeFormat = useMemo(
+    () =>
+      new Intl.DateTimeFormat(locale, {
         hour: "numeric",
         minute: "2-digit",
         hour12,
-      }).format(now)
-    : "--:--";
-  const liveDate = now
-    ? new Intl.DateTimeFormat(locale, {
+      }),
+    [locale, hour12],
+  );
+  const dateFormat = useMemo(
+    () =>
+      new Intl.DateTimeFormat(locale, {
         weekday: "long",
         month: "long",
         day: "numeric",
-      }).format(now)
-    : null;
+      }),
+    [locale],
+  );
+  const liveTime = now ? timeFormat.format(now) : "--:--";
+  const liveDate = now ? dateFormat.format(now) : null;
   const shownTime = live ? liveTime : time;
   const shownDate = date ?? (live ? liveDate : null);
 

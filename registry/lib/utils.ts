@@ -9,3 +9,11 @@ export type ClassValue = string | number | null | undefined | false;
 export function cn(...inputs: ClassValue[]): string {
   return inputs.filter(Boolean).join(" ");
 }
+
+/**
+ * Accessible name from a free-form `label` prop: the label itself when it's a
+ * plain string, otherwise undefined (a ReactNode can't become an aria-label).
+ */
+export function stringLabel(label: unknown): string | undefined {
+  return typeof label === "string" ? label : undefined;
+}

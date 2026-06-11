@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cn } from "../lib/utils";
+import { cn, stringLabel } from "../lib/utils";
 
 const R = 42;
 const CIRC = 2 * Math.PI * R;
@@ -34,7 +34,7 @@ export function Meter({
       aria-valuenow={clamped}
       aria-valuemin={0}
       aria-valuemax={max}
-      aria-label={typeof label === "string" ? label : undefined}
+      aria-label={stringLabel(label)}
     >
       <svg viewBox="0 0 100 100" className="gk-meter__dial">
         <circle cx="50" cy="50" r={R} className="gk-meter__track" />
