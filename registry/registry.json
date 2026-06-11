@@ -436,6 +436,25 @@
       ]
     },
     {
+      "name": "navigator",
+      "type": "registry:ui",
+      "title": "Navigator",
+      "description": "a screen stack for glasses apps (react-navigation semantics, glasses-native mechanics).",
+      "dependencies": [
+        "@glasskit/glasses-ui@^0.1.0"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/navigator.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/navigator.tsx"
+        }
+      ]
+    },
+    {
       "name": "notification-card",
       "type": "registry:ui",
       "title": "NotificationCard",

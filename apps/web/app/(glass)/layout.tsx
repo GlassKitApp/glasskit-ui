@@ -9,12 +9,20 @@ import "../globals.css";
  */
 export const metadata: Metadata = {
   title: "GlassKit live preview",
+  description:
+    "A GlassKit UI component running as a Meta Ray-Ban Display web app.",
   // Chrome-free duplicates of docs content — keep them out of search.
   robots: { index: false, follow: false },
+  // Identifies the page as a Display-compatible web app to the glasses
+  // runtime (per Meta's wearables webapp toolkit; keep content="yes").
+  other: { "mrbd-web-app-capable": "yes" },
 };
 
+// Meta's required web-app viewport: the Display webview is a fixed 600×600 —
+// not device-width (wearables.developer.meta.com/docs/develop/webapps/build).
 export const viewport: Viewport = {
-  width: "device-width",
+  width: "600",
+  height: "600",
   initialScale: 1,
   userScalable: false,
   themeColor: "#000000",

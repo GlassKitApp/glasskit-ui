@@ -12,6 +12,13 @@ import { Progress } from "./progress";
  * wrap). Pass `index` to control paging yourself — a controlled Deck never
  * self-advances; swipes surface through `onIndexChange` instead.
  * One nav model per screen: pages advance on pinch / D-pad, never scroll.
+ *
+ * Platform note (2026-06): the Display delivers web apps only arrow/Enter
+ * keys + history-back — it does not (yet) dispatch custom gesture events, so
+ * the `neuralband` CustomEvent is a forward-compat seam you (or a future OS)
+ * dispatch. For paging that works on-device today, drive `index` from a
+ * focusable control (Button, Stepper) or your own ArrowLeft/ArrowRight
+ * handling.
  */
 export function Deck({
   index,

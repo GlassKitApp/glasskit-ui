@@ -950,6 +950,47 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
 <Deck index={step} onIndexChange={setStep}>…</Deck>`,
   },
   {
+    slug: "navigator",
+    name: "Navigator",
+    category: "Navigation",
+    summary:
+      "A screen stack with system-back integration. Every push adds a real history entry, so the Display's back gesture (middle pinch, OS v125.1+) pops it via popstate; Escape does the same in desktop dev. useBackHandler lets overlays consume back.",
+    // Static stand-in: the live stack (with real history pushes) runs in the
+    // interactive demo and the /preview glass app.
+    preview: (
+      <Screen cue={<Cue>Middle pinch goes back</Cue>}>
+        <Heading eyebrow="Navigator">Workout</Heading>
+        <List>
+          <ListRow>Start a run</ListRow>
+          <ListRow>Start a ride</ListRow>
+          <ListRow>History</ListRow>
+        </List>
+      </Screen>
+    ),
+    props: [
+      {
+        name: "screens",
+        type: "Record<string, (params?) => ReactNode>",
+        desc: "Screen renderers by name; receive the push params.",
+      },
+      { name: "initial", type: "string", desc: "Root screen name." },
+      { name: "initialParams", type: "unknown", desc: "Params for the root." },
+    ],
+    usage: `const nav = useNavigator(); // inside a screen
+nav.push("detail", { id }); nav.pop(); nav.popToTop(); nav.replace("done");
+
+<Navigator
+  initial="home"
+  screens={{
+    home: () => <Home />,
+    detail: (params) => <Detail {...params} />,
+  }}
+/>
+
+// overlays intercept the back gesture:
+useBackHandler(() => { if (open) { setOpen(false); return true; } return false; });`,
+  },
+  {
     slug: "quick-reply-chips",
     name: "QuickReplyChips",
     category: "Action",
