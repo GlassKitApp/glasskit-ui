@@ -129,6 +129,62 @@ jobs:
             if (kb > 500) { console.error("scaffold exceeds the device budget"); process.exit(1); }
           '
 
+  # "The look broke" detector: screenshot-diffs every /preview/<slug> glass
+  # app, LTR + RTL, against CI-generated baselines. Skips itself until the
+  # baselines exist (bootstrap/refresh: dispatch the visual-baselines
+  # workflow — never --update-snapshots from a Mac).
+  visual:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for baselines
+        id: baselines
+        run: |
+          if [ -d apps/web/e2e/__screenshots__ ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No baselines yet — dispatch the visual-baselines workflow to bootstrap."
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup pnpm
+        if: steps.baselines.outputs.present == 'true'
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        if: steps.baselines.outputs.present == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        if: steps.baselines.outputs.present == 'true'
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        if: steps.baselines.outputs.present == 'true'
+        run: pnpm --filter @glasskit-ui/react build && pnpm --filter @glasskit-ui/web build
+
+      - name: Install Playwright browser
+        if: steps.baselines.outputs.present == 'true'
+        working-directory: apps/web
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Visual regression
+        if: steps.baselines.outputs.present == 'true'
+        working-directory: apps/web
+        run: pnpm exec playwright test
+
+      - name: Upload diff report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-diff-report
+          path: apps/web/test-results
+          retention-days: 7
+
   # Releases can't silently skip: changes to the published package must carry
   # a changeset (or the PR must opt out with the `no-changeset-needed` label).
   changeset-guard:
