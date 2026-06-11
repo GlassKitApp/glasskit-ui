@@ -4,7 +4,9 @@ import { TypeTable } from "fumadocs-ui/components/type-table";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import { LensStage } from "@/components/lens/lens-stage";
 import { DevicePreview } from "@/components/device-preview";
+import { DpadProvider } from "@/components/lens/dpad-provider";
 import { getComponentDoc } from "@/lib/component-docs";
+import { getGlassDemo } from "@/lib/glass-demos";
 import { getComponentFiles } from "@/lib/registry-files";
 import { qrSvg } from "@/lib/qr";
 import { mrbdDeepLink } from "@/lib/meta-deeplink";
@@ -45,7 +47,9 @@ export async function ComponentDoc({ slug }: { slug: string }) {
             />
           }
         >
-          <GlassViewport>{doc.preview}</GlassViewport>
+          <DpadProvider>
+            <GlassViewport>{getGlassDemo(slug) ?? doc.preview}</GlassViewport>
+          </DpadProvider>
         </LensStage>
       </div>
 
