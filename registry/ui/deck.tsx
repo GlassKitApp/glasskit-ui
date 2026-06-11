@@ -1,7 +1,7 @@
 "use client";
 
 import { Children, useEffect, useRef, useState, type ReactNode } from "react";
-import { useNeuralBand } from "@glasskit-ui/react";
+import { seedFocus, useNeuralBand } from "@glasskit-ui/react";
 import { cn } from "../lib/utils";
 import { Progress } from "./progress";
 
@@ -64,6 +64,19 @@ export function Deck({
     if (!controlled) setInternal(next);
     onIndexChange?.(next);
   }, [gesture]);
+
+  // If the focused element lived inside the outgoing page it unmounts on
+  // advance, stranding focus on <body> — reseed the D-pad ring. Only when
+  // orphaned: a focus that survived (e.g. an external Next button) keeps it.
+  const mounted = useRef(false);
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+      return;
+    }
+    const active = document.activeElement;
+    if (!active || active === document.body) seedFocus();
+  }, [current]);
 
   return (
     <div className={cn("gk-deck", className)}>

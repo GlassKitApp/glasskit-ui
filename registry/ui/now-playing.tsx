@@ -6,6 +6,12 @@ import { cn } from "../lib/utils";
  * scrub bar, and elapsed / remaining times. The art is a node you pass (an
  * <img>, or a gradient tile for podcasts/radio). `progress` is 0–100. Pure
  * display; wire transport controls with <Button>s in `controls`. RTL-safe.
+ *
+ * Platform note (2026-06): Meta has not documented `<audio>` / Web Audio
+ * support for Display web apps, and the glasses' own media player owns the
+ * speakers. Treat this as a status display for playback your app tracks
+ * (e.g. a server-side or phone session) — verify on-device before shipping
+ * an app that plays audio in the webview.
  */
 export function NowPlaying({
   art,

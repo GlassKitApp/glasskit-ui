@@ -20,6 +20,8 @@ import { Meter } from "@registry/ui/meter";
 import { StatGrid } from "@registry/ui/stat-grid";
 import { Toast } from "@registry/ui/toast";
 import { ErrorState } from "@registry/ui/error-state";
+import { EmptyState } from "@registry/ui/empty-state";
+import { Timer } from "@registry/ui/timer";
 import { Heading } from "@registry/ui/heading";
 import { Launcher } from "@registry/ui/launcher";
 import { Deck } from "@registry/ui/deck";
@@ -504,7 +506,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Reticle",
     category: "Spatial",
     summary:
-      "An aim-to-select target: four corner brackets framing the gaze center. Set active while dwelling on a hittable target to brighten it.",
+      "An aim-to-select target: four corner brackets framing the center of the lens. No gaze API exists for web apps — active is app-driven state (e.g. a projected point entering the center region).",
     preview: (
       <Screen>
         <Reticle active label="Aim at a sign" />
@@ -837,6 +839,61 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
 />`,
   },
   {
+    slug: "empty-state",
+    name: "EmptyState",
+    category: "Status",
+    summary:
+      "The nothing-here screen: optional glyph + title + hint + one action. The quiet sibling of ErrorState — nothing failed, there's just no content yet. Pairs with AsyncView's placeholder slot.",
+    preview: (
+      <Screen>
+        <EmptyState
+          icon={
+            <GlowIcon size="lg" plate label="Messages">
+              <MessageGlyph />
+            </GlowIcon>
+          }
+          title="No messages"
+          hint="New conversations land here."
+        />
+      </Screen>
+    ),
+    props: [
+      {
+        name: "title",
+        type: "ReactNode",
+        default: '"Nothing here yet"',
+        desc: "The headline.",
+      },
+      {
+        name: "hint",
+        type: "ReactNode",
+        desc: "A quieter second line — what will fill this screen, or how.",
+      },
+      { name: "icon", type: "ReactNode", desc: "Optional leading glyph." },
+      {
+        name: "onAction",
+        type: "() => void",
+        desc: "Shows an action button when set.",
+      },
+      {
+        name: "actionLabel",
+        type: "ReactNode",
+        default: '"Refresh"',
+        desc: "Action button label.",
+      },
+    ],
+    usage: `<EmptyState
+  title="No messages"
+  hint="New conversations land here."
+  onAction={refetch}
+/>
+
+// as AsyncView's placeholder
+<AsyncView status={status} placeholder={<EmptyState title="No workouts" />}>
+  {data}
+</AsyncView>`,
+  },
+  {
     slug: "heading",
     name: "Heading",
     category: "Display",
@@ -1020,7 +1077,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
     name: "Pin",
     category: "Spatial",
     summary:
-      "A world-anchored waypoint marker (ring + dot, name + distance above) placed at a projected screen point. World-anchored: positioned by an SVG transform attribute and never mirrored under RTL.",
+      "A world-anchored waypoint marker (ring + dot, name + distance above) placed at a projected screen point. You project: derive x from the target's relative bearing (lib/geo) — the platform gives heading + GPS, not 3D pose. Never mirrored under RTL.",
     preview: <Pin x={50} y={48} label="Blue Bottle" distance="120 m" />,
     props: [
       {
@@ -1039,7 +1096,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
     name: "Callout",
     category: "Spatial",
     summary:
-      "A world-object annotation: an anchor + a vertical leader up to an emitted label (no box — just a leader line + emitted type). World-anchored, never mirrored.",
+      "A world-object annotation: an anchor + a vertical leader up to an emitted label (no box — just a leader line + emitted type). Project x from relative bearing like Pin (lib/geo). World-anchored, never mirrored.",
     preview: <Callout x={50} y={56} label="Powell St" detail="Muni · 3 min" />,
     props: [
       { name: "x / y", type: "number", desc: "0–100, % of the lens." },
@@ -1126,7 +1183,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
     name: "NowPlaying",
     category: "Media",
     summary:
-      "A media now-playing card: album art, title + artist, a scrub bar, and elapsed / remaining times. Pass transport controls for play/skip.",
+      "A media now-playing card: album art, title + artist, a scrub bar, and elapsed / remaining times. A status display for playback your app tracks — audio support in the Display webview is undocumented; verify on-device.",
     preview: (
       <Screen>
         <NowPlaying
@@ -1400,7 +1457,7 @@ toast("Mara Lin", {
     name: "Viewfinder",
     category: "Capture",
     summary:
-      "The camera POV frame: bold corner brackets framing the shot, with optional zoom and REC badges. The lens shows the real world inside; overlay a focus reticle via children.",
+      "Camera-POV chrome: bold corner brackets, optional zoom and REC badges. Web apps have no camera access — this is presentation scaffolding for a camera-style UI; recording is app state you set.",
     preview: (
       <Screen>
         <Viewfinder zoom="1×" recording />
@@ -1541,6 +1598,56 @@ toast("Mara Lin", {
 <Clock time="9:41" date="Tuesday, June 9" />`,
   },
   {
+    slug: "timer",
+    name: "Timer",
+    category: "Display",
+    summary:
+      "A countdown readout: big tabular m:ss, an optional label, and a bar draining toward zero. Self-ticking (end-time anchored, no drift) with pause/resume via running; pass remaining to control it yourself.",
+    preview: (
+      <Screen>
+        <Timer remaining={154} duration={300} label="Pasta" />
+      </Screen>
+    ),
+    props: [
+      {
+        name: "duration",
+        type: "number",
+        desc: "Total seconds. Drives self-ticking and the drain bar's scale.",
+      },
+      {
+        name: "remaining",
+        type: "number",
+        desc: "Controlled seconds left. Omit to self-tick from duration.",
+      },
+      {
+        name: "running",
+        type: "boolean",
+        default: "true",
+        desc: "Pause/resume the self-ticking countdown.",
+      },
+      { name: "label", type: "ReactNode", desc: "Caption under the time." },
+      {
+        name: "showBar",
+        type: "boolean",
+        default: "true",
+        desc: "Hide the drain bar (it needs duration for its scale).",
+      },
+      {
+        name: "onComplete",
+        type: "() => void",
+        desc: "Fires once when a self-ticking countdown reaches zero.",
+      },
+    ],
+    usage: `// self-ticking 5-minute countdown
+<Timer duration={300} label="Pasta" onComplete={notify} />
+
+// paused / resumed from app state
+<Timer duration={300} running={running} />
+
+// or controlled — you own the clock
+<Timer remaining={secondsLeft} duration={300} />`,
+  },
+  {
     slug: "weather-tile",
     name: "WeatherTile",
     category: "Display",
@@ -1634,7 +1741,7 @@ toast("Mara Lin", {
     name: "TextField",
     category: "Input",
     summary:
-      "A text-entry surface. No keyboard on the lens — this is a focusable field showing the value (or placeholder) + a mic affordance; activating it opens dictation / Neural-Band handwriting.",
+      "A text-entry surface. No keyboard (or microphone API) on the lens — a focusable field showing the value + a mic-style affordance; onActivate opens your own capture flow (picker UI, phone relay).",
     preview: (
       <Screen>
         <TextField
