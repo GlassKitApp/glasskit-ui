@@ -1,0 +1,28 @@
+name: Feature request
+description: A component, hook, or capability GlassKit UI should have
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you building, and what's missing?
+      description: >
+        The use case matters more than the API. What screen are you trying
+        to put on the glasses?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed shape (optional)
+      description: API sketch, similar prior art, or a mock.
+      render: tsx
+  - type: checkboxes
+    id: platform
+    attributes:
+      label: Platform reality check
+      options:
+        - label: >
+            I've checked docs/platform-audit-2026-06.md — the Display's
+            runtime actually supports what this needs (e.g. camera/mic/WebXR
+            are not available to web apps yet).
