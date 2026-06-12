@@ -1,6 +1,7 @@
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
 import { ComponentDoc } from "@/components/component-doc";
+import { ExampleDoc } from "@/components/example-doc";
 
 /**
  * MDX component registry for content/docs/*.mdx. `defaultMdxComponents` supplies
@@ -12,6 +13,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     ...defaultMdxComponents,
     ComponentDoc,
+    ExampleDoc,
     ...components,
   };
 }
