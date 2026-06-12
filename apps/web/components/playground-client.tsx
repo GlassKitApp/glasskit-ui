@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { useCopyToClipboard } from "@/lib/use-copy-to-clipboard";
 import { LensStage } from "@/components/lens/lens-stage";
@@ -13,6 +13,7 @@ import { SettingsDemo } from "@/components/lens/settings-demo";
 import { StatsDemo } from "@/components/lens/stats-demo";
 import { LauncherDemo } from "@/components/lens/launcher-demo";
 import { ExploreDemo } from "@/components/lens/explore-demo";
+import { deriveRamp, rampCss } from "@/lib/theme-ramp";
 
 type Demo = {
   id: string;
@@ -233,20 +234,62 @@ const ACCENTS = [
       glow: "rgba(85, 93, 104, 0.6)",
     },
   },
+
+  { id: "custom", label: "Custom", cls: "", sw: "", ramp: null },
 ];
+
+const RAMP_TOKENS = [
+  "--accent-active",
+  "--accent",
+  "--accent-muted",
+  "--accent-faint",
+  "--accent-grad-hi",
+  "--accent-grad-lo",
+  "--accent-glow",
+  "--color-accent",
+] as const;
 
 export function PlaygroundClient() {
   const [demoId, setDemoId] = useState(DEMOS[0]!.id);
   const [accentId, setAccentId] = useState(ACCENTS[0]!.id);
+  const [customHex, setCustomHex] = useState("#4cd9a6");
+  const stage = useRef<HTMLDivElement>(null);
 
   const demo = DEMOS.find((d) => d.id === demoId)!;
   const accent = ACCENTS.find((a) => a.id === accentId)!;
+  const customRamp = useMemo(() => deriveRamp(customHex), [customHex]);
+
+  // "Custom" derives the whole ramp from one hex and applies it straight on
+  // the lens element (inline style beats the stylesheet defaults declared on
+  // .glass-viewport itself — the same reason presets target
+  // `.accent-x .glass-viewport`). Imperative setProperty, the sanctioned
+  // exception to the no-inline-CSS rule. Presets clear it.
+  useEffect(() => {
+    const lens = stage.current?.querySelector<HTMLElement>(".glass-viewport");
+    if (!lens) return;
+    if (accentId === "custom") {
+      const r = customRamp;
+      const values = [
+        r.active,
+        r.accent,
+        r.muted,
+        r.faint,
+        r.gradHi,
+        r.gradLo,
+        r.glow,
+        r.accent,
+      ];
+      RAMP_TOKENS.forEach((t, i) => lens.style.setProperty(t, values[i]!));
+    } else {
+      RAMP_TOKENS.forEach((t) => lens.style.removeProperty(t));
+    }
+  }, [accentId, customRamp, demoId]);
 
   return (
     <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-[1fr_minmax(0,28rem)]">
       {/* Preview + controls */}
       <div className="flex flex-col gap-5">
-        <div className={accent.cls}>
+        <div ref={stage} className={accent.cls}>
           <DpadProvider key={demo.id}>
             <LensStage caption={demo.caption}>{demo.node}</LensStage>
           </DpadProvider>
@@ -291,16 +334,38 @@ export function PlaygroundClient() {
                     : "border-line-2 text-ink-2 hover:text-ink",
                 )}
               >
-                <span className={cn("h-3 w-3 rounded-full", a.sw)} />
+                {a.id === "custom" ? (
+                  <span
+                    className="h-3 w-3 rounded-full"
+                    ref={(el) => el?.style.setProperty("background", customHex)}
+                  />
+                ) : (
+                  <span className={cn("h-3 w-3 rounded-full", a.sw)} />
+                )}
                 {a.label}
               </button>
             ))}
+            {accentId === "custom" ? (
+              <input
+                type="color"
+                aria-label="Custom accent color"
+                value={customHex}
+                onChange={(e) => setCustomHex(e.target.value)}
+                className="h-8 w-10 cursor-pointer border border-line-2 bg-transparent p-0.5"
+              />
+            ) : null}
           </div>
+          {accentId === "custom" ? (
+            <p className="text-[13px] text-ink-3">
+              One hex in — the full 7-token ramp out (OKLab lightness steps,
+              chroma falls off toward the dark end).
+            </p>
+          ) : null}
         </div>
       </div>
 
       {/* Code panel */}
-      <CodePanel code={demo.code} accent={accent} />
+      <CodePanel code={demo.code} accent={accent} customRamp={customRamp} />
     </div>
   );
 }
@@ -308,13 +373,18 @@ export function PlaygroundClient() {
 function CodePanel({
   code,
   accent,
+  customRamp,
 }: {
   code: string;
   accent: (typeof ACCENTS)[number];
+  customRamp: ReturnType<typeof deriveRamp>;
 }) {
-  const override = !accent.ramp
-    ? "/* default — blue */"
-    : `.glass-viewport {
+  const override =
+    accent.id === "custom"
+      ? rampCss(customRamp)
+      : !accent.ramp
+        ? "/* default — blue */"
+        : `.glass-viewport {
   --accent-active: ${accent.ramp.active};
   --accent: ${accent.ramp.accent};
   --accent-muted: ${accent.ramp.muted};
