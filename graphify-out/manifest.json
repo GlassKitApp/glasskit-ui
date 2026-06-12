@@ -425,7 +425,7 @@
     "semantic_hash": ""
   },
   "packages/glasses-ui/src/hooks/index.ts": {
-    "mtime": 1781288023.5426714,
+    "mtime": 1781288208.7920632,
     "ast_hash": "aed3dc42000beab4ca3a5d00182a9388",
     "semantic_hash": ""
   },
@@ -505,7 +505,7 @@
     "semantic_hash": ""
   },
   "registry/registry.json": {
-    "mtime": 1781288047.6963508,
+    "mtime": 1781288523.1843667,
     "ast_hash": "2c31e2edc333f308d2026421890841dc",
     "semantic_hash": ""
   },
@@ -1025,8 +1025,8 @@
     "semantic_hash": ""
   },
   "apps/web/public/llms.txt": {
-    "mtime": 1781288047.702676,
-    "ast_hash": "0f5944959ad5f22ebe632bcb723bbed1",
+    "mtime": 1781288523.190641,
+    "ast_hash": "10f3383b4a33b0ecbe720dbe13eb721c",
     "semantic_hash": ""
   },
   "docs/RELEASING.md": {
@@ -1045,7 +1045,7 @@
     "semantic_hash": ""
   },
   "packages/glasses-ui/README.md": {
-    "mtime": 1781288023.5429232,
+    "mtime": 1781288208.7918315,
     "ast_hash": "ad46081d24c04e46b0efefad4ca6efe1",
     "semantic_hash": ""
   },
@@ -1690,8 +1690,8 @@
     "semantic_hash": ""
   },
   "apps/web/llms-template.md": {
-    "mtime": 1781199466.1429913,
-    "ast_hash": "11924aaf5dd1abf71809b267f009c481",
+    "mtime": 1781288507.1787152,
+    "ast_hash": "6f7cea84144f54abfb4e2ef8e0356071",
     "semantic_hash": ""
   },
   "apps/web/e2e/__screenshots__/empty-state-ltr.png": {
@@ -1715,8 +1715,8 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/wishlist.mdx": {
-    "mtime": 1781288043.1671684,
-    "ast_hash": "d9fef4559b9e0c32369e93e03c61f049",
+    "mtime": 1781288520.4662356,
+    "ast_hash": "1c98f8d0bed0a59f7ccb00ed689ca3c5",
     "semantic_hash": ""
   },
   ".changeset/focus-engine-v2.md": {
@@ -1755,18 +1755,23 @@
     "semantic_hash": ""
   },
   "apps/web/__tests__/registry/feedback.test.ts": {
-    "mtime": 1781288040.609405,
+    "mtime": 1781288208.7883563,
     "ast_hash": "d61e7bdc6887b40e4543fc0c0582624d",
     "semantic_hash": ""
   },
   "packages/glasses-ui/src/hooks/feedback.ts": {
-    "mtime": 1781288005.197409,
+    "mtime": 1781288208.7919502,
     "ast_hash": "955dd19d3846f940859412d4542478ac",
     "semantic_hash": ""
   },
   ".changeset/use-feedback.md": {
-    "mtime": 1781288023.5468843,
+    "mtime": 1781288208.7882137,
     "ast_hash": "cd0844b484b5ddaf6d30123809545607",
+    "semantic_hash": ""
+  },
+  ".changeset/toast-status-surface.md": {
+    "mtime": 1781288602.63563,
+    "ast_hash": "f4796b89ffbe12febbe8397e44f8466d",
     "semantic_hash": ""
   }
 }
