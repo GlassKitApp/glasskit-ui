@@ -6,14 +6,14 @@ import { StatusDot } from "@registry/ui/status-dot";
 import { Pin } from "@registry/ui/pin";
 import { Callout } from "@registry/ui/callout";
 
-/** An AR scene — world-anchored Pin + Callout markers over a gaze Reticle. */
+/** An AR scene — world-anchored Pin + Callout markers around a center Reticle. */
 export function ExploreDemo() {
   return (
     <GlassViewport>
       <Screen
         cue={
           <Cue icon={<StatusDot tone="live" label="AR" />}>
-            Look at a pin to select
+            Center a pin to select
           </Cue>
         }
       >

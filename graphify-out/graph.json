@@ -817,7 +817,7 @@
       "label": "VALUES",
       "file_type": "code",
       "source_file": "apps/web/app/(web)/page.tsx",
-      "source_location": "L18",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "web_page_values",
       "community": 56,
@@ -827,7 +827,7 @@
       "label": "Home()",
       "file_type": "code",
       "source_file": "apps/web/app/(web)/page.tsx",
-      "source_location": "L36",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "web_page_home",
       "community": 28,
@@ -1737,7 +1737,7 @@
       "label": "ACCENTS",
       "file_type": "code",
       "source_file": "apps/web/components/playground-client.tsx",
-      "source_location": "L171",
+      "source_location": "L174",
       "_origin": "ast",
       "id": "components_playground_client_accents",
       "community": 50,
@@ -1747,7 +1747,7 @@
       "label": "PlaygroundClient()",
       "file_type": "code",
       "source_file": "apps/web/components/playground-client.tsx",
-      "source_location": "L179",
+      "source_location": "L226",
       "_origin": "ast",
       "id": "components_playground_client_playgroundclient",
       "community": 50,
@@ -1757,7 +1757,7 @@
       "label": "CodePanel()",
       "file_type": "code",
       "source_file": "apps/web/components/playground-client.tsx",
-      "source_location": "L249",
+      "source_location": "L296",
       "_origin": "ast",
       "id": "components_playground_client_codepanel",
       "community": 50,
@@ -1767,7 +1767,7 @@
       "label": "CopyButton()",
       "file_type": "code",
       "source_file": "apps/web/components/playground-client.tsx",
-      "source_location": "L277",
+      "source_location": "L328",
       "_origin": "ast",
       "id": "components_playground_client_copybutton",
       "community": 56,
@@ -6967,7 +6967,7 @@
       "label": "Toaster()",
       "file_type": "code",
       "source_file": "registry/ui/toaster.tsx",
-      "source_location": "L21",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "ui_toaster_toaster",
       "community": 82,
@@ -13990,9 +13990,9 @@
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test",
-      "target": "hooks_dpad_seedfocus",
-      "confidence_score": 1.0
+      "target": "hooks_dpad_seedfocus"
     },
     {
       "relation": "imports",
@@ -14001,9 +14001,9 @@
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test",
-      "target": "hooks_dpad_usedpad",
-      "confidence_score": 1.0
+      "target": "hooks_dpad_usedpad"
     },
     {
       "relation": "contains",
@@ -14011,9 +14011,9 @@
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test",
-      "target": "registry_dpad_behavior_test_harness",
-      "confidence_score": 1.0
+      "target": "registry_dpad_behavior_test_harness"
     },
     {
       "relation": "contains",
@@ -14021,9 +14021,9 @@
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test",
-      "target": "registry_dpad_behavior_test_renderscene",
-      "confidence_score": 1.0
+      "target": "registry_dpad_behavior_test_renderscene"
     },
     {
       "relation": "contains",
@@ -14031,9 +14031,9 @@
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test",
-      "target": "registry_dpad_behavior_test_setrect",
-      "confidence_score": 1.0
+      "target": "registry_dpad_behavior_test_setrect"
     },
     {
       "relation": "calls",
@@ -14042,9 +14042,9 @@
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test_renderscene",
-      "target": "registry_dpad_behavior_test_setrect",
-      "confidence_score": 1.0
+      "target": "registry_dpad_behavior_test_setrect"
     },
     {
       "relation": "calls",
@@ -14768,9 +14768,9 @@
       "source_file": "apps/web/__tests__/registry/timer.test.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_timer_test",
-      "target": "registry_timer_test_time",
-      "confidence_score": 1.0
+      "target": "registry_timer_test_time"
     },
     {
       "relation": "imports_from",
@@ -14779,9 +14779,9 @@
       "source_file": "apps/web/__tests__/registry/timer.test.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_timer_test",
-      "target": "ui_empty_state",
-      "confidence_score": 1.0
+      "target": "ui_empty_state"
     },
     {
       "relation": "imports",
@@ -14790,9 +14790,9 @@
       "source_file": "apps/web/__tests__/registry/timer.test.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_timer_test",
-      "target": "ui_empty_state_emptystate",
-      "confidence_score": 1.0
+      "target": "ui_empty_state_emptystate"
     },
     {
       "relation": "imports_from",
@@ -14801,9 +14801,9 @@
       "source_file": "apps/web/__tests__/registry/timer.test.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_timer_test",
-      "target": "ui_timer",
-      "confidence_score": 1.0
+      "target": "ui_timer"
     },
     {
       "relation": "imports",
@@ -14812,9 +14812,9 @@
       "source_file": "apps/web/__tests__/registry/timer.test.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_timer_test",
-      "target": "ui_timer_timer",
-      "confidence_score": 1.0
+      "target": "ui_timer_timer"
     },
     {
       "relation": "imports_from",
@@ -16773,9 +16773,9 @@
       "source_file": "apps/web/components/glass-demos/demos.tsx",
       "source_location": "L777",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "glass_demos_demos",
-      "target": "glass_demos_demos_emptystatedemo",
-      "confidence_score": 1.0
+      "target": "glass_demos_demos_emptystatedemo"
     },
     {
       "relation": "contains",
@@ -16963,9 +16963,9 @@
       "source_file": "apps/web/components/glass-demos/demos.tsx",
       "source_location": "L740",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "glass_demos_demos",
-      "target": "glass_demos_demos_timerdemo",
-      "confidence_score": 1.0
+      "target": "glass_demos_demos_timerdemo"
     },
     {
       "relation": "contains",
@@ -17300,9 +17300,9 @@
       "source_file": "apps/web/components/glass-demos/demos.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "glass_demos_demos",
-      "target": "ui_empty_state",
-      "confidence_score": 1.0
+      "target": "ui_empty_state"
     },
     {
       "relation": "imports",
@@ -17311,9 +17311,9 @@
       "source_file": "apps/web/components/glass-demos/demos.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "glass_demos_demos",
-      "target": "ui_empty_state_emptystate",
-      "confidence_score": 1.0
+      "target": "ui_empty_state_emptystate"
     },
     {
       "relation": "imports_from",
@@ -17740,9 +17740,9 @@
       "source_file": "apps/web/components/glass-demos/demos.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "glass_demos_demos",
-      "target": "ui_timer",
-      "confidence_score": 1.0
+      "target": "ui_timer"
     },
     {
       "relation": "imports",
@@ -17751,9 +17751,9 @@
       "source_file": "apps/web/components/glass-demos/demos.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "glass_demos_demos",
-      "target": "ui_timer_timer",
-      "confidence_score": 1.0
+      "target": "ui_timer_timer"
     },
     {
       "relation": "imports_from",
@@ -18191,9 +18191,9 @@
       "source_file": "apps/web/lib/glass-demos.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_glass_demos",
-      "target": "glass_demos_demos_timerdemo",
-      "confidence_score": 1.0
+      "target": "glass_demos_demos_timerdemo"
     },
     {
       "relation": "imports",
@@ -18202,9 +18202,9 @@
       "source_file": "apps/web/lib/glass-demos.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_glass_demos",
-      "target": "glass_demos_demos_emptystatedemo",
-      "confidence_score": 1.0
+      "target": "glass_demos_demos_emptystatedemo"
     },
     {
       "relation": "contains",
@@ -21202,9 +21202,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_component_docs",
-      "target": "ui_empty_state",
-      "confidence_score": 1.0
+      "target": "ui_empty_state"
     },
     {
       "relation": "imports",
@@ -21213,9 +21213,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_component_docs",
-      "target": "ui_empty_state_emptystate",
-      "confidence_score": 1.0
+      "target": "ui_empty_state_emptystate"
     },
     {
       "relation": "imports_from",
@@ -21763,9 +21763,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_component_docs",
-      "target": "ui_timer",
-      "confidence_score": 1.0
+      "target": "ui_timer"
     },
     {
       "relation": "imports",
@@ -21774,9 +21774,9 @@
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_component_docs",
-      "target": "ui_timer_timer",
-      "confidence_score": 1.0
+      "target": "ui_timer_timer"
     },
     {
       "relation": "imports_from",
@@ -25681,9 +25681,9 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_dpad",
-      "target": "hooks_dpad_rangeownskey",
-      "confidence_score": 1.0
+      "target": "hooks_dpad_rangeownskey"
     },
     {
       "relation": "contains",
@@ -27472,9 +27472,9 @@
       "source_file": "registry/ui/timer.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_timer",
-      "target": "lib_utils_stringlabel",
-      "confidence_score": 1.0
+      "target": "lib_utils_stringlabel"
     },
     {
       "relation": "calls",
@@ -27889,9 +27889,9 @@
       "source_file": "registry/ui/empty-state.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_empty_state",
-      "target": "ui_button",
-      "confidence_score": 1.0
+      "target": "ui_button"
     },
     {
       "relation": "imports_from",
@@ -27987,9 +27987,9 @@
       "source_file": "registry/ui/empty-state.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_empty_state",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "imports",
@@ -28709,9 +28709,9 @@
       "source_file": "registry/ui/empty-state.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_empty_state",
-      "target": "lib_utils_cn",
-      "confidence_score": 1.0
+      "target": "lib_utils_cn"
     },
     {
       "relation": "contains",
@@ -28719,9 +28719,9 @@
       "source_file": "registry/ui/empty-state.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_empty_state",
-      "target": "ui_empty_state_emptystate",
-      "confidence_score": 1.0
+      "target": "ui_empty_state_emptystate"
     },
     {
       "relation": "imports",
@@ -29623,9 +29623,9 @@
       "source_file": "registry/ui/timer.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_timer",
-      "target": "ui_progress",
-      "confidence_score": 1.0
+      "target": "ui_progress"
     },
     {
       "relation": "imports",
@@ -29688,9 +29688,9 @@
       "source_file": "registry/ui/timer.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_timer",
-      "target": "ui_progress_progress",
-      "confidence_score": 1.0
+      "target": "ui_progress_progress"
     },
     {
       "relation": "imports",
@@ -30496,9 +30496,9 @@
       "source_file": "registry/ui/timer.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_timer",
-      "target": "lib_utils_cn",
-      "confidence_score": 1.0
+      "target": "lib_utils_cn"
     },
     {
       "relation": "contains",
@@ -30506,9 +30506,9 @@
       "source_file": "registry/ui/timer.tsx",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_timer",
-      "target": "ui_timer_formatseconds",
-      "confidence_score": 1.0
+      "target": "ui_timer_formatseconds"
     },
     {
       "relation": "contains",
@@ -30516,9 +30516,9 @@
       "source_file": "registry/ui/timer.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_timer",
-      "target": "ui_timer_timer",
-      "confidence_score": 1.0
+      "target": "ui_timer_timer"
     },
     {
       "relation": "calls",
@@ -30527,9 +30527,9 @@
       "source_file": "registry/ui/timer.tsx",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_timer_timer",
-      "target": "ui_timer_formatseconds",
-      "confidence_score": 1.0
+      "target": "ui_timer_formatseconds"
     },
     {
       "relation": "imports",
@@ -30758,9 +30758,9 @@
       "source_file": "scripts/build-registry.mjs",
       "source_location": "L166",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_build_registry",
-      "target": "scripts_build_registry_componentlines",
-      "confidence_score": 1.0
+      "target": "scripts_build_registry_componentlines"
     },
     {
       "relation": "contains",
@@ -30808,9 +30808,9 @@
       "source_file": "scripts/build-registry.mjs",
       "source_location": "L169",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_build_registry",
-      "target": "scripts_build_registry_llms",
-      "confidence_score": 1.0
+      "target": "scripts_build_registry_llms"
     },
     {
       "relation": "contains",
@@ -30868,9 +30868,9 @@
       "source_file": "scripts/build-registry.mjs",
       "source_location": "L165",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_build_registry",
-      "target": "scripts_build_registry_ui",
-      "confidence_score": 1.0
+      "target": "scripts_build_registry_ui"
     },
     {
       "relation": "contains",
@@ -31039,9 +31039,9 @@
       "source_file": "scripts/sdk-watch.mjs",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sdk_watch",
-      "target": "scripts_sdk_watch_fetchmarkdown",
-      "confidence_score": 1.0
+      "target": "scripts_sdk_watch_fetchmarkdown"
     },
     {
       "relation": "contains",
@@ -31049,9 +31049,9 @@
       "source_file": "scripts/sdk-watch.mjs",
       "source_location": "L152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sdk_watch",
-      "target": "scripts_sdk_watch_findings",
-      "confidence_score": 1.0
+      "target": "scripts_sdk_watch_findings"
     },
     {
       "relation": "contains",
@@ -31059,9 +31059,9 @@
       "source_file": "scripts/sdk-watch.mjs",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sdk_watch",
-      "target": "scripts_sdk_watch_firecrawl",
-      "confidence_score": 1.0
+      "target": "scripts_sdk_watch_firecrawl"
     },
     {
       "relation": "contains",
@@ -31069,9 +31069,9 @@
       "source_file": "scripts/sdk-watch.mjs",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sdk_watch",
-      "target": "scripts_sdk_watch_gh",
-      "confidence_score": 1.0
+      "target": "scripts_sdk_watch_gh"
     },
     {
       "relation": "contains",
@@ -31079,9 +31079,9 @@
       "source_file": "scripts/sdk-watch.mjs",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sdk_watch",
-      "target": "scripts_sdk_watch_normalize",
-      "confidence_score": 1.0
+      "target": "scripts_sdk_watch_normalize"
     },
     {
       "relation": "contains",
@@ -31089,9 +31089,9 @@
       "source_file": "scripts/sdk-watch.mjs",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sdk_watch",
-      "target": "scripts_sdk_watch_pages",
-      "confidence_score": 1.0
+      "target": "scripts_sdk_watch_pages"
     },
     {
       "relation": "contains",
@@ -31099,9 +31099,9 @@
       "source_file": "scripts/sdk-watch.mjs",
       "source_location": "L290",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sdk_watch",
-      "target": "scripts_sdk_watch_postdiscord",
-      "confidence_score": 1.0
+      "target": "scripts_sdk_watch_postdiscord"
     },
     {
       "relation": "contains",
@@ -31109,9 +31109,9 @@
       "source_file": "scripts/sdk-watch.mjs",
       "source_location": "L155",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sdk_watch",
-      "target": "scripts_sdk_watch_repostatepath",
-      "confidence_score": 1.0
+      "target": "scripts_sdk_watch_repostatepath"
     },
     {
       "relation": "calls",
@@ -31120,9 +31120,9 @@
       "source_file": "scripts/sdk-watch.mjs",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sdk_watch_fetchmarkdown",
-      "target": "scripts_sdk_watch_firecrawl",
-      "confidence_score": 1.0
+      "target": "scripts_sdk_watch_firecrawl"
     },
     {
       "relation": "contains",
@@ -32280,9 +32280,9 @@
       "source_file": "apps/web/content/docs/index.mdx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_index",
-      "target": "docs_index_fastest_path_scaffold_an_app",
-      "confidence_score": 1.0
+      "target": "docs_index_fastest_path_scaffold_an_app"
     },
     {
       "relation": "contains",
@@ -32290,9 +32290,9 @@
       "source_file": "apps/web/content/docs/index.mdx",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_index",
-      "target": "docs_index_on_device_behaviors_worth_knowing",
-      "confidence_score": 1.0
+      "target": "docs_index_on_device_behaviors_worth_knowing"
     },
     {
       "relation": "contains",
@@ -32300,9 +32300,9 @@
       "source_file": "apps/web/content/docs/index.mdx",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_index",
-      "target": "docs_index_or_add_glasskit_to_an_existing_app",
-      "confidence_score": 1.0
+      "target": "docs_index_or_add_glasskit_to_an_existing_app"
     },
     {
       "relation": "contains",
@@ -32310,9 +32310,9 @@
       "source_file": "apps/web/content/docs/index.mdx",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_index_or_add_glasskit_to_an_existing_app",
-      "target": "docs_index_1_install_the_sdk",
-      "confidence_score": 1.0
+      "target": "docs_index_1_install_the_sdk"
     },
     {
       "relation": "contains",
@@ -32320,9 +32320,9 @@
       "source_file": "apps/web/content/docs/index.mdx",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_index_or_add_glasskit_to_an_existing_app",
-      "target": "docs_index_2_import_the_styles",
-      "confidence_score": 1.0
+      "target": "docs_index_2_import_the_styles"
     },
     {
       "relation": "contains",
@@ -32330,9 +32330,9 @@
       "source_file": "apps/web/content/docs/index.mdx",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_index_or_add_glasskit_to_an_existing_app",
-      "target": "docs_index_3_build",
-      "confidence_score": 1.0
+      "target": "docs_index_3_build"
     },
     {
       "relation": "contains",
@@ -32380,9 +32380,9 @@
       "source_file": "apps/web/content/docs/patterns.mdx",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_patterns",
-      "target": "docs_patterns_api_conventions_every_component_follows_these",
-      "confidence_score": 1.0
+      "target": "docs_patterns_api_conventions_every_component_follows_these"
     },
     {
       "relation": "contains",
@@ -32390,9 +32390,9 @@
       "source_file": "apps/web/content/docs/patterns.mdx",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_patterns",
-      "target": "docs_patterns_loading_empty_and_error",
-      "confidence_score": 1.0
+      "target": "docs_patterns_loading_empty_and_error"
     },
     {
       "relation": "contains",
@@ -32400,9 +32400,9 @@
       "source_file": "apps/web/content/docs/patterns.mdx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_patterns",
-      "target": "docs_patterns_navigation_tabs_vs_deck_vs_navigator_vs_launcher",
-      "confidence_score": 1.0
+      "target": "docs_patterns_navigation_tabs_vs_deck_vs_navigator_vs_launcher"
     },
     {
       "relation": "contains",
@@ -32410,9 +32410,9 @@
       "source_file": "apps/web/content/docs/patterns.mdx",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_patterns",
-      "target": "docs_patterns_notifications_toast_vs_toaster_vs_notificationcard",
-      "confidence_score": 1.0
+      "target": "docs_patterns_notifications_toast_vs_toaster_vs_notificationcard"
     },
     {
       "relation": "contains",
@@ -32420,9 +32420,9 @@
       "source_file": "apps/web/content/docs/patterns.mdx",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_patterns",
-      "target": "docs_patterns_quantities_progress_vs_meter_vs_timer",
-      "confidence_score": 1.0
+      "target": "docs_patterns_quantities_progress_vs_meter_vs_timer"
     },
     {
       "relation": "contains",
@@ -32430,9 +32430,9 @@
       "source_file": "apps/web/llms-template.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_llms_template",
-      "target": "web_llms_template_glasskit_ui",
-      "confidence_score": 1.0
+      "target": "web_llms_template_glasskit_ui"
     },
     {
       "relation": "contains",
@@ -32440,9 +32440,9 @@
       "source_file": "apps/web/llms-template.md",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_llms_template_glasskit_ui",
-      "target": "web_llms_template_components_count",
-      "confidence_score": 1.0
+      "target": "web_llms_template_components_count"
     },
     {
       "relation": "contains",
@@ -32450,9 +32450,9 @@
       "source_file": "apps/web/llms-template.md",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_llms_template_glasskit_ui",
-      "target": "web_llms_template_conventions",
-      "confidence_score": 1.0
+      "target": "web_llms_template_conventions"
     },
     {
       "relation": "contains",
@@ -32460,9 +32460,9 @@
       "source_file": "apps/web/llms-template.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_llms_template_glasskit_ui",
-      "target": "web_llms_template_install",
-      "confidence_score": 1.0
+      "target": "web_llms_template_install"
     },
     {
       "relation": "contains",
@@ -32470,9 +32470,9 @@
       "source_file": "apps/web/llms-template.md",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_llms_template_glasskit_ui",
-      "target": "web_llms_template_links",
-      "confidence_score": 1.0
+      "target": "web_llms_template_links"
     },
     {
       "relation": "contains",
@@ -32480,9 +32480,9 @@
       "source_file": "apps/web/llms-template.md",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_llms_template_glasskit_ui",
-      "target": "web_llms_template_platform_facts_verified_2026_06_against_meta_s_docs_toolkit",
-      "confidence_score": 1.0
+      "target": "web_llms_template_platform_facts_verified_2026_06_against_meta_s_docs_toolkit"
     },
     {
       "relation": "contains",
@@ -32490,9 +32490,9 @@
       "source_file": "apps/web/llms-template.md",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_llms_template_glasskit_ui",
-      "target": "web_llms_template_sdk_glasskit_ui_react",
-      "confidence_score": 1.0
+      "target": "web_llms_template_sdk_glasskit_ui_react"
     },
     {
       "relation": "contains",
@@ -32500,9 +32500,9 @@
       "source_file": "apps/web/llms-template.md",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_llms_template_glasskit_ui",
-      "target": "web_llms_template_toasts_notifications",
-      "confidence_score": 1.0
+      "target": "web_llms_template_toasts_notifications"
     },
     {
       "relation": "contains",
@@ -38094,5 +38094,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b0693ebfb6e11ec953833cd1d25f9df9be350ffa"
+  "built_at_commit": "6b2b7f337b8b8386ef121e392a7eabf1e916ec89"
 }

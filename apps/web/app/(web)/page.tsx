@@ -15,11 +15,13 @@ import {
   softwareSchema,
 } from "@/lib/seo";
 
+const COUNT = COMPONENT_NAV.length;
+
 const VALUES = [
   {
     label: "01 / Components",
-    title: "28, every HUD job",
-    body: "Readouts, lists, progress, comms and launch screens — plus the world-anchored set (DirectionArrow, Compass, Pin, Callout) a watch kit can't do. Additive light on true black, never washed-out blur.",
+    title: `${COUNT}, every HUD job`,
+    body: "Readouts, lists, timers, comms and launch screens — plus the world-anchored set (DirectionArrow, Compass, Pin, Callout) a watch kit can't do. Premium surfaces tuned for a 600×600 lens, never washed-out blur.",
   },
   {
     label: "02 / Input",
@@ -29,7 +31,7 @@ const VALUES = [
   {
     label: "03 / Yours to own",
     title: "Copy in, no lock-in",
-    body: "Vendor the source with one command — glasskit add — straight into your project, yours to edit. The SDK ships the hooks, viewport and focus engine from npm.",
+    body: "Vendor the source with one command — @glasskit-ui/cli add — straight into your project, yours to edit. The SDK ships the hooks, viewport and focus engine from npm.",
   },
 ];
 
@@ -59,9 +61,9 @@ export default function Home() {
             </span>
           </h1>
           <p className="rise-2 mt-8 max-w-xl text-lg leading-relaxed text-ink-2 sm:text-xl">
-            28 additive React components for Meta Ray-Ban Display — a spatial
-            focus engine, the Neural Band gestures, and everything a glanceable
-            see-through display needs. Open source.
+            {COUNT} React components for Meta Ray-Ban Display — a spatial focus
+            engine, Neural Band input, system-back navigation, and everything a
+            glanceable in-lens display needs. Open source.
           </p>
           <div className="rise-2 mt-10 flex flex-wrap items-center justify-center gap-3">
             <Link href="/docs" className="btn btn-solid">
@@ -88,13 +90,13 @@ export default function Home() {
           <div className="max-w-md text-center lg:text-left">
             <p className="mono-label">On the lens</p>
             <h2 className="font-display mt-4 text-[clamp(2rem,4vw,3rem)] leading-tight">
-              Built from emitted light.
+              Made for the lens.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink-2">
-              Pure black is transparent on the waveguide, so every component is
-              luminous edges, a single phosphor-green accent, and soft glow —
-              never fills or blur. Crisp, glanceable, and correct over the real
-              world.
+              A calm dark base, surfaces that pop — top-lit gradients, hairline
+              light edges, soft depth — and one blue accent. Tuned for the
+              600×600 waveguide: big glanceable type, tabular numerals, and no
+              frosted blur anywhere near the lens.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
               <Link href="/playground" className="btn btn-solid">
@@ -135,7 +137,7 @@ export default function Home() {
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-2">
             Install the SDK from npm, then{" "}
             <code className="font-mono text-[0.9em] text-ink">
-              glasskit add
+              @glasskit-ui/cli add
             </code>{" "}
             the components straight into your project. Your code to edit — no
             lock-in, no black box.
