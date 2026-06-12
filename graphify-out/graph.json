@@ -230,7 +230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_clock_test",
-      "community": 200,
+      "community": 27,
       "norm_label": "clock.test.tsx"
     },
     {
@@ -590,7 +590,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_world_test",
-      "community": 27,
+      "community": 128,
       "norm_label": "world.test.tsx"
     },
     {
@@ -1740,7 +1740,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_settings_demo",
-      "community": 70,
+      "community": 181,
       "norm_label": "settings-demo.tsx"
     },
     {
@@ -2120,7 +2120,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_component_docs",
-      "community": 70,
+      "community": 27,
       "norm_label": "component-docs.tsx"
     },
     {
@@ -6120,7 +6120,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_avatar",
-      "community": 209,
+      "community": 27,
       "norm_label": "avatar.tsx"
     },
     {
@@ -6130,7 +6130,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "ui_avatar_avatartone",
-      "community": 209,
+      "community": 27,
       "norm_label": "avatartone"
     },
     {
@@ -6140,7 +6140,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "ui_avatar_avatar",
-      "community": 209,
+      "community": 27,
       "norm_label": "avatar()"
     },
     {
@@ -6210,7 +6210,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_callout",
-      "community": 27,
+      "community": 128,
       "norm_label": "callout.tsx"
     },
     {
@@ -6220,7 +6220,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "ui_callout_callout",
-      "community": 27,
+      "community": 128,
       "norm_label": "callout()"
     },
     {
@@ -6230,7 +6230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_chat_bubble",
-      "community": 27,
+      "community": 128,
       "norm_label": "chat-bubble.tsx"
     },
     {
@@ -6240,7 +6240,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "ui_chat_bubble_messagethread",
-      "community": 27,
+      "community": 128,
       "norm_label": "messagethread()"
     },
     {
@@ -6250,7 +6250,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "ui_chat_bubble_chatbubble",
-      "community": 27,
+      "community": 128,
       "norm_label": "chatbubble()"
     },
     {
@@ -6260,7 +6260,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_clock",
-      "community": 200,
+      "community": 27,
       "norm_label": "clock.tsx"
     },
     {
@@ -6270,7 +6270,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_clock_clock",
-      "community": 200,
+      "community": 27,
       "norm_label": "clock()"
     },
     {
@@ -6810,7 +6810,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_pin",
-      "community": 27,
+      "community": 128,
       "norm_label": "pin.tsx"
     },
     {
@@ -6820,7 +6820,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "ui_pin_pin",
-      "community": 27,
+      "community": 128,
       "norm_label": "pin()"
     },
     {
@@ -6900,7 +6900,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "ui_reticle_reticle",
-      "community": 27,
+      "community": 128,
       "norm_label": "reticle()"
     },
     {
@@ -6960,7 +6960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_slider",
-      "community": 70,
+      "community": 50,
       "norm_label": "slider.tsx"
     },
     {
@@ -6970,7 +6970,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_slider_slider",
-      "community": 70,
+      "community": 50,
       "norm_label": "slider()"
     },
     {
@@ -7050,7 +7050,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_tabs",
-      "community": 210,
+      "community": 27,
       "norm_label": "tabs.tsx"
     },
     {
@@ -7060,7 +7060,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "ui_tabs_tabitem",
-      "community": 210,
+      "community": 27,
       "norm_label": "tabitem"
     },
     {
@@ -7070,7 +7070,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "ui_tabs_tabs",
-      "community": 210,
+      "community": 27,
       "norm_label": "tabs()"
     },
     {
@@ -7932,6 +7932,16 @@
       "id": "changeset_focus_engine_v2",
       "community": 208,
       "norm_label": "focus-engine-v2.md"
+    },
+    {
+      "label": "toast-status-surface.md",
+      "file_type": "document",
+      "source_file": ".changeset/toast-status-surface.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "changeset_toast_status_surface",
+      "community": 200,
+      "norm_label": "toast-status-surface.md"
     },
     {
       "label": "use-feedback.md",
@@ -9407,7 +9417,7 @@
       "label": "\ud83d\udcf7 Camera access",
       "file_type": "document",
       "source_file": "apps/web/content/docs/wishlist.mdx",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "docs_wishlist_camera_access",
       "community": 202,
@@ -9417,7 +9427,7 @@
       "label": "\ud83d\udc41 Gaze / head-pose targeting",
       "file_type": "document",
       "source_file": "apps/web/content/docs/wishlist.mdx",
-      "source_location": "L38",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "docs_wishlist_gaze_head_pose_targeting",
       "community": 202,
@@ -9427,7 +9437,7 @@
       "label": "\ud83d\udd0a Documented audio playback",
       "file_type": "document",
       "source_file": "apps/web/content/docs/wishlist.mdx",
-      "source_location": "L47",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "docs_wishlist_documented_audio_playback",
       "community": 202,
@@ -9437,7 +9447,7 @@
       "label": "\ud83e\udd32 Neural Band haptics",
       "file_type": "document",
       "source_file": "apps/web/content/docs/wishlist.mdx",
-      "source_location": "L56",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "docs_wishlist_neural_band_haptics",
       "community": 202,
@@ -9447,7 +9457,7 @@
       "label": "\ud83d\udd90 Neural Band gesture events",
       "file_type": "document",
       "source_file": "apps/web/content/docs/wishlist.mdx",
-      "source_location": "L65",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "docs_wishlist_neural_band_gesture_events",
       "community": 202,
@@ -9497,7 +9507,7 @@
       "label": "Platform facts (verified 2026-06 against Meta's docs/toolkit)",
       "file_type": "document",
       "source_file": "apps/web/llms-template.md",
-      "source_location": "L23",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "web_llms_template_platform_facts_verified_2026_06_against_meta_s_docs_toolkit",
       "community": 60,
@@ -9507,7 +9517,7 @@
       "label": "Conventions",
       "file_type": "document",
       "source_file": "apps/web/llms-template.md",
-      "source_location": "L31",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "web_llms_template_conventions",
       "community": 60,
@@ -9517,7 +9527,7 @@
       "label": "Components ({{COUNT}})",
       "file_type": "document",
       "source_file": "apps/web/llms-template.md",
-      "source_location": "L37",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "web_llms_template_components_count",
       "community": 60,
@@ -9527,7 +9537,7 @@
       "label": "Toasts & notifications",
       "file_type": "document",
       "source_file": "apps/web/llms-template.md",
-      "source_location": "L43",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "web_llms_template_toasts_notifications",
       "community": 60,
@@ -9537,7 +9547,7 @@
       "label": "Links",
       "file_type": "document",
       "source_file": "apps/web/llms-template.md",
-      "source_location": "L47",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "web_llms_template_links",
       "community": 60,
@@ -11027,7 +11037,7 @@
       "file_type": "code",
       "source_file": "registry/ui/pin.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 128,
       "norm_label": "pin.tsx",
       "id": "registry_ui_pin_tsx"
     },
@@ -11063,7 +11073,7 @@
       "file_type": "code",
       "source_file": "registry/ui/tabs.tsx",
       "source_location": "L1",
-      "community": 210,
+      "community": 27,
       "norm_label": "tabs.tsx",
       "id": "registry_ui_tabs_tsx"
     },
@@ -11081,7 +11091,7 @@
       "file_type": "code",
       "source_file": "registry/ui/slider.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 50,
       "norm_label": "slider.tsx",
       "id": "registry_ui_slider_tsx"
     },
@@ -11198,7 +11208,7 @@
       "file_type": "code",
       "source_file": "registry/ui/status-dot.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 128,
       "norm_label": "status-dot.tsx",
       "id": "registry_ui_status_dot_tsx"
     },
@@ -11207,7 +11217,7 @@
       "file_type": "code",
       "source_file": "registry/ui/chat-bubble.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 128,
       "norm_label": "chat-bubble.tsx",
       "id": "registry_ui_chat_bubble_tsx"
     },
@@ -11234,7 +11244,7 @@
       "file_type": "code",
       "source_file": "registry/ui/reticle.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 128,
       "norm_label": "reticle.tsx",
       "id": "registry_ui_reticle_tsx"
     },
@@ -11270,7 +11280,7 @@
       "file_type": "code",
       "source_file": "registry/ui/clock.tsx",
       "source_location": "L1",
-      "community": 200,
+      "community": 27,
       "norm_label": "clock.tsx",
       "id": "registry_ui_clock_tsx"
     },
@@ -11288,7 +11298,7 @@
       "file_type": "code",
       "source_file": "registry/ui/avatar.tsx",
       "source_location": "L1",
-      "community": 209,
+      "community": 27,
       "norm_label": "avatar.tsx",
       "id": "registry_ui_avatar_tsx"
     },
@@ -11387,7 +11397,7 @@
       "file_type": "code",
       "source_file": "registry/ui/callout.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 128,
       "norm_label": "callout.tsx",
       "id": "registry_ui_callout_tsx"
     },
@@ -11702,7 +11712,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/explore-demo.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 128,
       "norm_label": "explore-demo.tsx",
       "id": "apps_web_components_lens_explore_demo_tsx"
     },
@@ -11837,7 +11847,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/world.test.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 128,
       "norm_label": "world.test.tsx",
       "id": "apps_web_tests_registry_world_test_tsx"
     },
@@ -11846,7 +11856,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/world.test.tsx",
       "source_location": "L8",
-      "community": 27,
+      "community": 128,
       "norm_label": "{ container }",
       "id": "registry_world_test_container"
     },
@@ -11855,7 +11865,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/world.test.tsx",
       "source_location": "L11",
-      "community": 27,
+      "community": 128,
       "norm_label": "g",
       "id": "registry_world_test_g"
     },
@@ -12197,7 +12207,7 @@
       "file_type": "code",
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 128,
       "norm_label": "component-docs.tsx",
       "id": "apps_web_lib_component_docs_tsx"
     },
@@ -14539,9 +14549,9 @@
       "source_file": "apps/web/__tests__/registry/feedback.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_feedback_test",
-      "target": "hooks_feedback_buzz",
-      "confidence_score": 1.0
+      "target": "hooks_feedback_buzz"
     },
     {
       "relation": "imports",
@@ -14550,9 +14560,9 @@
       "source_file": "apps/web/__tests__/registry/feedback.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_feedback_test",
-      "target": "hooks_feedback_usefeedback",
-      "confidence_score": 1.0
+      "target": "hooks_feedback_usefeedback"
     },
     {
       "relation": "imports_from",
@@ -26621,9 +26631,9 @@
       "source_file": "packages/glasses-ui/src/hooks/feedback.ts",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_feedback",
-      "target": "hooks_feedback_buzz",
-      "confidence_score": 1.0
+      "target": "hooks_feedback_buzz"
     },
     {
       "relation": "contains",
@@ -26631,9 +26641,9 @@
       "source_file": "packages/glasses-ui/src/hooks/feedback.ts",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_feedback",
-      "target": "hooks_feedback_feedbackpattern",
-      "confidence_score": 1.0
+      "target": "hooks_feedback_feedbackpattern"
     },
     {
       "relation": "contains",
@@ -26641,9 +26651,9 @@
       "source_file": "packages/glasses-ui/src/hooks/feedback.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_feedback",
-      "target": "hooks_feedback_patterns",
-      "confidence_score": 1.0
+      "target": "hooks_feedback_patterns"
     },
     {
       "relation": "contains",
@@ -26651,9 +26661,9 @@
       "source_file": "packages/glasses-ui/src/hooks/feedback.ts",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_feedback",
-      "target": "hooks_feedback_usefeedback",
-      "confidence_score": 1.0
+      "target": "hooks_feedback_usefeedback"
     },
     {
       "relation": "re_exports",
@@ -26662,9 +26672,9 @@
       "source_file": "packages/glasses-ui/src/hooks/index.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_index",
-      "target": "hooks_feedback",
-      "confidence_score": 1.0
+      "target": "hooks_feedback"
     },
     {
       "relation": "re_exports",
@@ -26673,9 +26683,9 @@
       "source_file": "packages/glasses-ui/src/hooks/index.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_index",
-      "target": "hooks_feedback_feedbackpattern",
-      "confidence_score": 1.0
+      "target": "hooks_feedback_feedbackpattern"
     },
     {
       "relation": "re_exports",
@@ -26684,9 +26694,9 @@
       "source_file": "packages/glasses-ui/src/hooks/index.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_index",
-      "target": "hooks_feedback_buzz",
-      "confidence_score": 1.0
+      "target": "hooks_feedback_buzz"
     },
     {
       "relation": "re_exports",
@@ -26695,9 +26705,9 @@
       "source_file": "packages/glasses-ui/src/hooks/index.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_index",
-      "target": "hooks_feedback_usefeedback",
-      "confidence_score": 1.0
+      "target": "hooks_feedback_usefeedback"
     },
     {
       "relation": "re_exports",
@@ -33389,9 +33399,9 @@
       "source_file": "apps/web/content/docs/wishlist.mdx",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_wishlist",
-      "target": "docs_wishlist_neural_band_haptics",
-      "confidence_score": 1.0
+      "target": "docs_wishlist_neural_band_haptics"
     },
     {
       "relation": "contains",
@@ -39133,5 +39143,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "08b7895d4c78c6383d74a0fb18e0463471e38bb0"
+  "built_at_commit": "ca9665eff289cefc9b4509b29e34d073f32634a4"
 }

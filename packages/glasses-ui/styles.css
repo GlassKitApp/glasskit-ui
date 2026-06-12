@@ -1283,12 +1283,20 @@
   animation: gk-toast-in 0.3s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 .glass-viewport .gk-toast--accent {
-  background: var(--accent-surface);
-  border-color: rgba(255, 255, 255, 0.24);
+  /* A status surface, not an action: the filled accent gradient
+   * (--accent-surface) means "pinch me" and belongs to Button/Toggle/
+   * Segmented. Accent toasts read as an accent-TINTED surface — quiet
+   * fill from the faint end of the ramp, accent edge, soft underglow. */
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--accent-faint) 86%, #fff),
+    var(--accent-faint)
+  );
+  border-color: var(--accent-muted);
   color: #fff;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.36),
-    0 12px 28px -12px var(--accent-glow);
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 10px 24px -14px var(--accent-glow);
 }
 @media (prefers-reduced-motion: reduce) {
   .glass-viewport .gk-statusdot--live .gk-statusdot__dot,

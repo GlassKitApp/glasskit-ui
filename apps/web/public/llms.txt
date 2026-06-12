@@ -18,7 +18,9 @@ IMPORTANT: the bare `glasskit` npm package is UNRELATED to this project — alwa
 - `useDpad()` — call once at the root: arrow keys / Neural Band swipes move a focus ring between `.focusable` elements; Enter / pinch activates.
 - `useDeviceOrientation()`, `useDeviceMotion()`, `useGeolocation()` — W3C sensor hooks (GPS is proxied from the paired phone).
 - `useNeuralBand()` — one-shot CustomEvent seam for richer gestures (forward-compat: the platform currently delivers only arrows/Enter to web apps).
-- `import "@glasskit-ui/react/styles.css"` — the design system, scoped under `.glass-viewport`.
+- `useFeedback()` / `buzz("tap"|"success"|"warning")` — the haptic seam: dispatches a `glasskitfeedback` CustomEvent + `navigator.vibrate` where supported; no haptics API reaches web apps yet.
+- `<FocusScope>` — contains the D-pad ring to a subtree while mounted (modals); restores the previous focus on unmount. `data-autofocus` on any focusable picks where a screen's ring starts. `seedFocus()` / `getFocusables()` for custom containers.
+- `import "@glasskit-ui/react/styles.css"` — the design system, scoped under `.glass-viewport`. Retheme by re-declaring the accent ramp on `.glass-viewport` (`--accent-active/--accent/--accent-muted/--accent-faint/--accent-grad-hi/--accent-grad-lo/--accent-glow`) — the ramp is the entire theming contract; the playground emits the block per preset.
 
 ## Platform facts (verified 2026-06 against Meta's docs/toolkit)
 
@@ -31,7 +33,9 @@ IMPORTANT: the bare `glasskit` npm package is UNRELATED to this project — alwa
 ## Conventions
 
 - **Auto-wiring**: sensor components self-connect when their data prop is omitted — `<Compass />` follows live head orientation, `<Compass heading={290} />` is controlled (the prop always wins). Same for DirectionArrow (`target={{lat,lon}}`), Clock (self-ticking), Deck (Neural Band swipe).
-- **Navigation**: `<Navigator screens={{...}} initial="home" />` + `useNavigator()` (`push/pop/popToTop/replace`) — every push adds a real history entry so the system back gesture just works; `useBackHandler(fn)` lets overlays consume back.
+- **Navigation**: `<Navigator screens={{...}} initial="home" />` + `useNavigator()` (`push/pop/popToTop/replace`) — every push adds a real history entry so the system back gesture just works; `useBackHandler(fn)` lets overlays consume back. Pop restores focus to the row that pushed (focus memory); the stack rides `history.state` (mid-flow reload restores the screen); opt-in `paths` mirrors pushes into the URL.
+- **Text entry**: no keyboard/mic on the platform — `<ComposeFlow options={[...]} value onChange />` is the working recipe (a TextField that opens a back-gesture-aware picker); it is the seam system dictation would replace.
+- **Vocabulary**: `emphasis` = visual weight (`"default"|"accent"` on Badge/Cue/Toast), `status` = semantic state (`"on"|"live"|"off"` on StatusDot), `tone` = gradient palette (Avatar, GlowIcon plates, Launcher tiles).
 - Design language ("premium surfaces", 2026-06): calm dark base (`#0b0e16`→`#090b11`), surfaces that pop (top-lit gradient + 1px light edge + soft depth), gradient icon plates, one blue accent (`--accent: #4c8dff`). One task per view, tabular numerals, logical RTL-safe CSS — but world-anchored components (DirectionArrow, Compass, Pin, Callout, Reticle, Viewfinder) never mirror.
 
 ## Components (48)
@@ -89,7 +93,7 @@ Vendored shadcn-style. Live preview + props + usage at `https://glasskit.app/ui/
 
 ## Toasts & notifications
 
-`<Toaster />` + `toast()` (built on Sonner, themed to the lens, bottom-anchored): mount once at the root; it owns queueing, stacking, auto-dismiss. `Toast` is the static one-liner surface; `NotificationCard` the inline notification.
+`<Toaster />` + `toast()` (built on Sonner, themed to the lens, top-anchored — Screen's Cue line owns the bottom strip): mount once at the root; it owns queueing, stacking, auto-dismiss. Keep toasts non-interactive (auto-dismiss strands the focus ring); actionable items are `NotificationCard`s. `Toast` is the static one-liner surface.
 
 ## Links
 
@@ -98,4 +102,5 @@ Vendored shadcn-style. Live preview + props + usage at `https://glasskit.app/ui/
 - Playground: https://glasskit.app/ui/playground
 - npm: https://www.npmjs.com/package/@glasskit-ui/react
 - Source (MIT): https://github.com/GlassKitApp/glasskit-ui
+- Platform wishlist (APIs we're built-and-waiting for): https://glasskit.app/ui/docs/wishlist
 - Platform audit: https://github.com/GlassKitApp/glasskit-ui/blob/main/docs/platform-audit-2026-06.md

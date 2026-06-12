@@ -1,16 +1,16 @@
 # Graph Report - glasskit-ui  (2026-06-12)
 
 ## Corpus Check
-- 245 files · ~384,883 words
+- 246 files · ~385,340 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1413 nodes · 2421 edges · 212 communities (190 shown, 22 thin omitted)
+- 1414 nodes · 2421 edges · 210 communities (192 shown, 18 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `08b7895d`
+- Built from commit: `ca9665ef`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -103,13 +103,10 @@
 - [[_COMMUNITY_Community 192|Community 192]]
 - [[_COMMUNITY_Community 193|Community 193]]
 - [[_COMMUNITY_Community 194|Community 194]]
-- [[_COMMUNITY_Community 200|Community 200]]
 - [[_COMMUNITY_Community 201|Community 201]]
 - [[_COMMUNITY_Community 202|Community 202]]
 - [[_COMMUNITY_Community 204|Community 204]]
 - [[_COMMUNITY_Community 205|Community 205]]
-- [[_COMMUNITY_Community 209|Community 209]]
-- [[_COMMUNITY_Community 210|Community 210]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 98 edges
@@ -138,7 +135,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (212 total, 22 thin omitted)
+## Communities (210 total, 18 thin omitted)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.06
@@ -206,7 +203,7 @@ Nodes (23): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModu
 
 ### Community 27 - "Community 27"
 Cohesion: 0.07
-Nodes (24): AlertGlyph(), ComponentDoc, ClassValue, cn(), cn(), { container }, g, AssistantOrb() (+16 more)
+Nodes (22): AlertGlyph(), ComponentDoc, ClassValue, cn(), cn(), AssistantOrb(), Avatar(), AvatarTone (+14 more)
 
 ### Community 28 - "Community 28"
 Cohesion: 0.05
@@ -289,8 +286,8 @@ Cohesion: 0.07
 Nodes (51): AsyncViewDemo(), ButtonDemo(), CallCardDemo(), CompassDemo(), ComposeFlowDemo(), ConfirmDemo(), DeckDemo(), DictationDemo() (+43 more)
 
 ### Community 50 - "Community 50"
-Cohesion: 0.22
-Nodes (7): stringLabel(), pages, Deck(), Meter(), Progress(), formatSeconds(), Timer()
+Cohesion: 0.18
+Nodes (8): stringLabel(), pages, Deck(), Meter(), Progress(), Slider(), formatSeconds(), Timer()
 
 ### Community 51 - "Community 51"
 Cohesion: 0.17
@@ -345,8 +342,8 @@ Cohesion: 0.18
 Nodes (10): 0. How this repo was set up, 1. Locked decisions (from brainstorming — do not relitigate), 2. The SDK to extract (Phase 2) — source of truth, 3. Monorepo conventions to mirror (verified from the boilerplate), 4. NEW build decisions for npm publish (this is where this repo differs), 5. Phase 0 — hardware gate (OWNER's manual step; doesn't block the build), 6. ⚠️ Boundaries — DO NOT do these without explicit owner go-ahead, 7. Recommended first steps (Phases 1 → 2) (+2 more)
 
 ### Community 70 - "Community 70"
-Cohesion: 0.15
-Nodes (14): { container }, map, onCancel, onChange, onConfirm, radios, sw, Badge() (+6 more)
+Cohesion: 0.13
+Nodes (13): { container }, map, onCancel, onChange, onConfirm, radios, sw, Badge() (+5 more)
 
 ### Community 71 - "Community 71"
 Cohesion: 0.08
@@ -375,6 +372,10 @@ Nodes (5): ComponentDoc(), LensScene, LensStage(), mrbdDeepLink(), qrSvg()
 ### Community 81 - "Community 81"
 Cohesion: 0.40
 Nodes (4): Reporting a vulnerability, Scope notes, Security Policy, Supported versions
+
+### Community 128 - "Community 128"
+Cohesion: 0.17
+Nodes (9): PropsTable(), PropRow, { container }, g, Callout(), ChatBubble(), MessageThread(), Pin() (+1 more)
 
 ### Community 136 - "Community 136"
 Cohesion: 0.23
@@ -435,17 +436,17 @@ Nodes (5): bar, { container }, { container: over }, { container: under }, el
 ## Knowledge Gaps
 - **498 isolated node(s):** `allow`, `SF`, `LA`, `pages`, `SCREENS` (+493 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **22 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `cn()` connect `Community 27` to `Community 36`, `Community 70`, `Community 71`, `Community 136`, `Community 201`, `Community 138`, `Community 200`, `Community 78`, `Community 209`, `Community 50`, `Community 210`, `Community 49`, `Community 181`, `Community 53`?**
+- **Why does `cn()` connect `Community 27` to `Community 128`, `Community 36`, `Community 70`, `Community 71`, `Community 136`, `Community 201`, `Community 138`, `Community 78`, `Community 49`, `Community 50`, `Community 181`, `Community 53`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Why does `resolve()` connect `Community 7` to `Community 52`?**
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `useDpad()` connect `Community 3` to `Community 138`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **What connects `allow`, `SF`, `LA` to the rest of the system?**
   _498 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 1` be split into smaller, more focused modules?**
