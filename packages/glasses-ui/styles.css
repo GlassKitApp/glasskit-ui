@@ -680,6 +680,11 @@
   padding-block: 16px;
   padding-inline: 20px;
   flex: none;
+  /* Near-free virtualization: rows outside the scrollport skip layout and
+   * paint; the placeholder size keeps scroll metrics + focus-engine rects
+   * honest. Long lists stay cheap without a windowing library. */
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 74px;
   transition:
     transform 0.14s cubic-bezier(0.23, 1, 0.32, 1),
     box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1),

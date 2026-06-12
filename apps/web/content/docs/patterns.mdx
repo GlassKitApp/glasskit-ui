@@ -87,6 +87,36 @@ working answers, in order of reach:
 Both are the seam system dictation would replace (see the
 [platform wishlist](/docs/wishlist)) — swap the capture flow, keep the field.
 
+## Screen readers
+
+The conventions, so your additions match:
+
+- **`Cue` is `role="status"`** — the screen's narration line announces
+  politely. Keep one Cue per screen; two live regions talking over each
+  other is noise.
+- **Transients announce themselves**: Toast, AsyncView, and NotificationCard
+  are `role="status"`; Timer is `role="timer"`. Don't wrap them in another
+  live region.
+- **Rapidly changing values stay silent**: Readout, StatGrid, Meter, and
+  Compass would announce on every tick — they expose labels
+  (`aria-label`/visible text) but are deliberately not live. Narrate
+  milestones through the Cue instead ("Halfway there").
+- **World-anchored SVGs** (Pin, Callout, Reticle, Compass) are `role="img"`
+  with meaningful labels — they describe a point in the world, not a control.
+
+## Performance
+
+- The perf budget is the platform's: under 500 KB gzipped JS and 10
+  requests (CI enforces the bundle budget on every PR).
+- **Long lists are cheap by default** — rows use `content-visibility: auto`,
+  so offscreen rows skip layout and paint while keeping honest scroll
+  metrics and focus-engine rects. Past a few hundred rows, paginate per
+  screen anyway: a wearer never scans 300 rows on a lens.
+- **Component source is capped at 12 KB** (`build:registry` fails over it) —
+  a vendored component should read in one sitting.
+- Sensor hooks guard `setState` (a 60 Hz orientation stream doesn't
+  re-render on every fire) — keep that property when composing them.
+
 ## API conventions (every component follows these)
 
 - **Auto-wiring** — sensor-driven components self-connect when their data

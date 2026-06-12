@@ -171,6 +171,24 @@ const llms = readFileSync(join(ROOT, "apps", "web", "llms-template.md"), "utf8")
   .replace("{{COMPONENTS}}", componentLines);
 writeFileSync(join(ROOT, "apps", "web", "public", "llms.txt"), llms);
 
+// Size guard: a vendored component should read in one sitting. 12 KB of
+// source is the smell threshold — split or simplify past it (Navigator,
+// the largest legitimate component, sits under 10 KB).
+const CAP = 12 * 1024;
+const oversized = items
+  .flatMap((i) => i.files)
+  .map((f) => ({
+    path: f.path,
+    bytes: Buffer.byteLength(readFileSync(join(ROOT, f.path), "utf8")),
+  }))
+  .filter((f) => f.bytes > CAP);
+if (oversized.length > 0) {
+  for (const f of oversized) {
+    console.error(`✖ ${f.path}: ${f.bytes} bytes (cap ${CAP})`);
+  }
+  process.exit(1);
+}
+
 console.log(
   `registry.json — ${items.length} items (manifest + served /r/*.json) + llms.txt (${ui.length} components)`,
 );
