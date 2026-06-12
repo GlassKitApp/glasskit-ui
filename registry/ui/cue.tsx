@@ -21,7 +21,10 @@ export function Cue({
   className?: string;
 }) {
   return (
+    // The screen's narration line — `status` announces updates politely
+    // without stealing focus (one Cue per screen keeps this sane).
     <p
+      role="status"
       className={cn(
         "gk-cue t-caption",
         emphasis === "accent" && "gk-cue--accent",

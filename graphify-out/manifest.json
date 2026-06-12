@@ -250,7 +250,7 @@
     "semantic_hash": ""
   },
   "apps/web/components/playground-client.tsx": {
-    "mtime": 1781290456.390847,
+    "mtime": 1781290629.2875767,
     "ast_hash": "5eae4b2e9a80289cb0a832cb8bfb0b21",
     "semantic_hash": ""
   },
@@ -505,7 +505,7 @@
     "semantic_hash": ""
   },
   "registry/registry.json": {
-    "mtime": 1781290461.4139178,
+    "mtime": 1781290825.9328263,
     "ast_hash": "2c31e2edc333f308d2026421890841dc",
     "semantic_hash": ""
   },
@@ -565,8 +565,8 @@
     "semantic_hash": ""
   },
   "registry/ui/cue.tsx": {
-    "mtime": 1781287979.3103757,
-    "ast_hash": "f98714b52676c7401d7ddcfd77f122a8",
+    "mtime": 1781290698.365464,
+    "ast_hash": "52e83593b79e75ed4b7a9cb977d11e17",
     "semantic_hash": ""
   },
   "registry/ui/deck.tsx": {
@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "scripts/build-registry.mjs": {
-    "mtime": 1781199466.1435876,
-    "ast_hash": "fa5145ebc690c3593f7396e2e58157ce",
+    "mtime": 1781290739.3457158,
+    "ast_hash": "1a73aec103770eb5b51adab77a3fe418",
     "semantic_hash": ""
   },
   "tsconfig.base.json": {
@@ -1025,7 +1025,7 @@
     "semantic_hash": ""
   },
   "apps/web/public/llms.txt": {
-    "mtime": 1781290461.4180925,
+    "mtime": 1781290825.9368823,
     "ast_hash": "3846dd80c2b5e7d754eb4e5935ad52fc",
     "semantic_hash": ""
   },
@@ -1685,8 +1685,8 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/patterns.mdx": {
-    "mtime": 1781289863.166327,
-    "ast_hash": "fb1caca4f9d65588339e56aded0276b4",
+    "mtime": 1781290825.5630193,
+    "ast_hash": "c76f0ed72868306eb480fb09667423f9",
     "semantic_hash": ""
   },
   "apps/web/llms-template.md": {
@@ -1810,12 +1810,12 @@
     "semantic_hash": ""
   },
   "apps/web/__tests__/theme-ramp.test.ts": {
-    "mtime": 1781290456.4104435,
+    "mtime": 1781290629.287241,
     "ast_hash": "4c4fe6c5f9220f0c2727dfb90f66d6c9",
     "semantic_hash": ""
   },
   "apps/web/lib/theme-ramp.ts": {
-    "mtime": 1781290372.635431,
+    "mtime": 1781290629.287797,
     "ast_hash": "5512e71323f034ad9af4d418ad4e0d67",
     "semantic_hash": ""
   },
@@ -1837,6 +1837,16 @@
   "apps/web/e2e/__screenshots__/examples-workout-rtl.png": {
     "mtime": 1781290335.4502773,
     "ast_hash": "1171ad98570cee0572443a5cad642512",
+    "semantic_hash": ""
+  },
+  ".changeset/hardening-1-0.md": {
+    "mtime": 1781290789.5933719,
+    "ast_hash": "894aa5329495797c4e15aaa082368259",
+    "semantic_hash": ""
+  },
+  "docs/API-STABILITY.md": {
+    "mtime": 1781290790.132674,
+    "ast_hash": "bdbdc2f86381f4cdc3634ee1315d78e2",
     "semantic_hash": ""
   }
 }
