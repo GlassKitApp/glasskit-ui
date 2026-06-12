@@ -26,7 +26,7 @@ import {
   isAbsolute,
 } from "node:path";
 import { spawnSync } from "node:child_process";
-import { scaffoldFiles } from "./templates";
+import { scaffoldFiles, TEMPLATES, type TemplateName } from "./templates";
 
 const DEFAULT_REGISTRY = "https://glasskit.app/ui/r";
 
@@ -46,6 +46,7 @@ type Options = {
   cwd: string;
   overwrite: boolean;
   install: boolean;
+  template: TemplateName;
 };
 
 const c = {
@@ -62,6 +63,7 @@ function parse(argv: string[]) {
     cwd: process.cwd(),
     overwrite: false,
     install: true,
+    template: "default",
   };
   let help = false;
   const value = (flag: string, i: number) => {
@@ -78,7 +80,16 @@ function parse(argv: string[]) {
     else if (a === "--cwd") opts.cwd = resolve(value(a, ++i));
     else if (a === "--overwrite") opts.overwrite = true;
     else if (a === "--no-install") opts.install = false;
-    else if (a === "--help" || a === "-h") help = true;
+    else if (a === "--template" || a === "-t") {
+      const t = value(a, ++i);
+      if (!(TEMPLATES as readonly string[]).includes(t)) {
+        console.error(
+          c.red(`unknown template "${t}" — available: ${TEMPLATES.join(", ")}`),
+        );
+        process.exit(1);
+      }
+      opts.template = t as TemplateName;
+    } else if (a === "--help" || a === "-h") help = true;
     else positionals.push(a!);
   }
   opts.registry = opts.registry.replace(/\/$/, "");
@@ -285,7 +296,9 @@ Run init in an empty directory (or pass one: glasskit init my-app).`),
     basename(target)
       .toLowerCase()
       .replace(/[^a-z0-9-_.]+/g, "-") || "glasses-app";
-  for (const [path, content] of Object.entries(scaffoldFiles(name))) {
+  for (const [path, content] of Object.entries(
+    scaffoldFiles(name, opts.template),
+  )) {
     const dest = join(target, path);
     await mkdir(dirname(dest), { recursive: true });
     await writeFile(dest, content);
@@ -338,6 +351,7 @@ ${c.bold("Flags")}
   --cwd <dir>                target project directory (default: cwd)
   --overwrite                overwrite files that already exist
   --no-install               print npm deps instead of installing them
+  --template, -t <name>      init template: default | relay (phone text relay)
   -h, --help                 show this help
 `);
 }

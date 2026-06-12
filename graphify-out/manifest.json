@@ -390,8 +390,8 @@
     "semantic_hash": ""
   },
   "packages/cli/src/index.ts": {
-    "mtime": 1781189054.042856,
-    "ast_hash": "53f899402f9c65741c5d0876b542e676",
+    "mtime": 1781289694.9567266,
+    "ast_hash": "db21e181b286a297aea22a3906a15f82",
     "semantic_hash": ""
   },
   "packages/cli/tsconfig.json": {
@@ -505,7 +505,7 @@
     "semantic_hash": ""
   },
   "registry/registry.json": {
-    "mtime": 1781288523.1843667,
+    "mtime": 1781289699.0234756,
     "ast_hash": "2c31e2edc333f308d2026421890841dc",
     "semantic_hash": ""
   },
@@ -1020,13 +1020,13 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/index.mdx": {
-    "mtime": 1781287510.4780965,
-    "ast_hash": "002236b9afde1e02bbb69816ef478a45",
+    "mtime": 1781289693.9959486,
+    "ast_hash": "b8d03923edd43ff39d0fa27b6ca91aa8",
     "semantic_hash": ""
   },
   "apps/web/public/llms.txt": {
-    "mtime": 1781288523.190641,
-    "ast_hash": "10f3383b4a33b0ecbe720dbe13eb721c",
+    "mtime": 1781289699.0270977,
+    "ast_hash": "3846dd80c2b5e7d754eb4e5935ad52fc",
     "semantic_hash": ""
   },
   "docs/RELEASING.md": {
@@ -1090,8 +1090,8 @@
     "semantic_hash": ""
   },
   "packages/cli/src/templates.ts": {
-    "mtime": 1781189054.042968,
-    "ast_hash": "9ab1b0299d0372150643dcdc8581eedc",
+    "mtime": 1781289593.8297687,
+    "ast_hash": "19e6877ed60d2c2bc0bf2c62cf940b90",
     "semantic_hash": ""
   },
   "packages/cli/README.md": {
@@ -1595,13 +1595,13 @@
     "semantic_hash": ""
   },
   "apps/web/e2e/__screenshots__/toast-ltr.png": {
-    "mtime": 1781253498.111426,
-    "ast_hash": "17ef4f71b4be8656038528a1c7505494",
+    "mtime": 1781288939.8718336,
+    "ast_hash": "73f3a1b141713052c85b9eb7efe86f28",
     "semantic_hash": ""
   },
   "apps/web/e2e/__screenshots__/toast-rtl.png": {
-    "mtime": 1781253498.1117444,
-    "ast_hash": "17ef4f71b4be8656038528a1c7505494",
+    "mtime": 1781288939.8724978,
+    "ast_hash": "73f3a1b141713052c85b9eb7efe86f28",
     "semantic_hash": ""
   },
   "apps/web/e2e/__screenshots__/toaster-ltr.png": {
@@ -1685,13 +1685,13 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/patterns.mdx": {
-    "mtime": 1781287979.3079696,
-    "ast_hash": "aa2e0acec105d62300ea29053177f9c4",
+    "mtime": 1781289693.9950392,
+    "ast_hash": "fb1caca4f9d65588339e56aded0276b4",
     "semantic_hash": ""
   },
   "apps/web/llms-template.md": {
-    "mtime": 1781288507.1787152,
-    "ast_hash": "6f7cea84144f54abfb4e2ef8e0356071",
+    "mtime": 1781289693.9962761,
+    "ast_hash": "0e37f42345ab52c6ca3561db73cf72a0",
     "semantic_hash": ""
   },
   "apps/web/e2e/__screenshots__/empty-state-ltr.png": {
@@ -1715,8 +1715,8 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/wishlist.mdx": {
-    "mtime": 1781288520.4662356,
-    "ast_hash": "1c98f8d0bed0a59f7ccb00ed689ca3c5",
+    "mtime": 1781289694.9949954,
+    "ast_hash": "84a5a249650b36499cb5e196d08666cc",
     "semantic_hash": ""
   },
   ".changeset/focus-engine-v2.md": {
@@ -1770,8 +1770,13 @@
     "semantic_hash": ""
   },
   ".changeset/toast-status-surface.md": {
-    "mtime": 1781288602.63563,
+    "mtime": 1781288939.8694355,
     "ast_hash": "f4796b89ffbe12febbe8397e44f8466d",
+    "semantic_hash": ""
+  },
+  ".changeset/cli-relay-template.md": {
+    "mtime": 1781289694.0015104,
+    "ast_hash": "caa90877c1f0698a5066ef953a7c0978",
     "semantic_hash": ""
   }
 }

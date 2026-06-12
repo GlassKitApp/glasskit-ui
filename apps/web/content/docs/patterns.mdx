@@ -70,6 +70,23 @@ narrates something that already happened, it's a toast.
 - The default `loading` slot is the pulsing `Spinner`; override it for
   skeleton-style screens.
 
+## Free-form text
+
+There is no keyboard, microphone, or text-input API on the platform. Two
+working answers, in order of reach:
+
+1. **Picker** — [`ComposeFlow`](/docs/components/compose-flow): activating the
+   field opens a back-gesture-aware screen of choices. Right whenever the
+   space of answers is enumerable (replies, presets, templates).
+2. **Phone relay** — for genuinely free-form text, the wearer types on their
+   phone: `npm create glasskit my-app -- --template relay` scaffolds the
+   whole reference — a 6-char pairing code on the lens, a relay page the
+   phone opens, a 90-line dependency-free Node server, and a `useRelayText`
+   hook that polls the value in.
+
+Both are the seam system dictation would replace (see the
+[platform wishlist](/docs/wishlist)) — swap the capture flow, keep the field.
+
 ## API conventions (every component follows these)
 
 - **Auto-wiring** — sensor-driven components self-connect when their data

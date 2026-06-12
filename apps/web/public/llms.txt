@@ -6,6 +6,7 @@
 
 ```sh
 npm create glasskit my-app                 # scaffold a complete Vite glasses app
+npm create glasskit my-app -- --template relay   # + the phone text-relay reference (free-form text: phone types, lens shows)
 npx @glasskit-ui/cli add list button compass navigator   # vendor components (writes to components/glasskit/)
 npm i @glasskit-ui/react                   # the SDK alone (hooks + GlassViewport + styles.css); React 19 peer dep, ESM only
 ```
