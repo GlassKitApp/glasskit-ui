@@ -27,6 +27,7 @@ import {
 } from "node:path";
 import { spawnSync } from "node:child_process";
 import { scaffoldFiles, TEMPLATES, type TemplateName } from "./templates";
+import { agentFiles } from "./agents";
 
 const DEFAULT_REGISTRY = "https://glasskit.app/ui/r";
 
@@ -257,6 +258,30 @@ async function list(opts: Options) {
 }
 
 /**
+ * `glasskit agents` — write the AI-agent skill files into an existing
+ * project. Never overwrites: existing files are skipped with a note, so a
+ * project's own AGENTS.md is safe (append our block by hand from
+ * https://glasskit.app/ui/docs/ai).
+ */
+async function agents(opts: Options) {
+  const name = basename(opts.cwd) || "glasses-app";
+  for (const [path, content] of Object.entries(agentFiles())) {
+    const dest = join(opts.cwd, path);
+    if (await exists(dest)) {
+      console.log(`${c.dim("skip  ")} ${path} ${c.dim("(exists)")}`);
+      continue;
+    }
+    await mkdir(dirname(dest), { recursive: true });
+    await writeFile(dest, content.replaceAll("__NAME__", name));
+    console.log(`${c.green("create")} ${path}`);
+  }
+  console.log(`
+${c.bold("Agent skill installed.")} Claude Code, Cursor, Copilot, and any
+AGENTS.md-reading agent now know the platform contract. Docs:
+https://glasskit.app/ui/docs/ai`);
+}
+
+/**
  * `glasskit init [dir]` — dual-mode like shadcn's init:
  *   - inside an existing project (package.json present): print setup steps
  *   - in an empty / new directory: scaffold a complete Vite + React glasses
@@ -341,6 +366,9 @@ function help() {
 ${c.bold("glasskit")} — vendor additive-lens components into your project
 
 ${c.bold("Usage")}
+  glasskit agents            write the AI-agent skill files (AGENTS.md,
+                             Claude skill, Cursor rule, Copilot instructions)
+                             into an existing project — skips files that exist
   glasskit init [dir]        scaffold a Vite glasses app (or print setup
                              steps inside an existing project)
   glasskit add <name...>     add components (and their dependencies)
@@ -363,6 +391,7 @@ async function main() {
     if (command === "add") await add(names, opts);
     else if (command === "list" || command === "ls") await list(opts);
     else if (command === "init") await init(names[0], opts);
+    else if (command === "agents") await agents(opts);
     else {
       console.error(c.red(`Unknown command: ${command}`));
       help();
