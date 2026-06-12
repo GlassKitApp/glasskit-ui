@@ -52,5 +52,6 @@ export const COMPONENT_NAV: ComponentNav[] = [
   { slug: "weather-tile", name: "WeatherTile", category: "Display" },
   { slug: "slider", name: "Slider", category: "Action" },
   { slug: "text-field", name: "TextField", category: "Input" },
+  { slug: "compose-flow", name: "ComposeFlow", category: "Input" },
   { slug: "permission-prompt", name: "PermissionPrompt", category: "Input" },
 ];

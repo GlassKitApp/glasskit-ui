@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "apps/web/components/glass-demos/demos.tsx": {
-    "mtime": 1781253498.0989323,
-    "ast_hash": "6f1354fe4b064d34fdb043f64d4de9c2",
+    "mtime": 1781286613.9172213,
+    "ast_hash": "988419a72ca8651eae5d8ad9b3e01931",
     "semantic_hash": ""
   },
   "apps/web/components/icons.tsx": {
@@ -275,8 +275,8 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/components/meta.json": {
-    "mtime": 1781211120.77694,
-    "ast_hash": "018fb228fb28ffe75e5896f19264175d",
+    "mtime": 1781286582.3410385,
+    "ast_hash": "1f848f6cf9b632f584191b9963435fc7",
     "semantic_hash": ""
   },
   "apps/web/content/docs/meta.json": {
@@ -285,13 +285,13 @@
     "semantic_hash": ""
   },
   "apps/web/lib/component-docs.tsx": {
-    "mtime": 1781286219.685309,
-    "ast_hash": "7482d0bb2a84114939a13fec25ba44bf",
+    "mtime": 1781286600.4022062,
+    "ast_hash": "b6c153622e33aba3c6ff10d2d4ed6e35",
     "semantic_hash": ""
   },
   "apps/web/lib/component-nav.ts": {
-    "mtime": 1781211120.780016,
-    "ast_hash": "e6b947d7bad265aea848a12ce5a6046d",
+    "mtime": 1781286582.3408186,
+    "ast_hash": "88384f572e36265a017e927a9bfe8f7c",
     "semantic_hash": ""
   },
   "apps/web/lib/config.ts": {
@@ -300,8 +300,8 @@
     "semantic_hash": ""
   },
   "apps/web/lib/glass-demos.tsx": {
-    "mtime": 1781211120.7801461,
-    "ast_hash": "1f57f696797e58072f2703151f833cd2",
+    "mtime": 1781286600.4014094,
+    "ast_hash": "42069899f35fd6295186e93e4ff1ce0a",
     "semantic_hash": ""
   },
   "apps/web/lib/meta-deeplink.ts": {
@@ -505,8 +505,8 @@
     "semantic_hash": ""
   },
   "registry/registry.json": {
-    "mtime": 1781286248.5521383,
-    "ast_hash": "37c764c088aeb2e7d28ab47a2ba6e42f",
+    "mtime": 1781286618.2020993,
+    "ast_hash": "2c31e2edc333f308d2026421890841dc",
     "semantic_hash": ""
   },
   "registry/ui/assistant-orb.tsx": {
@@ -785,8 +785,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1781211120.7761147,
-    "ast_hash": "5620f8ee99f79a5b2bc06ac24ecb1243",
+    "mtime": 1781286600.4017637,
+    "ast_hash": "f653559467ab61945e750687793bf71e",
     "semantic_hash": ""
   },
   "START-HERE.md": {
@@ -1020,13 +1020,13 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/index.mdx": {
-    "mtime": 1781211120.7778049,
-    "ast_hash": "98c8278833a2dff5ca0dfdf64e0e419d",
+    "mtime": 1781286600.401988,
+    "ast_hash": "002236b9afde1e02bbb69816ef478a45",
     "semantic_hash": ""
   },
   "apps/web/public/llms.txt": {
-    "mtime": 1781286248.55676,
-    "ast_hash": "d9a5bbafc03e1c78a04d419fcf7fb3d8",
+    "mtime": 1781286618.2064447,
+    "ast_hash": "0f5944959ad5f22ebe632bcb723bbed1",
     "semantic_hash": ""
   },
   "docs/RELEASING.md": {
@@ -1070,17 +1070,17 @@
     "semantic_hash": ""
   },
   "apps/web/__tests__/registry/navigator.test.tsx": {
-    "mtime": 1781286220.5628111,
+    "mtime": 1781286417.4296777,
     "ast_hash": "15a5cade4be29ae6ebbca9ed0e1dbe7f",
     "semantic_hash": ""
   },
   "registry/ui/navigator.tsx": {
-    "mtime": 1781286118.5466793,
+    "mtime": 1781286417.4354649,
     "ast_hash": "9de94018523e02ee410be6431d5b7f26",
     "semantic_hash": ""
   },
   "apps/web/content/docs/components/navigator.mdx": {
-    "mtime": 1781286247.6457157,
+    "mtime": 1781286417.429828,
     "ast_hash": "5f24f574ce37b3ed7abd11e2cfaee8bd",
     "semantic_hash": ""
   },
@@ -1722,6 +1722,26 @@
   ".changeset/focus-engine-v2.md": {
     "mtime": 1781286061.5694847,
     "ast_hash": "4b1c5cbb9d0fc778d3dfc7d403eee5e0",
+    "semantic_hash": ""
+  },
+  "apps/web/__tests__/registry/compose-flow.test.tsx": {
+    "mtime": 1781286539.184381,
+    "ast_hash": "eb2f8b96b85a3e54c00504a398f98748",
+    "semantic_hash": ""
+  },
+  "registry/ui/compose-flow.tsx": {
+    "mtime": 1781286504.3263514,
+    "ast_hash": "d446c828e12a570a8ebc424baf42e527",
+    "semantic_hash": ""
+  },
+  ".changeset/compose-styles.md": {
+    "mtime": 1781286612.9265013,
+    "ast_hash": "e604f5674c7d1f5f31ef5e314d84d5b6",
+    "semantic_hash": ""
+  },
+  "apps/web/content/docs/components/compose-flow.mdx": {
+    "mtime": 1781286582.3443007,
+    "ast_hash": "1b8e01aefcaa67ea29ee01e380b89bcd",
     "semantic_hash": ""
   }
 }

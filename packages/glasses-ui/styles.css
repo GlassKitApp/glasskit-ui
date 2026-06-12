@@ -2313,6 +2313,12 @@
 
 /* ── Wave 12 — quality pass ───────────────────────────────────────── */
 
+/* ComposeFlow — field ⇄ picker swap; the wrapper must not affect layout,
+ * the picker stacks heading over options. */
+.glass-viewport .gk-compose {
+  display: contents;
+}
+
 /* FocusScope — layout-inert wrapper; the scoping is JS-side (dpad.tsx). */
 .glass-viewport .gk-focus-scope,
 .gk-focus-scope {

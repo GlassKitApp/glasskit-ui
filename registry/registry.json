@@ -207,6 +207,28 @@
       ]
     },
     {
+      "name": "compose-flow",
+      "type": "registry:ui",
+      "title": "ComposeFlow",
+      "description": "the working text-entry recipe for a platform with no keyboard or microphone: a <TextField> that opens a picker of choices when activated; choosing writes the value back and returns to the field.",
+      "dependencies": [
+        "@glasskit-ui/react@^0.3.0"
+      ],
+      "registryDependencies": [
+        "utils",
+        "text-field",
+        "heading",
+        "list"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/compose-flow.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/compose-flow.tsx"
+        }
+      ]
+    },
+    {
       "name": "confirm",
       "type": "registry:ui",
       "title": "Confirm",

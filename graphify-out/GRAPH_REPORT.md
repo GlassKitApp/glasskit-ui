@@ -1,16 +1,16 @@
 # Graph Report - glasskit-ui  (2026-06-12)
 
 ## Corpus Check
-- 238 files · ~376,877 words
+- 242 files · ~378,109 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1397 nodes · 2391 edges · 206 communities (185 shown, 21 thin omitted)
+- 1405 nodes · 2410 edges · 209 communities (190 shown, 19 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b51e433c`
+- Built from commit: `34fde7dd`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -88,6 +88,8 @@
 - [[_COMMUNITY_Community 82|Community 82]]
 - [[_COMMUNITY_Community 128|Community 128]]
 - [[_COMMUNITY_Community 136|Community 136]]
+- [[_COMMUNITY_Community 138|Community 138]]
+- [[_COMMUNITY_Community 176|Community 176]]
 - [[_COMMUNITY_Community 181|Community 181]]
 - [[_COMMUNITY_Community 182|Community 182]]
 - [[_COMMUNITY_Community 183|Community 183]]
@@ -102,14 +104,13 @@
 - [[_COMMUNITY_Community 193|Community 193]]
 - [[_COMMUNITY_Community 194|Community 194]]
 - [[_COMMUNITY_Community 200|Community 200]]
+- [[_COMMUNITY_Community 201|Community 201]]
 - [[_COMMUNITY_Community 202|Community 202]]
-- [[_COMMUNITY_Community 203|Community 203]]
 - [[_COMMUNITY_Community 204|Community 204]]
 - [[_COMMUNITY_Community 205|Community 205]]
-- [[_COMMUNITY_Community 206|Community 206]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `cn()` - 97 edges
+1. `cn()` - 98 edges
 2. `GlassKit Ecosystem — Open-Source SDK + Registry (`glasskit-ui`)` - 26 edges
 3. `Screen()` - 23 edges
 4. `Cue()` - 21 edges
@@ -135,7 +136,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (206 total, 21 thin omitted)
+## Communities (209 total, 19 thin omitted)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.06
@@ -146,7 +147,7 @@ Cohesion: 0.15
 Nodes (13): devDependencies, eslint, @eslint/js, eslint-plugin-react-hooks, globals, react, react-dom, tsup (+5 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.07
+Cohesion: 0.08
 Nodes (37): Dir, focusables(), FocusScope(), getFocusables(), KEY_TO_DIR, moveFocus(), RectLike, scopes (+29 more)
 
 ### Community 4 - "Community 4"
@@ -160,10 +161,6 @@ Nodes (15): dependsOn, env, outputs, cache, persistent, globalEnv, $schema, task
 ### Community 6 - "Community 6"
 Cohesion: 0.12
 Nodes (14): 10. Sources, 1. North star, 2. Two surfaces, two recipes, 3. Design principles (watchOS-derived, additive-translated), 4. Tokens & numbers (concrete starting set), 5. "Premium without blur" recipe, 6. Motion, 7. Iconography & typography (+6 more)
-
-### Community 7 - "Community 7"
-Cohesion: 0.16
-Nodes (11): pages, cards, chips, { container }, onSelect, Deck(), Launcher(), LauncherApp (+3 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.15
@@ -202,12 +199,16 @@ Cohesion: 0.09
 Nodes (23): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+15 more)
 
 ### Community 27 - "Community 27"
-Cohesion: 0.10
-Nodes (11): cn(), AssistantOrb(), Avatar(), AvatarTone, ChatBubble(), MessageThread(), Dictation(), Heading() (+3 more)
+Cohesion: 0.08
+Nodes (20): AlertGlyph(), ComponentDoc, ClassValue, cn(), cn(), AssistantOrb(), Avatar(), AvatarTone (+12 more)
 
 ### Community 28 - "Community 28"
-Cohesion: 0.05
+Cohesion: 0.06
 Nodes (37): generateMetadata(), generateStaticParams(), BrandLockup(), JsonLd(), COLS, FooterLink, ProductFooter(), ProductNav() (+29 more)
+
+### Community 29 - "Community 29"
+Cohesion: 0.18
+Nodes (8): { container }, onClick, row, rows, ComposeFlow(), List(), ListRow(), TextField()
 
 ### Community 32 - "Community 32"
 Cohesion: 0.08
@@ -278,32 +279,32 @@ Cohesion: 0.39
 Nodes (7): 1. Install the SDK, 2. Import the styles, 3. Build, 4. Add components, Fastest path: scaffold an app, On-device behaviors worth knowing, Or add GlassKit to an existing app
 
 ### Community 49 - "Community 49"
-Cohesion: 0.13
-Nodes (29): AsyncViewDemo(), ButtonDemo(), CallCardDemo(), CompassDemo(), ConfirmDemo(), DeckDemo(), DictationDemo(), DirectionArrowDemo() (+21 more)
+Cohesion: 0.12
+Nodes (30): AsyncViewDemo(), ButtonDemo(), CallCardDemo(), CompassDemo(), ComposeFlowDemo(), ConfirmDemo(), DeckDemo(), DictationDemo() (+22 more)
 
 ### Community 50 - "Community 50"
-Cohesion: 0.10
-Nodes (14): PropsTable(), ComponentDoc, PropRow, Button(), CallCard(), Clock(), EmptyState(), LiveCaptions() (+6 more)
+Cohesion: 0.14
+Nodes (12): PropsTable(), PropRow, stringLabel(), pages, ChatBubble(), MessageThread(), Deck(), EmptyState() (+4 more)
 
 ### Community 51 - "Community 51"
 Cohesion: 0.17
 Nodes (15): fetchJson(), RegistryFile, RegistryItem, body, files, hits, item, itemLines() (+7 more)
 
 ### Community 52 - "Community 52"
-Cohesion: 0.08
-Nodes (35): generateMetadata(), ComponentDoc(), GlassAppShell(), getComponentDoc(), getGlassDemo(), mrbdDeepLink(), qrSvg(), ComponentFile (+27 more)
+Cohesion: 0.13
+Nodes (26): ComponentFile, ITEMS, RegItem, REPO_ROOT, resolve(), fetchJson(), RegistryFile, RegistryItem (+18 more)
 
 ### Community 53 - "Community 53"
 Cohesion: 0.15
-Nodes (14): StatsDemo(), { container }, fill, m, off, onRetry, { rerender }, { rerender, container } (+6 more)
+Nodes (13): { container }, fill, m, off, onRetry, { rerender }, { rerender, container }, ErrorState() (+5 more)
 
 ### Community 55 - "Community 55"
 Cohesion: 0.25
 Nodes (5): fetchMarkdown(), findings, firecrawl(), PAGES, repoStatePath
 
 ### Community 56 - "Community 56"
-Cohesion: 0.06
-Nodes (32): cn(), CodeBlock(), DevicePreview(), CheckIcon(), CopyIcon(), FocusIcon(), GestureIcon(), GithubIcon() (+24 more)
+Cohesion: 0.12
+Nodes (9): FocusIcon(), GestureIcon(), GithubIcon(), GlassesIcon(), IconProps, LayersIcon(), TerminalIcon(), FEATURES (+1 more)
 
 ### Community 58 - "Community 58"
 Cohesion: 0.32
@@ -339,11 +340,11 @@ Nodes (10): 0. How this repo was set up, 1. Locked decisions (from brainstorming
 
 ### Community 70 - "Community 70"
 Cohesion: 0.15
-Nodes (13): { container }, map, onCancel, onChange, onConfirm, radios, sw, Badge() (+5 more)
+Nodes (14): SettingsDemo(), { container }, map, onCancel, onChange, onConfirm, radios, sw (+6 more)
 
 ### Community 71 - "Community 71"
-Cohesion: 0.16
-Nodes (19): AlertGlyph(), BatteryGlyph(), CheckGlyph(), ChevronGlyph(), HeartGlyph(), MessageGlyph(), MusicGlyph(), NavGlyph() (+11 more)
+Cohesion: 0.10
+Nodes (21): BatteryGlyph(), CheckGlyph(), ChevronGlyph(), HeartGlyph(), MessageGlyph(), MusicGlyph(), NavGlyph(), LauncherDemo() (+13 more)
 
 ### Community 72 - "Community 72"
 Cohesion: 0.33
@@ -361,6 +362,10 @@ Nodes (6): GlassKit visual language — "premium surfaces" (owner-approved 2026-
 Cohesion: 0.33
 Nodes (5): GlassKit UI, Monorepo, Quick start, Status, What's here
 
+### Community 78 - "Community 78"
+Cohesion: 0.20
+Nodes (9): generateMetadata(), ComponentDoc(), GlassAppShell(), getComponentDoc(), getGlassDemo(), mrbdDeepLink(), qrSvg(), getComponentFiles() (+1 more)
+
 ### Community 81 - "Community 81"
 Cohesion: 0.40
 Nodes (4): Reporting a vulnerability, Scope notes, Security Policy, Supported versions
@@ -369,9 +374,21 @@ Nodes (4): Reporting a vulnerability, Scope notes, Security Policy, Supported ve
 Cohesion: 0.12
 Nodes (21): NavHistory(), NavHome(), NavSession(), NavSummary(), DeepRoot(), Detail(), GuardedHome(), GuardedScreen() (+13 more)
 
+### Community 136 - "Community 136"
+Cohesion: 0.33
+Nodes (3): btn, onClick, Button()
+
+### Community 138 - "Community 138"
+Cohesion: 0.22
+Nodes (13): ACCENTS, CodePanel(), CopyButton(), Demo, DEMOS, PlaygroundClient(), DpadProvider(), HeartRateDemo() (+5 more)
+
+### Community 176 - "Community 176"
+Cohesion: 0.29
+Nodes (8): DevicePreview(), CheckIcon(), CopyIcon(), InstallCommand(), Pm, PMS, RUNNER, useCopyToClipboard()
+
 ### Community 181 - "Community 181"
-Cohesion: 0.53
-Nodes (3): AsyncStatus, AsyncView(), Spinner()
+Cohesion: 0.18
+Nodes (9): { container }, status, { container }, { container, rerender }, AsyncStatus, AsyncView(), Spinner(), Cue() (+1 more)
 
 ### Community 185 - "Community 185"
 Cohesion: 0.50
@@ -398,16 +415,16 @@ Cohesion: 0.32
 Nodes (7): 0.0.1, 0.0.2, 0.0.3, @glasskit-ui/web, Patch Changes, Patch Changes, Patch Changes
 
 ### Community 200 - "Community 200"
-Cohesion: 0.26
+Cohesion: 0.25
 Nodes (6): ExploreDemo(), { container }, g, Callout(), Pin(), Reticle()
+
+### Community 201 - "Community 201"
+Cohesion: 0.22
+Nodes (3): cn(), CodeBlock(), InstallTabs()
 
 ### Community 202 - "Community 202"
 Cohesion: 0.33
 Nodes (5): 📷 Camera access, 🔊 Documented audio playback, 👁 Gaze / head-pose targeting, 🎤 Microphone / system dictation, 🖐 Neural Band gesture events
-
-### Community 203 - "Community 203"
-Cohesion: 0.27
-Nodes (7): ClassValue, stringLabel(), cn(), Progress(), Slider(), formatSeconds(), Timer()
 
 ### Community 204 - "Community 204"
 Cohesion: 0.29
@@ -417,29 +434,25 @@ Nodes (6): fmt(), kb(), NEXT, PREVIEW_DIR, ROOT, SDK_DIST
 Cohesion: 0.33
 Nodes (5): bar, { container }, { container: over }, { container: under }, el
 
-### Community 206 - "Community 206"
-Cohesion: 0.40
-Nodes (4): { container }, onClick, row, rows
-
 ## Knowledge Gaps
 - **496 isolated node(s):** `allow`, `SF`, `LA`, `pages`, `SCREENS` (+491 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **21 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `cn()` connect `Community 27` to `Community 128`, `Community 36`, `Community 70`, `Community 7`, `Community 71`, `Community 200`, `Community 203`, `Community 50`, `Community 181`, `Community 53`, `Community 56`, `Community 29`?**
-  _High betweenness centrality (0.020) - this node is a cross-community bridge._
-- **Why does `useDpad()` connect `Community 3` to `Community 56`?**
+- **Why does `cn()` connect `Community 27` to `Community 128`, `Community 36`, `Community 70`, `Community 71`, `Community 136`, `Community 201`, `Community 138`, `Community 200`, `Community 7`, `Community 50`, `Community 181`, `Community 53`, `Community 29`?**
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+- **Why does `resolve()` connect `Community 52` to `Community 78`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **Why does `useDpad()` connect `Community 3` to `Community 138`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **What connects `allow`, `SF`, `LA` to the rest of the system?**
   _496 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.06892230576441102 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0815686274509804 - nodes in this community are weakly interconnected._
 - **Should `Community 4` be split into smaller, more focused modules?**
   _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._
-- **Should `Community 5` be split into smaller, more focused modules?**
-  _Cohesion score 0.13970588235294118 - nodes in this community are weakly interconnected._
