@@ -287,19 +287,31 @@ https://glasskit.app/ui/docs/ai`);
  *   - in an empty / new directory: scaffold a complete Vite + React glasses
  *     app (required 600×600 + mrbd meta tags, GlassViewport + useDpad wired)
  */
+/** The package manager that invoked us — every printed command speaks its
+ *  dialect (npx → npm, pnpm dlx → pnpm, …). Defaults to npm. */
+function invokingPm(): { pm: string; add: string; dlx: string } {
+  const pm = process.env.npm_config_user_agent?.split("/")[0] || "npm";
+  return {
+    pm,
+    add: pm === "npm" ? "npm install" : `${pm} add`,
+    dlx: pm === "npm" ? "npx" : pm === "bun" ? "bunx" : `${pm} dlx`,
+  };
+}
+
 async function init(dir: string | undefined, opts: Options) {
   const target = resolve(opts.cwd, dir ?? ".");
+  const { add, dlx } = invokingPm();
 
   if (await exists(join(target, "package.json"))) {
     console.log(`
 ${c.bold("GlassKit UI — add to an existing project")}
 
-  1. ${c.green("pnpm add @glasskit-ui/react")}   ${c.dim("# the SDK (hooks + GlassViewport)")}
+  1. ${c.green(`${add} @glasskit-ui/react`)}   ${c.dim("# the SDK (hooks + GlassViewport)")}
   2. In your CSS, after Tailwind:
        ${c.dim('@import "tailwindcss";')}
        ${c.dim('@import "@glasskit-ui/react/styles.css";')}
   3. Add components:
-       ${c.green("npx @glasskit-ui/cli add button readout")}
+       ${c.green(`${dlx} @glasskit-ui/cli add button readout`)}
 
   Docs: https://glasskit.app/ui/docs
 `);
@@ -355,7 +367,7 @@ Run init in an empty directory (or pass one: glasskit init my-app).`),
 ${c.green("✓")} ${c.bold(name)} is ready — a 600×600 glasses app.
 
   ${cd && cd !== "." ? c.green(`cd ${cd}`) + "\n  " : ""}${opts.install ? "" : c.green(`${pm} install`) + "\n  "}${c.green(`${pm} run dev`)}        ${c.dim("# arrow keys = D-pad, Enter = pinch")}
-  ${c.green("npx @glasskit-ui/cli add list button readout")}
+  ${c.green(`${invokingPm().dlx} @glasskit-ui/cli add list button readout`)}
 
   Ship it: build, deploy to any HTTPS host, add the URL in the Meta AI app.
 `);
