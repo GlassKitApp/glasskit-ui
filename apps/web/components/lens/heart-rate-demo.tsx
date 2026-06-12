@@ -15,7 +15,7 @@ import { HeartGlyph, CheckGlyph } from "./icons";
 export function HeartRateDemo() {
   return (
     <GlassViewport>
-      <Screen cue={<Cue tone="accent">Recording · pinch to log</Cue>}>
+      <Screen cue={<Cue emphasis="accent">Recording · pinch to log</Cue>}>
         <GlowIcon size="lg" plate tone="peach" label="Heart rate">
           <HeartGlyph />
         </GlowIcon>

@@ -12,7 +12,9 @@ export function StatsDemo() {
     <GlassViewport>
       <Screen
         cue={
-          <Cue icon={<StatusDot tone="live" label="GPS" />}>3.2 km · 18:40</Cue>
+          <Cue icon={<StatusDot status="live" label="GPS" />}>
+            3.2 km · 18:40
+          </Cue>
         }
       >
         <Meter value={72} max={100} label="Effort" unit="%" />

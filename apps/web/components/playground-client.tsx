@@ -31,7 +31,7 @@ const DEMOS: Demo[] = [
     caption: "Screen · Readout · Cue · Button · GlowIcon",
     node: <HeartRateDemo />,
     code: `<GlassViewport>
-  <Screen cue={<Cue tone="accent">Recording · pinch to log</Cue>}>
+  <Screen cue={<Cue emphasis="accent">Recording · pinch to log</Cue>}>
     <GlowIcon size="lg" active><HeartIcon /></GlowIcon>
     <Readout label="Heart rate" value="128" unit="BPM" />
     <div className="row">
@@ -72,7 +72,7 @@ const DEMOS: Demo[] = [
     caption: "AsyncView · Spinner · Progress",
     node: <SyncDemo />,
     code: `<GlassViewport>
-  <Screen cue={<Cue tone="accent">Keep glasses on</Cue>}>
+  <Screen cue={<Cue emphasis="accent">Keep glasses on</Cue>}>
     <AsyncView
       status="loading"
       loading={
@@ -94,7 +94,7 @@ const DEMOS: Demo[] = [
     caption: "DirectionArrow (world-anchored) · Readout · Cue",
     node: <NavigateDemo />,
     code: `<GlassViewport>
-  <Screen cue={<Cue tone="accent">Turn right onto Market St</Cue>}>
+  <Screen cue={<Cue emphasis="accent">Turn right onto Market St</Cue>}>
     {/* self-wired: useGeolocation + useDeviceOrientation steer it */}
     <DirectionArrow target={{ lat: 37.7955, lon: -122.3937 }} />
     {/* or control it yourself: <DirectionArrow bearing={35} /> */}
@@ -129,7 +129,7 @@ const DEMOS: Demo[] = [
     caption: "StatusDot · Meter · StatGrid",
     node: <StatsDemo />,
     code: `<GlassViewport>
-  <Screen cue={<Cue icon={<StatusDot tone="live" label="GPS" />}>3.2 km · 18:40</Cue>}>
+  <Screen cue={<Cue icon={<StatusDot status="live" label="GPS" />}>3.2 km · 18:40</Cue>}>
     <Meter value={72} max={100} label="Effort" unit="%" />
     <StatGrid items={[
       { label: "Pace", value: "8'42", unit: "/mi" },
@@ -159,7 +159,7 @@ const DEMOS: Demo[] = [
     caption: "Pin + Callout (world-anchored) · Reticle",
     node: <ExploreDemo />,
     code: `<GlassViewport>
-  <Screen cue={<Cue icon={<StatusDot tone="live" label="AR" />}>Center a pin to select</Cue>}>
+  <Screen cue={<Cue icon={<StatusDot status="live" label="AR" />}>Center a pin to select</Cue>}>
     <Reticle />
   </Screen>
   {/* x/y are 0–100% projected from the world position */}

@@ -9,7 +9,7 @@ import { AsyncView, Spinner } from "@registry/ui/async-view";
 export function SyncDemo() {
   return (
     <GlassViewport>
-      <Screen cue={<Cue tone="accent">Keep glasses on</Cue>}>
+      <Screen cue={<Cue emphasis="accent">Keep glasses on</Cue>}>
         <AsyncView
           status="loading"
           loading={

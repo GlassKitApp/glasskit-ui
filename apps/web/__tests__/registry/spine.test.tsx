@@ -50,7 +50,7 @@ describe("Readout", () => {
 
 describe("Cue", () => {
   it("applies the accent tone", () => {
-    const { container } = render(<Cue tone="accent">Listening</Cue>);
+    const { container } = render(<Cue emphasis="accent">Listening</Cue>);
     expect(
       container.firstElementChild?.classList.contains("gk-cue--accent"),
     ).toBe(true);
