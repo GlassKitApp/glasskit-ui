@@ -31,7 +31,7 @@ const DEMOS: Demo[] = [
     caption: "Screen · Readout · Cue · Button · GlowIcon",
     node: <HeartRateDemo />,
     code: `<GlassViewport>
-  <Screen cue={<Cue tone="accent">Recording · tap to log</Cue>}>
+  <Screen cue={<Cue tone="accent">Recording · pinch to log</Cue>}>
     <GlowIcon size="lg" active><HeartIcon /></GlowIcon>
     <Readout label="Heart rate" value="128" unit="BPM" />
     <div className="row">
@@ -49,7 +49,7 @@ const DEMOS: Demo[] = [
     caption: "List · ListRow · GlowIcon",
     node: <MenuDemo />,
     code: `<GlassViewport>
-  <Screen cue={<Cue>Look down to dismiss</Cue>}>
+  <Screen cue={<Cue>Swipe to browse · pinch to open</Cue>}>
     <List>
       <ListRow leading={<GlowIcon active size="sm"><NavIcon /></GlowIcon>}
                trailing={<GlowIcon size="sm"><ChevronIcon /></GlowIcon>}>
@@ -95,8 +95,9 @@ const DEMOS: Demo[] = [
     node: <NavigateDemo />,
     code: `<GlassViewport>
   <Screen cue={<Cue tone="accent">Turn right onto Market St</Cue>}>
-    {/* bearing comes from useGeolocation + useDeviceOrientation */}
-    <DirectionArrow bearing={35} />
+    {/* self-wired: useGeolocation + useDeviceOrientation steer it */}
+    <DirectionArrow target={{ lat: 37.7955, lon: -122.3937 }} />
+    {/* or control it yourself: <DirectionArrow bearing={35} /> */}
     <Readout label="Market St" value="320" unit="m" />
   </Screen>
 </GlassViewport>`,
@@ -158,7 +159,7 @@ const DEMOS: Demo[] = [
     caption: "Pin + Callout (world-anchored) · Reticle",
     node: <ExploreDemo />,
     code: `<GlassViewport>
-  <Screen cue={<Cue icon={<StatusDot tone="live" label="AR" />}>Look at a pin to select</Cue>}>
+  <Screen cue={<Cue icon={<StatusDot tone="live" label="AR" />}>Center a pin to select</Cue>}>
     <Reticle />
   </Screen>
   {/* x/y are 0–100% projected from the world position */}
@@ -168,12 +169,58 @@ const DEMOS: Demo[] = [
   },
 ];
 
+// `ramp` mirrors the .accent-* classes in globals.css — the override snippet
+// must teach the real tokens, so keep the two in sync.
 const ACCENTS = [
-  { id: "blue", label: "Blue", cls: "", sw: "sw-blue" },
-  { id: "cyan", label: "Cyan", cls: "accent-cyan", sw: "sw-cyan" },
-  { id: "amber", label: "Amber", cls: "accent-amber", sw: "sw-amber" },
-  { id: "violet", label: "Violet", cls: "accent-violet", sw: "sw-violet" },
-  { id: "white", label: "Mono", cls: "accent-white", sw: "sw-white" },
+  { id: "blue", label: "Blue", cls: "", sw: "sw-blue", ramp: null },
+  {
+    id: "cyan",
+    label: "Cyan",
+    cls: "accent-cyan",
+    sw: "sw-cyan",
+    ramp: {
+      active: "#82e1f2",
+      accent: "#34c8e6",
+      muted: "#1f7d92",
+      faint: "#133f4a",
+    },
+  },
+  {
+    id: "amber",
+    label: "Amber",
+    cls: "accent-amber",
+    sw: "sw-amber",
+    ramp: {
+      active: "#ffca6b",
+      accent: "#f5a623",
+      muted: "#a06d12",
+      faint: "#4d350a",
+    },
+  },
+  {
+    id: "violet",
+    label: "Violet",
+    cls: "accent-violet",
+    sw: "sw-violet",
+    ramp: {
+      active: "#c4baff",
+      accent: "#9b8cff",
+      muted: "#5d52a6",
+      faint: "#2f2a55",
+    },
+  },
+  {
+    id: "white",
+    label: "Mono",
+    cls: "accent-white",
+    sw: "sw-white",
+    ramp: {
+      active: "#ffffff",
+      accent: "#e9ebee",
+      muted: "#9aa0a6",
+      faint: "#3a3f46",
+    },
+  },
 ];
 
 export function PlaygroundClient() {
@@ -253,10 +300,14 @@ function CodePanel({
   code: string;
   accent: (typeof ACCENTS)[number];
 }) {
-  const override =
-    accent.cls === ""
-      ? "/* default — blue */"
-      : `.glass-viewport { --color-accent: var(--your-accent); }`;
+  const override = !accent.ramp
+    ? "/* default — blue */"
+    : `.glass-viewport {
+  --accent-active: ${accent.ramp.active};
+  --accent: ${accent.ramp.accent};
+  --accent-muted: ${accent.ramp.muted};
+  --accent-faint: ${accent.ramp.faint};
+}`;
 
   return (
     <div className="flex flex-col gap-3">

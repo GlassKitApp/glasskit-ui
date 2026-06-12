@@ -30,7 +30,7 @@ export default function Playground() {
           <div className="text-center">
             <p className="mono-label">Playground</p>
             <h1 className="font-display mt-4 text-[clamp(2.25rem,6vw,4rem)] leading-[0.96]">
-              The spine, live.
+              Drive it like the glasses.
             </h1>
             <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-ink-2">
               Pick a component, recolor the accent token, and copy the JSX. Use

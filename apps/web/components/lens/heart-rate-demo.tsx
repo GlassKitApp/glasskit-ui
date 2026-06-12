@@ -8,14 +8,14 @@ import { HeartGlyph, CheckGlyph } from "./icons";
 
 /**
  * A glanceable heart-rate "complication": icon + readout + a two-button action,
- * on one 600×600 additive surface. Pure visual; wrap it in <DpadProvider> to
+ * on one 600×600 lens surface. Pure visual; wrap it in <DpadProvider> to
  * drive focus with the arrow keys. (System status is OS chrome, not an app
  * component — the app owns the stage, not the status row.)
  */
 export function HeartRateDemo() {
   return (
     <GlassViewport>
-      <Screen cue={<Cue tone="accent">Recording · tap to log</Cue>}>
+      <Screen cue={<Cue tone="accent">Recording · pinch to log</Cue>}>
         <GlowIcon size="lg" plate tone="peach" label="Heart rate">
           <HeartGlyph />
         </GlowIcon>

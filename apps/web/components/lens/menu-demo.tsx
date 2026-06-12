@@ -9,7 +9,7 @@ import { NavGlyph, MessageGlyph, MusicGlyph, ChevronGlyph } from "./icons";
 export function MenuDemo() {
   return (
     <GlassViewport>
-      <Screen cue={<Cue>Look down to dismiss</Cue>}>
+      <Screen cue={<Cue>Swipe to browse · pinch to open</Cue>}>
         <List>
           <ListRow
             leading={
