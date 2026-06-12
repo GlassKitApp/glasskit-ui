@@ -68,11 +68,28 @@ export function ToggleDemo() {
 
 export function ListDemo() {
   const [opened, setOpened] = useState<string | null>(null);
-  const rows = ["Messages", "Navigation", "Music", "Camera", "Settings"];
+  // Twice the fold on purpose: walking focus past the bottom proves the
+  // list scrolls with the D-pad (native focus() scrolling + the thumb).
+  const rows = [
+    "Messages",
+    "Navigation",
+    "Music",
+    "Camera",
+    "Settings",
+    "Weather",
+    "Timer",
+    "Photos",
+    "Calls",
+    "Translate",
+  ];
   return (
     <Screen
       cue={
-        <Cue>{opened ? `Opened ${opened}` : "Up / down walks the rows"}</Cue>
+        <Cue>
+          {opened
+            ? `Opened ${opened}`
+            : "Up / down walks the rows — keep going, it scrolls"}
+        </Cue>
       }
     >
       <List>
@@ -149,16 +166,20 @@ export function TabsDemo() {
     apps: "App grid",
   };
   return (
-    <Screen cue={<Cue>{LABELS[tab]}</Cue>}>
-      <Tabs
-        value={tab}
-        onChange={setTab}
-        items={[
-          { id: "controls", label: "Controls" },
-          { id: "home", label: "Home" },
-          { id: "apps", label: "Apps" },
-        ]}
-      />
+    <Screen
+      status={
+        <Tabs
+          value={tab}
+          onChange={setTab}
+          items={[
+            { id: "controls", label: "Controls" },
+            { id: "home", label: "Home" },
+            { id: "apps", label: "Apps" },
+          ]}
+        />
+      }
+      cue={<Cue>{LABELS[tab]}</Cue>}
+    >
       <Readout label="Active tab" value={LABELS[tab] ?? tab} />
     </Screen>
   );
@@ -266,7 +287,9 @@ export function LauncherDemo() {
 export function TextFieldDemo() {
   const [value, setValue] = useState<string | null>(null);
   return (
-    <Screen cue={<Cue>{value ? "Dictated" : "Activate to dictate"}</Cue>}>
+    <Screen
+      cue={<Cue>{value ? "Captured" : "Pinch opens your capture flow"}</Cue>}
+    >
       <TextField
         label="Message"
         value={value}
@@ -439,7 +462,8 @@ export function CallCardDemo() {
 }
 
 export function ToastDemo() {
-  const [open, setOpen] = useState(false);
+  // Starts visible so the preview shows the component, not just its trigger.
+  const [open, setOpen] = useState(true);
   useEffect(() => {
     if (!open) return;
     const id = setTimeout(() => setOpen(false), 2400);
@@ -462,9 +486,10 @@ export function ToastDemo() {
 }
 
 export function AsyncViewDemo() {
+  // Starts on success so the preview shows content; Load/Fail re-drive it.
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
-  >("idle");
+  >("success");
   const load = (fail: boolean) => {
     setStatus("loading");
     setTimeout(() => setStatus(fail ? "error" : "success"), 1400);
@@ -485,7 +510,8 @@ export function AsyncViewDemo() {
 }
 
 export function ProgressDemo() {
-  const [pct, setPct] = useState(0);
+  // Seeded mid-flight: a 0% first frame renders an empty, invisible bar.
+  const [pct, setPct] = useState(64);
   useEffect(() => {
     const id = setInterval(() => setPct((p) => (p >= 100 ? 0 : p + 2)), 200);
     return () => clearInterval(id);
@@ -531,13 +557,15 @@ export function ViewfinderDemo() {
   return (
     <Screen cue={<Cue>{recording ? "Recording" : "Standby"}</Cue>}>
       <Viewfinder zoom={`${zoom}×`} recording={recording}>
-        <div className="row">
-          <Button variant="primary" onClick={() => setRecording((r) => !r)}>
-            {recording ? "Stop" : "Record"}
-          </Button>
-          <Button onClick={() => setZoom((z) => (z >= 3 ? 1 : z + 1))}>
-            Zoom
-          </Button>
+        <div className="absolute start-0 end-0 bottom-14 flex justify-center">
+          <div className="row">
+            <Button variant="primary" onClick={() => setRecording((r) => !r)}>
+              {recording ? "Stop" : "Record"}
+            </Button>
+            <Button onClick={() => setZoom((z) => (z >= 3 ? 1 : z + 1))}>
+              Zoom
+            </Button>
+          </div>
         </div>
       </Viewfinder>
     </Screen>

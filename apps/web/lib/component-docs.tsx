@@ -1245,25 +1245,32 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
     name: "Toaster",
     category: "Status",
     summary:
-      "The toast / notification SYSTEM — Sonner (Emil Kowalski's library) themed to the lens. Mount <Toaster> once, then fire imperatively with toast(); it handles the queue, stacking, auto-dismiss, and enter/exit motion. Bottom-anchored (below the sightline), like the real Display.",
+      "The toast / notification SYSTEM — Sonner (Emil Kowalski's library) themed to the lens. Mount <Toaster> once, then fire imperatively with toast(); it handles the queue, stacking, auto-dismiss, and enter/exit motion. Top-anchored — Screen's Cue line owns the bottom strip.",
     preview: (
-      <Screen>
-        <div className="gk-toaster__toast">
-          <span className="gk-toaster__icon">
-            <Avatar name="Mara Lin" tone="violet" size="sm" />
-          </span>
-          <div>
-            <div className="gk-toaster__title">Mara Lin</div>
-            <div className="gk-toaster__desc">On my way — be there in 5</div>
+      // Static mock in the status slot — top-anchored like the real
+      // top-center mount. (Tailwind margin utilities can't pin it: the SDK's
+      // unlayered `.glass-viewport *` margin reset beats layered utilities.)
+      <Screen
+        status={
+          <div className="gk-toaster__toast">
+            <span className="gk-toaster__icon">
+              <Avatar name="Mara Lin" tone="violet" size="sm" />
+            </span>
+            <div>
+              <div className="gk-toaster__title">Mara Lin</div>
+              <div className="gk-toaster__desc">On my way — be there in 5</div>
+            </div>
           </div>
-        </div>
+        }
+      >
+        {null}
       </Screen>
     ),
     props: [
       {
         name: "position",
         type: "Position",
-        default: '"bottom-center"',
+        default: '"top-center"',
         desc: "Anchor; bottom = device-accurate.",
       },
       {
@@ -1746,7 +1753,7 @@ toast("Mara Lin", {
       <Screen>
         <TextField
           label="Reply"
-          placeholder="Tap to speak"
+          placeholder="Pinch to enter text"
           icon={
             <GlowIcon size="md">
               <MicGlyph />
@@ -1765,7 +1772,7 @@ toast("Mara Lin", {
       {
         name: "placeholder",
         type: "ReactNode",
-        default: '"Tap to speak"',
+        default: '"Pinch to enter text"',
         desc: "Empty hint.",
       },
       { name: "icon", type: "ReactNode", desc: "Trailing affordance (mic)." },

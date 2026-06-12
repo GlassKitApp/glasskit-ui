@@ -5,8 +5,11 @@ export type TabItem = { id: string; label: ReactNode };
 
 /**
  * <Tabs> — a top-level tab strip (the home's quick-controls | home | apps
- * pager). Each tab is D-pad-focusable; the active one gets an accent underline.
- * Controlled via `value` + `onChange`. RTL-safe (logical layout).
+ * pager). Anchor it at the top of the view — pass it as <Screen>'s `status`
+ * slot — so context stays glanceable above the content it switches.
+ * Selected = accent underline; focused = the system focus ring (two distinct
+ * affordances). Controlled via `value` + `onChange`. RTL-safe (logical
+ * layout).
  *
  * Deliberate ARIA deviation: no `aria-controls`/`tabpanel` wiring — on the
  * lens a tab switch swaps the whole 600×600 screen, so there is no co-rendered

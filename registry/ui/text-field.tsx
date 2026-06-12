@@ -15,7 +15,7 @@ import { cn } from "../lib/utils";
 export function TextField({
   label,
   value,
-  placeholder = "Tap to speak",
+  placeholder = "Pinch to enter text",
   icon,
   onActivate,
   className,

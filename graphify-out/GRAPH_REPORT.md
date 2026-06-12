@@ -1,16 +1,16 @@
 # Graph Report - glasskit-ui  (2026-06-12)
 
 ## Corpus Check
-- 236 files · ~372,296 words
+- 237 files · ~372,589 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1378 nodes · 2363 edges · 207 communities (187 shown, 20 thin omitted)
+- 1379 nodes · 2363 edges · 208 communities (188 shown, 20 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f943af74`
+- Built from commit: `465ebd57`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -137,7 +137,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (207 total, 20 thin omitted)
+## Communities (208 total, 20 thin omitted)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.06
@@ -444,7 +444,7 @@ Nodes (5): bar, { container }, { container: over }, { container: under }, el
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `cn()` connect `Community 27` to `Community 36`, `Community 70`, `Community 7`, `Community 200`, `Community 201`, `Community 71`, `Community 204`, `Community 78`, `Community 50`, `Community 181`, `Community 53`, `Community 29`?**
-  _High betweenness centrality (0.023) - this node is a cross-community bridge._
+  _High betweenness centrality (0.029) - this node is a cross-community bridge._
 - **Why does `resolve()` connect `Community 52` to `Community 136`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **What connects `allow`, `SF`, `LA` to the rest of the system?**
