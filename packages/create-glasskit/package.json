@@ -35,6 +35,6 @@
     "provenance": true
   },
   "dependencies": {
-    "@glasskit-ui/cli": "^0.2.0"
+    "@glasskit-ui/cli": "workspace:^"
   }
 }
