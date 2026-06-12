@@ -1,6 +1,6 @@
 {
   "name": "create-glasskit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Scaffold a Meta Ray-Ban Display web app — `npm create glasskit my-app`. Wraps the GlassKit CLI's init.",
   "author": "GlassKit",
@@ -35,6 +35,6 @@
     "provenance": true
   },
   "dependencies": {
-    "@glasskit-ui/cli": "^0.1.0"
+    "@glasskit-ui/cli": "^0.2.0"
   }
 }

@@ -1,5 +1,48 @@
 # @glasskit-ui/react
 
+## 0.4.0
+
+### Minor Changes
+
+- b51e433: Focus engine v2: ownership, intent, and memory primitives.
+  - **`<FocusScope>`** — contain the D-pad ring to a subtree while mounted
+    (modal surfaces: confirms, permission prompts, sheets). Seeds focus inside
+    on mount; arrows/Enter only see focusables within the innermost scope;
+    unmounting restores focus to the element that had it before. Layout-inert
+    (`display: contents`).
+  - **`data-autofocus`** — `seedFocus()` now starts the ring at the first
+    focusable carrying this attribute (falling back to DOM order), so screens
+    can declare where focus begins — e.g. a destructive confirm seeding on
+    cancel.
+  - **`getFocusables()`** — the current D-pad candidate list (scope- and
+    visibility-aware), exported so navigation containers can implement focus
+    memory: record the focused index on push, restore it on pop.
+
+- ca9665e: `useFeedback()` / `buzz()` — the haptic seam. Dispatches a
+  `glasskitfeedback` CustomEvent and calls `navigator.vibrate` where the UA
+  supports it; no haptics API reaches Display web apps yet (see the platform
+  wishlist), so call it at interaction points and every call site lights up
+  the day one ships. SSR-safe, no-ops gracefully.
+
+### Patch Changes
+
+- 1158919: `gk-compose` stylesheet class for the new ComposeFlow registry component
+  (layout-inert field ⇄ picker wrapper).
+- cf6db50: 1.0-hardening pass:
+  - **Long lists are cheap by default** — `gk-list-row` uses
+    `content-visibility: auto` with an intrinsic placeholder size, so
+    offscreen rows skip layout/paint while scroll metrics and focus-engine
+    rects stay honest (near-free virtualization, no windowing library).
+  - **Cue is `role="status"`** — the screen's narration line announces
+    politely to screen readers.
+
+- a79ff90: Accent toasts no longer wear the primary-button treatment. The filled accent
+  gradient (`--accent-surface`) means "pinch me" and belongs to actions
+  (Button, Toggle, Segmented); `gk-toast--accent` now reads as an
+  accent-tinted status surface — a quiet fill from the faint end of the ramp,
+  an accent edge, and a soft underglow. Ramp-derived, so retheming still
+  carries it.
+
 ## 0.3.0
 
 ### Minor Changes
