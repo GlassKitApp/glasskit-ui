@@ -1,0 +1,71 @@
+---
+title: Platform wishlist
+description: APIs the Meta Ray-Ban Display doesn't expose to web apps yet — with GlassKit components already built and waiting for each one. The UI ships today; the day Meta exposes the API, it plugs in.
+---
+
+Web apps on the Display get four arrow keys, Enter, and the system back
+gesture — and that's it. No camera, no microphone, no gaze. We built the
+components anyway: the UI, the focus behavior, the docs, and the exact prop
+where each API would land are all shipped. This page is the standing request.
+
+**If you're building for the Display and want these too**, say so — on the
+[Meta Wearables developer community](https://developers.meta.com/wearables/),
+in the [toolkit repo](https://github.com/facebookincubator/meta-wearables-webapp),
+or wherever Meta devrel is listening. Every request below links the component
+that would light up the day the API ships.
+
+## 🎤 Microphone / system dictation
+
+The single highest-leverage API. There is no free-form text input on the
+glasses today — no keyboard, no mic, no dictation — so every text flow is a
+picker UI or a phone relay.
+
+| Ready and waiting                              | Where it plugs in                                                    |
+| ---------------------------------------------- | -------------------------------------------------------------------- |
+| [TextField](/docs/components/text-field)       | `onActivate` opens the capture flow — today yours, then the system's |
+| [Dictation](/docs/components/dictation)        | the live transcript view, currently app-driven                       |
+| [LiveCaptions](/docs/components/live-captions) | real-time captioning needs mic + transcription                       |
+
+## 📷 Camera access
+
+The Display _has_ a 12&nbsp;MP camera; web apps can't touch it (no
+`getUserMedia`, no capture API).
+
+| Ready and waiting                         | Where it plugs in                                                              |
+| ----------------------------------------- | ------------------------------------------------------------------------------ |
+| [Viewfinder](/docs/components/viewfinder) | the full capture chrome — brackets, zoom badge, REC — wired to app state today |
+
+## 👁 Gaze / head-pose targeting
+
+Head orientation reaches web apps (`useDeviceOrientation`), but nothing says
+_what the wearer is looking at_ on screen.
+
+| Ready and waiting                   | Where it plugs in                                                              |
+| ----------------------------------- | ------------------------------------------------------------------------------ |
+| [Reticle](/docs/components/reticle) | `active` — today derived from your own projection math, then from the platform |
+
+## 🔊 Documented audio playback
+
+Whether `<audio>` / Web Audio works in the Display webview is undocumented.
+Even a one-line answer unlocks a category of apps.
+
+| Ready and waiting                          | Where it plugs in                                             |
+| ------------------------------------------ | ------------------------------------------------------------- |
+| [NowPlaying](/docs/components/now-playing) | today a status display for playback your app tracks elsewhere |
+
+## 🖐 Neural Band gesture events
+
+Swipes and pinches arrive as arrow/Enter keydowns — flattened. A richer
+`CustomEvent` channel (double-pinch, rotate, wrist-flick) is the seam our
+`useNeuralBand` hook already listens on.
+
+| Ready and waiting             | Where it plugs in                                                                             |
+| ----------------------------- | --------------------------------------------------------------------------------------------- |
+| [Deck](/docs/components/deck) | uncontrolled paging advances on the `neuralband` swipe event, the moment the OS dispatches it |
+
+---
+
+Everything above degrades gracefully today — the honesty notes on each
+component's page say exactly what you own until the platform catches up. When
+an API ships, the components update and this page shrinks. We'd love for this
+page to be empty.

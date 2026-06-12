@@ -76,6 +76,8 @@ export type ComponentDoc = {
   preview: ReactNode;
   props: PropRow[];
   usage: string;
+  /** Platform API this component is built-and-waiting for (see /docs/wishlist). */
+  wishlist?: string;
 };
 
 export const COMPONENT_DOCS: ComponentDoc[] = [
@@ -503,6 +505,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
   },
   {
     slug: "reticle",
+    wishlist: "a gaze / head-pose targeting API",
     name: "Reticle",
     category: "Spatial",
     summary:
@@ -1180,6 +1183,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
   },
   {
     slug: "now-playing",
+    wishlist: "documented audio playback in the webview",
     name: "NowPlaying",
     category: "Media",
     summary:
@@ -1392,6 +1396,7 @@ toast("Mara Lin", {
   },
   {
     slug: "dictation",
+    wishlist: "a microphone / system dictation API",
     name: "Dictation",
     category: "Input",
     summary:
@@ -1461,6 +1466,7 @@ toast("Mara Lin", {
   },
   {
     slug: "viewfinder",
+    wishlist: "camera access (getUserMedia or a capture API)",
     name: "Viewfinder",
     category: "Capture",
     summary:
@@ -1494,6 +1500,7 @@ toast("Mara Lin", {
   },
   {
     slug: "live-captions",
+    wishlist: "a microphone + transcription API",
     name: "LiveCaptions",
     category: "Capture",
     summary:
@@ -1745,6 +1752,7 @@ toast("Mara Lin", {
   },
   {
     slug: "text-field",
+    wishlist: "a microphone / system dictation API",
     name: "TextField",
     category: "Input",
     summary:
