@@ -13,9 +13,10 @@ export { toast };
  *   toast("Mara Lin", { description: "On my way", icon: <Avatar … /> });
  *   toast.custom((id) => <NotificationCard … />);
  *
- * Bottom-anchored (below the sightline) to match the real Display; override with
- * the `position` prop. Sonner handles the queue, stacking, auto-dismiss, and the
- * enter/exit motion. Toasts portal to the window edge, so their theme lives in
+ * Top-anchored: <Screen> reserves the bottom strip for its Cue line, so
+ * bottom toasts would cover exactly what the app is saying there. Override
+ * with the `position` prop. Sonner handles the queue, stacking, auto-dismiss,
+ * and the enter/exit motion. Toasts portal to the window edge, so their theme lives in
  * the (intentionally unscoped) `.gk-toaster__*` rules.
  *
  * Keep toasts non-interactive: no `focusable` elements inside (including in
@@ -26,7 +27,7 @@ export { toast };
 export function Toaster(props: ToasterProps) {
   return (
     <SonnerToaster
-      position="bottom-center"
+      position="top-center"
       theme="dark"
       offset={20}
       gap={10}

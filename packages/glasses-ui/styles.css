@@ -1555,6 +1555,9 @@
   inline-size: 100%;
   padding: 20px;
   border-radius: 22px;
+  /* Screens center; a notification reads from the start edge — title beside
+   * the avatar, preview and actions ragged-right like a real message. */
+  text-align: start;
 }
 .glass-viewport .gk-notif__head {
   display: flex;
@@ -1724,6 +1727,10 @@
   display: flex;
   align-items: center;
   gap: 13px;
+  /* Sonner renders in place (no body portal), so a centered ancestor — e.g.
+   * a Screen — would center the title. Toast copy always reads from the
+   * start edge. */
+  text-align: start;
   inline-size: 100%;
   padding: 16px 18px;
   border-radius: 20px;
@@ -2061,6 +2068,9 @@
   inline-size: 100%;
   padding: 18px 20px;
   border-radius: 20px;
+  /* Speech transcribes line by line — ragged-right from the start edge,
+   * matching the speaker header (don't inherit Screen's centering). */
+  text-align: start;
 }
 .glass-viewport .gk-captions__head {
   display: flex;
@@ -2084,7 +2094,10 @@
   font-weight: 600;
 }
 
-/* Tabs — top-level tab strip; active tab gets an accent underline. */
+/* Tabs — top-level tab strip. Two distinct affordances: SELECTED is the
+ * persistent accent underline; FOCUSED is the system ring/bloom (same as
+ * every focusable). Conflating them made the strip unreadable — you could
+ * not tell where the D-pad was vs which tab was active. */
 .glass-viewport .gk-tabs {
   display: flex;
   gap: 6px;
@@ -2094,7 +2107,7 @@
   flex: 1 1 0;
   border: 0;
   border-block-end: 2px solid transparent;
-  border-radius: 0;
+  border-radius: 14px;
   background: transparent;
   box-shadow: none;
   padding-block: 14px;
@@ -2109,8 +2122,13 @@
 .glass-viewport .gk-tab:focus,
 .glass-viewport .gk-tab:focus-visible {
   color: #fff;
+  /* the generic .focusable:focus paints all borders accent — keep the
+   * underline meaning "selected", not "focused" */
+  border-block-end-color: transparent;
+}
+.glass-viewport .gk-tab--on:focus,
+.glass-viewport .gk-tab--on:focus-visible {
   border-block-end-color: var(--accent);
-  box-shadow: none;
 }
 
 /* Clock — big tabular time + date (the home complication). */

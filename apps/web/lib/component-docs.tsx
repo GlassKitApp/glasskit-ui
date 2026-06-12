@@ -1245,7 +1245,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
     name: "Toaster",
     category: "Status",
     summary:
-      "The toast / notification SYSTEM — Sonner (Emil Kowalski's library) themed to the lens. Mount <Toaster> once, then fire imperatively with toast(); it handles the queue, stacking, auto-dismiss, and enter/exit motion. Bottom-anchored (below the sightline), like the real Display.",
+      "The toast / notification SYSTEM — Sonner (Emil Kowalski's library) themed to the lens. Mount <Toaster> once, then fire imperatively with toast(); it handles the queue, stacking, auto-dismiss, and enter/exit motion. Top-anchored — Screen's Cue line owns the bottom strip.",
     preview: (
       <Screen>
         <div className="gk-toaster__toast">
@@ -1263,7 +1263,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
       {
         name: "position",
         type: "Position",
-        default: '"bottom-center"',
+        default: '"top-center"',
         desc: "Anchor; bottom = device-accurate.",
       },
       {
@@ -1746,7 +1746,7 @@ toast("Mara Lin", {
       <Screen>
         <TextField
           label="Reply"
-          placeholder="Tap to speak"
+          placeholder="Pinch to enter text"
           icon={
             <GlowIcon size="md">
               <MicGlyph />
@@ -1765,7 +1765,7 @@ toast("Mara Lin", {
       {
         name: "placeholder",
         type: "ReactNode",
-        default: '"Tap to speak"',
+        default: '"Pinch to enter text"',
         desc: "Empty hint.",
       },
       { name: "icon", type: "ReactNode", desc: "Trailing affordance (mic)." },

@@ -3,7 +3,15 @@ import { Screen } from "@registry/ui/screen";
 import { Cue } from "@registry/ui/cue";
 import { List, ListRow } from "@registry/ui/list";
 import { GlowIcon } from "@registry/ui/glow-icon";
-import { NavGlyph, MessageGlyph, MusicGlyph, ChevronGlyph } from "./icons";
+import {
+  NavGlyph,
+  MessageGlyph,
+  MusicGlyph,
+  ChevronGlyph,
+  SunGlyph,
+  PhoneGlyph,
+  MicGlyph,
+} from "./icons";
 
 /** A glanceable launcher menu — List + ListRow, leading GlowIcons, trailing chevrons. */
 export function MenuDemo() {
@@ -48,6 +56,40 @@ export function MenuDemo() {
             }
           >
             Now playing
+          </ListRow>
+          <ListRow
+            leading={
+              <GlowIcon size="sm">
+                <SunGlyph />
+              </GlowIcon>
+            }
+            trailing="72°"
+          >
+            Weather
+          </ListRow>
+          <ListRow
+            leading={
+              <GlowIcon size="sm">
+                <PhoneGlyph />
+              </GlowIcon>
+            }
+            trailing={
+              <GlowIcon size="sm">
+                <ChevronGlyph />
+              </GlowIcon>
+            }
+          >
+            Calls
+          </ListRow>
+          <ListRow
+            leading={
+              <GlowIcon size="sm">
+                <MicGlyph />
+              </GlowIcon>
+            }
+            trailing="3"
+          >
+            Voice notes
           </ListRow>
         </List>
       </Screen>

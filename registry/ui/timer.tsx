@@ -87,12 +87,11 @@ export function Timer({
         <span className="gk-timer__label t-caption">{label}</span>
       ) : null}
       {showBar && duration != null && duration > 0 ? (
-        <Progress
-          value={shown}
-          max={duration}
-          className="gk-timer__bar"
-          label={stringLabel(label) ?? "Time left"}
-        />
+        // Decorative: the big time above carries the value (role="timer"),
+        // a visible Progress label here would just repeat the caption.
+        <div aria-hidden="true" className="gk-timer__bar">
+          <Progress value={shown} max={duration} />
+        </div>
       ) : null}
     </div>
   );
