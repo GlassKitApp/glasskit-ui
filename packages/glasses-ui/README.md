@@ -23,6 +23,10 @@ npm i @glasskit-ui/react
 - `useNeuralBand()` — listens for the wristband's richer gestures
   (pinch, double-pinch, swipe). One-shot — the gesture string is
   exposed for one render, then cleared.
+- `useFeedback()` / `buzz()` — the haptic seam. Dispatches a
+  `glasskitfeedback` CustomEvent and calls `navigator.vibrate` where
+  supported; no haptics API reaches Display web apps yet, so call it at
+  interaction points and every call site lights up the day one ships.
 - `<FocusScope>` — contain the D-pad ring to a subtree while mounted
   (modal surfaces: confirms, permission prompts, sheets). Seeds focus
   inside on mount, restores the previous focus on unmount. Layout-inert
