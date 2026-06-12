@@ -8,6 +8,8 @@
  * `__NAME__` is replaced with the project name.
  */
 
+import { agentFiles } from "./agents";
+
 const PACKAGE_JSON = `{
   "name": "__NAME__",
   "private": true,
@@ -189,6 +191,11 @@ export function scaffoldFiles(
     "src/App.tsx": APP_TSX,
     "src/index.css": INDEX_CSS,
   };
+  // Every scaffold ships its agent skill: AGENTS.md (cross-agent contract),
+  // CLAUDE.md pointer, the Claude Code skill, Cursor rule, and Copilot
+  // instructions — a vibe-coded app starts with its agent already briefed.
+  Object.assign(files, agentFiles());
+
   if (template === "relay") {
     files["src/App.tsx"] = RELAY_APP_TSX;
     files["src/use-relay-text.ts"] = RELAY_HOOK;

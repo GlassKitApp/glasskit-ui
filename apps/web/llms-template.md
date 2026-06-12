@@ -11,6 +11,8 @@ npx @glasskit-ui/cli add list button compass navigator   # vendor components (wr
 npm i @glasskit-ui/react                   # the SDK alone (hooks + GlassViewport + styles.css); React 19 peer dep, ESM only
 ```
 
+Agent skill: every scaffold ships AGENTS.md + a Claude Code skill + Cursor/Copilot rules (the platform contract, pre-briefed); add to an existing project with `npx @glasskit-ui/cli agents`. Details: https://glasskit.app/ui/docs/ai
+
 IMPORTANT: the bare `glasskit` npm package is UNRELATED to this project — always use the scoped names (`@glasskit-ui/react`, `@glasskit-ui/cli`, `@glasskit-ui/mcp`) or `create-glasskit`. An MCP server (`npx @glasskit-ui/mcp`) exposes this registry to AI agents.
 
 ## SDK (`@glasskit-ui/react`)
