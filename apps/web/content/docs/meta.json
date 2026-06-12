@@ -1,4 +1,4 @@
 {
   "title": "GlassKit UI",
-  "pages": ["index", "patterns", "wishlist", "components"]
+  "pages": ["index", "patterns", "examples", "wishlist", "components"]
 }

@@ -30,7 +30,12 @@ const slugs = registry.items
 // Mid-morning, mid-week, UTC — what the frozen Clock shows everywhere.
 const FROZEN_TIME = new Date("2026-06-11T09:41:00Z");
 
-async function shoot(page: Page, slug: string, dir: "ltr" | "rtl") {
+async function shoot(
+  page: Page,
+  slug: string,
+  dir: "ltr" | "rtl",
+  route: "preview" | "examples" = "preview",
+) {
   // Install + pause: time stands still, so interval demos (Progress,
   // NowPlaying, Reticle…) hold their first frame forever. install() alone
   // keeps time flowing and those shots never stabilize.
@@ -45,10 +50,11 @@ async function shoot(page: Page, slug: string, dir: "ltr" | "rtl") {
   }
   // Full path incl. the /ui basePath — a leading-slash path would discard a
   // path suffix on baseURL.
-  await page.goto(`/ui/preview/${slug}`);
+  await page.goto(`/ui/${route}/${slug}`);
   const lens = page.locator(".glass-viewport");
   await expect(lens).toBeVisible();
-  await expect(lens).toHaveScreenshot(`${slug}-${dir}.png`, {
+  const name = route === "preview" ? slug : `${route}-${slug}`;
+  await expect(lens).toHaveScreenshot(`${name}-${dir}.png`, {
     animations: "disabled",
   });
 }
@@ -56,4 +62,13 @@ async function shoot(page: Page, slug: string, dir: "ltr" | "rtl") {
 for (const slug of slugs) {
   test(`${slug} (ltr)`, async ({ page }) => shoot(page, slug, "ltr"));
   test(`${slug} (rtl)`, async ({ page }) => shoot(page, slug, "rtl"));
+}
+
+// Example apps (lib/examples.tsx) — multi-screen compositions at
+// /examples/<slug>; the home screen is the deterministic first frame.
+for (const slug of ["workout", "messages"]) {
+  test(`example ${slug} (ltr)`, async ({ page }) =>
+    shoot(page, slug, "ltr", "examples"));
+  test(`example ${slug} (rtl)`, async ({ page }) =>
+    shoot(page, slug, "rtl", "examples"));
 }
