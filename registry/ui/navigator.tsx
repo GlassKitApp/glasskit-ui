@@ -31,6 +31,12 @@ import { cn } from "../lib/utils";
  *
  * Overlays intercept back with `useBackHandler` (last registered wins first;
  * return true to consume — e.g. close a sheet instead of leaving the screen).
+ *
+ * The stack itself rides in `history.state` (when params are
+ * structured-cloneable), so a mid-flow reload restores the screen the wearer
+ * was on instead of kicking them to the root. Optional `paths` mirrors the
+ * stack into the URL (`/detail` on push, restored on back) — give the host a
+ * catch-all route and pushed screens become deep-linkable.
  */
 
 type NavEntry = { name: string; params?: unknown; key: number };
@@ -83,6 +89,7 @@ export function Navigator({
   screens,
   initial,
   initialParams,
+  paths,
   className,
 }: {
   /** Screen renderers by name; receive the push params. */
@@ -90,6 +97,9 @@ export function Navigator({
   /** Root screen name. */
   initial: string;
   initialParams?: unknown;
+  /** Screen name → URL segment. Mirrors the stack into the pathname
+   *  (appended to the pathname where the Navigator mounted). */
+  paths?: Record<string, string>;
   className?: string;
 }) {
   const [stack, setStack] = useState<NavEntry[]>(() => [
@@ -106,6 +116,32 @@ export function Navigator({
   const stackRef = useRef(stack);
   stackRef.current = stack;
 
+  // Pathname where the Navigator mounted — `paths` segments append to it.
+  const basePath = useRef<string | null>(null);
+  const pathsRef = useRef(paths);
+  pathsRef.current = paths;
+
+  const urlFor = (name: string): string | undefined => {
+    const seg = pathsRef.current?.[name];
+    if (seg == null || basePath.current == null) return undefined;
+    return seg === "" ? basePath.current : `${basePath.current}/${seg}`;
+  };
+
+  /** history.state payload for a stack — drops params that can't be cloned
+   *  (a reload then restores the screen without them). */
+  const stateFor = (s: NavEntry[]) => {
+    const entries = s.map((e) => ({ name: e.name, params: e.params }));
+    try {
+      structuredClone(entries);
+      return { gkNavDepth: s.length - 1, gkStack: entries };
+    } catch {
+      return {
+        gkNavDepth: s.length - 1,
+        gkStack: entries.map((e) => ({ name: e.name })),
+      };
+    }
+  };
+
   /** Ask overlays first; true = back was consumed. */
   const runBackChain = () => {
     for (let i = backChain.current.length - 1; i >= 0; i--) {
@@ -115,9 +151,32 @@ export function Navigator({
   };
 
   useEffect(() => {
-    // Mark the root so popstate can tell our entries from the host page's.
+    basePath.current = location.pathname.replace(/\/$/, "");
+
+    const saved: Array<{ name: string; params?: unknown }> | undefined =
+      history.state?.gkStack;
     if (history.state?.gkNavDepth == null) {
-      history.replaceState({ ...history.state, gkNavDepth: 0 }, "");
+      // Fresh entry — mark the root so popstate can tell our entries from
+      // the host page's.
+      history.replaceState(
+        { ...history.state, ...stateFor(stackRef.current) },
+        "",
+      );
+    } else if (saved && saved.length > 1 && stackRef.current.length === 1) {
+      // Reload mid-flow: this entry carries a deeper stack — restore it so
+      // the wearer lands back on the screen they were on. basePath must not
+      // include the restored top's segment, so strip it when paths are on.
+      const topSeg = pathsRef.current?.[saved[saved.length - 1]!.name];
+      if (topSeg && basePath.current.endsWith(`/${topSeg}`)) {
+        basePath.current = basePath.current.slice(0, -(topSeg.length + 1));
+      }
+      setStack(
+        saved.map((e) => ({
+          name: e.name,
+          params: e.params,
+          key: ++keyRef.current,
+        })),
+      );
     }
 
     const onPopstate = (e: PopStateEvent) => {
@@ -126,7 +185,11 @@ export function Navigator({
       if (runBackChain()) {
         // An overlay consumed the back — restore the history entry the
         // system just popped so depth and stack stay in sync.
-        history.pushState({ gkNavDepth: stackRef.current.length - 1 }, "");
+        history.pushState(
+          stateFor([...stackRef.current]),
+          "",
+          urlFor(stackRef.current[stackRef.current.length - 1]!.name),
+        );
         return;
       }
       setStack((s) => s.slice(0, depth + 1));
@@ -157,8 +220,9 @@ export function Navigator({
         document.activeElement as HTMLElement,
       );
       if (idx !== -1) focusMemory.current.set(s[s.length - 1]!.key, idx);
-      history.pushState({ gkNavDepth: s.length }, "");
-      return [...s, { name, params, key: ++keyRef.current }];
+      const next = [...s, { name, params, key: ++keyRef.current }];
+      history.pushState(stateFor(next), "", urlFor(name));
+      return next;
     });
   }, []);
 
@@ -172,10 +236,11 @@ export function Navigator({
   }, []);
 
   const replace = useCallback((name: string, params?: unknown) => {
-    setStack((s) => [
-      ...s.slice(0, -1),
-      { name, params, key: ++keyRef.current },
-    ]);
+    setStack((s) => {
+      const next = [...s.slice(0, -1), { name, params, key: ++keyRef.current }];
+      history.replaceState(stateFor(next), "", urlFor(name));
+      return next;
+    });
   }, []);
 
   const api = useMemo<NavAPI>(

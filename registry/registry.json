@@ -212,7 +212,7 @@
       "title": "Confirm",
       "description": "a decision screen: a prompt + a two-button action bar (confirm / cancel).",
       "dependencies": [
-        "@glasskit-ui/react@^0.2.0"
+        "@glasskit-ui/react@^0.3.0"
       ],
       "registryDependencies": [
         "utils",
@@ -514,7 +514,7 @@
       "title": "PermissionPrompt",
       "description": "an explicit access request (sensors, location, camera, mic), which MRBD apps must ask for before use.",
       "dependencies": [
-        "@glasskit-ui/react@^0.2.0"
+        "@glasskit-ui/react@^0.3.0"
       ],
       "registryDependencies": [
         "utils"

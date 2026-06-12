@@ -266,3 +266,79 @@ describe("focus memory", () => {
     expect(document.activeElement?.textContent).toBe("Close");
   });
 });
+
+describe("state restoration + URL paths", () => {
+  it("restores a mid-flow stack from history.state after a remount (reload)", async () => {
+    const screens = {
+      home: () => <Home />,
+      detail: (p?: unknown) => <Detail id={(p as { id?: number })?.id} />,
+    };
+    const first = render(<Navigator screens={screens} initial="home" />);
+    act(() => screen.getByText("Open").click());
+    await settle();
+    expect(screen.getByText("Detail 42")).toBeTruthy();
+
+    // "Reload": unmount the app; the history entry keeps gkStack.
+    first.unmount();
+    render(<Navigator screens={screens} initial="home" />);
+    await settle();
+    // Restored straight to the screen the wearer was on — params included.
+    expect(screen.getByText("Detail 42")).toBeTruthy();
+
+    act(() => history.back()); // and back still pops to home
+    await settle();
+    expect(screen.getByText("Home")).toBeTruthy();
+  });
+
+  it("mirrors pushes into the pathname when paths is set, and back restores it", async () => {
+    const orig = location.pathname;
+    const base = orig.replace(/\/$/, "");
+    render(
+      <Navigator
+        screens={{
+          home: () => <Home />,
+          detail: () => <h2>Detail</h2>,
+        }}
+        initial="home"
+        paths={{ detail: "detail" }}
+      />,
+    );
+    act(() => screen.getByText("Open").click());
+    await settle();
+    expect(location.pathname).toBe(`${base}/detail`);
+
+    act(() => history.back());
+    await settle();
+    expect(location.pathname).toBe(orig);
+    expect(screen.getByText("Home")).toBeTruthy();
+  });
+
+  it("drops non-cloneable params from history.state but keeps the flow alive", async () => {
+    function PushWithCallback() {
+      const nav = useNavigator();
+      return (
+        <Button onClick={() => nav.push("detail", { onDone: () => {} })}>
+          Open
+        </Button>
+      );
+    }
+    render(
+      <Navigator
+        screens={{
+          home: () => <PushWithCallback />,
+          detail: () => <h2>Detail</h2>,
+        }}
+        initial="home"
+      />,
+    );
+    act(() => screen.getByText("Open").click());
+    await settle();
+    // The push itself works (params flow through React state)…
+    expect(screen.getByText("Detail")).toBeTruthy();
+    // …and history.state degraded to names-only instead of throwing.
+    expect(history.state.gkStack).toEqual([
+      { name: "home" },
+      { name: "detail" },
+    ]);
+  });
+});

@@ -220,7 +220,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_button_test",
-      "community": 27,
+      "community": 50,
       "norm_label": "button.test.tsx"
     },
     {
@@ -230,7 +230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_clock_test",
-      "community": 27,
+      "community": 50,
       "norm_label": "clock.test.tsx"
     },
     {
@@ -484,6 +484,16 @@
       "norm_label": "memhome()"
     },
     {
+      "label": "PushWithCallback()",
+      "file_type": "code",
+      "source_file": "apps/web/__tests__/registry/navigator.test.tsx",
+      "source_location": "L317",
+      "_origin": "ast",
+      "id": "registry_navigator_test_pushwithcallback",
+      "community": 128,
+      "norm_label": "pushwithcallback()"
+    },
+    {
       "label": "progress.test.tsx",
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
@@ -520,7 +530,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_timer_test",
-      "community": 203,
+      "community": 50,
       "norm_label": "timer.test.tsx"
     },
     {
@@ -530,7 +540,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "registry_timer_test_time",
-      "community": 203,
+      "community": 50,
       "norm_label": "time()"
     },
     {
@@ -730,7 +740,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "apps_web_app_glass_preview_slug_page_tsx_slug_page",
-      "community": 136,
+      "community": 52,
       "norm_label": "page.tsx"
     },
     {
@@ -740,7 +750,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "apps_web_app_glass_preview_slug_page_tsx_slug_page_generatestaticparams",
-      "community": 136,
+      "community": 52,
       "norm_label": "generatestaticparams()"
     },
     {
@@ -750,7 +760,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "apps_web_app_glass_preview_slug_page_tsx_slug_page_generatemetadata",
-      "community": 136,
+      "community": 52,
       "norm_label": "generatemetadata()"
     },
     {
@@ -760,7 +770,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "slug_page_glassapppage",
-      "community": 136,
+      "community": 52,
       "norm_label": "glassapppage()"
     },
     {
@@ -880,7 +890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "playground_page",
-      "community": 50,
+      "community": 28,
       "norm_label": "page.tsx"
     },
     {
@@ -890,7 +900,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "playground_page_metadata",
-      "community": 50,
+      "community": 28,
       "norm_label": "metadata"
     },
     {
@@ -900,7 +910,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "playground_page_playground",
-      "community": 50,
+      "community": 28,
       "norm_label": "playground()"
     },
     {
@@ -970,7 +980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_code_block",
-      "community": 201,
+      "community": 56,
       "norm_label": "code-block.tsx"
     },
     {
@@ -980,7 +990,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "components_code_block_codeblock",
-      "community": 201,
+      "community": 56,
       "norm_label": "codeblock()"
     },
     {
@@ -990,7 +1000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_component_doc",
-      "community": 136,
+      "community": 52,
       "norm_label": "component-doc.tsx"
     },
     {
@@ -1000,7 +1010,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "components_component_doc_componentdoc",
-      "community": 136,
+      "community": 52,
       "norm_label": "componentdoc()"
     },
     {
@@ -1010,7 +1020,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_device_preview",
-      "community": 138,
+      "community": 56,
       "norm_label": "device-preview.tsx"
     },
     {
@@ -1020,7 +1030,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_device_preview_devicepreview",
-      "community": 138,
+      "community": 56,
       "norm_label": "devicepreview()"
     },
     {
@@ -1030,7 +1040,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_glass_app_shell",
-      "community": 136,
+      "community": 52,
       "norm_label": "glass-app-shell.tsx"
     },
     {
@@ -1040,7 +1050,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_glass_app_shell_glassappshell",
-      "community": 136,
+      "community": 52,
       "norm_label": "glassappshell()"
     },
     {
@@ -1190,7 +1200,7 @@
       "source_location": "L368",
       "_origin": "ast",
       "id": "glass_demos_demos_nowplayingdemo",
-      "community": 204,
+      "community": 49,
       "norm_label": "nowplayingdemo()"
     },
     {
@@ -1380,7 +1390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_icons",
-      "community": 138,
+      "community": 56,
       "norm_label": "icons.tsx"
     },
     {
@@ -1400,7 +1410,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "components_icons_copyicon",
-      "community": 138,
+      "community": 56,
       "norm_label": "copyicon()"
     },
     {
@@ -1410,7 +1420,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "components_icons_checkicon",
-      "community": 138,
+      "community": 56,
       "norm_label": "checkicon()"
     },
     {
@@ -1420,7 +1430,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "components_icons_glassesicon",
-      "community": 138,
+      "community": 56,
       "norm_label": "glassesicon()"
     },
     {
@@ -1440,7 +1450,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_install_command",
-      "community": 138,
+      "community": 56,
       "norm_label": "install-command.tsx"
     },
     {
@@ -1450,7 +1460,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_install_command_pms",
-      "community": 138,
+      "community": 56,
       "norm_label": "pms"
     },
     {
@@ -1460,7 +1470,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "components_install_command_pm",
-      "community": 138,
+      "community": 56,
       "norm_label": "pm"
     },
     {
@@ -1470,7 +1480,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_install_command_runner",
-      "community": 138,
+      "community": 56,
       "norm_label": "runner"
     },
     {
@@ -1480,7 +1490,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "components_install_command_installcommand",
-      "community": 138,
+      "community": 56,
       "norm_label": "installcommand()"
     },
     {
@@ -1490,7 +1500,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_install_tabs",
-      "community": 201,
+      "community": 56,
       "norm_label": "install-tabs.tsx"
     },
     {
@@ -1500,7 +1510,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_install_tabs_installtabs",
-      "community": 201,
+      "community": 56,
       "norm_label": "installtabs()"
     },
     {
@@ -1530,7 +1540,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_dpad_provider",
-      "community": 136,
+      "community": 3,
       "norm_label": "dpad-provider.tsx"
     },
     {
@@ -1540,7 +1550,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "lens_dpad_provider_dpadprovider",
-      "community": 136,
+      "community": 56,
       "norm_label": "dpadprovider()"
     },
     {
@@ -1550,7 +1560,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_explore_demo",
-      "community": 71,
+      "community": 200,
       "norm_label": "explore-demo.tsx"
     },
     {
@@ -1560,7 +1570,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "lens_explore_demo_exploredemo",
-      "community": 50,
+      "community": 200,
       "norm_label": "exploredemo()"
     },
     {
@@ -1580,7 +1590,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "lens_heart_rate_demo_heartratedemo",
-      "community": 50,
+      "community": 56,
       "norm_label": "heartratedemo()"
     },
     {
@@ -1610,7 +1620,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "lens_launcher_demo_launcherdemo",
-      "community": 50,
+      "community": 71,
       "norm_label": "launcherdemo()"
     },
     {
@@ -1620,7 +1630,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_lens_stage",
-      "community": 50,
+      "community": 52,
       "norm_label": "lens-stage.tsx"
     },
     {
@@ -1630,7 +1640,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "lens_lens_stage_lensstage",
-      "community": 50,
+      "community": 56,
       "norm_label": "lensstage()"
     },
     {
@@ -1650,7 +1660,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "lens_menu_demo_menudemo",
-      "community": 50,
+      "community": 71,
       "norm_label": "menudemo()"
     },
     {
@@ -1670,7 +1680,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "lens_navigate_demo_navigatedemo",
-      "community": 50,
+      "community": 71,
       "norm_label": "navigatedemo()"
     },
     {
@@ -1690,7 +1700,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "lens_settings_demo_settingsdemo",
-      "community": 50,
+      "community": 56,
       "norm_label": "settingsdemo()"
     },
     {
@@ -1710,7 +1720,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "lens_stats_demo_statsdemo",
-      "community": 50,
+      "community": 53,
       "norm_label": "statsdemo()"
     },
     {
@@ -1730,7 +1740,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "lens_sync_demo_syncdemo",
-      "community": 50,
+      "community": 56,
       "norm_label": "syncdemo()"
     },
     {
@@ -1740,7 +1750,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_playground_client",
-      "community": 50,
+      "community": 56,
       "norm_label": "playground-client.tsx"
     },
     {
@@ -1750,7 +1760,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "components_playground_client_demo",
-      "community": 50,
+      "community": 56,
       "norm_label": "demo"
     },
     {
@@ -1760,7 +1770,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "components_playground_client_demos",
-      "community": 50,
+      "community": 56,
       "norm_label": "demos"
     },
     {
@@ -1770,7 +1780,7 @@
       "source_location": "L174",
       "_origin": "ast",
       "id": "components_playground_client_accents",
-      "community": 50,
+      "community": 56,
       "norm_label": "accents"
     },
     {
@@ -1780,7 +1790,7 @@
       "source_location": "L238",
       "_origin": "ast",
       "id": "components_playground_client_playgroundclient",
-      "community": 50,
+      "community": 56,
       "norm_label": "playgroundclient()"
     },
     {
@@ -1790,7 +1800,7 @@
       "source_location": "L308",
       "_origin": "ast",
       "id": "components_playground_client_codepanel",
-      "community": 50,
+      "community": 56,
       "norm_label": "codepanel()"
     },
     {
@@ -1800,7 +1810,7 @@
       "source_location": "L343",
       "_origin": "ast",
       "id": "components_playground_client_copybutton",
-      "community": 138,
+      "community": 56,
       "norm_label": "copybutton()"
     },
     {
@@ -1890,7 +1900,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_props_table",
-      "community": 29,
+      "community": 50,
       "norm_label": "props-table.tsx"
     },
     {
@@ -1900,7 +1910,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "components_props_table_propstable",
-      "community": 29,
+      "community": 50,
       "norm_label": "propstable()"
     },
     {
@@ -2060,7 +2070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_component_docs",
-      "community": 27,
+      "community": 50,
       "norm_label": "component-docs.tsx"
     },
     {
@@ -2070,7 +2080,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "lib_component_docs_proprow",
-      "community": 29,
+      "community": 50,
       "norm_label": "proprow"
     },
     {
@@ -2080,7 +2090,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "lib_component_docs_componentdoc",
-      "community": 27,
+      "community": 50,
       "norm_label": "componentdoc"
     },
     {
@@ -2097,10 +2107,10 @@
       "label": "getComponentDoc()",
       "file_type": "code",
       "source_file": "apps/web/lib/component-docs.tsx",
-      "source_location": "L1853",
+      "source_location": "L1858",
       "_origin": "ast",
       "id": "lib_component_docs_getcomponentdoc",
-      "community": 136,
+      "community": 52,
       "norm_label": "getcomponentdoc()"
     },
     {
@@ -2170,7 +2180,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "lib_glass_demos_getglassdemo",
-      "community": 136,
+      "community": 52,
       "norm_label": "getglassdemo()"
     },
     {
@@ -2180,7 +2190,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_meta_deeplink",
-      "community": 136,
+      "community": 52,
       "norm_label": "meta-deeplink.ts"
     },
     {
@@ -2190,7 +2200,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "lib_meta_deeplink_mrbddeeplink",
-      "community": 136,
+      "community": 52,
       "norm_label": "mrbddeeplink()"
     },
     {
@@ -2230,7 +2240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_qr",
-      "community": 136,
+      "community": 52,
       "norm_label": "qr.ts"
     },
     {
@@ -2240,7 +2250,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "lib_qr_qrsvg",
-      "community": 136,
+      "community": 52,
       "norm_label": "qrsvg()"
     },
     {
@@ -2250,7 +2260,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_registry_files",
-      "community": 78,
+      "community": 52,
       "norm_label": "registry-files.ts"
     },
     {
@@ -2260,7 +2270,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "lib_registry_files_regitem",
-      "community": 78,
+      "community": 52,
       "norm_label": "regitem"
     },
     {
@@ -2270,7 +2280,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "lib_registry_files_items",
-      "community": 78,
+      "community": 52,
       "norm_label": "items"
     },
     {
@@ -2280,7 +2290,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "lib_registry_files_repo_root",
-      "community": 78,
+      "community": 52,
       "norm_label": "repo_root"
     },
     {
@@ -2290,7 +2300,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "lib_registry_files_resolve",
-      "community": 78,
+      "community": 52,
       "norm_label": "resolve()"
     },
     {
@@ -2300,7 +2310,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "lib_registry_files_componentfile",
-      "community": 78,
+      "community": 52,
       "norm_label": "componentfile"
     },
     {
@@ -2310,7 +2320,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "lib_registry_files_getcomponentfiles",
-      "community": 78,
+      "community": 52,
       "norm_label": "getcomponentfiles()"
     },
     {
@@ -2410,7 +2420,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_use_copy_to_clipboard",
-      "community": 138,
+      "community": 56,
       "norm_label": "use-copy-to-clipboard.ts"
     },
     {
@@ -2420,7 +2430,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "lib_use_copy_to_clipboard_usecopytoclipboard",
-      "community": 138,
+      "community": 56,
       "norm_label": "usecopytoclipboard()"
     },
     {
@@ -2430,7 +2440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "apps_web_lib_utils_ts_lib_utils",
-      "community": 201,
+      "community": 56,
       "norm_label": "utils.ts"
     },
     {
@@ -2440,7 +2450,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "apps_web_lib_utils_ts_lib_utils_cn",
-      "community": 201,
+      "community": 56,
       "norm_label": "cn()"
     },
     {
@@ -2450,7 +2460,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "web_mdx_components",
-      "community": 136,
+      "community": 28,
       "norm_label": "mdx-components.tsx"
     },
     {
@@ -5900,7 +5910,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_registry",
-      "community": 78,
+      "community": 52,
       "norm_label": "registry.json"
     },
     {
@@ -5910,7 +5920,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "registry_registry_schema",
-      "community": 78,
+      "community": 52,
       "norm_label": "$schema"
     },
     {
@@ -5920,7 +5930,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "registry_registry_name",
-      "community": 78,
+      "community": 52,
       "norm_label": "name"
     },
     {
@@ -5930,7 +5940,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "registry_registry_homepage",
-      "community": 78,
+      "community": 52,
       "norm_label": "homepage"
     },
     {
@@ -5940,7 +5950,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "registry_registry_items",
-      "community": 78,
+      "community": 52,
       "norm_label": "items"
     },
     {
@@ -6060,7 +6070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_button",
-      "community": 27,
+      "community": 50,
       "norm_label": "button.tsx"
     },
     {
@@ -6070,7 +6080,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "ui_button_button",
-      "community": 27,
+      "community": 50,
       "norm_label": "button()"
     },
     {
@@ -6080,7 +6090,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_call_card",
-      "community": 27,
+      "community": 50,
       "norm_label": "call-card.tsx"
     },
     {
@@ -6090,7 +6100,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "ui_call_card_callcard",
-      "community": 27,
+      "community": 50,
       "norm_label": "callcard()"
     },
     {
@@ -6150,7 +6160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_clock",
-      "community": 27,
+      "community": 50,
       "norm_label": "clock.tsx"
     },
     {
@@ -6160,7 +6170,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_clock_clock",
-      "community": 27,
+      "community": 50,
       "norm_label": "clock()"
     },
     {
@@ -6210,7 +6220,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_confirm",
-      "community": 70,
+      "community": 50,
       "norm_label": "confirm.tsx"
     },
     {
@@ -6310,7 +6320,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_empty_state",
-      "community": 203,
+      "community": 50,
       "norm_label": "empty-state.tsx"
     },
     {
@@ -6320,7 +6330,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "ui_empty_state_emptystate",
-      "community": 203,
+      "community": 50,
       "norm_label": "emptystate()"
     },
     {
@@ -6330,7 +6340,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_error_state",
-      "community": 53,
+      "community": 50,
       "norm_label": "error-state.tsx"
     },
     {
@@ -6360,7 +6370,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "ui_glow_icon_glowtone",
-      "community": 29,
+      "community": 71,
       "norm_label": "glowtone"
     },
     {
@@ -6380,7 +6390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_heading",
-      "community": 7,
+      "community": 27,
       "norm_label": "heading.tsx"
     },
     {
@@ -6390,7 +6400,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "ui_heading_heading",
-      "community": 7,
+      "community": 27,
       "norm_label": "heading()"
     },
     {
@@ -6480,7 +6490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_live_captions",
-      "community": 27,
+      "community": 50,
       "norm_label": "live-captions.tsx"
     },
     {
@@ -6490,7 +6500,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "ui_live_captions_livecaptions",
-      "community": 27,
+      "community": 50,
       "norm_label": "livecaptions()"
     },
     {
@@ -6547,7 +6557,7 @@
       "label": "NavEntry",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L36",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "ui_navigator_naventry",
       "community": 128,
@@ -6557,7 +6567,7 @@
       "label": "NavAPI",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L38",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "ui_navigator_navapi",
       "community": 128,
@@ -6567,7 +6577,7 @@
       "label": "NavContext",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L51",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "ui_navigator_navcontext",
       "community": 128,
@@ -6577,7 +6587,7 @@
       "label": "BackChainContext",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L52",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "ui_navigator_backchaincontext",
       "community": 128,
@@ -6587,7 +6597,7 @@
       "label": "useNavigator()",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L57",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "ui_navigator_usenavigator",
       "community": 128,
@@ -6597,7 +6607,7 @@
       "label": "useBackHandler()",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L68",
+      "source_location": "L74",
       "_origin": "ast",
       "id": "ui_navigator_usebackhandler",
       "community": 128,
@@ -6607,7 +6617,7 @@
       "label": "Navigator()",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L82",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "ui_navigator_navigator",
       "community": 128,
@@ -6620,7 +6630,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_notification_card",
-      "community": 27,
+      "community": 50,
       "norm_label": "notification-card.tsx"
     },
     {
@@ -6630,7 +6640,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "ui_notification_card_notificationcard",
-      "community": 27,
+      "community": 50,
       "norm_label": "notificationcard()"
     },
     {
@@ -6640,7 +6650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_now_playing",
-      "community": 27,
+      "community": 50,
       "norm_label": "now-playing.tsx"
     },
     {
@@ -6650,7 +6660,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "ui_now_playing_nowplaying",
-      "community": 27,
+      "community": 50,
       "norm_label": "nowplaying()"
     },
     {
@@ -6660,7 +6670,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_permission_prompt",
-      "community": 27,
+      "community": 50,
       "norm_label": "permission-prompt.tsx"
     },
     {
@@ -6670,7 +6680,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "ui_permission_prompt_permissionprompt",
-      "community": 27,
+      "community": 50,
       "norm_label": "permissionprompt()"
     },
     {
@@ -6720,7 +6730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_quick_reply_chips",
-      "community": 27,
+      "community": 7,
       "norm_label": "quick-reply-chips.tsx"
     },
     {
@@ -6730,7 +6740,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "ui_quick_reply_chips_quickreplychips",
-      "community": 27,
+      "community": 7,
       "norm_label": "quickreplychips()"
     },
     {
@@ -6830,7 +6840,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_slider",
-      "community": 70,
+      "community": 203,
       "norm_label": "slider.tsx"
     },
     {
@@ -6840,7 +6850,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_slider_slider",
-      "community": 70,
+      "community": 203,
       "norm_label": "slider()"
     },
     {
@@ -6950,7 +6960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_text_field",
-      "community": 27,
+      "community": 50,
       "norm_label": "text-field.tsx"
     },
     {
@@ -6960,7 +6970,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "ui_text_field_textfield",
-      "community": 27,
+      "community": 50,
       "norm_label": "textfield()"
     },
     {
@@ -7060,7 +7070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_viewfinder",
-      "community": 27,
+      "community": 50,
       "norm_label": "viewfinder.tsx"
     },
     {
@@ -7070,7 +7080,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "ui_viewfinder_viewfinder",
-      "community": 27,
+      "community": 50,
       "norm_label": "viewfinder()"
     },
     {
@@ -7080,7 +7090,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_weather_tile",
-      "community": 27,
+      "community": 50,
       "norm_label": "weather-tile.tsx"
     },
     {
@@ -7090,7 +7100,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "ui_weather_tile_weathertile",
-      "community": 27,
+      "community": 50,
       "norm_label": "weathertile()"
     },
     {
@@ -7782,16 +7792,6 @@
       "id": "changeset_readme_how_releases_happen",
       "community": 14,
       "norm_label": "how releases happen"
-    },
-    {
-      "label": "composition-pass.md",
-      "file_type": "document",
-      "source_file": ".changeset/composition-pass.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "changeset_composition_pass",
-      "community": 176,
-      "norm_label": "composition-pass.md"
     },
     {
       "label": "focus-engine-v2.md",
@@ -8554,14 +8554,14 @@
       "norm_label": "@glasskit-ui/web"
     },
     {
-      "label": "0.0.2",
+      "label": "0.0.3",
       "file_type": "document",
       "source_file": "apps/web/CHANGELOG.md",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "web_changelog_0_0_2",
+      "id": "web_changelog_0_0_3",
       "community": 191,
-      "norm_label": "0.0.2"
+      "norm_label": "0.0.3"
     },
     {
       "label": "Patch Changes",
@@ -8574,10 +8574,30 @@
       "norm_label": "patch changes"
     },
     {
+      "label": "0.0.2",
+      "file_type": "document",
+      "source_file": "apps/web/CHANGELOG.md",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "web_changelog_0_0_2",
+      "community": 191,
+      "norm_label": "0.0.2"
+    },
+    {
+      "label": "Patch Changes",
+      "file_type": "document",
+      "source_file": "apps/web/CHANGELOG.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "web_changelog_patch_changes_13",
+      "community": 191,
+      "norm_label": "patch changes"
+    },
+    {
       "label": "0.0.1",
       "file_type": "document",
       "source_file": "apps/web/CHANGELOG.md",
-      "source_location": "L10",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "web_changelog_0_0_1",
       "community": 191,
@@ -8587,9 +8607,9 @@
       "label": "Patch Changes",
       "file_type": "document",
       "source_file": "apps/web/CHANGELOG.md",
-      "source_location": "L12",
+      "source_location": "L20",
       "_origin": "ast",
-      "id": "web_changelog_patch_changes_12",
+      "id": "web_changelog_patch_changes_20",
       "community": 191,
       "norm_label": "patch changes"
     },
@@ -9874,14 +9894,14 @@
       "norm_label": "@glasskit-ui/react"
     },
     {
-      "label": "0.2.0",
+      "label": "0.3.0",
       "file_type": "document",
       "source_file": "packages/glasses-ui/CHANGELOG.md",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "glasses_ui_changelog_0_2_0",
+      "id": "glasses_ui_changelog_0_3_0",
       "community": 189,
-      "norm_label": "0.2.0"
+      "norm_label": "0.3.0"
     },
     {
       "label": "Minor Changes",
@@ -9894,10 +9914,40 @@
       "norm_label": "minor changes"
     },
     {
+      "label": "Patch Changes",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/CHANGELOG.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "glasses_ui_changelog_patch_changes",
+      "community": 189,
+      "norm_label": "patch changes"
+    },
+    {
+      "label": "0.2.0",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/CHANGELOG.md",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "glasses_ui_changelog_0_2_0",
+      "community": 189,
+      "norm_label": "0.2.0"
+    },
+    {
+      "label": "Minor Changes",
+      "file_type": "document",
+      "source_file": "packages/glasses-ui/CHANGELOG.md",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "glasses_ui_changelog_minor_changes_36",
+      "community": 189,
+      "norm_label": "minor changes"
+    },
+    {
       "label": "0.1.1",
       "file_type": "document",
       "source_file": "packages/glasses-ui/CHANGELOG.md",
-      "source_location": "L17",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "glasses_ui_changelog_0_1_1",
       "community": 189,
@@ -9907,9 +9957,9 @@
       "label": "Patch Changes",
       "file_type": "document",
       "source_file": "packages/glasses-ui/CHANGELOG.md",
-      "source_location": "L19",
+      "source_location": "L50",
       "_origin": "ast",
-      "id": "glasses_ui_changelog_patch_changes",
+      "id": "glasses_ui_changelog_patch_changes_50",
       "community": 189,
       "norm_label": "patch changes"
     },
@@ -10808,7 +10858,7 @@
       "file_type": "code",
       "source_file": "registry/registry.json",
       "source_location": "L1",
-      "community": 78,
+      "community": 52,
       "norm_label": "registry.json",
       "id": "registry_registry_json"
     },
@@ -10817,7 +10867,7 @@
       "file_type": "code",
       "source_file": "registry/ui/pin.tsx",
       "source_location": "L1",
-      "community": 200,
+      "community": 27,
       "norm_label": "pin.tsx",
       "id": "registry_ui_pin_tsx"
     },
@@ -10871,7 +10921,7 @@
       "file_type": "code",
       "source_file": "registry/ui/slider.tsx",
       "source_location": "L1",
-      "community": 70,
+      "community": 27,
       "norm_label": "slider.tsx",
       "id": "registry_ui_slider_tsx"
     },
@@ -10952,7 +11002,7 @@
       "file_type": "code",
       "source_file": "registry/ui/meter.tsx",
       "source_location": "L1",
-      "community": 53,
+      "community": 27,
       "norm_label": "meter.tsx",
       "id": "registry_ui_meter_tsx"
     },
@@ -11042,7 +11092,7 @@
       "file_type": "code",
       "source_file": "registry/ui/glow-icon.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 71,
       "norm_label": "glow-icon.tsx",
       "id": "registry_ui_glow_icon_tsx"
     },
@@ -11114,7 +11164,7 @@
       "file_type": "code",
       "source_file": "registry/ui/screen.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 71,
       "norm_label": "screen.tsx",
       "id": "registry_ui_screen_tsx"
     },
@@ -11132,7 +11182,7 @@
       "file_type": "code",
       "source_file": "registry/ui/badge.tsx",
       "source_location": "L1",
-      "community": 70,
+      "community": 27,
       "norm_label": "badge.tsx",
       "id": "registry_ui_badge_tsx"
     },
@@ -11150,7 +11200,7 @@
       "file_type": "code",
       "source_file": "registry/ui/toggle.tsx",
       "source_location": "L1",
-      "community": 70,
+      "community": 27,
       "norm_label": "toggle.tsx",
       "id": "registry_ui_toggle_tsx"
     },
@@ -11168,7 +11218,7 @@
       "file_type": "code",
       "source_file": "registry/ui/toast.tsx",
       "source_location": "L1",
-      "community": 53,
+      "community": 27,
       "norm_label": "toast.tsx",
       "id": "registry_ui_toast_tsx"
     },
@@ -11177,7 +11227,7 @@
       "file_type": "code",
       "source_file": "registry/ui/callout.tsx",
       "source_location": "L1",
-      "community": 200,
+      "community": 27,
       "norm_label": "callout.tsx",
       "id": "registry_ui_callout_tsx"
     },
@@ -11186,7 +11236,7 @@
       "file_type": "code",
       "source_file": "registry/ui/stepper.tsx",
       "source_location": "L1",
-      "community": 70,
+      "community": 27,
       "norm_label": "stepper.tsx",
       "id": "registry_ui_stepper_tsx"
     },
@@ -11303,7 +11353,7 @@
       "file_type": "code",
       "source_file": "apps/web/app/(web)/playground/page.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 56,
       "norm_label": "page.tsx",
       "id": "apps_web_app_web_playground_page_tsx"
     },
@@ -11357,7 +11407,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/install-command.tsx",
       "source_location": "L1",
-      "community": 138,
+      "community": 56,
       "norm_label": "install-command.tsx",
       "id": "apps_web_components_install_command_tsx"
     },
@@ -11366,7 +11416,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/device-preview.tsx",
       "source_location": "L1",
-      "community": 138,
+      "community": 56,
       "norm_label": "device-preview.tsx",
       "id": "apps_web_components_device_preview_tsx"
     },
@@ -11375,7 +11425,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/install-tabs.tsx",
       "source_location": "L1",
-      "community": 201,
+      "community": 56,
       "norm_label": "install-tabs.tsx",
       "id": "apps_web_components_install_tabs_tsx"
     },
@@ -11393,7 +11443,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/code-block.tsx",
       "source_location": "L1",
-      "community": 201,
+      "community": 56,
       "norm_label": "code-block.tsx",
       "id": "apps_web_components_code_block_tsx"
     },
@@ -11402,7 +11452,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/playground-client.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 56,
       "norm_label": "playground-client.tsx",
       "id": "apps_web_components_playground_client_tsx"
     },
@@ -11411,7 +11461,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/props-table.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 50,
       "norm_label": "props-table.tsx",
       "id": "apps_web_components_props_table_tsx"
     },
@@ -11420,7 +11470,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/component-doc.tsx",
       "source_location": "L1",
-      "community": 136,
+      "community": 52,
       "norm_label": "component-doc.tsx",
       "id": "apps_web_components_component_doc_tsx"
     },
@@ -11429,7 +11479,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/launcher-demo.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 71,
       "norm_label": "launcher-demo.tsx",
       "id": "apps_web_components_lens_launcher_demo_tsx"
     },
@@ -11438,7 +11488,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/dpad-provider.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 56,
       "norm_label": "dpad-provider.tsx",
       "id": "apps_web_components_lens_dpad_provider_tsx"
     },
@@ -11447,7 +11497,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/heart-rate-demo.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 71,
       "norm_label": "heart-rate-demo.tsx",
       "id": "apps_web_components_lens_heart_rate_demo_tsx"
     },
@@ -11474,7 +11524,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/settings-demo.tsx",
       "source_location": "L1",
-      "community": 70,
+      "community": 71,
       "norm_label": "settings-demo.tsx",
       "id": "apps_web_components_lens_settings_demo_tsx"
     },
@@ -11483,7 +11533,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 71,
       "norm_label": "icons.tsx",
       "id": "apps_web_components_lens_icons_tsx"
     },
@@ -11501,7 +11551,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/lens-stage.tsx",
       "source_location": "L1",
-      "community": 50,
+      "community": 56,
       "norm_label": "lens-stage.tsx",
       "id": "apps_web_components_lens_lens_stage_tsx"
     },
@@ -11519,7 +11569,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/menu-demo.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 71,
       "norm_label": "menu-demo.tsx",
       "id": "apps_web_components_lens_menu_demo_tsx"
     },
@@ -11546,7 +11596,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/button.test.tsx",
       "source_location": "L1",
-      "community": 27,
+      "community": 136,
       "norm_label": "button.test.tsx",
       "id": "apps_web_tests_registry_button_test_tsx"
     },
@@ -11555,7 +11605,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/button.test.tsx",
       "source_location": "L8",
-      "community": 27,
+      "community": 136,
       "norm_label": "btn",
       "id": "registry_button_test_btn"
     },
@@ -11564,7 +11614,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/button.test.tsx",
       "source_location": "L15",
-      "community": 27,
+      "community": 136,
       "norm_label": "onclick",
       "id": "registry_button_test_onclick"
     },
@@ -11654,7 +11704,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/async-view.test.tsx",
       "source_location": "L1",
-      "community": 181,
+      "community": 78,
       "norm_label": "async-view.test.tsx",
       "id": "apps_web_tests_registry_async_view_test_tsx"
     },
@@ -11663,7 +11713,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/async-view.test.tsx",
       "source_location": "L7",
-      "community": 181,
+      "community": 78,
       "norm_label": "{ container }",
       "id": "registry_async_view_test_container"
     },
@@ -11672,7 +11722,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/async-view.test.tsx",
       "source_location": "L18",
-      "community": 181,
+      "community": 78,
       "norm_label": "status",
       "id": "registry_async_view_test_status"
     },
@@ -11987,7 +12037,7 @@
       "file_type": "code",
       "source_file": "apps/web/lib/component-docs.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 27,
       "norm_label": "component-docs.tsx",
       "id": "apps_web_lib_component_docs_tsx"
     },
@@ -12005,7 +12055,7 @@
       "file_type": "code",
       "source_file": "apps/web/lib/use-copy-to-clipboard.ts",
       "source_location": "L1",
-      "community": 138,
+      "community": 56,
       "norm_label": "use-copy-to-clipboard.ts",
       "id": "apps_web_lib_use_copy_to_clipboard_ts"
     },
@@ -12014,7 +12064,7 @@
       "file_type": "code",
       "source_file": "apps/web/lib/utils.ts",
       "source_location": "L1",
-      "community": 201,
+      "community": 56,
       "norm_label": "utils.ts",
       "id": "apps_web_lib_utils_ts"
     },
@@ -12023,7 +12073,7 @@
       "file_type": "code",
       "source_file": "apps/web/lib/qr.ts",
       "source_location": "L1",
-      "community": 136,
+      "community": 52,
       "norm_label": "qr.ts",
       "id": "apps_web_lib_qr_ts"
     },
@@ -12041,7 +12091,7 @@
       "file_type": "code",
       "source_file": "apps/web/lib/config.ts",
       "source_location": "L1",
-      "community": 136,
+      "community": 56,
       "norm_label": "config.ts",
       "id": "apps_web_lib_config_ts"
     },
@@ -12050,7 +12100,7 @@
       "file_type": "code",
       "source_file": "apps/web/lib/registry-files.ts",
       "source_location": "L1",
-      "community": 78,
+      "community": 52,
       "norm_label": "registry-files.ts",
       "id": "apps_web_lib_registry_files_ts"
     },
@@ -12059,7 +12109,7 @@
       "file_type": "code",
       "source_file": "apps/web/lib/meta-deeplink.ts",
       "source_location": "L1",
-      "community": 136,
+      "community": 52,
       "norm_label": "meta-deeplink.ts",
       "id": "apps_web_lib_meta_deeplink_ts"
     },
@@ -13283,7 +13333,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L6",
-      "community": 29,
+      "community": 71,
       "norm_label": "heartglyph()",
       "id": "lens_icons_heartglyph"
     },
@@ -13292,7 +13342,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L14",
-      "community": 29,
+      "community": 71,
       "norm_label": "checkglyph()",
       "id": "lens_icons_checkglyph"
     },
@@ -13301,7 +13351,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L22",
-      "community": 29,
+      "community": 71,
       "norm_label": "batteryglyph()",
       "id": "lens_icons_batteryglyph"
     },
@@ -13310,7 +13360,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L33",
-      "community": 29,
+      "community": 71,
       "norm_label": "chevronglyph()",
       "id": "lens_icons_chevronglyph"
     },
@@ -13319,7 +13369,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L41",
-      "community": 29,
+      "community": 71,
       "norm_label": "navglyph()",
       "id": "lens_icons_navglyph"
     },
@@ -13328,7 +13378,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L49",
-      "community": 29,
+      "community": 71,
       "norm_label": "messageglyph()",
       "id": "lens_icons_messageglyph"
     },
@@ -13337,7 +13387,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L57",
-      "community": 29,
+      "community": 71,
       "norm_label": "alertglyph()",
       "id": "lens_icons_alertglyph"
     },
@@ -13346,7 +13396,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/icons.tsx",
       "source_location": "L67",
-      "community": 29,
+      "community": 71,
       "norm_label": "musicglyph()",
       "id": "lens_icons_musicglyph"
     },
@@ -13373,7 +13423,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/lens-stage.tsx",
       "source_location": "L8",
-      "community": 50,
+      "community": 56,
       "norm_label": "lensscene",
       "id": "lens_lens_stage_lensscene"
     },
@@ -14160,9 +14210,9 @@
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test",
-      "target": "hooks_dpad_focusscope",
-      "confidence_score": 1.0
+      "target": "hooks_dpad_focusscope"
     },
     {
       "relation": "imports",
@@ -14171,9 +14221,9 @@
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test",
-      "target": "hooks_dpad_getfocusables",
-      "confidence_score": 1.0
+      "target": "hooks_dpad_getfocusables"
     },
     {
       "relation": "imports",
@@ -14203,9 +14253,9 @@
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
       "source_location": "L160",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test",
-      "target": "registry_dpad_behavior_test_app",
-      "confidence_score": 1.0
+      "target": "registry_dpad_behavior_test_app"
     },
     {
       "relation": "contains",
@@ -14213,9 +14263,9 @@
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
       "source_location": "L156",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test",
-      "target": "registry_dpad_behavior_test_dpad",
-      "confidence_score": 1.0
+      "target": "registry_dpad_behavior_test_dpad"
     },
     {
       "relation": "contains",
@@ -14276,9 +14326,9 @@
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
       "source_location": "L157",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test_dpad",
-      "target": "hooks_dpad_usedpad",
-      "confidence_score": 1.0
+      "target": "hooks_dpad_usedpad"
     },
     {
       "relation": "imports_from",
@@ -14611,9 +14661,9 @@
       "source_file": "apps/web/__tests__/registry/navigator.test.tsx",
       "source_location": "L220",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_navigator_test",
-      "target": "registry_navigator_test_memhome",
-      "confidence_score": 1.0
+      "target": "registry_navigator_test_memhome"
     },
     {
       "relation": "contains",
@@ -14624,6 +14674,16 @@
       "confidence_score": 1.0,
       "source": "registry_navigator_test",
       "target": "registry_navigator_test_popall"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/navigator.test.tsx",
+      "source_location": "L317",
+      "weight": 1.0,
+      "source": "registry_navigator_test",
+      "target": "registry_navigator_test_pushwithcallback",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -14815,7 +14875,18 @@
       "source_file": "apps/web/__tests__/registry/navigator.test.tsx",
       "source_location": "L221",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "registry_navigator_test_memhome",
+      "target": "ui_navigator_usenavigator"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/navigator.test.tsx",
+      "source_location": "L318",
+      "weight": 1.0,
+      "source": "registry_navigator_test_pushwithcallback",
       "target": "ui_navigator_usenavigator",
       "confidence_score": 1.0
     },
@@ -25905,9 +25976,9 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
       "source_location": "L151",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_dpad",
-      "target": "hooks_dpad_focusscope",
-      "confidence_score": 1.0
+      "target": "hooks_dpad_focusscope"
     },
     {
       "relation": "contains",
@@ -25915,9 +25986,9 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_dpad",
-      "target": "hooks_dpad_getfocusables",
-      "confidence_score": 1.0
+      "target": "hooks_dpad_getfocusables"
     },
     {
       "relation": "contains",
@@ -25965,9 +26036,9 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_dpad",
-      "target": "hooks_dpad_scopes",
-      "confidence_score": 1.0
+      "target": "hooks_dpad_scopes"
     },
     {
       "relation": "contains",
@@ -26123,9 +26194,9 @@
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_dpad_getfocusables",
-      "target": "hooks_dpad_focusables",
-      "confidence_score": 1.0
+      "target": "hooks_dpad_focusables"
     },
     {
       "relation": "calls",
@@ -26166,9 +26237,9 @@
       "source_file": "packages/glasses-ui/src/hooks/index.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_index",
-      "target": "hooks_dpad_getfocusables",
-      "confidence_score": 1.0
+      "target": "hooks_dpad_getfocusables"
     },
     {
       "relation": "contains",
@@ -26219,9 +26290,9 @@
       "source_file": "packages/glasses-ui/src/hooks/index.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_index",
-      "target": "hooks_dpad_focusscope",
-      "confidence_score": 1.0
+      "target": "hooks_dpad_focusscope"
     },
     {
       "relation": "re_exports",
@@ -32545,6 +32616,36 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/CHANGELOG.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "web_changelog_glasskit_ui_web",
+      "target": "web_changelog_0_0_3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/CHANGELOG.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "web_changelog_0_0_3",
+      "target": "web_changelog_patch_changes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/CHANGELOG.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "web_changelog_0_0_1",
+      "target": "web_changelog_patch_changes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/CHANGELOG.md",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -32555,21 +32656,21 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/CHANGELOG.md",
-      "source_location": "L5",
+      "source_location": "L13",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "web_changelog_0_0_1",
-      "target": "web_changelog_patch_changes"
+      "source": "web_changelog_0_0_2",
+      "target": "web_changelog_patch_changes_13",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/CHANGELOG.md",
-      "source_location": "L12",
+      "source_location": "L20",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "web_changelog_0_0_1",
-      "target": "web_changelog_patch_changes_12"
+      "target": "web_changelog_patch_changes_20",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -33355,6 +33456,36 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "packages/glasses-ui/CHANGELOG.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "glasses_ui_changelog_glasskit_ui_react",
+      "target": "glasses_ui_changelog_0_3_0",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/CHANGELOG.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "glasses_ui_changelog_0_3_0",
+      "target": "glasses_ui_changelog_minor_changes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/CHANGELOG.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "glasses_ui_changelog_0_3_0",
+      "target": "glasses_ui_changelog_patch_changes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/CHANGELOG.md",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -33370,6 +33501,26 @@
       "confidence_score": 1.0,
       "source": "glasses_ui_changelog_0_1_1",
       "target": "glasses_ui_changelog_patch_changes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/CHANGELOG.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "glasses_ui_changelog_0_2_0",
+      "target": "glasses_ui_changelog_minor_changes_36",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/CHANGELOG.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "glasses_ui_changelog_0_1_1",
+      "target": "glasses_ui_changelog_patch_changes_50",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -38501,5 +38652,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6319a5e510f589392f517b0a9be4412fc49c09c3"
+  "built_at_commit": "b51e433c9392c0760f9973aa6a2bd4f1f7c8d55d"
 }
