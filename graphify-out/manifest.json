@@ -155,7 +155,7 @@
     "semantic_hash": ""
   },
   "apps/web/components/component-doc.tsx": {
-    "mtime": 1781278006.4987047,
+    "mtime": 1781278215.6847231,
     "ast_hash": "73cad3be7f4454d951e3f8b0d35e02c0",
     "semantic_hash": ""
   },
@@ -280,13 +280,13 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/meta.json": {
-    "mtime": 1781278038.1513906,
+    "mtime": 1781278215.6848686,
     "ast_hash": "10a3b3a9f53701ac0d9451764cf84cd0",
     "semantic_hash": ""
   },
   "apps/web/lib/component-docs.tsx": {
-    "mtime": 1781277974.1676471,
-    "ast_hash": "bfb102794eb07613d8a558246b41b679",
+    "mtime": 1781285854.3463302,
+    "ast_hash": "faf2a5c76da443f2be429f9a8a973ea7",
     "semantic_hash": ""
   },
   "apps/web/lib/component-nav.ts": {
@@ -420,13 +420,13 @@
     "semantic_hash": ""
   },
   "packages/glasses-ui/src/hooks/dpad.tsx": {
-    "mtime": 1781211120.7863574,
-    "ast_hash": "a86f58d1119637e3dccf0396a24cf38e",
+    "mtime": 1781285556.9451897,
+    "ast_hash": "1a574245f7b5f21f38219a4afab30d40",
     "semantic_hash": ""
   },
   "packages/glasses-ui/src/hooks/index.ts": {
-    "mtime": 1781022572.70732,
-    "ast_hash": "6d00eae4f897adfd386e3b302574f518",
+    "mtime": 1781285576.9774225,
+    "ast_hash": "723ae73598349b24cc7f2ae170515b28",
     "semantic_hash": ""
   },
   "packages/glasses-ui/src/hooks/sensors.test.ts": {
@@ -505,8 +505,8 @@
     "semantic_hash": ""
   },
   "registry/registry.json": {
-    "mtime": 1781278055.0151057,
-    "ast_hash": "50429b3d912c9f95645ed950ed51e47e",
+    "mtime": 1781285888.4365964,
+    "ast_hash": "bdc24a33bba5926b0aafe2e5b990098c",
     "semantic_hash": ""
   },
   "registry/ui/assistant-orb.tsx": {
@@ -530,8 +530,8 @@
     "semantic_hash": ""
   },
   "registry/ui/button.tsx": {
-    "mtime": 1781022572.709612,
-    "ast_hash": "f55bab27e605862798cfa2508edfacb6",
+    "mtime": 1781285600.2530837,
+    "ast_hash": "a523234316370c6b4245f7f626171102",
     "semantic_hash": ""
   },
   "registry/ui/call-card.tsx": {
@@ -560,8 +560,8 @@
     "semantic_hash": ""
   },
   "registry/ui/confirm.tsx": {
-    "mtime": 1781022572.709796,
-    "ast_hash": "c698b9581ef198d12fde33de495401a0",
+    "mtime": 1781285600.2532873,
+    "ast_hash": "bfc1289cc29c6c0634fd74836d7a1576",
     "semantic_hash": ""
   },
   "registry/ui/cue.tsx": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "registry/ui/permission-prompt.tsx": {
-    "mtime": 1781189054.0452673,
-    "ast_hash": "da4d61d0f4240f88cb4d8d20ea977a3a",
+    "mtime": 1781285638.7634225,
+    "ast_hash": "400d98caedcba333d6a7574a91e38f28",
     "semantic_hash": ""
   },
   "registry/ui/pin.tsx": {
@@ -1025,7 +1025,7 @@
     "semantic_hash": ""
   },
   "apps/web/public/llms.txt": {
-    "mtime": 1781278055.0204957,
+    "mtime": 1781285888.4408762,
     "ast_hash": "d9a5bbafc03e1c78a04d419fcf7fb3d8",
     "semantic_hash": ""
   },
@@ -1045,8 +1045,8 @@
     "semantic_hash": ""
   },
   "packages/glasses-ui/README.md": {
-    "mtime": 1781245681.428558,
-    "ast_hash": "bec79568fef6078db04c98328d711860",
+    "mtime": 1781285834.6524742,
+    "ast_hash": "fb67a0cc52f7e5577abbe51f23f456fb",
     "semantic_hash": ""
   },
   "pnpm-workspace.yaml": {
@@ -1070,13 +1070,13 @@
     "semantic_hash": ""
   },
   "apps/web/__tests__/registry/navigator.test.tsx": {
-    "mtime": 1781182535.0823908,
-    "ast_hash": "bc642f34bf45ceb289edc9489c9aad2a",
+    "mtime": 1781285786.2018805,
+    "ast_hash": "68a4d6da950aa7d1ee0ce1e5ca335e03",
     "semantic_hash": ""
   },
   "registry/ui/navigator.tsx": {
-    "mtime": 1781189054.0451899,
-    "ast_hash": "d0eeae21d462036fa18f343732711baf",
+    "mtime": 1781285661.8537807,
+    "ast_hash": "ff0a2730e085a8b0cd1a50732cee8e79",
     "semantic_hash": ""
   },
   "apps/web/content/docs/components/navigator.mdx": {
@@ -1645,8 +1645,8 @@
     "semantic_hash": ""
   },
   "apps/web/__tests__/registry/dpad-behavior.test.tsx": {
-    "mtime": 1781211120.7762291,
-    "ast_hash": "a9922c01d213a88dc72c52564315e5dc",
+    "mtime": 1781285882.9847558,
+    "ast_hash": "0899525689b7c690596a9dbd6ae9fc93",
     "semantic_hash": ""
   },
   "apps/web/__tests__/registry/timer.test.tsx": {
@@ -1685,8 +1685,8 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/patterns.mdx": {
-    "mtime": 1781211120.7780476,
-    "ast_hash": "6b78b3a9798826bfcfc45d7b64704486",
+    "mtime": 1781285834.6528308,
+    "ast_hash": "923e3c5becb93bd0a1a59a8324e10aff",
     "semantic_hash": ""
   },
   "apps/web/llms-template.md": {
@@ -1720,8 +1720,13 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/wishlist.mdx": {
-    "mtime": 1781278050.8368344,
+    "mtime": 1781278215.6850555,
     "ast_hash": "1fd4807c59dfc6b87b60c61003d60554",
+    "semantic_hash": ""
+  },
+  ".changeset/focus-engine-v2.md": {
+    "mtime": 1781285868.145492,
+    "ast_hash": "4b1c5cbb9d0fc778d3dfc7d403eee5e0",
     "semantic_hash": ""
   }
 }

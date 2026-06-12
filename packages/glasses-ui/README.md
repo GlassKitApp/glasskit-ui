@@ -23,9 +23,17 @@ npm i @glasskit-ui/react
 - `useNeuralBand()` — listens for the wristband's richer gestures
   (pinch, double-pinch, swipe). One-shot — the gesture string is
   exposed for one render, then cleared.
-- `scoreRect` · `seedFocus` · `orientationEqual` · `motionEqual` ·
-  `type Dir` — the focus-engine and sensor helpers, exported for
-  composition and testing.
+- `<FocusScope>` — contain the D-pad ring to a subtree while mounted
+  (modal surfaces: confirms, permission prompts, sheets). Seeds focus
+  inside on mount, restores the previous focus on unmount. Layout-inert
+  (`display: contents`).
+- `data-autofocus` — put it on any `focusable` element and `seedFocus()`
+  starts the ring there instead of the first element in DOM order (e.g.
+  a confirm screen seeding on the safe action).
+- `scoreRect` · `seedFocus` · `getFocusables` · `orientationEqual` ·
+  `motionEqual` · `type Dir` — the focus-engine and sensor helpers,
+  exported for composition and testing (`getFocusables` powers focus
+  memory in navigation containers).
 
 Plus `styles.css` — the on-lens design system (tokens, surface recipes, and
 semantic classes: `.glass-viewport`, `.screen`, `.focusable`, `.launcher*`,

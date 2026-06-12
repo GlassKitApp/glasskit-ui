@@ -183,6 +183,12 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         type: "() => void",
         desc: "Fires on Enter/Space/click.",
       },
+      {
+        name: "initialFocus",
+        type: "boolean",
+        default: "false",
+        desc: "Seed the D-pad ring here when the screen mounts (data-autofocus).",
+      },
     ],
     usage: `<Button variant="primary" onClick={log}>
   Confirm
@@ -629,7 +635,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Confirm",
     category: "Action",
     summary:
-      "A decision screen: a prompt plus a two-button action bar. Drop it into a Screen stage; useDpad seeds focus on the primary action.",
+      "A decision screen: a prompt plus a two-button action bar. Drop it into a Screen stage; useDpad seeds focus on the primary action. destructive seeds the ring on cancel — a blind pinch must never destroy anything; the ring is scoped to the decision.",
     preview: (
       <Screen>
         <Confirm
@@ -652,6 +658,12 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         name: "onConfirm / onCancel",
         type: "() => void",
         desc: "Action handlers.",
+      },
+      {
+        name: "destructive",
+        type: "boolean",
+        default: "false",
+        desc: "Irreversible action — seed the D-pad ring on cancel, not confirm.",
       },
     ],
     usage: `<Confirm

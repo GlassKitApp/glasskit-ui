@@ -1,6 +1,11 @@
 import { describe, it, expect } from "vitest";
 import { fireEvent, render } from "@testing-library/react";
-import { seedFocus, useDpad } from "@glasskit-ui/react";
+import {
+  FocusScope,
+  getFocusables,
+  seedFocus,
+  useDpad,
+} from "@glasskit-ui/react";
 
 /**
  * DOM-level focus-engine behavior. jsdom reports zero-size rects for
@@ -118,5 +123,85 @@ describe("zero-size focusables", () => {
     fireEvent.keyDown(window, { key: "ArrowDown" });
     // "below" is gone from the candidate set — focus stays put.
     expect(document.activeElement).toBe(getByTestId("range"));
+  });
+});
+
+describe("data-autofocus", () => {
+  it("seedFocus prefers the marked element over DOM order", () => {
+    const { getByTestId } = render(
+      <div>
+        <button className="focusable" data-testid="first">
+          First
+        </button>
+        <button className="focusable" data-autofocus data-testid="marked">
+          Marked
+        </button>
+      </div>,
+    );
+    setRect(getByTestId("first"), { left: 0, top: 0, width: 100, height: 40 });
+    setRect(getByTestId("marked"), {
+      left: 0,
+      top: 60,
+      width: 100,
+      height: 40,
+    });
+
+    seedFocus();
+    expect(document.activeElement).toBe(getByTestId("marked"));
+  });
+});
+
+describe("FocusScope", () => {
+  it("contains navigation, then restores focus on unmount", () => {
+    function Dpad() {
+      useDpad();
+      return null;
+    }
+    function App({ open }: { open: boolean }) {
+      return (
+        <div>
+          <Dpad />
+          <button className="focusable" data-testid="outside">
+            Outside
+          </button>
+          {open ? (
+            <FocusScope>
+              <button className="focusable" data-testid="in-a">
+                A
+              </button>
+              <button className="focusable" data-testid="in-b">
+                B
+              </button>
+            </FocusScope>
+          ) : null}
+        </div>
+      );
+    }
+    const { getByTestId, rerender } = render(<App open={false} />);
+    const outside = getByTestId("outside");
+    setRect(outside, { left: 0, top: 0, width: 100, height: 40 });
+    outside.focus();
+
+    rerender(<App open />);
+    setRect(getByTestId("in-a"), { left: 0, top: 100, width: 100, height: 40 });
+    setRect(getByTestId("in-b"), { left: 0, top: 160, width: 100, height: 40 });
+    // Mounting the scope seeded focus inside it... but the seed ran before
+    // rects were set (zero-size in jsdom), so seed explicitly now.
+    seedFocus();
+    expect(document.activeElement).toBe(getByTestId("in-a"));
+
+    // getFocusables honors the scope: the outside button is invisible to it.
+    expect(getFocusables()).toEqual([getByTestId("in-a"), getByTestId("in-b")]);
+
+    // Arrows can't escape the scope: "outside" is above, but ArrowUp from A
+    // finds no candidate inside the scope and stays put.
+    fireEvent.keyDown(window, { key: "ArrowUp" });
+    expect(document.activeElement).toBe(getByTestId("in-a"));
+    fireEvent.keyDown(window, { key: "ArrowDown" });
+    expect(document.activeElement).toBe(getByTestId("in-b"));
+
+    // Unmounting the scope returns the ring to the opener.
+    rerender(<App open={false} />);
+    expect(document.activeElement).toBe(outside);
   });
 });

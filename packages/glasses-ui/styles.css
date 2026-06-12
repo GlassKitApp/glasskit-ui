@@ -2313,6 +2313,12 @@
 
 /* ── Wave 12 — quality pass ───────────────────────────────────────── */
 
+/* FocusScope — layout-inert wrapper; the scoping is JS-side (dpad.tsx). */
+.glass-viewport .gk-focus-scope,
+.gk-focus-scope {
+  display: contents;
+}
+
 /* Timer — countdown readout: big tabular time + a bar draining to zero. */
 .glass-viewport .gk-timer {
   display: flex;

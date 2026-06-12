@@ -277,7 +277,7 @@
       "label": "setRect()",
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
-      "source_location": "L11",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "registry_dpad_behavior_test_setrect",
       "community": 3,
@@ -287,7 +287,7 @@
       "label": "Harness()",
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
-      "source_location": "L26",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "registry_dpad_behavior_test_harness",
       "community": 3,
@@ -297,11 +297,31 @@
       "label": "renderScene()",
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
-      "source_location": "L48",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "registry_dpad_behavior_test_renderscene",
       "community": 3,
       "norm_label": "renderscene()"
+    },
+    {
+      "label": "Dpad()",
+      "file_type": "code",
+      "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
+      "source_location": "L156",
+      "_origin": "ast",
+      "id": "registry_dpad_behavior_test_dpad",
+      "community": 3,
+      "norm_label": "dpad()"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
+      "source_location": "L160",
+      "_origin": "ast",
+      "id": "registry_dpad_behavior_test_app",
+      "community": 3,
+      "norm_label": "app()"
     },
     {
       "label": "geo.test.ts",
@@ -350,7 +370,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_navigator_test",
-      "community": 49,
+      "community": 128,
       "norm_label": "navigator.test.tsx"
     },
     {
@@ -360,7 +380,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "registry_navigator_test_settle",
-      "community": 49,
+      "community": 128,
       "norm_label": "settle()"
     },
     {
@@ -370,7 +390,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "registry_navigator_test_home",
-      "community": 49,
+      "community": 128,
       "norm_label": "home()"
     },
     {
@@ -380,7 +400,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "registry_navigator_test_detail",
-      "community": 49,
+      "community": 128,
       "norm_label": "detail()"
     },
     {
@@ -390,7 +410,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "registry_navigator_test_guardedscreen",
-      "community": 49,
+      "community": 128,
       "norm_label": "guardedscreen()"
     },
     {
@@ -400,7 +420,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "registry_navigator_test_screens",
-      "community": 49,
+      "community": 128,
       "norm_label": "screens"
     },
     {
@@ -410,7 +430,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "registry_navigator_test_rendernav",
-      "community": 49,
+      "community": 128,
       "norm_label": "rendernav()"
     },
     {
@@ -420,7 +440,7 @@
       "source_location": "L113",
       "_origin": "ast",
       "id": "registry_navigator_test_guardedhome",
-      "community": 49,
+      "community": 128,
       "norm_label": "guardedhome()"
     },
     {
@@ -430,7 +450,7 @@
       "source_location": "L133",
       "_origin": "ast",
       "id": "registry_navigator_test_deeproot",
-      "community": 49,
+      "community": 128,
       "norm_label": "deeproot()"
     },
     {
@@ -440,7 +460,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "registry_navigator_test_popall",
-      "community": 49,
+      "community": 128,
       "norm_label": "popall()"
     },
     {
@@ -450,8 +470,18 @@
       "source_location": "L169",
       "_origin": "ast",
       "id": "registry_navigator_test_swapper",
-      "community": 49,
+      "community": 128,
       "norm_label": "swapper()"
+    },
+    {
+      "label": "MemHome()",
+      "file_type": "code",
+      "source_file": "apps/web/__tests__/registry/navigator.test.tsx",
+      "source_location": "L220",
+      "_origin": "ast",
+      "id": "registry_navigator_test_memhome",
+      "community": 128,
+      "norm_label": "memhome()"
     },
     {
       "label": "progress.test.tsx",
@@ -460,7 +490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_progress_test",
-      "community": 53,
+      "community": 203,
       "norm_label": "progress.test.tsx"
     },
     {
@@ -490,7 +520,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_timer_test",
-      "community": 53,
+      "community": 203,
       "norm_label": "timer.test.tsx"
     },
     {
@@ -500,7 +530,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "registry_timer_test_time",
-      "community": 53,
+      "community": 203,
       "norm_label": "time()"
     },
     {
@@ -850,7 +880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "playground_page",
-      "community": 28,
+      "community": 50,
       "norm_label": "page.tsx"
     },
     {
@@ -860,7 +890,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "playground_page_metadata",
-      "community": 28,
+      "community": 50,
       "norm_label": "metadata"
     },
     {
@@ -870,7 +900,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "playground_page_playground",
-      "community": 28,
+      "community": 50,
       "norm_label": "playground()"
     },
     {
@@ -1160,7 +1190,7 @@
       "source_location": "L368",
       "_origin": "ast",
       "id": "glass_demos_demos_nowplayingdemo",
-      "community": 49,
+      "community": 204,
       "norm_label": "nowplayingdemo()"
     },
     {
@@ -1250,7 +1280,7 @@
       "source_location": "L613",
       "_origin": "ast",
       "id": "glass_demos_demos_navhome",
-      "community": 49,
+      "community": 128,
       "norm_label": "navhome()"
     },
     {
@@ -1260,7 +1290,7 @@
       "source_location": "L642",
       "_origin": "ast",
       "id": "glass_demos_demos_navsession",
-      "community": 49,
+      "community": 128,
       "norm_label": "navsession()"
     },
     {
@@ -1270,7 +1300,7 @@
       "source_location": "L655",
       "_origin": "ast",
       "id": "glass_demos_demos_navsummary",
-      "community": 49,
+      "community": 128,
       "norm_label": "navsummary()"
     },
     {
@@ -1280,7 +1310,7 @@
       "source_location": "L668",
       "_origin": "ast",
       "id": "glass_demos_demos_navhistory",
-      "community": 49,
+      "community": 128,
       "norm_label": "navhistory()"
     },
     {
@@ -1500,7 +1530,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_dpad_provider",
-      "community": 50,
+      "community": 136,
       "norm_label": "dpad-provider.tsx"
     },
     {
@@ -1510,7 +1540,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "lens_dpad_provider_dpadprovider",
-      "community": 50,
+      "community": 136,
       "norm_label": "dpadprovider()"
     },
     {
@@ -1560,7 +1590,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_icons",
-      "community": 29,
+      "community": 71,
       "norm_label": "icons.tsx"
     },
     {
@@ -1570,7 +1600,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_launcher_demo",
-      "community": 29,
+      "community": 71,
       "norm_label": "launcher-demo.tsx"
     },
     {
@@ -1610,7 +1640,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_menu_demo",
-      "community": 29,
+      "community": 71,
       "norm_label": "menu-demo.tsx"
     },
     {
@@ -1670,7 +1700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lens_stats_demo",
-      "community": 53,
+      "community": 71,
       "norm_label": "stats-demo.tsx"
     },
     {
@@ -1680,7 +1710,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "lens_stats_demo_statsdemo",
-      "community": 53,
+      "community": 50,
       "norm_label": "statsdemo()"
     },
     {
@@ -1860,7 +1890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_props_table",
-      "community": 128,
+      "community": 29,
       "norm_label": "props-table.tsx"
     },
     {
@@ -1870,7 +1900,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "components_props_table_propstable",
-      "community": 128,
+      "community": 29,
       "norm_label": "propstable()"
     },
     {
@@ -2040,7 +2070,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "lib_component_docs_proprow",
-      "community": 128,
+      "community": 29,
       "norm_label": "proprow"
     },
     {
@@ -2060,14 +2090,14 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "lib_component_docs_component_docs",
-      "community": 29,
+      "community": 28,
       "norm_label": "component_docs"
     },
     {
       "label": "getComponentDoc()",
       "file_type": "code",
       "source_file": "apps/web/lib/component-docs.tsx",
-      "source_location": "L1841",
+      "source_location": "L1853",
       "_origin": "ast",
       "id": "lib_component_docs_getcomponentdoc",
       "community": 136,
@@ -4984,20 +5014,40 @@
       "norm_label": "scorerect()"
     },
     {
+      "label": "scopes",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "hooks_dpad_scopes",
+      "community": 3,
+      "norm_label": "scopes"
+    },
+    {
       "label": "focusables()",
       "file_type": "code",
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
-      "source_location": "L61",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "hooks_dpad_focusables",
       "community": 3,
       "norm_label": "focusables()"
     },
     {
+      "label": "getFocusables()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L85",
+      "_origin": "ast",
+      "id": "hooks_dpad_getfocusables",
+      "community": 3,
+      "norm_label": "getfocusables()"
+    },
+    {
       "label": "rangeOwnsKey()",
       "file_type": "code",
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
-      "source_location": "L78",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "hooks_dpad_rangeownskey",
       "community": 3,
@@ -5007,7 +5057,7 @@
       "label": "moveFocus()",
       "file_type": "code",
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
-      "source_location": "L86",
+      "source_location": "L102",
       "_origin": "ast",
       "id": "hooks_dpad_movefocus",
       "community": 3,
@@ -5017,17 +5067,27 @@
       "label": "seedFocus()",
       "file_type": "code",
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
-      "source_location": "L121",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "hooks_dpad_seedfocus",
       "community": 3,
       "norm_label": "seedfocus()"
     },
     {
+      "label": "FocusScope()",
+      "file_type": "code",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L151",
+      "_origin": "ast",
+      "id": "hooks_dpad_focusscope",
+      "community": 3,
+      "norm_label": "focusscope()"
+    },
+    {
       "label": "useDpad()",
       "file_type": "code",
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
-      "source_location": "L130",
+      "source_location": "L194",
       "_origin": "ast",
       "id": "hooks_dpad_usedpad",
       "community": 3,
@@ -5800,7 +5860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_lib_utils_ts_lib_utils",
-      "community": 53,
+      "community": 203,
       "norm_label": "utils.ts"
     },
     {
@@ -5810,7 +5870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_utils_classvalue",
-      "community": 53,
+      "community": 203,
       "norm_label": "classvalue"
     },
     {
@@ -5820,7 +5880,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "registry_lib_utils_ts_lib_utils_cn",
-      "community": 53,
+      "community": 203,
       "norm_label": "cn()"
     },
     {
@@ -5830,7 +5890,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "lib_utils_stringlabel",
-      "community": 53,
+      "community": 203,
       "norm_label": "stringlabel()"
     },
     {
@@ -5940,7 +6000,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "ui_async_view_spinner",
-      "community": 71,
+      "community": 181,
       "norm_label": "spinner()"
     },
     {
@@ -6150,17 +6210,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_confirm",
-      "community": 27,
+      "community": 70,
       "norm_label": "confirm.tsx"
     },
     {
       "label": "Confirm()",
       "file_type": "code",
       "source_file": "registry/ui/confirm.tsx",
-      "source_location": "L10",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "ui_confirm_confirm",
-      "community": 27,
+      "community": 70,
       "norm_label": "confirm()"
     },
     {
@@ -6250,7 +6310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_empty_state",
-      "community": 53,
+      "community": 203,
       "norm_label": "empty-state.tsx"
     },
     {
@@ -6260,7 +6320,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "ui_empty_state_emptystate",
-      "community": 53,
+      "community": 203,
       "norm_label": "emptystate()"
     },
     {
@@ -6270,7 +6330,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_error_state",
-      "community": 27,
+      "community": 53,
       "norm_label": "error-state.tsx"
     },
     {
@@ -6290,7 +6350,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_glow_icon",
-      "community": 29,
+      "community": 71,
       "norm_label": "glow-icon.tsx"
     },
     {
@@ -6310,7 +6370,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "ui_glow_icon_glowicon",
-      "community": 29,
+      "community": 71,
       "norm_label": "glowicon()"
     },
     {
@@ -6480,77 +6540,77 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_navigator",
-      "community": 49,
+      "community": 128,
       "norm_label": "navigator.tsx"
     },
     {
       "label": "NavEntry",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L34",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "ui_navigator_naventry",
-      "community": 49,
+      "community": 128,
       "norm_label": "naventry"
     },
     {
       "label": "NavAPI",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L36",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "ui_navigator_navapi",
-      "community": 49,
+      "community": 128,
       "norm_label": "navapi"
     },
     {
       "label": "NavContext",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L49",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "ui_navigator_navcontext",
-      "community": 49,
+      "community": 128,
       "norm_label": "navcontext"
     },
     {
       "label": "BackChainContext",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L50",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "ui_navigator_backchaincontext",
-      "community": 49,
+      "community": 128,
       "norm_label": "backchaincontext"
     },
     {
       "label": "useNavigator()",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L55",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "ui_navigator_usenavigator",
-      "community": 49,
+      "community": 128,
       "norm_label": "usenavigator()"
     },
     {
       "label": "useBackHandler()",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L66",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "ui_navigator_usebackhandler",
-      "community": 49,
+      "community": 128,
       "norm_label": "usebackhandler()"
     },
     {
       "label": "Navigator()",
       "file_type": "code",
       "source_file": "registry/ui/navigator.tsx",
-      "source_location": "L80",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "ui_navigator_navigator",
-      "community": 49,
+      "community": 128,
       "norm_label": "navigator()"
     },
     {
@@ -6607,7 +6667,7 @@
       "label": "PermissionPrompt()",
       "file_type": "code",
       "source_file": "registry/ui/permission-prompt.tsx",
-      "source_location": "L9",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "ui_permission_prompt_permissionprompt",
       "community": 27,
@@ -6640,7 +6700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_progress",
-      "community": 53,
+      "community": 203,
       "norm_label": "progress.tsx"
     },
     {
@@ -6650,7 +6710,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_progress_progress",
-      "community": 53,
+      "community": 203,
       "norm_label": "progress()"
     },
     {
@@ -6660,7 +6720,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_quick_reply_chips",
-      "community": 7,
+      "community": 27,
       "norm_label": "quick-reply-chips.tsx"
     },
     {
@@ -6670,7 +6730,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "ui_quick_reply_chips_quickreplychips",
-      "community": 7,
+      "community": 27,
       "norm_label": "quickreplychips()"
     },
     {
@@ -6700,7 +6760,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_reticle",
-      "community": 71,
+      "community": 200,
       "norm_label": "reticle.tsx"
     },
     {
@@ -6710,7 +6770,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "ui_reticle_reticle",
-      "community": 71,
+      "community": 200,
       "norm_label": "reticle()"
     },
     {
@@ -6860,7 +6920,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_tabs",
-      "community": 203,
+      "community": 27,
       "norm_label": "tabs.tsx"
     },
     {
@@ -6870,7 +6930,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "ui_tabs_tabitem",
-      "community": 203,
+      "community": 27,
       "norm_label": "tabitem"
     },
     {
@@ -6880,7 +6940,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "ui_tabs_tabs",
-      "community": 203,
+      "community": 27,
       "norm_label": "tabs()"
     },
     {
@@ -6910,7 +6970,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_timer",
-      "community": 53,
+      "community": 203,
       "norm_label": "timer.tsx"
     },
     {
@@ -6920,7 +6980,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "ui_timer_timer",
-      "community": 53,
+      "community": 203,
       "norm_label": "timer()"
     },
     {
@@ -6930,7 +6990,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "ui_timer_formatseconds",
-      "community": 53,
+      "community": 203,
       "norm_label": "formatseconds()"
     },
     {
@@ -7180,7 +7240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget",
-      "community": 49,
+      "community": 204,
       "norm_label": "check-bundle-budget.mjs"
     },
     {
@@ -7190,7 +7250,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_root",
-      "community": 49,
+      "community": 204,
       "norm_label": "root"
     },
     {
@@ -7200,7 +7260,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_next",
-      "community": 49,
+      "community": 204,
       "norm_label": "next"
     },
     {
@@ -7210,7 +7270,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_preview_dir",
-      "community": 49,
+      "community": 204,
       "norm_label": "preview_dir"
     },
     {
@@ -7220,7 +7280,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_kb",
-      "community": 49,
+      "community": 204,
       "norm_label": "kb()"
     },
     {
@@ -7230,7 +7290,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_fmt",
-      "community": 49,
+      "community": 204,
       "norm_label": "fmt()"
     },
     {
@@ -7240,7 +7300,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_fail",
-      "community": 49,
+      "community": 204,
       "norm_label": "fail()"
     },
     {
@@ -7250,7 +7310,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "scripts_check_bundle_budget_sdk_dist",
-      "community": 49,
+      "community": 204,
       "norm_label": "sdk_dist"
     },
     {
@@ -7732,6 +7792,16 @@
       "id": "changeset_composition_pass",
       "community": 176,
       "norm_label": "composition-pass.md"
+    },
+    {
+      "label": "focus-engine-v2.md",
+      "file_type": "document",
+      "source_file": ".changeset/focus-engine-v2.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "changeset_focus_engine_v2",
+      "community": 208,
+      "norm_label": "focus-engine-v2.md"
     },
     {
       "label": "PULL_REQUEST_TEMPLATE.md",
@@ -9877,7 +9947,7 @@
       "label": "Usage",
       "file_type": "document",
       "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L54",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "glasses_ui_readme_usage",
       "community": 8,
@@ -9887,7 +9957,7 @@
       "label": "Subpath entries",
       "file_type": "document",
       "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L96",
+      "source_location": "L104",
       "_origin": "ast",
       "id": "glasses_ui_readme_subpath_entries",
       "community": 8,
@@ -9897,7 +9967,7 @@
       "label": "Design constraints",
       "file_type": "document",
       "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L105",
+      "source_location": "L113",
       "_origin": "ast",
       "id": "glasses_ui_readme_design_constraints",
       "community": 8,
@@ -9907,7 +9977,7 @@
       "label": "Testing",
       "file_type": "document",
       "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L120",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "glasses_ui_readme_testing",
       "community": 8,
@@ -9917,7 +9987,7 @@
       "label": "Part of the GlassKit ecosystem",
       "file_type": "document",
       "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L125",
+      "source_location": "L133",
       "_origin": "ast",
       "id": "glasses_ui_readme_part_of_the_glasskit_ecosystem",
       "community": 8,
@@ -9927,7 +9997,7 @@
       "label": "Documentation",
       "file_type": "document",
       "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L131",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "glasses_ui_readme_documentation",
       "community": 8,
@@ -9937,7 +10007,7 @@
       "label": "License",
       "file_type": "document",
       "source_file": "packages/glasses-ui/README.md",
-      "source_location": "L136",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "glasses_ui_readme_license",
       "community": 8,
@@ -10783,7 +10853,7 @@
       "file_type": "code",
       "source_file": "registry/ui/tabs.tsx",
       "source_location": "L1",
-      "community": 203,
+      "community": 27,
       "norm_label": "tabs.tsx",
       "id": "registry_ui_tabs_tsx"
     },
@@ -10909,7 +10979,7 @@
       "file_type": "code",
       "source_file": "registry/ui/quick-reply-chips.tsx",
       "source_location": "L1",
-      "community": 7,
+      "community": 27,
       "norm_label": "quick-reply-chips.tsx",
       "id": "registry_ui_quick_reply_chips_tsx"
     },
@@ -10945,7 +11015,7 @@
       "file_type": "code",
       "source_file": "registry/ui/heading.tsx",
       "source_location": "L1",
-      "community": 7,
+      "community": 27,
       "norm_label": "heading.tsx",
       "id": "registry_ui_heading_tsx"
     },
@@ -10954,7 +11024,7 @@
       "file_type": "code",
       "source_file": "registry/ui/reticle.tsx",
       "source_location": "L1",
-      "community": 71,
+      "community": 200,
       "norm_label": "reticle.tsx",
       "id": "registry_ui_reticle_tsx"
     },
@@ -11044,7 +11114,7 @@
       "file_type": "code",
       "source_file": "registry/ui/screen.tsx",
       "source_location": "L1",
-      "community": 71,
+      "community": 29,
       "norm_label": "screen.tsx",
       "id": "registry_ui_screen_tsx"
     },
@@ -11341,7 +11411,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/props-table.tsx",
       "source_location": "L1",
-      "community": 128,
+      "community": 29,
       "norm_label": "props-table.tsx",
       "id": "apps_web_components_props_table_tsx"
     },
@@ -11404,7 +11474,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/settings-demo.tsx",
       "source_location": "L1",
-      "community": 71,
+      "community": 70,
       "norm_label": "settings-demo.tsx",
       "id": "apps_web_components_lens_settings_demo_tsx"
     },
@@ -11422,7 +11492,7 @@
       "file_type": "code",
       "source_file": "apps/web/components/lens/explore-demo.tsx",
       "source_location": "L1",
-      "community": 71,
+      "community": 200,
       "norm_label": "explore-demo.tsx",
       "id": "apps_web_components_lens_explore_demo_tsx"
     },
@@ -11458,7 +11528,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/component-nav.test.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 28,
       "norm_label": "component-nav.test.tsx",
       "id": "apps_web_tests_component_nav_test_tsx"
     },
@@ -11467,7 +11537,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/component-nav.test.tsx",
       "source_location": "L11",
-      "community": 29,
+      "community": 28,
       "norm_label": "n",
       "id": "tests_component_nav_test_n"
     },
@@ -11503,7 +11573,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
       "source_location": "L1",
-      "community": 53,
+      "community": 205,
       "norm_label": "progress.test.tsx",
       "id": "apps_web_tests_registry_progress_test_tsx"
     },
@@ -11512,7 +11582,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
       "source_location": "L7",
-      "community": 53,
+      "community": 205,
       "norm_label": "{ container }",
       "id": "registry_progress_test_container"
     },
@@ -11521,7 +11591,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
       "source_location": "L10",
-      "community": 53,
+      "community": 205,
       "norm_label": "bar",
       "id": "registry_progress_test_bar"
     },
@@ -11530,7 +11600,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
       "source_location": "L16",
-      "community": 53,
+      "community": 205,
       "norm_label": "{ container: over }",
       "id": "registry_progress_test_container_over"
     },
@@ -11539,7 +11609,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
       "source_location": "L20",
-      "community": 53,
+      "community": 205,
       "norm_label": "{ container: under }",
       "id": "registry_progress_test_container_under"
     },
@@ -11548,7 +11618,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/progress.test.tsx",
       "source_location": "L28",
-      "community": 53,
+      "community": 205,
       "norm_label": "el",
       "id": "registry_progress_test_el"
     },
@@ -11755,7 +11825,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/list.test.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 206,
       "norm_label": "list.test.tsx",
       "id": "apps_web_tests_registry_list_test_tsx"
     },
@@ -11764,7 +11834,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/list.test.tsx",
       "source_location": "L13",
-      "community": 29,
+      "community": 206,
       "norm_label": "rows",
       "id": "registry_list_test_rows"
     },
@@ -11773,7 +11843,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/list.test.tsx",
       "source_location": "L20",
-      "community": 29,
+      "community": 206,
       "norm_label": "onclick",
       "id": "registry_list_test_onclick"
     },
@@ -11782,7 +11852,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/list.test.tsx",
       "source_location": "L26",
-      "community": 29,
+      "community": 206,
       "norm_label": "row",
       "id": "registry_list_test_row"
     },
@@ -11791,7 +11861,7 @@
       "file_type": "code",
       "source_file": "apps/web/__tests__/registry/list.test.tsx",
       "source_location": "L33",
-      "community": 29,
+      "community": 206,
       "norm_label": "{ container }",
       "id": "registry_list_test_container"
     },
@@ -14090,6 +14160,28 @@
       "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "source": "registry_dpad_behavior_test",
+      "target": "hooks_dpad_focusscope",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "registry_dpad_behavior_test",
+      "target": "hooks_dpad_getfocusables",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test",
       "target": "hooks_dpad_seedfocus"
@@ -14104,6 +14196,26 @@
       "confidence_score": 1.0,
       "source": "registry_dpad_behavior_test",
       "target": "hooks_dpad_usedpad"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
+      "source_location": "L160",
+      "weight": 1.0,
+      "source": "registry_dpad_behavior_test",
+      "target": "registry_dpad_behavior_test_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "registry_dpad_behavior_test",
+      "target": "registry_dpad_behavior_test_dpad",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -14156,6 +14268,17 @@
       "weight": 1.0,
       "source": "registry_dpad_behavior_test_harness",
       "target": "hooks_dpad_usedpad"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/dpad-behavior.test.tsx",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "registry_dpad_behavior_test_dpad",
+      "target": "hooks_dpad_usedpad",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -14486,6 +14609,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/__tests__/registry/navigator.test.tsx",
+      "source_location": "L220",
+      "weight": 1.0,
+      "source": "registry_navigator_test",
+      "target": "registry_navigator_test_memhome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/navigator.test.tsx",
       "source_location": "L142",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -14674,6 +14807,17 @@
       "confidence_score": 1.0,
       "source": "registry_navigator_test_swapper",
       "target": "ui_navigator_usenavigator"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/__tests__/registry/navigator.test.tsx",
+      "source_location": "L221",
+      "weight": 1.0,
+      "source": "registry_navigator_test_memhome",
+      "target": "ui_navigator_usenavigator",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -25759,6 +25903,26 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "hooks_dpad",
+      "target": "hooks_dpad_focusscope",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "hooks_dpad",
+      "target": "hooks_dpad_getfocusables",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
       "source_location": "L22",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -25794,6 +25958,16 @@
       "confidence_score": 1.0,
       "source": "hooks_dpad",
       "target": "hooks_dpad_rectlike"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "hooks_dpad",
+      "target": "hooks_dpad_scopes",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -25947,6 +26121,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "hooks_dpad_getfocusables",
+      "target": "hooks_dpad_focusables",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/dpad.tsx",
       "source_location": "L66",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -25973,6 +26158,17 @@
       "confidence_score": 1.0,
       "source": "packages_glasses_ui_src_hooks_dpad_tsx",
       "target": "hooks_dpad_focusables"
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "hooks_index",
+      "target": "hooks_dpad_getfocusables",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -26015,6 +26211,17 @@
       "confidence_score": 1.0,
       "source": "packages_glasses_ui_src_hooks_index_ts",
       "target": "hooks_dpad_seedfocus"
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "packages/glasses-ui/src/hooks/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "hooks_index",
+      "target": "hooks_dpad_focusscope",
+      "confidence_score": 1.0
     },
     {
       "relation": "re_exports",
@@ -32560,9 +32767,9 @@
       "source_file": "apps/web/content/docs/wishlist.mdx",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_wishlist",
-      "target": "docs_wishlist_camera_access",
-      "confidence_score": 1.0
+      "target": "docs_wishlist_camera_access"
     },
     {
       "relation": "contains",
@@ -32570,9 +32777,9 @@
       "source_file": "apps/web/content/docs/wishlist.mdx",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_wishlist",
-      "target": "docs_wishlist_documented_audio_playback",
-      "confidence_score": 1.0
+      "target": "docs_wishlist_documented_audio_playback"
     },
     {
       "relation": "contains",
@@ -32580,9 +32787,9 @@
       "source_file": "apps/web/content/docs/wishlist.mdx",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_wishlist",
-      "target": "docs_wishlist_gaze_head_pose_targeting",
-      "confidence_score": 1.0
+      "target": "docs_wishlist_gaze_head_pose_targeting"
     },
     {
       "relation": "contains",
@@ -32590,9 +32797,9 @@
       "source_file": "apps/web/content/docs/wishlist.mdx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_wishlist",
-      "target": "docs_wishlist_microphone_system_dictation",
-      "confidence_score": 1.0
+      "target": "docs_wishlist_microphone_system_dictation"
     },
     {
       "relation": "contains",
@@ -32600,9 +32807,9 @@
       "source_file": "apps/web/content/docs/wishlist.mdx",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_wishlist",
-      "target": "docs_wishlist_neural_band_gesture_events",
-      "confidence_score": 1.0
+      "target": "docs_wishlist_neural_band_gesture_events"
     },
     {
       "relation": "contains",
@@ -38294,5 +38501,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6880d7ff9ba0d17126820c2706ac9990a8ba1014"
+  "built_at_commit": "6319a5e510f589392f517b0a9be4412fc49c09c3"
 }
