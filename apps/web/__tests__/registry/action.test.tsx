@@ -142,7 +142,7 @@ describe("read-only (no onChange)", () => {
 
 describe("Badge", () => {
   it("renders content and the accent tone", () => {
-    const { container } = render(<Badge tone="accent">LIVE</Badge>);
+    const { container } = render(<Badge emphasis="accent">LIVE</Badge>);
     expect(screen.getByText("LIVE")).toBeTruthy();
     expect(
       container.firstElementChild?.classList.contains("gk-badge--accent"),

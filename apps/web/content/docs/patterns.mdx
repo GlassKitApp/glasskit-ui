@@ -90,6 +90,11 @@ narrates something that already happened, it's a toast.
 - **World-anchored never mirrors** — DirectionArrow, Compass, Pin, Callout,
   Reticle, and Viewfinder keep physical positioning under RTL; everything
   else uses logical CSS and flips for free.
+- **One word per meaning** — `emphasis` is visual weight (`"default" |
+"accent"` on Badge, Cue, Toast), `status` is semantic state (`"on" |
+"live" | "off"` on StatusDot), and `tone` is reserved for the gradient
+  palette (Avatar, GlowIcon plates, Launcher tiles). A prop name tells you
+  what kind of choice you're making.
 - **Platform honesty** — components that _look_ like device capture
   (Viewfinder, Dictation, TextField's mic affordance) are presentation:
   web apps on the Display get no camera, microphone, or gaze API. Their

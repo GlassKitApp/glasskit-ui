@@ -12,7 +12,7 @@ export function ExploreDemo() {
     <GlassViewport>
       <Screen
         cue={
-          <Cue icon={<StatusDot tone="live" label="AR" />}>
+          <Cue icon={<StatusDot status="live" label="AR" />}>
             Center a pin to select
           </Cue>
         }

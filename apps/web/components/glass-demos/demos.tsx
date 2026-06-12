@@ -190,7 +190,7 @@ export function ConfirmDemo() {
   const [answer, setAnswer] = useState<string | null>(null);
   if (answer) {
     return (
-      <Screen cue={<Cue tone="accent">{answer}</Cue>}>
+      <Screen cue={<Cue emphasis="accent">{answer}</Cue>}>
         <Heading>Workout</Heading>
         <Button onClick={() => setAnswer(null)}>Again</Button>
       </Screen>
@@ -215,7 +215,7 @@ export function QuickReplyChipsDemo() {
   return (
     <Screen
       cue={
-        <Cue tone={sent ? "accent" : "default"}>
+        <Cue emphasis={sent ? "accent" : "default"}>
           {sent ? `Sent: “${sent}”` : "“Running late?”"}
         </Cue>
       }
@@ -310,7 +310,7 @@ export function PermissionPromptDemo() {
   if (granted != null) {
     return (
       <Screen
-        cue={<Cue tone="accent">{granted ? "Location on" : "Denied"}</Cue>}
+        cue={<Cue emphasis="accent">{granted ? "Location on" : "Denied"}</Cue>}
       >
         <Heading>Navigation</Heading>
         <Button onClick={() => setGranted(null)}>Ask again</Button>
@@ -412,7 +412,7 @@ export function CallCardDemo() {
         state === "ended" ? (
           <Cue>Call ended</Cue>
         ) : state === "active" ? (
-          <Cue tone="accent">00:07 · connected</Cue>
+          <Cue emphasis="accent">00:07 · connected</Cue>
         ) : undefined
       }
     >
@@ -473,7 +473,7 @@ export function ToastDemo() {
   return (
     <Screen
       cue={
-        <Toast open={open} tone="accent">
+        <Toast open={open} emphasis="accent">
           Saved to camera roll
         </Toast>
       }
@@ -643,7 +643,7 @@ function NavHome() {
 function NavSession({ kind }: { kind?: string }) {
   const nav = useNavigator();
   return (
-    <Screen cue={<Cue tone="accent">Recording — back pauses</Cue>}>
+    <Screen cue={<Cue emphasis="accent">Recording — back pauses</Cue>}>
       <Heading eyebrow={kind}>In progress</Heading>
       <Readout label="Elapsed" value="12:08" />
       <Button variant="primary" onClick={() => nav.push("summary")}>
@@ -749,7 +749,7 @@ export function DirectionArrowDemo() {
   return (
     <Screen
       cue={
-        <Cue tone="accent">
+        <Cue emphasis="accent">
           {simulated == null
             ? "Toward the Ferry Building"
             : "Simulated sweep — no sensor here"}
@@ -773,7 +773,7 @@ export function TimerDemo() {
   return (
     <Screen
       cue={
-        <Cue tone={done ? "accent" : undefined}>
+        <Cue emphasis={done ? "accent" : undefined}>
           {done ? "Done — time's up" : "Pause, resume, or restart"}
         </Cue>
       }

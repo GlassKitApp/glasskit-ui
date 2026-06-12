@@ -7,16 +7,17 @@ import { cn } from "../lib/utils";
  * hue: `on` = steady accent, `live` = pulsing accent, `off` = dim.
  */
 export function StatusDot({
-  tone = "on",
+  status = "on",
   label,
   className,
 }: {
-  tone?: "on" | "live" | "off";
+  /** Semantic state — live pulses, off dims. */
+  status?: "on" | "live" | "off";
   label?: ReactNode;
   className?: string;
 }) {
   return (
-    <span className={cn("gk-statusdot", `gk-statusdot--${tone}`, className)}>
+    <span className={cn("gk-statusdot", `gk-statusdot--${status}`, className)}>
       <span className="gk-statusdot__dot" />
       {label != null ? (
         <span className="gk-statusdot__label t-caption">{label}</span>

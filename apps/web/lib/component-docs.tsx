@@ -136,24 +136,24 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Cue",
     category: "Display",
     summary:
-      "A caption / hint line: what to do next, or a transient status. Dim by default; set tone='accent' for a live state. No glow on body text.",
+      "A caption / hint line: what to do next, or a transient status. Dim by default; set emphasis='accent' for a live state. No glow on body text.",
     preview: (
       <Screen>
-        <Cue tone="accent">Listening…</Cue>
+        <Cue emphasis="accent">Listening…</Cue>
         <Cue>Look at a sign to translate</Cue>
       </Screen>
     ),
     props: [
       { name: "children", type: "ReactNode", desc: "The hint text." },
       {
-        name: "tone",
+        name: "emphasis",
         type: '"default" | "accent"',
         default: '"default"',
         desc: "Accent highlights it for live states.",
       },
       { name: "icon", type: "ReactNode", desc: "Optional leading glyph." },
     ],
-    usage: `<Cue tone="accent">Listening…</Cue>`,
+    usage: `<Cue emphasis="accent">Listening…</Cue>`,
   },
   {
     slug: "button",
@@ -685,20 +685,20 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       <Screen>
         <div className="row">
           <Badge>3</Badge>
-          <Badge tone="accent">LIVE</Badge>
+          <Badge emphasis="accent">LIVE</Badge>
         </div>
       </Screen>
     ),
     props: [
       { name: "children", type: "ReactNode", desc: "Count or short label." },
       {
-        name: "tone",
+        name: "emphasis",
         type: '"default" | "accent"',
         default: '"default"',
         desc: "Accent gradient tone.",
       },
     ],
-    usage: `<Badge tone="accent">LIVE</Badge>`,
+    usage: `<Badge emphasis="accent">LIVE</Badge>`,
   },
   {
     slug: "status-dot",
@@ -708,21 +708,21 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       "A glanceable sensor / permission / connection indicator. With one accent on the lens, state reads from luminance + motion: on = steady, live = pulsing, off = dim.",
     preview: (
       <Screen>
-        <StatusDot tone="live" label="GPS lock" />
-        <StatusDot tone="on" label="Mic ready" />
-        <StatusDot tone="off" label="Offline" />
+        <StatusDot status="live" label="GPS lock" />
+        <StatusDot status="on" label="Mic ready" />
+        <StatusDot status="off" label="Offline" />
       </Screen>
     ),
     props: [
       {
-        name: "tone",
+        name: "status",
         type: '"on" | "live" | "off"',
         default: '"on"',
         desc: "Steady / pulsing / dim.",
       },
       { name: "label", type: "ReactNode", desc: "Optional caption." },
     ],
-    usage: `<StatusDot tone="live" label="GPS lock" />`,
+    usage: `<StatusDot status="live" label="GPS lock" />`,
   },
   {
     slug: "meter",
@@ -785,7 +785,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       "A transient notice that animates in with a brief luminance rise (never a modal scrim). Controlled via open; you own the auto-dismiss timer.",
     preview: (
       <Screen>
-        <Toast open tone="accent">
+        <Toast open emphasis="accent">
           Workout saved
         </Toast>
       </Screen>
@@ -798,13 +798,13 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       { name: "children", type: "ReactNode", desc: "The message." },
       {
-        name: "tone",
+        name: "emphasis",
         type: '"default" | "accent"',
         default: '"default"',
         desc: "Accent adds a soft glow.",
       },
     ],
-    usage: `<Toast open={saved} tone="accent">
+    usage: `<Toast open={saved} emphasis="accent">
   Workout saved
 </Toast>`,
   },

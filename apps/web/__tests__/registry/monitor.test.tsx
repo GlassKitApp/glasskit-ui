@@ -8,7 +8,7 @@ import { ErrorState } from "@registry/ui/error-state";
 
 describe("StatusDot", () => {
   it("reflects the tone and renders the label", () => {
-    const { container } = render(<StatusDot tone="live" label="GPS" />);
+    const { container } = render(<StatusDot status="live" label="GPS" />);
     expect(
       container.firstElementChild?.classList.contains("gk-statusdot--live"),
     ).toBe(true);
@@ -59,7 +59,7 @@ describe("Toast", () => {
     const { rerender, container } = render(<Toast open={false}>Saved</Toast>);
     expect(container.firstChild).toBeNull();
     rerender(
-      <Toast open tone="accent">
+      <Toast open emphasis="accent">
         Saved
       </Toast>,
     );

@@ -8,7 +8,7 @@ import { DirectionArrow } from "@registry/ui/direction-arrow";
 export function NavigateDemo() {
   return (
     <GlassViewport>
-      <Screen cue={<Cue tone="accent">Turn right onto Market St</Cue>}>
+      <Screen cue={<Cue emphasis="accent">Turn right onto Market St</Cue>}>
         <DirectionArrow bearing={35} />
         <Readout label="Market St" value="320" unit="m" />
       </Screen>
