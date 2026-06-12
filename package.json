@@ -13,7 +13,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "changeset": "changeset",
-    "version-packages": "changeset version && pnpm build:registry",
+    "version-packages": "changeset version && pnpm install --lockfile-only && pnpm build:registry",
     "release": "changeset publish"
   },
   "devDependencies": {
