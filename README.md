@@ -42,7 +42,7 @@ npm create glasskit my-app           # a complete glasses app, D-pad wired
 Or add the SDK to an existing project:
 
 ```sh
-pnpm add @glasskit-ui/react          # the SDK (react 19 peer dep)
+npm install @glasskit-ui/react       # the SDK (react 19 peer dep)
 ```
 
 ```css

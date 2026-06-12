@@ -4,7 +4,7 @@ The typed 600×600 + D-pad component library for **Meta Ray-Ban Display**
 Web Apps. The platform primitives Meta does not ship.
 
 ```sh
-npm i @glasskit-ui/react
+npm install @glasskit-ui/react
 # react + react-dom ^19 are peer dependencies
 ```
 
