@@ -1,6 +1,6 @@
 {
   "name": "@glasskit-ui/react",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "type": "module",
   "description": "Typed 600×600 + D-pad component library for Meta Ray-Ban Display Web Apps. The platform primitives Meta does not ship.",
   "author": "GlassKit",
