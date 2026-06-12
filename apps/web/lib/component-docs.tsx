@@ -43,6 +43,7 @@ import { Clock } from "@registry/ui/clock";
 import { WeatherTile } from "@registry/ui/weather-tile";
 import { Slider } from "@registry/ui/slider";
 import { TextField } from "@registry/ui/text-field";
+import { ComposeFlow } from "@registry/ui/compose-flow";
 import { PermissionPrompt } from "@registry/ui/permission-prompt";
 import {
   HeartGlyph,
@@ -1773,7 +1774,7 @@ toast("Mara Lin", {
     name: "TextField",
     category: "Input",
     summary:
-      "A text-entry surface. No keyboard (or microphone API) on the lens — a focusable field showing the value + a mic-style affordance; onActivate opens your own capture flow (picker UI, phone relay).",
+      "A text-entry surface. No keyboard (or microphone API) on the lens — a focusable field showing the value + a mic-style affordance; onActivate opens your own capture flow. ComposeFlow is the ready-made picker recipe.",
     preview: (
       <Screen>
         <TextField
@@ -1810,6 +1811,57 @@ toast("Mara Lin", {
     usage: `<TextField
   label="Reply" value={draft} onActivate={startDictation}
   icon={<GlowIcon size="md"><MicIcon /></GlowIcon>}
+/>`,
+  },
+  {
+    slug: "compose-flow",
+    name: "ComposeFlow",
+    category: "Input",
+    summary:
+      "The working text-entry recipe: a TextField that opens a picker of choices when activated; choosing writes back and returns. The picker rides history, so the back gesture closes it — inside or outside a Navigator. The seam system dictation would replace.",
+    preview: (
+      <Screen>
+        <ComposeFlow
+          label="Reply"
+          value="On my way"
+          options={["On my way", "5 min", "Call me"]}
+        />
+      </Screen>
+    ),
+    props: [
+      { name: "label", type: "ReactNode", desc: "Field label." },
+      {
+        name: "value",
+        type: "string | null",
+        desc: "Current value. Controlled — pair with onChange.",
+      },
+      { name: "placeholder", type: "ReactNode", desc: "Empty-field hint." },
+      {
+        name: "options",
+        type: "string[]",
+        desc: "The choices the picker offers.",
+      },
+      {
+        name: "pickerTitle",
+        type: "ReactNode",
+        default: '"Choose"',
+        desc: "Heading on the picker view.",
+      },
+      { name: "icon", type: "ReactNode", desc: "TextField trailing glyph." },
+      {
+        name: "onChange",
+        type: "(value: string) => void",
+        desc: "Fires with the chosen option.",
+      },
+    ],
+    usage: `const [reply, setReply] = useState<string | null>(null);
+
+<ComposeFlow
+  label="Reply"
+  value={reply}
+  onChange={setReply}
+  options={["On my way", "5 min", "Call me"]}
+  pickerTitle="Quick replies"
 />`,
   },
   {

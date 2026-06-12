@@ -14,6 +14,7 @@ import { QuickReplyChips } from "@registry/ui/quick-reply-chips";
 import { Deck } from "@registry/ui/deck";
 import { Launcher } from "@registry/ui/launcher";
 import { TextField } from "@registry/ui/text-field";
+import { ComposeFlow } from "@registry/ui/compose-flow";
 import { PermissionPrompt } from "@registry/ui/permission-prompt";
 import { Timer } from "@registry/ui/timer";
 import { EmptyState } from "@registry/ui/empty-state";
@@ -829,6 +830,30 @@ export function EmptyStateDemo() {
         hint="New conversations land here."
         actionLabel="Check now"
         onAction={() => setMessages(["Maya", "Dispatch", "Group ride"])}
+      />
+    </Screen>
+  );
+}
+
+export function ComposeFlowDemo() {
+  const [reply, setReply] = useState<string | null>(null);
+  return (
+    <Screen
+      cue={
+        <Cue>
+          {reply
+            ? "Sent — pinch to change"
+            : "Pinch the field · pinch back closes"}
+        </Cue>
+      }
+    >
+      <ComposeFlow
+        label="Reply"
+        value={reply}
+        placeholder="Pinch to enter text"
+        options={["On my way", "5 min", "Call me", "Can't talk now"]}
+        pickerTitle="Quick replies"
+        onChange={setReply}
       />
     </Screen>
   );

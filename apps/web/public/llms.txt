@@ -1,6 +1,6 @@
 # GlassKit UI
 
-> The open-source React component library for Meta Ray-Ban Display (smart-glasses) web apps. It ships the platform primitives Meta does not: a glasses-tuned D-pad focus engine, system-back-aware navigation, W3C sensor + Neural Band hooks, and 47 premium HUD components for the 600×600 lens. Published on npm under the `@glasskit-ui` scope; components vendor shadcn-style (you own the source).
+> The open-source React component library for Meta Ray-Ban Display (smart-glasses) web apps. It ships the platform primitives Meta does not: a glasses-tuned D-pad focus engine, system-back-aware navigation, W3C sensor + Neural Band hooks, and 48 premium HUD components for the 600×600 lens. Published on npm under the `@glasskit-ui` scope; components vendor shadcn-style (you own the source).
 
 ## Install
 
@@ -34,7 +34,7 @@ IMPORTANT: the bare `glasskit` npm package is UNRELATED to this project — alwa
 - **Navigation**: `<Navigator screens={{...}} initial="home" />` + `useNavigator()` (`push/pop/popToTop/replace`) — every push adds a real history entry so the system back gesture just works; `useBackHandler(fn)` lets overlays consume back.
 - Design language ("premium surfaces", 2026-06): calm dark base (`#0b0e16`→`#090b11`), surfaces that pop (top-lit gradient + 1px light edge + soft depth), gradient icon plates, one blue accent (`--accent: #4c8dff`). One task per view, tabular numerals, logical RTL-safe CSS — but world-anchored components (DirectionArrow, Compass, Pin, Callout, Reticle, Viewfinder) never mirror.
 
-## Components (47)
+## Components (48)
 
 Vendored shadcn-style. Live preview + props + usage at `https://glasskit.app/ui/docs/components/<slug>`; machine-readable source + deps at `https://glasskit.app/ui/r/<slug>.json` (shadcn-compatible registry: `https://glasskit.app/ui/r/registry.json`). Every docs page has a QR that installs the component as a runnable app on real glasses.
 
@@ -48,6 +48,7 @@ Vendored shadcn-style. Live preview + props + usage at `https://glasskit.app/ui/
 - **ChatBubble** (`chat-bubble`) — one message.
 - **Clock** (`clock`) — the home time/date complication: a big tabular time and a quieter date line.
 - **Compass** (`compass`) — a heading rose that keeps North pointing at real north while a fixed top marker shows where you face.
+- **ComposeFlow** (`compose-flow`) — the working text-entry recipe for a platform with no keyboard or microphone: a <TextField> that opens a picker of choices when activated; choosing writes the value back and returns to the field.
 - **Confirm** (`confirm`) — a decision screen: a prompt + a two-button action bar (confirm / cancel).
 - **Cue** (`cue`) — a caption / hint line: what to do next, or a transient status ("Listening…").
 - **Deck** (`deck`) — a horizontal paged flow (wizard / onboarding).
