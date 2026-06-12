@@ -1,6 +1,6 @@
 ---
 title: "Navigator"
-description: "A screen stack with system-back integration: pushes add real history entries, the Display's back gesture pops them via popstate, and useBackHandler lets overlays consume back."
+description: "A screen stack with system-back integration. Every push adds a real history entry, so the Display's back gesture pops it via popstate. The stack rides in history.state \u2014 a mid-flow reload restores the screen; opt-in paths mirror pushes into the URL. Pop restores focus to the row that pushed."
 ---
 
 <ComponentDoc slug="navigator" />

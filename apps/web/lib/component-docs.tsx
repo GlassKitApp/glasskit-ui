@@ -1026,7 +1026,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Navigator",
     category: "Navigation",
     summary:
-      "A screen stack with system-back integration. Every push adds a real history entry, so the Display's back gesture (middle pinch, OS v125.1+) pops it via popstate; Escape does the same in desktop dev. useBackHandler lets overlays consume back.",
+      "A screen stack with system-back integration. Every push adds a real history entry, so the Display's back gesture (middle pinch, OS v125.1+) pops it via popstate. The stack rides in history.state — a mid-flow reload restores the screen; opt-in paths mirror pushes into the URL. Pop restores focus to the row that pushed.",
     // Static stand-in: the live stack (with real history pushes) runs in the
     // interactive demo and the /preview glass app.
     preview: (
@@ -1047,6 +1047,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       { name: "initial", type: "string", desc: "Root screen name." },
       { name: "initialParams", type: "unknown", desc: "Params for the root." },
+      {
+        name: "paths",
+        type: "Record<string, string>",
+        desc: "Screen name → URL segment. Mirrors the stack into the pathname; with a host catch-all route, pushed screens deep-link.",
+      },
     ],
     usage: `const nav = useNavigator(); // inside a screen
 nav.push("detail", { id }); nav.pop(); nav.popToTop(); nav.replace("done");
