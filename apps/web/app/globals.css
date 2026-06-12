@@ -25,6 +25,10 @@
   --accent: var(--accent-cyan);
   --accent-muted: #1f7d92;
   --accent-faint: #133f4a;
+  --accent-grad-hi: #48cde8;
+  --accent-grad-lo: #2ba6c0;
+  --accent-glow: rgba(43, 166, 192, 0.6);
+  --accent-glow-strong: rgba(43, 166, 192, 0.7);
   --color-accent: var(--accent-cyan);
 }
 .accent-amber .glass-viewport {
@@ -32,6 +36,10 @@
   --accent: var(--accent-amber);
   --accent-muted: #a06d12;
   --accent-faint: #4d350a;
+  --accent-grad-hi: #f6af39;
+  --accent-grad-lo: #cf8c1b;
+  --accent-glow: rgba(207, 140, 27, 0.6);
+  --accent-glow-strong: rgba(207, 140, 27, 0.7);
   --color-accent: var(--accent-amber);
 }
 .accent-violet .glass-viewport {
@@ -39,6 +47,10 @@
   --accent: var(--accent-violet);
   --accent-muted: #5d52a6;
   --accent-faint: #2f2a55;
+  --accent-grad-hi: #a597ff;
+  --accent-grad-lo: #7f72d7;
+  --accent-glow: rgba(127, 114, 215, 0.6);
+  --accent-glow-strong: rgba(127, 114, 215, 0.7);
   --color-accent: var(--accent-violet);
 }
 .accent-white .glass-viewport {
@@ -46,6 +58,10 @@
   --accent: var(--accent-white);
   --accent-muted: #9aa0a6;
   --accent-faint: #3a3f46;
+  --accent-grad-hi: #7d8694;
+  --accent-grad-lo: #555d68;
+  --accent-glow: rgba(85, 93, 104, 0.6);
+  --accent-glow-strong: rgba(85, 93, 104, 0.7);
   --color-accent: var(--accent-white);
 }
 /* Picker swatches — one source of truth with the presets. */

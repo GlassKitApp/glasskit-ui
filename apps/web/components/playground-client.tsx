@@ -183,6 +183,9 @@ const ACCENTS = [
       accent: "#34c8e6",
       muted: "#1f7d92",
       faint: "#133f4a",
+      gradHi: "#48cde8",
+      gradLo: "#2ba6c0",
+      glow: "rgba(43, 166, 192, 0.6)",
     },
   },
   {
@@ -195,6 +198,9 @@ const ACCENTS = [
       accent: "#f5a623",
       muted: "#a06d12",
       faint: "#4d350a",
+      gradHi: "#f6af39",
+      gradLo: "#cf8c1b",
+      glow: "rgba(207, 140, 27, 0.6)",
     },
   },
   {
@@ -207,6 +213,9 @@ const ACCENTS = [
       accent: "#9b8cff",
       muted: "#5d52a6",
       faint: "#2f2a55",
+      gradHi: "#a597ff",
+      gradLo: "#7f72d7",
+      glow: "rgba(127, 114, 215, 0.6)",
     },
   },
   {
@@ -219,6 +228,9 @@ const ACCENTS = [
       accent: "#e9ebee",
       muted: "#9aa0a6",
       faint: "#3a3f46",
+      gradHi: "#7d8694",
+      gradLo: "#555d68",
+      glow: "rgba(85, 93, 104, 0.6)",
     },
   },
 ];
@@ -307,6 +319,9 @@ function CodePanel({
   --accent: ${accent.ramp.accent};
   --accent-muted: ${accent.ramp.muted};
   --accent-faint: ${accent.ramp.faint};
+  --accent-grad-hi: ${accent.ramp.gradHi};
+  --accent-grad-lo: ${accent.ramp.gradLo};
+  --accent-glow: ${accent.ramp.glow};
 }`;
 
   return (
