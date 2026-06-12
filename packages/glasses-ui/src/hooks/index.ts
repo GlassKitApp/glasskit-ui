@@ -14,3 +14,4 @@ export {
   orientationEqual,
   motionEqual,
 } from "./sensors";
+export { useFeedback, buzz, type FeedbackPattern } from "./feedback";

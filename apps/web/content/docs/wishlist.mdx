@@ -53,6 +53,15 @@ Even a one-line answer unlocks a category of apps.
 | ------------------------------------------ | ------------------------------------------------------------- |
 | [NowPlaying](/docs/components/now-playing) | today a status display for playback your app tracks elsewhere |
 
+## 🤲 Neural Band haptics
+
+The wristband buzzes for system gestures; apps can't ask it to. Even a
+single "tap" cue would make pinch interactions feel mechanical-real.
+
+| Ready and waiting     | Where it plugs in                                                                           |
+| --------------------- | ------------------------------------------------------------------------------------------- |
+| `useFeedback()` (SDK) | call `buzz("tap")` at interaction points today — the `glasskitfeedback` event is the bridge |
+
 ## 🖐 Neural Band gesture events
 
 Swipes and pinches arrive as arrow/Enter keydowns — flattened. A richer
