@@ -15,6 +15,7 @@ export function Button({
   disabled,
   onClick,
   type = "button",
+  initialFocus = false,
   className,
 }: {
   children: ReactNode;
@@ -24,6 +25,8 @@ export function Button({
   disabled?: boolean;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
+  /** Seed the D-pad ring here when the screen mounts (`data-autofocus`). */
+  initialFocus?: boolean;
   className?: string;
 }) {
   return (
@@ -31,6 +34,7 @@ export function Button({
       type={type}
       disabled={disabled}
       onClick={onClick}
+      data-autofocus={initialFocus || undefined}
       className={cn(
         "focusable gk-btn t-body",
         variant === "primary" && "gk-btn--primary",

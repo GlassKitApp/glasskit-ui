@@ -1,4 +1,11 @@
-export { useDpad, seedFocus, scoreRect, type Dir } from "./dpad";
+export {
+  useDpad,
+  seedFocus,
+  scoreRect,
+  getFocusables,
+  FocusScope,
+  type Dir,
+} from "./dpad";
 export {
   useDeviceOrientation,
   useDeviceMotion,

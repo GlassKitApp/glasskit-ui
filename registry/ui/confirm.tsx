@@ -1,17 +1,23 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { FocusScope } from "@glasskit-ui/react";
 import { cn } from "../lib/utils";
 import { Button } from "./button";
 
 /**
  * <Confirm> — a decision screen: a prompt + a two-button action bar (confirm /
- * cancel). Drop it into a <Screen> stage. Buttons are D-pad-focusable via the
- * underlying Button; useDpad seeds focus on the primary action.
+ * cancel). Drop it into a <Screen> stage. Focus seeds on the primary action;
+ * set `destructive` for irreversible decisions and the ring seeds on cancel
+ * instead — a blind pinch must never destroy anything. Rendered inside a
+ * FocusScope so the ring can't wander off the decision.
  */
 export function Confirm({
   title,
   message,
   confirmLabel = "Confirm",
   cancelLabel = "Cancel",
+  destructive = false,
   onConfirm,
   onCancel,
   className,
@@ -20,24 +26,34 @@ export function Confirm({
   message?: ReactNode;
   confirmLabel?: ReactNode;
   cancelLabel?: ReactNode;
+  /** Irreversible action — seed the D-pad ring on cancel, not confirm. */
+  destructive?: boolean;
   onConfirm?: () => void;
   onCancel?: () => void;
   className?: string;
 }) {
   return (
-    <div className={cn("gk-confirm", className)}>
-      {title != null ? (
-        <p className="gk-confirm__title t-title">{title}</p>
-      ) : null}
-      {message != null ? (
-        <p className="gk-confirm__message t-body">{message}</p>
-      ) : null}
-      <div className="gk-confirm__actions">
-        <Button variant="primary" onClick={onConfirm}>
-          {confirmLabel}
-        </Button>
-        <Button onClick={onCancel}>{cancelLabel}</Button>
+    <FocusScope>
+      <div className={cn("gk-confirm", className)}>
+        {title != null ? (
+          <p className="gk-confirm__title t-title">{title}</p>
+        ) : null}
+        {message != null ? (
+          <p className="gk-confirm__message t-body">{message}</p>
+        ) : null}
+        <div className="gk-confirm__actions">
+          <Button
+            variant="primary"
+            initialFocus={!destructive}
+            onClick={onConfirm}
+          >
+            {confirmLabel}
+          </Button>
+          <Button initialFocus={destructive} onClick={onCancel}>
+            {cancelLabel}
+          </Button>
+        </div>
       </div>
-    </div>
+    </FocusScope>
   );
 }

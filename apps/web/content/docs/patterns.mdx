@@ -80,7 +80,10 @@ narrates something that already happened, it's a toast.
 - **Focus** — interactive elements carry the `focusable` class; `useDpad()`
   (called once at the root) does spatial navigation and Enter-to-click. A
   focused **Slider** owns ArrowLeft/Right for value adjust — vertical arrows
-  still navigate away.
+  still navigate away. `data-autofocus` picks where a screen's ring starts;
+  `<FocusScope>` contains it to a modal subtree (Confirm and
+  PermissionPrompt do this for you); Navigator restores the ring to the row
+  that opened a screen when you come back (focus memory).
 - **One task per view** — most components are sized to be a screen's main
   event, not dashboard tiles. If a screen needs three of them, it's probably
   three screens (see Navigator).

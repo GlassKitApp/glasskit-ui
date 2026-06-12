@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 /**
  * D-pad focus navigation for the Meta Ray-Ban Display.
@@ -58,16 +58,32 @@ export function scoreRect(
   return along + cross * 2;
 }
 
+/* Active focus scopes, innermost last. While any scope is mounted, the
+ * D-pad ring is contained to the innermost one — arrows can't wander out
+ * of a modal (Confirm, PermissionPrompt, a sheet) onto covered content. */
+const scopes: HTMLElement[] = [];
+
 function focusables(): HTMLElement[] {
   // Zero-size elements (display:none pages, collapsed containers) are not
   // real focus targets — without this filter the spatial scorer can route
   // focus to something invisible.
-  return Array.from(document.querySelectorAll<HTMLElement>(SELECTOR)).filter(
-    (el) => {
-      const r = el.getBoundingClientRect();
-      return r.width > 0 && r.height > 0;
-    },
-  );
+  const scope = scopes[scopes.length - 1];
+  return Array.from(
+    (scope ?? document).querySelectorAll<HTMLElement>(SELECTOR),
+  ).filter((el) => {
+    const r = el.getBoundingClientRect();
+    return r.width > 0 && r.height > 0;
+  });
+}
+
+/**
+ * The current D-pad candidates, in DOM order — honors the innermost
+ * <FocusScope> and skips disabled/invisible elements. Exposed so navigation
+ * containers can implement focus memory (record the focused index on push,
+ * restore it on pop).
+ */
+export function getFocusables(): HTMLElement[] {
+  return focusables();
 }
 
 /**
@@ -113,13 +129,61 @@ function moveFocus(dir: Dir) {
 }
 
 /**
- * Move focus to the first focusable element. Exposed so a screen that
- * swaps its content under a single `useDpad()` (no remount) can re-seed
- * focus when its focusable set changes — `useDpad` itself only seeds once
- * on mount. Uses the same `SELECTOR`, so it skips disabled elements.
+ * Move focus to the screen's preferred element: the first focusable carrying
+ * `data-autofocus`, else the first focusable in DOM order. Exposed so a
+ * screen that swaps its content under a single `useDpad()` (no remount) can
+ * re-seed focus when its focusable set changes — `useDpad` itself only seeds
+ * once on mount. Uses the same `SELECTOR`, so it skips disabled elements.
  */
 export function seedFocus(): void {
-  focusables()[0]?.focus();
+  const els = focusables();
+  (els.find((el) => el.hasAttribute("data-autofocus")) ?? els[0])?.focus();
+}
+
+/**
+ * <FocusScope> — contain the D-pad ring to a subtree while mounted (modal
+ * surfaces: Confirm, PermissionPrompt, sheets). On mount it seeds focus
+ * inside; arrows and Enter only see focusables within the innermost mounted
+ * scope; on unmount focus returns to the element that had it before the
+ * scope opened (or reseeds if that element is gone). Renders a
+ * `display: contents` wrapper, so it never affects layout.
+ */
+export function FocusScope({
+  children,
+  restoreFocus = true,
+}: {
+  children: ReactNode;
+  /** Return focus to the previously focused element on unmount. */
+  restoreFocus?: boolean;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const prev = document.activeElement as HTMLElement | null;
+    scopes.push(el);
+    seedFocus();
+    return () => {
+      const i = scopes.indexOf(el);
+      if (i !== -1) scopes.splice(i, 1);
+      if (restoreFocus && prev?.isConnected && prev !== document.body) {
+        prev.focus();
+      } else if (
+        !document.activeElement ||
+        document.activeElement === document.body
+      ) {
+        seedFocus();
+      }
+    };
+    // restoreFocus is read at cleanup time by closure on purpose — remounting
+    // the scope to change it would lose the saved focus target.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return (
+    <div ref={ref} className="gk-focus-scope">
+      {children}
+    </div>
+  );
 }
 
 /**

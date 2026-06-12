@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { act, render, screen } from "@testing-library/react";
 import {
   Navigator,
@@ -189,5 +189,80 @@ describe("Navigator", () => {
     act(() => history.back());
     await settle();
     expect(screen.getByText("Home")).toBeTruthy();
+  });
+});
+
+describe("focus memory", () => {
+  // The engine's zero-size filter hides everything in jsdom; give every
+  // element a real box so focusables() sees the tree. Focus memory restores
+  // by index in D-pad order, so a uniform rect is enough.
+  let origRect: typeof Element.prototype.getBoundingClientRect;
+  beforeEach(() => {
+    origRect = Element.prototype.getBoundingClientRect;
+    Element.prototype.getBoundingClientRect = function () {
+      return {
+        left: 0,
+        top: 0,
+        width: 200,
+        height: 40,
+        right: 200,
+        bottom: 40,
+        x: 0,
+        y: 0,
+        toJSON: () => ({}),
+      } as DOMRect;
+    };
+  });
+  afterEach(() => {
+    Element.prototype.getBoundingClientRect = origRect;
+  });
+
+  function MemHome() {
+    const nav = useNavigator();
+    return (
+      <>
+        <Button onClick={() => nav.push("detail")}>Row one</Button>
+        <Button onClick={() => nav.push("detail")}>Row two</Button>
+        <Button onClick={() => nav.push("detail")}>Row three</Button>
+      </>
+    );
+  }
+
+  it("pop returns the ring to the row that pushed, not the first row", async () => {
+    const { getByText } = render(
+      <Navigator
+        screens={{
+          home: () => <MemHome />,
+          detail: () => <Button>Close</Button>,
+        }}
+        initial="home"
+      />,
+    );
+    const rowTwo = getByText("Row two");
+    act(() => rowTwo.focus());
+    act(() => rowTwo.click()); // push records the focused index (1)
+    await settle();
+    expect(getByText("Close")).toBeTruthy();
+
+    act(() => history.back()); // system back → pop → restore
+    await settle();
+    expect(document.activeElement?.textContent).toBe("Row two");
+  });
+
+  it("a fresh push still seeds the new screen's first focusable", async () => {
+    const { getByText } = render(
+      <Navigator
+        screens={{
+          home: () => <MemHome />,
+          detail: () => <Button>Close</Button>,
+        }}
+        initial="home"
+      />,
+    );
+    const rowThree = getByText("Row three");
+    act(() => rowThree.focus());
+    act(() => rowThree.click());
+    await settle();
+    expect(document.activeElement?.textContent).toBe("Close");
   });
 });

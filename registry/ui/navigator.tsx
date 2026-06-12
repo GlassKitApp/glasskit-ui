@@ -10,7 +10,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { seedFocus } from "@glasskit-ui/react";
+import { getFocusables, seedFocus } from "@glasskit-ui/react";
 import { cn } from "../lib/utils";
 
 /**
@@ -25,7 +25,9 @@ import { cn } from "../lib/utils";
  * One screen renders at a time (one task per view); pushing unmounts nothing
  * until the entry is popped, but only the top screen is in the DOM so the
  * D-pad focus engine never sees covered screens. Focus seeds to the new
- * screen's first focusable on every stack change.
+ * screen's first focusable (or its `data-autofocus` target) on push; popping
+ * back restores the ring to the element that opened the screen — the row you
+ * came from, not the top of the list (focus memory).
  *
  * Overlays intercept back with `useBackHandler` (last registered wins first;
  * return true to consume — e.g. close a sheet instead of leaving the screen).
@@ -95,6 +97,9 @@ export function Navigator({
   ]);
   const keyRef = useRef(0);
   const backChain = useRef<Array<() => boolean>>([]);
+  // Focus memory: entry key → index (in D-pad order) of the element that was
+  // focused when that screen pushed. Restored when the screen resurfaces.
+  const focusMemory = useRef(new Map<number, number>());
 
   // Mirror of the stack for event handlers (popstate/keydown read the latest
   // without re-subscribing per render).
@@ -146,6 +151,12 @@ export function Navigator({
 
   const push = useCallback((name: string, params?: unknown) => {
     setStack((s) => {
+      // Remember where the ring was on the outgoing screen (idempotent —
+      // safe under StrictMode's double-invoke, like the pushState below).
+      const idx = getFocusables().indexOf(
+        document.activeElement as HTMLElement,
+      );
+      if (idx !== -1) focusMemory.current.set(s[s.length - 1]!.key, idx);
       history.pushState({ gkNavDepth: s.length }, "");
       return [...s, { name, params, key: ++keyRef.current }];
     });
@@ -172,9 +183,20 @@ export function Navigator({
     [stack, push, pop, popToTop, replace],
   );
 
-  // New screen on top → move the D-pad focus to it.
+  // Stack top changed → move the D-pad ring. Returning to a remembered
+  // screen restores the element that pushed (clamped if the list shrank);
+  // a fresh screen seeds normally.
   const top = stack[stack.length - 1]!;
   useEffect(() => {
+    const remembered = focusMemory.current.get(top.key);
+    if (remembered != null) {
+      focusMemory.current.delete(top.key);
+      const els = getFocusables();
+      if (els.length > 0) {
+        els[Math.min(remembered, els.length - 1)]!.focus();
+        return;
+      }
+    }
     seedFocus();
   }, [top.key]);
 
