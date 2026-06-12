@@ -1262,7 +1262,9 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
             </div>
           </div>
         }
-      />
+      >
+        {null}
+      </Screen>
     ),
     props: [
       {
