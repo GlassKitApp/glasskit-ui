@@ -1248,7 +1248,8 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
       "The toast / notification SYSTEM — Sonner (Emil Kowalski's library) themed to the lens. Mount <Toaster> once, then fire imperatively with toast(); it handles the queue, stacking, auto-dismiss, and enter/exit motion. Top-anchored — Screen's Cue line owns the bottom strip.",
     preview: (
       <Screen>
-        <div className="gk-toaster__toast">
+        {/* static mock; mb-auto pins it top like the real top-center mount */}
+        <div className="gk-toaster__toast mb-auto">
           <span className="gk-toaster__icon">
             <Avatar name="Mara Lin" tone="violet" size="sm" />
           </span>
