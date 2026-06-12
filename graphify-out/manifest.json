@@ -120,7 +120,7 @@
     "semantic_hash": ""
   },
   "apps/web/app/(web)/page.tsx": {
-    "mtime": 1781244694.650051,
+    "mtime": 1781244987.9482398,
     "ast_hash": "cd7c6c7c974e94a69f832a6f7e23337a",
     "semantic_hash": ""
   },
@@ -130,7 +130,7 @@
     "semantic_hash": ""
   },
   "apps/web/app/(web)/playground/page.tsx": {
-    "mtime": 1781244716.8591847,
+    "mtime": 1781244987.9483762,
     "ast_hash": "6c2f93ba6a8cf72c8386c4825a5464ed",
     "semantic_hash": ""
   },
@@ -200,12 +200,12 @@
     "semantic_hash": ""
   },
   "apps/web/components/lens/explore-demo.tsx": {
-    "mtime": 1781244724.2415323,
+    "mtime": 1781244987.9485013,
     "ast_hash": "d4f4f3959ababcf7f6a6694b0c051598",
     "semantic_hash": ""
   },
   "apps/web/components/lens/heart-rate-demo.tsx": {
-    "mtime": 1781244721.556434,
+    "mtime": 1781244987.9486165,
     "ast_hash": "aaa9886d90c94d03d78c84b14704a531",
     "semantic_hash": ""
   },
@@ -225,7 +225,7 @@
     "semantic_hash": ""
   },
   "apps/web/components/lens/menu-demo.tsx": {
-    "mtime": 1781244739.1232793,
+    "mtime": 1781244987.9487426,
     "ast_hash": "18b072dc3ad84595a274288560ceb79e",
     "semantic_hash": ""
   },
@@ -250,8 +250,8 @@
     "semantic_hash": ""
   },
   "apps/web/components/playground-client.tsx": {
-    "mtime": 1781244803.297472,
-    "ast_hash": "d6d421bb631889f7f29636e481971e71",
+    "mtime": 1781245454.4102292,
+    "ast_hash": "afa2142a129bbef787f3e673be6aab93",
     "semantic_hash": ""
   },
   "apps/web/components/product-footer.tsx": {
@@ -355,8 +355,8 @@
     "semantic_hash": ""
   },
   "apps/web/package.json": {
-    "mtime": 1781198512.0836716,
-    "ast_hash": "1df9bc455993ca7b057bf9ce7b6f3322",
+    "mtime": 1781244987.9491887,
+    "ast_hash": "08fe519e6365156618b40cd1e0498fa7",
     "semantic_hash": ""
   },
   "apps/web/postcss.config.mjs": {
@@ -410,8 +410,8 @@
     "semantic_hash": ""
   },
   "packages/glasses-ui/package.json": {
-    "mtime": 1781195859.369379,
-    "ast_hash": "a2eb9196d96bc19f866bc05015ace834",
+    "mtime": 1781244987.9511335,
+    "ast_hash": "5e7efd88c93ac87d780b7ed7a7b4a823",
     "semantic_hash": ""
   },
   "packages/glasses-ui/src/hooks/dpad.test.ts": {
@@ -505,8 +505,8 @@
     "semantic_hash": ""
   },
   "registry/registry.json": {
-    "mtime": 1781244816.4422126,
-    "ast_hash": "e65c0fbb02761c7d70affe913f7a1062",
+    "mtime": 1781245512.5038307,
+    "ast_hash": "50429b3d912c9f95645ed950ed51e47e",
     "semantic_hash": ""
   },
   "registry/ui/assistant-orb.tsx": {
@@ -1025,7 +1025,7 @@
     "semantic_hash": ""
   },
   "apps/web/public/llms.txt": {
-    "mtime": 1781244816.446548,
+    "mtime": 1781245512.5079622,
     "ast_hash": "d9a5bbafc03e1c78a04d419fcf7fb3d8",
     "semantic_hash": ""
   },
@@ -1045,8 +1045,8 @@
     "semantic_hash": ""
   },
   "packages/glasses-ui/README.md": {
-    "mtime": 1781189054.0430634,
-    "ast_hash": "a67b237721e8e5b48e014b3bcc4db922",
+    "mtime": 1781245483.2448676,
+    "ast_hash": "bec79568fef6078db04c98328d711860",
     "semantic_hash": ""
   },
   "pnpm-workspace.yaml": {
@@ -1165,8 +1165,8 @@
     "semantic_hash": ""
   },
   "apps/web/CHANGELOG.md": {
-    "mtime": 1781195859.3687778,
-    "ast_hash": "f2c029fc12f6b7d8fea4e6fcc7a64315",
+    "mtime": 1781244987.9480646,
+    "ast_hash": "a260d3562f1050abf43034754a35ed66",
     "semantic_hash": ""
   },
   "packages/cli/CHANGELOG.md": {
@@ -1185,8 +1185,8 @@
     "semantic_hash": ""
   },
   "packages/glasses-ui/CHANGELOG.md": {
-    "mtime": 1781195859.3692446,
-    "ast_hash": "9dbd10aa2efb51ce7d830ccb3fd02a66",
+    "mtime": 1781244987.9509947,
+    "ast_hash": "7d7841b802b09e9617c54edeaf0dd639",
     "semantic_hash": ""
   },
   "packages/mcp/CHANGELOG.md": {
@@ -1667,11 +1667,6 @@
   "scripts/sdk-watch.mjs": {
     "mtime": 1781203394.8345435,
     "ast_hash": "c86347ed6d13227e0913f970a9946f11",
-    "semantic_hash": ""
-  },
-  ".changeset/quality-pass-focus-engine.md": {
-    "mtime": 1781211120.7759438,
-    "ast_hash": "66b70fd14a66f8d51ea66615eebe5241",
     "semantic_hash": ""
   },
   ".github/workflows/sdk-watch.yml": {

@@ -27,14 +27,29 @@ npm i @glasskit-ui/react
   `type Dir` — the focus-engine and sensor helpers, exported for
   composition and testing.
 
-Plus `styles.css` — the additive-lens design system (tokens, glow/hairline
-recipes, and semantic classes: `.glass-viewport`, `.screen`, `.focusable`,
-`.launcher*`, `.readout`, …). The whole system is **scoped to
-`.glass-viewport`**, so importing it never touches the rest of your page — it
-only paints inside a `<GlassViewport>`, even on a light-mode host. Tokens are
-CSS custom properties on that scope; override the accent (or any token) by
-re-declaring it, e.g. `.glass-viewport { --color-accent: #6ad9ff; }`
-(`--color-bg` stays `#000`).
+Plus `styles.css` — the on-lens design system (tokens, surface recipes, and
+semantic classes: `.glass-viewport`, `.screen`, `.focusable`, `.launcher*`,
+`.readout`, …). The whole system is **scoped to `.glass-viewport`**, so
+importing it never touches the rest of your page — it only paints inside a
+`<GlassViewport>`, even on a light-mode host. Tokens are CSS custom properties
+on that scope; retheme by re-declaring the accent ramp — it is the entire
+theming contract (focus rings, primary buttons, switch tracks, and badges all
+derive from it):
+
+```css
+.glass-viewport {
+  --accent-active: #82e1f2; /* focused/hot */
+  --accent: #34c8e6; /* base accent */
+  --accent-muted: #1f7d92; /* secondary edges */
+  --accent-faint: #133f4a; /* trailing edges */
+  --accent-grad-hi: #48cde8; /* primary-surface gradient, lit stop */
+  --accent-grad-lo: #2ba6c0; /* primary-surface gradient, deep stop */
+  --accent-glow: rgba(43, 166, 192, 0.6); /* depth shadow under accents */
+}
+```
+
+(The live playground at https://glasskit.app/ui/playground emits this block
+for each preset accent.)
 
 ## Usage
 
