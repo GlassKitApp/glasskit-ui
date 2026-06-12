@@ -1,5 +1,23 @@
 # @glasskit-ui/cli
 
+## 0.3.0
+
+### Minor Changes
+
+- 5ce57e2: `glasskit agents` + the agent skill in every scaffold. New apps ship with
+  their AI assistant pre-briefed: `AGENTS.md` (the cross-agent platform
+  contract), a Claude Code skill (`.claude/skills/glasskit-ui/SKILL.md`),
+  `CLAUDE.md`, a Cursor rule, and Copilot instructions. `glasskit agents`
+  writes the same files into an existing project (never overwrites).
+
+### Patch Changes
+
+- dd12702: Printed commands speak the invoking package manager's dialect: run init via
+  `pnpm dlx` and the instructions say `pnpm add` / `pnpm dlx`; via `npx` they
+  say `npm install` / `npx`; via `bunx`, `bun add` / `bunx`. Docs and READMEs
+  unify on the npm voice (the lowest common denominator) with install tabs
+  where it's a real dependency.
+
 ## 0.2.0
 
 ### Minor Changes

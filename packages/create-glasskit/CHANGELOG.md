@@ -1,5 +1,13 @@
 # create-glasskit
 
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [5ce57e2]
+- Updated dependencies [dd12702]
+  - @glasskit-ui/cli@0.3.0
+
 ## 0.1.1
 
 ### Patch Changes
