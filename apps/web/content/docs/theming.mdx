@@ -1,0 +1,93 @@
+---
+title: Theming
+description: GlassKit is token-driven. Override the --gk-* design tokens on the lens and every component reskins, so you can drop in any DESIGN.md (the awesome-design-md format) and have your glasses UI match a brand with zero component edits.
+---
+
+GlassKit components are styled with Tailwind utilities mapped to a small set of
+semantic **design tokens**. Nothing accent-colored is hard-coded; it all resolves
+through `--gk-*` custom properties scoped to `.glass-viewport`. So re-theming is
+one block of overrides: change the tokens, every component follows.
+
+This is the same model as a [DESIGN.md](https://github.com/voltagent/awesome-design-md):
+a markdown spec of a brand's colors, type, and depth that an AI agent reads to
+generate matching UI. Map that spec onto the tokens below and your whole glasses
+app adopts the brand.
+
+## The token contract
+
+Every token is a CSS custom property on `.glass-viewport`. These are the entire
+theming surface; re-declare any of them to retheme.
+
+| Token | Role | Default |
+| --- | --- | --- |
+| `--gk-background` | the lens canvas (additive near-black) | `#0a0d14` |
+| `--gk-foreground` | primary emitted ink | `#ffffff` |
+| `--gk-muted-foreground` | secondary text | `#d2d7d5` |
+| `--gk-foreground-faint` | captions, idle labels | `#888f8b` |
+| `--gk-surface` | popping surface fill (a gradient) | top-lit white gradient |
+| `--gk-border` | lit surface edge | `rgba(255,255,255,.1)` |
+| `--gk-rule` | dim hairline for inert edges | `#2a2f37` |
+| `--gk-elevation` | surface depth (a box-shadow) | inset highlight + soft drop |
+| `--gk-primary` | the action / focus color | `#4c8dff` |
+| `--gk-primary-foreground` | ink on a filled accent | `#ffffff` |
+| `--gk-ring` | focus ring color | `var(--gk-primary)` |
+| `--gk-radius` | corner radius | `18px` |
+| `--gk-font-sans` | UI typeface | system sans stack |
+
+The accent ships as a small **bloom ramp** so focus reads like lit glass on the
+waveguide, not flat neon. Set these alongside `--gk-primary` for a complete
+accent:
+
+| Token | Role |
+| --- | --- |
+| `--gk-accent-active` | the brightest, hottest accent (focused state) |
+| `--gk-primary-grad-hi` / `--gk-primary-grad-lo` | the filled-surface gradient stops |
+| `--gk-accent-glow` / `--gk-accent-glow-strong` | the soft emitted bloom under accent surfaces |
+
+## Apply a theme
+
+Re-declare the tokens on `.glass-viewport` (or any wrapper above it). One block
+reskins every component. Put it in your app CSS after the GlassKit imports:
+
+```css
+/* brand-ember.css — a warm orange brand applied to GlassKit */
+.glass-viewport {
+  --gk-primary: #ff5a36;
+  --gk-primary-foreground: #ffffff;
+  --gk-accent-active: #ff8a6e;
+  --gk-primary-grad-hi: #ff6a48;
+  --gk-primary-grad-lo: #e0431f;
+  --gk-accent-glow: rgba(224, 67, 31, 0.6);
+  --gk-accent-glow-strong: rgba(224, 67, 31, 0.7);
+  /* optional: --gk-foreground, --gk-surface, --gk-radius, --gk-font-sans */
+}
+```
+
+That alone turns every primary Button, every focus ring, every accent surface,
+the scrub bars, the toggles, the status accents, all of it, orange. No component
+file changes. Scope it to a wrapper (`.brand-ember .glass-viewport { … }`) to run
+more than one theme on a page.
+
+## Mapping a DESIGN.md
+
+A DESIGN.md has nine sections; here is how the relevant ones land on the tokens:
+
+- **Color Palette & Roles** → the table above. `background`/`foreground`/`muted`
+  map straight across; the brand's primary/accent → `--gk-primary` + the bloom
+  ramp; surfaces → `--gk-surface` / `--gk-border` / `--gk-elevation`.
+- **Typography** → `--gk-font-sans` (the family). The type scale itself lives in
+  the `.t-title/.t-readout/.t-body/.t-caption` classes, tuned for a glanceable
+  600x600 lens.
+- **Depth & Elevation** → `--gk-elevation` (the surface shadow) and the accent
+  glow tokens.
+- **Layout / Radius** → `--gk-radius`.
+- **Do's and Don'ts** → the lens [Conventions](/docs/conventions) (one task per
+  view, the focus engine, accessibility) hold regardless of theme.
+
+## What stays fixed
+
+Theming changes the look, not the platform contract. The 600x600 lens, the
+focus engine, the one-accent discipline (a filled accent gradient means "pinch
+me", so only actions wear it), and the additive-friendly dark base are part of
+GlassKit's identity. A brand recolors and re-types GlassKit; it does not turn it
+into a phone UI.

@@ -280,8 +280,8 @@
     "semantic_hash": ""
   },
   "apps/web/content/docs/meta.json": {
-    "mtime": 1781370815.7061794,
-    "ast_hash": "01ddcf828039a0cdfb3f5b18bfa49d52",
+    "mtime": 1781380571.81525,
+    "ast_hash": "27e6ab7d6457fd87984bd88e0b78bcc0",
     "semantic_hash": ""
   },
   "apps/web/lib/component-docs.tsx": {
@@ -505,7 +505,7 @@
     "semantic_hash": ""
   },
   "registry/registry.json": {
-    "mtime": 1781379528.9120665,
+    "mtime": 1781380585.770868,
     "ast_hash": "410311e4646073f261493975bacbf11b",
     "semantic_hash": ""
   },
@@ -745,13 +745,13 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1781368383.8726313,
-    "ast_hash": "96074d4f5ed3a5cbc0f1d3c8422e2314",
+    "mtime": 1781380521.554267,
+    "ast_hash": "1150667a42ccbb765e2af55ad873e79f",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1781360880.1395018,
-    "ast_hash": "9ada40b51e96d842ba799dca452405e7",
+    "mtime": 1781380503.4148598,
+    "ast_hash": "14ca7f6e420451c860215075e8701909",
     "semantic_hash": ""
   },
   "CONTRIBUTING.md": {
@@ -965,7 +965,7 @@
     "semantic_hash": ""
   },
   "apps/web/public/llms.txt": {
-    "mtime": 1781379528.9165187,
+    "mtime": 1781380585.7751827,
     "ast_hash": "68c4d6517a13b35741f61021d7f34375",
     "semantic_hash": ""
   },
@@ -1832,6 +1832,11 @@
   "apps/web/content/docs/conventions.mdx": {
     "mtime": 1781372184.7977662,
     "ast_hash": "fba9674f5391c05277608853652c629e",
+    "semantic_hash": ""
+  },
+  "apps/web/content/docs/theming.mdx": {
+    "mtime": 1781380555.7304003,
+    "ast_hash": "2f2006cb6506d7b4785da9b9bac1cf39",
     "semantic_hash": ""
   }
 }
