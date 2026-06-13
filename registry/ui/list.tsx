@@ -51,7 +51,7 @@ export function List({
       typeof matchMedia !== "undefined" &&
       matchMedia("(prefers-reduced-motion: reduce)").matches;
     const onFocusIn = (e: FocusEvent) => {
-      const row = (e.target as HTMLElement | null)?.closest(".gk-list-row");
+      const row = (e.target as HTMLElement | null)?.closest("[data-list-row]");
       if (row && sc.contains(row) && typeof row.scrollIntoView === "function") {
         row.scrollIntoView({
           block: "nearest",
@@ -74,7 +74,7 @@ export function List({
   }, []);
 
   return (
-    <div className={cn("gk-list", className)}>
+    <div className={cn("relative size-full self-stretch", className)}>
       <div className="gk-list__scroll" ref={scrollRef}>
         {children}
       </div>
@@ -118,12 +118,18 @@ export function ListRow({
       type="button"
       disabled={disabled}
       onClick={onClick}
-      className={cn("focusable gk-list-row t-body", className)}
+      data-list-row=""
+      className={cn(
+        "focusable press-scale t-body surface flex w-full flex-none items-center gap-[13px] rounded-lens px-5 py-4 text-start min-h-[74px]",
+        className,
+      )}
     >
       {leading}
-      <span className="gk-list-row__label">{children}</span>
+      <span className="min-w-0 flex-1">{children}</span>
       {trailing != null ? (
-        <span className="gk-list-row__trailing t-caption">{trailing}</span>
+        <span className="t-caption text-foreground-faint [font-variant-numeric:tabular-nums]">
+          {trailing}
+        </span>
       ) : null}
     </button>
   );

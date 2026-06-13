@@ -16,11 +16,13 @@ export function Heading({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-heading", className)}>
+    <div className={cn("flex flex-col items-center gap-1 text-center", className)}>
       {eyebrow != null ? (
-        <span className="gk-heading__eyebrow t-caption">{eyebrow}</span>
+        <span className="t-caption uppercase tracking-[0.16em] text-primary">
+          {eyebrow}
+        </span>
       ) : null}
-      <h2 className="gk-heading__title t-title">{children}</h2>
+      <h2 className="t-title">{children}</h2>
     </div>
   );
 }

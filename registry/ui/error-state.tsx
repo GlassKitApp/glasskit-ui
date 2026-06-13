@@ -25,11 +25,16 @@ export function ErrorState({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-errorstate", className)}>
+    <div
+      className={cn(
+        "flex flex-col items-center gap-3.5 text-center",
+        className,
+      )}
+    >
       {icon}
-      <p className="gk-errorstate__title t-title">{title}</p>
+      <p className="t-title">{title}</p>
       {message != null ? (
-        <p className="gk-errorstate__message t-body">{message}</p>
+        <p className="t-body max-w-[30ch] text-muted-foreground">{message}</p>
       ) : null}
       {onRetry ? (
         <Button variant="primary" onClick={onRetry}>

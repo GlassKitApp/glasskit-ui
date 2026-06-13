@@ -19,8 +19,10 @@ export function Badge({
   return (
     <span
       className={cn(
-        "gk-badge t-caption",
-        emphasis === "accent" && "gk-badge--accent",
+        "t-caption inline-flex min-w-[26px] items-center justify-center rounded-full px-[11px] py-[5px] font-bold leading-none [font-variant-numeric:tabular-nums]",
+        emphasis === "accent"
+          ? "btn-primary"
+          : "surface text-muted-foreground",
         className,
       )}
     >

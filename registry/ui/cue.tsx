@@ -26,8 +26,8 @@ export function Cue({
     <p
       role="status"
       className={cn(
-        "gk-cue t-caption",
-        emphasis === "accent" && "gk-cue--accent",
+        "t-caption inline-flex items-center gap-2",
+        emphasis === "accent" ? "text-primary" : "text-foreground-faint",
         className,
       )}
     >

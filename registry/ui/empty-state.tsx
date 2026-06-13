@@ -27,11 +27,16 @@ export function EmptyState({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-emptystate", className)}>
+    <div
+      className={cn(
+        "flex flex-col items-center gap-3.5 text-center",
+        className,
+      )}
+    >
       {icon}
-      <p className="gk-emptystate__title t-title">{title}</p>
+      <p className="t-title text-muted-foreground">{title}</p>
       {hint != null ? (
-        <p className="gk-emptystate__hint t-body">{hint}</p>
+        <p className="t-body max-w-[30ch] text-foreground-faint">{hint}</p>
       ) : null}
       {onAction ? <Button onClick={onAction}>{actionLabel}</Button> : null}
     </div>

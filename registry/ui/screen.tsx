@@ -25,10 +25,23 @@ export function Screen({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-screen", className)}>
-      {status ? <div className="gk-screen__status">{status}</div> : null}
-      <div className="gk-screen__stage">{children}</div>
-      {cue ? <div className="gk-screen__cue">{cue}</div> : null}
+    <div className={cn("flex h-full flex-col gap-[14px] p-[22px]", className)}>
+      {status ? (
+        <div data-screen-status className="flex-none">
+          {status}
+        </div>
+      ) : null}
+      <div
+        data-screen-stage
+        className="flex min-h-0 flex-1 flex-col items-center justify-center gap-5 text-center"
+      >
+        {children}
+      </div>
+      {cue ? (
+        <div data-screen-cue className="flex flex-none justify-center">
+          {cue}
+        </div>
+      ) : null}
     </div>
   );
 }

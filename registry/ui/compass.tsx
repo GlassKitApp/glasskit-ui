@@ -38,7 +38,9 @@ export function Compass({
   const live = useDeviceOrientation();
   const deg = normalizeDeg(heading ?? live.alpha ?? 0);
   return (
-    <div className={cn("gk-compass", className)}>
+    <div
+      className={cn("flex flex-col items-center gap-[18px]", className)}
+    >
       <svg
         viewBox="0 0 100 100"
         className="gk-compass__dial"
@@ -72,7 +74,9 @@ export function Compass({
         </text>
       </svg>
       {label != null ? (
-        <span className="gk-compass__label t-caption">{label}</span>
+        <span className="t-caption tabular-nums text-muted-foreground">
+          {label}
+        </span>
       ) : null}
     </div>
   );

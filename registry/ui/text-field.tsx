@@ -33,22 +33,31 @@ export function TextField({
     <button
       type="button"
       onClick={onActivate}
-      className={cn("focusable gk-textfield", className)}
+      className={cn(
+        "focusable gk-textfield surface flex w-full items-center gap-[14px] rounded-lens px-5 py-4 text-start",
+        className,
+      )}
     >
-      <span className="gk-textfield__main">
+      <span className="flex min-w-0 flex-1 flex-col gap-[3px] text-start">
         {label != null ? (
-          <span className="gk-textfield__label t-caption">{label}</span>
+          <span className="t-caption uppercase tracking-[0.1em] text-foreground-faint">
+            {label}
+          </span>
         ) : null}
         <span
           className={cn(
-            "gk-textfield__value t-body",
-            !filled && "gk-textfield__value--empty",
+            "t-body",
+            filled ? "text-foreground" : "text-foreground-faint",
           )}
         >
           {filled ? value : placeholder}
         </span>
       </span>
-      {icon != null ? <span className="gk-textfield__icon">{icon}</span> : null}
+      {icon != null ? (
+        <span className="[&_.gk-icon]:size-[26px] [&_.gk-icon]:text-accent-active">
+          {icon}
+        </span>
+      ) : null}
     </button>
   );
 }

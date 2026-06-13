@@ -19,7 +19,7 @@ const pages = [<p key="1">one</p>, <p key="2">two</p>, <p key="3">three</p>];
 describe("Deck uncontrolled (Neural Band)", () => {
   it("advances on swipe and clamps at the last page", async () => {
     const { container } = render(<Deck>{pages}</Deck>);
-    const stage = container.querySelector(".gk-deck__stage")!;
+    const stage = container.querySelector('[role="group"]')!;
     expect(stage.textContent).toBe("one");
 
     await swipe();
@@ -39,7 +39,7 @@ describe("Deck uncontrolled (Neural Band)", () => {
         {pages}
       </Deck>,
     );
-    expect(container.querySelector(".gk-deck__stage")?.textContent).toBe("two");
+    expect(container.querySelector('[role="group"]')?.textContent).toBe("two");
     await swipe();
     expect(onIndexChange).toHaveBeenCalledWith(2);
   });
@@ -52,7 +52,7 @@ describe("Deck uncontrolled (Neural Band)", () => {
       );
     });
     await act(async () => {});
-    expect(container.querySelector(".gk-deck__stage")?.textContent).toBe("one");
+    expect(container.querySelector('[role="group"]')?.textContent).toBe("one");
   });
 });
 
@@ -64,7 +64,7 @@ describe("Deck controlled", () => {
         {pages}
       </Deck>,
     );
-    const stage = container.querySelector(".gk-deck__stage")!;
+    const stage = container.querySelector('[role="group"]')!;
     await swipe();
     expect(stage.textContent).toBe("one"); // parent owns the page
     expect(onIndexChange).toHaveBeenCalledWith(1);
@@ -73,7 +73,7 @@ describe("Deck controlled", () => {
   it("labels the stage with the current page for AT", () => {
     const { container } = render(<Deck index={1}>{pages}</Deck>);
     expect(
-      container.querySelector(".gk-deck__stage")?.getAttribute("aria-label"),
+      container.querySelector('[role="group"]')?.getAttribute("aria-label"),
     ).toBe("Page 2 of 3");
   });
 });

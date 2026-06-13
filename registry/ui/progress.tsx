@@ -32,7 +32,7 @@ export function Progress({
     const steps = Math.max(0, Math.floor(max));
     return (
       <div
-        className={cn("gk-steps", className)}
+        className={cn("flex items-center gap-2", className)}
         role="progressbar"
         aria-valuenow={clamped}
         aria-valuemin={0}
@@ -42,7 +42,12 @@ export function Progress({
         {Array.from({ length: steps }, (_, i) => (
           <span
             key={i}
-            className={cn("gk-step", i < clamped && "gk-step--on")}
+            className={cn(
+              "size-3 rounded-full transition-[background,box-shadow] duration-[250ms] ease-in-out",
+              i < clamped
+                ? "bg-primary [box-shadow:0_0_7px_color-mix(in_oklab,var(--accent)_45%,transparent)]"
+                : "bg-[rgba(255,255,255,0.16)]",
+            )}
           />
         ))}
       </div>
@@ -50,7 +55,7 @@ export function Progress({
   }
 
   return (
-    <div className={cn("gk-progress", className)}>
+    <div className={cn("flex w-full flex-col gap-2", className)}>
       <progress
         className="gk-progress__el"
         value={clamped}
@@ -58,7 +63,9 @@ export function Progress({
         aria-label={stringLabel(label)}
       />
       {label != null ? (
-        <div className="gk-progress__meta t-caption">{label}</div>
+        <div className="t-caption flex items-center justify-between text-foreground-faint [font-variant-numeric:tabular-nums]">
+          {label}
+        </div>
       ) : null}
     </div>
   );

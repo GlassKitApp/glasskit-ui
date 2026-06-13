@@ -44,10 +44,14 @@ export function MediaThumb({
         <span className="gk-mediathumb__ph gk-grad-violet" aria-hidden="true" />
       )}
       {duration != null ? (
-        <span className="gk-mediathumb__dur t-caption">{duration}</span>
+        <span className="t-caption absolute top-[9px] end-[9px] rounded-full bg-black/55 px-[9px] py-[4px] text-white [font-variant-numeric:tabular-nums]">
+          {duration}
+        </span>
       ) : null}
       {label != null ? (
-        <span className="gk-mediathumb__label t-caption">{label}</span>
+        <span className="t-caption absolute bottom-[9px] start-[11px] font-semibold text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]">
+          {label}
+        </span>
       ) : null}
     </>
   );

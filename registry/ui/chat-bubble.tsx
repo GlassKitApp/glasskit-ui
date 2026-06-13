@@ -12,7 +12,16 @@ export function MessageThread({
   children: ReactNode;
   className?: string;
 }) {
-  return <div className={cn("gk-thread", className)}>{children}</div>;
+  return (
+    <div
+      className={cn(
+        "flex h-full w-full flex-col justify-end gap-2.5 overflow-y-auto",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
 }
 
 /**
@@ -29,7 +38,15 @@ export function ChatBubble({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-bubble", `gk-bubble--${from}`, "t-body", className)}>
+    <div
+      className={cn(
+        "t-body max-w-[82%] rounded-[22px] px-[18px] py-3.5",
+        from === "me"
+          ? "self-end rounded-ee-[7px] border border-white/20 text-white [background:var(--accent-surface)] [box-shadow:inset_0_1px_0_rgba(255,255,255,0.35),0_10px_22px_-12px_var(--accent-glow)]"
+          : "surface self-start rounded-es-[7px]",
+        className,
+      )}
+    >
       {children}
     </div>
   );

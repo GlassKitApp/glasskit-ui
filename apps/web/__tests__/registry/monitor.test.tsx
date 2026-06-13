@@ -31,7 +31,9 @@ describe("Meter", () => {
 
   it("reveals the arc via a stroke-dashoffset attribute (not inline style)", () => {
     const { container } = render(<Meter value={50} max={100} />);
-    const fill = container.querySelector(".gk-meter__fill");
+    // The fill arc is the circle that carries the dashoffset attribute
+    // (the track circle has none).
+    const fill = container.querySelector("circle[stroke-dashoffset]");
     const off = Number(fill?.getAttribute("stroke-dashoffset"));
     const circ = 2 * Math.PI * 42;
     expect(off).toBeCloseTo(circ * 0.5, 1); // 50% → half the circumference
@@ -48,7 +50,8 @@ describe("StatGrid", () => {
         ]}
       />,
     );
-    expect(container.querySelectorAll(".gk-statgrid__cell")).toHaveLength(2);
+    // One cell rendered per item (the grid's direct children).
+    expect(container.firstElementChild?.childElementCount).toBe(2);
     expect(screen.getByText("Pace")).toBeTruthy();
     expect(screen.getByText("128")).toBeTruthy();
   });
@@ -64,9 +67,10 @@ describe("Toast", () => {
       </Toast>,
     );
     expect(screen.getByRole("status").textContent).toBe("Saved");
-    expect(
-      screen.getByRole("status").classList.contains("gk-toast--accent"),
-    ).toBe(true);
+    // Accent toasts take the filled accent treatment, not the default surface.
+    const toast = screen.getByRole("status");
+    expect(toast.classList.contains("text-white")).toBe(true);
+    expect(toast.classList.contains("surface")).toBe(false);
   });
 });
 

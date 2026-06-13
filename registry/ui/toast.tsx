@@ -23,8 +23,10 @@ export function Toast({
     <div
       role="status"
       className={cn(
-        "gk-toast gk-surface t-body",
-        emphasis === "accent" && "gk-toast--accent",
+        "gk-toast t-body inline-flex items-center gap-3 rounded-lens px-[22px] py-4 font-semibold",
+        emphasis === "accent"
+          ? "border-[var(--accent-muted)] text-white [background:linear-gradient(180deg,color-mix(in_oklab,var(--accent-faint)_86%,#fff),var(--accent-faint))] [box-shadow:inset_0_1px_0_rgba(255,255,255,0.16),0_10px_24px_-14px_var(--accent-glow)]"
+          : "surface text-foreground",
         className,
       )}
     >

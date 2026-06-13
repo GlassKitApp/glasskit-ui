@@ -46,7 +46,9 @@ export function DirectionArrow({
       : 0;
   const deg = normalizeDeg(bearing ?? live);
   return (
-    <div className={cn("gk-direction", className)}>
+    <div
+      className={cn("flex flex-col items-center gap-[18px]", className)}
+    >
       <svg
         viewBox="0 0 100 100"
         className="gk-direction__dial"
@@ -62,7 +64,7 @@ export function DirectionArrow({
         </g>
       </svg>
       {label != null ? (
-        <span className="gk-direction__label t-caption">{label}</span>
+        <span className="t-caption text-muted-foreground">{label}</span>
       ) : null}
     </div>
   );

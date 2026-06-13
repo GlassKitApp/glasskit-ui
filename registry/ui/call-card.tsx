@@ -23,16 +23,19 @@ export function CallCard({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-call", className)}>
-      {avatar != null ? (
-        <span className="gk-call__avatar">{avatar}</span>
-      ) : null}
-      <span className="gk-call__name t-title">{name}</span>
+    <div
+      className={cn(
+        "flex flex-col items-center gap-3.5 text-center",
+        className,
+      )}
+    >
+      {avatar != null ? <span>{avatar}</span> : null}
+      <span className="t-title font-bold">{name}</span>
       {status != null ? (
-        <span className="gk-call__status t-body">{status}</span>
+        <span className="t-body text-muted-foreground">{status}</span>
       ) : null}
       {actions != null ? (
-        <div className="gk-call__actions">{actions}</div>
+        <div className="mt-3 flex gap-7">{actions}</div>
       ) : null}
     </div>
   );

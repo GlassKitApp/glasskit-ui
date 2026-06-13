@@ -30,8 +30,13 @@ export function Slider({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-slider", className)}>
+    <div className={cn("flex w-full items-center gap-4", className)}>
+      {/* gk-slider__icon stays: it sizes/tints the GlowIcon child via a
+       * descendant rule (.gk-slider__icon .gk-icon). */}
       {icon != null ? <span className="gk-slider__icon">{icon}</span> : null}
+      {/* gk-slider__input stays: the range track + thumb are styled through
+       * ::-webkit-slider-thumb / ::-moz-range-thumb pseudo-elements + the focus
+       * ring — none of which Tailwind utilities can reach. */}
       <input
         type="range"
         className={cn("gk-slider__input", onChange != null && "focusable")}
@@ -50,7 +55,9 @@ export function Slider({
         }
       />
       {label != null ? (
-        <span className="gk-slider__label t-caption">{label}</span>
+        <span className="t-caption flex-none text-foreground-faint">
+          {label}
+        </span>
       ) : null}
     </div>
   );

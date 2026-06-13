@@ -17,10 +17,16 @@ export function StatusDot({
   className?: string;
 }) {
   return (
-    <span className={cn("gk-statusdot", `gk-statusdot--${status}`, className)}>
+    <span
+      className={cn(
+        "inline-flex items-center gap-2",
+        `gk-statusdot--${status}`,
+        className,
+      )}
+    >
       <span className="gk-statusdot__dot" />
       {label != null ? (
-        <span className="gk-statusdot__label t-caption">{label}</span>
+        <span className="t-caption text-muted-foreground">{label}</span>
       ) : null}
     </span>
   );

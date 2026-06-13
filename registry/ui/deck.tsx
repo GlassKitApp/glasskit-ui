@@ -79,9 +79,9 @@ export function Deck({
   }, [current]);
 
   return (
-    <div className={cn("gk-deck", className)}>
+    <div className={cn("flex w-full flex-col items-center gap-5", className)}>
       <div
-        className="gk-deck__stage"
+        className="flex flex-col items-center gap-3 text-center"
         role="group"
         aria-label={`Page ${current + 1} of ${count}`}
       >

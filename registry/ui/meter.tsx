@@ -29,32 +29,44 @@ export function Meter({
 
   return (
     <div
-      className={cn("gk-meter", className)}
+      className={cn(
+        "relative inline-flex size-[168px] items-center justify-center",
+        className,
+      )}
       role="meter"
       aria-valuenow={clamped}
       aria-valuemin={0}
       aria-valuemax={max}
       aria-label={stringLabel(label)}
     >
-      <svg viewBox="0 0 100 100" className="gk-meter__dial">
-        <circle cx="50" cy="50" r={R} className="gk-meter__track" />
+      <svg viewBox="0 0 100 100" className="size-full">
         <circle
           cx="50"
           cy="50"
           r={R}
-          className="gk-meter__fill"
+          className="[fill:none] [stroke-width:7] [stroke:rgba(255,255,255,0.1)]"
+        />
+        <circle
+          cx="50"
+          cy="50"
+          r={R}
+          className="[fill:none] [stroke-width:7] [stroke:var(--accent)] [stroke-linecap:round] [filter:drop-shadow(0_0_6px_color-mix(in_oklab,var(--accent)_45%,transparent))] [transition:stroke-dashoffset_0.4s_ease]"
           strokeDasharray={CIRC}
           strokeDashoffset={offset}
           transform="rotate(-90 50 50)"
         />
       </svg>
-      <span className="gk-meter__center">
-        <span className="gk-meter__value t-readout">
+      <span className="absolute flex flex-col items-center gap-0.5">
+        <span className="t-readout">
           {value}
-          {unit != null ? <span className="gk-meter__unit">{unit}</span> : null}
+          {unit != null ? (
+            <span className="text-[13px] text-foreground-faint">{unit}</span>
+          ) : null}
         </span>
         {label != null ? (
-          <span className="gk-meter__label t-caption">{label}</span>
+          <span className="t-caption uppercase tracking-[0.14em] text-foreground-faint">
+            {label}
+          </span>
         ) : null}
       </span>
     </div>

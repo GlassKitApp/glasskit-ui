@@ -96,7 +96,7 @@ export function ComposeFlow({
   };
 
   return (
-    <div ref={root} className={cn("gk-compose", className)}>
+    <div ref={root} className={cn("contents", className)}>
       {open ? (
         <FocusScope restoreFocus={false}>
           <Heading>{pickerTitle}</Heading>

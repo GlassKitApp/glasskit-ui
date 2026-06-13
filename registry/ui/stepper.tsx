@@ -31,30 +31,35 @@ export function Stepper({
   const atMax = max != null && value >= max;
   const name = typeof label === "string" ? label : "value";
 
+  const btn =
+    "focusable surface press-scale inline-flex size-[46px] items-center justify-center rounded-full p-0 text-[22px] leading-none";
+
   return (
-    <div className={cn("gk-stepper", className)}>
+    <div className={cn("flex flex-col items-center gap-2", className)}>
       {label != null ? (
-        <span className="gk-stepper__label t-caption">{label}</span>
+        <span className="t-caption uppercase tracking-[0.16em] text-foreground-faint">
+          {label}
+        </span>
       ) : null}
-      <div className="gk-stepper__row">
+      <div className="flex items-center gap-4">
         <button
           type="button"
-          className="focusable gk-stepper__btn"
+          className={btn}
           onClick={onChange ? () => onChange(clamp(value - step)) : undefined}
           disabled={atMin}
           aria-label={`Decrease ${name}`}
         >
           −
         </button>
-        <span className="gk-stepper__value t-readout">
+        <span className="t-readout min-w-[4ch] text-center">
           {value}
           {unit != null ? (
-            <span className="gk-stepper__unit"> {unit}</span>
+            <span className="text-[14px] text-foreground-faint"> {unit}</span>
           ) : null}
         </span>
         <button
           type="button"
-          className="focusable gk-stepper__btn"
+          className={btn}
           onClick={onChange ? () => onChange(clamp(value + step)) : undefined}
           disabled={atMax}
           aria-label={`Increase ${name}`}

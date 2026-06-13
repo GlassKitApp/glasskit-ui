@@ -8,19 +8,19 @@ import { GlowIcon } from "@registry/ui/glow-icon";
 describe("Screen", () => {
   it("renders the stage, and the status/cue regions only when given", () => {
     const { container, rerender } = render(<Screen>stage</Screen>);
-    expect(container.querySelector(".gk-screen__stage")?.textContent).toBe(
+    expect(container.querySelector("[data-screen-stage]")?.textContent).toBe(
       "stage",
     );
-    expect(container.querySelector(".gk-screen__status")).toBeNull();
-    expect(container.querySelector(".gk-screen__cue")).toBeNull();
+    expect(container.querySelector("[data-screen-status]")).toBeNull();
+    expect(container.querySelector("[data-screen-cue]")).toBeNull();
 
     rerender(
       <Screen status={<i>s</i>} cue={<i>c</i>}>
         stage
       </Screen>,
     );
-    expect(container.querySelector(".gk-screen__status")).not.toBeNull();
-    expect(container.querySelector(".gk-screen__cue")).not.toBeNull();
+    expect(container.querySelector("[data-screen-status]")).not.toBeNull();
+    expect(container.querySelector("[data-screen-cue]")).not.toBeNull();
   });
 });
 
@@ -31,28 +31,28 @@ describe("Readout", () => {
     );
     expect(screen.getByText("Heart rate")).toBeTruthy();
     expect(screen.getByText("128")).toBeTruthy();
-    expect(container.querySelector(".gk-readout__unit")?.textContent).toBe(
-      "BPM",
-    );
+    // The unit ("BPM") renders as its own text node beside the value.
+    expect(container.textContent).toContain("BPM");
+    expect(screen.getByText("BPM")).toBeTruthy();
   });
 
   it("marks the secondary emphasis", () => {
     const { container } = render(
       <Readout label="x" value="1" emphasis="secondary" />,
     );
-    expect(
-      container
-        .querySelector(".gk-readout")
-        ?.classList.contains("gk-readout--secondary"),
-    ).toBe(true);
+    // Secondary readouts render in the muted (dimmer) tier; primary uses the
+    // bright title type. Assert the value carries the muted treatment.
+    const value = screen.getByText("1");
+    expect(value.classList.contains("text-muted-foreground")).toBe(true);
   });
 });
 
 describe("Cue", () => {
   it("applies the accent tone", () => {
     const { container } = render(<Cue emphasis="accent">Listening</Cue>);
+    // Accent cues render in the primary/accent text tone.
     expect(
-      container.firstElementChild?.classList.contains("gk-cue--accent"),
+      container.firstElementChild?.classList.contains("text-primary"),
     ).toBe(true);
   });
 });

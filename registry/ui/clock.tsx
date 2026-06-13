@@ -76,13 +76,25 @@ export function Clock({
   const shownDate = date ?? (live ? liveDate : null);
 
   return (
-    <div className={cn("gk-clock", className)}>
-      <span className="gk-clock__time">{shownTime}</span>
+    <div
+      className={cn(
+        "flex flex-col items-center gap-1.5 text-center",
+        className,
+      )}
+    >
+      <span
+        data-clock-time
+        className="text-[88px] font-bold leading-none tracking-[-0.03em] [font-variant-numeric:tabular-nums] [text-shadow:0_0_18px_rgba(255,255,255,0.18)]"
+      >
+        {shownTime}
+      </span>
       {shownDate != null ? (
-        <span className="gk-clock__date t-body">{shownDate}</span>
+        <span data-clock-date className="t-body text-muted-foreground">
+          {shownDate}
+        </span>
       ) : null}
       {meta != null ? (
-        <span className="gk-clock__meta t-caption">{meta}</span>
+        <span className="t-caption text-foreground-faint">{meta}</span>
       ) : null}
     </div>
   );

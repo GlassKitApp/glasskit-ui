@@ -39,19 +39,23 @@ export function GlowIcon({
     "aria-hidden": label ? undefined : true,
   };
 
+  // Plate (squircle) and inner-glyph sizes, in px @ 600×600.
+  const plateSize = { sm: "size-[46px]", md: "size-[66px]", lg: "size-[132px]" };
+  const plateGlyph = { sm: "size-6", md: "size-[34px]", lg: "size-16" };
+  const glyphSize = { sm: "size-4", md: "size-5", lg: "size-7" };
+
   if (plate) {
     return (
       <span
         className={cn(
-          "gk-iconplate",
-          `gk-iconplate--${size}`,
           "gk-plate",
           `gk-grad-${tone}`,
+          plateSize[size],
           className,
         )}
         {...a11y}
       >
-        <span className={cn("gk-icon", `gk-icon--${size}`)}>{children}</span>
+        <span className={cn("gk-icon", plateGlyph[size])}>{children}</span>
       </span>
     );
   }
@@ -60,7 +64,7 @@ export function GlowIcon({
     <span
       className={cn(
         "gk-icon",
-        `gk-icon--${size}`,
+        glyphSize[size],
         active && "gk-icon--active",
         className,
       )}

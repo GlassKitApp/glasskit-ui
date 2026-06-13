@@ -28,12 +28,18 @@ export function Toggle({
       disabled={disabled}
       onClick={onChange ? () => onChange(!checked) : undefined}
       className={cn(
-        "focusable gk-toggle t-body",
+        "focusable t-body flex w-full items-center justify-between gap-4",
+        // gk-toggle--on drives the track gradient + the knob's margin-auto slide.
         checked && "gk-toggle--on",
         className,
       )}
     >
-      {label != null ? <span className="gk-toggle__label">{label}</span> : null}
+      {label != null ? (
+        <span className="flex-1 text-start">{label}</span>
+      ) : null}
+      {/* Track + knob keep their gk-* classes: the track gradient/inset-shadow,
+       * the knob's depth shadow, and the margin-inline-start slide transition
+       * are bespoke visuals Tailwind can't express. */}
       <span className="gk-toggle__track">
         <span className="gk-toggle__knob" />
       </span>

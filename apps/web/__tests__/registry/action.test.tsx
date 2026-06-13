@@ -71,7 +71,14 @@ describe("Segmented", () => {
     expect(radios).toHaveLength(2);
     const map = screen.getByRole("radio", { name: "Map" });
     expect(map.getAttribute("aria-checked")).toBe("true");
-    expect(map.classList.contains("gk-segmented__seg--on")).toBe(true);
+    // The selected segment gets the filled accent ("on") treatment.
+    expect(map.classList.contains("btn-primary")).toBe(true);
+    // ...and the unselected one does not.
+    expect(
+      screen
+        .getByRole("radio", { name: "List" })
+        .classList.contains("btn-primary"),
+    ).toBe(false);
   });
 
   it("emits the chosen value", () => {
@@ -144,8 +151,9 @@ describe("Badge", () => {
   it("renders content and the accent tone", () => {
     const { container } = render(<Badge emphasis="accent">LIVE</Badge>);
     expect(screen.getByText("LIVE")).toBeTruthy();
+    // Accent badges get the filled accent treatment.
     expect(
-      container.firstElementChild?.classList.contains("gk-badge--accent"),
+      container.firstElementChild?.classList.contains("btn-primary"),
     ).toBe(true);
   });
 });
