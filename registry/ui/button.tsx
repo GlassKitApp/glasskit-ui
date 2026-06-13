@@ -41,9 +41,9 @@ export function Button({
       aria-label={ariaLabel}
       data-autofocus={initialFocus || undefined}
       className={cn(
-        "focusable gk-btn t-body",
-        variant === "primary" && "gk-btn--primary",
-        !children && "gk-btn--icon",
+        "focusable press-scale t-body inline-flex items-center justify-center gap-2 rounded-2xl",
+        variant === "primary" ? "btn-primary" : "surface",
+        !children ? "p-[13px] [&_svg]:size-[22px]" : "px-6 py-4",
         className,
       )}
     >

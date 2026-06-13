@@ -37,30 +37,34 @@ export function NowPlaying({
 }) {
   const pct = Math.max(0, Math.min(progress, 100));
   return (
-    <div className={cn("gk-nowplaying", className)}>
-      <div className="gk-nowplaying__top">
-        {art != null ? <span className="gk-nowplaying__art">{art}</span> : null}
-        <div className="gk-nowplaying__meta">
-          <span className="gk-nowplaying__title t-readout">{title}</span>
+    <div className={cn("flex w-full flex-col gap-4", className)}>
+      <div className="flex items-center gap-4">
+        {art != null ? (
+          <span className="block size-[92px] shrink-0 overflow-hidden rounded-lens [box-shadow:inset_0_1px_0_rgba(255,255,255,0.25),0_10px_24px_-10px_rgba(0,0,0,0.7)] [&>span]:block [&>span]:size-full [&>span]:object-cover [&_img]:block [&_img]:size-full [&_img]:object-cover">
+            {art}
+          </span>
+        ) : null}
+        <div className="flex min-w-0 flex-col gap-1 text-start">
+          <span className="t-readout font-bold text-foreground">{title}</span>
           {artist != null ? (
-            <span className="gk-nowplaying__artist t-body">{artist}</span>
+            <span className="t-body text-muted-foreground">{artist}</span>
           ) : null}
         </div>
       </div>
       <progress
-        className="gk-nowplaying__bar gk-progress__el"
+        className="gk-progress__el"
         value={pct}
         max={100}
         aria-label="Playback position"
       />
       {elapsed != null || remaining != null ? (
-        <div className="gk-nowplaying__times t-caption">
+        <div className="t-caption flex justify-between text-foreground-faint [font-variant-numeric:tabular-nums]">
           <span>{elapsed}</span>
           <span>{remaining}</span>
         </div>
       ) : null}
       {controls != null ? (
-        <div className="gk-nowplaying__controls">{controls}</div>
+        <div className="flex justify-center gap-3.5">{controls}</div>
       ) : null}
     </div>
   );

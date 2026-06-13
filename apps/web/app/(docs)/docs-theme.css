@@ -6,7 +6,10 @@
 @import "fumadocs-ui/css/preset.css";
 
 /* The on-lens design system (scoped under .glass-viewport) for component
- * previews, and the registry sources so their utilities are generated. */
+ * previews: theme.css maps Tailwind utilities to the lens `--gk-*` tokens,
+ * styles.css defines the scoped values + primitives. Plus the registry sources
+ * so their utilities are generated. */
+@import "@glasskit-ui/react/theme.css";
 @import "@glasskit-ui/react/styles.css";
 @source "../../../../registry";
 @source "../../node_modules/fumadocs-ui/dist/**/*.js";

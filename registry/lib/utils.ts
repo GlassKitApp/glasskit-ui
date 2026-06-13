@@ -1,13 +1,16 @@
-export type ClassValue = string | number | null | undefined | false;
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export type { ClassValue };
 
 /**
- * Join truthy class names. Dependency-free on purpose: the lens components
- * style via bespoke semantic classes (no conflicting Tailwind utilities to
- * de-dupe), so this needs no clsx/tailwind-merge and resolves from anywhere
- * the registry is vendored.
+ * Merge class names the shadcn way: clsx joins conditionals, tailwind-merge
+ * de-dupes conflicting Tailwind utilities so a consumer's `className` override
+ * wins (e.g. passing `px-2` beats the component's `px-6`). Lens components are
+ * Tailwind utilities + `--gk-*` tokens, so this de-dupe matters.
  */
 export function cn(...inputs: ClassValue[]): string {
-  return inputs.filter(Boolean).join(" ");
+  return twMerge(clsx(inputs));
 }
 
 /**

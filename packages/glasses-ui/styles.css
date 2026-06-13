@@ -23,74 +23,82 @@
 
 /* ── The 600×600 surface + scoped design tokens ─────────────────── */
 .glass-viewport {
-  /* Base — a calm deep near-black (premium-surfaces direction, 2026-06; see
-   * docs/design/meta-hud-language.md). Surfaces + gradient icons pop on top;
-   * the base stays quiet. */
-  --color-bg: #0a0d14;
-  --surface-fill: linear-gradient(
+  /* ── Design tokens — the theming contract ────────────────────────
+   * Source-of-truth tokens are `--gk-*` (shadcn role names + the glasses
+   * extras). They live here on `.glass-viewport` so they never collide with a
+   * host site's tokens; the Tailwind `@theme` map in theme.css wires utilities
+   * (bg-surface, text-foreground, border-border, ring-ring, text-readout …) to
+   * them. Re-theme by re-declaring any `--gk-*` on `.glass-viewport` (or a
+   * wrapper above it) — that is how a brand DESIGN.md is applied; one block of
+   * overrides reskins every component. The old `--accent`, `--ink` and
+   * `--surface` names are kept as aliases below so not-yet-converted code works.
+   * (GlowIcon plate tones are a separate per-icon system; they do not follow
+   * these tokens.) */
+
+  /* Core roles */
+  --gk-background: #0a0d14; /* the calm additive black canvas */
+  --gk-foreground: #ffffff; /* primary emitted ink */
+  --gk-muted-foreground: #d2d7d5; /* secondary text */
+  --gk-foreground-faint: #888f8b; /* captions, idle labels (3rd ink tier) */
+  --gk-surface: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.075),
     rgba(255, 255, 255, 0.028)
-  );
-  --surface-edge: rgba(255, 255, 255, 0.1);
-  --surface-lift:
+  ); /* popping surface fill */
+  --gk-border: rgba(255, 255, 255, 0.1); /* lit surface edge */
+  --gk-input: rgba(255, 255, 255, 0.1);
+  --gk-rule: #2a2f37; /* dim hairline for inert edges */
+  --gk-elevation:
     inset 0 1px 0 rgba(255, 255, 255, 0.14),
-    0 14px 30px -18px rgba(0, 0, 0, 0.85);
+    0 14px 30px -18px rgba(0, 0, 0, 0.85); /* surface depth */
 
-  /* Accent — one refined key color (default blue). The look is white-emitted-
-   * light first; the accent is a small touch on focus + on-states, with a soft,
-   * low-alpha emitted bloom (the real waveguide bleed — never tight neon; see
-   * docs/design/apple-feel.md "Update 2026-06"). Retheme by re-declaring the
-   * ramp tokens below on `.glass-viewport` — they are the entire theming
-   * contract; nothing accent-colored lives outside them. (GlowIcon plates are
-   * a separate per-icon tone system, like app icons — they don't follow the
-   * app accent.) */
-  --accent-active: #8fb6ff; /* focused/hot, brightest */
-  --accent: #4c8dff; /* base accent, primary action */
-  --accent-muted: #2f5fb0; /* secondary edges, idle-but-present */
-  --accent-faint: #1b3056; /* tertiary, trailing edges (never #000) */
-  --accent-grad-hi: #5b9dff; /* primary-surface gradient, lit stop */
-  --accent-grad-lo: #3567e6; /* primary-surface gradient, deep stop */
-  --accent-glow: rgba(
-    47,
-    95,
-    224,
-    0.6
-  ); /* depth shadow under accent surfaces */
-  --accent-glow-strong: rgba(
-    47,
-    95,
-    224,
-    0.7
-  ); /* hotter, for the focused state */
-  /* The filled "on/primary" treatment — derived, override the stops above. */
-  --accent-surface: linear-gradient(
+  /* Primary / accent + the waveguide bloom ramp */
+  --gk-primary: #4c8dff; /* base accent, primary action + focus */
+  --gk-primary-foreground: #ffffff; /* ink on filled accent */
+  --gk-ring: var(--gk-primary); /* focus ring color */
+  --gk-accent-active: #8fb6ff; /* focused/hot, brightest */
+  --gk-accent-muted: #2f5fb0; /* idle-but-present edges */
+  --gk-accent-faint: #1b3056; /* trailing edges (never #000) */
+  --gk-primary-grad-hi: #5b9dff; /* filled-surface gradient, lit stop */
+  --gk-primary-grad-lo: #3567e6; /* filled-surface gradient, deep stop */
+  --gk-primary-surface: linear-gradient(
     180deg,
-    var(--accent-grad-hi) 0%,
-    var(--accent-grad-lo) 100%
-  );
+    var(--gk-primary-grad-hi) 0%,
+    var(--gk-primary-grad-lo) 100%
+  ); /* the "on/primary" fill */
+  --gk-accent-glow: rgba(47, 95, 224, 0.6); /* bloom under accent surfaces */
+  --gk-accent-glow-strong: rgba(47, 95, 224, 0.7); /* hotter, focused state */
 
-  /* Neutral ink on black — emitted light, white-dominant. */
-  --ink-primary: #ffffff; /* primary value/title */
-  --ink-secondary: #d2d7d5; /* secondary text */
-  --ink-tertiary: #888f8b; /* captions, idle labels */
+  /* Shape + type */
+  --gk-radius: 18px;
+  --gk-font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --rule: #2a2f37; /* dim hairline for inert edges */
-
-  /* Back-compat aliases — the token names the SDK preserves verbatim
-   * (START-HERE.md §2). `--color-surface`/`--color-room` are kept for API
-   * compatibility; the default additive components define surfaces with light,
-   * not fills, so they're available for consumers rather than used internally. */
-  --color-accent: var(--accent);
-  --color-ink: var(--ink-primary);
-  --color-ink-dim: var(--ink-tertiary);
-  --color-rule: var(--rule);
+  /* Back-compat aliases — old names → new tokens (re-theme via --gk-* only). */
+  --accent: var(--gk-primary);
+  --accent-active: var(--gk-accent-active);
+  --accent-muted: var(--gk-accent-muted);
+  --accent-faint: var(--gk-accent-faint);
+  --accent-grad-hi: var(--gk-primary-grad-hi);
+  --accent-grad-lo: var(--gk-primary-grad-lo);
+  --accent-glow: var(--gk-accent-glow);
+  --accent-glow-strong: var(--gk-accent-glow-strong);
+  --accent-surface: var(--gk-primary-surface);
+  --ink-primary: var(--gk-foreground);
+  --ink-secondary: var(--gk-muted-foreground);
+  --ink-tertiary: var(--gk-foreground-faint);
+  --surface-fill: var(--gk-surface);
+  --surface-edge: var(--gk-border);
+  --surface-lift: var(--gk-elevation);
+  --rule: var(--gk-rule);
+  --color-bg: var(--gk-background);
+  --color-accent: var(--gk-primary);
+  --color-ink: var(--gk-foreground);
+  --color-ink-dim: var(--gk-foreground-faint);
+  --color-rule: var(--gk-rule);
   --color-surface: #14171c;
   --color-room: #07080a;
-
-  /* One deterministic, UI-tuned face (apple-feel §7); fallback list is
-   * fine here — the @theme fallback-strip gotcha is @theme-only. */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: var(--gk-font-sans);
 
   position: relative;
   height: 600px;
@@ -166,6 +174,58 @@
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: 0.01em;
+}
+
+/* ── Tailwind @utility recipes ────────────────────────────────────
+ * The token-driven looks that plain utilities can't express (gradient fills,
+ * the elevation shadow, the press/focus transition). Components opt in with a
+ * single class instead of a soup of arbitrary values, and the look stays in one
+ * auditable place. These resolve through `--gk-*`, so they re-theme for free. */
+
+/* A popping surface: gradient fill + 1px lit edge + soft depth. */
+@utility surface {
+  background: var(--gk-surface);
+  border: 1px solid var(--gk-border);
+  box-shadow: var(--gk-elevation);
+}
+
+/* The pressable transition + Enter/pinch press-scale (focus engine sets
+ * data-gk-press). Honors reduced-motion. */
+@utility press-scale {
+  transition:
+    transform 0.14s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  &:active,
+  &[data-gk-press] {
+    transform: scale(0.97);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:active,
+    &[data-gk-press] {
+      transform: none;
+    }
+  }
+}
+
+/* The filled "on/primary" treatment: accent gradient + edge + glow, brighter
+ * on focus. The meaning is "pinch me" — only primary actions wear it. */
+@utility btn-primary {
+  background: var(--gk-primary-surface);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--gk-primary-foreground);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    0 10px 24px -10px var(--gk-accent-glow);
+  &:focus,
+  &:focus-visible {
+    border-color: rgba(255, 255, 255, 0.42);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.42),
+      0 0 0 1px color-mix(in oklab, var(--gk-primary) 55%, transparent),
+      0 12px 28px -10px var(--gk-accent-glow-strong);
+  }
 }
 
 /* ── Recipe utilities — the "premium without blur" stack (§5) ────── */
@@ -303,23 +363,31 @@
   block-size: 64px;
 }
 
-/* ── `.focusable` — joins D-pad navigation; :focus shows the ring ── */
-.glass-viewport .focusable {
-  cursor: pointer;
-  border-radius: 18px;
-  border: 1px solid var(--rule);
-  background: transparent; /* additive — no gray fills (apple-feel §9) */
-  padding-block: 16px;
-  padding-inline: 24px;
-  color: var(--ink-primary);
-  font: inherit;
-  font-size: 22px;
-  font-weight: 500;
-  transition:
-    color 0.25s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    opacity 0.25s ease;
+/* ── `.focusable` — joins D-pad navigation; :focus shows the ring ──
+ * The RESTING chrome lives in @layer components so a converted component's
+ * Tailwind utilities (utilities layer) override it, while the not-yet-converted
+ * gk-* components (unlayered) still win. The focus ring + disabled rules stay
+ * unlayered so the ring always reads. The class itself is the focus-engine
+ * hook (getFocusables selects `.focusable`); keep it on every interactive
+ * element regardless of styling. */
+@layer components {
+  .glass-viewport .focusable {
+    cursor: pointer;
+    border-radius: 18px;
+    border: 1px solid var(--rule);
+    background: transparent; /* additive — no gray fills (apple-feel §9) */
+    padding-block: 16px;
+    padding-inline: 24px;
+    color: var(--ink-primary);
+    font: inherit;
+    font-size: 22px;
+    font-weight: 500;
+    transition:
+      color 0.25s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      opacity 0.25s ease;
+  }
 }
 .glass-viewport .focusable:focus,
 .glass-viewport .focusable:focus-visible {
@@ -553,59 +621,8 @@
   color: var(--accent);
 }
 
-/* Button — a popping surface pill. Secondary = top-lit glass surface; primary =
- * accent gradient. Press scale (Emil). */
-.glass-viewport .gk-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: var(--surface-fill);
-  border: 1px solid var(--surface-edge);
-  border-radius: 16px;
-  box-shadow: var(--surface-lift);
-  transition:
-    transform 0.14s cubic-bezier(0.23, 1, 0.32, 1),
-    box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1),
-    border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.glass-viewport .gk-btn:active,
-.glass-viewport .gk-btn[data-gk-press] {
-  transform: scale(0.97);
-}
-/* Icon-only button (no label): a compact square, the glyph centered. */
-.glass-viewport .gk-btn--icon {
-  padding: 13px;
-}
-.glass-viewport .gk-btn--icon svg {
-  inline-size: 22px;
-  block-size: 22px;
-}
-.glass-viewport .gk-btn--primary {
-  background: var(--accent-surface);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.38),
-    0 10px 24px -10px var(--accent-glow);
-}
-.glass-viewport .gk-btn--primary:focus,
-.glass-viewport .gk-btn--primary:focus-visible {
-  border-color: rgba(255, 255, 255, 0.42);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.42),
-    0 0 0 1px color-mix(in oklab, var(--accent) 55%, transparent),
-    0 12px 28px -10px var(--accent-glow-strong);
-}
-@media (prefers-reduced-motion: reduce) {
-  .glass-viewport .gk-btn {
-    transition: none;
-  }
-  .glass-viewport .gk-btn:active,
-  .glass-viewport .gk-btn[data-gk-press] {
-    transform: none;
-  }
-}
+/* Button styling moved into the component (Tailwind + tokens): the `surface` /
+ * `btn-primary` / `press-scale` @utility recipes (see top of file). */
 
 /* GlowIcon — 2-tier luminance; inert near-white, active green (§7). */
 .glass-viewport .gk-icon {
@@ -1641,60 +1658,9 @@
   margin-block-start: 3px;
 }
 
-/* NowPlaying — album art + meta + scrub bar + times. */
-.glass-viewport .gk-nowplaying {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  inline-size: 100%;
-}
-.glass-viewport .gk-nowplaying__top {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.glass-viewport .gk-nowplaying__art {
-  inline-size: 92px;
-  block-size: 92px;
-  border-radius: 18px;
-  overflow: hidden;
-  flex: none;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 10px 24px -10px rgba(0, 0, 0, 0.7);
-}
-.glass-viewport .gk-nowplaying__art img,
-.glass-viewport .gk-nowplaying__art > span {
-  display: block;
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
-}
-.glass-viewport .gk-nowplaying__meta {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-inline-size: 0;
-  text-align: start;
-}
-.glass-viewport .gk-nowplaying__title {
-  font-weight: 700;
-}
-.glass-viewport .gk-nowplaying__artist {
-  color: var(--ink-secondary);
-}
-.glass-viewport .gk-nowplaying__times {
-  display: flex;
-  justify-content: space-between;
-  color: var(--ink-tertiary);
-  font-variant-numeric: tabular-nums;
-}
-.glass-viewport .gk-nowplaying__controls {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-block-start: 2px;
-}
+/* NowPlaying styling moved into the component (Tailwind + tokens); the scrub
+ * bar keeps the shared `.gk-progress__el` primitive (native <progress>
+ * pseudo-elements can't be utilities). */
 
 /* AssistantOrb — a glowing gradient orb with per-state motion (Meta-AI presence). */
 .glass-viewport .gk-orb {

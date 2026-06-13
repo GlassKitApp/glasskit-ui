@@ -22,8 +22,11 @@
       "name": "utils",
       "type": "registry:lib",
       "title": "utils",
-      "description": "Join truthy class names.",
-      "dependencies": [],
+      "description": "Merge class names the shadcn way: clsx joins conditionals, tailwind-merge de-dupes conflicting Tailwind utilities so a consumer's `className` override wins (e.g.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": [],
       "files": [
         {
