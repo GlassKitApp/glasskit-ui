@@ -337,6 +337,26 @@
   opacity: 0.45;
 }
 
+/* Pressable — a transparent focusable wrapper for custom UI. Strips the generic
+ * .focusable chrome (border/padding/fill) so the consumer's content shows; the
+ * focus ring still blooms via box-shadow, and Enter / pinch presses scale it. */
+.glass-viewport .gk-pressable {
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  color: inherit;
+  text-align: start;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.3s ease,
+    opacity 0.25s ease;
+}
+.glass-viewport .gk-pressable[data-gk-press] {
+  transform: scale(0.97);
+}
+
 /* ── Legacy semantic classes (kept working, additive-corrected) ──── */
 
 /* Standard centered content layout. */
@@ -549,8 +569,17 @@
     box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1),
     border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.glass-viewport .gk-btn:active {
+.glass-viewport .gk-btn:active,
+.glass-viewport .gk-btn[data-gk-press] {
   transform: scale(0.97);
+}
+/* Icon-only button (no label): a compact square, the glyph centered. */
+.glass-viewport .gk-btn--icon {
+  padding: 13px;
+}
+.glass-viewport .gk-btn--icon svg {
+  inline-size: 22px;
+  block-size: 22px;
 }
 .glass-viewport .gk-btn--primary {
   background: var(--accent-surface);
@@ -572,7 +601,8 @@
   .glass-viewport .gk-btn {
     transition: none;
   }
-  .glass-viewport .gk-btn:active {
+  .glass-viewport .gk-btn:active,
+  .glass-viewport .gk-btn[data-gk-press] {
     transform: none;
   }
 }
@@ -680,17 +710,17 @@
   padding-block: 16px;
   padding-inline: 20px;
   flex: none;
-  /* Near-free virtualization: rows outside the scrollport skip layout and
-   * paint; the placeholder size keeps scroll metrics + focus-engine rects
-   * honest. Long lists stay cheap without a windowing library. */
-  content-visibility: auto;
-  contain-intrinsic-block-size: auto 74px;
+  /* No content-visibility: its intrinsic-size placeholders re-layout as rows
+   * reveal mid-scroll, which fights the smooth centered focus-scroll. At a
+   * 600×600 lens's realistic row counts the perf win is negligible; smoothness
+   * wins. (Huge lists want real windowing, not content-visibility.) */
   transition:
     transform 0.14s cubic-bezier(0.23, 1, 0.32, 1),
     box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1),
     border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.glass-viewport .gk-list-row:active {
+.glass-viewport .gk-list-row:active,
+.glass-viewport .gk-list-row[data-gk-press] {
   transform: scale(0.985);
 }
 .glass-viewport .gk-list-row__label {
@@ -701,7 +731,8 @@
   .glass-viewport .gk-list-row {
     transition: none;
   }
-  .glass-viewport .gk-list-row:active {
+  .glass-viewport .gk-list-row:active,
+  .glass-viewport .gk-list-row[data-gk-press] {
     transform: none;
   }
 }
@@ -1056,14 +1087,16 @@
     box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1),
     border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.glass-viewport .gk-stepper__btn:active:not(:disabled) {
+.glass-viewport .gk-stepper__btn:active:not(:disabled),
+.glass-viewport .gk-stepper__btn[data-gk-press]:not(:disabled) {
   transform: scale(0.94);
 }
 @media (prefers-reduced-motion: reduce) {
   .glass-viewport .gk-stepper__btn {
     transition: none;
   }
-  .glass-viewport .gk-stepper__btn:active:not(:disabled) {
+  .glass-viewport .gk-stepper__btn:active:not(:disabled),
+  .glass-viewport .gk-stepper__btn[data-gk-press]:not(:disabled) {
     transform: none;
   }
 }
@@ -1090,7 +1123,8 @@
     background 0.2s cubic-bezier(0.23, 1, 0.32, 1),
     border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.glass-viewport .gk-segmented__seg:active {
+.glass-viewport .gk-segmented__seg:active,
+.glass-viewport .gk-segmented__seg[data-gk-press] {
   transform: scale(0.96);
 }
 .glass-viewport .gk-segmented__seg--on {
@@ -1105,7 +1139,8 @@
   .glass-viewport .gk-segmented__seg {
     transition: none;
   }
-  .glass-viewport .gk-segmented__seg:active {
+  .glass-viewport .gk-segmented__seg:active,
+  .glass-viewport .gk-segmented__seg[data-gk-press] {
     transform: none;
   }
 }
@@ -1363,7 +1398,8 @@
     color 0.2s cubic-bezier(0.23, 1, 0.32, 1),
     transform 0.14s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.glass-viewport .gk-launcher-card:active {
+.glass-viewport .gk-launcher-card:active,
+.glass-viewport .gk-launcher-card[data-gk-press] {
   transform: scale(0.97);
 }
 /* Cancel the generic focus ring on the card — the plate below carries focus. */
@@ -1386,14 +1422,18 @@
   inline-size: 46px;
   block-size: 46px;
 }
-/* Focused tile: the plate lifts + gains a soft accent bloom under it. */
+/* Focused tile: the plate lifts and the accent does the highlighting — a soft
+ * accent ring hugging the squircle + an accent halo around it (the focus
+ * signal everywhere else is accent; the launcher is no exception). The black
+ * depth shadow is held back so it never drowns the accent. */
 .glass-viewport .gk-launcher-card:focus .gk-launcher-card__icon,
 .glass-viewport .gk-launcher-card:focus-visible .gk-launcher-card__icon {
   transform: translateY(-3px) scale(1.04);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 16px 28px -10px rgba(0, 0, 0, 0.7),
-    0 0 24px -6px color-mix(in oklab, var(--accent) 30%, transparent);
+    0 0 0 3px color-mix(in oklab, var(--accent) 70%, transparent),
+    0 10px 22px -14px rgba(0, 0, 0, 0.6),
+    0 0 30px -2px color-mix(in oklab, var(--accent) 55%, transparent);
 }
 .glass-viewport .gk-launcher-card:focus .gk-launcher-card__label,
 .glass-viewport .gk-launcher-card:focus-visible .gk-launcher-card__label {
@@ -1410,7 +1450,8 @@
   .glass-viewport .gk-launcher-card__icon {
     transition: none;
   }
-  .glass-viewport .gk-launcher-card:active {
+  .glass-viewport .gk-launcher-card:active,
+  .glass-viewport .gk-launcher-card[data-gk-press] {
     transform: none;
   }
 }
@@ -1450,7 +1491,8 @@
     box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1),
     border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.glass-viewport .gk-chip:active {
+.glass-viewport .gk-chip:active,
+.glass-viewport .gk-chip[data-gk-press] {
   transform: scale(0.96);
 }
 
@@ -1633,6 +1675,7 @@
   flex-direction: column;
   gap: 4px;
   min-inline-size: 0;
+  text-align: start;
 }
 .glass-viewport .gk-nowplaying__title {
   font-weight: 700;
@@ -1879,7 +1922,8 @@
   color: #fff;
   transition: transform 0.14s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.glass-viewport .gk-callbtn:active {
+.glass-viewport .gk-callbtn:active,
+.glass-viewport .gk-callbtn[data-gk-press] {
   transform: scale(0.95);
 }
 .glass-viewport .gk-callbtn .gk-icon {
@@ -1991,6 +2035,95 @@
   color: #fff;
   font-weight: 600;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* A focusable MediaThumb (gallery tile): cancel the generic .focusable padding
+ * so the image still fills the tile, keep the tile's own edge, and let focus
+ * brighten it with the accent ring. */
+.glass-viewport .gk-mediathumb.focusable {
+  display: block;
+  padding: 0;
+  border: 1px solid var(--surface-edge);
+  background: transparent;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+.glass-viewport .gk-mediathumb.focusable:focus,
+.glass-viewport .gk-mediathumb.focusable:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 2px color-mix(in oklab, var(--accent) 70%, transparent),
+    0 0 22px -4px color-mix(in oklab, var(--accent) 42%, transparent);
+}
+.glass-viewport .gk-mediathumb.focusable[data-gk-press] {
+  transform: scale(0.96);
+}
+
+/* Masonry — a staggered multi-column layout (Pinterest-style) that scrolls
+ * vertically. Real column stacks sit side by side; because items vary in height
+ * the columns never line up. The D-pad moves a focused item into view; the
+ * native scrollbar is hidden. */
+.glass-viewport .gk-masonry {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  inline-size: 100%;
+  block-size: 100%;
+  align-self: stretch;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-block: 2px;
+  scrollbar-width: none;
+}
+.glass-viewport .gk-masonry::-webkit-scrollbar {
+  display: none;
+}
+.glass-viewport .gk-masonry__col {
+  display: flex;
+  flex: 1 1 0;
+  min-inline-size: 0;
+  flex-direction: column;
+  gap: 12px;
+}
+.glass-viewport .gk-masonry__item {
+  inline-size: 100%;
+}
+.glass-viewport .gk-masonry .gk-mediathumb {
+  inline-size: 100%;
+}
+
+/* Grid — an aligned, uniform multi-column layout (every cell the same track),
+ * scrolling vertically. The aligned counterpart to Masonry. Column count rides
+ * on data-cols so the lens needs no inline style. */
+.glass-viewport .gk-grid {
+  display: grid;
+  gap: 12px;
+  inline-size: 100%;
+  block-size: 100%;
+  align-self: stretch;
+  align-content: start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-block: 2px;
+  scrollbar-width: none;
+}
+.glass-viewport .gk-grid::-webkit-scrollbar {
+  display: none;
+}
+.glass-viewport .gk-grid[data-cols="2"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.glass-viewport .gk-grid[data-cols="3"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.glass-viewport .gk-grid[data-cols="4"] {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.glass-viewport .gk-grid .gk-mediathumb {
+  inline-size: 100%;
 }
 
 /* ── Wave 10 — capture / shell ────────────────────────────────────── */
@@ -2107,41 +2240,49 @@
   font-weight: 600;
 }
 
-/* Tabs — top-level tab strip. Two distinct affordances: SELECTED is the
- * persistent accent underline; FOCUSED is the system ring/bloom (same as
- * every focusable). Conflating them made the strip unreadable — you could
- * not tell where the D-pad was vs which tab was active. */
+/* Tabs — top-level tab strip. Two distinct affordances, neither fighting the
+ * other: SELECTED is a short rounded accent indicator centered under the
+ * label (no full-width border, so nothing curves around the corners); FOCUSED
+ * is the system ring/bloom (where the D-pad is). */
 .glass-viewport .gk-tabs {
   display: flex;
   gap: 6px;
   inline-size: 100%;
 }
 .glass-viewport .gk-tab {
+  position: relative;
   flex: 1 1 0;
   border: 0;
-  border-block-end: 2px solid transparent;
-  border-radius: 14px;
+  border-radius: 12px;
   background: transparent;
   box-shadow: none;
-  padding-block: 14px;
+  padding-block: 13px;
   padding-inline: 8px;
   text-align: center;
   color: var(--ink-tertiary);
+  transition: color 0.2s ease;
 }
+/* Selected: brighter label + a short rounded accent bar under it. */
 .glass-viewport .gk-tab--on {
   color: #fff;
-  border-block-end-color: var(--accent);
 }
+.glass-viewport .gk-tab--on::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 5px;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  inline-size: 38%;
+  block-size: 3px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 8px -1px color-mix(in oklab, var(--accent) 60%, transparent);
+}
+/* Focused: the standard ring (the .focusable bloom) + a brighter label.
+ * tab has border:0 so the generic accent border has nothing to paint. */
 .glass-viewport .gk-tab:focus,
 .glass-viewport .gk-tab:focus-visible {
   color: #fff;
-  /* the generic .focusable:focus paints all borders accent — keep the
-   * underline meaning "selected", not "focused" */
-  border-block-end-color: transparent;
-}
-.glass-viewport .gk-tab--on:focus,
-.glass-viewport .gk-tab--on:focus-visible {
-  border-block-end-color: var(--accent);
 }
 
 /* Clock — big tabular time + date (the home complication). */
@@ -2325,6 +2466,112 @@
 }
 
 /* ── Wave 12 — quality pass ───────────────────────────────────────── */
+
+/* MapView — a real Leaflet map filling the lens, dark tiles, chrome trimmed
+ * to a tiny attribution (no zoom buttons — there's no touch). */
+.glass-viewport .gk-mapview {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  background: #0a0d14;
+  z-index: 0;
+}
+.glass-viewport .gk-mapview.leaflet-container {
+  font-family: inherit;
+}
+.glass-viewport .gk-mapview .leaflet-control-attribution {
+  padding: 1px 6px;
+  border-radius: 6px 0 0 0;
+  background: rgba(0, 0, 0, 0.45);
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.45);
+}
+.glass-viewport .gk-mapview .leaflet-control-attribution a {
+  color: rgba(255, 255, 255, 0.6);
+}
+/* Photo place markers (restaurants/stops): a circular image + a name chip
+ * floating above, a little tail pointing at the location. */
+.glass-viewport .gk-mapview__pinwrap {
+  background: transparent;
+  border: 0;
+}
+/* The pin is a focusable button — strip the generic .focusable chrome; the
+ * accent focus/selected state rings the photo instead (cf. Launcher). */
+.glass-viewport .gk-mapview__pin.focusable {
+  position: relative;
+  display: block;
+  inline-size: 46px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+}
+.glass-viewport .gk-mapview__pin.focusable:focus,
+.glass-viewport .gk-mapview__pin.focusable:focus-visible {
+  border: 0;
+  box-shadow: none;
+}
+.glass-viewport .gk-mapview__pin-photo {
+  display: block;
+  inline-size: 46px;
+  block-size: 46px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #fff;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.55);
+  transition:
+    transform 0.15s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+.glass-viewport .gk-mapview__pin:focus .gk-mapview__pin-photo,
+.glass-viewport .gk-mapview__pin:focus-visible .gk-mapview__pin-photo {
+  border-color: var(--accent);
+  transform: scale(1.1);
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--accent) 55%, transparent),
+    0 4px 12px rgba(0, 0, 0, 0.6);
+}
+.glass-viewport .gk-mapview__pin.is-selected .gk-mapview__pin-photo {
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 3px var(--accent),
+    0 0 22px -2px color-mix(in oklab, var(--accent) 60%, transparent);
+}
+.glass-viewport .gk-mapview__pin[data-gk-press] .gk-mapview__pin-photo {
+  transform: scale(0.94);
+}
+.glass-viewport .gk-mapview__pin-photo::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #fff;
+}
+.glass-viewport .gk-mapview__pin-name {
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: rgba(10, 13, 20, 0.92);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.glass-viewport .gk-mapview__pin-rating {
+  margin-inline-start: 6px;
+  color: var(--accent-active);
+  font-variant-numeric: tabular-nums;
+}
 
 /* ComposeFlow — field ⇄ picker swap; the wrapper must not affect layout,
  * the picker stacks heading over options. */

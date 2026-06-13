@@ -17,7 +17,7 @@ Developer Preview (opened 2026-05-14), glasses OS v125.1.
 | Additive display — `#000` renders transparent; surfaces need dark-gray fills to read opaque | "Black pixels render transparent"; toolkit prescribes `#0a0a0f`–`#1C1E21` surfaces — our premium-surfaces direction is exactly this | /build + toolkit display-guidelines |
 | Sensors: `deviceorientation`/`devicemotion`/`geolocation` (auto-wired components)           | All officially supported; GPS proxied from the phone (5–50 m, slow first fix)                                                       | /build                              |
 | `TextField` is display-only (no keyboard)                                                   | "Text Input" officially unsupported                                                                                                 | /build                              |
-| `Dictation`/`LiveCaptions`/`Viewfinder` display-only                                        | Camera + microphone officially unsupported ("not yet")                                                                              | /build                              |
+| No camera/microphone UI shipped                                                             | Camera + microphone officially unsupported ("not yet")                                                                              | /build                              |
 | `fb-viewapp://web_app_deep_link?appName=&appUrl=` QR flow                                   | Still the current install path; HTTPS mandatory                                                                                     | /test                               |
 | Permission requests behind a user gesture (`PermissionPrompt` pattern)                      | Required: "triggered by user gestures … not automatically"                                                                          | /build                              |
 | List rows sized near 88px                                                                   | Official minimum interactive height is 88dp                                                                                         | toolkit display-guidelines          |
@@ -73,6 +73,6 @@ user-scalable=no">` (was `device-width`) and
   already handles both paths idempotently (Escape routes through
   `history.back()`).
 - **Camera/mic/WebXR/notifications**: requested by the community, all open.
-  `Viewfinder`/`Dictation` become wireable the day MediaDevices lands.
+  Camera- and mic-driven UI becomes wireable the day MediaDevices lands.
 - **Performance budget**: <500 KB JS gzipped, <3 s on 4G, 60 fps, ≤128 MB —
   worth a CI bundle-size check before the registry markets "device-ready".

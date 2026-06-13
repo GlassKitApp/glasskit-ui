@@ -4,3 +4,13 @@ description: "A transient notice that animates in with a brief luminance rise (n
 ---
 
 <ComponentDoc slug="toast" />
+
+## When to use
+
+Toast, Toaster, and NotificationCard look adjacent. Pick by intent:
+
+- **Toast** is one transient confirmation you render yourself ("Saved", "Sent"). You own mounting and timeout.
+- **Toaster** is an app-wide queue. Call `toast()` from anywhere and it stacks, times out, and renders in a portal. Reach for it once more than one place raises toasts.
+- **NotificationCard** is an actionable item that waits for the wearer (an incoming message with reply chips, a calendar alert). It participates in focus; a toast never does.
+
+If the wearer must be able to act on it, it is a NotificationCard. If it narrates something that already happened, it is a toast.

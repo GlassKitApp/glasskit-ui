@@ -16,8 +16,8 @@ import { List, ListRow } from "./list";
  * screen, inside or outside a <Navigator>.
  *
  * This is the seam system dictation would replace: if Meta ships a text-input
- * API (see /docs/wishlist), swap the picker for the system flow and the
- * field API doesn't change.
+ * API (see the ComposeFlow docs), swap the picker for the system
+ * flow and the field API doesn't change.
  */
 export function ComposeFlow({
   label,

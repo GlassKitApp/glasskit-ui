@@ -1,0 +1,101 @@
+---
+title: "Navigator"
+description: "A screen stack with system-back integration. Every push adds a real history entry, so the Display's back gesture pops it via popstate. The stack rides in history.state, so a mid-flow reload restores the screen, and opt-in paths mirror pushes into the URL. Pop restores focus to the row that pushed."
+---
+
+<ComponentDoc slug="navigator" />
+
+## How to use it
+
+`Navigator` is a screen stack with react-navigation semantics and
+glasses-native mechanics. Use it whenever screens form a hierarchy: a list that
+opens a detail, a settings tree, anything where back should mean "up one level."
+It is the only navigation model that makes the back gesture pop a screen instead
+of leaving the app.
+
+### Set up the stack
+
+You give Navigator a map of screen renderers and the name of the root screen.
+One screen renders at a time (one task per view), and only the top screen is in
+the DOM, so the D-pad focus engine never sees covered screens.
+
+```tsx
+import { Navigator, useNavigator } from "@/components/ui/navigator";
+
+<Navigator
+  initial="list"
+  screens={{
+    list: () => <TrailList />,
+    detail: (params) => <TrailDetail id={(params as { id: string }).id} />,
+  }}
+/>;
+```
+
+### Move around with useNavigator
+
+Inside any screen, `useNavigator()` gives you the stack API. The names match
+react-navigation so it reads the way you expect.
+
+```tsx
+function TrailList() {
+  const nav = useNavigator();
+  return (
+    <List items={trails} onSelect={(t) => nav.push("detail", { id: t.id })} />
+  );
+}
+```
+
+- `push(name, params)` adds a screen and a history entry, so the back gesture
+  returns here. `params` rides with the screen.
+- `pop()` goes back one screen (a no-op at the root).
+- `popToTop()` returns to the root in one step.
+- `replace(name, params)` swaps the top screen without growing the stack (good
+  after a one-way step like "sign in" so back does not return to it).
+
+You almost never wire `pop()` to a control. The system back gesture already
+flows through history to `popstate` to the stack. Reach for `pop()` only when a
+button inside a screen should also go back.
+
+### Params and reload survival
+
+The stack rides in `history.state` when params are structured-cloneable, so a
+mid-flow reload restores the screen the wearer was on instead of dropping them
+at the root. Keep pushed params plain (ids, strings, numbers) and this works for
+free. Pass a non-cloneable value (a function, a class instance) and that entry
+falls back to memory-only, so a reload there returns to the root.
+
+### Deep links with `paths`
+
+By default the URL does not change as you push. Opt into URL mirroring with
+`paths`, a map from screen name to a URL segment:
+
+```tsx
+<Navigator initial="list" paths={{ detail: "detail" }} screens={{ /* ... */ }} />
+```
+
+Now a push to `detail` appends `/detail` to the pathname where the Navigator
+mounted, and back restores it. Give the host route a catch-all and pushed
+screens become deep-linkable.
+
+### Overlays consume back with useBackHandler
+
+A sheet or dialog should close on the back gesture rather than leaving the
+screen. Register a handler; return `true` to consume the gesture, `false` to let
+it fall through. The last handler registered runs first.
+
+```tsx
+function FilterSheet({ onClose }: { onClose: () => void }) {
+  useBackHandler(() => {
+    onClose();
+    return true; // consume back: close the sheet, stay on the screen
+  });
+  return <Sheet>{/* ... */}</Sheet>;
+}
+```
+
+### Focus memory
+
+Focus seeds to the new screen's first focusable (or its `data-autofocus`
+target) on push. When you pop back, Navigator restores the ring to the element
+that opened the screen, the row you came from, not the top of the list. This is
+automatic; you get it by using Navigator.

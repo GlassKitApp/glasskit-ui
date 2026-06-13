@@ -1,0 +1,55 @@
+---
+title: "Deck"
+description: "A horizontal paged flow (wizard, onboarding). Shows one page with step dots beneath. Uncontrolled with Neural Band swipe to advance, or controlled via index and onIndexChange. Pages advance on pinch or D-pad, never scroll."
+---
+
+<ComponentDoc slug="deck" />
+
+## How to use it
+
+`Deck` is forward-leaning paging for a **linear, ordered** flow: onboarding, a
+setup wizard, a workout sequence. It shows one page at a time with step dots and
+no random access. Use it when the steps have an order the wearer moves through,
+not when content simply overflows (that is a [List](/docs/components/list)).
+
+### Uncontrolled: swipe to advance
+
+By default Deck manages its own page. The Neural Band `swipe` gesture advances
+to the next page (clamped at the ends), so the wearer flips through with the
+wristband. Pass `defaultIndex` to start somewhere other than the first page, and
+`onIndexChange` to observe each move.
+
+```tsx
+import { Deck } from "@/components/ui/deck";
+
+<Deck onIndexChange={(i) => track("onboarding_step", i)}>
+  <Welcome />
+  <Permissions />
+  <Done />
+</Deck>;
+```
+
+### Controlled: you own the index
+
+Pass `index` to drive the page yourself, for example from your own "Next"
+button. In controlled mode Deck never self-advances; swipes surface through
+`onIndexChange` and you decide what to do.
+
+```tsx
+const [step, setStep] = useState(0);
+
+<Deck index={step} onIndexChange={setStep}>
+  <Welcome />
+  <Permissions />
+  <Done />
+</Deck>;
+```
+
+### Deck and the back gesture
+
+Deck does not push history, so the back gesture leaves the app rather than
+stepping back a page. If a flow needs back to mean "previous step," either drive
+the index yourself and register a [useBackHandler](/docs/navigation/navigator)
+in the hosting Navigator, or rethink whether the flow belongs inside a Navigator
+screen. The common shape is a Deck **inside** a Navigator screen: back pops the
+whole flow at once, which is usually what the wearer wants.

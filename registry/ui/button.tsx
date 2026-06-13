@@ -16,9 +16,11 @@ export function Button({
   onClick,
   type = "button",
   initialFocus = false,
+  "aria-label": ariaLabel,
   className,
 }: {
-  children: ReactNode;
+  /** The label. Omit for an icon-only button, but then set `aria-label`. */
+  children?: ReactNode;
   variant?: "primary" | "secondary";
   /** Optional leading glyph — typically a <GlowIcon>. */
   icon?: ReactNode;
@@ -27,6 +29,8 @@ export function Button({
   type?: "button" | "submit" | "reset";
   /** Seed the D-pad ring here when the screen mounts (`data-autofocus`). */
   initialFocus?: boolean;
+  /** Accessible name — required for an icon-only button. */
+  "aria-label"?: string;
   className?: string;
 }) {
   return (
@@ -34,10 +38,12 @@ export function Button({
       type={type}
       disabled={disabled}
       onClick={onClick}
+      aria-label={ariaLabel}
       data-autofocus={initialFocus || undefined}
       className={cn(
         "focusable gk-btn t-body",
         variant === "primary" && "gk-btn--primary",
+        !children && "gk-btn--icon",
         className,
       )}
     >

@@ -4,3 +4,12 @@ description: "Points toward a real-world bearing. World-anchored: it rotates via
 ---
 
 <ComponentDoc slug="direction-arrow" />
+
+## When to use
+
+DirectionArrow and MapView are two different jobs, not a light vs heavy version of one thing:
+
+- **DirectionArrow** points at one target and nothing else: a friend, your car, the gate, an off-screen Pin, the last 50 m to a door. A single arrow that swings to stay locked on as you turn your head. Zero requests, sensor-only (`useGeolocation` + `useDeviceOrientation`), instant.
+- **MapView** gives spatial context: the route, the cross-streets, where you are among options. A real Leaflet basemap (about 42KB plus tiles).
+
+If the wearer only needs a heading, the arrow beats a map: it is lighter, glanceable, and reads as guidance floating in the world. Reach for [MapView](/docs/components/map-view) the moment "which way?" becomes "show me the route."

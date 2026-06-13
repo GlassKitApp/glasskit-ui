@@ -42,7 +42,7 @@ full strategy and 7-phase plan.
   content itself (use surface fills, not frosted glass). See
   `docs/design/meta-hud-language.md`.
 - **RTL from day one:** logical CSS only; never mirror world-anchored components
-  (DirectionArrow, Compass, Pin, Reticle) — see PLAN.md "Internationalization."
+  (DirectionArrow, Compass, Pin), see PLAN.md "Internationalization."
 
 ## Conventions
 

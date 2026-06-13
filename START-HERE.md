@@ -192,5 +192,5 @@ public-repo / npm action.
 - **No inline CSS** — Tailwind v4 `@theme` tokens + semantic classes only.
 - **RTL baked in from day one** — logical CSS (`*-inline`, `text-align:
   start|end`), `dir` on the root; **never mirror world-anchored components**
-  (DirectionArrow, Compass, Pin, Reticle) — see PLAN.md "Internationalization."
+  (DirectionArrow, Compass, Pin), see PLAN.md "Internationalization."
 - Reuse `adelaide`'s fumadocs + Tailwind v4 `@theme` patterns for `apps/web`.

@@ -6,7 +6,7 @@
  * forward-compat seam, shaped like `useNeuralBand`'s event channel:
  *
  *   - dispatches a `glasskitfeedback` CustomEvent so a future OS bridge (or
- *     your test harness / phone-relay layer) can deliver the buzz, and
+ *     your test harness) can deliver the buzz, and
  *   - calls `navigator.vibrate` where the UA supports it (desktop/Android
  *     dev — the Display webview currently ignores it),
  *   - no-ops gracefully everywhere else, SSR included.

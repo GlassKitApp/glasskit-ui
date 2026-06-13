@@ -99,6 +99,26 @@ function rangeOwnsKey(active: Element | null, dir: Dir): boolean {
   );
 }
 
+/**
+ * Flash a synthetic press state on activate. Enter/Space reaches an element
+ * via `.click()`, which never triggers `:active` (that's pointer/key-press
+ * only) — so a Neural Band select would fire the handler but look dead. The
+ * `[data-gk-press]` attribute mirrors every `:active` press rule in
+ * styles.css; we set it, let the transition play, then clear it.
+ */
+let pressEl: HTMLElement | null = null;
+let pressTimer = 0;
+function flashPress(el: HTMLElement) {
+  if (pressEl && pressEl !== el) pressEl.removeAttribute("data-gk-press");
+  clearTimeout(pressTimer);
+  pressEl = el;
+  el.setAttribute("data-gk-press", "");
+  pressTimer = window.setTimeout(() => {
+    el.removeAttribute("data-gk-press");
+    pressEl = null;
+  }, 150);
+}
+
 function moveFocus(dir: Dir) {
   const els = focusables();
   if (els.length === 0) return;
@@ -108,7 +128,7 @@ function moveFocus(dir: Dir) {
   if (!current) return;
 
   if (current !== active) {
-    current.focus();
+    current.focus({ preventScroll: true });
     return;
   }
 
@@ -125,7 +145,11 @@ function moveFocus(dir: Dir) {
     }
   }
 
-  best?.focus();
+  // preventScroll: the engine only moves the ring — scrolling a focused row
+  // into view is the scroll container's job (e.g. <List> does it smoothly and
+  // centered). Native focus-scroll is instant + edge-aligned, which reads as a
+  // hard per-row jump.
+  best?.focus({ preventScroll: true });
 }
 
 /**
@@ -137,7 +161,9 @@ function moveFocus(dir: Dir) {
  */
 export function seedFocus(): void {
   const els = focusables();
-  (els.find((el) => el.hasAttribute("data-autofocus")) ?? els[0])?.focus();
+  (els.find((el) => el.hasAttribute("data-autofocus")) ?? els[0])?.focus({
+    preventScroll: true,
+  });
 }
 
 /**
@@ -210,6 +236,7 @@ export function useDpad(): { seedFocus: () => void } {
         const active = document.activeElement as HTMLElement | null;
         if (active?.classList.contains("focusable")) {
           e.preventDefault();
+          flashPress(active);
           active.click();
         }
       }

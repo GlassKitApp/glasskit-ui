@@ -286,23 +286,6 @@
       ]
     },
     {
-      "name": "dictation",
-      "type": "registry:ui",
-      "title": "Dictation",
-      "description": "the voice-to-text surface (there is no keyboard on the lens — text is voice or Neural-Band handwriting).",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/dictation.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/dictation.tsx"
-        }
-      ]
-    },
-    {
       "name": "direction-arrow",
       "type": "registry:ui",
       "title": "DirectionArrow",
@@ -376,6 +359,23 @@
       ]
     },
     {
+      "name": "grid",
+      "type": "registry:ui",
+      "title": "Grid",
+      "description": "an aligned, vertically-scrolling multi-column layout: every cell shares the same track, so rows line up (the counterpart to <Masonry>, which staggers).",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/grid.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/grid.tsx"
+        }
+      ]
+    },
+    {
       "name": "heading",
       "type": "registry:ui",
       "title": "Heading",
@@ -427,19 +427,38 @@
       ]
     },
     {
-      "name": "live-captions",
+      "name": "map-view",
       "type": "registry:ui",
-      "title": "LiveCaptions",
-      "description": "real-time transcription / translation, read at a glance: an optional speaker label and the running caption text on a surface, anchored low (like the real Captions app).",
+      "title": "MapView",
+      "description": "a real, moving map for the lens, built on Leaflet (~42KB).",
+      "dependencies": [
+        "leaflet"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/map-view.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/map-view.tsx"
+        }
+      ]
+    },
+    {
+      "name": "masonry",
+      "type": "registry:ui",
+      "title": "Masonry",
+      "description": "a staggered, vertically-scrolling multi-column layout (the Pinterest / Photos gallery look, where columns do not line up).",
       "dependencies": [],
       "registryDependencies": [
         "utils"
       ],
       "files": [
         {
-          "path": "registry/ui/live-captions.tsx",
+          "path": "registry/ui/masonry.tsx",
           "type": "registry:ui",
-          "target": "components/glasskit/live-captions.tsx"
+          "target": "components/glasskit/masonry.tsx"
         }
       ]
     },
@@ -567,6 +586,23 @@
       ]
     },
     {
+      "name": "pressable",
+      "type": "registry:ui",
+      "title": "Pressable",
+      "description": "the focusable wrapper for custom UI.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/pressable.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/pressable.tsx"
+        }
+      ]
+    },
+    {
       "name": "progress",
       "type": "registry:ui",
       "title": "Progress",
@@ -614,23 +650,6 @@
           "path": "registry/ui/readout.tsx",
           "type": "registry:ui",
           "target": "components/glasskit/readout.tsx"
-        }
-      ]
-    },
-    {
-      "name": "reticle",
-      "type": "registry:ui",
-      "title": "Reticle",
-      "description": "an aim-to-select target: four corner brackets framing the center of the lens.",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/reticle.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/reticle.tsx"
         }
       ]
     },
@@ -836,23 +855,6 @@
           "path": "registry/ui/toggle.tsx",
           "type": "registry:ui",
           "target": "components/glasskit/toggle.tsx"
-        }
-      ]
-    },
-    {
-      "name": "viewfinder",
-      "type": "registry:ui",
-      "title": "Viewfinder",
-      "description": "camera-POV chrome: corner brackets framing the shot, an optional zoom badge and a REC indicator.",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/viewfinder.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/viewfinder.tsx"
         }
       ]
     },
