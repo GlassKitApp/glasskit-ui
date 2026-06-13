@@ -49,8 +49,8 @@ These come from `meta-hud-language.md` and `AGENTS.md`:
   red for errors). Gradient plates are for icons, not for state.
 - **RTL from day one.** Logical CSS (`*-inline`, `inset-inline`,
   `start`/`end`). **Exception:** world-anchored components (DirectionArrow,
-  Compass, Reticle, Pin, Callout, Viewfinder) must use **physical/absolute**
-  positioning and must **never mirror** — a flipped bearing or marker points at
+  Compass, Pin, Callout) must use **physical/absolute**
+  positioning and must **never mirror**, since a flipped bearing or marker points at
   the wrong real-world thing.
 - **Glanceable.** One task per view; ≤ 3–5 focusable elements; tabular numerals
   on changing readouts; ≥ 15px for sustained reading, 12–13px caps-tracked

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { GlassViewport } from "@glasskit-ui/react";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { TypeTable } from "fumadocs-ui/components/type-table";
@@ -53,20 +52,6 @@ export async function ComponentDoc({ slug }: { slug: string }) {
           </DpadProvider>
         </LensStage>
       </div>
-
-      {doc.wishlist ? (
-        <div className="not-prose my-4 flex items-start gap-2.5 border border-line-2 bg-bg-2 px-4 py-3 text-[15px] leading-relaxed text-ink-2">
-          <span aria-hidden className="mt-0.5">
-            🧞
-          </span>
-          <p>
-            <strong className="text-ink">Platform wishlist</strong> — built and
-            waiting on {doc.wishlist}. The UI ships today; the day Meta exposes
-            the API, it plugs in.{" "}
-            <Link href="/docs/wishlist">See the wishlist →</Link>
-          </p>
-        </div>
-      ) : null}
 
       <h2>Installation</h2>
       <Tabs items={["CLI", "Manual"]}>

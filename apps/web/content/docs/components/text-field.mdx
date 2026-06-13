@@ -1,6 +1,13 @@
 ---
 title: "TextField"
-description: "A text-entry surface. No keyboard (or microphone API) on the lens \u2014 a focusable field showing the value + a mic-style affordance; onActivate opens your own capture flow (picker UI, phone relay)."
+description: "A text-entry surface. No keyboard or microphone API on the lens, so this is a focusable field showing the value plus a mic-style affordance; onActivate opens your own capture flow (a picker UI such as ComposeFlow)."
 ---
 
 <ComponentDoc slug="text-field" />
+
+## Free-form text
+
+There is no keyboard, microphone, or text-input API on the Display. So a "text field" is really a capture trigger:
+
+- For an enumerable set of answers (replies, presets, templates), activating the field opens [ComposeFlow](/docs/components/compose-flow), a back-gesture-aware picker.
+- For genuinely free-form text there is no on-device path today. This is the seam system dictation would fill if Meta ships a text-input API; swap the capture flow and keep the field.

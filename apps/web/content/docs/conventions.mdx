@@ -1,0 +1,68 @@
+---
+title: Conventions
+description: The cross-cutting rules every GlassKit component follows, covering input and focus, the accessibility contract, the performance budget, and the prop vocabulary. The contract that holds across all 48 components.
+---
+
+These are the rules of the system, true of every component rather than any one
+of them. Read this once and the per-component pages stop surprising you. For
+"which of these similar components do I use?", that guidance now lives on the
+components themselves (a "When to use" note on each).
+
+## Accessibility
+
+The conventions, so your additions match:
+
+- **`Cue` is `role="status"`**: the screen's narration line announces politely.
+  Keep one Cue per screen; two live regions talking over each other is noise.
+- **Transients announce themselves**: Toast, AsyncView, and NotificationCard are
+  `role="status"`; Timer is `role="timer"`. Don't wrap them in another live
+  region.
+- **Rapidly changing values stay silent**: Readout, StatGrid, Meter, and Compass
+  would announce on every tick. They expose labels (`aria-label`/visible text)
+  but are deliberately not live. Narrate milestones through the Cue instead
+  ("Halfway there").
+- **World-anchored SVGs** (Pin, Callout, Compass) are `role="img"` with
+  meaningful labels. They describe a point in the world, not a control.
+
+## Performance
+
+- The perf budget is the platform's: under 500 KB gzipped JS and 10 requests (CI
+  enforces the bundle budget on every PR).
+- **Long lists are cheap by default**: rows use `content-visibility: auto`, so
+  offscreen rows skip layout and paint while keeping honest scroll metrics and
+  focus-engine rects. Past a few hundred rows, paginate per screen anyway: a
+  wearer never scans 300 rows on a lens.
+- **Component source is capped at 12 KB** (`build:registry` fails over it). A
+  vendored component should read in one sitting.
+- Sensor hooks guard `setState` (a 60 Hz orientation stream doesn't re-render on
+  every fire). Keep that property when composing them.
+
+## API conventions
+
+Every component follows these:
+
+- **Auto-wiring**: sensor-driven components self-connect when their data prop is
+  omitted. `<Compass />` follows live head orientation, `<Compass heading={290} />`
+  is controlled. **The prop always wins.** Same shape for DirectionArrow
+  (`target`), Clock and Timer (self-ticking), Deck (Neural Band swipe).
+- **Focus**: interactive elements carry the `focusable` class; `useDpad()`
+  (called once at the root) does spatial navigation and Enter-to-click. A focused
+  **Slider** owns ArrowLeft/Right for value adjust, while vertical arrows still
+  navigate away. `data-autofocus` picks where a screen's ring starts;
+  `<FocusScope>` contains it to a modal subtree (Confirm and PermissionPrompt do
+  this for you); Navigator restores the ring to the row that opened a screen when
+  you come back (focus memory).
+- **One task per view**: most components are sized to be a screen's main event,
+  not dashboard tiles. If a screen needs three of them, it's probably three
+  screens (see [Navigator](/docs/navigation/navigator)).
+- **World-anchored never mirrors**: DirectionArrow, Compass, Pin, and Callout
+  keep physical positioning under RTL; everything else uses logical CSS and flips
+  for free.
+- **One word per meaning**: `emphasis` is visual weight (`"default" | "accent"`
+  on Badge, Cue, Toast), `status` is semantic state (`"on" | "live" | "off"` on
+  StatusDot), and `tone` is reserved for the gradient palette (Avatar, GlowIcon
+  plates, Launcher tiles). A prop name tells you what kind of choice you're
+  making.
+- **Platform honesty**: components that _look_ like device capture (TextField's
+  mic affordance) are presentation. Web apps on the Display get no camera,
+  microphone, or gaze API. Their JSDoc says exactly what you own.

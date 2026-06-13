@@ -1,0 +1,32 @@
+---
+title: "Pressable"
+description: "The focusable wrapper for custom UI. Renders a real button carrying the focusable class, so useDpad walks it and fires onPress on Enter or the Neural Band pinch. Use it to make any custom content D-pad-interactive when no first-class component fits."
+---
+
+<ComponentDoc slug="pressable" />
+
+## When to use
+
+Most interactive needs already have a first-class component: a [Button](/docs/components/button)
+for actions, a [List](/docs/components/list) for rows, a [Launcher](/docs/navigation/launcher)
+for an app grid. Reach for **Pressable** when you are building something custom
+that none of those cover: a bespoke card, a media tile, a tappable stat.
+
+Pressable is the one sanctioned way to make arbitrary content respond to the
+D-pad and the Neural Band. It renders a real `<button>` with the `focusable`
+class, so the focus engine includes it in spatial navigation and fires `onPress`
+on Enter or a pinch. It adds no visual chrome of its own beyond the focus ring
+and the press scale, so the content inside is yours to style.
+
+```tsx
+import { Pressable } from "@/components/ui/pressable";
+
+<Pressable onPress={() => open(photo)} className="photo-card">
+  <img src={photo.src} alt={photo.alt} />
+  <span className="caption">{photo.label}</span>
+</Pressable>;
+```
+
+Do not hand-roll this with a plain `<div onClick>`: a div is not focusable, so
+the D-pad cannot reach it and the pinch never fires. Pressable (or any element
+that carries the `focusable` class and is genuinely focusable) is the contract.

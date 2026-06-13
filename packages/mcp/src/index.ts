@@ -5,13 +5,56 @@
  * components into a project. A thin client over the served registry (the same
  * /r/*.json the CLI uses), configured by GLASSKIT_REGISTRY.
  *
- * Tools: list_components, get_component, search_components.
+ * Tools: glasskit_guidelines, list_components, get_component, search_components.
  * Run (stdio):  GLASSKIT_REGISTRY=http://localhost:3000/r glasskit-mcp
  * Published as @glasskit-ui/mcp (bin: glasskit-mcp).
  */
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
+
+/** The glasses-first rules an agent must follow — returned by the
+ *  glasskit_guidelines tool so an agent with only the MCP (no project files)
+ *  still builds correctly. Kept in lockstep with the CLI's AGENTS.md skill. */
+const GUIDELINES = `# Building Meta Ray-Ban Display apps with GlassKit UI
+
+## Glasses-first — rules that override everything
+1. Only ARROWS + ENTER + the back gesture exist. No clicks-as-primary, hover,
+   draggable scrollbars, or typed text fields. Build for the D-pad only.
+2. The focus engine is NOT optional. Every interactive element gets the
+   \`focusable\` class and must be reachable by arrows alone, fired by Enter
+   (\`useDpad()\` once at the app root does spatial nav + Enter-to-click). For
+   custom content wrap it in \`<Pressable onPress={...}>\` (a real focusable
+   button); never make a \`<div onClick>\` interactive.
+3. One task per view (600×600 glanceable lens). More than one main thing →
+   split into more screens and navigate between them.
+4. NEVER generate APIs the platform lacks: no getUserMedia, SpeechRecognition,
+   gaze, WebXR, or text input — they fail silently on-device. GPS + device
+   orientation/motion DO work.
+5. Vendor components from the registry (list_components / get_component); don't
+   hand-roll a worse version.
+
+## Navigation = a history router
+The back gesture (middle pinch) pops browser history → \`popstate\`. So:
+- Multi-screen apps use \`<Navigator screens initial>\` + \`useNavigator()\`
+  (push/pop/popToTop/replace). Every push adds a history entry; the gesture
+  pops it — you never wire "back" by hand.
+- push(name, params) carries params; the stack rides history.state (reload
+  restores the screen); \`paths\` mirrors to the URL for deep links;
+  \`useBackHandler(fn)\` lets an overlay consume back (return true).
+- One nav model per screen: hierarchy → Navigator (only it touches history),
+  peers → Tabs, linear flow → Deck, front door → Launcher.
+
+## Other essentials
+- Text entry: ComposeFlow (a picker for enumerable answers); there is no
+  on-device free-form text input. Never invent on-device typing/dictation.
+- Wayfinding: DirectionArrow (point at a target) vs MapView (route context).
+- Theming: re-declare the accent ramp tokens on \`.glass-viewport\`; no inline
+  style. The filled accent gradient means "pinch me" — only actions wear it.
+- Verify: every interactive element reachable + fired by arrows alone; no
+  forbidden APIs; gzipped JS under 500 KB.
+
+Full procedure: https://glasskit.app/ui/docs/conventions`;
 
 const REGISTRY = (
   process.env.GLASSKIT_REGISTRY ?? "https://glasskit.app/ui/r"
@@ -37,6 +80,13 @@ const itemLines = (items: RegistryItem[]) =>
   items.map((i) => `- ${i.name}: ${i.description ?? ""}`).join("\n");
 
 const server = new McpServer({ name: "glasskit-ui", version: "0.0.0" });
+
+server.tool(
+  "glasskit_guidelines",
+  "How to build Meta Ray-Ban Display apps with GlassKit UI — the glasses-first rules, the focus engine, and the navigation/history model. Read this BEFORE generating screens.",
+  {},
+  async () => text(GUIDELINES),
+);
 
 server.tool(
   "list_components",

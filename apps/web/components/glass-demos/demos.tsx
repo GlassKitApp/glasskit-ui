@@ -24,9 +24,6 @@ import { CallCard } from "@registry/ui/call-card";
 import { Toast } from "@registry/ui/toast";
 import { AsyncView } from "@registry/ui/async-view";
 import { Progress } from "@registry/ui/progress";
-import { Dictation } from "@registry/ui/dictation";
-import { Viewfinder } from "@registry/ui/viewfinder";
-import { Reticle } from "@registry/ui/reticle";
 import { List, ListRow } from "@registry/ui/list";
 import { Navigator, useNavigator } from "@registry/ui/navigator";
 import { Compass } from "@registry/ui/compass";
@@ -46,6 +43,10 @@ import {
   PhoneOffGlyph,
   VolumeGlyph,
   CameraGlyph,
+  PlayGlyph,
+  PauseGlyph,
+  TrackNextGlyph,
+  TrackPrevGlyph,
 } from "@/components/lens/icons";
 
 /**
@@ -377,7 +378,7 @@ export function NowPlayingDemo() {
     );
     return () => clearInterval(id);
   }, [playing]);
-  const total = 212; // 3:32
+  const total = 238; // Teenage Dirtbag, 3:58
   const elapsed = Math.round((progress / 100) * total);
   const fmt = (s: number) =>
     `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, "0")}`;
@@ -385,19 +386,27 @@ export function NowPlayingDemo() {
     <Screen>
       <NowPlaying
         art={
-          <GlowIcon size="lg" plate tone="peach" label="Album art">
-            <MusicGlyph />
-          </GlowIcon>
+          <img
+            src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f7/c3/33/f7c333e4-b2b5-b49d-1406-f51bdac6a8aa/mzi.bllmhdje.jpg/300x300bb.jpg"
+            alt="Teenage Dirtbag album art"
+          />
         }
-        title="Weightless"
-        artist="Marconi Union"
+        title="Teenage Dirtbag"
+        artist="Wheatus"
         progress={progress}
         elapsed={fmt(elapsed)}
         remaining={`-${fmt(total - elapsed)}`}
         controls={
-          <Button variant="primary" onClick={() => setPlaying((p) => !p)}>
-            {playing ? "Pause" : "Play"}
-          </Button>
+          <>
+            <Button aria-label="Previous" icon={<TrackPrevGlyph />} />
+            <Button
+              variant="primary"
+              aria-label={playing ? "Pause" : "Play"}
+              icon={playing ? <PauseGlyph /> : <PlayGlyph />}
+              onClick={() => setPlaying((p) => !p)}
+            />
+            <Button aria-label="Next" icon={<TrackNextGlyph />} />
+          </>
         }
       />
     </Screen>
@@ -521,67 +530,6 @@ export function ProgressDemo() {
     <Screen cue={<Cue>Linear + step, same component</Cue>}>
       <Progress value={pct} label={`${Math.round(pct)}%`} />
       <Progress variant="step" value={Math.ceil((pct / 100) * 4)} max={4} />
-    </Screen>
-  );
-}
-
-export function DictationDemo() {
-  const SCRIPT = "Meet me at the north entrance in ten minutes";
-  const [words, setWords] = useState(0);
-  const [listening, setListening] = useState(true);
-  const all = SCRIPT.split(" ");
-  useEffect(() => {
-    if (!listening) return;
-    const id = setInterval(
-      () => setWords((w) => (w >= all.length ? 0 : w + 1)),
-      450,
-    );
-    return () => clearInterval(id);
-  }, [listening, all.length]);
-  return (
-    <Screen cue={<Cue>{listening ? "Listening…" : "Paused"}</Cue>}>
-      <Dictation
-        listening={listening}
-        transcript={words > 0 ? all.slice(0, words).join(" ") : undefined}
-        placeholder="Start speaking…"
-      />
-      <Button onClick={() => setListening((l) => !l)}>
-        {listening ? "Stop" : "Resume"}
-      </Button>
-    </Screen>
-  );
-}
-
-export function ViewfinderDemo() {
-  const [recording, setRecording] = useState(false);
-  const [zoom, setZoom] = useState(1);
-  return (
-    <Screen cue={<Cue>{recording ? "Recording" : "Standby"}</Cue>}>
-      <Viewfinder zoom={`${zoom}×`} recording={recording}>
-        <div className="absolute start-0 end-0 bottom-14 flex justify-center">
-          <div className="row">
-            <Button variant="primary" onClick={() => setRecording((r) => !r)}>
-              {recording ? "Stop" : "Record"}
-            </Button>
-            <Button onClick={() => setZoom((z) => (z >= 3 ? 1 : z + 1))}>
-              Zoom
-            </Button>
-          </div>
-        </div>
-      </Viewfinder>
-    </Screen>
-  );
-}
-
-export function ReticleDemo() {
-  const [locked, setLocked] = useState(false);
-  useEffect(() => {
-    const id = setInterval(() => setLocked((l) => !l), 1800);
-    return () => clearInterval(id);
-  }, []);
-  return (
-    <Screen cue={<Cue>{locked ? "Target acquired" : "Aim at a sign"}</Cue>}>
-      <Reticle active={locked} label="Aim at a sign" />
     </Screen>
   );
 }

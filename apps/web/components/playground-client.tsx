@@ -5,170 +5,12 @@ import { cn } from "@/lib/utils";
 import { useCopyToClipboard } from "@/lib/use-copy-to-clipboard";
 import { LensStage } from "@/components/lens/lens-stage";
 import { DpadProvider } from "@/components/lens/dpad-provider";
-import { HeartRateDemo } from "@/components/lens/heart-rate-demo";
-import { MenuDemo } from "@/components/lens/menu-demo";
-import { SyncDemo } from "@/components/lens/sync-demo";
-import { NavigateDemo } from "@/components/lens/navigate-demo";
-import { SettingsDemo } from "@/components/lens/settings-demo";
-import { StatsDemo } from "@/components/lens/stats-demo";
-import { LauncherDemo } from "@/components/lens/launcher-demo";
-import { ExploreDemo } from "@/components/lens/explore-demo";
+import { DevicePreview } from "@/components/device-preview";
+import { PLAYGROUND_DEMOS as DEMOS } from "@/lib/playground-demos";
 import { deriveRamp, rampCss } from "@/lib/theme-ramp";
 
-type Demo = {
-  id: string;
-  label: string;
-  caption: string;
-  node: React.ReactNode;
-  code: string;
-};
-
-// `code` is an illustrative copy-paste snippet (simplified icon names), not the
-// literal demo source — it teaches the shape, it isn't kept byte-identical.
-const DEMOS: Demo[] = [
-  {
-    id: "vitals",
-    label: "Vitals",
-    caption: "Screen · Readout · Cue · Button · GlowIcon",
-    node: <HeartRateDemo />,
-    code: `<GlassViewport>
-  <Screen cue={<Cue emphasis="accent">Recording · pinch to log</Cue>}>
-    <GlowIcon size="lg" active><HeartIcon /></GlowIcon>
-    <Readout label="Heart rate" value="128" unit="BPM" />
-    <div className="row">
-      <Button variant="primary" icon={<GlowIcon size="sm"><CheckIcon /></GlowIcon>}>
-        Log
-      </Button>
-      <Button>Dismiss</Button>
-    </div>
-  </Screen>
-</GlassViewport>`,
-  },
-  {
-    id: "menu",
-    label: "Menu",
-    caption: "List · ListRow · GlowIcon",
-    node: <MenuDemo />,
-    code: `<GlassViewport>
-  <Screen cue={<Cue>Swipe to browse · pinch to open</Cue>}>
-    <List>
-      <ListRow leading={<GlowIcon active size="sm"><NavIcon /></GlowIcon>}
-               trailing={<GlowIcon size="sm"><ChevronIcon /></GlowIcon>}>
-        Navigate
-      </ListRow>
-      <ListRow leading={<GlowIcon size="sm"><MessageIcon /></GlowIcon>} trailing="2">
-        Messages
-      </ListRow>
-      <ListRow leading={<GlowIcon size="sm"><MusicIcon /></GlowIcon>}
-               trailing={<GlowIcon size="sm"><ChevronIcon /></GlowIcon>}>
-        Now playing
-      </ListRow>
-    </List>
-  </Screen>
-</GlassViewport>`,
-  },
-  {
-    id: "sync",
-    label: "Sync",
-    caption: "AsyncView · Spinner · Progress",
-    node: <SyncDemo />,
-    code: `<GlassViewport>
-  <Screen cue={<Cue emphasis="accent">Keep glasses on</Cue>}>
-    <AsyncView
-      status="loading"
-      loading={
-        <div className="gk-async">
-          <Spinner label="Syncing" />
-          <Readout label="Syncing route" value="3" unit="/ 5" emphasis="secondary" />
-          <Progress variant="step" value={3} max={5} />
-        </div>
-      }
-    >
-      {/* success state renders the route here */}
-    </AsyncView>
-  </Screen>
-</GlassViewport>`,
-  },
-  {
-    id: "navigate",
-    label: "Navigate",
-    caption: "DirectionArrow (world-anchored) · Readout · Cue",
-    node: <NavigateDemo />,
-    code: `<GlassViewport>
-  <Screen cue={<Cue emphasis="accent">Turn right onto Market St</Cue>}>
-    {/* self-wired: useGeolocation + useDeviceOrientation steer it */}
-    <DirectionArrow target={{ lat: 37.7955, lon: -122.3937 }} />
-    {/* or control it yourself: <DirectionArrow bearing={35} /> */}
-    <Readout label="Market St" value="320" unit="m" />
-  </Screen>
-</GlassViewport>`,
-  },
-  {
-    id: "settings",
-    label: "Settings",
-    caption: "Stepper · Toggle · Segmented (live — arrow + Enter)",
-    node: <SettingsDemo />,
-    code: `function Settings() {
-  const [brightness, setBrightness] = useState(3);
-  const [notify, setNotify] = useState(true);
-  const [mode, setMode] = useState("map");
-
-  return (
-    <Screen cue={<Cue>Pinch to go back</Cue>}>
-      <Stepper label="Brightness" value={brightness}
-               min={1} max={5} onChange={setBrightness} />
-      <Toggle label="Notifications" checked={notify} onChange={setNotify} />
-      <Segmented value={mode} onChange={setMode}
-        options={[{ value: "map", label: "Map" }, { value: "list", label: "List" }]} />
-    </Screen>
-  );
-}`,
-  },
-  {
-    id: "stats",
-    label: "Stats",
-    caption: "StatusDot · Meter · StatGrid",
-    node: <StatsDemo />,
-    code: `<GlassViewport>
-  <Screen cue={<Cue icon={<StatusDot status="live" label="GPS" />}>3.2 km · 18:40</Cue>}>
-    <Meter value={72} max={100} label="Effort" unit="%" />
-    <StatGrid items={[
-      { label: "Pace", value: "8'42", unit: "/mi" },
-      { label: "Heart", value: 128, unit: "bpm" },
-    ]} />
-  </Screen>
-</GlassViewport>`,
-  },
-  {
-    id: "launcher",
-    label: "Launcher",
-    caption: "Launcher app grid · GlowIcon",
-    node: <LauncherDemo />,
-    code: `<Screen>
-  <Launcher apps={[
-    { id: "nav", label: "Navigate", tagline: "320 m",
-      icon: <GlowIcon active><NavIcon /></GlowIcon>, onSelect: openNav },
-    { id: "msg", label: "Messages", tagline: "2 new",
-      icon: <GlowIcon><MessageIcon /></GlowIcon>, onSelect: openMessages },
-    // …
-  ]} />
-</Screen>`,
-  },
-  {
-    id: "explore",
-    label: "Explore",
-    caption: "Pin + Callout (world-anchored) · Reticle",
-    node: <ExploreDemo />,
-    code: `<GlassViewport>
-  <Screen cue={<Cue icon={<StatusDot status="live" label="AR" />}>Center a pin to select</Cue>}>
-    <Reticle />
-  </Screen>
-  {/* x/y are 0–100% projected from the world position */}
-  <Pin x={72} y={34} label="Blue Bottle" distance="120 m" />
-  <Callout x={26} y={62} label="Powell St" detail="Muni · 3 min" />
-</GlassViewport>`,
-  },
-];
+/** Per-demo "run on glasses" payload, generated server-side (QR is async). */
+export type DemoDevice = { qr: string; deepLink: string; url: string };
 
 // `ramp` mirrors the .accent-* classes in globals.css — the override snippet
 // must teach the real tokens, so keep the two in sync.
@@ -249,7 +91,12 @@ const RAMP_TOKENS = [
   "--color-accent",
 ] as const;
 
-export function PlaygroundClient() {
+export function PlaygroundClient({
+  devices = {},
+}: {
+  /** demo id → "run on glasses" QR/deep-link, generated server-side. */
+  devices?: Record<string, DemoDevice>;
+}) {
   const [demoId, setDemoId] = useState(DEMOS[0]!.id);
   const [accentId, setAccentId] = useState(ACCENTS[0]!.id);
   const [customHex, setCustomHex] = useState("#4cd9a6");
@@ -291,7 +138,21 @@ export function PlaygroundClient() {
       <div className="flex flex-col gap-5">
         <div ref={stage} className={accent.cls}>
           <DpadProvider key={demo.id}>
-            <LensStage caption={demo.caption}>{demo.node}</LensStage>
+            <LensStage
+              caption={demo.caption}
+              device={
+                devices[demo.id] ? (
+                  <DevicePreview
+                    qr={devices[demo.id]!.qr}
+                    deepLink={devices[demo.id]!.deepLink}
+                    url={devices[demo.id]!.url}
+                    appName={demo.label}
+                  />
+                ) : undefined
+              }
+            >
+              {demo.node}
+            </LensStage>
           </DpadProvider>
         </div>
 

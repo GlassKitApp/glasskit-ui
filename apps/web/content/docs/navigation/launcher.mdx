@@ -1,0 +1,42 @@
+---
+title: "Launcher"
+description: "The app grid: the entry screen for a multi-app surface. Two columns of D-pad-focusable cards on gradient icon plates. Keep it to about six apps so the whole grid is one glance."
+---
+
+<ComponentDoc slug="launcher" />
+
+## How to use it
+
+`Launcher` is the app's front door: a grid of destinations, each on a tasteful
+gradient icon plate. A tile opens one of the other models (a Navigator stack, a
+Tabs shell, a Deck flow). Keep it to about six apps so the grid is one glance,
+two columns, no scrolling.
+
+### A grid of entries
+
+Each entry is a focusable plate with an icon, a label, and an `onSelect`
+handler. The gradient `tone` defaults to a cycled palette color, so a launcher
+looks deliberate without you choosing every color.
+
+```tsx
+import { Launcher } from "@/components/ui/launcher";
+
+<Launcher
+  apps={[
+    { icon: <IconRun />, label: "Workout", onSelect: () => open("workout") },
+    { icon: <IconMap />, label: "Navigate", tone: "cyan", onSelect: () => open("nav") },
+    { icon: <IconMusic />, label: "Music", onSelect: () => open("music") },
+    { icon: <IconBell />, label: "Alerts", onSelect: () => open("alerts") },
+  ]}
+/>;
+```
+
+The grid is RTL-safe and D-pad navigable: the focus ring walks the plates and
+Enter fires `onSelect`.
+
+### Launcher and the back gesture
+
+A Launcher is usually the root, so the back gesture from it falls through to the
+system (the app switcher), the same as any root screen. When a tile opens a
+[Navigator](/docs/navigation/navigator), pushes from there put history entries on
+the stack and back returns through them until it reaches the Launcher again.

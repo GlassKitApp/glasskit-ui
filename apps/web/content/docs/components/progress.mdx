@@ -4,3 +4,11 @@ description: "Emitted progress in two shapes: a continuous linear bar (a native 
 ---
 
 <ComponentDoc slug="progress" />
+
+## When to use
+
+Progress, Meter, and Timer all draw a quantity; they answer different questions:
+
+- **Progress** is task completion: a download, an upload, step _n_ of _m_ (the `step` variant). Always moving toward done.
+- **Meter** is a level that just is: battery, volume, signal. No notion of completion; it reads as a gauge.
+- **Timer** is time remaining: a big tabular countdown with an optional drain bar. Self-ticking, and `onComplete` fires at zero.

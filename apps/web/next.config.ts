@@ -24,6 +24,15 @@ import { createMDX } from "fumadocs-mdx/next";
 const nextConfig: NextConfig = {
   basePath: "/ui",
   // The glasses SDK ships pre-built ESM; no transpilePackages needed.
+
+  // Dev convenience: hitting the bare root (e.g. the `localhost:3000` link Next
+  // prints) 404s because everything lives under `/ui`. Bounce `/` → `/ui`.
+  // `basePath: false` matches the un-prefixed root. In production this zone
+  // only ever receives `/ui/*` (the parent app owns `/`), so this never fires
+  // there — it's purely a local-dev nicety.
+  async redirects() {
+    return [{ source: "/", destination: "/ui", basePath: false, permanent: false }];
+  },
 };
 
 // fumadocs-mdx — processes content/docs/*.mdx into the typed `.source` loader.

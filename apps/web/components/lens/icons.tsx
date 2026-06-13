@@ -23,4 +23,8 @@ export {
   IconSun as SunGlyph,
   IconVolume as VolumeGlyph,
   IconKeyboard as KeyboardGlyph,
+  IconPlayerPlayFilled as PlayGlyph,
+  IconPlayerPauseFilled as PauseGlyph,
+  IconPlayerTrackNextFilled as TrackNextGlyph,
+  IconPlayerTrackPrevFilled as TrackPrevGlyph,
 } from "@tabler/icons-react";

@@ -37,7 +37,7 @@ async function shoot(
   route: "preview" | "examples" = "preview",
 ) {
   // Install + pause: time stands still, so interval demos (Progress,
-  // NowPlaying, Reticle…) hold their first frame forever. install() alone
+  // NowPlaying…) hold their first frame forever. install() alone
   // keeps time flowing and those shots never stabilize.
   await page.clock.install({ time: FROZEN_TIME });
   await page.clock.pauseAt(FROZEN_TIME);

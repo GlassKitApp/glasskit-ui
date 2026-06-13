@@ -43,5 +43,5 @@ document is what 1.0.0 will promise, and what still gates it.
    ComposeFlow, and scroll behavior confirmed on real hardware (every other
    gate is met; this is the honest blocker).
 2. No open correctness issues against the focus engine.
-3. The platform wishlist reviewed: any API Meta shipped gets wired before
-   the freeze, so 1.0 doesn't immediately deprecate a workaround.
+3. The missing-platform-API gaps reviewed: any API Meta shipped gets wired
+   before the freeze, so 1.0 doesn't immediately deprecate a workaround.

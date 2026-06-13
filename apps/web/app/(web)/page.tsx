@@ -4,8 +4,6 @@ import { ProductFooter } from "@/components/product-footer";
 import { InstallCommand } from "@/components/install-command";
 import { GithubIcon } from "@/components/icons";
 import { GITHUB } from "@/lib/config";
-import { LensStage } from "@/components/lens/lens-stage";
-import { HeartRateDemo } from "@/components/lens/heart-rate-demo";
 import { COMPONENT_NAV } from "@/lib/component-nav";
 import { JsonLd } from "@/components/json-ld";
 import {
@@ -21,17 +19,17 @@ const VALUES = [
   {
     label: "01 / Components",
     title: `${COUNT}, every HUD job`,
-    body: "Readouts, lists, timers, comms and launch screens — plus the world-anchored set (DirectionArrow, Compass, Pin, Callout) a watch kit can't do. Premium surfaces tuned for a 600×600 lens, never washed-out blur.",
+    body: "Readouts, lists, timers, comms and launch screens, plus the world-anchored set (DirectionArrow, Compass, Pin, Callout) a watch kit can't do. Premium surfaces tuned for a 600×600 lens, never washed-out blur.",
   },
   {
     label: "02 / Input",
     title: "Spatial focus engine",
-    body: "Arrow keys and the Neural Band move a focus ring to the nearest target — a superset of Meta's .focusable, tuned for a 600×600 lens. The same code runs on your desk and on the glasses.",
+    body: "Arrow keys and the Neural Band move a focus ring to the nearest target, a superset of Meta's .focusable, tuned for a 600×600 lens. The same code runs on your desk and on the glasses.",
   },
   {
     label: "03 / Yours to own",
     title: "Copy in, no lock-in",
-    body: "Vendor the source with one command — @glasskit-ui/cli add — straight into your project, yours to edit. The SDK ships the hooks, viewport and focus engine from npm.",
+    body: "Vendor the source with one command, @glasskit-ui/cli add, straight into your project, yours to edit. The SDK ships the hooks, viewport and focus engine from npm.",
   },
 ];
 
@@ -47,10 +45,10 @@ export default function Home() {
       />
       <ProductNav />
 
-      {/* HERO — centered, spacious, premium. Bleeds up under the transparent
+      {/* HERO: centered, spacious, premium. Bleeds up under the transparent
           nav (-mt-14 = nav height) so the blueprint grid shows behind it, like
           the parent; pt-14 puts the content back below the nav. */}
-      <section className="blueprint -mt-14 border-b border-line-2 pt-14">
+      <section className="blueprint -mt-14 pt-14">
         <div className="mx-auto flex max-w-7xl flex-col items-center px-6 py-24 text-center lg:py-32">
           <h1 className="rise font-display text-[clamp(2.75rem,7vw,5.5rem)] leading-[0.95]">
             The component library
@@ -61,7 +59,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="rise-2 mt-8 max-w-xl text-lg leading-relaxed text-ink-2 sm:text-xl">
-            {COUNT} React components for Meta Ray-Ban Display — a spatial focus
+            {COUNT} React components for Meta Ray-Ban Display: a spatial focus
             engine, Neural Band input, system-back navigation, and everything a
             glanceable in-lens display needs. Open source.
           </p>
@@ -69,7 +67,7 @@ export default function Home() {
             <Link href="/docs" className="btn btn-solid">
               Get started <span aria-hidden>→</span>
             </Link>
-            <Link href="/docs/components" className="btn btn-outline">
+            <Link href="/docs/components/screen" className="btn btn-outline">
               Browse components
             </Link>
             <Link href="/playground" className="btn btn-outline">
@@ -84,37 +82,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ON THE LENS — show the real thing */}
-      <section className="border-b border-line-2 bg-bg">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 py-24 lg:flex-row lg:justify-between lg:py-28">
-          <div className="max-w-md text-center lg:text-left">
-            <p className="mono-label">On the lens</p>
-            <h2 className="font-display mt-4 text-[clamp(2rem,4vw,3rem)] leading-tight">
-              Made for the lens.
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-ink-2">
-              A calm dark base, surfaces that pop — top-lit gradients, hairline
-              light edges, soft depth — and one blue accent. Tuned for the
-              600×600 waveguide: big glanceable type, tabular numerals, and no
-              frosted blur anywhere near the lens.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-              <Link href="/playground" className="btn btn-solid">
-                Open the playground <span aria-hidden>→</span>
-              </Link>
-              <Link href="/docs/components" className="btn btn-outline">
-                All {COMPONENT_NAV.length} components
-              </Link>
-            </div>
-          </div>
-          <LensStage caption="Live · Screen · Readout · Button · GlowIcon">
-            <HeartRateDemo />
-          </LensStage>
-        </div>
-      </section>
-
-      {/* WHAT YOU GET — airy, text only */}
-      <section className="mx-auto max-w-[1320px] px-6 py-28 lg:px-10 lg:py-36">
+      {/* WHAT YOU GET: airy, text only */}
+      <section className="mx-auto max-w-[1320px] px-6 py-16 lg:px-10 lg:py-24">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3 lg:gap-20">
           {VALUES.map((v) => (
             <div key={v.title} className="border-t-2 border-ink pt-5">
@@ -129,8 +98,8 @@ export default function Home() {
       </section>
 
       {/* CLOSING */}
-      <section className="blueprint border-y border-line-2">
-        <div className="mx-auto max-w-[1320px] px-6 py-28 text-center lg:px-10 lg:py-40">
+      <section className="blueprint">
+        <div className="mx-auto max-w-[1320px] px-6 py-20 text-center lg:px-10 lg:py-28">
           <h2 className="font-display mx-auto max-w-3xl text-[clamp(2.4rem,5vw,4.4rem)] leading-[0.96]">
             Free. Open source. Yours to own.
           </h2>
@@ -139,7 +108,7 @@ export default function Home() {
             <code className="font-mono text-[0.9em] text-ink">
               @glasskit-ui/cli add
             </code>{" "}
-            the components straight into your project. Your code to edit — no
+            the components straight into your project. Your code to edit, no
             lock-in, no black box.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">

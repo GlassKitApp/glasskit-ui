@@ -2,7 +2,6 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { DirectionArrow } from "@registry/ui/direction-arrow";
 import { Compass, cardinal } from "@registry/ui/compass";
-import { Reticle } from "@registry/ui/reticle";
 
 describe("DirectionArrow", () => {
   it("rotates the needle to the bearing via an SVG transform attribute", () => {
@@ -77,19 +76,5 @@ describe("world-anchored components never mirror under RTL", () => {
     expect(rtl.container.querySelector("g")?.getAttribute("transform")).toBe(
       ltr.container.querySelector("g")?.getAttribute("transform"),
     );
-  });
-});
-
-describe("Reticle", () => {
-  it("renders four corner brackets", () => {
-    const { container } = render(<Reticle />);
-    expect(container.querySelectorAll(".gk-reticle__corner")).toHaveLength(4);
-  });
-
-  it("toggles the active state", () => {
-    const { container } = render(<Reticle active />);
-    expect(
-      container.firstElementChild?.classList.contains("gk-reticle--active"),
-    ).toBe(true);
   });
 });

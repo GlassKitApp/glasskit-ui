@@ -9,8 +9,8 @@ import { cn } from "../lib/utils";
  *
  * Platform note (2026-06): web apps get no microphone (no getUserMedia) and
  * no system text-input API, so on-device capture means your own picker UI
- * (e.g. a <List> of choices) or text relayed from the phone. The mic glyph is
- * a familiar affordance, not a promise of dictation.
+ * (e.g. a <List> of choices, or a ComposeFlow). The mic glyph is a familiar
+ * affordance, not a promise of dictation.
  */
 export function TextField({
   label,

@@ -7,7 +7,6 @@ import {
   ComposeFlowDemo,
   ConfirmDemo,
   DeckDemo,
-  DictationDemo,
   EmptyStateDemo,
   DirectionArrowDemo,
   LauncherDemo,
@@ -18,7 +17,6 @@ import {
   PermissionPromptDemo,
   ProgressDemo,
   QuickReplyChipsDemo,
-  ReticleDemo,
   SegmentedDemo,
   SliderDemo,
   StepperDemo,
@@ -27,7 +25,6 @@ import {
   TimerDemo,
   ToastDemo,
   ToggleDemo,
-  ViewfinderDemo,
 } from "@/components/glass-demos/demos";
 
 /**
@@ -44,7 +41,6 @@ const GLASS_DEMOS: Record<string, ReactNode> = {
   "compose-flow": <ComposeFlowDemo />,
   confirm: <ConfirmDemo />,
   deck: <DeckDemo />,
-  dictation: <DictationDemo />,
   "direction-arrow": <DirectionArrowDemo />,
   "empty-state": <EmptyStateDemo />,
   launcher: <LauncherDemo />,
@@ -55,7 +51,6 @@ const GLASS_DEMOS: Record<string, ReactNode> = {
   "permission-prompt": <PermissionPromptDemo />,
   progress: <ProgressDemo />,
   "quick-reply-chips": <QuickReplyChipsDemo />,
-  reticle: <ReticleDemo />,
   segmented: <SegmentedDemo />,
   slider: <SliderDemo />,
   stepper: <StepperDemo />,
@@ -64,7 +59,6 @@ const GLASS_DEMOS: Record<string, ReactNode> = {
   timer: <TimerDemo />,
   toast: <ToastDemo />,
   toggle: <ToggleDemo />,
-  viewfinder: <ViewfinderDemo />,
 };
 
 export function getGlassDemo(slug: string): ReactNode | undefined {

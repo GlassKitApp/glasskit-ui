@@ -1,5 +1,21 @@
 @AGENTS.md
 
+## Styling — Tailwind for the site, semantic classes only for the lens
+
+- **Site chrome (everything in `apps/web`) = Tailwind utility classes, always.**
+  Never hand-write CSS rules / bespoke class names in `apps/web/app/globals.css`
+  or `apps/web/app/(docs)/docs-theme.css` for a component. Use utilities
+  directly in the JSX (arbitrary values like `bg-[#14171f]`,
+  `grid-cols-[auto_minmax(0,1fr)]` are fine and encouraged). Those global
+  stylesheets are only for `@theme`/tokens, third-party overrides, and the few
+  shared frame primitives — not per-component styling.
+- **The lens design system is the one exception.**
+  `packages/glasses-ui/styles.css` and the `gk-*` semantic classes in
+  `registry/ui/*` ship as a standalone stylesheet that consumers import
+  (`@glasskit-ui/react/styles.css`), scoped under `.glass-viewport` — it can't
+  be Tailwind. There the rule is the inverse: semantic `gk-*` classes, **no
+  inline `style={{}}`**, no Tailwind.
+
 ## graphify
 
 This project will have a knowledge graph at `graphify-out/` (god nodes, community

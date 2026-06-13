@@ -41,13 +41,34 @@ export function List({
       thumb.style.transform = `translateY(${pos}px)`;
     };
 
+    // Smooth scroll on focus: the D-pad engine moves the ring with
+    // preventScroll, so the List owns the scroll. `block: "nearest"` keeps the
+    // list still while the focused row is fully on screen and only glides once
+    // the ring passes the visible page (then it slides just enough to reveal
+    // the next row) — smooth, not the instant per-row jump native focus does.
+    // Honors reduced-motion.
+    const reduce =
+      typeof matchMedia !== "undefined" &&
+      matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const onFocusIn = (e: FocusEvent) => {
+      const row = (e.target as HTMLElement | null)?.closest(".gk-list-row");
+      if (row && sc.contains(row) && typeof row.scrollIntoView === "function") {
+        row.scrollIntoView({
+          block: "nearest",
+          behavior: reduce ? "auto" : "smooth",
+        });
+      }
+    };
+
     update();
     sc.addEventListener("scroll", update, { passive: true });
+    sc.addEventListener("focusin", onFocusIn);
     const ro =
       typeof ResizeObserver !== "undefined" ? new ResizeObserver(update) : null;
     ro?.observe(sc);
     return () => {
       sc.removeEventListener("scroll", update);
+      sc.removeEventListener("focusin", onFocusIn);
       ro?.disconnect();
     };
   }, []);
