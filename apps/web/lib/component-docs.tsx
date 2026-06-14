@@ -35,6 +35,7 @@ import { CallCard } from "@registry/ui/call-card";
 import { MediaThumb } from "@registry/ui/media-thumb";
 import { MediaGalleryDemo } from "@/components/lens/media-gallery-demo";
 import { MediaGridDemo } from "@/components/lens/media-grid-demo";
+import { PressableDemo } from "@/components/lens/pressable-demo";
 import { Pressable } from "@registry/ui/pressable";
 import { Tabs } from "@registry/ui/tabs";
 import { Clock } from "@registry/ui/clock";
@@ -140,7 +141,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Button",
     category: "Action",
     summary:
-      "A D-pad-focusable action. Renders a real <button> with the focusable class, so useDpad walks it and activates it on Enter/Space. Edge + focus ring are emitted light, never fills.",
+      "A D-pad-focusable action. Renders a real <button> with the focusable class, so useDpad walks it and activates it on Enter/Space. Primary wears the accent fill; positive and danger carry the semantic accept and destroy fills; ghost is chrome-less.",
     preview: (
       <Screen>
         <div className="row">
@@ -150,14 +151,22 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       </Screen>
     ),
     props: [
-      { name: "children", type: "ReactNode", desc: "The label." },
+      {
+        name: "children",
+        type: "ReactNode",
+        desc: "The label. Omit for an icon-only button, but then set aria-label.",
+      },
       {
         name: "variant",
-        type: '"primary" | "secondary"',
+        type: '"primary" | "secondary" | "ghost" | "positive" | "danger"',
         default: '"secondary"',
-        desc: "Primary brightens the edge.",
+        desc: "Primary wears the accent fill; positive and danger carry the accept and destroy fills; ghost is chrome-less.",
       },
-      { name: "icon", type: "ReactNode", desc: "Optional leading glyph." },
+      {
+        name: "icon",
+        type: "ReactNode",
+        desc: "Optional leading glyph, typically an Icon.",
+      },
       { name: "disabled", type: "boolean", desc: "Excluded from D-pad focus." },
       {
         name: "onClick",
@@ -165,10 +174,26 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         desc: "Fires on Enter/Space/click.",
       },
       {
+        name: "type",
+        type: '"button" | "submit" | "reset"',
+        default: '"button"',
+        desc: "Native button type.",
+      },
+      {
         name: "initialFocus",
         type: "boolean",
         default: "false",
         desc: "Seed the D-pad ring here when the screen mounts (data-autofocus).",
+      },
+      {
+        name: "aria-label",
+        type: "string",
+        desc: "Accessible name, required for an icon-only button.",
+      },
+      {
+        name: "className",
+        type: "string",
+        desc: "Extra classes merged onto the button.",
       },
     ],
     usage: `<Button variant="primary" onClick={log}>
@@ -206,6 +231,18 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         type: '"sm" | "md" | "lg"',
         default: '"md"',
         desc: "16 / 20 / 28px.",
+      },
+      {
+        name: "plate",
+        type: "boolean",
+        default: "false",
+        desc: "Render as a gradient app-icon plate.",
+      },
+      {
+        name: "tone",
+        type: '"blue" | "green" | "peach" | "violet" | "cyan" | "amber"',
+        default: '"blue"',
+        desc: "Plate gradient tone (plate mode only).",
       },
       {
         name: "label",
@@ -347,6 +384,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         type: "() => void",
         desc: "Row activation.",
       },
+      {
+        name: "ListRow · disabled",
+        type: "boolean",
+        desc: "Dims and skips D-pad focus.",
+      },
     ],
     usage: `<List>
   <ListRow leading={<Icon size="sm"><NavIcon /></Icon>}>
@@ -431,6 +473,17 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         desc: "Override the default error line.",
       },
       { name: "placeholder", type: "ReactNode", desc: "Shown when idle." },
+      {
+        name: "errorLabel",
+        type: "ReactNode",
+        default: '"Couldn’t load"',
+        desc: "Default error message when no error slot is given.",
+      },
+      {
+        name: "className",
+        type: "string",
+        desc: "Extra classes for the centered state wrapper (idle / loading / error).",
+      },
     ],
     usage: `<AsyncView status={status} error={<span className="t-caption text-foreground-faint">Couldn’t load</span>}>
   <Readout label="Heart rate" value={bpm} unit="BPM" />
@@ -579,6 +632,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       { name: "value", type: "T", desc: "The selected value (controlled)." },
       { name: "onChange", type: "(next: T) => void", desc: "Fires on select." },
+      {
+        name: "label",
+        type: "string",
+        desc: 'Accessible name for the group (e.g. "View mode").',
+      },
     ],
     usage: `<Segmented
   value={mode}
@@ -624,6 +682,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         default: "false",
         desc: "Irreversible action. Seed the D-pad ring on cancel, not confirm.",
       },
+      { name: "className", type: "string", desc: "Extra classes." },
     ],
     usage: `<Confirm
   title="End workout?"
@@ -638,25 +697,28 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Badge",
     category: "Display",
     summary:
-      "A small count or status pill. Pure display: hairline by default, accent tone for the one thing that should draw the eye (the accent gradient, for the one thing that needs the eye).",
+      "A small count or status pill. Pure display: a subtle surface by default, the accent gradient for the one thing that should draw the eye, or a quiet hairline outline.",
     preview: (
       <Screen>
         <div className="row">
           <Badge>3</Badge>
-          <Badge emphasis="accent">LIVE</Badge>
+          <Badge variant="accent">LIVE</Badge>
+          <Badge variant="outline">Beta</Badge>
         </div>
       </Screen>
     ),
     props: [
       { name: "children", type: "ReactNode", desc: "Count or short label." },
       {
-        name: "emphasis",
-        type: '"default" | "accent"',
+        name: "variant",
+        type: '"default" | "accent" | "outline"',
         default: '"default"',
-        desc: "Accent gradient tone.",
+        desc: "Surface pill, accent gradient, or hairline outline.",
       },
     ],
-    usage: `<Badge emphasis="accent">LIVE</Badge>`,
+    usage: `<Badge>3</Badge>
+<Badge variant="accent">LIVE</Badge>
+<Badge variant="outline">Beta</Badge>`,
   },
   {
     slug: "status-dot",
@@ -710,7 +772,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "StatGrid",
     category: "Display",
     summary:
-      "A compact grid of readouts for a multi-metric glance (a complication cluster). Pure display, tabular numerals. Keep it to 2–4 cells.",
+      "A compact grid of readouts for a multi-metric glance (a complication cluster). Pure display, tabular numerals. Keep it to 2 to 4 cells.",
     preview: (
       <Screen>
         <StatGrid
@@ -727,7 +789,12 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       {
         name: "items",
         type: "{ label, value, unit? }[]",
-        desc: "The metrics to show.",
+        desc: "The metrics to show. Each cell has a label, a value, and an optional unit.",
+      },
+      {
+        name: "className",
+        type: "string",
+        desc: "Extra classes merged onto the grid wrapper.",
       },
     ],
     usage: `<StatGrid items={[
@@ -854,6 +921,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         type: "ReactNode",
         desc: "Small tracked label above.",
       },
+      { name: "className", type: "string", desc: "Extra classes." },
     ],
     usage: `<Heading eyebrow="Workout">Morning Run</Heading>`,
   },
@@ -862,7 +930,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Launcher",
     category: "Navigation",
     summary:
-      "The app grid: the entry screen for a multi-app surface. Cards are D-pad-focusable; keep it to ~4 apps so the whole grid is one glance.",
+      "The app grid: the entry screen for a multi-app surface. Cards are D-pad-focusable; keep it to ~6 apps so the whole grid is one glance.",
     preview: (
       <Screen>
         <Launcher
@@ -894,8 +962,8 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     props: [
       {
         name: "apps",
-        type: "{ id, label, tagline?, icon?, onSelect? }[]",
-        desc: "The apps to show as focusable cards.",
+        type: "{ id, label, tagline?, icon?, tone?, onSelect? }[]",
+        desc: "The apps to show as focusable cards. Each card may set a gradient tone; it defaults to a cycled palette color.",
       },
     ],
     usage: `<Launcher apps={[
@@ -937,7 +1005,16 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         type: "(index: number) => void",
         desc: "Fires with the next page on every swipe (both modes).",
       },
-      { name: "children", type: "ReactNode", desc: "One node per page." },
+      {
+        name: "children",
+        type: "ReactNode",
+        desc: "One node per page. Falsy children are dropped, which changes the page count, so render every page and gate inside it instead.",
+      },
+      {
+        name: "className",
+        type: "string",
+        desc: "Classes merged onto the outer wrapper.",
+      },
     ],
     usage: `// self-wired: Neural Band swipes advance
 <Deck>
@@ -1082,10 +1159,26 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
         desc: "Destination pin [lat, lon].",
       },
       {
+        name: "places",
+        type: "{ at: [number, number]; name?: string; image?: string; rating?: string }[]",
+        desc: "Photo markers (restaurants, stops): a circular image, name, and rating. Each is a D-pad-focusable button.",
+      },
+      {
+        name: "onSelectPlace",
+        type: "(index: number, place: Place) => void",
+        desc: "Fired when a place marker is activated (Enter / click).",
+      },
+      {
         name: "tileUrl",
         type: "string",
         default: "CARTO dark",
         desc: "Raster tile template. Bring your own provider key for production.",
+      },
+      {
+        name: "attribution",
+        type: "string",
+        default: "© OpenStreetMap © CARTO",
+        desc: "Tile attribution string shown on the map.",
       },
     ],
     usage: `// keyless CARTO dark tiles (preview-grade); live position follows you
@@ -1106,10 +1199,19 @@ const here = useGeolocation(); // [lat, lon]
       "A contact / sender avatar: a photo when you have one, else initials on a gradient plate. The building block for notifications, chats, and calls.",
     preview: (
       <Screen>
-        <div className="row">
-          <Avatar name="Mara Lin" tone="violet" size="lg" />
+        <div className="flex items-end gap-6">
+          <Avatar
+            name="Mara Lin"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces"
+            size="lg"
+          />
           <Avatar name="Sam Ortiz" tone="green" size="lg" />
-          <Avatar name="Devon Reyes" tone="amber" size="lg" />
+          <Avatar
+            name="Design Team"
+            tone="violet"
+            size="lg"
+            icon={<MessageGlyph />}
+          />
         </div>
       </Screen>
     ),
@@ -1120,6 +1222,11 @@ const here = useGeolocation(); // [lat, lon]
         desc: "Display name → initials + a11y label.",
       },
       { name: "src", type: "string", desc: "Optional photo URL." },
+      {
+        name: "icon",
+        type: "ReactNode",
+        desc: "Glyph shown instead of initials (groups, bots).",
+      },
       {
         name: "tone",
         type: '"blue" | "green" | "peach" | "violet" | "cyan" | "amber"',
@@ -1667,7 +1774,12 @@ toast("Mara Lin", {
         type: "string | null",
         desc: "Current value. Controlled, so pair with onChange.",
       },
-      { name: "placeholder", type: "ReactNode", desc: "Empty-field hint." },
+      {
+        name: "placeholder",
+        type: "ReactNode",
+        default: '"Pinch to enter text"',
+        desc: "Empty-field hint.",
+      },
       {
         name: "options",
         type: "string[]",
@@ -1685,6 +1797,7 @@ toast("Mara Lin", {
         type: "(value: string) => void",
         desc: "Fires with the chosen option.",
       },
+      { name: "className", type: "string", desc: "Extra classes." },
     ],
     usage: `const [reply, setReply] = useState<string | null>(null);
 
@@ -1743,18 +1856,7 @@ toast("Mara Lin", {
     category: "Action",
     summary:
       "The focusable wrapper for custom UI. Renders a real button carrying the focusable class, so useDpad walks it and fires onPress on Enter or the Neural Band pinch. Reach for it to make your own content (a card, a tile, a row) D-pad-interactive when no first-class component fits. It adds no chrome beyond the focus ring and press animation.",
-    preview: (
-      <Screen cue="Arrow between the tiles, Enter to press">
-        <div className="row">
-          <Pressable initialFocus>
-            <Readout label="Steps" value="8,420" />
-          </Pressable>
-          <Pressable>
-            <Readout label="Floors" value="12" />
-          </Pressable>
-        </div>
-      </Screen>
-    ),
+    preview: <PressableDemo />,
     props: [
       {
         name: "children",
@@ -1810,7 +1912,7 @@ toast("Mara Lin", {
     name: "Grid",
     category: "Layout",
     summary:
-      "An aligned, vertically-scrolling multi-column layout: every cell shares the same track, so rows line up (the counterpart to Masonry, which staggers). Drop any children in; it scrolls vertically and keeps a D-pad-focused child in view. Column count (2, 3, 4) rides on data-cols, so the lens needs no inline style.",
+      "An aligned, vertically-scrolling multi-column layout: every cell shares the same track, so rows and columns line up. Drop any children in; it scrolls vertically and keeps a D-pad-focused child in view. Column count (2, 3, 4) rides on data-cols, so the lens needs no inline style.",
     preview: <MediaGridDemo />,
     props: [
       {

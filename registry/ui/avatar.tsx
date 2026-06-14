@@ -62,7 +62,7 @@ export function Avatar({
         // eslint-disable-next-line @next/next/no-img-element
         <img className="size-full object-cover" src={src} alt="" />
       ) : icon ? (
-        <span className="grid place-items-center [&_svg]:size-[45%] [&>*]:size-[45%]">
+        <span className="grid size-full place-items-center [&_svg]:size-[45%] [&>*]:size-[45%]">
           {icon}
         </span>
       ) : (

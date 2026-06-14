@@ -59,7 +59,7 @@ Vendored shadcn-style. Live preview, props, and usage at `https://glasskit.app/u
 - **DirectionArrow** (`direction-arrow`) — points toward a real-world direction.
 - **EmptyState** (`empty-state`) — the nothing-here screen: optional glyph + title + hint + one action.
 - **ErrorState** (`error-state`) — a recoverable error screen: optional glyph + title + message + a retry action.
-- **Grid** (`grid`) — an aligned, vertically-scrolling multi-column layout: every cell shares the same track, so rows line up (the counterpart to <Masonry>, which staggers).
+- **Grid** (`grid`) — an aligned, vertically-scrolling multi-column layout: every cell shares the same track, so rows and columns line up.
 - **Heading** (`heading`) — a screen/section title with an optional eyebrow label above it.
 - **Icon** (`icon`) — wraps any icon provider's SVG (Lucide, Tabler, or your own) and applies the lens icon styling.
 - **Launcher** (`launcher`) — the app grid: a home screen of gradient app-icon plates + labels.

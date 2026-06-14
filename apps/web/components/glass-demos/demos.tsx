@@ -414,7 +414,7 @@ export function CallCardDemo() {
           state === "ringing" ? (
             <>
               <Button
-                variant="primary"
+                variant="positive"
                 icon={
                   <Icon size="sm">
                     <PhoneGlyph />
@@ -425,6 +425,7 @@ export function CallCardDemo() {
                 Accept
               </Button>
               <Button
+                variant="danger"
                 icon={
                   <Icon size="sm">
                     <PhoneOffGlyph />

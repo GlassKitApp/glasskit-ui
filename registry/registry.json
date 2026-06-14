@@ -313,7 +313,7 @@
       "name": "grid",
       "type": "registry:ui",
       "title": "Grid",
-      "description": "an aligned, vertically-scrolling multi-column layout: every cell shares the same track, so rows line up (the counterpart to <Masonry>, which staggers).",
+      "description": "an aligned, vertically-scrolling multi-column layout: every cell shares the same track, so rows and columns line up.",
       "dependencies": [],
       "registryDependencies": [
         "utils"

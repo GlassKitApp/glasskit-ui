@@ -46,7 +46,7 @@ export function Confirm({
         ) : null}
         <div className="mt-1.5 flex gap-3">
           <Button
-            variant="primary"
+            variant={destructive ? "danger" : "primary"}
             initialFocus={!destructive}
             onClick={onConfirm}
           >

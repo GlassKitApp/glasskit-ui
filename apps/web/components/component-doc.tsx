@@ -1,6 +1,5 @@
 import { GlassViewport } from "@glasskit-ui/react";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
-import { TypeTable } from "fumadocs-ui/components/type-table";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import { LensStage } from "@/components/lens/lens-stage";
 import { DevicePreview } from "@/components/device-preview";
@@ -26,13 +25,6 @@ export async function ComponentDoc({ slug }: { slug: string }) {
   const previewUrl = `${SITE}/preview/${slug}`;
   const deepLink = mrbdDeepLink(`GlassKit ${doc.name}`, previewUrl);
   const qr = await qrSvg(deepLink);
-
-  const propTypes = Object.fromEntries(
-    doc.props.map((p) => [
-      p.name,
-      { type: p.type, default: p.default, description: p.desc },
-    ]),
-  );
 
   return (
     <>
@@ -85,7 +77,30 @@ export async function ComponentDoc({ slug }: { slug: string }) {
       <DynamicCodeBlock lang="tsx" code={doc.usage} />
 
       <h2>Props</h2>
-      <TypeTable type={propTypes} />
+      <table>
+        <thead>
+          <tr>
+            <th>Prop</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {doc.props.map((p) => (
+            <tr key={p.name}>
+              <td>
+                <code>{p.name}</code>
+              </td>
+              <td>
+                <code>{p.type}</code>
+              </td>
+              <td>{p.default ? <code>{p.default}</code> : "—"}</td>
+              <td>{p.desc}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }

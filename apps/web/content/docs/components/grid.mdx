@@ -1,6 +1,6 @@
 ---
 title: "Grid"
-description: "An aligned, vertically-scrolling multi-column layout: every cell shares the same track, so rows line up (the counterpart to Masonry, which staggers). Drop any children in; it scrolls vertically and keeps a D-pad-focused child in view."
+description: "An aligned, vertically-scrolling multi-column layout: every cell shares the same track, so rows and columns line up. Drop any children in; it scrolls vertically and keeps a D-pad-focused child in view."
 ---
 
 <ComponentDoc slug="grid" />
@@ -12,7 +12,6 @@ neat rows: a grid of square thumbnails, a launcher-like set of equal cards. Pass
 `columns` (2, 3, or 4) and it lays them out on equal tracks, scrolling
 vertically.
 
-If the items vary in height and you would rather pack them tight without the
-rows lining up, use [Masonry](/docs/components/masonry). Grid is layout only: the
-children own their interactivity (a [MediaThumb](/docs/blocks/media-thumb)
-with `onSelect`, or a [Pressable](/docs/components/pressable)).
+Grid is layout only: the children own their interactivity (a
+[MediaThumb](/docs/blocks/media-thumb) with `onSelect`, or a
+[Pressable](/docs/components/pressable)).

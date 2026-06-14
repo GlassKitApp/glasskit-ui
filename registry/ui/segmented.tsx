@@ -27,10 +27,12 @@ export function Segmented<T extends string | number>({
   className?: string;
 }) {
   return (
+    // A single connected track (one surface) with the segments joined inside,
+    // so it reads as one control, not separate buttons (watchOS style).
     <div
       role="radiogroup"
       aria-label={label}
-      className={cn("inline-flex gap-2", className)}
+      className={cn("surface inline-flex gap-1 rounded-full p-1", className)}
     >
       {options.map((o) => {
         const on = o.value === value;
@@ -42,9 +44,11 @@ export function Segmented<T extends string | number>({
             aria-checked={on}
             onClick={onChange ? () => onChange(o.value) : undefined}
             className={cn(
-              "focusable press-scale t-body rounded-lens px-6 py-4",
-              // Off = popping surface; on = filled accent (gradient + glow).
-              on ? "btn-primary" : "surface",
+              "focusable press-scale t-body rounded-full px-5 py-3",
+              // On = the filled accent pill; off = transparent, just the label.
+              on
+                ? "btn-primary"
+                : "border-0 bg-transparent text-muted-foreground",
             )}
           >
             {o.label}

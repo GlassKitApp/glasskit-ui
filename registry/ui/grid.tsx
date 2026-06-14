@@ -5,10 +5,10 @@ import { cn } from "../lib/utils";
 
 /**
  * <Grid> — an aligned, vertically-scrolling multi-column layout: every cell
- * shares the same track, so rows line up (the counterpart to <Masonry>, which
- * staggers). Drop any children in (MediaThumb tiles, Pressable cards); the Grid
- * scrolls vertically and keeps a D-pad-focused child in view. Layout only: the
- * children own their own interactivity.
+ * shares the same track, so rows and columns line up. Drop any children in
+ * (MediaThumb tiles, Pressable cards); the Grid scrolls vertically and keeps a
+ * D-pad-focused child in view. Layout only: the children own their own
+ * interactivity.
  */
 export function Grid({
   columns = 2,

@@ -1,10 +1,10 @@
 ---
 title: "Toaster"
-description: "The toast / notification SYSTEM \u2014 Sonner (Emil Kowalski's library) themed to the lens. Mount <Toaster> once, then fire imperatively with toast(); it handles the queue, stacking, auto-dismiss, and enter/exit motion. Top-anchored \u2014 Screen's Cue line owns the bottom strip."
+description: "The toast / notification system, Sonner (Emil Kowalski's library) themed to the lens. Mount <Toaster> once, then fire imperatively with toast(); it handles the queue, stacking, auto-dismiss, and enter/exit motion. Top-anchored, so Screen's Cue line owns the bottom strip."
 ---
 
 <ComponentDoc slug="toaster" />
 
 ## When to use
 
-Mount `<Toaster />` once at your app root, then fire from anywhere with `toast()` — it owns the queue, stacking, and auto-dismiss. A toast is fire-and-forget by default (a one-line confirmation that auto-dismisses); make it interactive by giving it an `action` (its button is D-pad focusable) plus `duration: Infinity` so it persists until pinched. For a persistent item the wearer must work through, use a [NotificationCard](/docs/blocks/notification-card) instead.
+Mount `<Toaster />` once at your app root, then fire from anywhere with `toast()`; it owns the queue, stacking, and auto-dismiss. A toast is fire-and-forget by default (a one-line confirmation that auto-dismisses); make it interactive by giving it an `action` (its button is D-pad focusable) plus `duration: Infinity` so it persists until pinched. For a persistent item the wearer must work through, use a [NotificationCard](/docs/blocks/notification-card) instead.

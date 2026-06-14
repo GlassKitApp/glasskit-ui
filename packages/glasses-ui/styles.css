@@ -69,6 +69,16 @@
   --gk-accent-glow: rgba(47, 95, 224, 0.6); /* bloom under accent surfaces */
   --gk-accent-glow-strong: rgba(47, 95, 224, 0.7); /* hotter, focused state */
 
+  /* Semantic action colors — fixed meanings (accept/confirm vs decline/destroy)
+   * that read clearer than the single brand accent. Still themeable: override
+   * these to match a brand's success/danger palette. */
+  --gk-positive: #2fb86a; /* accept / confirm */
+  --gk-positive-surface: linear-gradient(180deg, #38cf79 0%, #1f9d57 100%);
+  --gk-positive-glow: rgba(31, 157, 87, 0.55);
+  --gk-danger: #e5484d; /* decline / destroy */
+  --gk-danger-surface: linear-gradient(180deg, #f2595e 0%, #c93b40 100%);
+  --gk-danger-glow: rgba(201, 59, 64, 0.5);
+
   /* Shape + type */
   --gk-radius: 18px;
   --gk-font-sans:
@@ -228,6 +238,46 @@
   }
 }
 
+/* Semantic filled actions — same depth/edge/press stack as btn-primary, but
+ * carrying a fixed meaning: positive = accept/confirm, danger = decline/destroy.
+ * Reach for these only on calls and irreversible decisions, never as decoration. */
+@utility btn-positive {
+  /* Re-point the shared focus ring (it reads var(--gk-accent-active)) to the
+   * positive hue, so a focused accept button rings green, not blue. */
+  --gk-accent-active: #6fe0a6;
+  background: var(--gk-positive-surface);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    0 10px 24px -10px var(--gk-positive-glow);
+  &:focus,
+  &:focus-visible {
+    border-color: rgba(255, 255, 255, 0.42);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.42),
+      0 0 0 1px color-mix(in oklab, var(--gk-positive) 55%, transparent),
+      0 12px 28px -10px var(--gk-positive-glow);
+  }
+}
+@utility btn-danger {
+  --gk-accent-active: #ff9a9d;
+  background: var(--gk-danger-surface);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    0 10px 24px -10px var(--gk-danger-glow);
+  &:focus,
+  &:focus-visible {
+    border-color: rgba(255, 255, 255, 0.42);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.42),
+      0 0 0 1px color-mix(in oklab, var(--gk-danger) 55%, transparent),
+      0 12px 28px -10px var(--gk-danger-glow);
+  }
+}
+
 /* ── Recipe utilities — the "premium without blur" stack (§5) ────── */
 
 /* Luminous gradient hairline: a 1.25px stroke that *is* the surface,
@@ -360,13 +410,13 @@
   outline: none;
   color: #fff;
   border-color: var(--gk-accent-active);
-  /* A ring that reads on ANY fill: a dark gap separates it from the element
-   * (so it pops off a blue primary button, not just dark surfaces), then a
-   * bright accent ring, then the soft emitted bloom. */
+  /* An INSET ring + outer bloom — reads on ANY fill without changing the
+   * element's footprint. Inset means no opaque "moat" is carved around the
+   * element, so tightly-stacked rows (List, gap:10px) stay flush; the bright
+   * accent line still pops on a filled blue primary button. */
   box-shadow:
-    0 0 0 2px var(--gk-background),
-    0 0 0 3.5px color-mix(in oklab, var(--gk-accent-active) 90%, transparent),
-    0 0 22px -3px color-mix(in oklab, var(--gk-primary) 42%, transparent);
+    inset 0 0 0 2px var(--gk-accent-active),
+    0 0 18px -3px color-mix(in oklab, var(--gk-primary) 52%, transparent);
 }
 .glass-viewport .focusable:disabled,
 .glass-viewport .focusable[aria-disabled="true"] {
@@ -376,19 +426,23 @@
 
 /* Pressable — a transparent focusable wrapper for custom UI. Strips the generic
  * .focusable chrome (border/padding/fill) so the consumer's content shows; the
- * focus ring still blooms via box-shadow, and Enter / pinch presses scale it. */
-.glass-viewport .gk-pressable {
-  display: block;
-  padding: 0;
-  border: 0;
-  border-radius: 16px;
-  background: transparent;
-  color: inherit;
-  text-align: start;
-  transition:
-    transform 0.12s ease,
-    box-shadow 0.3s ease,
-    opacity 0.25s ease;
+ * focus ring still blooms via box-shadow, and Enter / pinch presses scale it.
+ * The resting chrome lives in @layer components so a consumer's utility classes
+ * (flex, surface, rounded, padding) win — same model as .focusable. */
+@layer components {
+  .glass-viewport .gk-pressable {
+    display: block;
+    padding: 0;
+    border: 0;
+    border-radius: 16px;
+    background: transparent;
+    color: inherit;
+    text-align: start;
+    transition:
+      transform 0.12s ease,
+      box-shadow 0.3s ease,
+      opacity 0.25s ease;
+  }
 }
 .glass-viewport .gk-pressable[data-gk-press] {
   transform: scale(0.97);
