@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "apps/web/components/glass-demos/demos.tsx": {
-    "mtime": 1781454012.576004,
-    "ast_hash": "9ee62102782c61cefaa69dda7a85be64",
+    "mtime": 1781454648.7554562,
+    "ast_hash": "d2c43c5265f7f4a46d78f4fd7ac8f516",
     "semantic_hash": ""
   },
   "apps/web/components/icons.tsx": {
@@ -505,8 +505,8 @@
     "semantic_hash": ""
   },
   "registry/registry.json": {
-    "mtime": 1781454342.1257522,
-    "ast_hash": "19b30a62139f2cd10386e3c8706b88e7",
+    "mtime": 1781454834.9809108,
+    "ast_hash": "a7dc5d07ab90396ee915bf40c5ef8867",
     "semantic_hash": ""
   },
   "registry/ui/assistant-orb.tsx": {
@@ -885,7 +885,7 @@
     "semantic_hash": ""
   },
   "apps/web/public/llms.txt": {
-    "mtime": 1781454342.134444,
+    "mtime": 1781454834.9859653,
     "ast_hash": "9999958d8b8deb87cc9a0f300a580c36",
     "semantic_hash": ""
   },
@@ -1500,8 +1500,8 @@
     "semantic_hash": ""
   },
   "registry/ui/compose-flow.tsx": {
-    "mtime": 1781453007.5994349,
-    "ast_hash": "edae85289d99e66b175f54e903b08564",
+    "mtime": 1781454440.9557643,
+    "ast_hash": "5b648f45823db89e6412bfeb1e396ac0",
     "semantic_hash": ""
   },
   "apps/web/content/docs/components/compose-flow.mdx": {
@@ -1764,11 +1764,6 @@
     "ast_hash": "dccd184a0288e33ca940c9b3eb01626e",
     "semantic_hash": ""
   },
-  "apps/web/content/docs/templates.mdx": {
-    "mtime": 1781424335.3153658,
-    "ast_hash": "fcbc26f3d5e0c3dde9f6d37a85589a03",
-    "semantic_hash": ""
-  },
   "registry/ui/icon.tsx": {
     "mtime": 1781453363.5607197,
     "ast_hash": "037109a6bc5efae732f5affe848a3422",
@@ -1777,6 +1772,26 @@
   "apps/web/content/docs/components/icon.mdx": {
     "mtime": 1781453435.1599746,
     "ast_hash": "ab736e7dba5bf8ba898074447d2838c5",
+    "semantic_hash": ""
+  },
+  "apps/web/content/docs/templates/meta.json": {
+    "mtime": 1781454788.132179,
+    "ast_hash": "d192cac38459adf47665dd108410dbb9",
+    "semantic_hash": ""
+  },
+  "apps/web/content/docs/templates/index.mdx": {
+    "mtime": 1781454797.754195,
+    "ast_hash": "3947bf9a83420a926b188bec327bbbe9",
+    "semantic_hash": ""
+  },
+  "apps/web/content/docs/templates/messages.mdx": {
+    "mtime": 1781454820.3754187,
+    "ast_hash": "7d61b8ccd5d23b8eb3f1992410dc19c6",
+    "semantic_hash": ""
+  },
+  "apps/web/content/docs/templates/workout.mdx": {
+    "mtime": 1781454805.531344,
+    "ast_hash": "06dbcf5ab6f6820d932de0829be4e5e1",
     "semantic_hash": ""
   }
 }

@@ -1,0 +1,22 @@
+---
+title: Overview
+description: Complete multi-screen apps composed from the real components. Each template gets its own page so its D-pad focus and inputs stay isolated. Drive them with your keyboard, or scan the QR to run them on your glasses.
+---
+
+Single components show the pieces. Templates show the rhythm: how Navigator,
+focus memory, the back gesture, and one-task-per-view compose into a real app.
+Each template lives on its own page (so its focus engine and inputs do not fight
+a neighbor), and each ships a QR that installs it as a standalone app on real
+glasses.
+
+- [Workout](/docs/templates/workout) — Navigator + a self-ticking Timer + a
+  destructive Confirm to end the session.
+- [Messages](/docs/templates/messages) — a message thread with ComposeFlow quick
+  replies.
+
+Want this shape as a starting point? `npm create glasskit my-app` scaffolds the
+shell, then vendor what you see here:
+
+```sh
+npx @glasskit-ui/cli add navigator list timer confirm compose-flow chat-bubble
+```
