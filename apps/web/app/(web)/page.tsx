@@ -19,7 +19,7 @@ const VALUES = [
   {
     label: "01 / Components",
     title: `${COUNT}, every HUD job`,
-    body: "Readouts, lists, timers, comms and launch screens, plus the world-anchored set (DirectionArrow, Compass, Pin, Callout) a watch kit can't do. Premium surfaces tuned for a 600×600 lens, never washed-out blur.",
+    body: "Readouts, lists, timers, comms and launch screens, plus the world-anchored set (DirectionArrow, Compass, Pin) a watch kit can't do. Premium surfaces tuned for a 600×600 lens, never washed-out blur.",
   },
   {
     label: "02 / Input",

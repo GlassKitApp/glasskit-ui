@@ -24,14 +24,14 @@ export function Slider({
   max?: number;
   /** a11y / caption label. */
   label?: ReactNode;
-  /** Leading glyph — typically a <GlowIcon> (volume / brightness). */
+  /** Leading glyph — typically a <Icon> (volume / brightness). */
   icon?: ReactNode;
   onChange?: (next: number) => void;
   className?: string;
 }) {
   return (
     <div className={cn("flex w-full items-center gap-4", className)}>
-      {/* gk-slider__icon stays: it sizes/tints the GlowIcon child via a
+      {/* gk-slider__icon stays: it sizes/tints the Icon child via a
        * descendant rule (.gk-slider__icon .gk-icon). */}
       {icon != null ? <span className="gk-slider__icon">{icon}</span> : null}
       {/* gk-slider__input stays: the range track + thumb are styled through

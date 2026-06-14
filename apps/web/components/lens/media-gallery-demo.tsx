@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Screen } from "@registry/ui/screen";
-import { Cue } from "@registry/ui/cue";
 import { Masonry } from "@registry/ui/masonry";
 import { MediaThumb } from "@registry/ui/media-thumb";
 
@@ -37,7 +36,7 @@ export function MediaGalleryDemo() {
           {picked ? picked.label : `Gallery · ${PHOTOS.length} photos`}
         </span>
       }
-      cue={<Cue>{picked ? `Opening ${picked.label}` : "Arrow the grid · Enter opens"}</Cue>}
+      cue={picked ? `Opening ${picked.label}` : "Arrow the grid · Enter opens"}
     >
       <Masonry columns={2}>
         {PHOTOS.map((photo, i) => (

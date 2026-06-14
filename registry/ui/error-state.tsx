@@ -18,7 +18,7 @@ export function ErrorState({
 }: {
   title?: ReactNode;
   message?: ReactNode;
-  /** Optional leading glyph — typically a <GlowIcon>. */
+  /** Optional leading glyph — typically a <Icon>. */
   icon?: ReactNode;
   onRetry?: () => void;
   retryLabel?: ReactNode;

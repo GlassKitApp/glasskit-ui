@@ -2,17 +2,18 @@ import type { ReactNode } from "react";
 import { cn } from "../lib/utils";
 
 /** Tasteful gradient tones for icon plates (see styles.css `.gk-grad-*`). */
-export type GlowTone = "blue" | "green" | "peach" | "violet" | "cyan" | "amber";
+export type IconTone = "blue" | "green" | "peach" | "violet" | "cyan" | "amber";
 
 /**
- * <GlowIcon> — wraps a line-icon SVG. Two modes:
+ * <Icon> — wraps any icon provider's SVG (Lucide, Tabler, or your own) and
+ * applies the lens icon styling. Two modes:
  *  - default: a 2-tier luminance glyph (inert near-white, `active` = accent).
  *  - `plate`: an iOS/Meta-style gradient app-icon squircle holding a white glyph
  *    (pass `tone` for the gradient).
  *
  * Decorative by default; pass `label` to expose it to assistive tech.
  */
-export function GlowIcon({
+export function Icon({
   children,
   active = false,
   size = "md",
@@ -29,7 +30,7 @@ export function GlowIcon({
   /** Render as a gradient app-icon plate. */
   plate?: boolean;
   /** Plate gradient tone. */
-  tone?: GlowTone;
+  tone?: IconTone;
   label?: string;
   className?: string;
 }) {

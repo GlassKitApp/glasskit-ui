@@ -1,9 +1,8 @@
 import type { ReactNode } from "react";
 import { Screen } from "@registry/ui/screen";
 import { Readout } from "@registry/ui/readout";
-import { Cue } from "@registry/ui/cue";
 import { Button } from "@registry/ui/button";
-import { GlowIcon } from "@registry/ui/glow-icon";
+import { Icon } from "@registry/ui/icon";
 import { List, ListRow } from "@registry/ui/list";
 import { Progress } from "@registry/ui/progress";
 import { AsyncView, Spinner } from "@registry/ui/async-view";
@@ -17,7 +16,6 @@ import { Badge } from "@registry/ui/badge";
 import { StatusDot } from "@registry/ui/status-dot";
 import { Meter } from "@registry/ui/meter";
 import { StatGrid } from "@registry/ui/stat-grid";
-import { Toast } from "@registry/ui/toast";
 import { ErrorState } from "@registry/ui/error-state";
 import { EmptyState } from "@registry/ui/empty-state";
 import { Timer } from "@registry/ui/timer";
@@ -26,7 +24,6 @@ import { Launcher } from "@registry/ui/launcher";
 import { Deck } from "@registry/ui/deck";
 import { QuickReplyChips } from "@registry/ui/quick-reply-chips";
 import { Pin } from "@registry/ui/pin";
-import { Callout } from "@registry/ui/callout";
 import { MapView } from "@registry/ui/map-view";
 import { BAKED_ROUTES } from "@/components/lens/map-routes";
 import { Avatar } from "@registry/ui/avatar";
@@ -43,7 +40,6 @@ import { Tabs } from "@registry/ui/tabs";
 import { Clock } from "@registry/ui/clock";
 import { WeatherTile } from "@registry/ui/weather-tile";
 import { Slider } from "@registry/ui/slider";
-import { TextField } from "@registry/ui/text-field";
 import { ComposeFlow } from "@registry/ui/compose-flow";
 import { PermissionPrompt } from "@registry/ui/permission-prompt";
 import {
@@ -59,7 +55,6 @@ import {
   PhoneOffGlyph,
   SunGlyph,
   VolumeGlyph,
-  MicGlyph,
 } from "@/components/lens/icons";
 
 export type PropRow = {
@@ -88,17 +83,27 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     summary:
       "The on-lens layout shell: a status region, a centered stage for the one task, and a cue region, with safe margins that keep the surface mostly black.",
     preview: (
-      <Screen cue={<Cue>One task per view</Cue>}>
+      <Screen cue="One task per view">
         <Readout label="Pace" value="8'42" unit="/mi" />
       </Screen>
     ),
     props: [
       { name: "children", type: "ReactNode", desc: "The stage content." },
       { name: "status", type: "ReactNode", desc: "Optional top region." },
-      { name: "cue", type: "ReactNode", desc: "Bottom hint line." },
+      {
+        name: "cue",
+        type: "ReactNode",
+        desc: "Bottom narration line; rendered as a polite role=status live region.",
+      },
+      {
+        name: "cueLive",
+        type: "boolean",
+        default: "false",
+        desc: "Accent the cue for a live/active state.",
+      },
       { name: "className", type: "string", desc: "Extra classes." },
     ],
-    usage: `<Screen cue={<Cue>One task per view</Cue>}>
+    usage: `<Screen cue="One task per view">
   <Readout label="Pace" value="8'42" unit="/mi" />
 </Screen>`,
   },
@@ -129,30 +134,6 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
     ],
     usage: `<Readout label="Heart rate" value="128" unit="BPM" />`,
-  },
-  {
-    slug: "cue",
-    name: "Cue",
-    category: "Display",
-    summary:
-      "A caption / hint line: what to do next, or a transient status. Dim by default; set emphasis='accent' for a live state. No glow on body text.",
-    preview: (
-      <Screen>
-        <Cue emphasis="accent">Listening…</Cue>
-        <Cue>Look at a sign to translate</Cue>
-      </Screen>
-    ),
-    props: [
-      { name: "children", type: "ReactNode", desc: "The hint text." },
-      {
-        name: "emphasis",
-        type: '"default" | "accent"',
-        default: '"default"',
-        desc: "Accent highlights it for live states.",
-      },
-      { name: "icon", type: "ReactNode", desc: "Optional leading glyph." },
-    ],
-    usage: `<Cue emphasis="accent">Listening…</Cue>`,
   },
   {
     slug: "button",
@@ -195,20 +176,20 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
 </Button>`,
   },
   {
-    slug: "glow-icon",
-    name: "GlowIcon",
+    slug: "icon",
+    name: "Icon",
     category: "Display",
     summary:
       "Wraps a stroke-only line-icon SVG and applies the two-tier luminance rule: inert = near-white, active = the accent with a faint glow, or an iOS-style gradient plate via `plate`. Token sizes, no inline style.",
     preview: (
       <Screen>
         <div className="row">
-          <GlowIcon active size="lg" label="Active">
+          <Icon active size="lg" label="Active">
             <HeartGlyph />
-          </GlowIcon>
-          <GlowIcon size="lg" label="Inert">
+          </Icon>
+          <Icon size="lg" label="Inert">
             <NavGlyph />
-          </GlowIcon>
+          </Icon>
         </div>
       </Screen>
     ),
@@ -232,9 +213,9 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         desc: "a11y label; omit for decorative.",
       },
     ],
-    usage: `<GlowIcon active size="lg" label="Heart rate">
+    usage: `<Icon active size="lg" label="Heart rate">
   <HeartIcon />
-</GlowIcon>`,
+</Icon>`,
   },
   {
     slug: "list",
@@ -247,23 +228,23 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         <List>
           <ListRow
             leading={
-              <GlowIcon plate tone="blue" size="sm">
+              <Icon plate tone="blue" size="sm">
                 <NavGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing={
-              <GlowIcon size="sm">
+              <Icon size="sm">
                 <ChevronGlyph />
-              </GlowIcon>
+              </Icon>
             }
           >
             Navigate
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="green" size="sm">
+              <Icon plate tone="green" size="sm">
                 <MessageGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing="2"
           >
@@ -271,23 +252,23 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="peach" size="sm">
+              <Icon plate tone="peach" size="sm">
                 <MusicGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing={
-              <GlowIcon size="sm">
+              <Icon size="sm">
                 <ChevronGlyph />
-              </GlowIcon>
+              </Icon>
             }
           >
             Music
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="violet" size="sm">
+              <Icon plate tone="violet" size="sm">
                 <HeartGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing="128"
           >
@@ -295,37 +276,37 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="cyan" size="sm">
+              <Icon plate tone="cyan" size="sm">
                 <NavGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing={
-              <GlowIcon size="sm">
+              <Icon size="sm">
                 <ChevronGlyph />
-              </GlowIcon>
+              </Icon>
             }
           >
             Maps
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="amber" size="sm">
+              <Icon plate tone="amber" size="sm">
                 <AlertGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing={
-              <GlowIcon size="sm">
+              <Icon size="sm">
                 <ChevronGlyph />
-              </GlowIcon>
+              </Icon>
             }
           >
             Alerts
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="cyan" size="sm">
+              <Icon plate tone="cyan" size="sm">
                 <BatteryGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing="87%"
           >
@@ -333,14 +314,14 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="green" size="sm">
+              <Icon plate tone="green" size="sm">
                 <CheckGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing={
-              <GlowIcon size="sm">
+              <Icon size="sm">
                 <ChevronGlyph />
-              </GlowIcon>
+              </Icon>
             }
           >
             Updates
@@ -368,7 +349,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
     ],
     usage: `<List>
-  <ListRow leading={<GlowIcon size="sm"><NavIcon /></GlowIcon>}>
+  <ListRow leading={<Icon size="sm"><NavIcon /></Icon>}>
     Navigate
   </ListRow>
   <ListRow trailing="2">Messages</ListRow>
@@ -422,7 +403,9 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           loading={
             <div className="gk-async">
               <Spinner label="Loading" />
-              <Cue>Loading route…</Cue>
+              <span className="t-caption text-foreground-faint">
+                Loading route…
+              </span>
             </div>
           }
         >
@@ -449,7 +432,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       { name: "placeholder", type: "ReactNode", desc: "Shown when idle." },
     ],
-    usage: `<AsyncView status={status} error={<Cue>Couldn’t load</Cue>}>
+    usage: `<AsyncView status={status} error={<span className="t-caption text-foreground-faint">Couldn’t load</span>}>
   <Readout label="Heart rate" value={bpm} unit="BPM" />
 </AsyncView>`,
   },
@@ -753,37 +736,6 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
 ]} />`,
   },
   {
-    slug: "toast",
-    name: "Toast",
-    category: "Status",
-    summary:
-      "A transient notice that animates in with a brief luminance rise (never a modal scrim). Controlled via open; you own the auto-dismiss timer.",
-    preview: (
-      <Screen>
-        <Toast open emphasis="accent">
-          Workout saved
-        </Toast>
-      </Screen>
-    ),
-    props: [
-      {
-        name: "open",
-        type: "boolean",
-        desc: "Render the toast (else nothing).",
-      },
-      { name: "children", type: "ReactNode", desc: "The message." },
-      {
-        name: "emphasis",
-        type: '"default" | "accent"',
-        default: '"default"',
-        desc: "Accent adds a soft glow.",
-      },
-    ],
-    usage: `<Toast open={saved} emphasis="accent">
-  Workout saved
-</Toast>`,
-  },
-  {
     slug: "error-state",
     name: "ErrorState",
     category: "Status",
@@ -793,9 +745,9 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       <Screen>
         <ErrorState
           icon={
-            <GlowIcon size="lg" plate tone="amber" label="Error">
+            <Icon size="lg" plate tone="amber" label="Error">
               <AlertGlyph />
-            </GlowIcon>
+            </Icon>
           }
           title="No signal"
           message="Move to an open area and try again."
@@ -839,9 +791,9 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       <Screen>
         <EmptyState
           icon={
-            <GlowIcon size="lg" plate label="Messages">
+            <Icon size="lg" plate label="Messages">
               <MessageGlyph />
-            </GlowIcon>
+            </Icon>
           }
           title="No messages"
           hint="New conversations land here."
@@ -920,9 +872,9 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
               label: "Navigate",
               tagline: "320 m",
               icon: (
-                <GlowIcon active>
+                <Icon active>
                   <NavGlyph />
-                </GlowIcon>
+                </Icon>
               ),
             },
             {
@@ -930,9 +882,9 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
               label: "Messages",
               tagline: "2 new",
               icon: (
-                <GlowIcon>
+                <Icon>
                   <MessageGlyph />
-                </GlowIcon>
+                </Icon>
               ),
             },
           ]}
@@ -948,9 +900,9 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     ],
     usage: `<Launcher apps={[
   { id: "nav", label: "Navigate", tagline: "320 m",
-    icon: <GlowIcon active><NavIcon /></GlowIcon>, onSelect: openNav },
+    icon: <Icon active><NavIcon /></Icon>, onSelect: openNav },
   { id: "msg", label: "Messages", tagline: "2 new",
-    icon: <GlowIcon><MessageIcon /></GlowIcon>, onSelect: openMessages },
+    icon: <Icon><MessageIcon /></Icon>, onSelect: openMessages },
 ]} />`,
   },
   {
@@ -1006,7 +958,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     // Static stand-in: the live stack (with real history pushes) runs in the
     // interactive demo and the /preview glass app.
     preview: (
-      <Screen cue={<Cue>Middle pinch goes back</Cue>}>
+      <Screen cue="Middle pinch goes back">
         <Heading eyebrow="Navigator">Workout</Heading>
         <List>
           <ListRow>Start a run</ListRow>
@@ -1050,8 +1002,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
     summary:
       "Tappable canned replies (the comms job: there is no keyboard on the lens, text is voice). Each chip is D-pad-focusable. Keep the set short and glanceable.",
     preview: (
-      <Screen>
-        <Cue>&ldquo;Running late&rdquo;</Cue>
+      <Screen cue={<>&ldquo;Running late&rdquo;</>}>
         <QuickReplyChips options={["On my way", "5 min", "Call me"]} />
       </Screen>
     ),
@@ -1088,20 +1039,6 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
 <Pin x={x} y={y} label="Blue Bottle" distance="120 m" />`,
   },
   {
-    slug: "callout",
-    name: "Callout",
-    category: "Spatial",
-    summary:
-      "A world-object annotation: an anchor + a vertical leader up to an emitted label (no box, just a leader line + emitted type). Project x from relative bearing like Pin (lib/geo). World-anchored, never mirrored.",
-    preview: <Callout x={50} y={56} label="Powell St" detail="Muni · 3 min" />,
-    props: [
-      { name: "x / y", type: "number", desc: "0–100, % of the lens." },
-      { name: "label", type: "ReactNode", desc: "The annotation label." },
-      { name: "detail", type: "ReactNode", desc: "Optional second line." },
-    ],
-    usage: `<Callout x={x} y={y} label="Powell St" detail="Muni · 3 min" />`,
-  },
-  {
     slug: "map-view",
     name: "MapView",
     category: "Spatial",
@@ -1116,8 +1053,12 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
           destination={BAKED_ROUTES[3]!.path.at(-1)}
         />
         <Screen
-          status={<Cue emphasis="accent">Eleven Madison · 738 m · 9 min</Cue>}
-          cue={<Cue>Routing there</Cue>}
+          status={
+            <span className="t-caption text-primary">
+              Eleven Madison · 738 m · 9 min
+            </span>
+          }
+          cue="Routing there"
         >
           {null}
         </Screen>
@@ -1404,18 +1345,18 @@ toast("Mara Lin", {
                 className="focusable gk-callbtn gk-callbtn--decline"
                 aria-label="Decline"
               >
-                <GlowIcon size="md">
+                <Icon size="md">
                   <PhoneOffGlyph />
-                </GlowIcon>
+                </Icon>
               </button>
               <button
                 type="button"
                 className="focusable gk-callbtn gk-callbtn--accept"
                 aria-label="Accept"
               >
-                <GlowIcon size="md">
+                <Icon size="md">
                   <PhoneGlyph />
-                </GlowIcon>
+                </Icon>
               </button>
             </>
           }
@@ -1625,9 +1566,9 @@ toast("Mara Lin", {
       <Screen>
         <WeatherTile
           icon={
-            <GlowIcon size="lg">
+            <Icon size="lg">
               <SunGlyph />
-            </GlowIcon>
+            </Icon>
           }
           temp="72°"
           condition="Sunny"
@@ -1647,7 +1588,7 @@ toast("Mara Lin", {
       },
     ],
     usage: `<WeatherTile
-  icon={<GlowIcon size="lg"><SunIcon /></GlowIcon>}
+  icon={<Icon size="lg"><SunIcon /></Icon>}
   temp="72°" condition="Sunny" location="San Francisco" range="H:78° L:61°"
 />`,
   },
@@ -1662,18 +1603,18 @@ toast("Mara Lin", {
         <Slider
           value={70}
           icon={
-            <GlowIcon size="md">
+            <Icon size="md">
               <VolumeGlyph />
-            </GlowIcon>
+            </Icon>
           }
           label="Volume"
         />
         <Slider
           value={40}
           icon={
-            <GlowIcon size="md">
+            <Icon size="md">
               <SunGlyph />
-            </GlowIcon>
+            </Icon>
           }
           label="Brightness"
         />
@@ -1700,52 +1641,8 @@ toast("Mara Lin", {
     ],
     usage: `<Slider
   value={volume} onChange={setVolume}
-  icon={<GlowIcon size="md"><VolumeIcon /></GlowIcon>}
+  icon={<Icon size="md"><VolumeIcon /></Icon>}
   label="Volume"
-/>`,
-  },
-  {
-    slug: "text-field",
-    name: "TextField",
-    category: "Input",
-    summary:
-      "A text-entry surface. No keyboard (or microphone API) on the lens: a focusable field showing the value + a mic-style affordance; onActivate opens your own capture flow. ComposeFlow is the ready-made picker recipe.",
-    preview: (
-      <Screen>
-        <TextField
-          label="Reply"
-          placeholder="Pinch to enter text"
-          icon={
-            <GlowIcon size="md">
-              <MicGlyph />
-            </GlowIcon>
-          }
-        />
-      </Screen>
-    ),
-    props: [
-      { name: "label", type: "ReactNode", desc: "Field label." },
-      {
-        name: "value",
-        type: "ReactNode",
-        desc: "Current value (else placeholder).",
-      },
-      {
-        name: "placeholder",
-        type: "ReactNode",
-        default: '"Pinch to enter text"',
-        desc: "Empty hint.",
-      },
-      { name: "icon", type: "ReactNode", desc: "Trailing affordance (mic)." },
-      {
-        name: "onActivate",
-        type: "() => void",
-        desc: "Opens dictation / handwriting.",
-      },
-    ],
-    usage: `<TextField
-  label="Reply" value={draft} onActivate={startDictation}
-  icon={<GlowIcon size="md"><MicIcon /></GlowIcon>}
 />`,
   },
   {
@@ -1753,7 +1650,7 @@ toast("Mara Lin", {
     name: "ComposeFlow",
     category: "Input",
     summary:
-      "The working text-entry recipe: a TextField that opens a picker of choices when activated; choosing writes back and returns. The picker rides history, so the back gesture closes it, inside or outside a Navigator. The seam system dictation would replace.",
+      "The working text-entry recipe: a focusable field that opens a picker of choices when activated; choosing writes back and returns. The picker rides history, so the back gesture closes it, inside or outside a Navigator. The seam system dictation would replace.",
     preview: (
       <Screen>
         <ComposeFlow
@@ -1782,7 +1679,7 @@ toast("Mara Lin", {
         default: '"Choose"',
         desc: "Heading on the picker view.",
       },
-      { name: "icon", type: "ReactNode", desc: "TextField trailing glyph." },
+      { name: "icon", type: "ReactNode", desc: "Field trailing glyph." },
       {
         name: "onChange",
         type: "(value: string) => void",
@@ -1809,9 +1706,9 @@ toast("Mara Lin", {
       <Screen>
         <PermissionPrompt
           icon={
-            <GlowIcon size="lg" plate tone="cyan">
+            <Icon size="lg" plate tone="cyan">
               <NavGlyph />
-            </GlowIcon>
+            </Icon>
           }
           title="Use your location?"
           actions={
@@ -1826,13 +1723,13 @@ toast("Mara Lin", {
       </Screen>
     ),
     props: [
-      { name: "icon", type: "ReactNode", desc: "A gradient-plate GlowIcon." },
+      { name: "icon", type: "ReactNode", desc: "A gradient-plate Icon." },
       { name: "title", type: "ReactNode", desc: "The request." },
       { name: "children", type: "ReactNode", desc: "Why the app needs it." },
       { name: "actions", type: "ReactNode", desc: "Allow / deny controls." },
     ],
     usage: `<PermissionPrompt
-  icon={<GlowIcon size="lg" plate tone="cyan"><LocationIcon /></GlowIcon>}
+  icon={<Icon size="lg" plate tone="cyan"><LocationIcon /></Icon>}
   title="Use your location?"
   actions={<><Button onClick={deny}>Not now</Button>
             <Button variant="primary" onClick={allow}>Allow</Button></>}
@@ -1847,7 +1744,7 @@ toast("Mara Lin", {
     summary:
       "The focusable wrapper for custom UI. Renders a real button carrying the focusable class, so useDpad walks it and fires onPress on Enter or the Neural Band pinch. Reach for it to make your own content (a card, a tile, a row) D-pad-interactive when no first-class component fits. It adds no chrome beyond the focus ring and press animation.",
     preview: (
-      <Screen cue={<Cue>Arrow between the tiles, Enter to press</Cue>}>
+      <Screen cue="Arrow between the tiles, Enter to press">
         <div className="row">
           <Pressable initialFocus>
             <Readout label="Steps" value="8,420" />

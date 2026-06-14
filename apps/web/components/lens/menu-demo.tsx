@@ -1,7 +1,7 @@
 import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
 import { List, ListRow } from "@registry/ui/list";
-import { GlowIcon } from "@registry/ui/glow-icon";
+import { Icon } from "@registry/ui/icon";
 import {
   NavGlyph,
   MessageGlyph,
@@ -49,12 +49,12 @@ export function MenuDemo() {
           {rows.map((r) => (
             <ListRow
               key={r.label}
-              leading={<GlowIcon size="sm">{r.icon}</GlowIcon>}
+              leading={<Icon size="sm">{r.icon}</Icon>}
               trailing={
                 r.trailing === "chevron" ? (
-                  <GlowIcon size="sm">
+                  <Icon size="sm">
                     <ChevronGlyph />
-                  </GlowIcon>
+                  </Icon>
                 ) : (
                   r.trailing
                 )

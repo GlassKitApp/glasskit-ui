@@ -18,7 +18,7 @@ export function PermissionPrompt({
   actions,
   className,
 }: {
-  /** A gradient-plate <GlowIcon> for the capability. */
+  /** A gradient-plate <Icon> for the capability. */
   icon?: ReactNode;
   title: ReactNode;
   /** Why the app needs it (keep it short + honest). */

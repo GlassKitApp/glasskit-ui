@@ -2,7 +2,6 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { Screen } from "@registry/ui/screen";
-import { Cue } from "@registry/ui/cue";
 import { Button } from "@registry/ui/button";
 import { Toggle } from "@registry/ui/toggle";
 import { Stepper } from "@registry/ui/stepper";
@@ -13,7 +12,6 @@ import { Confirm } from "@registry/ui/confirm";
 import { QuickReplyChips } from "@registry/ui/quick-reply-chips";
 import { Deck } from "@registry/ui/deck";
 import { Launcher } from "@registry/ui/launcher";
-import { TextField } from "@registry/ui/text-field";
 import { ComposeFlow } from "@registry/ui/compose-flow";
 import { PermissionPrompt } from "@registry/ui/permission-prompt";
 import { Timer } from "@registry/ui/timer";
@@ -21,7 +19,7 @@ import { EmptyState } from "@registry/ui/empty-state";
 import { NotificationCard } from "@registry/ui/notification-card";
 import { NowPlaying } from "@registry/ui/now-playing";
 import { CallCard } from "@registry/ui/call-card";
-import { Toast } from "@registry/ui/toast";
+import { Toaster, toast } from "@registry/ui/toaster";
 import { AsyncView } from "@registry/ui/async-view";
 import { Progress } from "@registry/ui/progress";
 import { List, ListRow } from "@registry/ui/list";
@@ -31,12 +29,11 @@ import { DirectionArrow } from "@registry/ui/direction-arrow";
 import { Heading } from "@registry/ui/heading";
 import { Readout } from "@registry/ui/readout";
 import { Avatar } from "@registry/ui/avatar";
-import { GlowIcon } from "@registry/ui/glow-icon";
+import { Icon } from "@registry/ui/icon";
 import {
   CheckGlyph,
   ChevronGlyph,
   MessageGlyph,
-  MicGlyph,
   MusicGlyph,
   NavGlyph,
   PhoneGlyph,
@@ -60,7 +57,7 @@ export function ToggleDemo() {
   const [wifi, setWifi] = useState(true);
   const [dnd, setDnd] = useState(false);
   return (
-    <Screen cue={<Cue>Enter flips the focused switch</Cue>}>
+    <Screen cue="Enter flips the focused switch">
       <Heading>Quick controls</Heading>
       <Toggle checked={wifi} onChange={setWifi} label="Wi-Fi" />
       <Toggle checked={dnd} onChange={setDnd} label="Do not disturb" />
@@ -87,11 +84,9 @@ export function ListDemo() {
   return (
     <Screen
       cue={
-        <Cue>
-          {opened
-            ? `Opened ${opened}`
-            : "Up / down walks the rows — keep going, it scrolls"}
-        </Cue>
+        opened
+          ? `Opened ${opened}`
+          : "Up / down walks the rows — keep going, it scrolls"
       }
     >
       <List>
@@ -112,7 +107,7 @@ export function ListDemo() {
 export function StepperDemo() {
   const [zoom, setZoom] = useState(2);
   return (
-    <Screen cue={<Cue>Focus − / + and press Enter</Cue>}>
+    <Screen cue="Focus − / + and press Enter">
       <Stepper
         value={zoom}
         onChange={setZoom}
@@ -128,15 +123,15 @@ export function StepperDemo() {
 export function SliderDemo() {
   const [volume, setVolume] = useState(60);
   return (
-    <Screen cue={<Cue>Arrow keys adjust while focused</Cue>}>
+    <Screen cue="Arrow keys adjust while focused">
       <Slider
         value={volume}
         onChange={setVolume}
         label={`Volume · ${volume}`}
         icon={
-          <GlowIcon size="sm">
+          <Icon size="sm">
             <VolumeGlyph />
-          </GlowIcon>
+          </Icon>
         }
       />
     </Screen>
@@ -146,7 +141,7 @@ export function SliderDemo() {
 export function SegmentedDemo() {
   const [view, setView] = useState<"map" | "list">("map");
   return (
-    <Screen cue={<Cue>Showing the {view} view</Cue>}>
+    <Screen cue={`Showing the ${view} view`}>
       <Segmented
         value={view}
         onChange={setView}
@@ -180,7 +175,7 @@ export function TabsDemo() {
           ]}
         />
       }
-      cue={<Cue>{LABELS[tab]}</Cue>}
+      cue={LABELS[tab]}
     >
       <Readout label="Active tab" value={LABELS[tab] ?? tab} />
     </Screen>
@@ -191,8 +186,8 @@ export function ConfirmDemo() {
   const [answer, setAnswer] = useState<string | null>(null);
   if (answer) {
     return (
-      <Screen cue={<Cue emphasis="accent">{answer}</Cue>}>
-        <Heading>Workout</Heading>
+      <Screen cue={answer} cueLive>
+        <Heading>Recording</Heading>
         <Button onClick={() => setAnswer(null)}>Again</Button>
       </Screen>
     );
@@ -200,12 +195,13 @@ export function ConfirmDemo() {
   return (
     <Screen>
       <Confirm
-        title="End workout?"
-        message="42 minutes will be saved."
-        confirmLabel="End"
-        cancelLabel="Keep going"
-        onConfirm={() => setAnswer("Saved — nice run.")}
-        onCancel={() => setAnswer("Still recording.")}
+        title="Discard recording?"
+        message="12:48 of footage will be permanently deleted. This can't be undone."
+        confirmLabel="Discard"
+        cancelLabel="Keep"
+        destructive
+        onConfirm={() => setAnswer("Recording discarded")}
+        onCancel={() => setAnswer("Still recording")}
       />
     </Screen>
   );
@@ -215,11 +211,8 @@ export function QuickReplyChipsDemo() {
   const [sent, setSent] = useState<string | null>(null);
   return (
     <Screen
-      cue={
-        <Cue emphasis={sent ? "accent" : "default"}>
-          {sent ? `Sent: “${sent}”` : "“Running late?”"}
-        </Cue>
-      }
+      cue={sent ? `Sent: “${sent}”` : "“Running late?”"}
+      cueLive={!!sent}
     >
       <QuickReplyChips
         options={["On my way", "5 min", "Call me"]}
@@ -237,7 +230,7 @@ export function DeckDemo() {
       new CustomEvent("neuralband", { detail: { gesture: "swipe" } }),
     );
   return (
-    <Screen cue={<Cue>Swipe the band (or press Next) to advance</Cue>}>
+    <Screen cue="Swipe the band (or press Next) to advance">
       <Deck>
         <Heading eyebrow="Step 1">Connect band</Heading>
         <Heading eyebrow="Step 2">Calibrate</Heading>
@@ -251,7 +244,7 @@ export function DeckDemo() {
 export function LauncherDemo() {
   const [opened, setOpened] = useState<string | null>(null);
   return (
-    <Screen cue={<Cue>{opened ? `Opening ${opened}…` : "Pick an app"}</Cue>}>
+    <Screen cue={opened ? `Opening ${opened}…` : "Pick an app"}>
       <Launcher
         apps={[
           {
@@ -286,32 +279,13 @@ export function LauncherDemo() {
   );
 }
 
-export function TextFieldDemo() {
-  const [value, setValue] = useState<string | null>(null);
-  return (
-    <Screen
-      cue={<Cue>{value ? "Captured" : "Pinch opens your capture flow"}</Cue>}
-    >
-      <TextField
-        label="Message"
-        value={value}
-        onActivate={() => setValue("On my way — 5 minutes.")}
-        icon={
-          <GlowIcon size="sm">
-            <MicGlyph />
-          </GlowIcon>
-        }
-      />
-    </Screen>
-  );
-}
-
 export function PermissionPromptDemo() {
   const [granted, setGranted] = useState<boolean | null>(null);
   if (granted != null) {
     return (
       <Screen
-        cue={<Cue emphasis="accent">{granted ? "Location on" : "Denied"}</Cue>}
+        cue={granted ? "Location on" : "Denied"}
+        cueLive
       >
         <Heading>Navigation</Heading>
         <Button onClick={() => setGranted(null)}>Ask again</Button>
@@ -322,9 +296,9 @@ export function PermissionPromptDemo() {
     <Screen>
       <PermissionPrompt
         icon={
-          <GlowIcon size="lg" plate tone="cyan" label="Location">
+          <Icon size="lg" plate tone="cyan" label="Location">
             <NavGlyph />
-          </GlowIcon>
+          </Icon>
         }
         title="Use your location?"
         actions={
@@ -346,7 +320,7 @@ export function NotificationCardDemo() {
   const [done, setDone] = useState<string | null>(null);
   return (
     <Screen
-      cue={<Cue>{done ?? "Below the sightline, like the real Display"}</Cue>}
+      cue={done ?? "Below the sightline, like the real Display"}
     >
       <NotificationCard
         avatar={<Avatar name="Maya Chen" tone="violet" />}
@@ -418,12 +392,13 @@ export function CallCardDemo() {
   return (
     <Screen
       cue={
-        state === "ended" ? (
-          <Cue>Call ended</Cue>
-        ) : state === "active" ? (
-          <Cue emphasis="accent">00:07 · connected</Cue>
-        ) : undefined
+        state === "ended"
+          ? "Call ended"
+          : state === "active"
+            ? "00:07 · connected"
+            : undefined
       }
+      cueLive={state === "active"}
     >
       <CallCard
         avatar={<Avatar name="Dani Ortiz" tone="green" size="lg" />}
@@ -441,9 +416,9 @@ export function CallCardDemo() {
               <Button
                 variant="primary"
                 icon={
-                  <GlowIcon size="sm">
+                  <Icon size="sm">
                     <PhoneGlyph />
-                  </GlowIcon>
+                  </Icon>
                 }
                 onClick={() => setState("active")}
               >
@@ -451,9 +426,9 @@ export function CallCardDemo() {
               </Button>
               <Button
                 icon={
-                  <GlowIcon size="sm">
+                  <Icon size="sm">
                     <PhoneOffGlyph />
-                  </GlowIcon>
+                  </Icon>
                 }
                 onClick={() => setState("ended")}
               >
@@ -471,27 +446,42 @@ export function CallCardDemo() {
   );
 }
 
-export function ToastDemo() {
-  // Starts visible so the preview shows the component, not just its trigger.
-  const [open, setOpen] = useState(true);
-  useEffect(() => {
-    if (!open) return;
-    const id = setTimeout(() => setOpen(false), 2400);
-    return () => clearTimeout(id);
-  }, [open]);
+export function ToasterDemo() {
+  // A toast can be interactive: an `action` (its button is focusable, so the
+  // D-pad reaches it) + `duration: Infinity` so it persists. Pinching "View"
+  // opens a detail screen — the toast acted as the entry point.
+  const [opened, setOpened] = useState(false);
   return (
-    <Screen
-      cue={
-        <Toast open={open} emphasis="accent">
-          Saved to camera roll
-        </Toast>
-      }
-    >
-      <Heading>Toast</Heading>
-      <Button variant="primary" onClick={() => setOpen(true)}>
-        Save photo
-      </Button>
-    </Screen>
+    <>
+      {opened ? (
+        <Screen cue="Pinch Back to return">
+          <Heading eyebrow="Maya Lin">Message</Heading>
+          <p className="t-body text-foreground-faint">
+            On my way, be there in 5
+          </p>
+          <Button variant="primary" onClick={() => setOpened(false)}>
+            Back
+          </Button>
+        </Screen>
+      ) : (
+        <Screen cue="Notify, then pinch View on the toast">
+          <Heading>Toaster</Heading>
+          <Button
+            variant="primary"
+            onClick={() =>
+              toast("Maya Lin", {
+                description: "On my way, be there in 5",
+                action: { label: "View", onClick: () => setOpened(true) },
+                duration: Infinity,
+              })
+            }
+          >
+            Notify
+          </Button>
+        </Screen>
+      )}
+      <Toaster />
+    </>
   );
 }
 
@@ -505,7 +495,7 @@ export function AsyncViewDemo() {
     setTimeout(() => setStatus(fail ? "error" : "success"), 1400);
   };
   return (
-    <Screen cue={<Cue>Drive the async state machine</Cue>}>
+    <Screen cue="Drive the async state machine">
       <AsyncView status={status} errorLabel="No signal — try again">
         <Readout label="Heart rate" value="128" unit="BPM" />
       </AsyncView>
@@ -527,7 +517,7 @@ export function ProgressDemo() {
     return () => clearInterval(id);
   }, []);
   return (
-    <Screen cue={<Cue>Linear + step, same component</Cue>}>
+    <Screen cue="Linear + step, same component">
       <Progress value={pct} label={`${Math.round(pct)}%`} />
       <Progress variant="step" value={Math.ceil((pct / 100) * 4)} max={4} />
     </Screen>
@@ -538,16 +528,16 @@ export function ButtonDemo() {
   const [count, setCount] = useState(0);
   return (
     <Screen
-      cue={<Cue>{count > 0 ? `Logged ×${count}` : "Enter activates"}</Cue>}
+      cue={count > 0 ? `Logged ×${count}` : "Enter activates"}
     >
       <Readout label="Heart rate" value="128" unit="BPM" />
       <div className="row">
         <Button
           variant="primary"
           icon={
-            <GlowIcon size="sm">
+            <Icon size="sm">
               <CheckGlyph />
-            </GlowIcon>
+            </Icon>
           }
           onClick={() => setCount((c) => c + 1)}
         >
@@ -562,7 +552,7 @@ export function ButtonDemo() {
 function NavHome() {
   const nav = useNavigator();
   return (
-    <Screen cue={<Cue>Middle pinch (Esc here) goes back</Cue>}>
+    <Screen cue="Middle pinch (Esc here) goes back">
       <Heading eyebrow="Navigator">Workout</Heading>
       <List>
         <ListRow
@@ -591,7 +581,7 @@ function NavHome() {
 function NavSession({ kind }: { kind?: string }) {
   const nav = useNavigator();
   return (
-    <Screen cue={<Cue emphasis="accent">Recording — back pauses</Cue>}>
+    <Screen cue="Recording — back pauses" cueLive>
       <Heading eyebrow={kind}>In progress</Heading>
       <Readout label="Elapsed" value="12:08" />
       <Button variant="primary" onClick={() => nav.push("summary")}>
@@ -604,7 +594,7 @@ function NavSession({ kind }: { kind?: string }) {
 function NavSummary() {
   const nav = useNavigator();
   return (
-    <Screen cue={<Cue>popToTop unwinds the whole stack</Cue>}>
+    <Screen cue="popToTop unwinds the whole stack">
       <Heading eyebrow="Saved">Nice run</Heading>
       <Readout label="Distance" value="5.2" unit="km" />
       <Button variant="primary" onClick={() => nav.popToTop()}>
@@ -617,7 +607,7 @@ function NavSummary() {
 function NavHistory() {
   const nav = useNavigator();
   return (
-    <Screen cue={<Cue>System back returns home</Cue>}>
+    <Screen cue="System back returns home">
       <Heading eyebrow="History">This week</Heading>
       <Readout label="Sessions" value="4" />
       <Button onClick={() => nav.pop()}>Back</Button>
@@ -677,11 +667,9 @@ export function CompassDemo() {
   return (
     <Screen
       cue={
-        <Cue>
-          {simulated == null
-            ? "Live head orientation"
-            : "Simulated sweep — no sensor here"}
-        </Cue>
+        simulated == null
+          ? "Live head orientation"
+          : "Simulated sweep — no sensor here"
       }
     >
       {/* heading omitted on-device → useDeviceOrientation drives it */}
@@ -697,12 +685,11 @@ export function DirectionArrowDemo() {
   return (
     <Screen
       cue={
-        <Cue emphasis="accent">
-          {simulated == null
-            ? "Toward the Ferry Building"
-            : "Simulated sweep — no sensor here"}
-        </Cue>
+        simulated == null
+          ? "Toward the Ferry Building"
+          : "Simulated sweep — no sensor here"
       }
+      cueLive
     >
       <DirectionArrow
         bearing={simulated}
@@ -720,11 +707,8 @@ export function TimerDemo() {
   const [done, setDone] = useState(false);
   return (
     <Screen
-      cue={
-        <Cue emphasis={done ? "accent" : undefined}>
-          {done ? "Done — time's up" : "Pause, resume, or restart"}
-        </Cue>
-      }
+      cue={done ? "Done — time's up" : "Pause, resume, or restart"}
+      cueLive={done}
     >
       <Timer
         key={round}
@@ -752,32 +736,26 @@ export function TimerDemo() {
 }
 
 export function EmptyStateDemo() {
-  const [messages, setMessages] = useState<string[]>([]);
-  if (messages.length > 0) {
-    return (
-      <Screen cue={<Cue>Filled — this is the same screen</Cue>}>
-        <List>
-          {messages.map((m) => (
-            <ListRow key={m} trailing={<ChevronGlyph />}>
-              {m}
-            </ListRow>
-          ))}
-        </List>
-      </Screen>
-    );
-  }
+  const [checking, setChecking] = useState(false);
+  // An honest refresh: flips to a brief loading state, then returns to empty.
+  // Nothing magically appears — the screen has no photos, and still doesn't.
+  const refresh = () => {
+    if (checking) return;
+    setChecking(true);
+    setTimeout(() => setChecking(false), 1400);
+  };
   return (
-    <Screen cue={<Cue>The action invites the first content</Cue>}>
+    <Screen cue={checking ? "Checking…" : "Nothing here yet"} cueLive={checking}>
       <EmptyState
         icon={
-          <GlowIcon size="lg" plate label="Messages">
-            <MessageGlyph />
-          </GlowIcon>
+          <Icon size="lg" plate label="Photos">
+            <CameraGlyph />
+          </Icon>
         }
-        title="No messages"
-        hint="New conversations land here."
-        actionLabel="Check now"
-        onAction={() => setMessages(["Maya", "Dispatch", "Group ride"])}
+        title="No photos yet"
+        hint="Photos you capture show up here."
+        actionLabel={checking ? "Checking…" : "Refresh"}
+        onAction={refresh}
       />
     </Screen>
   );
@@ -788,11 +766,9 @@ export function ComposeFlowDemo() {
   return (
     <Screen
       cue={
-        <Cue>
-          {reply
-            ? "Sent — pinch to change"
-            : "Pinch the field · pinch back closes"}
-        </Cue>
+        reply
+          ? "Sent — pinch to change"
+          : "Pinch the field · pinch back closes"
       }
     >
       <ComposeFlow

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Navigator, useNavigator } from "@registry/ui/navigator";
 import { Screen } from "@registry/ui/screen";
-import { Cue } from "@registry/ui/cue";
 import { Heading } from "@registry/ui/heading";
 import { List, ListRow } from "@registry/ui/list";
 import { StatGrid } from "@registry/ui/stat-grid";
@@ -12,7 +11,7 @@ import { Timer } from "@registry/ui/timer";
 import { Button } from "@registry/ui/button";
 import { Confirm } from "@registry/ui/confirm";
 import { EmptyState } from "@registry/ui/empty-state";
-import { GlowIcon } from "@registry/ui/glow-icon";
+import { Icon } from "@registry/ui/icon";
 import { HeartGlyph, ChevronGlyph } from "@/components/lens/icons";
 
 /**
@@ -39,14 +38,14 @@ export function WorkoutApp() {
 function Home() {
   const nav = useNavigator();
   return (
-    <Screen cue={<Cue>Pinch opens · middle pinch backs out</Cue>}>
+    <Screen cue="Pinch opens · middle pinch backs out">
       <Heading eyebrow="Workout">Today</Heading>
       <List>
         <ListRow
           leading={
-            <GlowIcon size="sm" plate tone="peach" label="Run">
+            <Icon size="sm" plate tone="peach" label="Run">
               <HeartGlyph />
-            </GlowIcon>
+            </Icon>
           }
           trailing={<ChevronGlyph />}
           onClick={() => nav.push("run")}
@@ -72,9 +71,11 @@ function Run() {
   return (
     <Screen
       status={
-        <Cue icon={<StatusDot status="live" label="GPS" />}>Recording</Cue>
+        <span className="t-caption text-foreground-faint">
+          <StatusDot status="live" label="GPS" /> Recording
+        </span>
       }
-      cue={<Cue>Stats update as you move</Cue>}
+      cue="Stats update as you move"
     >
       <StatGrid
         items={[
@@ -95,7 +96,7 @@ function Rest() {
   const [running, setRunning] = useState(true);
   const [round, setRound] = useState(0);
   return (
-    <Screen cue={<Cue>Middle pinch returns to the list</Cue>}>
+    <Screen cue="Middle pinch returns to the list">
       <Timer key={round} duration={90} running={running} label="Rest" />
       <div className="row">
         <Button variant="primary" onClick={() => setRunning((r) => !r)}>
@@ -117,7 +118,7 @@ function Rest() {
 function End() {
   const nav = useNavigator();
   return (
-    <Screen cue={<Cue>The ring seeds on the safe action</Cue>}>
+    <Screen cue="The ring seeds on the safe action">
       {/* destructive: ending discards the live session — focus starts on
           "Keep going" so a blind pinch can't end the run. */}
       <Confirm
@@ -135,7 +136,7 @@ function End() {
 
 function History() {
   return (
-    <Screen cue={<Cue>Nothing here yet</Cue>}>
+    <Screen cue="Nothing here yet">
       <EmptyState
         title="No workouts"
         hint="Finished sessions land here."

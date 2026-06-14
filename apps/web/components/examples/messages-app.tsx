@@ -3,13 +3,11 @@
 import { useState } from "react";
 import { Navigator, useNavigator } from "@registry/ui/navigator";
 import { Screen } from "@registry/ui/screen";
-import { Cue } from "@registry/ui/cue";
 import { Heading } from "@registry/ui/heading";
 import { List, ListRow } from "@registry/ui/list";
 import { Avatar } from "@registry/ui/avatar";
 import { MessageThread, ChatBubble } from "@registry/ui/chat-bubble";
 import { ComposeFlow } from "@registry/ui/compose-flow";
-import { Toast } from "@registry/ui/toast";
 
 /**
  * Messages — a complete example app: thread list → conversation, with
@@ -37,7 +35,7 @@ const PREVIEWS: Record<string, string> = {
 function Threads() {
   const nav = useNavigator();
   return (
-    <Screen cue={<Cue>Pinch opens a conversation</Cue>}>
+    <Screen cue="Pinch opens a conversation">
       <Heading eyebrow="Messages">Inbox</Heading>
       <List>
         {Object.entries(PREVIEWS).map(([who, preview]) => (
@@ -61,11 +59,8 @@ function Thread({ who }: { who: string }) {
   return (
     <Screen
       status={<Heading eyebrow={who}>Thread</Heading>}
-      cue={
-        <Toast open={confirmed} emphasis="accent">
-          Sent to {who}
-        </Toast>
-      }
+      cue={confirmed ? `Sent to ${who}` : "Pinch to reply"}
+      cueLive={confirmed}
     >
       <MessageThread>
         <ChatBubble from="them">{PREVIEWS[who]}</ChatBubble>

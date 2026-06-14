@@ -1,47 +1,71 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Screen } from "@registry/ui/screen";
-import { Cue } from "@registry/ui/cue";
 import { Grid } from "@registry/ui/grid";
-import { MediaThumb } from "@registry/ui/media-thumb";
+import { Icon, type IconTone } from "@registry/ui/icon";
+import { Pressable } from "@registry/ui/pressable";
+import {
+  CameraGlyph,
+  MusicGlyph,
+  NavGlyph,
+  MessageGlyph,
+  SunGlyph,
+  PhoneGlyph,
+  MicGlyph,
+  KeyboardGlyph,
+  VolumeGlyph,
+  HeartGlyph,
+} from "@/components/lens/icons";
 
-const IMG = (id: string) =>
-  `https://images.unsplash.com/photo-${id}?w=240&h=240&fit=crop&q=70`;
-
-// Square crops so the cells line up: Grid is the aligned counterpart to Masonry.
-const PHOTOS = [
-  { id: "1501785888041-af3ef285b470", label: "Summit" },
-  { id: "1441974231531-c6227db76b6e", label: "Pines" },
-  { id: "1433086966358-54859d0ed716", label: "Falls" },
-  { id: "1426604966848-d7adac402bff", label: "Valley" },
-  { id: "1518495973542-4542c06a5843", label: "Canopy" },
-  { id: "1469474968028-56623f02e42e", label: "Golden" },
+// A real layout of items, not a gallery: an app / quick-actions grid. Enough
+// tiles that it overflows the 600×600 stage and the Grid scrolls vertically.
+const TILES: {
+  label: string;
+  tone: IconTone;
+  glyph: ReactNode;
+}[] = [
+  { label: "Camera", tone: "blue", glyph: <CameraGlyph /> },
+  { label: "Music", tone: "peach", glyph: <MusicGlyph /> },
+  { label: "Maps", tone: "green", glyph: <NavGlyph /> },
+  { label: "Messages", tone: "cyan", glyph: <MessageGlyph /> },
+  { label: "Weather", tone: "amber", glyph: <SunGlyph /> },
+  { label: "Calls", tone: "violet", glyph: <PhoneGlyph /> },
+  { label: "Voice", tone: "blue", glyph: <MicGlyph /> },
+  { label: "Keyboard", tone: "cyan", glyph: <KeyboardGlyph /> },
+  { label: "Volume", tone: "green", glyph: <VolumeGlyph /> },
+  { label: "Health", tone: "peach", glyph: <HeartGlyph /> },
 ];
 
-/** An aligned photo grid: D-pad walks the cells, Enter opens one. */
+/** An app grid: a real multi-column layout of focusable tiles the D-pad walks. */
 export function MediaGridDemo() {
   const [sel, setSel] = useState<number | null>(null);
-  const picked = sel != null ? PHOTOS[sel]! : null;
+  const picked = sel != null ? TILES[sel]! : null;
 
   return (
     <Screen
       status={
         <span className="t-caption">
-          {picked ? picked.label : `Grid · ${PHOTOS.length} photos`}
+          {picked ? picked.label : `Apps · ${TILES.length}`}
         </span>
       }
-      cue={<Cue>{picked ? `Opening ${picked.label}` : "Arrow the cells · Enter opens"}</Cue>}
+      cue={picked ? `Opening ${picked.label}` : "Arrow the tiles · Enter opens"}
+      cueLive={picked != null}
     >
-      <Grid columns={2}>
-        {PHOTOS.map((photo, i) => (
-          <MediaThumb
-            key={photo.id}
-            src={IMG(photo.id)}
-            alt={photo.label}
-            label={photo.label}
-            onSelect={() => setSel(i)}
-          />
+      <Grid columns={3}>
+        {TILES.map((tile, i) => (
+          <Pressable
+            key={tile.label}
+            aria-label={tile.label}
+            initialFocus={i === 0}
+            onPress={() => setSel(i)}
+            className="surface flex aspect-square flex-col items-center justify-center gap-2 rounded-lens"
+          >
+            <Icon size="md" plate tone={tile.tone}>
+              {tile.glyph}
+            </Icon>
+            <span className="t-caption text-muted-foreground">{tile.label}</span>
+          </Pressable>
         ))}
       </Grid>
     </Screen>

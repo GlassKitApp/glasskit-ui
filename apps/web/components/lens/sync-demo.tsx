@@ -1,6 +1,5 @@
 import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
-import { Cue } from "@registry/ui/cue";
 import { Readout } from "@registry/ui/readout";
 import { Progress } from "@registry/ui/progress";
 import { AsyncView, Spinner } from "@registry/ui/async-view";
@@ -9,7 +8,7 @@ import { AsyncView, Spinner } from "@registry/ui/async-view";
 export function SyncDemo() {
   return (
     <GlassViewport>
-      <Screen cue={<Cue emphasis="accent">Keep glasses on</Cue>}>
+      <Screen cue="Keep glasses on" cueLive>
         <AsyncView
           status="loading"
           loading={

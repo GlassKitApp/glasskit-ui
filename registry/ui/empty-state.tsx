@@ -20,7 +20,7 @@ export function EmptyState({
   title?: ReactNode;
   /** A quieter second line — what will fill this screen, or how. */
   hint?: ReactNode;
-  /** Optional leading glyph — typically a <GlowIcon>. */
+  /** Optional leading glyph — typically a <Icon>. */
   icon?: ReactNode;
   onAction?: () => void;
   actionLabel?: ReactNode;

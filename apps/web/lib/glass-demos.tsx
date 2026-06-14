@@ -21,9 +21,8 @@ import {
   SliderDemo,
   StepperDemo,
   TabsDemo,
-  TextFieldDemo,
   TimerDemo,
-  ToastDemo,
+  ToasterDemo,
   ToggleDemo,
 } from "@/components/glass-demos/demos";
 
@@ -55,9 +54,8 @@ const GLASS_DEMOS: Record<string, ReactNode> = {
   slider: <SliderDemo />,
   stepper: <StepperDemo />,
   tabs: <TabsDemo />,
-  "text-field": <TextFieldDemo />,
   timer: <TimerDemo />,
-  toast: <ToastDemo />,
+  toaster: <ToasterDemo />,
   toggle: <ToggleDemo />,
 };
 

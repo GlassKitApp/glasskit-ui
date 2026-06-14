@@ -1,7 +1,7 @@
 import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
 import { Launcher } from "@registry/ui/launcher";
-import { GlowIcon } from "@registry/ui/glow-icon";
+import { Icon } from "@registry/ui/icon";
 import { NavGlyph, MessageGlyph, MusicGlyph, HeartGlyph } from "./icons";
 
 /** The app-grid entry screen — Launcher with four D-pad-focusable cards. */
@@ -16,9 +16,9 @@ export function LauncherDemo() {
               label: "Navigate",
               tagline: "320 m",
               icon: (
-                <GlowIcon active>
+                <Icon active>
                   <NavGlyph />
-                </GlowIcon>
+                </Icon>
               ),
             },
             {
@@ -26,9 +26,9 @@ export function LauncherDemo() {
               label: "Messages",
               tagline: "2 new",
               icon: (
-                <GlowIcon>
+                <Icon>
                   <MessageGlyph />
-                </GlowIcon>
+                </Icon>
               ),
             },
             {
@@ -36,9 +36,9 @@ export function LauncherDemo() {
               label: "Music",
               tagline: "Now playing",
               icon: (
-                <GlowIcon>
+                <Icon>
                   <MusicGlyph />
-                </GlowIcon>
+                </Icon>
               ),
             },
             {
@@ -46,9 +46,9 @@ export function LauncherDemo() {
               label: "Workout",
               tagline: "Ready",
               icon: (
-                <GlowIcon>
+                <Icon>
                   <HeartGlyph />
-                </GlowIcon>
+                </Icon>
               ),
             },
           ]}

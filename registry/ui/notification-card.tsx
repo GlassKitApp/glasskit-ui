@@ -5,7 +5,8 @@ import { cn } from "../lib/utils";
  * <NotificationCard> — an incoming notification (message, mention, alert): a
  * leading avatar/glyph, sender + time, a message preview, and optional quick
  * actions. A popping surface, below the sightline like the real Display. Richer
- * than <Toast> (which is a transient one-liner). RTL-safe (logical layout).
+ * than a toast (which is a transient one-liner): a NotificationCard waits for
+ * the wearer and participates in focus. RTL-safe (logical layout).
  */
 export function NotificationCard({
   avatar,
@@ -15,7 +16,7 @@ export function NotificationCard({
   actions,
   className,
 }: {
-  /** Leading <Avatar> or app <GlowIcon>. */
+  /** Leading <Avatar> or app <Icon>. */
   avatar?: ReactNode;
   /** Sender / app name. */
   title: ReactNode;
@@ -48,7 +49,7 @@ export function NotificationCard({
       </div>
       <div className="t-body text-muted-foreground">{children}</div>
       {actions != null ? (
-        <div className="mt-[3px] flex gap-2.5">{actions}</div>
+        <div className="mt-[3px] flex justify-end gap-2.5">{actions}</div>
       ) : null}
     </div>
   );

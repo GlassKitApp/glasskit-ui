@@ -1,6 +1,6 @@
 # GlassKit UI
 
-> The open-source React component library for Meta Ray-Ban Display (smart-glasses) web apps. It ships the platform primitives Meta doesn't: a glasses-tuned D-pad focus engine, system-back-aware navigation, W3C sensor and Neural Band hooks, and 48 HUD components for the 600×600 lens. Published on npm under the `@glasskit-ui` scope; components vendor shadcn-style, so you own the source.
+> The open-source React component library for Meta Ray-Ban Display (smart-glasses) web apps. It ships the platform primitives Meta doesn't: a glasses-tuned D-pad focus engine, system-back-aware navigation, W3C sensor and Neural Band hooks, and 44 HUD components for the 600×600 lens. Published on npm under the `@glasskit-ui` scope; components vendor shadcn-style, so you own the source.
 
 ## Install
 
@@ -37,33 +37,31 @@ IMPORTANT: the bare `glasskit` npm package is UNRELATED to this project. Always 
 - **Auto-wiring**: sensor components self-connect when their data prop is omitted. `<Compass />` follows live head orientation; `<Compass heading={290} />` is controlled, and the prop always wins. Same for DirectionArrow (`target={{lat,lon}}`), Clock (self-ticking), Deck (Neural Band swipe).
 - **Navigation**: `<Navigator screens={{...}} initial="home" />` plus `useNavigator()` (`push/pop/popToTop/replace`). Every push adds a real history entry so the system back gesture just works, and `useBackHandler(fn)` lets overlays consume back. Pop restores focus to the row that pushed (focus memory). The stack rides `history.state`, so a mid-flow reload restores the screen, and opt-in `paths` mirrors pushes into the URL.
 - **Text entry**: the platform has no keyboard or mic, so `<ComposeFlow options={[...]} value onChange />` is the working recipe: a TextField that opens a back-gesture-aware picker. It's the seam system dictation would replace.
-- **Vocabulary**: `emphasis` is visual weight (`"default"|"accent"` on Badge/Cue/Toast), `status` is semantic state (`"on"|"live"|"off"` on StatusDot), `tone` is the gradient palette (Avatar, GlowIcon plates, Launcher tiles).
-- Design language ("premium surfaces", 2026-06): calm dark base (`#0b0e16`→`#090b11`), surfaces that pop (top-lit gradient, 1px light edge, soft depth), gradient icon plates, one blue accent (`--accent: #4c8dff`). One task per view, tabular numerals, logical RTL-safe CSS. World-anchored components (DirectionArrow, Compass, Pin, Callout) never mirror.
+- **Vocabulary**: `variant` sets a component's look (Badge: default/accent/outline; Button: primary/secondary/ghost), `status` is semantic state (`"on"|"live"|"off"` on StatusDot), `tone` is the gradient palette (Avatar, Icon plates, Launcher tiles).
+- Design language ("premium surfaces", 2026-06): calm dark base (`#0b0e16`→`#090b11`), surfaces that pop (top-lit gradient, 1px light edge, soft depth), gradient icon plates, one blue accent (`--accent: #4c8dff`). One task per view, tabular numerals, logical RTL-safe CSS. World-anchored components (DirectionArrow, Compass, Pin) never mirror.
 
-## Components (48)
+## Components (44)
 
 Vendored shadcn-style. Live preview, props, and usage at `https://glasskit.app/ui/docs/components/<slug>`; machine-readable source and deps at `https://glasskit.app/ui/r/<slug>.json` (shadcn-compatible registry: `https://glasskit.app/ui/r/registry.json`). Every docs page has a QR that installs the component as a runnable app on real glasses.
 
 - **AssistantOrb** (`assistant-orb`) — the Meta-AI presence: a glowing gradient orb that animates per `state` (idle = gentle breathe, listening = pulse, thinking = swirl, speaking = quick pulse).
 - **AsyncView** (`async-view`) — the four-state async renderer every data screen needs: placeholder (idle) → loading → success/error.
-- **Avatar** (`avatar`) — a contact / sender avatar: a photo when you have one, else initials on a gradient plate.
+- **Avatar** (`avatar`) — a contact / sender avatar: shows a photo when you have one, else an icon, else initials on a gradient plate.
 - **Badge** (`badge`) — a small count or status pill (notification counts, live state).
 - **Button** (`button`) — a D-pad-focusable action.
 - **CallCard** (`call-card`) — an incoming / active call: a big avatar, caller name, a status line ("Incoming…", "02:14"), and an action row (accept / decline via D-pad-focusable <Button>s).
-- **Callout** (`callout`) — a world-object annotation: a small anchor at a screen point with a vertical leader line up to an emitted label (no box — additive translates the card to line + type).
 - **ChatBubble** (`chat-bubble`) — one message.
 - **Clock** (`clock`) — the home time/date complication: a big tabular time and a quieter date line.
 - **Compass** (`compass`) — a heading rose that keeps North pointing at real north while a fixed top marker shows where you face.
-- **ComposeFlow** (`compose-flow`) — the working text-entry recipe for a platform with no keyboard or microphone: a <TextField> that opens a picker of choices when activated; choosing writes the value back and returns to the field.
+- **ComposeFlow** (`compose-flow`) — the working text-entry recipe for a platform with no keyboard or microphone: a focusable field that opens a picker of choices when activated; choosing writes the value back and returns to the field.
 - **Confirm** (`confirm`) — a decision screen: a prompt + a two-button action bar (confirm / cancel).
-- **Cue** (`cue`) — a caption / hint line: what to do next, or a transient status ("Listening…").
 - **Deck** (`deck`) — a horizontal paged flow (wizard / onboarding).
 - **DirectionArrow** (`direction-arrow`) — points toward a real-world direction.
 - **EmptyState** (`empty-state`) — the nothing-here screen: optional glyph + title + hint + one action.
 - **ErrorState** (`error-state`) — a recoverable error screen: optional glyph + title + message + a retry action.
-- **GlowIcon** (`glow-icon`) — wraps a line-icon SVG.
 - **Grid** (`grid`) — an aligned, vertically-scrolling multi-column layout: every cell shares the same track, so rows line up (the counterpart to <Masonry>, which staggers).
 - **Heading** (`heading`) — a screen/section title with an optional eyebrow label above it.
+- **Icon** (`icon`) — wraps any icon provider's SVG (Lucide, Tabler, or your own) and applies the lens icon styling.
 - **Launcher** (`launcher`) — the app grid: a home screen of gradient app-icon plates + labels.
 - **List** (`list`) — a vertical stack of focusable rows (watchOS list spirit) that fills the stage and scrolls (D-pad scrollIntoView).
 - **MapView** (`map-view`) — a real, moving map for the lens, built on Leaflet (~42KB).
@@ -79,23 +77,21 @@ Vendored shadcn-style. Live preview, props, and usage at `https://glasskit.app/u
 - **Progress** (`progress`) — emitted progress, two shapes: - "linear" a continuous bar (also covers countdown: feed a decreasing value and a time label).
 - **QuickReplyChips** (`quick-reply-chips`) — tappable canned replies (the comms job; there is no keyboard on the lens — text is voice).
 - **Readout** (`readout`) — a single-value complication: label + value (+ optional unit).
-- **Screen** (`screen`) — the on-lens layout shell: a status region (block-start), a centered stage (the one task), and a cue region (block-end).
+- **Screen** (`screen`) — the on-lens layout shell: a status region (block-start), a centered stage (the one task), and the cue region (block-end).
 - **Segmented** (`segmented`) — pick one of a few options (a watchOS-style segmented control).
 - **Slider** (`slider`) — a continuous level control (volume, brightness — the quick controls).
 - **StatGrid** (`stat-grid`) — a compact grid of readouts for a multi-metric glance (a watch "complication cluster").
 - **StatusDot** (`status-dot`) — a glanceable sensor / permission / connection indicator.
 - **Stepper** (`stepper`) — adjust a value in discrete steps (glasses have no fine slider).
 - **Tabs** (`tabs`) — a top-level tab strip (the home's quick-controls | home | apps pager).
-- **TextField** (`text-field`) — a text entry surface.
 - **Timer** (`timer`) — a countdown readout: big tabular m:ss (h:mm:ss past an hour), an optional label, and a bar draining toward zero.
-- **Toast** (`toast`) — a transient notice that animates in (a brief luminance rise, not a modal scrim).
 - **Toaster** (`toaster`) — the GlassKit toast / notification system, built on Sonner (Emil Kowalski's library) and themed to the lens surfaces.
 - **Toggle** (`toggle`) — a binary switch, D-pad-focusable (renders a real button with the focusable class; useDpad activates it on Enter/Space).
 - **WeatherTile** (`weather-tile`) — a glanceable weather complication: a condition glyph + big temperature, the condition text, and an optional location / hi-lo line.
 
 ## Toasts & notifications
 
-`<Toaster />` plus `toast()`, built on Sonner, themed to the lens, top-anchored (Screen's Cue line owns the bottom strip). Mount it once at the root; it owns queueing, stacking, and auto-dismiss. Keep toasts non-interactive, since auto-dismiss strands the focus ring; actionable items are `NotificationCard`s. `Toast` is the static one-liner surface.
+`<Toaster />` plus `toast()`, built on Sonner, themed to the lens, top-anchored (Screen's Cue line owns the bottom strip). Mount it once at the root; it owns queueing, stacking, and auto-dismiss. A toast can be fire-and-forget (auto-dismisses, non-interactive — auto-dismiss would strand a focus ring) or interactive: give it an `action` (its button is focusable) plus `duration: Infinity` so it persists. For a persistent item the wearer must work through, use a `NotificationCard`.
 
 ## Links
 

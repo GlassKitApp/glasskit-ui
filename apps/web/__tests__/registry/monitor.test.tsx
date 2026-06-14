@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import { StatusDot } from "@registry/ui/status-dot";
 import { Meter } from "@registry/ui/meter";
 import { StatGrid } from "@registry/ui/stat-grid";
-import { Toast } from "@registry/ui/toast";
 import { ErrorState } from "@registry/ui/error-state";
 
 describe("StatusDot", () => {
@@ -54,23 +53,6 @@ describe("StatGrid", () => {
     expect(container.firstElementChild?.childElementCount).toBe(2);
     expect(screen.getByText("Pace")).toBeTruthy();
     expect(screen.getByText("128")).toBeTruthy();
-  });
-});
-
-describe("Toast", () => {
-  it("renders only when open", () => {
-    const { rerender, container } = render(<Toast open={false}>Saved</Toast>);
-    expect(container.firstChild).toBeNull();
-    rerender(
-      <Toast open emphasis="accent">
-        Saved
-      </Toast>,
-    );
-    expect(screen.getByRole("status").textContent).toBe("Saved");
-    // Accent toasts take the filled accent treatment, not the default surface.
-    const toast = screen.getByRole("status");
-    expect(toast.classList.contains("text-white")).toBe(true);
-    expect(toast.classList.contains("surface")).toBe(false);
   });
 });
 

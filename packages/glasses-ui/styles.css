@@ -744,12 +744,17 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Compass — bold tick ring, fixed top marker = where you face, big center
- * heading readout (Apple-Watch spirit). */
+/* Compass — outer rim + a faint inner ring; the bearing marker rides the rim,
+ * the cardinals an inner ring (so they never overlap), big center heading. */
 .glass-viewport .gk-compass__ring {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.08);
+  stroke: rgba(255, 255, 255, 0.1);
   stroke-width: 1.5;
+}
+.glass-viewport .gk-compass__inner {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 1;
 }
 .glass-viewport .gk-compass__marker {
   fill: var(--accent-active);
@@ -882,47 +887,8 @@
   animation: gk-dot-pulse 1.8s ease-in-out infinite;
 }
 
-/* Toast — a transient luminance rise, not a modal scrim. */
-@keyframes gk-toast-in {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-.glass-viewport .gk-toast {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding-block: 16px;
-  padding-inline: 22px;
-  border-radius: 18px;
-  color: var(--ink-primary);
-  font-weight: 600;
-  animation: gk-toast-in 0.3s cubic-bezier(0.23, 1, 0.32, 1) both;
-}
-.glass-viewport .gk-toast--accent {
-  /* A status surface, not an action: the filled accent gradient
-   * (--accent-surface) means "pinch me" and belongs to Button/Toggle/
-   * Segmented. Accent toasts read as an accent-TINTED surface — quiet
-   * fill from the faint end of the ramp, accent edge, soft underglow. */
-  background: linear-gradient(
-    180deg,
-    color-mix(in oklab, var(--accent-faint) 86%, #fff),
-    var(--accent-faint)
-  );
-  border-color: var(--accent-muted);
-  color: #fff;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    0 10px 24px -14px var(--accent-glow);
-}
 @media (prefers-reduced-motion: reduce) {
-  .glass-viewport .gk-statusdot--live .gk-statusdot__dot,
-  .glass-viewport .gk-toast {
+  .glass-viewport .gk-statusdot--live .gk-statusdot__dot {
     animation: none;
   }
 }
@@ -1040,8 +1006,7 @@
     0 0 9px color-mix(in oklab, var(--accent) 55%, transparent)
   );
 }
-.glass-viewport .gk-pin__label,
-.glass-viewport .gk-callout__label {
+.glass-viewport .gk-pin__label {
   fill: #fff;
   font-family: var(--font-sans);
   font-size: 23px;
@@ -1052,8 +1017,7 @@
   stroke-width: 5px;
   stroke-linejoin: round;
 }
-.glass-viewport .gk-pin__dist,
-.glass-viewport .gk-callout__detail {
+.glass-viewport .gk-pin__dist {
   fill: var(--ink-secondary);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -1064,21 +1028,6 @@
   stroke: rgba(0, 0, 0, 0.5);
   stroke-width: 4px;
   stroke-linejoin: round;
-}
-
-/* Callout — bold anchor + vertical leader + emitted label. */
-.glass-viewport .gk-callout__anchor {
-  fill: var(--accent-active);
-  filter: drop-shadow(
-    0 0 8px color-mix(in oklab, var(--accent) 65%, transparent)
-  );
-}
-.glass-viewport .gk-callout__leader {
-  stroke: var(--accent);
-  stroke-width: 2.5;
-  filter: drop-shadow(
-    0 0 5px color-mix(in oklab, var(--accent) 45%, transparent)
-  );
 }
 
 /* ── Wave 8 — app-surface components (comms / media / AI) ──────────── */
@@ -1480,45 +1429,6 @@
 .glass-viewport .gk-slider__label {
   flex: none;
   color: var(--ink-tertiary);
-}
-
-/* TextField — a focusable field (value or placeholder) + mic affordance; opens
- * dictation / handwriting (no keyboard on the lens). */
-.glass-viewport .gk-textfield {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  inline-size: 100%;
-  text-align: start;
-  background: var(--surface-fill);
-  border: 1px solid var(--surface-edge);
-  box-shadow: var(--surface-lift);
-  border-radius: 18px;
-  padding: 16px 20px;
-}
-.glass-viewport .gk-textfield__main {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  flex: 1 1 auto;
-  min-inline-size: 0;
-  text-align: start;
-}
-.glass-viewport .gk-textfield__label {
-  color: var(--ink-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-.glass-viewport .gk-textfield__value {
-  color: #fff;
-}
-.glass-viewport .gk-textfield__value--empty {
-  color: var(--ink-tertiary);
-}
-.glass-viewport .gk-textfield__icon .gk-icon {
-  inline-size: 26px;
-  block-size: 26px;
-  color: var(--accent-active);
 }
 
 /* Navigator — screen stack. The incoming screen rises in with a short

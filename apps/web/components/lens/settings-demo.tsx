@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
-import { Cue } from "@registry/ui/cue";
 import { Stepper } from "@registry/ui/stepper";
 import { Toggle } from "@registry/ui/toggle";
 import { Segmented } from "@registry/ui/segmented";
@@ -16,7 +15,7 @@ export function SettingsDemo() {
 
   return (
     <GlassViewport>
-      <Screen cue={<Cue>Pinch to go back</Cue>}>
+      <Screen cue="Pinch to go back">
         <Stepper
           label="Brightness"
           value={brightness}

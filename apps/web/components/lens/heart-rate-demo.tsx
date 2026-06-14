@@ -1,9 +1,8 @@
 import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
 import { Readout } from "@registry/ui/readout";
-import { Cue } from "@registry/ui/cue";
 import { Button } from "@registry/ui/button";
-import { GlowIcon } from "@registry/ui/glow-icon";
+import { Icon } from "@registry/ui/icon";
 import { HeartGlyph, CheckGlyph } from "./icons";
 
 /**
@@ -15,18 +14,18 @@ import { HeartGlyph, CheckGlyph } from "./icons";
 export function HeartRateDemo() {
   return (
     <GlassViewport>
-      <Screen cue={<Cue emphasis="accent">Recording · pinch to log</Cue>}>
-        <GlowIcon size="lg" plate tone="peach" label="Heart rate">
+      <Screen cue="Recording · pinch to log" cueLive>
+        <Icon size="lg" plate tone="peach" label="Heart rate">
           <HeartGlyph />
-        </GlowIcon>
+        </Icon>
         <Readout label="Heart rate" value="128" unit="BPM" />
         <div className="row">
           <Button
             variant="primary"
             icon={
-              <GlowIcon size="sm">
+              <Icon size="sm">
                 <CheckGlyph />
-              </GlowIcon>
+              </Icon>
             }
           >
             Log

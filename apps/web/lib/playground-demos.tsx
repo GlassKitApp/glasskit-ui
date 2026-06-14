@@ -38,7 +38,7 @@ export const PLAYGROUND_DEMOS: PlaygroundDemo[] = [
     route={selectedRoute}
     onSelectPlace={setSelected}
   />
-  <Screen status={<Cue emphasis="accent">Eleven Madison · 738 m · 9 min</Cue>}>
+  <Screen status={<span className="t-caption text-primary">Eleven Madison · 738 m · 9 min</span>}>
     {null}
   </Screen>
 </GlassViewport>`,
@@ -46,14 +46,14 @@ export const PLAYGROUND_DEMOS: PlaygroundDemo[] = [
   {
     id: "vitals",
     label: "Vitals",
-    caption: "Screen · Readout · Cue · Button · GlowIcon",
+    caption: "Screen · Readout · Button · Icon",
     node: <HeartRateDemo />,
     code: `<GlassViewport>
-  <Screen cue={<Cue emphasis="accent">Recording · pinch to log</Cue>}>
-    <GlowIcon size="lg" active><HeartIcon /></GlowIcon>
+  <Screen cue="Recording · pinch to log" cueLive>
+    <Icon size="lg" active><HeartIcon /></Icon>
     <Readout label="Heart rate" value="128" unit="BPM" />
     <div className="row">
-      <Button variant="primary" icon={<GlowIcon size="sm"><CheckIcon /></GlowIcon>}>
+      <Button variant="primary" icon={<Icon size="sm"><CheckIcon /></Icon>}>
         Log
       </Button>
       <Button>Dismiss</Button>
@@ -64,16 +64,16 @@ export const PLAYGROUND_DEMOS: PlaygroundDemo[] = [
   {
     id: "menu",
     label: "Menu",
-    caption: "List · ListRow · GlowIcon",
+    caption: "List · ListRow · Icon",
     node: <MenuDemo />,
     code: `<GlassViewport>
   <Screen>
     <List>
-      <ListRow leading={<GlowIcon size="sm"><NavIcon /></GlowIcon>}
-               trailing={<GlowIcon size="sm"><ChevronIcon /></GlowIcon>}>
+      <ListRow leading={<Icon size="sm"><NavIcon /></Icon>}
+               trailing={<Icon size="sm"><ChevronIcon /></Icon>}>
         Navigate
       </ListRow>
-      <ListRow leading={<GlowIcon size="sm"><MessageIcon /></GlowIcon>} trailing="2">
+      <ListRow leading={<Icon size="sm"><MessageIcon /></Icon>} trailing="2">
         Messages
       </ListRow>
       {/* …more rows than fit — the focus engine scrolls the list */}
@@ -87,7 +87,7 @@ export const PLAYGROUND_DEMOS: PlaygroundDemo[] = [
     caption: "AsyncView · Spinner · Progress",
     node: <SyncDemo />,
     code: `<GlassViewport>
-  <Screen cue={<Cue emphasis="accent">Keep glasses on</Cue>}>
+  <Screen cue="Keep glasses on" cueLive>
     <AsyncView
       status="loading"
       loading={
@@ -109,7 +109,7 @@ export const PLAYGROUND_DEMOS: PlaygroundDemo[] = [
     caption: "DirectionArrow · point-to-target wayfinding (no map needed)",
     node: <NavigateDemo />,
     code: `<GlassViewport>
-  <Screen cue={<Cue emphasis="accent">Maya is this way</Cue>}>
+  <Screen cue="Maya is this way" cueLive>
     {/* self-wired: useGeolocation + useDeviceOrientation aim the needle at a
         real {lat, lon} — finding a friend, your car, an off-screen pin */}
     <DirectionArrow target={{ lat: 37.7955, lon: -122.3937 }} label="Maya" />
@@ -128,7 +128,7 @@ export const PLAYGROUND_DEMOS: PlaygroundDemo[] = [
   const [mode, setMode] = useState("map");
 
   return (
-    <Screen cue={<Cue>Pinch to go back</Cue>}>
+    <Screen cue="Pinch to go back">
       <Stepper label="Brightness" value={brightness}
                min={1} max={5} onChange={setBrightness} />
       <Toggle label="Notifications" checked={notify} onChange={setNotify} />
@@ -144,7 +144,7 @@ export const PLAYGROUND_DEMOS: PlaygroundDemo[] = [
     caption: "StatusDot · Meter · StatGrid",
     node: <StatsDemo />,
     code: `<GlassViewport>
-  <Screen cue={<Cue icon={<StatusDot status="live" label="GPS" />}>3.2 km · 18:40</Cue>}>
+  <Screen cue={<><StatusDot status="live" label="GPS" /> 3.2 km · 18:40</>}>
     <Meter value={72} max={100} label="Effort" unit="%" />
     <StatGrid items={[
       { label: "Pace", value: "8'42", unit: "/mi" },
@@ -156,14 +156,14 @@ export const PLAYGROUND_DEMOS: PlaygroundDemo[] = [
   {
     id: "launcher",
     label: "Launcher",
-    caption: "Launcher app grid · GlowIcon",
+    caption: "Launcher app grid · Icon",
     node: <LauncherDemo />,
     code: `<Screen>
   <Launcher apps={[
     { id: "nav", label: "Navigate", tagline: "320 m",
-      icon: <GlowIcon active><NavIcon /></GlowIcon>, onSelect: openNav },
+      icon: <Icon active><NavIcon /></Icon>, onSelect: openNav },
     { id: "msg", label: "Messages", tagline: "2 new",
-      icon: <GlowIcon><MessageIcon /></GlowIcon>, onSelect: openMessages },
+      icon: <Icon><MessageIcon /></Icon>, onSelect: openMessages },
     // …
   ]} />
 </Screen>`,

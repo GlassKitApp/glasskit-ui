@@ -7,4 +7,4 @@ description: "The toast / notification SYSTEM \u2014 Sonner (Emil Kowalski's lib
 
 ## When to use
 
-Use Toaster (the app-wide queue) once more than one place needs to raise a toast; for a single self-rendered confirmation use [Toast](/docs/components/toast), and for something the wearer must act on use [NotificationCard](/docs/blocks/notification-card).
+Mount `<Toaster />` once at your app root, then fire from anywhere with `toast()` — it owns the queue, stacking, and auto-dismiss. A toast is fire-and-forget by default (a one-line confirmation that auto-dismisses); make it interactive by giving it an `action` (its button is D-pad focusable) plus `duration: Infinity` so it persists until pinched. For a persistent item the wearer must work through, use a [NotificationCard](/docs/blocks/notification-card) instead.

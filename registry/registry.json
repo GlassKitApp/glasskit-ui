@@ -74,7 +74,7 @@
       "name": "avatar",
       "type": "registry:ui",
       "title": "Avatar",
-      "description": "a contact / sender avatar: a photo when you have one, else initials on a gradient plate.",
+      "description": "a contact / sender avatar: shows a photo when you have one, else an icon, else initials on a gradient plate.",
       "dependencies": [],
       "registryDependencies": [
         "utils"
@@ -139,23 +139,6 @@
       ]
     },
     {
-      "name": "callout",
-      "type": "registry:ui",
-      "title": "Callout",
-      "description": "a world-object annotation: a small anchor at a screen point with a vertical leader line up to an emitted label (no box — additive translates the card to line + type).",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/callout.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/callout.tsx"
-        }
-      ]
-    },
-    {
       "name": "chat-bubble",
       "type": "registry:block",
       "title": "ChatBubble",
@@ -213,13 +196,12 @@
       "name": "compose-flow",
       "type": "registry:ui",
       "title": "ComposeFlow",
-      "description": "the working text-entry recipe for a platform with no keyboard or microphone: a <TextField> that opens a picker of choices when activated; choosing writes the value back and returns to the field.",
+      "description": "the working text-entry recipe for a platform with no keyboard or microphone: a focusable field that opens a picker of choices when activated; choosing writes the value back and returns to the field.",
       "dependencies": [
         "@glasskit-ui/react@^0.4.0"
       ],
       "registryDependencies": [
         "utils",
-        "text-field",
         "heading",
         "list"
       ],
@@ -248,23 +230,6 @@
           "path": "registry/ui/confirm.tsx",
           "type": "registry:ui",
           "target": "components/glasskit/confirm.tsx"
-        }
-      ]
-    },
-    {
-      "name": "cue",
-      "type": "registry:ui",
-      "title": "Cue",
-      "description": "a caption / hint line: what to do next, or a transient status (\"Listening…\").",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/cue.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/cue.tsx"
         }
       ]
     },
@@ -345,23 +310,6 @@
       ]
     },
     {
-      "name": "glow-icon",
-      "type": "registry:ui",
-      "title": "GlowIcon",
-      "description": "wraps a line-icon SVG.",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/glow-icon.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/glow-icon.tsx"
-        }
-      ]
-    },
-    {
       "name": "grid",
       "type": "registry:ui",
       "title": "Grid",
@@ -392,6 +340,23 @@
           "path": "registry/ui/heading.tsx",
           "type": "registry:ui",
           "target": "components/glasskit/heading.tsx"
+        }
+      ]
+    },
+    {
+      "name": "icon",
+      "type": "registry:ui",
+      "title": "Icon",
+      "description": "wraps any icon provider's SVG (Lucide, Tabler, or your own) and applies the lens icon styling.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/icon.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/icon.tsx"
         }
       ]
     },
@@ -660,7 +625,7 @@
       "name": "screen",
       "type": "registry:ui",
       "title": "Screen",
-      "description": "the on-lens layout shell: a status region (block-start), a centered stage (the one task), and a cue region (block-end).",
+      "description": "the on-lens layout shell: a status region (block-start), a centered stage (the one task), and the cue region (block-end).",
       "dependencies": [],
       "registryDependencies": [
         "utils"
@@ -776,23 +741,6 @@
       ]
     },
     {
-      "name": "text-field",
-      "type": "registry:ui",
-      "title": "TextField",
-      "description": "a text entry surface.",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/text-field.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/text-field.tsx"
-        }
-      ]
-    },
-    {
       "name": "timer",
       "type": "registry:ui",
       "title": "Timer",
@@ -807,23 +755,6 @@
           "path": "registry/ui/timer.tsx",
           "type": "registry:ui",
           "target": "components/glasskit/timer.tsx"
-        }
-      ]
-    },
-    {
-      "name": "toast",
-      "type": "registry:ui",
-      "title": "Toast",
-      "description": "a transient notice that animates in (a brief luminance rise, not a modal scrim).",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/toast.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/toast.tsx"
         }
       ]
     },

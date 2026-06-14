@@ -105,7 +105,7 @@ export function ListRow({
 }: {
   /** The row label. */
   children: ReactNode;
-  /** Optional inline-start glyph — typically a <GlowIcon>. */
+  /** Optional inline-start glyph — typically a <Icon>. */
   leading?: ReactNode;
   /** Optional inline-end value/affordance. */
   trailing?: ReactNode;

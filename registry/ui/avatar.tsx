@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { cn } from "../lib/utils";
 
 const SIZE = {
@@ -15,12 +16,14 @@ export type AvatarTone =
   | "amber";
 
 /**
- * <Avatar> — a contact / sender avatar: a photo when you have one, else initials
- * on a gradient plate. Used by NotificationCard, ChatBubble, CallCard. RTL-safe.
+ * <Avatar> — a contact / sender avatar: shows a photo when you have one, else an
+ * icon, else initials on a gradient plate. Used by NotificationCard, ChatBubble,
+ * CallCard. RTL-safe.
  */
 export function Avatar({
   name,
   src,
+  icon,
   tone = "blue",
   size = "md",
   className,
@@ -29,6 +32,8 @@ export function Avatar({
   name: string;
   /** Optional image URL. */
   src?: string;
+  /** Optional icon shown instead of initials (e.g. a group / bot glyph). */
+  icon?: ReactNode;
   /** Gradient tone when showing initials. */
   tone?: AvatarTone;
   size?: "sm" | "md" | "lg";
@@ -56,6 +61,10 @@ export function Avatar({
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img className="size-full object-cover" src={src} alt="" />
+      ) : icon ? (
+        <span className="grid place-items-center [&_svg]:size-[45%] [&>*]:size-[45%]">
+          {icon}
+        </span>
       ) : (
         <span>{initials}</span>
       )}

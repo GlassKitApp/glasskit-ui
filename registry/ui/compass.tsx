@@ -47,29 +47,31 @@ export function Compass({
         role="img"
         aria-label={`Heading ${Math.round(deg)} degrees ${cardinal(deg)}`}
       >
-        <circle cx="50" cy="50" r="44" className="gk-compass__ring" />
-        {/* fixed marker at the top = the direction you face */}
-        <path d="M50 5 L45 15 L55 15 Z" className="gk-compass__marker" />
-        {/* the rose counter-rotates so cardinals stay world-aligned */}
+        <circle cx="50" cy="50" r="45" className="gk-compass__ring" />
+        <circle cx="50" cy="50" r="36" className="gk-compass__inner" />
+        {/* fixed bearing marker on the outer rim = the direction you face */}
+        <path d="M50 3 L46 12 L54 12 Z" className="gk-compass__marker" />
+        {/* the rose counter-rotates so cardinals stay world-aligned; they sit on
+            an inner ring, clear of the rim marker so nothing overlaps */}
         <g transform={`rotate(${-deg} 50 50)`}>
-          <text x="50" y="14" className="gk-compass__n">
+          <text x="50" y="22" className="gk-compass__n">
             N
           </text>
-          <text x="86" y="51" className="gk-compass__tick">
+          <text x="78" y="51" className="gk-compass__tick">
             E
           </text>
-          <text x="50" y="88" className="gk-compass__tick">
+          <text x="50" y="80" className="gk-compass__tick">
             S
           </text>
-          <text x="14" y="51" className="gk-compass__tick">
+          <text x="22" y="51" className="gk-compass__tick">
             W
           </text>
         </g>
-        {/* big fixed center readout (does not rotate) */}
-        <text x="50" y="48" className="gk-compass__deg">
+        {/* fixed center readout (does not rotate) */}
+        <text x="50" y="47" className="gk-compass__deg">
           {Math.round(deg)}°
         </text>
-        <text x="50" y="60" className="gk-compass__card">
+        <text x="50" y="61" className="gk-compass__card">
           {cardinal(deg)}
         </text>
       </svg>

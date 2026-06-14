@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
-import { Cue } from "@registry/ui/cue";
 import { MapView } from "@registry/ui/map-view";
 import { BAKED_ROUTES } from "./map-routes";
 
@@ -66,17 +65,13 @@ export function MapDemo() {
       />
       <Screen
         status={
-          <Cue emphasis="accent">
+          <span className="t-caption text-primary">
             {dest && baked
               ? `${dest.name} · ${baked.meters} m · ${baked.mins} min`
               : "5 spots nearby"}
-          </Cue>
+          </span>
         }
-        cue={
-          <Cue>
-            {dest ? "Routing there" : "Arrow between spots · Enter to go"}
-          </Cue>
-        }
+        cue={dest ? "Routing there" : "Arrow between spots · Enter to go"}
       >
         {null}
       </Screen>

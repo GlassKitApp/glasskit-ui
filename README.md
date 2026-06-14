@@ -7,7 +7,7 @@
 
 The open-source React component library for **Meta Ray-Ban Display** apps.
 It's the ergonomic layer Meta does not ship. You get an SDK plus a
-shadcn-style registry of 48 components built for the 600×600 lens: a
+shadcn-style registry of 44 components built for the 600×600 lens: a
 glasses-tuned D-pad focus engine, system-back-aware navigation, live sensor
 wiring, and a HUD visual language. Every component is QR-launchable as a
 working app on real glasses from its
@@ -25,7 +25,7 @@ working app on real glasses from its
 - **`@glasskit-ui/react`** ([`packages/glasses-ui`](./packages/glasses-ui))
   is the SDK: `GlassViewport`, the spatial focus engine (`useDpad` / `scoreRect`),
   the W3C sensor + Neural Band hooks, and the scoped lens stylesheet.
-- **The registry** ([`registry/ui`](./registry/ui)) holds 48 styled components you
+- **The registry** ([`registry/ui`](./registry/ui)) holds 44 styled components you
   vendor and own, shadcn-style, via the `glasskit` CLI. It covers all eight HUD
   jobs: Monitor, Navigate, Guide, Caption, Notify/Comms, Capture/Control,
   Annotate, Launch/Select. That includes the world-anchored set (DirectionArrow,
@@ -73,7 +73,7 @@ Add components with the CLI (vendors the source into your project):
 
 ```sh
 npx @glasskit-ui/cli add screen readout button  # also pulls their dependencies
-npx @glasskit-ui/cli list                       # browse all 48
+npx @glasskit-ui/cli list                       # browse all 44
 ```
 
 ## Monorepo
@@ -83,7 +83,7 @@ packages/glasses-ui/       @glasskit-ui/react: the SDK (hooks + viewport + style
 packages/cli/              @glasskit-ui/cli: scaffold + vendor from the registry
 packages/create-glasskit/  npm create glasskit
 packages/mcp/              @glasskit-ui/mcp: the registry for AI agents
-registry/ui/               the 48 styled components (you own these)
+registry/ui/               the 44 styled components (you own these)
 apps/web/                  glasskit.app/ui: docs, playground, served registry (/r/*.json)
 docs/                      design spec + platform audit + release process
 ```

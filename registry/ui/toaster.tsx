@@ -19,10 +19,26 @@ export { toast };
  * and the enter/exit motion. Toasts portal to the window edge, so their theme lives in
  * the (intentionally unscoped) `.gk-toaster__*` rules.
  *
- * Keep toasts non-interactive: no `focusable` elements inside (including in
- * `toast.custom()` content). A toast auto-dismisses, and the D-pad ring would
- * be stranded mid-read when it unmounts — if the wearer must act on it, use a
- * <NotificationCard> on the screen instead (see the Patterns guide).
+ * A toast can be one of two things:
+ *
+ *   • Fire-and-forget — just a message. It auto-dismisses and is never
+ *     interactive (don't put `focusable` content inside, including in
+ *     `toast.custom()`): the D-pad ring would be stranded mid-read when the
+ *     toast unmounts.
+ *
+ *   • Interactive — give it an `action` (its button is `focusable`, so the
+ *     D-pad can reach it) and `duration: Infinity` so it persists. The
+ *     infinite duration is what keeps the focusable action button from being
+ *     stranded by auto-dismiss; the wearer pinches the action when ready.
+ *
+ *     toast("Maya Lin", {
+ *       description: "On my way, be there in 5",
+ *       action: { label: "View", onClick: () => open(id) },
+ *       duration: Infinity,
+ *     });
+ *
+ * For a persistent item the wearer must work through (reply chips, a calendar
+ * alert), reach for a <NotificationCard> on the screen instead.
  */
 export function Toaster(props: ToasterProps) {
   return (
@@ -39,7 +55,7 @@ export function Toaster(props: ToasterProps) {
           title: "gk-toaster__title",
           description: "gk-toaster__desc",
           icon: "gk-toaster__icon",
-          actionButton: "gk-toaster__action",
+          actionButton: "gk-toaster__action focusable",
           cancelButton: "gk-toaster__cancel",
         },
       }}

@@ -6,7 +6,9 @@ import { cn } from "../lib/utils";
  * the `focusable` class, so `useDpad()` includes it in spatial navigation
  * and activates it on Enter/Space (the hook calls `.click()`, which fires
  * `onClick`). Edge + focus ring come from the additive `.focusable` recipe;
- * `primary` brightens the edge — no fills (apple-feel §9).
+ * `primary` brightens the edge — no fills (apple-feel §9). `ghost` is
+ * chrome-less (no surface or border, just text + focus ring + press) for
+ * toolbars and icon rows.
  */
 export function Button({
   children,
@@ -21,8 +23,8 @@ export function Button({
 }: {
   /** The label. Omit for an icon-only button, but then set `aria-label`. */
   children?: ReactNode;
-  variant?: "primary" | "secondary";
-  /** Optional leading glyph — typically a <GlowIcon>. */
+  variant?: "primary" | "secondary" | "ghost";
+  /** Optional leading glyph — typically a <Icon>. */
   icon?: ReactNode;
   disabled?: boolean;
   onClick?: () => void;
@@ -42,7 +44,11 @@ export function Button({
       data-autofocus={initialFocus || undefined}
       className={cn(
         "focusable press-scale t-body inline-flex items-center justify-center gap-2 rounded-2xl",
-        variant === "primary" ? "btn-primary" : "surface",
+        variant === "primary"
+          ? "btn-primary"
+          : variant === "ghost"
+            ? "bg-transparent border-0 text-foreground"
+            : "surface",
         !children ? "p-[13px] [&_svg]:size-[22px]" : "px-6 py-4",
         className,
       )}

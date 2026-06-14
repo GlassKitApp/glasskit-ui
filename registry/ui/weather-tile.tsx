@@ -16,7 +16,7 @@ export function WeatherTile({
 }: {
   temp: ReactNode;
   condition?: ReactNode;
-  /** Condition glyph — typically a <GlowIcon>. */
+  /** Condition glyph — typically a <Icon>. */
   icon?: ReactNode;
   location?: ReactNode;
   /** Hi / lo, e.g. "H:78° L:61°". */

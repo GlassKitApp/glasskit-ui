@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
-import { Cue } from "@registry/ui/cue";
 import { Readout } from "@registry/ui/readout";
 import { DirectionArrow } from "@registry/ui/direction-arrow";
 
@@ -28,7 +27,7 @@ export function NavigateDemo() {
 
   return (
     <GlassViewport>
-      <Screen cue={<Cue emphasis="accent">Maya is this way</Cue>}>
+      <Screen cue="Maya is this way" cueLive>
         <DirectionArrow bearing={bearing} label="Maya" />
         <Readout label="Distance" value="240" unit="m" />
       </Screen>
