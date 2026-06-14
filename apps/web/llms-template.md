@@ -36,8 +36,8 @@ IMPORTANT: the bare `glasskit` npm package is UNRELATED to this project. Always 
 
 - **Auto-wiring**: sensor components self-connect when their data prop is omitted. `<Compass />` follows live head orientation; `<Compass heading={290} />` is controlled, and the prop always wins. Same for DirectionArrow (`target={{lat,lon}}`), Clock (self-ticking), Deck (Neural Band swipe).
 - **Navigation**: `<Navigator screens={{...}} initial="home" />` plus `useNavigator()` (`push/pop/popToTop/replace`). Every push adds a real history entry so the system back gesture just works, and `useBackHandler(fn)` lets overlays consume back. Pop restores focus to the row that pushed (focus memory). The stack rides `history.state`, so a mid-flow reload restores the screen, and opt-in `paths` mirrors pushes into the URL.
-- **Text entry**: the platform has no keyboard or mic, so `<ComposeFlow options={[...]} value onChange />` is the working recipe: a TextField that opens a back-gesture-aware picker. It's the seam system dictation would replace.
-- **Vocabulary**: `variant` sets a component's look (Badge: default/accent/outline; Button: primary/secondary/ghost), `status` is semantic state (`"on"|"live"|"off"` on StatusDot), `tone` is the gradient palette (Avatar, Icon plates, Launcher tiles).
+- **Text entry**: the platform has no keyboard or mic, so `<ComposeFlow options={[...]} value onChange />` is the working recipe: a field that opens a back-gesture-aware picker of choices. It stands in for the on-device dictation the platform does not expose yet.
+- **Vocabulary**: `variant` sets a component's look (Badge: default/accent/outline; Button: primary/secondary/ghost/positive/danger, where positive/danger are the semantic accept/destroy fills), `status` is semantic state (`"on"|"live"|"off"` on StatusDot), `tone` is the gradient palette (Avatar, Icon plates, Launcher tiles).
 - Design language ("premium surfaces", 2026-06): calm dark base (`#0b0e16`→`#090b11`), surfaces that pop (top-lit gradient, 1px light edge, soft depth), gradient icon plates, one blue accent (`--accent: #4c8dff`). One task per view, tabular numerals, logical RTL-safe CSS. World-anchored components (DirectionArrow, Compass, Pin) never mirror.
 
 ## Components ({{COUNT}})
@@ -48,7 +48,7 @@ Vendored shadcn-style. Live preview, props, and usage at `https://glasskit.app/u
 
 ## Toasts & notifications
 
-`<Toaster />` plus `toast()`, built on Sonner, themed to the lens, top-anchored (Screen's Cue line owns the bottom strip). Mount it once at the root; it owns queueing, stacking, and auto-dismiss. A toast can be fire-and-forget (auto-dismisses, non-interactive — auto-dismiss would strand a focus ring) or interactive: give it an `action` (its button is focusable) plus `duration: Infinity` so it persists. For a persistent item the wearer must work through, use a `NotificationCard`.
+`<Toaster />` plus `toast()`, built on Sonner, themed to the lens, top-anchored (Screen's `cue` line owns the bottom strip). Mount it once at the root; it owns queueing, stacking, and auto-dismiss. A toast can be fire-and-forget (auto-dismisses, non-interactive — auto-dismiss would strand a focus ring) or interactive: give it an `action` (its button is focusable) plus `duration: Infinity` so it persists. For a persistent item the wearer must work through, use a `NotificationCard`.
 
 ## Links
 
