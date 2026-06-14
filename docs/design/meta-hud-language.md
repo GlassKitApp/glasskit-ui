@@ -71,5 +71,5 @@ composite (`scene` prop, screen-blend, `public/world/` assets) has been removed.
   notification surface; `Toast` is the static one-liner; `Toaster`/`toast()` shows
   them live. Comms/Media/AI surfaces (Avatar, NotificationCard, NowPlaying,
   AssistantOrb) follow the same calm-base + pop-surface + gradient-plate rules.
-- **Spatial (Compass/DirectionArrow/Reticle/Pin):** hero gradient plate / accent
+- **Spatial (Compass/DirectionArrow/Pin):** hero gradient plate / accent
   with soft bloom; world-anchored, never mirrored (RTL-safe).

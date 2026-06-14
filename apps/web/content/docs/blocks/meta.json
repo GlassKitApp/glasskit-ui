@@ -1,0 +1,15 @@
+{
+  "title": "Blocks",
+  "pages": [
+    "index",
+    "---Comms",
+    "call-card",
+    "chat-bubble",
+    "notification-card",
+    "---Media",
+    "media-thumb",
+    "now-playing",
+    "---AI",
+    "assistant-orb"
+  ]
+}

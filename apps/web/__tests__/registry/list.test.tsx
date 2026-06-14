@@ -13,7 +13,8 @@ describe("List / ListRow", () => {
     const rows = screen.getAllByRole("button");
     expect(rows).toHaveLength(2);
     expect(rows[0]!.classList.contains("focusable")).toBe(true);
-    expect(rows[0]!.classList.contains("gk-list-row")).toBe(true);
+    // Each row is the list's stable row element.
+    expect(rows[0]!.hasAttribute("data-list-row")).toBe(true);
   });
 
   it("fires onClick and renders the trailing slot", () => {
@@ -30,7 +31,14 @@ describe("List / ListRow", () => {
   });
 
   it("omits the trailing wrapper when not provided", () => {
-    const { container } = render(<ListRow>Plain</ListRow>);
-    expect(container.querySelector(".gk-list-row__trailing")).toBeNull();
+    // No trailing → the row renders only the label wrapper (one element child).
+    const { container: plain } = render(<ListRow>Plain</ListRow>);
+    expect(plain.querySelector("button")!.childElementCount).toBe(1);
+
+    // With trailing → the label wrapper plus the trailing slot (two children).
+    const { container: withTrailing } = render(
+      <ListRow trailing="2">Plain</ListRow>,
+    );
+    expect(withTrailing.querySelector("button")!.childElementCount).toBe(2);
   });
 });

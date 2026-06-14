@@ -1,6 +1,10 @@
 ---
 title: "ComposeFlow"
-description: "The working text-entry recipe: a TextField that opens a picker of choices when activated; choosing writes back and returns. The picker rides history, so the back gesture closes it. The seam system dictation would replace."
+description: "The working text-entry recipe: a focusable field that opens a picker of choices when activated; choosing writes back and returns. The picker rides history, so the back gesture closes it. It stands in for the on-device dictation the platform does not expose yet."
 ---
 
 <ComponentDoc slug="compose-flow" />
+
+## When to use
+
+ComposeFlow is the working answer for text on the lens: a picker for an enumerable set of answers, opened from a field activation. There is no keyboard or microphone API, so for anything outside an enumerable set there is no on-device text path today.

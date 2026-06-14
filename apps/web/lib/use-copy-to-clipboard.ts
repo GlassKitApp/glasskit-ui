@@ -18,13 +18,36 @@ export function useCopyToClipboard(resetMs = 1400) {
 
   const copy = useCallback(
     async (text: string) => {
-      try {
-        await navigator.clipboard.writeText(text);
+      const flag = () => {
         setCopied(true);
         if (timer.current) clearTimeout(timer.current);
         timer.current = setTimeout(() => setCopied(false), resetMs);
+      };
+      // Async Clipboard API first (needs a secure context + focus).
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text);
+          flag();
+          return;
+        }
       } catch {
-        /* clipboard unavailable */
+        /* fall through to the legacy path */
+      }
+      // Legacy fallback: works without the Clipboard API (older/locked-down
+      // webviews) so copy still succeeds and the user still gets feedback.
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.top = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        if (ok) flag();
+      } catch {
+        /* clipboard genuinely unavailable */
       }
     },
     [resetMs],

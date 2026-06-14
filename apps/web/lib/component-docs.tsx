@@ -1,15 +1,13 @@
 import type { ReactNode } from "react";
 import { Screen } from "@registry/ui/screen";
 import { Readout } from "@registry/ui/readout";
-import { Cue } from "@registry/ui/cue";
 import { Button } from "@registry/ui/button";
-import { GlowIcon } from "@registry/ui/glow-icon";
+import { Icon } from "@registry/ui/icon";
 import { List, ListRow } from "@registry/ui/list";
 import { Progress } from "@registry/ui/progress";
 import { AsyncView, Spinner } from "@registry/ui/async-view";
 import { DirectionArrow } from "@registry/ui/direction-arrow";
 import { Compass } from "@registry/ui/compass";
-import { Reticle } from "@registry/ui/reticle";
 import { Toggle } from "@registry/ui/toggle";
 import { Stepper } from "@registry/ui/stepper";
 import { Segmented } from "@registry/ui/segmented";
@@ -18,7 +16,6 @@ import { Badge } from "@registry/ui/badge";
 import { StatusDot } from "@registry/ui/status-dot";
 import { Meter } from "@registry/ui/meter";
 import { StatGrid } from "@registry/ui/stat-grid";
-import { Toast } from "@registry/ui/toast";
 import { ErrorState } from "@registry/ui/error-state";
 import { EmptyState } from "@registry/ui/empty-state";
 import { Timer } from "@registry/ui/timer";
@@ -27,22 +24,23 @@ import { Launcher } from "@registry/ui/launcher";
 import { Deck } from "@registry/ui/deck";
 import { QuickReplyChips } from "@registry/ui/quick-reply-chips";
 import { Pin } from "@registry/ui/pin";
-import { Callout } from "@registry/ui/callout";
+import { MapView } from "@registry/ui/map-view";
+import { BAKED_ROUTES } from "@/components/lens/map-routes";
 import { Avatar } from "@registry/ui/avatar";
 import { NotificationCard } from "@registry/ui/notification-card";
 import { NowPlaying } from "@registry/ui/now-playing";
 import { AssistantOrb } from "@registry/ui/assistant-orb";
 import { MessageThread, ChatBubble } from "@registry/ui/chat-bubble";
 import { CallCard } from "@registry/ui/call-card";
-import { Dictation } from "@registry/ui/dictation";
 import { MediaThumb } from "@registry/ui/media-thumb";
-import { Viewfinder } from "@registry/ui/viewfinder";
-import { LiveCaptions } from "@registry/ui/live-captions";
+import { MediaGalleryDemo } from "@/components/lens/media-gallery-demo";
+import { MediaGridDemo } from "@/components/lens/media-grid-demo";
+import { PressableDemo } from "@/components/lens/pressable-demo";
+import { Pressable } from "@registry/ui/pressable";
 import { Tabs } from "@registry/ui/tabs";
 import { Clock } from "@registry/ui/clock";
 import { WeatherTile } from "@registry/ui/weather-tile";
 import { Slider } from "@registry/ui/slider";
-import { TextField } from "@registry/ui/text-field";
 import { ComposeFlow } from "@registry/ui/compose-flow";
 import { PermissionPrompt } from "@registry/ui/permission-prompt";
 import {
@@ -58,7 +56,6 @@ import {
   PhoneOffGlyph,
   SunGlyph,
   VolumeGlyph,
-  MicGlyph,
 } from "@/components/lens/icons";
 
 export type PropRow = {
@@ -73,12 +70,10 @@ export type ComponentDoc = {
   name: string;
   category: string;
   summary: string;
-  /** Inner lens content — the doc page wraps it in a <GlassViewport>. */
+  /** Inner lens content; the doc page wraps it in a <GlassViewport>. */
   preview: ReactNode;
   props: PropRow[];
   usage: string;
-  /** Platform API this component is built-and-waiting for (see /docs/wishlist). */
-  wishlist?: string;
 };
 
 export const COMPONENT_DOCS: ComponentDoc[] = [
@@ -87,19 +82,29 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Screen",
     category: "Shell",
     summary:
-      "The on-lens layout shell: a status region, a centered stage for the one task, and a cue region — with safe margins that keep the surface mostly black.",
+      "The on-lens layout shell: a status region, a centered stage for the one task, and a cue region, with safe margins that keep the surface mostly black.",
     preview: (
-      <Screen cue={<Cue>One task per view</Cue>}>
+      <Screen cue="One task per view">
         <Readout label="Pace" value="8'42" unit="/mi" />
       </Screen>
     ),
     props: [
       { name: "children", type: "ReactNode", desc: "The stage content." },
       { name: "status", type: "ReactNode", desc: "Optional top region." },
-      { name: "cue", type: "ReactNode", desc: "Bottom hint line." },
+      {
+        name: "cue",
+        type: "ReactNode",
+        desc: "Bottom narration line; rendered as a polite role=status live region.",
+      },
+      {
+        name: "cueLive",
+        type: "boolean",
+        default: "false",
+        desc: "Accent the cue for a live/active state.",
+      },
       { name: "className", type: "string", desc: "Extra classes." },
     ],
-    usage: `<Screen cue={<Cue>One task per view</Cue>}>
+    usage: `<Screen cue="One task per view">
   <Readout label="Pace" value="8'42" unit="/mi" />
 </Screen>`,
   },
@@ -108,7 +113,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Readout",
     category: "Display",
     summary:
-      "A single-value complication: label + value + optional unit. The glanceable archetype — one number legible in a 1–2 second glance, with tabular numerals.",
+      "A single-value complication: label, value, and optional unit. The glanceable archetype: one number legible in a 1–2 second glance, with tabular numerals.",
     preview: (
       <Screen>
         <Readout label="Heart rate" value="128" unit="BPM" />
@@ -132,35 +137,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     usage: `<Readout label="Heart rate" value="128" unit="BPM" />`,
   },
   {
-    slug: "cue",
-    name: "Cue",
-    category: "Display",
-    summary:
-      "A caption / hint line: what to do next, or a transient status. Dim by default; set emphasis='accent' for a live state. No glow on body text.",
-    preview: (
-      <Screen>
-        <Cue emphasis="accent">Listening…</Cue>
-        <Cue>Look at a sign to translate</Cue>
-      </Screen>
-    ),
-    props: [
-      { name: "children", type: "ReactNode", desc: "The hint text." },
-      {
-        name: "emphasis",
-        type: '"default" | "accent"',
-        default: '"default"',
-        desc: "Accent highlights it for live states.",
-      },
-      { name: "icon", type: "ReactNode", desc: "Optional leading glyph." },
-    ],
-    usage: `<Cue emphasis="accent">Listening…</Cue>`,
-  },
-  {
     slug: "button",
     name: "Button",
     category: "Action",
     summary:
-      "A D-pad-focusable action. Renders a real <button> with the focusable class, so useDpad walks it and activates it on Enter/Space. Edge + focus ring are emitted light, never fills.",
+      "A D-pad-focusable action. Renders a real <button> with the focusable class, so useDpad walks it and activates it on Enter/Space. Primary wears the accent fill; positive and danger carry the semantic accept and destroy fills; ghost is chrome-less.",
     preview: (
       <Screen>
         <div className="row">
@@ -170,14 +151,22 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       </Screen>
     ),
     props: [
-      { name: "children", type: "ReactNode", desc: "The label." },
+      {
+        name: "children",
+        type: "ReactNode",
+        desc: "The label. Omit for an icon-only button, but then set aria-label.",
+      },
       {
         name: "variant",
-        type: '"primary" | "secondary"',
+        type: '"primary" | "secondary" | "ghost" | "positive" | "danger"',
         default: '"secondary"',
-        desc: "Primary brightens the edge.",
+        desc: "Primary wears the accent fill; positive and danger carry the accept and destroy fills; ghost is chrome-less.",
       },
-      { name: "icon", type: "ReactNode", desc: "Optional leading glyph." },
+      {
+        name: "icon",
+        type: "ReactNode",
+        desc: "Optional leading glyph, typically an Icon.",
+      },
       { name: "disabled", type: "boolean", desc: "Excluded from D-pad focus." },
       {
         name: "onClick",
@@ -185,10 +174,26 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         desc: "Fires on Enter/Space/click.",
       },
       {
+        name: "type",
+        type: '"button" | "submit" | "reset"',
+        default: '"button"',
+        desc: "Native button type.",
+      },
+      {
         name: "initialFocus",
         type: "boolean",
         default: "false",
         desc: "Seed the D-pad ring here when the screen mounts (data-autofocus).",
+      },
+      {
+        name: "aria-label",
+        type: "string",
+        desc: "Accessible name, required for an icon-only button.",
+      },
+      {
+        name: "className",
+        type: "string",
+        desc: "Extra classes merged onto the button.",
       },
     ],
     usage: `<Button variant="primary" onClick={log}>
@@ -196,20 +201,20 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
 </Button>`,
   },
   {
-    slug: "glow-icon",
-    name: "GlowIcon",
+    slug: "icon",
+    name: "Icon",
     category: "Display",
     summary:
-      "Wraps a stroke-only line-icon SVG and applies the two-tier luminance rule: inert = near-white, active = the accent with a faint glow — or an iOS-style gradient plate via `plate`. Token sizes, no inline style.",
+      "Wraps a stroke-only line-icon SVG and applies the two-tier luminance rule: inert = near-white, active = the accent with a faint glow, or an iOS-style gradient plate via `plate`. Token sizes, no inline style.",
     preview: (
       <Screen>
         <div className="row">
-          <GlowIcon active size="lg" label="Active">
+          <Icon active size="lg" label="Active">
             <HeartGlyph />
-          </GlowIcon>
-          <GlowIcon size="lg" label="Inert">
+          </Icon>
+          <Icon size="lg" label="Inert">
             <NavGlyph />
-          </GlowIcon>
+          </Icon>
         </div>
       </Screen>
     ),
@@ -228,43 +233,55 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         desc: "16 / 20 / 28px.",
       },
       {
+        name: "plate",
+        type: "boolean",
+        default: "false",
+        desc: "Render as a gradient app-icon plate.",
+      },
+      {
+        name: "tone",
+        type: '"blue" | "green" | "peach" | "violet" | "cyan" | "amber"',
+        default: '"blue"',
+        desc: "Plate gradient tone (plate mode only).",
+      },
+      {
         name: "label",
         type: "string",
         desc: "a11y label; omit for decorative.",
       },
     ],
-    usage: `<GlowIcon active size="lg" label="Heart rate">
+    usage: `<Icon active size="lg" label="Heart rate">
   <HeartIcon />
-</GlowIcon>`,
+</Icon>`,
   },
   {
     slug: "list",
     name: "List",
     category: "Action",
     summary:
-      "A vertical stack of focusable rows (watchOS list spirit). Keep it short — a glanceable HUD caps at 3–5 rows. Compose List with ListRow (leading glyph, label, trailing value).",
+      "A vertical stack of focusable rows (watchOS list spirit). Keep it short: a glanceable HUD caps at 3–5 rows. Compose List with ListRow (leading glyph, label, trailing value).",
     preview: (
       <Screen>
         <List>
           <ListRow
             leading={
-              <GlowIcon plate tone="blue" size="sm">
+              <Icon plate tone="blue" size="sm">
                 <NavGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing={
-              <GlowIcon size="sm">
+              <Icon size="sm">
                 <ChevronGlyph />
-              </GlowIcon>
+              </Icon>
             }
           >
             Navigate
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="green" size="sm">
+              <Icon plate tone="green" size="sm">
                 <MessageGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing="2"
           >
@@ -272,23 +289,23 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="peach" size="sm">
+              <Icon plate tone="peach" size="sm">
                 <MusicGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing={
-              <GlowIcon size="sm">
+              <Icon size="sm">
                 <ChevronGlyph />
-              </GlowIcon>
+              </Icon>
             }
           >
             Music
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="violet" size="sm">
+              <Icon plate tone="violet" size="sm">
                 <HeartGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing="128"
           >
@@ -296,37 +313,37 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="cyan" size="sm">
+              <Icon plate tone="cyan" size="sm">
                 <NavGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing={
-              <GlowIcon size="sm">
+              <Icon size="sm">
                 <ChevronGlyph />
-              </GlowIcon>
+              </Icon>
             }
           >
             Maps
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="amber" size="sm">
+              <Icon plate tone="amber" size="sm">
                 <AlertGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing={
-              <GlowIcon size="sm">
+              <Icon size="sm">
                 <ChevronGlyph />
-              </GlowIcon>
+              </Icon>
             }
           >
             Alerts
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="cyan" size="sm">
+              <Icon plate tone="cyan" size="sm">
                 <BatteryGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing="87%"
           >
@@ -334,14 +351,14 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           </ListRow>
           <ListRow
             leading={
-              <GlowIcon plate tone="green" size="sm">
+              <Icon plate tone="green" size="sm">
                 <CheckGlyph />
-              </GlowIcon>
+              </Icon>
             }
             trailing={
-              <GlowIcon size="sm">
+              <Icon size="sm">
                 <ChevronGlyph />
-              </GlowIcon>
+              </Icon>
             }
           >
             Updates
@@ -367,9 +384,14 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         type: "() => void",
         desc: "Row activation.",
       },
+      {
+        name: "ListRow · disabled",
+        type: "boolean",
+        desc: "Dims and skips D-pad focus.",
+      },
     ],
     usage: `<List>
-  <ListRow leading={<GlowIcon size="sm"><NavIcon /></GlowIcon>}>
+  <ListRow leading={<Icon size="sm"><NavIcon /></Icon>}>
     Navigate
   </ListRow>
   <ListRow trailing="2">Messages</ListRow>
@@ -423,7 +445,9 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           loading={
             <div className="gk-async">
               <Spinner label="Loading" />
-              <Cue>Loading route…</Cue>
+              <span className="t-caption text-foreground-faint">
+                Loading route…
+              </span>
             </div>
           }
         >
@@ -449,8 +473,19 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         desc: "Override the default error line.",
       },
       { name: "placeholder", type: "ReactNode", desc: "Shown when idle." },
+      {
+        name: "errorLabel",
+        type: "ReactNode",
+        default: '"Couldn’t load"',
+        desc: "Default error message when no error slot is given.",
+      },
+      {
+        name: "className",
+        type: "string",
+        desc: "Extra classes for the centered state wrapper (idle / loading / error).",
+      },
     ],
-    usage: `<AsyncView status={status} error={<Cue>Couldn’t load</Cue>}>
+    usage: `<AsyncView status={status} error={<span className="t-caption text-foreground-faint">Couldn’t load</span>}>
   <Readout label="Heart rate" value={bpm} unit="BPM" />
 </AsyncView>`,
   },
@@ -459,7 +494,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "DirectionArrow",
     category: "Spatial",
     summary:
-      "Points toward a real-world bearing. World-anchored: it rotates via an SVG transform attribute and is never mirrored under RTL — a flipped arrow points the wrong way.",
+      "Points toward a real-world bearing. World-anchored: it rotates via an SVG transform attribute and is never mirrored under RTL, since a flipped arrow points the wrong way.",
     preview: (
       <Screen>
         <DirectionArrow bearing={35} />
@@ -490,7 +525,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Compass",
     category: "Spatial",
     summary:
-      "A heading rose: North stays world-aligned while a fixed top marker shows where you face. World-anchored — never mirrored under RTL.",
+      "A heading rose: North stays world-aligned while a fixed top marker shows where you face. World-anchored, never mirrored under RTL.",
     preview: (
       <Screen>
         <Compass heading={290} />
@@ -509,30 +544,6 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
 
 // or controlled (demos, your own sensor fusion)
 <Compass heading={290} />`,
-  },
-  {
-    slug: "reticle",
-    wishlist: "a gaze / head-pose targeting API",
-    name: "Reticle",
-    category: "Spatial",
-    summary:
-      "An aim-to-select target: four corner brackets framing the center of the lens. No gaze API exists for web apps — active is app-driven state (e.g. a projected point entering the center region).",
-    preview: (
-      <Screen>
-        <Reticle active label="Aim at a sign" />
-        <Cue>Dwell to select</Cue>
-      </Screen>
-    ),
-    props: [
-      {
-        name: "active",
-        type: "boolean",
-        default: "false",
-        desc: "Brightens the brackets while dwelling on a target.",
-      },
-      { name: "label", type: "string", desc: "a11y label." },
-    ],
-    usage: `<Reticle active={isOnTarget} label="Aim at a sign" />`,
   },
   {
     slug: "toggle",
@@ -621,6 +632,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       { name: "value", type: "T", desc: "The selected value (controlled)." },
       { name: "onChange", type: "(next: T) => void", desc: "Fires on select." },
+      {
+        name: "label",
+        type: "string",
+        desc: 'Accessible name for the group (e.g. "View mode").',
+      },
     ],
     usage: `<Segmented
   value={mode}
@@ -636,7 +652,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Confirm",
     category: "Action",
     summary:
-      "A decision screen: a prompt plus a two-button action bar. Drop it into a Screen stage; useDpad seeds focus on the primary action. destructive seeds the ring on cancel — a blind pinch must never destroy anything; the ring is scoped to the decision.",
+      "A decision screen: a prompt plus a two-button action bar. Drop it into a Screen stage; useDpad seeds focus on the primary action. destructive seeds the ring on cancel, because a blind pinch must never destroy anything; the ring is scoped to the decision.",
     preview: (
       <Screen>
         <Confirm
@@ -664,8 +680,9 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         name: "destructive",
         type: "boolean",
         default: "false",
-        desc: "Irreversible action — seed the D-pad ring on cancel, not confirm.",
+        desc: "Irreversible action. Seed the D-pad ring on cancel, not confirm.",
       },
+      { name: "className", type: "string", desc: "Extra classes." },
     ],
     usage: `<Confirm
   title="End workout?"
@@ -680,25 +697,28 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Badge",
     category: "Display",
     summary:
-      "A small count or status pill. Pure display — hairline by default, accent tone for the one thing that should draw the eye (the accent gradient, for the one thing that needs the eye).",
+      "A small count or status pill. Pure display: a subtle surface by default, the accent gradient for the one thing that should draw the eye, or a quiet hairline outline.",
     preview: (
       <Screen>
         <div className="row">
           <Badge>3</Badge>
-          <Badge emphasis="accent">LIVE</Badge>
+          <Badge variant="accent">LIVE</Badge>
+          <Badge variant="outline">Beta</Badge>
         </div>
       </Screen>
     ),
     props: [
       { name: "children", type: "ReactNode", desc: "Count or short label." },
       {
-        name: "emphasis",
-        type: '"default" | "accent"',
+        name: "variant",
+        type: '"default" | "accent" | "outline"',
         default: '"default"',
-        desc: "Accent gradient tone.",
+        desc: "Surface pill, accent gradient, or hairline outline.",
       },
     ],
-    usage: `<Badge emphasis="accent">LIVE</Badge>`,
+    usage: `<Badge>3</Badge>
+<Badge variant="accent">LIVE</Badge>
+<Badge variant="outline">Beta</Badge>`,
   },
   {
     slug: "status-dot",
@@ -729,7 +749,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Meter",
     category: "Display",
     summary:
-      "A bounded ring gauge for a level (battery, signal, effort) — distinct from Progress, which tracks task completion. The arc fills via an SVG stroke-dashoffset; value is clamped to [0, max].",
+      "A bounded ring gauge for a level (battery, signal, effort), distinct from Progress, which tracks task completion. The arc fills via an SVG stroke-dashoffset; value is clamped to [0, max].",
     preview: (
       <Screen>
         <Meter value={72} max={100} label="Effort" unit="%" />
@@ -752,7 +772,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "StatGrid",
     category: "Display",
     summary:
-      "A compact grid of readouts for a multi-metric glance (a complication cluster). Pure display, tabular numerals. Keep it to 2–4 cells.",
+      "A compact grid of readouts for a multi-metric glance (a complication cluster). Pure display, tabular numerals. Keep it to 2 to 4 cells.",
     preview: (
       <Screen>
         <StatGrid
@@ -769,7 +789,12 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       {
         name: "items",
         type: "{ label, value, unit? }[]",
-        desc: "The metrics to show.",
+        desc: "The metrics to show. Each cell has a label, a value, and an optional unit.",
+      },
+      {
+        name: "className",
+        type: "string",
+        desc: "Extra classes merged onto the grid wrapper.",
       },
     ],
     usage: `<StatGrid items={[
@@ -778,49 +803,18 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
 ]} />`,
   },
   {
-    slug: "toast",
-    name: "Toast",
-    category: "Status",
-    summary:
-      "A transient notice that animates in with a brief luminance rise (never a modal scrim). Controlled via open; you own the auto-dismiss timer.",
-    preview: (
-      <Screen>
-        <Toast open emphasis="accent">
-          Workout saved
-        </Toast>
-      </Screen>
-    ),
-    props: [
-      {
-        name: "open",
-        type: "boolean",
-        desc: "Render the toast (else nothing).",
-      },
-      { name: "children", type: "ReactNode", desc: "The message." },
-      {
-        name: "emphasis",
-        type: '"default" | "accent"',
-        default: '"default"',
-        desc: "Accent adds a soft glow.",
-      },
-    ],
-    usage: `<Toast open={saved} emphasis="accent">
-  Workout saved
-</Toast>`,
-  },
-  {
     slug: "error-state",
     name: "ErrorState",
     category: "Status",
     summary:
-      "A recoverable error screen: optional glyph + title + message + a retry action. No red — the lens has one accent, so the failure reads from the words. Pairs with AsyncView's error slot.",
+      "A recoverable error screen: optional glyph, title, message, and a retry action. No red: the lens has one accent, so the failure reads from the words. Pairs with AsyncView's error slot.",
     preview: (
       <Screen>
         <ErrorState
           icon={
-            <GlowIcon size="lg" plate tone="amber" label="Error">
+            <Icon size="lg" plate tone="amber" label="Error">
               <AlertGlyph />
-            </GlowIcon>
+            </Icon>
           }
           title="No signal"
           message="Move to an open area and try again."
@@ -859,14 +853,14 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "EmptyState",
     category: "Status",
     summary:
-      "The nothing-here screen: optional glyph + title + hint + one action. The quiet sibling of ErrorState — nothing failed, there's just no content yet. Pairs with AsyncView's placeholder slot.",
+      "The nothing-here screen: optional glyph, title, hint, and one action. The quiet sibling of ErrorState: nothing failed, there's just no content yet. Pairs with AsyncView's placeholder slot.",
     preview: (
       <Screen>
         <EmptyState
           icon={
-            <GlowIcon size="lg" plate label="Messages">
+            <Icon size="lg" plate label="Messages">
               <MessageGlyph />
-            </GlowIcon>
+            </Icon>
           }
           title="No messages"
           hint="New conversations land here."
@@ -883,7 +877,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       {
         name: "hint",
         type: "ReactNode",
-        desc: "A quieter second line — what will fill this screen, or how.",
+        desc: "A quieter second line: what will fill this screen, or how.",
       },
       { name: "icon", type: "ReactNode", desc: "Optional leading glyph." },
       {
@@ -914,7 +908,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Heading",
     category: "Display",
     summary:
-      "A screen/section title with an optional accent eyebrow above it. Pure display — one heading per view keeps the glance cheap.",
+      "A screen/section title with an optional accent eyebrow above it. Pure display: one heading per view keeps the glance cheap.",
     preview: (
       <Screen>
         <Heading eyebrow="Workout">Morning Run</Heading>
@@ -927,6 +921,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         type: "ReactNode",
         desc: "Small tracked label above.",
       },
+      { name: "className", type: "string", desc: "Extra classes." },
     ],
     usage: `<Heading eyebrow="Workout">Morning Run</Heading>`,
   },
@@ -935,7 +930,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Launcher",
     category: "Navigation",
     summary:
-      "The app grid: the entry screen for a multi-app surface. Cards are D-pad-focusable; keep it to ~4 apps so the whole grid is one glance.",
+      "The app grid: the entry screen for a multi-app surface. Cards are D-pad-focusable; keep it to ~6 apps so the whole grid is one glance.",
     preview: (
       <Screen>
         <Launcher
@@ -945,9 +940,9 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
               label: "Navigate",
               tagline: "320 m",
               icon: (
-                <GlowIcon active>
+                <Icon active>
                   <NavGlyph />
-                </GlowIcon>
+                </Icon>
               ),
             },
             {
@@ -955,9 +950,9 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
               label: "Messages",
               tagline: "2 new",
               icon: (
-                <GlowIcon>
+                <Icon>
                   <MessageGlyph />
-                </GlowIcon>
+                </Icon>
               ),
             },
           ]}
@@ -967,15 +962,15 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     props: [
       {
         name: "apps",
-        type: "{ id, label, tagline?, icon?, onSelect? }[]",
-        desc: "The apps to show as focusable cards.",
+        type: "{ id, label, tagline?, icon?, tone?, onSelect? }[]",
+        desc: "The apps to show as focusable cards. Each card may set a gradient tone; it defaults to a cycled palette color.",
       },
     ],
     usage: `<Launcher apps={[
   { id: "nav", label: "Navigate", tagline: "320 m",
-    icon: <GlowIcon active><NavIcon /></GlowIcon>, onSelect: openNav },
+    icon: <Icon active><NavIcon /></Icon>, onSelect: openNav },
   { id: "msg", label: "Messages", tagline: "2 new",
-    icon: <GlowIcon><MessageIcon /></GlowIcon>, onSelect: openMessages },
+    icon: <Icon><MessageIcon /></Icon>, onSelect: openMessages },
 ]} />`,
   },
   {
@@ -983,7 +978,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Deck",
     category: "Navigation",
     summary:
-      "A horizontal paged flow (wizard / onboarding). Self-connects to the Neural Band — a wristband swipe advances the page. Pass index to control it; step dots beneath. Never scrolls.",
+      "A horizontal paged flow (wizard / onboarding). Self-connects to the Neural Band, so a wristband swipe advances the page. Pass index to control it; step dots beneath. Never scrolls.",
     preview: (
       <Screen>
         <Deck index={1}>
@@ -997,7 +992,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       {
         name: "index",
         type: "number",
-        desc: "Controlled page (clamped). Omit for uncontrolled — Neural Band swipes advance.",
+        desc: "Controlled page (clamped). Omit for uncontrolled, where Neural Band swipes advance.",
       },
       {
         name: "defaultIndex",
@@ -1010,7 +1005,16 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         type: "(index: number) => void",
         desc: "Fires with the next page on every swipe (both modes).",
       },
-      { name: "children", type: "ReactNode", desc: "One node per page." },
+      {
+        name: "children",
+        type: "ReactNode",
+        desc: "One node per page. Falsy children are dropped, which changes the page count, so render every page and gate inside it instead.",
+      },
+      {
+        name: "className",
+        type: "string",
+        desc: "Classes merged onto the outer wrapper.",
+      },
     ],
     usage: `// self-wired: Neural Band swipes advance
 <Deck>
@@ -1027,11 +1031,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Navigator",
     category: "Navigation",
     summary:
-      "A screen stack with system-back integration. Every push adds a real history entry, so the Display's back gesture (middle pinch, OS v125.1+) pops it via popstate. The stack rides in history.state — a mid-flow reload restores the screen; opt-in paths mirror pushes into the URL. Pop restores focus to the row that pushed.",
+      "A screen stack with system-back integration. Every push adds a real history entry, so the Display's back gesture (middle pinch, OS v125.1+) pops it via popstate. The stack rides in history.state, so a mid-flow reload restores the screen; opt-in paths mirror pushes into the URL. Pop restores focus to the row that pushed.",
     // Static stand-in: the live stack (with real history pushes) runs in the
     // interactive demo and the /preview glass app.
     preview: (
-      <Screen cue={<Cue>Middle pinch goes back</Cue>}>
+      <Screen cue="Middle pinch goes back">
         <Heading eyebrow="Navigator">Workout</Heading>
         <List>
           <ListRow>Start a run</ListRow>
@@ -1073,10 +1077,9 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
     name: "QuickReplyChips",
     category: "Action",
     summary:
-      "Tappable canned replies (the comms job — there is no keyboard on the lens, text is voice). Each chip is D-pad-focusable. Keep the set short and glanceable.",
+      "Tappable canned replies (the comms job: there is no keyboard on the lens, text is voice). Each chip is D-pad-focusable. Keep the set short and glanceable.",
     preview: (
-      <Screen>
-        <Cue>&ldquo;Running late&rdquo;</Cue>
+      <Screen cue={<>&ldquo;Running late&rdquo;</>}>
         <QuickReplyChips options={["On my way", "5 min", "Call me"]} />
       </Screen>
     ),
@@ -1098,7 +1101,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
     name: "Pin",
     category: "Spatial",
     summary:
-      "A world-anchored waypoint marker (ring + dot, name + distance above) placed at a projected screen point. You project: derive x from the target's relative bearing (lib/geo) — the platform gives heading + GPS, not 3D pose. Never mirrored under RTL.",
+      "A world-anchored waypoint marker (ring + dot, name + distance above) placed at a projected screen point. You project: derive x from the target's relative bearing (lib/geo), since the platform gives heading + GPS, not 3D pose. Never mirrored under RTL.",
     preview: <Pin x={50} y={48} label="Blue Bottle" distance="120 m" />,
     props: [
       {
@@ -1113,31 +1116,102 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
 <Pin x={x} y={y} label="Blue Bottle" distance="120 m" />`,
   },
   {
-    slug: "callout",
-    name: "Callout",
+    slug: "map-view",
+    name: "MapView",
     category: "Spatial",
     summary:
-      "A world-object annotation: an anchor + a vertical leader up to an emitted label (no box — just a leader line + emitted type). Project x from relative bearing like Pin (lib/geo). World-anchored, never mirrored.",
-    preview: <Callout x={50} y={56} label="Powell St" detail="Muni · 3 min" />,
+      "A real moving map for the lens, built on Leaflet (~42KB). Dark raster tiles that follow your position, with the route and a you-are-here marker drawn on top in accent. It defaults to keyless CARTO dark tiles; pass tileUrl for MapTiler or Stadia in production.",
+    preview: (
+      <>
+        <MapView
+          center={[40.7411, -73.9897]}
+          zoom={16}
+          route={BAKED_ROUTES[3]!.path}
+          destination={BAKED_ROUTES[3]!.path.at(-1)}
+        />
+        <Screen
+          status={
+            <span className="t-caption text-primary">
+              Eleven Madison · 738 m · 9 min
+            </span>
+          }
+          cue="Routing there"
+        >
+          {null}
+        </Screen>
+      </>
+    ),
     props: [
-      { name: "x / y", type: "number", desc: "0–100, % of the lens." },
-      { name: "label", type: "ReactNode", desc: "The annotation label." },
-      { name: "detail", type: "ReactNode", desc: "Optional second line." },
+      {
+        name: "center",
+        type: "[number, number]",
+        desc: "Your position [lat, lon]. The map follows it.",
+      },
+      { name: "zoom", type: "number", default: "16", desc: "Zoom level." },
+      {
+        name: "route",
+        type: "[number, number][]",
+        desc: "Route polyline as [lat, lon] points.",
+      },
+      {
+        name: "destination",
+        type: "[number, number]",
+        desc: "Destination pin [lat, lon].",
+      },
+      {
+        name: "places",
+        type: "{ at: [number, number]; name?: string; image?: string; rating?: string }[]",
+        desc: "Photo markers (restaurants, stops): a circular image, name, and rating. Each is a D-pad-focusable button.",
+      },
+      {
+        name: "onSelectPlace",
+        type: "(index: number, place: Place) => void",
+        desc: "Fired when a place marker is activated (Enter / click).",
+      },
+      {
+        name: "tileUrl",
+        type: "string",
+        default: "CARTO dark",
+        desc: "Raster tile template. Bring your own provider key for production.",
+      },
+      {
+        name: "attribution",
+        type: "string",
+        default: "© OpenStreetMap © CARTO",
+        desc: "Tile attribution string shown on the map.",
+      },
     ],
-    usage: `<Callout x={x} y={y} label="Powell St" detail="Muni · 3 min" />`,
+    usage: `// keyless CARTO dark tiles (preview-grade); live position follows you
+const here = useGeolocation(); // [lat, lon]
+
+<MapView
+  center={[here.lat, here.lon]}
+  route={routeLatLngs}
+  destination={[37.7814, -122.4217]}
+  // tileUrl="https://api.maptiler.com/maps/streets-dark/{z}/{x}/{y}.png?key=…"
+/>`,
   },
   {
     slug: "avatar",
     name: "Avatar",
     category: "Comms",
     summary:
-      "A contact / sender avatar — a photo when you have one, else initials on a gradient plate. The building block for notifications, chats, and calls.",
+      "A contact / sender avatar: a photo when you have one, else initials on a gradient plate. The building block for notifications, chats, and calls.",
     preview: (
       <Screen>
-        <div className="row">
-          <Avatar name="Mara Lin" tone="violet" size="lg" />
+        <div className="flex items-end gap-6">
+          <Avatar
+            name="Mara Lin"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces"
+            size="lg"
+          />
           <Avatar name="Sam Ortiz" tone="green" size="lg" />
-          <Avatar name="Devon Reyes" tone="amber" size="lg" />
+          <Avatar
+            name="Design Team"
+            tone="violet"
+            size="lg"
+            icon={<MessageGlyph />}
+          />
         </div>
       </Screen>
     ),
@@ -1148,6 +1222,11 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
         desc: "Display name → initials + a11y label.",
       },
       { name: "src", type: "string", desc: "Optional photo URL." },
+      {
+        name: "icon",
+        type: "ReactNode",
+        desc: "Glyph shown instead of initials (groups, bots).",
+      },
       {
         name: "tone",
         type: '"blue" | "green" | "peach" | "violet" | "cyan" | "amber"',
@@ -1169,7 +1248,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
     name: "NotificationCard",
     category: "Comms",
     summary:
-      "An incoming notification — avatar + sender + time, a message preview, and optional quick actions. The glanceable comms surface (richer than a Toast).",
+      "An incoming notification: avatar + sender + time, a message preview, and optional quick actions. The glanceable comms surface (richer than a Toast).",
     preview: (
       <Screen>
         <NotificationCard
@@ -1177,7 +1256,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
           title="Mara Lin"
           time="now"
         >
-          On my way — be there in 5
+          On my way, be there in 5
         </NotificationCard>
       </Screen>
     ),
@@ -1196,16 +1275,15 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
   avatar={<Avatar name="Mara Lin" tone="violet" size="sm" />}
   title="Mara Lin" time="now"
 >
-  On my way — be there in 5
+  On my way, be there in 5
 </NotificationCard>`,
   },
   {
     slug: "now-playing",
-    wishlist: "documented audio playback in the webview",
     name: "NowPlaying",
     category: "Media",
     summary:
-      "A media now-playing card: album art, title + artist, a scrub bar, and elapsed / remaining times. A status display for playback your app tracks — audio support in the Display webview is undocumented; verify on-device.",
+      "A media now-playing card with album art, title and artist, a scrub bar, and elapsed / remaining times. It's a status display for playback your app tracks. Audio support in the Display webview is undocumented, so verify on-device.",
     preview: (
       <Screen>
         <NowPlaying
@@ -1222,7 +1300,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
       {
         name: "art",
         type: "ReactNode",
-        desc: "Album art — <img> or a gradient tile.",
+        desc: "Album art: an <img> or a gradient tile.",
       },
       { name: "title / artist", type: "ReactNode", desc: "Track + artist." },
       {
@@ -1245,7 +1323,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
     name: "AssistantOrb",
     category: "AI",
     summary:
-      "The Meta-AI presence: a glowing gradient orb that animates per state — idle breathe, listening pulse, thinking swirl, speaking. Pair with a transcript line.",
+      "The Meta-AI presence: a glowing gradient orb that animates per state (idle breathe, listening pulse, thinking swirl, speaking). Pair with a transcript line.",
     preview: (
       <Screen>
         <AssistantOrb state="listening" label="Listening…" />
@@ -1267,9 +1345,9 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
     name: "Toaster",
     category: "Status",
     summary:
-      "The toast / notification SYSTEM — Sonner (Emil Kowalski's library) themed to the lens. Mount <Toaster> once, then fire imperatively with toast(); it handles the queue, stacking, auto-dismiss, and enter/exit motion. Top-anchored — Screen's Cue line owns the bottom strip.",
+      "The toast / notification SYSTEM: Sonner (Emil Kowalski's library) themed to the lens. Mount <Toaster> once, then fire imperatively with toast(); it handles the queue, stacking, auto-dismiss, and enter/exit motion. Top-anchored, so Screen's Cue line owns the bottom strip.",
     preview: (
-      // Static mock in the status slot — top-anchored like the real
+      // Static mock in the status slot, top-anchored like the real
       // top-center mount. (Tailwind margin utilities can't pin it: the SDK's
       // unlayered `.glass-viewport *` margin reset beats layered utilities.)
       <Screen
@@ -1280,7 +1358,7 @@ useBackHandler(() => { if (open) { setOpen(false); return true; } return false; 
             </span>
             <div>
               <div className="gk-toaster__title">Mara Lin</div>
-              <div className="gk-toaster__desc">On my way — be there in 5</div>
+              <div className="gk-toaster__desc">On my way, be there in 5</div>
             </div>
           </div>
         }
@@ -1321,7 +1399,7 @@ toast("Mara Lin", {
     name: "ChatBubble",
     category: "Comms",
     summary:
-      'A conversation view. <MessageThread> stacks <ChatBubble>s — from="them" is a surface bubble at the start, from="me" is the accent-gradient bubble at the end. RTL-safe.',
+      'A conversation view. <MessageThread> stacks <ChatBubble>s: from="them" is a surface bubble at the start, from="me" is the accent-gradient bubble at the end. RTL-safe.',
     preview: (
       <Screen>
         <MessageThread>
@@ -1374,18 +1452,18 @@ toast("Mara Lin", {
                 className="focusable gk-callbtn gk-callbtn--decline"
                 aria-label="Decline"
               >
-                <GlowIcon size="md">
+                <Icon size="md">
                   <PhoneOffGlyph />
-                </GlowIcon>
+                </Icon>
               </button>
               <button
                 type="button"
                 className="focusable gk-callbtn gk-callbtn--accept"
                 aria-label="Accept"
               >
-                <GlowIcon size="md">
+                <Icon size="md">
                   <PhoneGlyph />
-                </GlowIcon>
+                </Icon>
               </button>
             </>
           }
@@ -1413,53 +1491,12 @@ toast("Mara Lin", {
 />`,
   },
   {
-    slug: "dictation",
-    wishlist: "a microphone / system dictation API",
-    name: "Dictation",
-    category: "Input",
-    summary:
-      "The voice-to-text surface (no keyboard on the lens — text is voice or Neural-Band handwriting): a live waveform + the running transcript. You own the recognition and feed transcript.",
-    preview: (
-      <Screen>
-        <Dictation transcript="Running five minutes late" listening />
-      </Screen>
-    ),
-    props: [
-      {
-        name: "transcript",
-        type: "ReactNode",
-        desc: "The recognized text so far.",
-      },
-      {
-        name: "listening",
-        type: "boolean",
-        default: "true",
-        desc: "Animates the waveform.",
-      },
-      {
-        name: "placeholder",
-        type: "ReactNode",
-        default: '"Speak now…"',
-        desc: "Shown before any text.",
-      },
-    ],
-    usage: `<Dictation transcript={text} listening={isListening} />`,
-  },
-  {
     slug: "media-thumb",
     name: "MediaThumb",
     category: "Media",
     summary:
-      "A photo / reel tile (Photos, Instagram): a rounded media tile with optional duration pill and caption overlay. Compose in a grid for a gallery.",
-    preview: (
-      <Screen>
-        <div className="row">
-          <MediaThumb label="Trail" />
-          <MediaThumb duration="0:14" />
-          <MediaThumb label="Café" />
-        </div>
-      </Screen>
-    ),
+      "A photo / reel tile (Photos, Instagram): a rounded media tile with optional duration pill and caption overlay. Drop tiles in a masonry gk-gallery for a staggered, D-pad-scrollable grid; pass onSelect to make each tile focusable.",
+    preview: <MediaGalleryDemo />,
     props: [
       {
         name: "src",
@@ -1476,77 +1513,24 @@ toast("Mara Lin", {
         name: "aspect",
         type: '"square" | "portrait"',
         default: '"square"',
-        desc: "Tile ratio.",
+        desc: "Tile ratio. Mixed aspects make a masonry stagger.",
+      },
+      {
+        name: "onSelect",
+        type: "() => void",
+        desc: "Makes the tile a focusable button, fired on Enter.",
       },
     ],
-    usage: `<MediaThumb src={photo} label="Trail" />
-<MediaThumb src={reel} duration="0:14" aspect="portrait" />`,
-  },
-  {
-    slug: "viewfinder",
-    wishlist: "camera access (getUserMedia or a capture API)",
-    name: "Viewfinder",
-    category: "Capture",
-    summary:
-      "Camera-POV chrome: bold corner brackets, optional zoom and REC badges. Web apps have no camera access — this is presentation scaffolding for a camera-style UI; recording is app state you set.",
-    preview: (
-      <Screen>
-        <Viewfinder zoom="1×" recording />
-      </Screen>
-    ),
-    props: [
-      {
-        name: "zoom",
-        type: "ReactNode",
-        desc: 'Zoom badge, e.g. "1×" / "3×".',
-      },
-      {
-        name: "recording",
-        type: "boolean",
-        default: "false",
-        desc: "Shows the pulsing REC indicator.",
-      },
-      {
-        name: "children",
-        type: "ReactNode",
-        desc: "Overlays (e.g. a Reticle).",
-      },
-    ],
-    usage: `<Viewfinder zoom="3×" recording>
-  <Reticle active />
-</Viewfinder>`,
-  },
-  {
-    slug: "live-captions",
-    wishlist: "a microphone + transcription API",
-    name: "LiveCaptions",
-    category: "Capture",
-    summary:
-      "Real-time transcription / translation read at a glance: a speaker label and the running caption text on a low-anchored surface (the Captions app).",
-    preview: (
-      <Screen>
-        <LiveCaptions speaker="Maya" translated>
-          It's just down the street, on the left.
-        </LiveCaptions>
-      </Screen>
-    ),
-    props: [
-      { name: "speaker", type: "ReactNode", desc: "Who is speaking." },
-      {
-        name: "children",
-        type: "ReactNode",
-        desc: "Caption text (latest line[s]).",
-      },
-      {
-        name: "translated",
-        type: "boolean",
-        default: "false",
-        desc: 'Shows a "Translated" badge.',
-      },
-    ],
-    usage: `<LiveCaptions speaker="Maya" translated>
-  {captionText}
-</LiveCaptions>`,
+    usage: `// a focusable photo tile (mixed aspects make a masonry stagger)
+<MediaThumb
+  src={photo.src}
+  label={photo.label}
+  aspect={photo.aspect}      // "square" | "portrait"
+  onSelect={() => open(photo)}
+/>
+
+// for a vertical masonry, deal the tiles into two
+// .gk-gallery__col stacks inside a .gk-gallery container.`,
   },
   {
     slug: "tabs",
@@ -1626,7 +1610,7 @@ toast("Mara Lin", {
     usage: `// self-ticking, device locale
 <Clock meta="72° · Sunny" />
 
-// or controlled — you own the formatting
+// or controlled: you own the formatting
 <Clock time="9:41" date="Tuesday, June 9" />`,
   },
   {
@@ -1676,7 +1660,7 @@ toast("Mara Lin", {
 // paused / resumed from app state
 <Timer duration={300} running={running} />
 
-// or controlled — you own the clock
+// or controlled: you own the clock
 <Timer remaining={secondsLeft} duration={300} />`,
   },
   {
@@ -1689,9 +1673,9 @@ toast("Mara Lin", {
       <Screen>
         <WeatherTile
           icon={
-            <GlowIcon size="lg">
+            <Icon size="lg">
               <SunGlyph />
-            </GlowIcon>
+            </Icon>
           }
           temp="72°"
           condition="Sunny"
@@ -1711,7 +1695,7 @@ toast("Mara Lin", {
       },
     ],
     usage: `<WeatherTile
-  icon={<GlowIcon size="lg"><SunIcon /></GlowIcon>}
+  icon={<Icon size="lg"><SunIcon /></Icon>}
   temp="72°" condition="Sunny" location="San Francisco" range="H:78° L:61°"
 />`,
   },
@@ -1720,24 +1704,24 @@ toast("Mara Lin", {
     name: "Slider",
     category: "Action",
     summary:
-      "A continuous level control (volume, brightness — the quick controls). A native range tinted with accent-color; arrow keys / Neural-Band pinch-twist adjust it. Controlled via value + onChange.",
+      "A continuous level control (volume, brightness, the quick controls). A native range tinted with accent-color; arrow keys / Neural-Band pinch-twist adjust it. Controlled via value + onChange.",
     preview: (
       <Screen>
         <Slider
           value={70}
           icon={
-            <GlowIcon size="md">
+            <Icon size="md">
               <VolumeGlyph />
-            </GlowIcon>
+            </Icon>
           }
           label="Volume"
         />
         <Slider
           value={40}
           icon={
-            <GlowIcon size="md">
+            <Icon size="md">
               <SunGlyph />
-            </GlowIcon>
+            </Icon>
           }
           label="Brightness"
         />
@@ -1764,53 +1748,8 @@ toast("Mara Lin", {
     ],
     usage: `<Slider
   value={volume} onChange={setVolume}
-  icon={<GlowIcon size="md"><VolumeIcon /></GlowIcon>}
+  icon={<Icon size="md"><VolumeIcon /></Icon>}
   label="Volume"
-/>`,
-  },
-  {
-    slug: "text-field",
-    wishlist: "a microphone / system dictation API",
-    name: "TextField",
-    category: "Input",
-    summary:
-      "A text-entry surface. No keyboard (or microphone API) on the lens — a focusable field showing the value + a mic-style affordance; onActivate opens your own capture flow. ComposeFlow is the ready-made picker recipe.",
-    preview: (
-      <Screen>
-        <TextField
-          label="Reply"
-          placeholder="Pinch to enter text"
-          icon={
-            <GlowIcon size="md">
-              <MicGlyph />
-            </GlowIcon>
-          }
-        />
-      </Screen>
-    ),
-    props: [
-      { name: "label", type: "ReactNode", desc: "Field label." },
-      {
-        name: "value",
-        type: "ReactNode",
-        desc: "Current value (else placeholder).",
-      },
-      {
-        name: "placeholder",
-        type: "ReactNode",
-        default: '"Pinch to enter text"',
-        desc: "Empty hint.",
-      },
-      { name: "icon", type: "ReactNode", desc: "Trailing affordance (mic)." },
-      {
-        name: "onActivate",
-        type: "() => void",
-        desc: "Opens dictation / handwriting.",
-      },
-    ],
-    usage: `<TextField
-  label="Reply" value={draft} onActivate={startDictation}
-  icon={<GlowIcon size="md"><MicIcon /></GlowIcon>}
 />`,
   },
   {
@@ -1818,7 +1757,7 @@ toast("Mara Lin", {
     name: "ComposeFlow",
     category: "Input",
     summary:
-      "The working text-entry recipe: a TextField that opens a picker of choices when activated; choosing writes back and returns. The picker rides history, so the back gesture closes it — inside or outside a Navigator. The seam system dictation would replace.",
+      "The working text-entry recipe: a focusable field that opens a picker of choices when activated; choosing writes back and returns. The picker rides history, so the back gesture closes it, inside or outside a Navigator. The seam system dictation would replace.",
     preview: (
       <Screen>
         <ComposeFlow
@@ -1833,9 +1772,14 @@ toast("Mara Lin", {
       {
         name: "value",
         type: "string | null",
-        desc: "Current value. Controlled — pair with onChange.",
+        desc: "Current value. Controlled, so pair with onChange.",
       },
-      { name: "placeholder", type: "ReactNode", desc: "Empty-field hint." },
+      {
+        name: "placeholder",
+        type: "ReactNode",
+        default: '"Pinch to enter text"',
+        desc: "Empty-field hint.",
+      },
       {
         name: "options",
         type: "string[]",
@@ -1847,12 +1791,13 @@ toast("Mara Lin", {
         default: '"Choose"',
         desc: "Heading on the picker view.",
       },
-      { name: "icon", type: "ReactNode", desc: "TextField trailing glyph." },
+      { name: "icon", type: "ReactNode", desc: "Field trailing glyph." },
       {
         name: "onChange",
         type: "(value: string) => void",
         desc: "Fires with the chosen option.",
       },
+      { name: "className", type: "string", desc: "Extra classes." },
     ],
     usage: `const [reply, setReply] = useState<string | null>(null);
 
@@ -1869,14 +1814,14 @@ toast("Mara Lin", {
     name: "PermissionPrompt",
     category: "Input",
     summary:
-      "An explicit access request (sensors, location, camera, mic) — which MRBD apps must ask for before use. A gradient-plate icon, a clear title, the reason, and allow / deny actions.",
+      "An explicit access request (sensors, location, camera, mic) that MRBD apps must ask for before use. A gradient-plate icon, a clear title, the reason, and allow / deny actions.",
     preview: (
       <Screen>
         <PermissionPrompt
           icon={
-            <GlowIcon size="lg" plate tone="cyan">
+            <Icon size="lg" plate tone="cyan">
               <NavGlyph />
-            </GlowIcon>
+            </Icon>
           }
           title="Use your location?"
           actions={
@@ -1891,19 +1836,102 @@ toast("Mara Lin", {
       </Screen>
     ),
     props: [
-      { name: "icon", type: "ReactNode", desc: "A gradient-plate GlowIcon." },
+      { name: "icon", type: "ReactNode", desc: "A gradient-plate Icon." },
       { name: "title", type: "ReactNode", desc: "The request." },
       { name: "children", type: "ReactNode", desc: "Why the app needs it." },
       { name: "actions", type: "ReactNode", desc: "Allow / deny controls." },
     ],
     usage: `<PermissionPrompt
-  icon={<GlowIcon size="lg" plate tone="cyan"><LocationIcon /></GlowIcon>}
+  icon={<Icon size="lg" plate tone="cyan"><LocationIcon /></Icon>}
   title="Use your location?"
   actions={<><Button onClick={deny}>Not now</Button>
             <Button variant="primary" onClick={allow}>Allow</Button></>}
 >
   Maps needs your location for walking directions.
 </PermissionPrompt>`,
+  },
+  {
+    slug: "pressable",
+    name: "Pressable",
+    category: "Action",
+    summary:
+      "The focusable wrapper for custom UI. Renders a real button carrying the focusable class, so useDpad walks it and fires onPress on Enter or the Neural Band pinch. Reach for it to make your own content (a card, a tile, a row) D-pad-interactive when no first-class component fits. It adds no chrome beyond the focus ring and press animation.",
+    preview: <PressableDemo />,
+    props: [
+      {
+        name: "children",
+        type: "ReactNode",
+        desc: "Your content. Pressable styles nothing inside it.",
+      },
+      {
+        name: "onPress",
+        type: "() => void",
+        desc: "Fires on Enter / pinch (and click).",
+      },
+      {
+        name: "initialFocus",
+        type: "boolean",
+        default: "false",
+        desc: "Seed the D-pad ring here on mount (data-autofocus).",
+      },
+      { name: "disabled", type: "boolean", desc: "Dims and skips focus." },
+    ],
+    usage: `// make any custom content D-pad-interactive
+<Pressable onPress={() => open(item)} className="my-card">
+  <YourCustomLayout item={item} />
+</Pressable>`,
+  },
+  {
+    slug: "masonry",
+    name: "Masonry",
+    category: "Layout",
+    summary:
+      "A staggered, vertically-scrolling multi-column layout (the Pinterest / Photos look, where columns do not line up). Drop any children in; Masonry measures each and greedily fills the shortest column, so the sides stay balanced whatever the order. It scrolls vertically and keeps a D-pad-focused child in view.",
+    preview: <MediaGalleryDemo />,
+    props: [
+      {
+        name: "columns",
+        type: "number",
+        default: "2",
+        desc: "Number of columns.",
+      },
+      {
+        name: "children",
+        type: "ReactNode",
+        desc: "The items (e.g. MediaThumb tiles or Pressable cards).",
+      },
+    ],
+    usage: `<Masonry columns={2}>
+  {photos.map((p) => (
+    <MediaThumb key={p.id} src={p.src} aspect={p.aspect} onSelect={() => open(p)} />
+  ))}
+</Masonry>`,
+  },
+  {
+    slug: "grid",
+    name: "Grid",
+    category: "Layout",
+    summary:
+      "An aligned, vertically-scrolling multi-column layout: every cell shares the same track, so rows and columns line up. Drop any children in; it scrolls vertically and keeps a D-pad-focused child in view. Column count (2, 3, 4) rides on data-cols, so the lens needs no inline style.",
+    preview: <MediaGridDemo />,
+    props: [
+      {
+        name: "columns",
+        type: "2 | 3 | 4",
+        default: "2",
+        desc: "Number of equal columns.",
+      },
+      {
+        name: "children",
+        type: "ReactNode",
+        desc: "The cells (e.g. MediaThumb tiles or Pressable cards).",
+      },
+    ],
+    usage: `<Grid columns={2}>
+  {photos.map((p) => (
+    <MediaThumb key={p.id} src={p.src} onSelect={() => open(p)} />
+  ))}
+</Grid>`,
   },
 ];
 

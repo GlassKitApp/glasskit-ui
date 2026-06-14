@@ -22,8 +22,11 @@
       "name": "utils",
       "type": "registry:lib",
       "title": "utils",
-      "description": "Join truthy class names.",
-      "dependencies": [],
+      "description": "Merge class names the shadcn way: clsx joins conditionals, tailwind-merge de-dupes conflicting Tailwind utilities so a consumer's `className` override wins (e.g.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
       "registryDependencies": [],
       "files": [
         {
@@ -35,7 +38,7 @@
     },
     {
       "name": "assistant-orb",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "AssistantOrb",
       "description": "the Meta-AI presence: a glowing gradient orb that animates per `state` (idle = gentle breathe, listening = pulse, thinking = swirl, speaking = quick pulse).",
       "dependencies": [],
@@ -45,7 +48,7 @@
       "files": [
         {
           "path": "registry/ui/assistant-orb.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/glasskit/assistant-orb.tsx"
         }
       ]
@@ -71,7 +74,7 @@
       "name": "avatar",
       "type": "registry:ui",
       "title": "Avatar",
-      "description": "a contact / sender avatar: a photo when you have one, else initials on a gradient plate.",
+      "description": "a contact / sender avatar: shows a photo when you have one, else an icon, else initials on a gradient plate.",
       "dependencies": [],
       "registryDependencies": [
         "utils"
@@ -120,7 +123,7 @@
     },
     {
       "name": "call-card",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "CallCard",
       "description": "an incoming / active call: a big avatar, caller name, a status line (\"Incoming…\", \"02:14\"), and an action row (accept / decline via D-pad-focusable <Button>s).",
       "dependencies": [],
@@ -130,31 +133,14 @@
       "files": [
         {
           "path": "registry/ui/call-card.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/glasskit/call-card.tsx"
         }
       ]
     },
     {
-      "name": "callout",
-      "type": "registry:ui",
-      "title": "Callout",
-      "description": "a world-object annotation: a small anchor at a screen point with a vertical leader line up to an emitted label (no box — additive translates the card to line + type).",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/callout.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/callout.tsx"
-        }
-      ]
-    },
-    {
       "name": "chat-bubble",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "ChatBubble",
       "description": "one message.",
       "dependencies": [],
@@ -164,7 +150,7 @@
       "files": [
         {
           "path": "registry/ui/chat-bubble.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/glasskit/chat-bubble.tsx"
         }
       ]
@@ -210,15 +196,14 @@
       "name": "compose-flow",
       "type": "registry:ui",
       "title": "ComposeFlow",
-      "description": "the working text-entry recipe for a platform with no keyboard or microphone: a <TextField> that opens a picker of choices when activated; choosing writes the value back and returns to the field.",
+      "description": "the working text-entry recipe for a platform with no keyboard or microphone: a focusable field that opens a picker of choices when activated; choosing writes the value back and returns to the field.",
       "dependencies": [
         "@glasskit-ui/react@^0.4.0"
       ],
       "registryDependencies": [
         "utils",
-        "text-field",
         "heading",
-        "list"
+        "quick-reply-chips"
       ],
       "files": [
         {
@@ -249,23 +234,6 @@
       ]
     },
     {
-      "name": "cue",
-      "type": "registry:ui",
-      "title": "Cue",
-      "description": "a caption / hint line: what to do next, or a transient status (\"Listening…\").",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/cue.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/cue.tsx"
-        }
-      ]
-    },
-    {
       "name": "deck",
       "type": "registry:ui",
       "title": "Deck",
@@ -282,23 +250,6 @@
           "path": "registry/ui/deck.tsx",
           "type": "registry:ui",
           "target": "components/glasskit/deck.tsx"
-        }
-      ]
-    },
-    {
-      "name": "dictation",
-      "type": "registry:ui",
-      "title": "Dictation",
-      "description": "the voice-to-text surface (there is no keyboard on the lens — text is voice or Neural-Band handwriting).",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/dictation.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/dictation.tsx"
         }
       ]
     },
@@ -359,19 +310,19 @@
       ]
     },
     {
-      "name": "glow-icon",
+      "name": "grid",
       "type": "registry:ui",
-      "title": "GlowIcon",
-      "description": "wraps a line-icon SVG.",
+      "title": "Grid",
+      "description": "an aligned, vertically-scrolling multi-column layout: every cell shares the same track, so rows and columns line up.",
       "dependencies": [],
       "registryDependencies": [
         "utils"
       ],
       "files": [
         {
-          "path": "registry/ui/glow-icon.tsx",
+          "path": "registry/ui/grid.tsx",
           "type": "registry:ui",
-          "target": "components/glasskit/glow-icon.tsx"
+          "target": "components/glasskit/grid.tsx"
         }
       ]
     },
@@ -389,6 +340,23 @@
           "path": "registry/ui/heading.tsx",
           "type": "registry:ui",
           "target": "components/glasskit/heading.tsx"
+        }
+      ]
+    },
+    {
+      "name": "icon",
+      "type": "registry:ui",
+      "title": "Icon",
+      "description": "wraps any icon provider's SVG (Lucide, Tabler, or your own) and applies the lens icon styling.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/icon.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/icon.tsx"
         }
       ]
     },
@@ -427,25 +395,44 @@
       ]
     },
     {
-      "name": "live-captions",
+      "name": "map-view",
       "type": "registry:ui",
-      "title": "LiveCaptions",
-      "description": "real-time transcription / translation, read at a glance: an optional speaker label and the running caption text on a surface, anchored low (like the real Captions app).",
+      "title": "MapView",
+      "description": "a real, moving map for the lens, built on Leaflet (~42KB).",
+      "dependencies": [
+        "leaflet"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/map-view.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/map-view.tsx"
+        }
+      ]
+    },
+    {
+      "name": "masonry",
+      "type": "registry:ui",
+      "title": "Masonry",
+      "description": "a staggered, vertically-scrolling multi-column layout (the Pinterest / Photos gallery look, where columns do not line up).",
       "dependencies": [],
       "registryDependencies": [
         "utils"
       ],
       "files": [
         {
-          "path": "registry/ui/live-captions.tsx",
+          "path": "registry/ui/masonry.tsx",
           "type": "registry:ui",
-          "target": "components/glasskit/live-captions.tsx"
+          "target": "components/glasskit/masonry.tsx"
         }
       ]
     },
     {
       "name": "media-thumb",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "MediaThumb",
       "description": "a photo / reel tile (Photos, Instagram).",
       "dependencies": [],
@@ -455,7 +442,7 @@
       "files": [
         {
           "path": "registry/ui/media-thumb.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/glasskit/media-thumb.tsx"
         }
       ]
@@ -498,7 +485,7 @@
     },
     {
       "name": "notification-card",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "NotificationCard",
       "description": "an incoming notification (message, mention, alert): a leading avatar/glyph, sender + time, a message preview, and optional quick actions.",
       "dependencies": [],
@@ -508,14 +495,14 @@
       "files": [
         {
           "path": "registry/ui/notification-card.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/glasskit/notification-card.tsx"
         }
       ]
     },
     {
       "name": "now-playing",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "NowPlaying",
       "description": "a media \"now playing\" card: album art, title + artist, a scrub bar, and elapsed / remaining times.",
       "dependencies": [],
@@ -525,7 +512,7 @@
       "files": [
         {
           "path": "registry/ui/now-playing.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/glasskit/now-playing.tsx"
         }
       ]
@@ -563,6 +550,23 @@
           "path": "registry/ui/pin.tsx",
           "type": "registry:ui",
           "target": "components/glasskit/pin.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pressable",
+      "type": "registry:ui",
+      "title": "Pressable",
+      "description": "the focusable wrapper for custom UI.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/pressable.tsx",
+          "type": "registry:ui",
+          "target": "components/glasskit/pressable.tsx"
         }
       ]
     },
@@ -618,27 +622,10 @@
       ]
     },
     {
-      "name": "reticle",
-      "type": "registry:ui",
-      "title": "Reticle",
-      "description": "an aim-to-select target: four corner brackets framing the center of the lens.",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/reticle.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/reticle.tsx"
-        }
-      ]
-    },
-    {
       "name": "screen",
       "type": "registry:ui",
       "title": "Screen",
-      "description": "the on-lens layout shell: a status region (block-start), a centered stage (the one task), and a cue region (block-end).",
+      "description": "the on-lens layout shell: a status region (block-start), a centered stage (the one task), and the cue region (block-end).",
       "dependencies": [],
       "registryDependencies": [
         "utils"
@@ -754,23 +741,6 @@
       ]
     },
     {
-      "name": "text-field",
-      "type": "registry:ui",
-      "title": "TextField",
-      "description": "a text entry surface.",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/text-field.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/text-field.tsx"
-        }
-      ]
-    },
-    {
       "name": "timer",
       "type": "registry:ui",
       "title": "Timer",
@@ -785,23 +755,6 @@
           "path": "registry/ui/timer.tsx",
           "type": "registry:ui",
           "target": "components/glasskit/timer.tsx"
-        }
-      ]
-    },
-    {
-      "name": "toast",
-      "type": "registry:ui",
-      "title": "Toast",
-      "description": "a transient notice that animates in (a brief luminance rise, not a modal scrim).",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/toast.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/toast.tsx"
         }
       ]
     },
@@ -836,23 +789,6 @@
           "path": "registry/ui/toggle.tsx",
           "type": "registry:ui",
           "target": "components/glasskit/toggle.tsx"
-        }
-      ]
-    },
-    {
-      "name": "viewfinder",
-      "type": "registry:ui",
-      "title": "Viewfinder",
-      "description": "camera-POV chrome: corner brackets framing the shot, an optional zoom badge and a REC indicator.",
-      "dependencies": [],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/viewfinder.tsx",
-          "type": "registry:ui",
-          "target": "components/glasskit/viewfinder.tsx"
         }
       ]
     },

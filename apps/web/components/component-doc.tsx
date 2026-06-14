@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { GlassViewport } from "@glasskit-ui/react";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
-import { TypeTable } from "fumadocs-ui/components/type-table";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import { LensStage } from "@/components/lens/lens-stage";
 import { DevicePreview } from "@/components/device-preview";
@@ -28,13 +26,6 @@ export async function ComponentDoc({ slug }: { slug: string }) {
   const deepLink = mrbdDeepLink(`GlassKit ${doc.name}`, previewUrl);
   const qr = await qrSvg(deepLink);
 
-  const propTypes = Object.fromEntries(
-    doc.props.map((p) => [
-      p.name,
-      { type: p.type, default: p.default, description: p.desc },
-    ]),
-  );
-
   return (
     <>
       <div className="not-prose my-6 flex justify-center">
@@ -53,20 +44,6 @@ export async function ComponentDoc({ slug }: { slug: string }) {
           </DpadProvider>
         </LensStage>
       </div>
-
-      {doc.wishlist ? (
-        <div className="not-prose my-4 flex items-start gap-2.5 border border-line-2 bg-bg-2 px-4 py-3 text-[15px] leading-relaxed text-ink-2">
-          <span aria-hidden className="mt-0.5">
-            🧞
-          </span>
-          <p>
-            <strong className="text-ink">Platform wishlist</strong> — built and
-            waiting on {doc.wishlist}. The UI ships today; the day Meta exposes
-            the API, it plugs in.{" "}
-            <Link href="/docs/wishlist">See the wishlist →</Link>
-          </p>
-        </div>
-      ) : null}
 
       <h2>Installation</h2>
       <Tabs items={["CLI", "Manual"]}>
@@ -100,7 +77,30 @@ export async function ComponentDoc({ slug }: { slug: string }) {
       <DynamicCodeBlock lang="tsx" code={doc.usage} />
 
       <h2>Props</h2>
-      <TypeTable type={propTypes} />
+      <table>
+        <thead>
+          <tr>
+            <th>Prop</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {doc.props.map((p) => (
+            <tr key={p.name}>
+              <td>
+                <code>{p.name}</code>
+              </td>
+              <td>
+                <code>{p.type}</code>
+              </td>
+              <td>{p.default ? <code>{p.default}</code> : "—"}</td>
+              <td>{p.desc}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }

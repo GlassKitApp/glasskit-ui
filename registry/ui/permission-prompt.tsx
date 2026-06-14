@@ -18,7 +18,7 @@ export function PermissionPrompt({
   actions,
   className,
 }: {
-  /** A gradient-plate <GlowIcon> for the capability. */
+  /** A gradient-plate <Icon> for the capability. */
   icon?: ReactNode;
   title: ReactNode;
   /** Why the app needs it (keep it short + honest). */
@@ -30,19 +30,20 @@ export function PermissionPrompt({
   return (
     <FocusScope>
       <div
-        className={cn("gk-permission", className)}
+        className={cn(
+          "flex flex-col items-center gap-[14px] text-center",
+          className,
+        )}
         role="dialog"
         aria-label={typeof title === "string" ? title : "Permission"}
       >
-        {icon != null ? (
-          <span className="gk-permission__icon">{icon}</span>
-        ) : null}
-        <span className="gk-permission__title t-title">{title}</span>
+        {icon != null ? <span>{icon}</span> : null}
+        <span className="t-title font-bold">{title}</span>
         {children != null ? (
-          <p className="gk-permission__body t-body">{children}</p>
+          <p className="t-body max-w-[30ch] text-muted-foreground">{children}</p>
         ) : null}
         {actions != null ? (
-          <div className="gk-permission__actions">{actions}</div>
+          <div className="flex gap-3 mt-2">{actions}</div>
         ) : null}
       </div>
     </FocusScope>

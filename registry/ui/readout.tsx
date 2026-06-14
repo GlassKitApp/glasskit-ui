@@ -23,23 +23,19 @@ export function Readout({
   className?: string;
 }) {
   return (
-    <div
-      className={cn(
-        "gk-readout",
-        emphasis === "secondary" && "gk-readout--secondary",
-        className,
-      )}
-    >
-      <span className="gk-readout__label t-caption">{label}</span>
+    <div className={cn("flex flex-col items-center gap-1.5", className)}>
+      <span className="t-caption uppercase tracking-[0.16em] text-foreground-faint">
+        {label}
+      </span>
       <span
         className={cn(
-          "gk-readout__value",
-          emphasis === "primary" ? "t-title" : "t-readout",
+          "flex items-baseline gap-1.5 [font-variant-numeric:tabular-nums]",
+          emphasis === "primary" ? "t-title" : "t-readout text-muted-foreground",
         )}
       >
         {value}
         {unit != null ? (
-          <span className="gk-readout__unit t-body">{unit}</span>
+          <span className="t-body text-foreground-faint">{unit}</span>
         ) : null}
       </span>
     </div>

@@ -16,13 +16,13 @@ export function QuickReplyChips({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-chips", className)}>
+    <div className={cn("flex flex-wrap justify-center gap-2", className)}>
       {options.map((o, i) => (
         <button
           key={`${i}-${o}`}
           type="button"
           onClick={onSelect ? () => onSelect(o) : undefined}
-          className="focusable gk-chip t-body"
+          className="focusable press-scale t-body surface rounded-full py-3.5 px-[22px]"
         >
           {o}
         </button>

@@ -29,7 +29,7 @@ describe("Button", () => {
   it("marks the primary variant", () => {
     render(<Button variant="primary">Primary</Button>);
     expect(
-      screen.getByRole("button").classList.contains("gk-btn--primary"),
+      screen.getByRole("button").classList.contains("btn-primary"),
     ).toBe(true);
   });
 

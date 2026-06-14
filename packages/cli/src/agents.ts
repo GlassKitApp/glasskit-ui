@@ -13,6 +13,24 @@ A **Meta Ray-Ban Display** web app built with
 [GlassKit UI](https://glasskit.app/ui). Everything below is platform truth —
 do not assume more than it grants.
 
+## Glasses-first — the rules that override everything
+
+1. **Only arrows + Enter + the back gesture exist.** Build every interaction
+   for that input and nothing else. No clicks-as-primary, no hover, no
+   scrollbars-you-drag, no text fields you type into.
+2. **The focus engine is not optional.** Every interactive element carries the
+   \`focusable\` class and must be reachable by arrow keys alone, activated by
+   Enter. If a control can't be reached and fired with the D-pad, it doesn't
+   work on the glasses — full stop.
+3. **One task per view.** A 600×600 lens is glanceable, not a dashboard. More
+   than one "main thing" on a screen → split it into more screens and
+   **navigate** between them (see Navigation & history).
+4. **Never generate APIs the platform doesn't have** — no \`getUserMedia\`,
+   \`SpeechRecognition\`, gaze, WebXR, or text-input. They fail silently
+   on-device. (GPS and device orientation/motion DO work.)
+5. **Vendor components, don't hand-roll them.** The registry covers the HUD
+   jobs; discover and add them (below) instead of rebuilding a worse List.
+
 ## Platform (verified against Meta's docs)
 
 - Input reaching the page: \`ArrowUp/Down/Left/Right\` + \`Enter\` keydowns —
@@ -35,26 +53,62 @@ do not assume more than it grants.
 - Interactive elements carry the \`focusable\` class; \`useDpad()\` is called
   once at the root (already wired in \`src/App.tsx\`). Arrows move a spatial
   focus ring; Enter activates.
+- **Building something custom?** Wrap it in \`<Pressable onPress={...}>\`
+  (add it from the registry). It renders a real focusable \`<button>\` and fires
+  on Enter/pinch, so your card/tile/row works on the D-pad. Never make a
+  \`<div onClick>\` interactive: a div is not focusable, so the glasses can't
+  reach it.
 - \`data-autofocus\` on a focusable picks where a screen's ring starts.
   \`<FocusScope>\` contains the ring for modal surfaces.
 - A focused slider owns ArrowLeft/Right (value adjust); vertical arrows
   navigate away.
 
+## Navigation & history (the back gesture is a history router)
+
+The system back gesture (middle pinch) **pops browser history** → your page
+gets \`popstate\`. So real back behavior comes from putting screens on the
+history stack. Use the **\`navigator\`** component for any multi-screen app:
+
+- \`<Navigator screens={{…}} initial="home" />\` renders one screen at a time.
+  \`useNavigator()\` gives \`push / pop / popToTop / replace\`; **every \`push\`
+  adds a real history entry**, so the back gesture (and Escape in desktop dev)
+  pops it automatically — you don't wire back by hand.
+- \`push(name, params)\` carries params to the screen. The stack rides in
+  \`history.state\`, so a mid-flow reload restores the screen the wearer was on.
+  Opt-in \`paths={{ name: segment }}\` mirrors the stack into the URL for
+  deep-linkable screens.
+- \`useBackHandler(fn)\` lets an overlay/sheet **consume** the back gesture
+  (return \`true\` to keep the screen, e.g. close a sheet instead of leaving).
+- At the root screen the gesture falls through to the OS (app switcher) — like
+  Android's back contract. Don't trap it there.
+- **Pick one nav model per screen.** Hierarchy ("back means up a level") →
+  **navigator** (only it touches history). Peer views → **tabs** (in Screen's
+  \`status\` slot, at the top). Linear wizard/flow → **deck**. App front door →
+  **launcher**. Tabs and Deck do NOT touch history — back exits the app from
+  them, so use Navigator when the wearer needs to go "back."
+
 ## Building screens
 
-- **One task per view.** If a screen needs three components fighting for
-  attention, it's three screens.
-- Hierarchy = the \`navigator\` component (every push is a history entry, so
-  the back gesture just works). Peers = \`tabs\`. Linear flows = \`deck\`.
-- **Text entry**: \`compose-flow\` (picker) for enumerable answers; the phone
-  relay template for free-form. Never invent on-device typing or dictation.
-- Vendor components — never hand-write what the registry has:
-  \`npx @glasskit-ui/cli add <name>\`
-  (catalog: https://glasskit.app/ui/llms.txt · docs:
-  https://glasskit.app/ui/docs/components · patterns guide:
-  https://glasskit.app/ui/docs/patterns)
+- **Text entry**: \`compose-flow\` (picker) for enumerable answers. There is no
+  on-device keyboard or microphone API, so never invent typing or dictation.
+- **Wayfinding**: \`direction-arrow\` to point at one target (find a friend, a
+  car, an off-screen pin); \`map-view\` (real Leaflet map) when you need route
+  context. Don't reach for a heavy map when an arrow will do.
 - Theming: re-declare the accent ramp tokens on \`.glass-viewport\` — never
   hardcode accent colors (generator: https://glasskit.app/ui/playground).
+
+## Finding components (don't guess — look them up)
+
+The registry is the source of truth. Discover what exists before building:
+
+- **MCP server** (best for agents): \`npx @glasskit-ui/mcp\` exposes
+  \`list_components\`, \`search_components\`, \`get_component\` as tools — search
+  by job, read the real source.
+- **Catalog**: https://glasskit.app/ui/llms.txt (every component + description)
+  · docs: https://glasskit.app/ui/docs/components · decision guide:
+  https://glasskit.app/ui/docs/conventions
+- **Add one**: \`npx @glasskit-ui/cli add <name>\` (vendors the source + installs
+  its deps into your project — you own the file).
 
 ## Verify
 
@@ -77,28 +131,35 @@ camera/mic/gaze, 600×600, perf budget). This skill is the build procedure.
 
 ## 1. Pick components — don't hand-write
 
-The registry has 48 components covering the HUD jobs. Vendor them:
+The registry covers the HUD jobs. **Discover what exists before building** —
+don't guess a component's name or props:
+
+- MCP (best): \`npx @glasskit-ui/mcp\` → \`list_components\` /
+  \`search_components\` / \`get_component\`.
+- Catalog: https://glasskit.app/ui/llms.txt · sources + deps:
+  https://glasskit.app/ui/r/registry.json
+
+Then vendor what you need (installs deps, you own the source):
 
 \`\`\`sh
-npx @glasskit-ui/cli add navigator list timer confirm compose-flow
+npx @glasskit-ui/cli add navigator list timer confirm compose-flow map-view
 \`\`\`
 
-Machine-readable catalog: https://glasskit.app/ui/llms.txt (descriptions),
-https://glasskit.app/ui/r/registry.json (sources + deps). An MCP server
-(\`npx @glasskit-ui/mcp\`) exposes search/get as tools.
+Decision rules (full guide: https://glasskit.app/ui/docs/conventions):
 
-Decision rules (full guide: https://glasskit.app/ui/docs/patterns):
-
-- Hierarchy (list → detail, "back means up") → **navigator**.
-  Peer views → **tabs** (in Screen's \`status\` slot, at the top).
-  Linear flow → **deck**. App front door → **launcher**.
+- **Navigation** — hierarchy ("back means up") → **navigator** (puts screens on
+  history so the back gesture works). Peer views → **tabs** (Screen's \`status\`
+  slot). Linear flow → **deck**. App front door → **launcher**. One nav model
+  per screen; only Navigator touches history.
+- **Wayfinding** — point at one target → **direction-arrow**; route context →
+  **map-view** (a real Leaflet map).
 - Wearer must act on it → **notification-card**. Already happened →
   **toast** / **toaster** (top-anchored, never put focusables inside).
 - Task completion → **progress** · a level → **meter** · time left → **timer**.
 - Nothing yet → **empty-state** · failed + retry → **error-state**, both as
   **async-view** slots.
-- Text entry → **compose-flow** (picker). Free-form → the phone relay
-  (\`relay/\` if scaffolded with it). NEVER invent dictation/keyboard.
+- Text entry → **compose-flow** (a picker for enumerable answers). There is no
+  on-device free-form text input. NEVER invent dictation/keyboard.
 
 ## 2. Compose the screen
 
@@ -115,17 +176,22 @@ Decision rules (full guide: https://glasskit.app/ui/docs/patterns):
   (Readout, StatGrid) are deliberately not live — narrate milestones via Cue.
 - Confirm with irreversible consequences → \`<Confirm destructive …>\` (seeds
   the ring on cancel).
-- World-anchored components (Compass, Pin, Callout, Reticle, DirectionArrow,
-  Viewfinder) never mirror in RTL; everything else uses logical CSS.
+- World-anchored components (Compass, Pin, Callout, DirectionArrow) never
+  mirror in RTL; everything else uses logical CSS.
 
 ## 3. Wire behavior
 
 - Sensor components self-connect when their data prop is omitted
   (\`<Compass />\` is live; \`<Compass heading={290} />\` is controlled — the
   prop always wins).
-- Navigation: \`useNavigator()\` → \`push/pop/popToTop/replace\`;
-  \`useBackHandler(fn)\` for overlays that consume back. Params ride
-  \`push(name, params)\`; the stack survives reload via history.state.
+- Navigation = a **history router**: the back gesture pops browser history, so
+  \`<Navigator screens initial>\` + \`useNavigator()\` (\`push/pop/popToTop/replace\`)
+  is how back works — every \`push\` adds a history entry, the gesture pops it,
+  no manual wiring. \`push(name, params)\` carries params; the stack rides
+  \`history.state\` (reload restores the screen); \`paths\` mirrors to the URL for
+  deep links; \`useBackHandler(fn)\` lets an overlay consume back (return true);
+  pop restores focus to the row that pushed. At the root, let the gesture fall
+  through to the OS.
 - Haptics seam: \`buzz("tap" | "success" | "warning")\` at interaction points
   (no-op today, lights up when the platform ships haptics).
 - Prop vocabulary: \`emphasis\` = visual weight · \`status\` = semantic state ·
@@ -133,10 +199,17 @@ Decision rules (full guide: https://glasskit.app/ui/docs/patterns):
 
 ## 4. Style
 
-- No inline \`style={{}}\` — semantic \`gk-*\` classes + the token ramp.
-  Re-theme by re-declaring the accent ramp on \`.glass-viewport\`
-  (7 tokens; generator: https://glasskit.app/ui/playground).
-- The filled accent gradient means "pinch me" — only actions wear it.
+- Components are Tailwind utilities + the \`--gk-*\` design tokens (the shadcn
+  model). No inline \`style={{}}\`. Use token utilities (\`text-foreground\`,
+  \`text-muted-foreground\`, \`border-border\`, \`bg-primary\`, \`ring-ring\`,
+  \`rounded-lens\`) + the \`surface\` / \`btn-primary\` / \`press-scale\`
+  recipes; layout is logical utilities only (\`ps/pe\`, \`ms/me\`, \`text-start\`,
+  \`size-*\` — never \`pl/pr/ml/mr/text-left\`). Keep the \`focusable\` class
+  and the \`t-title/t-readout/t-body/t-caption\` type classes.
+- Re-theme by overriding the \`--gk-*\` tokens on \`.glass-viewport\` — one block
+  reskins everything, so any DESIGN.md applies (https://glasskit.app/ui/docs/theming).
+- The filled accent gradient (\`btn-primary\`) means "pinch me" — only actions
+  wear it.
 
 ## 5. Verify before declaring done
 
@@ -147,10 +220,11 @@ Decision rules (full guide: https://glasskit.app/ui/docs/patterns):
 
 ## Honesty list (UI that must not overpromise)
 
-Viewfinder = camera-style chrome, nothing records. Reticle's \`active\` is
-app state, not gaze. TextField's mic glyph opens YOUR capture flow.
-NowPlaying displays playback your app tracks. The wishlist of missing
-platform APIs: https://glasskit.app/ui/docs/wishlist
+The platform has no camera, microphone, gaze, or text-input APIs, so never
+let a component imply otherwise. TextField's mic glyph opens YOUR capture
+flow, not on-device dictation. NowPlaying displays playback your app tracks.
+There is no on-device free-form text input. See the "Free-form text" notes at
+https://glasskit.app/ui/docs/conventions
 `;
 
 export const CLAUDE_MD = `@AGENTS.md
@@ -162,19 +236,25 @@ alwaysApply: true
 ---
 
 Read AGENTS.md before changing code — it is the platform contract. Key
-hard rules: only arrow/Enter input exists (no touch/cursor/text input/
-camera/mic/gaze APIs); interactive elements need the \`focusable\` class;
-one task per view; vendor components with \`npx @glasskit-ui/cli add\`
-instead of hand-writing them; no inline style — theme via the accent ramp
-tokens. Full procedure: .claude/skills/glasskit-ui/SKILL.md
+hard rules: only arrow/Enter input + the back gesture exist (no touch/cursor/
+text input/camera/mic/gaze APIs); every interactive element needs the
+\`focusable\` class and must be reachable + fired by the D-pad alone (the focus
+engine is not optional); multi-screen apps use \`<Navigator>\` so the back
+gesture works (it's a history router); one task per view; vendor components
+with \`npx @glasskit-ui/cli add\` instead of hand-writing them; no inline style
+— theme via the accent ramp tokens. Full procedure:
+.claude/skills/glasskit-ui/SKILL.md
 `;
 
 export const COPILOT_MD = `Read AGENTS.md before changing code — it is the platform contract for this
-Meta Ray-Ban Display app (GlassKit UI). Only arrow/Enter input exists; no
-camera/microphone/gaze/text-input APIs — never generate getUserMedia or
-SpeechRecognition. Interactive elements need the \`focusable\` class. Vendor
-components with \`npx @glasskit-ui/cli add <name>\` (catalog:
-https://glasskit.app/ui/llms.txt). One task per view; no inline styles.
+Meta Ray-Ban Display app (GlassKit UI). Only arrow/Enter input + the back
+gesture exist; no camera/microphone/gaze/text-input APIs — never generate
+getUserMedia or SpeechRecognition. Every interactive element needs the
+\`focusable\` class and must be reachable by arrow keys alone (the focus engine
+is not optional). Multi-screen apps use \`<Navigator>\` so the back gesture
+works (it's a history router). Vendor components with
+\`npx @glasskit-ui/cli add <name>\` (catalog: https://glasskit.app/ui/llms.txt).
+One task per view; no inline styles.
 `;
 
 /** path → content, __NAME__ substituted by the caller. */

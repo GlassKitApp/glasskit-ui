@@ -1,0 +1,57 @@
+---
+title: Overview
+description: One nav model per screen. How to choose between Navigator (hierarchy), Tabs (peers), Deck (linear flow), and Launcher (front door), plus why the back gesture is a history router on the Display.
+---
+
+The glasses give you four arrow keys, Enter, and one system back gesture (the
+middle pinch). Every way of moving between screens has to ride on those. This
+section is how to pick the right one and wire it correctly.
+
+## Pick one model per screen
+
+Competing navigation models fight over the same four arrows, so a screen gets
+exactly one. The choice comes down to the relationship between the screens.
+
+| Model                              | Screen relationship                                     | Back gesture                                              |
+| ---------------------------------- | ------------------------------------------------------- | -------------------------------------------------------- |
+| [Navigator](/docs/navigation/navigator) | Hierarchy: a list opens a detail, settings nest deeper | Pops one screen (real history entry)                     |
+| [Tabs](/docs/navigation/tabs)           | Peers: a few views the wearer flips between, any order | Exits the app (tabs do not touch history)                |
+| [Deck](/docs/navigation/deck)           | Linear flow: onboarding, a wizard, a workout sequence  | Exits the app (page with `pop()` or a custom back handler) |
+| [Launcher](/docs/navigation/launcher)   | Front door: a grid of destinations                     | Exits the app                                            |
+
+A fast way to decide: if the wearer could ever ask "how do I get back?", you
+want **Navigator**. It is the only model that makes the back gesture mean "up
+one level" instead of "leave."
+
+## The back gesture is a history router
+
+This is the one platform fact that shapes every navigation decision. On the
+Display (OS v125.1+) the back gesture pops the browser's history stack, and the
+page receives a `popstate` event. There is no custom "back button" event to
+listen for; back **is** history navigation.
+
+So the rule is: anything that should respond to back must put a real entry on
+the history stack. Navigator does this for you on every `push`. Tabs, Deck, and
+Launcher deliberately do not, which is why back leaves the app from any of them.
+At the root of your app the gesture falls through to the system (the app
+switcher), exactly like Android's back contract.
+
+## Nesting
+
+You can compose models, but the direction matters:
+
+- **Deck inside a Navigator screen** is fine. A list pushes a screen, and that
+  screen runs a short linear flow. Back from the flow pops the whole screen.
+- **Navigator inside a Deck page** is not. A back-pop in the middle of a wizard
+  strands the flow, because the Deck has no history to pop. Keep the Navigator
+  on the outside.
+- **Tabs hosting Navigators** is the common app shell: a tab bar across the top,
+  each tab owning its own screen stack. Only the Navigators touch history; the
+  Tabs just swap which stack is visible.
+
+## Do not page just because content overflows
+
+Reaching for a Deck because a screen has more rows than fit is the wrong call.
+Long content that scrolls is a [List](/docs/components/list) on one screen, where
+scrolling is focus-driven (the ring walks the rows and the view follows). Save
+Deck for genuinely sequential steps.

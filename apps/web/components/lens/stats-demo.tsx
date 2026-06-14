@@ -1,6 +1,5 @@
 import { GlassViewport } from "@glasskit-ui/react";
 import { Screen } from "@registry/ui/screen";
-import { Cue } from "@registry/ui/cue";
 import { Meter } from "@registry/ui/meter";
 import { StatGrid } from "@registry/ui/stat-grid";
 import { StatusDot } from "@registry/ui/status-dot";
@@ -12,9 +11,9 @@ export function StatsDemo() {
     <GlassViewport>
       <Screen
         cue={
-          <Cue icon={<StatusDot status="live" label="GPS" />}>
-            3.2 km · 18:40
-          </Cue>
+          <>
+            <StatusDot status="live" label="GPS" /> 3.2 km · 18:40
+          </>
         }
       >
         <Meter value={72} max={100} label="Effort" unit="%" />

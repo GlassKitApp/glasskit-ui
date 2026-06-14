@@ -1,23 +1,23 @@
 ---
 title: Build with AI agents
-description: GlassKit ships its own agent skill — every scaffolded app comes with its agent pre-briefed on the platform contract (Claude Code, Cursor, Copilot, anything that reads AGENTS.md), plus llms.txt and an MCP server for the registry.
+description: GlassKit ships its own agent skill. Every scaffolded app comes with its agent pre-briefed on the platform contract (Claude Code, Cursor, Copilot, anything that reads AGENTS.md), plus llms.txt and an MCP server for the registry.
 ---
 
-Most Display web apps will be built with an AI assistant in the loop. The
-failure mode is never "couldn't find the component" — it's procedural: an
+Most Display web apps get built with an AI assistant in the loop. The
+failure mode is never "couldn't find the component." It's procedural: an
 agent that assumes touch input, invents a dictation flow, or hand-writes a
 worse List. GlassKit ships the cure in three layers.
 
 ## The skill (procedural knowledge)
 
-Every `npm create glasskit` scaffold includes its agent skill — the new app
+Every `npm create glasskit` scaffold includes its agent skill, so the new app
 arrives with its agent already briefed:
 
 | File                                  | Read by                                                                   |
 | ------------------------------------- | ------------------------------------------------------------------------- |
-| `AGENTS.md`                           | the cross-agent contract — platform truth, focus rules, build conventions |
+| `AGENTS.md`                           | the cross-agent contract: platform truth, focus rules, build conventions  |
 | `CLAUDE.md`                           | Claude Code (imports AGENTS.md)                                           |
-| `.claude/skills/glasskit-ui/SKILL.md` | Claude Code / Agent SDK — the full build procedure, loaded on demand      |
+| `.claude/skills/glasskit-ui/SKILL.md` | Claude Code / Agent SDK: the full build procedure, loaded on demand       |
 | `.cursor/rules/glasskit.mdc`          | Cursor (always applied)                                                   |
 | `.github/copilot-instructions.md`     | GitHub Copilot                                                            |
 
@@ -29,14 +29,14 @@ npx @glasskit-ui/cli agents
 
 ## The reference (knowledge)
 
-[`glasskit.app/ui/llms.txt`](https://glasskit.app/ui/llms.txt) — the
-LLM-facing reference: platform facts, SDK API, conventions, and all 48
+[`glasskit.app/ui/llms.txt`](https://glasskit.app/ui/llms.txt) is the
+LLM-facing reference: platform facts, SDK API, conventions, and all 44
 components with descriptions. Generated from the registry, so it can't
 drift. Paste it into any model's context.
 
 ## The tools (hands)
 
-The MCP server exposes the registry to agents as tools — search components,
+The MCP server exposes the registry to agents as tools. Search components,
 read their source, get install commands:
 
 ```sh
@@ -48,9 +48,9 @@ Cursor, and any MCP client.
 
 ---
 
-The skill encodes the same contracts the docs do — the
-[platform wishlist](/docs/wishlist) honesty list, the
-[patterns](/docs/patterns) decision rules, and the
+The skill encodes the same contracts the docs do: the
+[conventions](/docs/conventions) every component follows, the per-component
+"when to use" guidance, and the
 [API stability](https://github.com/GlassKitApp/glasskit-ui/blob/main/docs/API-STABILITY.md)
-freeze — so human-written and agent-written GlassKit apps converge on the
+freeze. So human-written and agent-written GlassKit apps converge on the
 same shape.

@@ -4,3 +4,23 @@ description: "The four-state async renderer every data screen needs: placeholder
 ---
 
 <ComponentDoc slug="async-view" />
+
+## Loading, empty, and error
+
+AsyncView is the spine for data screens. Give it `status` and the three slots:
+
+```tsx
+<AsyncView
+  status={status}
+  placeholder={
+    <EmptyState title="No workouts" hint="Start one on your phone." />
+  }
+  error={<ErrorState title="No signal" onRetry={refetch} />}
+>
+  {data}
+</AsyncView>
+```
+
+- [EmptyState](/docs/components/empty-state) is for when nothing failed and there is just no content yet. It reads quiet, with an optional invite action.
+- [ErrorState](/docs/components/error-state) is for when something failed and the wearer can retry. No red: the lens has one accent, so the words carry the failure.
+- The default `loading` slot is the pulsing Spinner; override it for skeleton-style screens.

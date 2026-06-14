@@ -27,7 +27,7 @@ export function Tabs({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-tabs", className)} role="tablist">
+    <div className={cn("flex w-full gap-1.5", className)} role="tablist">
       {items.map((t) => {
         const on = t.id === value;
         return (
@@ -37,7 +37,12 @@ export function Tabs({
             role="tab"
             aria-selected={on}
             onClick={onChange ? () => onChange(t.id) : undefined}
-            className={cn("focusable gk-tab t-body", on && "gk-tab--on")}
+            className={cn(
+              "focusable t-body relative flex-1 rounded-xl border-0 bg-transparent px-2 py-[13px] text-center text-foreground-faint",
+              // gk-tab--on stays: the active-tab accent pill is a ::after
+              // pseudo-element (and it brightens the label to #fff).
+              on && "gk-tab--on",
+            )}
           >
             {t.label}
           </button>

@@ -5,7 +5,8 @@ import { cn } from "../lib/utils";
  * <NotificationCard> — an incoming notification (message, mention, alert): a
  * leading avatar/glyph, sender + time, a message preview, and optional quick
  * actions. A popping surface, below the sightline like the real Display. Richer
- * than <Toast> (which is a transient one-liner). RTL-safe (logical layout).
+ * than a toast (which is a transient one-liner): a NotificationCard waits for
+ * the wearer and participates in focus. RTL-safe (logical layout).
  */
 export function NotificationCard({
   avatar,
@@ -15,7 +16,7 @@ export function NotificationCard({
   actions,
   className,
 }: {
-  /** Leading <Avatar> or app <GlowIcon>. */
+  /** Leading <Avatar> or app <Icon>. */
   avatar?: ReactNode;
   /** Sender / app name. */
   title: ReactNode;
@@ -28,19 +29,27 @@ export function NotificationCard({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-notif gk-surface", className)} role="status">
-      <div className="gk-notif__head">
+    <div
+      className={cn(
+        "surface flex w-full flex-col gap-[13px] rounded-[22px] p-5 text-start",
+        className,
+      )}
+      role="status"
+    >
+      <div className="flex items-center gap-[13px]">
         {avatar != null ? (
-          <span className="gk-notif__avatar">{avatar}</span>
+          <span className="inline-flex flex-none">{avatar}</span>
         ) : null}
-        <span className="gk-notif__title t-body">{title}</span>
+        <span className="t-body min-w-0 flex-1 font-bold">{title}</span>
         {time != null ? (
-          <span className="gk-notif__time t-caption">{time}</span>
+          <span className="t-caption flex-none text-foreground-faint">
+            {time}
+          </span>
         ) : null}
       </div>
-      <div className="gk-notif__body t-body">{children}</div>
+      <div className="t-body text-muted-foreground">{children}</div>
       {actions != null ? (
-        <div className="gk-notif__actions">{actions}</div>
+        <div className="mt-[3px] flex justify-end gap-2.5">{actions}</div>
       ) : null}
     </div>
   );

@@ -1,0 +1,34 @@
+/* @glasskit-ui/react/theme.css — wires Tailwind's utility namespace to the lens
+ * design tokens. Import it AFTER `@import "tailwindcss"` and alongside
+ * `@glasskit-ui/react/styles.css`:
+ *
+ *   @import "tailwindcss";
+ *   @import "@glasskit-ui/react/theme.css";
+ *   @import "@glasskit-ui/react/styles.css";
+ *
+ * The token VALUES live scoped on `.glass-viewport` (in styles.css), so these
+ * utilities (bg-background, text-foreground, border-border, ring-ring, …) only
+ * resolve to the lens look inside a `<GlassViewport>`. The fallbacks keep a
+ * stray component legible if it renders outside one. Re-theme by re-declaring
+ * any `--gk-*` on `.glass-viewport` — every utility below follows.
+ *
+ * Only FLAT colors are mapped here. The gradient surfaces (`--gk-surface`,
+ * `--gk-primary-surface`) and the elevation shadow are `@utility` recipes in
+ * styles.css (`surface`, `btn-primary`), because Tailwind `bg-*` expects a
+ * color, not a gradient. Typography stays the `.t-title/.t-readout/.t-body/
+ * .t-caption` classes (they bundle the emitted-light halo + tabular-nums). */
+@theme inline {
+  --color-background: var(--gk-background, #0a0d14);
+  --color-foreground: var(--gk-foreground, #ffffff);
+  --color-muted-foreground: var(--gk-muted-foreground, #d2d7d5);
+  --color-foreground-faint: var(--gk-foreground-faint, #888f8b);
+  --color-border: var(--gk-border, rgba(255, 255, 255, 0.1));
+  --color-input: var(--gk-input, rgba(255, 255, 255, 0.1));
+  --color-rule: var(--gk-rule, #2a2f37);
+  --color-primary: var(--gk-primary, #4c8dff);
+  --color-primary-foreground: var(--gk-primary-foreground, #ffffff);
+  --color-accent-active: var(--gk-accent-active, #8fb6ff);
+  --color-ring: var(--gk-ring, #4c8dff);
+
+  --radius-lens: var(--gk-radius, 18px);
+}

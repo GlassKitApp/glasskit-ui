@@ -1,0 +1,69 @@
+---
+title: "Tabs"
+description: "A top-level tab strip (the home's quick-controls, home, apps pager). Each tab is D-pad-focusable; the active one gets an accent indicator. Controlled via value and onChange. Tabs do not touch history, so back exits the app."
+---
+
+<ComponentDoc slug="tabs" />
+
+## How to use it
+
+`Tabs` is a top-level strip for **peer** views: a small set of screens with no
+hierarchy that the wearer flips between in any order. The home pager (controls,
+home, apps) is the canonical example. The tab bar stays visible, so the current
+view is always glanceable.
+
+### When Tabs is the right model
+
+Reach for Tabs when:
+
+- There are a few destinations (roughly two to four) and they are equals.
+- Order does not matter; the wearer jumps straight to the one they want.
+- You want the current section visible at all times.
+
+If one tab drills into detail screens, that tab owns a
+[Navigator](/docs/navigation/navigator); the Tabs just swap which stack shows.
+If the screens are sequential rather than peers, use a
+[Deck](/docs/navigation/deck).
+
+### Controlled by value and onChange
+
+Tabs is controlled. You hold the active id and update it on change.
+
+```tsx
+import { Tabs } from "@/components/ui/tabs";
+
+function HomePager() {
+  const [tab, setTab] = useState("home");
+  return (
+    <Screen
+      status={
+        <Tabs
+          value={tab}
+          onChange={setTab}
+          items={[
+            { id: "controls", label: "Controls" },
+            { id: "home", label: "Home" },
+            { id: "apps", label: "Apps" },
+          ]}
+        />
+      }
+    >
+      {tab === "controls" && <Controls />}
+      {tab === "home" && <Home />}
+      {tab === "apps" && <Apps />}
+    </Screen>
+  );
+}
+```
+
+Each tab is D-pad-focusable and the active one carries an accent indicator. The
+strip is RTL-safe (logical layout), so it flips correctly without you mirroring
+anything.
+
+### Tabs and the back gesture
+
+Tabs do not put anything on the history stack, so the back gesture does not move
+between tabs; it leaves the app. That is the right behavior for peers: the
+wearer does not expect "back" to cycle tabs. If you need back to return to a
+previous view, that is a hierarchy, which means
+[Navigator](/docs/navigation/navigator).

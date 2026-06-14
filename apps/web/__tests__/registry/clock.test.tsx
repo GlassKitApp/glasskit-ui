@@ -14,7 +14,7 @@ describe("Clock live mode", () => {
 
   it("ticks live and re-renders across the minute boundary", () => {
     const { container } = render(<Clock locale="en-US" />);
-    const time = container.querySelector(".gk-clock__time");
+    const time = container.querySelector("[data-clock-time]");
     expect(time?.textContent).toContain("9:41");
 
     // 30s to the boundary (+50ms slack) — advance past it.
@@ -26,7 +26,7 @@ describe("Clock live mode", () => {
 
   it("auto-formats the date line when omitted", () => {
     const { container } = render(<Clock locale="en-US" />);
-    expect(container.querySelector(".gk-clock__date")?.textContent).toContain(
+    expect(container.querySelector("[data-clock-date]")?.textContent).toContain(
       "June 10",
     );
   });
@@ -34,7 +34,7 @@ describe("Clock live mode", () => {
   it("honors hour12=false", () => {
     vi.setSystemTime(new Date(2026, 5, 10, 21, 5, 0));
     const { container } = render(<Clock locale="en-US" hour12={false} />);
-    expect(container.querySelector(".gk-clock__time")?.textContent).toContain(
+    expect(container.querySelector("[data-clock-time]")?.textContent).toContain(
       "21:05",
     );
   });
@@ -59,7 +59,7 @@ describe("Clock controlled mode", () => {
   it("renders the prop verbatim and never ticks", () => {
     const { container } = render(<Clock time="9:41" date="Tuesday, June 9" />);
     expect(vi.getTimerCount()).toBe(0);
-    const time = container.querySelector(".gk-clock__time");
+    const time = container.querySelector("[data-clock-time]");
     expect(time?.textContent).toBe("9:41");
     act(() => {
       vi.advanceTimersByTime(120_000);
@@ -69,6 +69,6 @@ describe("Clock controlled mode", () => {
 
   it("does not invent a date line in controlled mode", () => {
     const { container } = render(<Clock time="9:41" />);
-    expect(container.querySelector(".gk-clock__date")).toBeNull();
+    expect(container.querySelector("[data-clock-date]")).toBeNull();
   });
 });

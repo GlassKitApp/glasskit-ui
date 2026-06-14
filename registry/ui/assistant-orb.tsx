@@ -25,7 +25,9 @@ export function AssistantOrb({
     >
       <span className="gk-orb__core" aria-hidden="true" />
       {label != null ? (
-        <span className="gk-orb__label t-body">{label}</span>
+        <span className="t-body text-muted-foreground text-center max-w-[26ch]">
+          {label}
+        </span>
       ) : null}
     </div>
   );

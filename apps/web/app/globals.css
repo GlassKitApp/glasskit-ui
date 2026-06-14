@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
-/* The on-lens design system. Fully scoped under `.glass-viewport`, so it
- * only paints inside a <GlassViewport> preview and never touches the
- * light-mode site chrome. */
+/* The on-lens design system. theme.css maps Tailwind utilities to the lens
+ * `--gk-*` tokens; styles.css defines the scoped token values + primitives.
+ * Fully scoped under `.glass-viewport`, so they only paint inside a
+ * <GlassViewport> preview and never touch the light-mode site chrome. */
+@import "@glasskit-ui/react/theme.css";
 @import "@glasskit-ui/react/styles.css";
 
 /* Tailwind scans the registry component sources (outside this app) so any
@@ -352,103 +354,3 @@
 /* ── "Add to your glasses" — Meta-logo badge on a demo tile + popover ──
  * Site chrome (not lens content), so a glassy badge + a dark device-style
  * popover are fine here. */
-/* Positioned by utilities at the call site (it opens upward from the
- * stage bar); this class is only the card's cosmetics. */
-.device-popover {
-  inline-size: 460px;
-  max-inline-size: 84vw;
-  padding: 22px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, #14171f 0%, #0c0f15 100%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 30px 70px -24px rgba(0, 0, 0, 0.85);
-  color: #e9ebf0;
-  text-align: start;
-}
-.device-popover__grid {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 22px;
-}
-.device-popover__label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #868c98;
-}
-.device-popover__qr {
-  margin-block-start: 10px;
-  inline-size: 134px;
-  padding: 9px;
-  border-radius: 12px;
-  background: #fff;
-}
-.device-popover__qr svg {
-  display: block;
-  inline-size: 100%;
-  height: auto;
-}
-.device-popover__desc {
-  margin-block-start: 9px;
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: #b6bcc8;
-}
-.device-popover__linkrow {
-  margin-block-start: 14px;
-  display: flex;
-  gap: 10px;
-  align-items: stretch;
-}
-.device-popover__link {
-  flex: 1 1 auto;
-  min-inline-size: 0;
-  padding: 10px 12px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  line-height: 1.45;
-  color: #c9ced8;
-  overflow-wrap: anywhere;
-}
-.device-popover__copy {
-  flex: none;
-  padding: 0 16px;
-  border-radius: 10px;
-  background: linear-gradient(180deg, #5b9dff 0%, #3567e6 100%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: filter 0.15s ease;
-}
-.device-popover__copy:hover {
-  filter: brightness(1.08);
-}
-.device-popover__open {
-  display: inline-block;
-  margin-block-start: 14px;
-  font-size: 13px;
-  font-weight: 500;
-  color: #9fb6e8;
-  text-decoration: none;
-}
-.device-popover__open:hover {
-  color: #fff;
-}
-@media (max-width: 560px) {
-  .device-popover {
-    inline-size: 320px;
-  }
-  .device-popover__grid {
-    grid-template-columns: 1fr;
-  }
-}

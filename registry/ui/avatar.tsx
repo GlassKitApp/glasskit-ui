@@ -1,6 +1,12 @@
 import type { ReactNode } from "react";
 import { cn } from "../lib/utils";
 
+const SIZE = {
+  sm: "size-[46px] text-[17px]",
+  md: "size-[62px] text-[23px]",
+  lg: "size-[92px] text-[34px]",
+} as const;
+
 export type AvatarTone =
   | "blue"
   | "green"
@@ -10,12 +16,14 @@ export type AvatarTone =
   | "amber";
 
 /**
- * <Avatar> — a contact / sender avatar: a photo when you have one, else initials
- * on a gradient plate. Used by NotificationCard, ChatBubble, CallCard. RTL-safe.
+ * <Avatar> — a contact / sender avatar: shows a photo when you have one, else an
+ * icon, else initials on a gradient plate. Used by NotificationCard, ChatBubble,
+ * CallCard. RTL-safe.
  */
 export function Avatar({
   name,
   src,
+  icon,
   tone = "blue",
   size = "md",
   className,
@@ -24,6 +32,8 @@ export function Avatar({
   name: string;
   /** Optional image URL. */
   src?: string;
+  /** Optional icon shown instead of initials (e.g. a group / bot glyph). */
+  icon?: ReactNode;
   /** Gradient tone when showing initials. */
   tone?: AvatarTone;
   size?: "sm" | "md" | "lg";
@@ -40,8 +50,8 @@ export function Avatar({
   return (
     <span
       className={cn(
-        "gk-avatar",
-        `gk-avatar--${size}`,
+        "inline-grid shrink-0 place-items-center overflow-hidden rounded-full font-bold text-white [box-shadow:inset_0_1px_0_rgba(255,255,255,0.3),0_6px_14px_-8px_rgba(0,0,0,0.6)]",
+        SIZE[size],
         !src && `gk-grad-${tone}`,
         className,
       )}
@@ -50,9 +60,13 @@ export function Avatar({
     >
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img className="gk-avatar__img" src={src} alt="" />
+        <img className="size-full object-cover" src={src} alt="" />
+      ) : icon ? (
+        <span className="grid size-full place-items-center [&_svg]:size-[45%] [&>*]:size-[45%]">
+          {icon}
+        </span>
       ) : (
-        <span className="gk-avatar__initials">{initials}</span>
+        <span>{initials}</span>
       )}
     </span>
   );

@@ -38,14 +38,19 @@ export function AsyncView({
   if (status === "loading") {
     body = loading ?? <Spinner />;
   } else if (status === "error") {
-    body = error ?? <p className="t-body gk-async-error">{errorLabel}</p>;
+    body = error ?? (
+      <p className="t-body text-muted-foreground">{errorLabel}</p>
+    );
   } else {
     body = placeholder ?? null;
   }
 
   return (
     <div
-      className={cn("gk-async", className)}
+      className={cn(
+        "flex flex-col items-center justify-center gap-3 text-center",
+        className,
+      )}
       role="status"
       aria-busy={status === "loading"}
     >

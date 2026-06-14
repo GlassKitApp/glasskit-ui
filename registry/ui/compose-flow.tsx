@@ -3,33 +3,32 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { FocusScope } from "@glasskit-ui/react";
 import { cn } from "../lib/utils";
-import { TextField } from "./text-field";
 import { Heading } from "./heading";
-import { List, ListRow } from "./list";
+import { QuickReplyChips } from "./quick-reply-chips";
 
 /**
  * <ComposeFlow> — the working text-entry recipe for a platform with no
- * keyboard or microphone: a <TextField> that opens a picker of choices when
- * activated; choosing writes the value back and returns to the field. The
+ * keyboard or microphone: a focusable field that opens a picker of choices
+ * when activated; choosing writes the value back and returns to the field. The
  * picker is a real back-gesture surface — opening pushes a history entry, so
  * a middle pinch (or Escape in desktop dev) closes it instead of leaving the
  * screen, inside or outside a <Navigator>.
  *
  * This is the seam system dictation would replace: if Meta ships a text-input
- * API (see /docs/wishlist), swap the picker for the system flow and the
+ * API (see the ComposeFlow docs), swap the picker for the system flow and the
  * field API doesn't change.
  */
 export function ComposeFlow({
   label,
   value,
-  placeholder,
+  placeholder = "Pinch to enter text",
   options,
   pickerTitle = "Choose",
   icon,
   onChange,
   className,
 }: {
-  /** Field label (forwarded to <TextField>). */
+  /** Field label. */
   label?: ReactNode;
   /** Current value. Controlled — pair with `onChange`. */
   value?: string | null;
@@ -38,13 +37,13 @@ export function ComposeFlow({
   options: string[];
   /** Heading on the picker view. */
   pickerTitle?: ReactNode;
-  /** TextField trailing glyph. */
+  /** Field trailing glyph. */
   icon?: ReactNode;
   onChange?: (value: string) => void;
   className?: string;
 }) {
   const [open, setOpen] = useState(false);
-  const root = useRef<HTMLDivElement>(null);
+  const field = useRef<HTMLButtonElement>(null);
   const wasOpen = useRef(false);
 
   const openPicker = () => {
@@ -85,7 +84,7 @@ export function ComposeFlow({
   // the field so the wearer continues where they left off.
   useEffect(() => {
     if (wasOpen.current && !open) {
-      root.current?.querySelector<HTMLElement>(".gk-textfield")?.focus();
+      field.current?.focus();
     }
     wasOpen.current = open;
   }, [open]);
@@ -95,27 +94,43 @@ export function ComposeFlow({
     history.back(); // popstate closes the picker — history stays balanced
   };
 
+  const filled = value != null && value !== "";
+
   return (
-    <div ref={root} className={cn("gk-compose", className)}>
+    <div className={cn("contents", className)}>
       {open ? (
         <FocusScope restoreFocus={false}>
           <Heading>{pickerTitle}</Heading>
-          <List>
-            {options.map((o) => (
-              <ListRow key={o} onClick={() => choose(o)}>
-                {o}
-              </ListRow>
-            ))}
-          </List>
+          <QuickReplyChips options={options} onSelect={choose} />
         </FocusScope>
       ) : (
-        <TextField
-          label={label}
-          value={value ?? undefined}
-          placeholder={placeholder}
-          icon={icon}
-          onActivate={openPicker}
-        />
+        <button
+          ref={field}
+          type="button"
+          onClick={openPicker}
+          className="focusable gk-composefield surface flex w-full items-center gap-[14px] rounded-lens px-5 py-4 text-start"
+        >
+          <span className="flex min-w-0 flex-1 flex-col gap-[3px] text-start">
+            {label != null ? (
+              <span className="t-caption uppercase tracking-[0.1em] text-foreground-faint">
+                {label}
+              </span>
+            ) : null}
+            <span
+              className={cn(
+                "t-body",
+                filled ? "text-foreground" : "text-foreground-faint",
+              )}
+            >
+              {filled ? value : placeholder}
+            </span>
+          </span>
+          {icon != null ? (
+            <span className="[&_.gk-icon]:size-[26px] [&_.gk-icon]:text-accent-active">
+              {icon}
+            </span>
+          ) : null}
+        </button>
       )}
     </div>
   );

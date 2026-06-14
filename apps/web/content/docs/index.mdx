@@ -1,17 +1,17 @@
 ---
 title: Getting started
-description: GlassKit UI — the React component library for Meta Ray-Ban Display apps. Scaffold a glasses app in one command, or add the SDK and vendor 48 premium HUD components with the CLI.
+description: GlassKit UI is the React component library for Meta Ray-Ban Display apps. Scaffold a glasses app in one command, or add the SDK and vendor 44 HUD components with the CLI.
 ---
 
 GlassKit UI is a React component library for **Meta Ray-Ban Display** apps. It
 ships an SDK (the focus engine, the sensor + Neural Band hooks, `GlassViewport`,
-and the on-lens stylesheet) plus **48 styled components** you vendor and own —
-built to the premium-surfaces HUD language (calm dark base, popping gradient
-surfaces, gradient icon plates, glanceable type).
+and the on-lens stylesheet) plus **44 styled components** you vendor and own.
+All of it is built to the HUD language: calm dark base, popping gradient
+surfaces, gradient icon plates, glanceable type.
 
 ## Fastest path: scaffold an app
 
-One command gives you a complete Vite + React glasses app — the required
+One command gives you a complete Vite + React glasses app. You get the required
 600×600 + `mrbd-web-app-capable` meta tags, `GlassViewport` and D-pad
 navigation pre-wired, ready to deploy:
 
@@ -19,14 +19,11 @@ navigation pre-wired, ready to deploy:
 npm create glasskit my-app
 ```
 
-Add `-- --template relay` for the phone text-relay starter (free-form text
-with no keyboard or mic — see [Patterns](/docs/patterns#free-form-text)).
-
-`cd my-app && npm run dev`, then drive it with your keyboard: **arrow keys**
+`cd my-app && npm run dev`, then drive it with your keyboard. **Arrow keys**
 move focus (that's a Neural Band swipe), **Enter** activates (a pinch),
 **Escape** goes back. Skip to [step 4](#4-add-components) to add components.
 
-> The bare `glasskit` package on npm is unrelated to this project — always use
+> The bare `glasskit` package on npm is unrelated to this project. Always use
 > `create-glasskit`, `@glasskit-ui/react`, and `@glasskit-ui/cli`.
 
 ## Or add GlassKit to an existing app
@@ -74,7 +71,7 @@ export function App() {
 
 ## 4. Add components
 
-Vendor the source into your project with the CLI — it resolves dependencies,
+Vendor the source into your project with the CLI. It resolves dependencies,
 writes the files to `components/glasskit/`, and installs any npm deps they
 declare. Yours to edit.
 
@@ -82,7 +79,7 @@ declare. Yours to edit.
 npx @glasskit-ui/cli add screen readout button
 ```
 
-Browse all **48** in the [Components](/docs/components) section — each with a
+Browse all **44** in the [Components](/docs/components/screen) section, each with a
 live 600×600 preview, props, and usage. Click the **Meta logo** on any preview
 to scan a QR and run that component as an app on your glasses.
 
@@ -92,12 +89,12 @@ to scan a QR and run that component as an app on your glasses.
   prop is omitted: [`<Compass />`](/docs/components/compass) follows live head
   orientation, [`<DirectionArrow target={{lat, lon}} />`](/docs/components/direction-arrow)
   aims via GPS + heading, [`<Clock />`](/docs/components/clock) ticks itself.
-  Pass the prop and they're fully controlled — the prop always wins.
+  Pass the prop and they're fully controlled. The prop always wins.
 - **The system back gesture is real history.** On glasses OS v125.1+ a middle
   pinch pops browser history (your page gets `popstate`). Use
-  [`<Navigator>`](/docs/components/navigator) and every `push` adds a history
-  entry, so back just works — at the root it exits to the system, exactly like
+  [`<Navigator>`](/docs/navigation/navigator) and every `push` adds a history
+  entry, so back just works. At the root it exits to the system, exactly like
   Android.
-- **Input is keys.** Swipes arrive as arrow-key events and pinch as Enter — no
+- **Input is keys.** Swipes arrive as arrow-key events and pinch as Enter. No
   cursor, touch, or text input. Anything interactive needs the `focusable`
   class (every GlassKit component already has it).

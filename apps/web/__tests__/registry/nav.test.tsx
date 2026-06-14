@@ -35,7 +35,7 @@ describe("Launcher", () => {
 
 describe("Deck", () => {
   it("shows the page at index with step dots", () => {
-    const { container } = render(
+    render(
       <Deck index={1}>
         <p>Page A</p>
         <p>Page B</p>
@@ -44,8 +44,10 @@ describe("Deck", () => {
     );
     expect(screen.getByText("Page B")).toBeTruthy();
     expect(screen.queryByText("Page A")).toBeNull();
-    expect(container.querySelectorAll(".gk-step")).toHaveLength(3);
-    expect(container.querySelectorAll(".gk-step--on")).toHaveLength(2); // index+1
+    // The Deck renders Progress step dots (one per page, index+1 filled).
+    const dots = screen.getByRole("progressbar");
+    expect(dots.children).toHaveLength(3);
+    expect(dots.querySelectorAll(".bg-primary")).toHaveLength(2); // index+1
   });
 
   it("clamps an out-of-range index", () => {
@@ -60,12 +62,13 @@ describe("Deck", () => {
   });
 
   it("omits step dots for a single page", () => {
-    const { container } = render(
+    render(
       <Deck index={0}>
         <p>Only</p>
       </Deck>,
     );
-    expect(container.querySelector(".gk-step")).toBeNull();
+    // No step dots → no progressbar is rendered at all.
+    expect(screen.queryByRole("progressbar")).toBeNull();
   });
 });
 

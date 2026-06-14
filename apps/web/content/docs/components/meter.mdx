@@ -1,6 +1,10 @@
 ---
 title: "Meter"
-description: "A bounded ring gauge for a level (battery, signal, effort) \u2014 distinct from Progress, which tracks task completion. The arc fills via an SVG stroke-dashoffset; value is clamped to [0, max]."
+description: "A bounded ring gauge for a level (battery, signal, effort), distinct from Progress, which tracks task completion. The arc fills via an SVG stroke-dashoffset; value is clamped to [0, max]."
 ---
 
 <ComponentDoc slug="meter" />
+
+## When to use
+
+Meter shows a level with no endpoint (battery, volume, signal). For task completion use [Progress](/docs/components/progress), and for time remaining use [Timer](/docs/components/timer).

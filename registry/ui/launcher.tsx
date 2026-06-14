@@ -43,29 +43,29 @@ export function Launcher({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-launcher", className)}>
+    <div className={cn("grid w-full grid-cols-2 gap-4", className)}>
       {apps.map((a, i) => (
         <button
           key={a.id}
           type="button"
           onClick={a.onSelect}
-          className="focusable gk-launcher-card"
+          className="focusable gk-launcher-card press-scale flex flex-col items-center gap-[9px] rounded-[22px] border-transparent px-[10px] py-[14px] text-center"
         >
           {a.icon != null ? (
             <span
               className={cn(
-                "gk-launcher-card__icon gk-plate",
+                "gk-launcher-card__icon gk-plate mb-0.5 size-[94px] [&_.gk-icon]:size-[46px]",
                 `gk-grad-${a.tone ?? TONES[i % TONES.length]}`,
               )}
             >
               {a.icon}
             </span>
           ) : null}
-          <span className="gk-launcher-card__label t-body">{a.label}</span>
+          <span className="gk-launcher-card__label t-body font-semibold">
+            {a.label}
+          </span>
           {a.tagline != null ? (
-            <span className="gk-launcher-card__tagline t-caption">
-              {a.tagline}
-            </span>
+            <span className="t-caption text-foreground-faint">{a.tagline}</span>
           ) : null}
         </button>
       ))}

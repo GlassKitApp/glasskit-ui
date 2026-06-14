@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Pin } from "@registry/ui/pin";
-import { Callout } from "@registry/ui/callout";
 
 describe("Pin", () => {
   it("projects x/y (0–100%) to a 600-unit SVG translate attribute", () => {
@@ -17,18 +16,5 @@ describe("Pin", () => {
     expect(screen.getByText("Café")).toBeTruthy();
     expect(screen.getByText("120 m")).toBeTruthy();
     expect(screen.getByRole("img", { name: "Café" })).toBeTruthy();
-  });
-});
-
-describe("Callout", () => {
-  it("places the anchor via an SVG translate attribute and draws a leader", () => {
-    const { container } = render(
-      <Callout x={10} y={20} label="Powell St" detail="Muni · 3 min" />,
-    );
-    expect(container.querySelector("g")?.getAttribute("transform")).toBe(
-      "translate(60 120)",
-    );
-    expect(container.querySelector(".gk-callout__leader")).not.toBeNull();
-    expect(screen.getByText("Powell St")).toBeTruthy();
   });
 });

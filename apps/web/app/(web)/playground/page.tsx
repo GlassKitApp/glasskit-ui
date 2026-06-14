@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ProductNav } from "@/components/product-nav";
 import { ProductFooter } from "@/components/product-footer";
-import { PlaygroundClient } from "@/components/playground-client";
+import {
+  PlaygroundClient,
+  type DemoDevice,
+} from "@/components/playground-client";
+import { PLAYGROUND_DEMOS } from "@/lib/playground-demos";
+import { qrSvg } from "@/lib/qr";
+import { mrbdDeepLink } from "@/lib/meta-deeplink";
 import { SITE } from "@/lib/config";
 
 const DESCRIPTION =
@@ -19,7 +25,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Playground() {
+export default async function Playground() {
+  // Per-demo "run on glasses" payload — the QR points at the full-screen
+  // /play/<id> glass route (always the public origin; glasses need HTTPS).
+  const devices: Record<string, DemoDevice> = Object.fromEntries(
+    await Promise.all(
+      PLAYGROUND_DEMOS.map(async (d) => {
+        const url = `${SITE}/play/${d.id}`;
+        const deepLink = mrbdDeepLink(`GlassKit ${d.label}`, url);
+        return [d.id, { qr: await qrSvg(deepLink), deepLink, url }];
+      }),
+    ),
+  );
+
   return (
     <>
       <ProductNav />
@@ -41,7 +59,7 @@ export default function Playground() {
             </p>
           </div>
 
-          <PlaygroundClient />
+          <PlaygroundClient devices={devices} />
 
           <div className="mt-16 flex justify-center gap-3">
             <Link href="/docs" className="btn btn-solid">

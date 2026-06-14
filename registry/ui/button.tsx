@@ -5,8 +5,9 @@ import { cn } from "../lib/utils";
  * <Button> — a D-pad-focusable action. Renders a real <button> carrying
  * the `focusable` class, so `useDpad()` includes it in spatial navigation
  * and activates it on Enter/Space (the hook calls `.click()`, which fires
- * `onClick`). Edge + focus ring come from the additive `.focusable` recipe;
- * `primary` brightens the edge — no fills (apple-feel §9).
+ * `onClick`). `primary` wears the accent fill; `positive`/`danger` carry the
+ * semantic accept/destroy fills (calls, irreversible confirms); `ghost` is
+ * chrome-less (just text + focus ring + press) for toolbars and icon rows.
  */
 export function Button({
   children,
@@ -16,17 +17,21 @@ export function Button({
   onClick,
   type = "button",
   initialFocus = false,
+  "aria-label": ariaLabel,
   className,
 }: {
-  children: ReactNode;
-  variant?: "primary" | "secondary";
-  /** Optional leading glyph — typically a <GlowIcon>. */
+  /** The label. Omit for an icon-only button, but then set `aria-label`. */
+  children?: ReactNode;
+  variant?: "primary" | "secondary" | "ghost" | "positive" | "danger";
+  /** Optional leading glyph — typically a <Icon>. */
   icon?: ReactNode;
   disabled?: boolean;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   /** Seed the D-pad ring here when the screen mounts (`data-autofocus`). */
   initialFocus?: boolean;
+  /** Accessible name — required for an icon-only button. */
+  "aria-label"?: string;
   className?: string;
 }) {
   return (
@@ -34,10 +39,20 @@ export function Button({
       type={type}
       disabled={disabled}
       onClick={onClick}
+      aria-label={ariaLabel}
       data-autofocus={initialFocus || undefined}
       className={cn(
-        "focusable gk-btn t-body",
-        variant === "primary" && "gk-btn--primary",
+        "focusable press-scale t-body inline-flex items-center justify-center gap-2 rounded-2xl",
+        variant === "primary"
+          ? "btn-primary"
+          : variant === "positive"
+            ? "btn-positive"
+            : variant === "danger"
+              ? "btn-danger"
+              : variant === "ghost"
+                ? "bg-transparent border-0 text-foreground"
+                : "surface",
+        !children ? "p-[13px] [&_svg]:size-[22px]" : "px-6 py-4",
         className,
       )}
     >

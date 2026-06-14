@@ -1,0 +1,18 @@
+---
+title: "Masonry"
+description: "A staggered, vertically-scrolling multi-column layout (the Pinterest / Photos look, where columns do not line up). Drop any children in; Masonry measures each and fills the shortest column, then keeps a D-pad-focused child in view."
+---
+
+<ComponentDoc slug="masonry" />
+
+## When to use
+
+Reach for **Masonry** when your tiles vary in height and you want them packed
+tight without the rows lining up: a photo gallery, a feed of mixed cards. It
+measures each child and deals it to the currently shortest column, so the two
+sides stay balanced whatever order the items come in, and it scrolls vertically.
+
+For cells that should line up in a uniform grid, use [Grid](/docs/components/grid)
+instead. Masonry is layout only: the children own their interactivity (a
+[MediaThumb](/docs/blocks/media-thumb) with `onSelect`, or a
+[Pressable](/docs/components/pressable)).

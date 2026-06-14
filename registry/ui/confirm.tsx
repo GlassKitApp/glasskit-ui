@@ -34,16 +34,19 @@ export function Confirm({
 }) {
   return (
     <FocusScope>
-      <div className={cn("gk-confirm", className)}>
-        {title != null ? (
-          <p className="gk-confirm__title t-title">{title}</p>
-        ) : null}
+      <div
+        className={cn(
+          "flex flex-col items-center gap-4 text-center",
+          className,
+        )}
+      >
+        {title != null ? <p className="t-title">{title}</p> : null}
         {message != null ? (
-          <p className="gk-confirm__message t-body">{message}</p>
+          <p className="t-body max-w-[28ch] text-muted-foreground">{message}</p>
         ) : null}
-        <div className="gk-confirm__actions">
+        <div className="mt-1.5 flex gap-3">
           <Button
-            variant="primary"
+            variant={destructive ? "danger" : "primary"}
             initialFocus={!destructive}
             onClick={onConfirm}
           >

@@ -41,19 +41,40 @@ export function List({
       thumb.style.transform = `translateY(${pos}px)`;
     };
 
+    // Smooth scroll on focus: the D-pad engine moves the ring with
+    // preventScroll, so the List owns the scroll. `block: "nearest"` keeps the
+    // list still while the focused row is fully on screen and only glides once
+    // the ring passes the visible page (then it slides just enough to reveal
+    // the next row) — smooth, not the instant per-row jump native focus does.
+    // Honors reduced-motion.
+    const reduce =
+      typeof matchMedia !== "undefined" &&
+      matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const onFocusIn = (e: FocusEvent) => {
+      const row = (e.target as HTMLElement | null)?.closest("[data-list-row]");
+      if (row && sc.contains(row) && typeof row.scrollIntoView === "function") {
+        row.scrollIntoView({
+          block: "nearest",
+          behavior: reduce ? "auto" : "smooth",
+        });
+      }
+    };
+
     update();
     sc.addEventListener("scroll", update, { passive: true });
+    sc.addEventListener("focusin", onFocusIn);
     const ro =
       typeof ResizeObserver !== "undefined" ? new ResizeObserver(update) : null;
     ro?.observe(sc);
     return () => {
       sc.removeEventListener("scroll", update);
+      sc.removeEventListener("focusin", onFocusIn);
       ro?.disconnect();
     };
   }, []);
 
   return (
-    <div className={cn("gk-list", className)}>
+    <div className={cn("relative size-full self-stretch", className)}>
       <div className="gk-list__scroll" ref={scrollRef}>
         {children}
       </div>
@@ -84,7 +105,7 @@ export function ListRow({
 }: {
   /** The row label. */
   children: ReactNode;
-  /** Optional inline-start glyph — typically a <GlowIcon>. */
+  /** Optional inline-start glyph — typically a <Icon>. */
   leading?: ReactNode;
   /** Optional inline-end value/affordance. */
   trailing?: ReactNode;
@@ -97,12 +118,18 @@ export function ListRow({
       type="button"
       disabled={disabled}
       onClick={onClick}
-      className={cn("focusable gk-list-row t-body", className)}
+      data-list-row=""
+      className={cn(
+        "focusable press-scale t-body surface flex w-full flex-none items-center gap-[13px] rounded-lens px-5 py-4 text-start min-h-[74px]",
+        className,
+      )}
     >
       {leading}
-      <span className="gk-list-row__label">{children}</span>
+      <span className="min-w-0 flex-1">{children}</span>
       {trailing != null ? (
-        <span className="gk-list-row__trailing t-caption">{trailing}</span>
+        <span className="t-caption text-foreground-faint [font-variant-numeric:tabular-nums]">
+          {trailing}
+        </span>
       ) : null}
     </button>
   );

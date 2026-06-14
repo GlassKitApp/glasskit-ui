@@ -41,11 +41,13 @@
       "types": "./dist/primitives/index.d.ts",
       "import": "./dist/primitives/index.js"
     },
-    "./styles.css": "./styles.css"
+    "./styles.css": "./styles.css",
+    "./theme.css": "./theme.css"
   },
   "files": [
     "dist",
     "styles.css",
+    "theme.css",
     "README.md"
   ],
   "engines": {

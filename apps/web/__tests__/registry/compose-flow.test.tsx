@@ -62,7 +62,7 @@ describe("ComposeFlow", () => {
     expect(screen.queryByText("Quick replies")).toBeNull();
     expect(
       (document.activeElement as HTMLElement)?.classList.contains(
-        "gk-textfield",
+        "gk-composefield",
       ),
     ).toBe(true);
   });

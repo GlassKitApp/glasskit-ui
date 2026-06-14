@@ -28,8 +28,12 @@ full strategy and 7-phase plan.
 ## Hard rules
 
 - **No `Co-Authored-By: Claude`** (or any agent attribution) trailer on commits.
-- **No inline CSS** (`style={{}}`) — Tailwind v4 `@theme` tokens + semantic
-  classes only.
+- **No inline CSS** (`style={{}}`). Both site and lens are Tailwind utilities +
+  `--gk-*` design tokens (the shadcn model). `styles.css` holds only primitives
+  (tokens, `.focusable`, `@keyframes`, pseudo-element + world-anchored rules,
+  the `surface`/`btn-primary`/`press-scale` `@utility` recipes); a component's
+  layout/color lives in its `.tsx` as utilities. Lens = logical RTL utilities
+  only. See CLAUDE.md "Styling" + `/docs/theming`.
 - **Do not create the public GitHub repo or publish to npm** without the owner's
   explicit go-ahead. CI + Changesets get configured but stay inert until enabled.
 - **Premium-surfaces direction (supersedes the old "additive lens is sacred"
@@ -42,7 +46,7 @@ full strategy and 7-phase plan.
   content itself (use surface fills, not frosted glass). See
   `docs/design/meta-hud-language.md`.
 - **RTL from day one:** logical CSS only; never mirror world-anchored components
-  (DirectionArrow, Compass, Pin, Reticle) — see PLAN.md "Internationalization."
+  (DirectionArrow, Compass, Pin), see PLAN.md "Internationalization."
 
 ## Conventions
 

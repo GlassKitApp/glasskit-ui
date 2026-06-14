@@ -20,14 +20,19 @@ export function StatGrid({
   className?: string;
 }) {
   return (
-    <div className={cn("gk-statgrid", className)}>
+    <div className={cn("grid w-full grid-cols-2 gap-3", className)}>
       {items.map((it, i) => (
-        <div key={i} className="gk-statgrid__cell gk-surface">
-          <span className="gk-statgrid__label t-caption">{it.label}</span>
-          <span className="gk-statgrid__value t-readout">
+        <div
+          key={i}
+          className="surface flex flex-col items-start gap-1.5 rounded-[20px] p-[18px] text-start"
+        >
+          <span className="t-caption uppercase tracking-[0.12em] text-foreground-faint">
+            {it.label}
+          </span>
+          <span className="t-readout font-bold">
             {it.value}
             {it.unit != null ? (
-              <span className="gk-statgrid__unit"> {it.unit}</span>
+              <span className="text-[16px] text-foreground-faint"> {it.unit}</span>
             ) : null}
           </span>
         </div>
