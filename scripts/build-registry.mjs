@@ -25,6 +25,33 @@ const SDK_VERSION = JSON.parse(
 const pascal = (name) =>
   name.replace(/(^|-)([a-z])/g, (_, __, c) => c.toUpperCase());
 
+/**
+ * Usage snippets, keyed by component slug, lifted from the docs site's
+ * component-docs.tsx `usage` fields so the served /r/<name>.json can carry a
+ * real `meta.usage` example (consumed by @glasskit-ui/mcp's
+ * get_component_example). component-docs.tsx is a TSX module we can't import
+ * from a plain node script, so we regex each `slug: "x" … usage: \`…\`` block.
+ * The usage values are plain template literals (no interpolation, no nested
+ * backticks — verified), so the non-greedy capture to the next backtick is
+ * exact. Missing file or no match → empty map; the build never depends on it.
+ */
+function usageSnippets() {
+  const map = {};
+  try {
+    const src = readFileSync(
+      join(ROOT, "apps", "web", "lib", "component-docs.tsx"),
+      "utf8",
+    );
+    const re = /slug:\s*"([a-z0-9-]+)"[\s\S]*?usage:\s*`([\s\S]*?)`/g;
+    let m;
+    while ((m = re.exec(src))) map[m[1]] = m[2];
+  } catch {
+    // No docs module (e.g. registry built in isolation) — usage stays absent.
+  }
+  return map;
+}
+const USAGE = usageSnippets();
+
 /** First sentence of the `<Name> — …` component JSDoc (skips helper JSDocs). */
 function description(src, name) {
   for (const block of src.matchAll(/\/\*\*([\s\S]*?)\*\//g)) {
@@ -106,6 +133,10 @@ const BLOCKS = new Set([
   "media-thumb",
 ]);
 
+// Templates: complete, multi-screen example apps. Installable as blocks too,
+// but documented via ExampleDoc/examples.tsx rather than component-docs.tsx.
+const TEMPLATES = new Set(["workout", "messages"]);
+
 for (const file of readdirSync(UI_DIR)
   .filter((f) => f.endsWith(".tsx"))
   .sort()) {
@@ -117,7 +148,8 @@ for (const file of readdirSync(UI_DIR)
     deps.add(m[1]);
   for (const m of src.matchAll(/from\s+["']\.\/([a-z-]+)["']/g)) deps.add(m[1]);
 
-  const type = BLOCKS.has(name) ? "registry:block" : "registry:ui";
+  const type =
+    BLOCKS.has(name) || TEMPLATES.has(name) ? "registry:block" : "registry:ui";
 
   items.push({
     name,
@@ -159,9 +191,13 @@ writeFileSync(
   JSON.stringify(registry, null, 2) + "\n",
 );
 for (const item of items) {
+  const usage = USAGE[item.name];
   const served = {
     $schema: "https://ui.shadcn.com/schema/registry-item.json",
     ...item,
+    // A real usage example for AI agents (get_component_example in
+    // @glasskit-ui/mcp), sourced from the docs site. Only emitted when known.
+    ...(usage ? { meta: { usage } } : {}),
     files: item.files.map((f) => ({
       ...f,
       content: readFileSync(join(ROOT, f.path), "utf8"),

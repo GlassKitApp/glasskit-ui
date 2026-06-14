@@ -53,7 +53,7 @@ composite (`scene` prop, screen-blend, `public/world/` assets) has been removed.
 
 ## Per-component application
 
-- **GlowIcon:** gains a `plate`/gradient mode (gradient squircle + white glyph)
+- **Icon:** gains a `plate`/gradient mode (gradient squircle + white glyph)
   for app/hero use; small inline glyphs stay plain white stroke.
 - **Launcher:** app grid of gradient icon plates + labels; focus lifts the plate.
 - **List/ListRow:** rows become popping surfaces (or a grouped surface with
@@ -62,7 +62,7 @@ composite (`scene` prop, screen-blend, `public/world/` assets) has been removed.
 - **Button/Confirm/QuickReplyChips:** popping pill/surface, press scale, primary
   gets an accent-gradient fill.
 - **Toggle/Stepper/Segmented:** surface controls; accent-gradient on-state.
-- **Card-bearing (Toast/Callout/Badge/Cue):** surface treatment, soft depth.
+- **Card-bearing (NotificationCard/CallCard/Badge):** surface treatment, soft depth.
 - **Toasts & notifications:** the dynamic system is `<Toaster>` + `toast()`, built
   on **Sonner** (Emil Kowalski's lib), themed to the surfaces and **bottom-anchored**
   (below the sightline, device-accurate; configurable). Sonner portals to the

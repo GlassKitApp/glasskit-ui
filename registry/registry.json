@@ -19,6 +19,21 @@
       ]
     },
     {
+      "name": "glass-history",
+      "type": "registry:lib",
+      "title": "glass-history",
+      "description": "A tiny swappable history abstraction for <Navigator> — the React Router / TanStack pattern.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/lib/glass-history.ts",
+          "type": "registry:lib",
+          "target": "components/lib/glass-history.ts"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "title": "utils",
@@ -448,6 +463,29 @@
       ]
     },
     {
+      "name": "messages",
+      "type": "registry:block",
+      "title": "Messages",
+      "description": "an inbox: a thread list and a conversation, replying through ComposeFlow on a keyboard-less platform.",
+      "dependencies": [],
+      "registryDependencies": [
+        "navigator",
+        "screen",
+        "heading",
+        "list",
+        "avatar",
+        "chat-bubble",
+        "compose-flow"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/messages.tsx",
+          "type": "registry:block",
+          "target": "components/glasskit/messages.tsx"
+        }
+      ]
+    },
+    {
       "name": "meter",
       "type": "registry:ui",
       "title": "Meter",
@@ -473,7 +511,8 @@
         "@glasskit-ui/react@^0.4.0"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "glass-history"
       ],
       "files": [
         {
@@ -806,6 +845,33 @@
           "path": "registry/ui/weather-tile.tsx",
           "type": "registry:ui",
           "target": "components/glasskit/weather-tile.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workout",
+      "type": "registry:block",
+      "title": "Workout",
+      "description": "a fitness companion: a workout list, a live session, and a rest timer, composed from Navigator, Timer, and a destructive Confirm.",
+      "dependencies": [],
+      "registryDependencies": [
+        "navigator",
+        "screen",
+        "heading",
+        "list",
+        "stat-grid",
+        "status-dot",
+        "timer",
+        "button",
+        "confirm",
+        "empty-state",
+        "icon"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/workout.tsx",
+          "type": "registry:block",
+          "target": "components/glasskit/workout.tsx"
         }
       ]
     }

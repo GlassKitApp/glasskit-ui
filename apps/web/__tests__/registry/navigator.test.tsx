@@ -5,13 +5,18 @@ import {
   useBackHandler,
   useNavigator,
 } from "@registry/ui/navigator";
+import {
+  createMemoryHistory,
+  type GlassHistory,
+} from "@registry/lib/glass-history";
 import { Button } from "@registry/ui/button";
 
 /**
- * jsdom implements the History API including async traversal: history.back()
- * resolves across queued tasks and fires popstate — the same path the glasses
- * system back gesture takes (OS v125.1 pops history → popstate). The 20ms
- * settle outlasts jsdom's multi-task traversal queue.
+ * Each test injects a fresh in-memory history adapter, so parallel test files
+ * no longer race on jsdom's shared `window.history`. The memory adapter mirrors
+ * the browser's async traversal: back()/go() notify subscribers on a microtask
+ * (the same path the glasses system back gesture takes on-device — OS v125.1
+ * pops history → popstate). The settle below flushes that microtask + React.
  */
 const settle = () => act(() => new Promise((r) => setTimeout(r, 20)));
 
@@ -48,14 +53,15 @@ const SCREENS = {
   guarded: () => <GuardedScreen />,
 };
 
-function renderNav() {
-  return render(<Navigator screens={SCREENS} initial="home" />);
+/** A fresh in-memory history per test, seeded at the current pathname. */
+function memHistory(): GlassHistory {
+  return createMemoryHistory({ url: location.pathname });
 }
 
-beforeEach(async () => {
-  // Unwind any history entries a previous test pushed.
-  history.replaceState(null, "");
-});
+function renderNav(history: GlassHistory = memHistory()) {
+  render(<Navigator screens={SCREENS} initial="home" history={history} />);
+  return history;
+}
 
 describe("Navigator", () => {
   it("renders the root screen and pushes with params", () => {
@@ -75,7 +81,7 @@ describe("Navigator", () => {
   });
 
   it("system back (history.back → popstate) pops one screen", async () => {
-    renderNav();
+    const history = renderNav();
     act(() => screen.getByRole("button", { name: "Open" }).click());
     act(() => screen.getByRole("button", { name: "Deeper" }).click());
     expect(screen.getByText("Deeper")).toBeTruthy();
@@ -90,7 +96,7 @@ describe("Navigator", () => {
   });
 
   it("Escape (desktop simulator BACK) pops, and is inert at the root", async () => {
-    renderNav();
+    const history = renderNav();
     act(() => screen.getByRole("button", { name: "Open" }).click());
 
     act(() => {
@@ -99,8 +105,8 @@ describe("Navigator", () => {
     await settle();
     expect(screen.getByText("Home")).toBeTruthy();
 
-    // At the root, Escape must NOT call history.back() — on-device the
-    // gesture falls through to the system menu.
+    // At the root, Escape must NOT call back() — on-device the gesture falls
+    // through to the system menu.
     const back = vi.spyOn(history, "back");
     act(() => {
       window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
@@ -114,10 +120,12 @@ describe("Navigator", () => {
       const nav = useNavigator();
       return <Button onClick={() => nav.push("guarded")}>Guard</Button>;
     }
+    const history = memHistory();
     render(
       <Navigator
         screens={{ ...SCREENS, home: () => <GuardedHome /> }}
         initial="home"
+        history={history}
       />,
     );
     act(() => screen.getByRole("button", { name: "Guard" }).click());
@@ -156,6 +164,7 @@ describe("Navigator", () => {
           deeper: () => <PopAll />,
         }}
         initial="home"
+        history={memHistory()}
       />,
     );
     act(() => screen.getByRole("button", { name: "Open" }).click());
@@ -175,10 +184,12 @@ describe("Navigator", () => {
         </>
       );
     }
+    const history = memHistory();
     render(
       <Navigator
         screens={{ ...SCREENS, detail: () => <Swapper /> }}
         initial="home"
+        history={history}
       />,
     );
     act(() => screen.getByRole("button", { name: "Open" }).click());
@@ -229,6 +240,7 @@ describe("focus memory", () => {
   }
 
   it("pop returns the ring to the row that pushed, not the first row", async () => {
+    const history = memHistory();
     const { getByText } = render(
       <Navigator
         screens={{
@@ -236,6 +248,7 @@ describe("focus memory", () => {
           detail: () => <Button>Close</Button>,
         }}
         initial="home"
+        history={history}
       />,
     );
     const rowTwo = getByText("Row two");
@@ -257,6 +270,7 @@ describe("focus memory", () => {
           detail: () => <Button>Close</Button>,
         }}
         initial="home"
+        history={memHistory()}
       />,
     );
     const rowThree = getByText("Row three");
@@ -273,14 +287,19 @@ describe("state restoration + URL paths", () => {
       home: () => <Home />,
       detail: (p?: unknown) => <Detail id={(p as { id?: number })?.id} />,
     };
-    const first = render(<Navigator screens={screens} initial="home" />);
+    // The history entry survives the "reload" (unmount) — share one adapter
+    // across both renders, exactly as the browser shares window.history.
+    const history = memHistory();
+    const first = render(
+      <Navigator screens={screens} initial="home" history={history} />,
+    );
     act(() => screen.getByText("Open").click());
     await settle();
     expect(screen.getByText("Detail 42")).toBeTruthy();
 
     // "Reload": unmount the app; the history entry keeps gkStack.
     first.unmount();
-    render(<Navigator screens={screens} initial="home" />);
+    render(<Navigator screens={screens} initial="home" history={history} />);
     await settle();
     // Restored straight to the screen the wearer was on — params included.
     expect(screen.getByText("Detail 42")).toBeTruthy();
@@ -291,8 +310,8 @@ describe("state restoration + URL paths", () => {
   });
 
   it("mirrors pushes into the pathname when paths is set, and back restores it", async () => {
-    const orig = location.pathname;
-    const base = orig.replace(/\/$/, "");
+    const orig = location.pathname.replace(/\/$/, "");
+    const history = createMemoryHistory({ url: orig });
     render(
       <Navigator
         screens={{
@@ -301,15 +320,16 @@ describe("state restoration + URL paths", () => {
         }}
         initial="home"
         paths={{ detail: "detail" }}
+        history={history}
       />,
     );
     act(() => screen.getByText("Open").click());
     await settle();
-    expect(location.pathname).toBe(`${base}/detail`);
+    expect(history.pathname).toBe(`${orig}/detail`);
 
     act(() => history.back());
     await settle();
-    expect(location.pathname).toBe(orig);
+    expect(history.pathname).toBe(orig);
     expect(screen.getByText("Home")).toBeTruthy();
   });
 
@@ -322,6 +342,7 @@ describe("state restoration + URL paths", () => {
         </Button>
       );
     }
+    const history = memHistory();
     render(
       <Navigator
         screens={{
@@ -329,6 +350,7 @@ describe("state restoration + URL paths", () => {
           detail: () => <h2>Detail</h2>,
         }}
         initial="home"
+        history={history}
       />,
     );
     act(() => screen.getByText("Open").click());
@@ -336,7 +358,7 @@ describe("state restoration + URL paths", () => {
     // The push itself works (params flow through React state)…
     expect(screen.getByText("Detail")).toBeTruthy();
     // …and history.state degraded to names-only instead of throwing.
-    expect(history.state.gkStack).toEqual([
+    expect((history.state as { gkStack: unknown }).gkStack).toEqual([
       { name: "home" },
       { name: "detail" },
     ]);

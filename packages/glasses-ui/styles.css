@@ -1034,7 +1034,7 @@
   }
 }
 
-/* ── Wave 7 world-anchored markers (Pin, Callout) ───────────────────
+/* ── Wave 7 world-anchored markers (Pin) ────────────────────────────
  * Full-bleed SVG overlays; markers placed by `transform` attributes, so
  * they're never mirrored under RTL. Non-interactive over the content.
  * ─────────────────────────────────────────────────────────────── */

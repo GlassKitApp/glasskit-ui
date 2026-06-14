@@ -1,8 +1,11 @@
 import { GlassViewport } from "@glasskit-ui/react";
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import { LensStage } from "@/components/lens/lens-stage";
 import { DevicePreview } from "@/components/device-preview";
 import { DpadProvider } from "@/components/lens/dpad-provider";
 import { getExample } from "@/lib/examples";
+import { getComponentFiles } from "@/lib/registry-files";
 import { qrSvg } from "@/lib/qr";
 import { mrbdDeepLink } from "@/lib/meta-deeplink";
 import { SITE } from "@/lib/config";
@@ -19,6 +22,7 @@ export async function ExampleDoc({ slug }: { slug: string }) {
   const url = `${SITE}/examples/${slug}`;
   const deepLink = mrbdDeepLink(`GlassKit ${ex.name}`, url);
   const qr = await qrSvg(deepLink);
+  const files = getComponentFiles(slug);
 
   return (
     <>
@@ -45,6 +49,33 @@ export async function ExampleDoc({ slug }: { slug: string }) {
           <li key={s}>{s}</li>
         ))}
       </ul>
+
+      <h2>Installation</h2>
+      <Tabs items={["CLI", "Manual"]}>
+        <Tab value="CLI">
+          <DynamicCodeBlock
+            lang="bash"
+            code={`npx @glasskit-ui/cli add ${slug}`}
+          />
+        </Tab>
+        <Tab value="Manual">
+          <p>Install the SDK, then copy these files into your project:</p>
+          <DynamicCodeBlock
+            lang="bash"
+            code={`npm install @glasskit-ui/react`}
+          />
+          {files.map((f) => (
+            <DynamicCodeBlock
+              key={f.target}
+              lang="tsx"
+              code={`// ${f.target}\n${f.content}`}
+            />
+          ))}
+        </Tab>
+      </Tabs>
+
+      <h2>Usage</h2>
+      <DynamicCodeBlock lang="tsx" code={ex.usage} />
     </>
   );
 }

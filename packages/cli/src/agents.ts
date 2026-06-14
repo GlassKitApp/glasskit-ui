@@ -145,6 +145,10 @@ Then vendor what you need (installs deps, you own the source):
 npx @glasskit-ui/cli add navigator list timer confirm compose-flow map-view
 \`\`\`
 
+Whole-app starting points exist too: \`npx @glasskit-ui/cli add workout\`
+(Navigator + Timer + a destructive Confirm) or \`messages\` (thread +
+ComposeFlow) vendor a full multi-screen example you can adapt.
+
 Decision rules (full guide: https://glasskit.app/ui/docs/conventions):
 
 - **Navigation** — hierarchy ("back means up") → **navigator** (puts screens on
@@ -165,18 +169,21 @@ Decision rules (full guide: https://glasskit.app/ui/docs/conventions):
 
 \`\`\`tsx
 <Screen
-  status={/* glanceable context: Tabs, a live StatusDot Cue */}
-  cue={<Cue>what the wearer can do right now</Cue>}
+  status={/* glanceable context: Tabs, a live StatusDot */}
+  cue="what the wearer can do right now"
 >
   {/* ONE main thing */}
 </Screen>
 \`\`\`
 
-- One \`Cue\` per screen (it's a live region). Rapidly-changing values
-  (Readout, StatGrid) are deliberately not live — narrate milestones via Cue.
+- \`cue\` is Screen's own prop (a polite live region, one narration line per
+  screen); pass \`cueLive\` to accent it for an active state. Rapidly-changing
+  values (Readout, StatGrid) are deliberately not live — narrate milestones via
+  \`cue\`.
 - Confirm with irreversible consequences → \`<Confirm destructive …>\` (seeds
-  the ring on cancel).
-- World-anchored components (Compass, Pin, Callout, DirectionArrow) never
+  the ring on cancel and reads red). Accept/decline on a call → Button
+  \`variant="positive"\` / \`"danger"\`.
+- World-anchored components (Compass, Pin, DirectionArrow, MapView) never
   mirror in RTL; everything else uses logical CSS.
 
 ## 3. Wire behavior
@@ -194,7 +201,7 @@ Decision rules (full guide: https://glasskit.app/ui/docs/conventions):
   through to the OS.
 - Haptics seam: \`buzz("tap" | "success" | "warning")\` at interaction points
   (no-op today, lights up when the platform ships haptics).
-- Prop vocabulary: \`emphasis\` = visual weight · \`status\` = semantic state ·
+- Prop vocabulary: \`variant\` = visual style · \`status\` = semantic state ·
   \`tone\` = gradient palette. Use these words with these meanings.
 
 ## 4. Style
@@ -221,10 +228,10 @@ Decision rules (full guide: https://glasskit.app/ui/docs/conventions):
 ## Honesty list (UI that must not overpromise)
 
 The platform has no camera, microphone, gaze, or text-input APIs, so never
-let a component imply otherwise. TextField's mic glyph opens YOUR capture
-flow, not on-device dictation. NowPlaying displays playback your app tracks.
-There is no on-device free-form text input. See the "Free-form text" notes at
-https://glasskit.app/ui/docs/conventions
+let a component imply otherwise. ComposeFlow is a picker for enumerable
+answers, not free-form typing or dictation. NowPlaying displays playback your
+app tracks. There is no on-device free-form text input. See the "Free-form
+text" notes at https://glasskit.app/ui/docs/conventions
 `;
 
 export const CLAUDE_MD = `@AGENTS.md

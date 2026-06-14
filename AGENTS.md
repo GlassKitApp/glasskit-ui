@@ -47,6 +47,22 @@ full strategy and 7-phase plan.
   `docs/design/meta-hud-language.md`.
 - **RTL from day one:** logical CSS only; never mirror world-anchored components
   (DirectionArrow, Compass, Pin), see PLAN.md "Internationalization."
+- **Propagate every component change across ALL AI surfaces.** The skill, the
+  MCP, and `llms.txt` are the AI's source of truth and must never drift from the
+  code. Whenever you add, rename, remove, or change a component's props/variants,
+  update every surface in the *same* change:
+  1. the component JSDoc in `registry/ui/*.tsx` (feeds `registry.json` + `llms.txt`),
+  2. the docs — `apps/web/lib/component-docs.tsx` (props table, usage, summary) +
+     `apps/web/content/docs/**`,
+  3. the agent skill + rules in `packages/cli/src/agents.ts` (`AGENTS_MD`,
+     `SKILL_MD`, the Cursor + Copilot bodies),
+  4. the MCP guidelines in `packages/mcp/src/index.ts` (`GUIDELINES`),
+  5. the `llms.txt` source `apps/web/llms-template.md`,
+  6. the design spec `docs/design/meta-hud-language.md` (only if the look changes).
+  Then regenerate: `pnpm build:registry` (rebuilds `registry.json`, `/r/*.json`,
+  `llms.txt`) and `pnpm --filter @glasskit-ui/cli build` (rebuilds the shipped
+  skill in `dist/`). Finally grep the old/removed name across `packages`,
+  `apps/web/content`, and `docs` to confirm zero stragglers.
 
 ## Conventions
 

@@ -1,24 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { Navigator, useNavigator } from "@registry/ui/navigator";
-import { Screen } from "@registry/ui/screen";
-import { Heading } from "@registry/ui/heading";
-import { List, ListRow } from "@registry/ui/list";
-import { StatGrid } from "@registry/ui/stat-grid";
-import { StatusDot } from "@registry/ui/status-dot";
-import { Timer } from "@registry/ui/timer";
-import { Button } from "@registry/ui/button";
-import { Confirm } from "@registry/ui/confirm";
-import { EmptyState } from "@registry/ui/empty-state";
-import { Icon } from "@registry/ui/icon";
-import { HeartGlyph, ChevronGlyph } from "@/components/lens/icons";
+import { Navigator, useNavigator } from "./navigator";
+import { Screen } from "./screen";
+import { Heading } from "./heading";
+import { List, ListRow } from "./list";
+import { StatGrid } from "./stat-grid";
+import { StatusDot } from "./status-dot";
+import { Timer } from "./timer";
+import { Button } from "./button";
+import { Confirm } from "./confirm";
+import { EmptyState } from "./empty-state";
+import { Icon } from "./icon";
 
 /**
- * Workout — a complete example app: Navigator hierarchy (list → detail),
- * a live session screen, a rest timer, and a destructive end-confirm that
- * seeds the D-pad ring on the safe action. Middle pinch (Escape on desktop)
- * walks back up; pop restores focus to the row you came from.
+ * <Workout> — a fitness companion: a workout list, a live session, and a rest
+ * timer, composed from Navigator, Timer, and a destructive Confirm.
  */
 export function WorkoutApp() {
   return (
@@ -143,5 +140,41 @@ function History() {
         actionLabel="Start one"
       />
     </Screen>
+  );
+}
+
+function HeartGlyph() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+    </svg>
+  );
+}
+
+function ChevronGlyph() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M9 6l6 6l-6 6" />
+    </svg>
   );
 }
