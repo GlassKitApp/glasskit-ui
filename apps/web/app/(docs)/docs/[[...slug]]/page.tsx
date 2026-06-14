@@ -8,6 +8,7 @@ import {
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getMDXComponents } from "@/mdx-components";
+import { CopyPageActions } from "@/components/copy-page-actions";
 import { SITE } from "@/lib/config";
 import { SEO, jsonLdGraph, breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
@@ -32,6 +33,12 @@ export default async function Page({ params }: { params: Params }) {
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
       <JsonLd data={jsonLdGraph(breadcrumbSchema(crumbs))} />
+      <div className="mb-2 flex justify-end">
+        <CopyPageActions
+          pageUrl={`${SITE}${page.url}`}
+          title={page.data.title}
+        />
+      </div>
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>

@@ -5,13 +5,26 @@
  * components into a project. A thin client over the served registry (the same
  * /r/*.json the CLI uses), configured by GLASSKIT_REGISTRY.
  *
- * Tools: glasskit_guidelines, list_components, get_component, search_components.
+ * Tools: glasskit_guidelines, list_components, get_component,
+ * get_component_example, get_add_command, search_components.
  * Run (stdio):  GLASSKIT_REGISTRY=http://localhost:3000/r glasskit-mcp
  * Published as @glasskit-ui/mcp (bin: glasskit-mcp).
  */
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
+
+/** Server identity version, read from this package's package.json so it never
+ *  drifts from the published version. */
+const VERSION = JSON.parse(
+  readFileSync(
+    join(dirname(fileURLToPath(import.meta.url)), "..", "package.json"),
+    "utf8",
+  ),
+).version as string;
 
 /** The glasses-first rules an agent must follow — returned by the
  *  glasskit_guidelines tool so an agent with only the MCP (no project files)
@@ -69,6 +82,11 @@ type RegistryItem = {
   description?: string;
   registryDependencies?: string[];
   files: RegistryFile[];
+  /** Optional usage example, surfaced by the served /r/<name>.json (built from
+   *  the docs site). `usage` is the canonical spot; `meta.usage` is the served
+   *  shape — get_component_example reads either. */
+  usage?: string;
+  meta?: { usage?: string };
 };
 
 async function fetchJson<T>(url: string): Promise<T> {
@@ -78,10 +96,12 @@ async function fetchJson<T>(url: string): Promise<T> {
 }
 
 const text = (s: string) => ({ content: [{ type: "text" as const, text: s }] });
+const pascal = (name: string) =>
+  name.replace(/(^|-)([a-z])/g, (_, __, c) => c.toUpperCase());
 const itemLines = (items: RegistryItem[]) =>
   items.map((i) => `- ${i.name}: ${i.description ?? ""}`).join("\n");
 
-const server = new McpServer({ name: "glasskit-ui", version: "0.0.0" });
+const server = new McpServer({ name: "glasskit-ui", version: VERSION });
 
 server.tool(
   "glasskit_guidelines",
@@ -118,6 +138,64 @@ server.tool(
     return text(
       `# ${item.name}\n${item.description ?? ""}\n\n` +
         `Install:  npx @glasskit-ui/cli add ${name}\nDependencies: ${deps}\n\n${files}`,
+    );
+  },
+);
+
+server.tool(
+  "get_add_command",
+  "Get the single CLI command that installs ALL the named GlassKit UI components at once, plus each one's registry dependencies (what else gets pulled in).",
+  {
+    names: z
+      .array(z.string())
+      .describe('component names, e.g. ["button", "list"]'),
+  },
+  async ({ names }) => {
+    if (names.length === 0)
+      return text("Provide at least one component name.");
+    const items = await Promise.all(
+      names.map((name) =>
+        fetchJson<RegistryItem>(`${REGISTRY}/${name}.json`).then(
+          (item) => ({ name, item }),
+          (err: unknown) => ({
+            name,
+            error: err instanceof Error ? err.message : String(err),
+          }),
+        ),
+      ),
+    );
+    const command = `npx @glasskit-ui/cli add ${names.join(" ")}`;
+    const lines = items.map((r) =>
+      "error" in r
+        ? `- ${r.name}: (not found — ${r.error})`
+        : `- ${r.name}: pulls in ${
+            (r.item.registryDependencies ?? []).join(", ") || "no extra components"
+          }`,
+    );
+    return text(`Install all of them at once:\n\n${command}\n\n${lines.join("\n")}`);
+  },
+);
+
+server.tool(
+  "get_component_example",
+  "Get a concise USAGE example for a GlassKit UI component (the shape to copy, not its full source). Use get_component when you need the implementation.",
+  { name: z.string().describe('component name, e.g. "button"') },
+  async ({ name }) => {
+    const item = await fetchJson<RegistryItem>(`${REGISTRY}/${name}.json`);
+    const deps = (item.registryDependencies ?? []).join(", ") || "none";
+    const install = `npx @glasskit-ui/cli add ${name}`;
+    // Prefer a real, authored example; otherwise synthesize a minimal one and
+    // label it as a starting point so the agent knows to refine it.
+    const real = item.usage ?? item.meta?.usage;
+    const example = real
+      ? `\`\`\`tsx\n${real}\n\`\`\``
+      : `\`\`\`tsx\n// starting point — refine against get_component\n<${pascal(
+          name,
+        )} />\n\`\`\``;
+    return text(
+      `# ${pascal(name)}\n${item.description ?? ""}\n\n` +
+        `Install:  ${install}\nDependencies: ${deps}\n\n` +
+        `Usage:\n${example}`,
     );
   },
 );

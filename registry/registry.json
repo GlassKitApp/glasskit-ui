@@ -19,6 +19,21 @@
       ]
     },
     {
+      "name": "glass-history",
+      "type": "registry:lib",
+      "title": "glass-history",
+      "description": "A tiny swappable history abstraction for <Navigator> — the React Router / TanStack pattern.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/lib/glass-history.ts",
+          "type": "registry:lib",
+          "target": "components/lib/glass-history.ts"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "title": "utils",
@@ -496,7 +511,8 @@
         "@glasskit-ui/react@^0.4.0"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "glass-history"
       ],
       "files": [
         {

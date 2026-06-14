@@ -12,6 +12,7 @@ import {
 } from "react";
 import { getFocusables, seedFocus } from "@glasskit-ui/react";
 import { cn } from "../lib/utils";
+import { createBrowserHistory, type GlassHistory } from "../lib/glass-history";
 
 /**
  * <Navigator> — a screen stack for glasses apps (react-navigation semantics,
@@ -91,6 +92,7 @@ export function Navigator({
   initialParams,
   paths,
   className,
+  history: historyProp,
 }: {
   /** Screen renderers by name; receive the push params. */
   screens: Record<string, (params?: unknown) => ReactNode>;
@@ -101,7 +103,20 @@ export function Navigator({
    *  (appended to the pathname where the Navigator mounted). */
   paths?: Record<string, string>;
   className?: string;
+  /**
+   * Advanced/testing seam: a swappable history adapter (the React
+   * Router / TanStack pattern). Defaults to {@link createBrowserHistory},
+   * which drives the real `window.history` and `window` `popstate` exactly
+   * as before — leave it unset in production. Inject `createMemoryHistory()`
+   * in tests for a deterministic in-memory stack that never touches `window`.
+   */
+  history?: GlassHistory;
 }) {
+  // One stable adapter for the component's lifetime; the browser default is
+  // created lazily so production behaviour is identical to direct globals.
+  const historyRef = useRef<GlassHistory | undefined>(historyProp);
+  if (!historyRef.current) historyRef.current = createBrowserHistory();
+  const history = historyRef.current;
   const [stack, setStack] = useState<NavEntry[]>(() => [
     { name: initial, params: initialParams, key: 0 },
   ]);
@@ -151,17 +166,20 @@ export function Navigator({
   };
 
   useEffect(() => {
-    basePath.current = location.pathname.replace(/\/$/, "");
+    basePath.current = history.pathname.replace(/\/$/, "");
 
-    const saved: Array<{ name: string; params?: unknown }> | undefined =
-      history.state?.gkStack;
-    if (history.state?.gkNavDepth == null) {
+    const state = history.state as
+      | { gkStack?: Array<{ name: string; params?: unknown }>; gkNavDepth?: number }
+      | null
+      | undefined;
+    const saved = state?.gkStack;
+    if (state?.gkNavDepth == null) {
       // Fresh entry — mark the root so popstate can tell our entries from
       // the host page's.
-      history.replaceState(
-        { ...history.state, ...stateFor(stackRef.current) },
-        "",
-      );
+      history.replaceState({
+        ...(state ?? {}),
+        ...stateFor(stackRef.current),
+      });
     } else if (saved && saved.length > 1 && stackRef.current.length === 1) {
       // Reload mid-flow: this entry carries a deeper stack — restore it so
       // the wearer lands back on the screen they were on. basePath must not
@@ -179,15 +197,16 @@ export function Navigator({
       );
     }
 
-    const onPopstate = (e: PopStateEvent) => {
-      const depth: number = e.state?.gkNavDepth ?? 0;
+    const onPopstate = (e: { state: unknown }) => {
+      const depth: number =
+        (e.state as { gkNavDepth?: number } | null | undefined)?.gkNavDepth ??
+        0;
       if (depth >= stackRef.current.length - 1) return; // not ours / no-op
       if (runBackChain()) {
         // An overlay consumed the back — restore the history entry the
         // system just popped so depth and stack stay in sync.
         history.pushState(
           stateFor([...stackRef.current]),
-          "",
           urlFor(stackRef.current[stackRef.current.length - 1]!.name),
         );
         return;
@@ -197,19 +216,20 @@ export function Navigator({
 
     // Desktop dev parity: the official simulator mapping is BACK = Escape;
     // on-device the gesture never reaches keydown (v125.1 sends popstate).
-    // Routing Escape through history.back() converges both worlds.
+    // Routing Escape through the adapter's back() converges both worlds.
     const onKeydown = (e: KeyboardEvent) => {
       if (e.key !== "Escape") return;
       if (runBackChain()) return;
       if (stackRef.current.length > 1) history.back();
     };
 
-    window.addEventListener("popstate", onPopstate);
+    const unsubscribe = history.subscribe(onPopstate);
     window.addEventListener("keydown", onKeydown);
     return () => {
-      window.removeEventListener("popstate", onPopstate);
+      unsubscribe();
       window.removeEventListener("keydown", onKeydown);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const push = useCallback((name: string, params?: unknown) => {
@@ -221,26 +241,30 @@ export function Navigator({
       );
       if (idx !== -1) focusMemory.current.set(s[s.length - 1]!.key, idx);
       const next = [...s, { name, params, key: ++keyRef.current }];
-      history.pushState(stateFor(next), "", urlFor(name));
+      history.pushState(stateFor(next), urlFor(name));
       return next;
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const pop = useCallback(() => {
     if (stackRef.current.length > 1) history.back();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const popToTop = useCallback(() => {
     const depth = stackRef.current.length - 1;
     if (depth > 0) history.go(-depth);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const replace = useCallback((name: string, params?: unknown) => {
     setStack((s) => {
       const next = [...s.slice(0, -1), { name, params, key: ++keyRef.current }];
-      history.replaceState(stateFor(next), "", urlFor(name));
+      history.replaceState(stateFor(next), urlFor(name));
       return next;
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const api = useMemo<NavAPI>(
