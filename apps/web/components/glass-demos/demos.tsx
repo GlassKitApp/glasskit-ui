@@ -447,9 +447,10 @@ export function CallCardDemo() {
 }
 
 export function ToasterDemo() {
-  // A toast can be interactive: an `action` (its button is focusable, so the
-  // D-pad reaches it) + `duration: Infinity` so it persists. Pinching "View"
-  // opens a detail screen — the toast acted as the entry point.
+  // One toast system. A toast is normally fire-and-forget, but it can be
+  // interactive: give it a focusable `action`, and DISMISS it when acted on so
+  // it never lingers. Each screen seeds the ring on its primary button, so the
+  // D-pad flow stays predictable across the toast -> detail -> back hop.
   const [opened, setOpened] = useState(false);
   return (
     <>
@@ -459,7 +460,11 @@ export function ToasterDemo() {
           <p className="t-body text-foreground-faint">
             On my way, be there in 5
           </p>
-          <Button variant="primary" onClick={() => setOpened(false)}>
+          <Button
+            variant="primary"
+            initialFocus
+            onClick={() => setOpened(false)}
+          >
             Back
           </Button>
         </Screen>
@@ -468,10 +473,17 @@ export function ToasterDemo() {
           <Heading>Toaster</Heading>
           <Button
             variant="primary"
+            initialFocus
             onClick={() =>
               toast("Maya Lin", {
                 description: "On my way, be there in 5",
-                action: { label: "View", onClick: () => setOpened(true) },
+                action: {
+                  label: "View",
+                  onClick: () => {
+                    toast.dismiss();
+                    setOpened(true);
+                  },
+                },
                 duration: Infinity,
               })
             }

@@ -359,11 +359,14 @@
 .glass-viewport .focusable:focus-visible {
   outline: none;
   color: #fff;
-  border-color: var(--accent);
-  /* thin accent ring + a soft emitted bloom — focus reads as the lit element. */
+  border-color: var(--gk-accent-active);
+  /* A ring that reads on ANY fill: a dark gap separates it from the element
+   * (so it pops off a blue primary button, not just dark surfaces), then a
+   * bright accent ring, then the soft emitted bloom. */
   box-shadow:
-    0 0 0 1px color-mix(in oklab, var(--accent) 60%, transparent),
-    0 0 20px -4px color-mix(in oklab, var(--accent) 34%, transparent);
+    0 0 0 2px var(--gk-background),
+    0 0 0 3.5px color-mix(in oklab, var(--gk-accent-active) 90%, transparent),
+    0 0 22px -3px color-mix(in oklab, var(--gk-primary) 42%, transparent);
 }
 .glass-viewport .focusable:disabled,
 .glass-viewport .focusable[aria-disabled="true"] {

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { FocusScope } from "@glasskit-ui/react";
 import { cn } from "../lib/utils";
 import { Heading } from "./heading";
-import { List, ListRow } from "./list";
+import { QuickReplyChips } from "./quick-reply-chips";
 
 /**
  * <ComposeFlow> — the working text-entry recipe for a platform with no
@@ -101,13 +101,7 @@ export function ComposeFlow({
       {open ? (
         <FocusScope restoreFocus={false}>
           <Heading>{pickerTitle}</Heading>
-          <List>
-            {options.map((o) => (
-              <ListRow key={o} onClick={() => choose(o)}>
-                {o}
-              </ListRow>
-            ))}
-          </List>
+          <QuickReplyChips options={options} onSelect={choose} />
         </FocusScope>
       ) : (
         <button
