@@ -106,6 +106,10 @@ const BLOCKS = new Set([
   "media-thumb",
 ]);
 
+// Templates: complete, multi-screen example apps. Installable as blocks too,
+// but documented via ExampleDoc/examples.tsx rather than component-docs.tsx.
+const TEMPLATES = new Set(["workout", "messages"]);
+
 for (const file of readdirSync(UI_DIR)
   .filter((f) => f.endsWith(".tsx"))
   .sort()) {
@@ -117,7 +121,8 @@ for (const file of readdirSync(UI_DIR)
     deps.add(m[1]);
   for (const m of src.matchAll(/from\s+["']\.\/([a-z-]+)["']/g)) deps.add(m[1]);
 
-  const type = BLOCKS.has(name) ? "registry:block" : "registry:ui";
+  const type =
+    BLOCKS.has(name) || TEMPLATES.has(name) ? "registry:block" : "registry:ui";
 
   items.push({
     name,

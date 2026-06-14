@@ -1,18 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Navigator, useNavigator } from "@registry/ui/navigator";
-import { Screen } from "@registry/ui/screen";
-import { Heading } from "@registry/ui/heading";
-import { List, ListRow } from "@registry/ui/list";
-import { Avatar } from "@registry/ui/avatar";
-import { MessageThread, ChatBubble } from "@registry/ui/chat-bubble";
-import { ComposeFlow } from "@registry/ui/compose-flow";
+import { Navigator, useNavigator } from "./navigator";
+import { Screen } from "./screen";
+import { Heading } from "./heading";
+import { List, ListRow } from "./list";
+import { Avatar } from "./avatar";
+import { MessageThread, ChatBubble } from "./chat-bubble";
+import { ComposeFlow } from "./compose-flow";
 
 /**
- * Messages — a complete example app: thread list → conversation, with
- * ComposeFlow as the reply path (activate the field, pick a quick reply,
- * it lands in the thread — middle pinch closes the picker, not the app).
+ * <Messages> — an inbox: a thread list and a conversation, replying through
+ * ComposeFlow on a keyboard-less platform.
  */
 export function MessagesApp() {
   return (
