@@ -49,8 +49,10 @@ The back gesture (middle pinch) pops browser history → \`popstate\`. So:
 - Text entry: ComposeFlow (a picker for enumerable answers); there is no
   on-device free-form text input. Never invent on-device typing/dictation.
 - Wayfinding: DirectionArrow (point at a target) vs MapView (route context).
-- Theming: re-declare the accent ramp tokens on \`.glass-viewport\`; no inline
-  style. The filled accent gradient means "pinch me" — only actions wear it.
+- Styling: Tailwind utilities + \`--gk-*\` tokens (shadcn model), no inline
+  style. Re-theme by overriding \`--gk-*\` on \`.glass-viewport\` (one block
+  reskins all). The filled accent (\`btn-primary\`) means "pinch me" — only
+  actions wear it.
 - Verify: every interactive element reachable + fired by arrows alone; no
   forbidden APIs; gzipped JS under 500 KB.
 
@@ -96,7 +98,9 @@ server.tool(
     const reg = await fetchJson<{ items: RegistryItem[] }>(
       `${REGISTRY}/registry.json`,
     );
-    const ui = reg.items.filter((i) => i.type === "registry:ui");
+    const ui = reg.items.filter(
+      (i) => i.type === "registry:ui" || i.type === "registry:block",
+    );
     return text(`GlassKit UI — ${ui.length} components\n\n${itemLines(ui)}`);
   },
 );
@@ -129,7 +133,7 @@ server.tool(
     const q = query.toLowerCase();
     const hits = reg.items.filter(
       (i) =>
-        i.type === "registry:ui" &&
+        (i.type === "registry:ui" || i.type === "registry:block") &&
         (i.name.includes(q) || (i.description ?? "").toLowerCase().includes(q)),
     );
     if (hits.length === 0) return text(`No components match "${query}".`);

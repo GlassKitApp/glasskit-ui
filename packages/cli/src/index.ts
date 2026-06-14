@@ -227,7 +227,12 @@ async function add(names: string[], opts: Options) {
   await installDependencies(items, opts);
   if (written > 0) {
     console.log(
-      c.dim("Make sure your CSS imports @glasskit-ui/react/styles.css."),
+      c.dim(
+        "Components use Tailwind + the lens tokens. In your CSS entry add:\n" +
+          '  @import "tailwindcss";\n' +
+          '  @import "@glasskit-ui/react/theme.css";\n' +
+          '  @import "@glasskit-ui/react/styles.css";',
+      ),
     );
   }
 }
@@ -296,8 +301,9 @@ async function init(dir: string | undefined, opts: Options) {
 ${c.bold("GlassKit UI — add to an existing project")}
 
   1. ${c.green(`${add} @glasskit-ui/react`)}   ${c.dim("# the SDK (hooks + GlassViewport)")}
-  2. In your CSS, after Tailwind:
+  2. In your CSS entry:
        ${c.dim('@import "tailwindcss";')}
+       ${c.dim('@import "@glasskit-ui/react/theme.css";')}
        ${c.dim('@import "@glasskit-ui/react/styles.css";')}
   3. Add components:
        ${c.green(`${dlx} @glasskit-ui/cli add button readout`)}

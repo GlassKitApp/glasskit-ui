@@ -1,0 +1,21 @@
+---
+title: Overview
+description: Composed, multi-region surfaces built from the primitives, like a now-playing card, a call screen, a notification, a chat thread, the AI orb, and a media tile. Drop one in and wire your data.
+---
+
+Blocks are the larger, composed surfaces: a [now-playing](/docs/blocks/now-playing)
+card with art, scrub bar and transport; a [call screen](/docs/blocks/call-card);
+an actionable [notification](/docs/blocks/notification-card); a
+[chat thread](/docs/blocks/chat-bubble); the AI
+[assistant orb](/docs/blocks/assistant-orb); a
+[media tile](/docs/blocks/media-thumb) for galleries. Where a
+[primitive](/docs/components/screen) is one element, a block stitches several
+into a screen-ready surface you wire your data into.
+
+Like the primitives, blocks are token-driven: a [theme](/docs/theming) override
+reskins them, and they follow the same [conventions](/docs/conventions) (the
+focus engine, one task per view, accessibility). Vendor one with the CLI:
+
+```sh
+npx @glasskit-ui/cli add now-playing
+```

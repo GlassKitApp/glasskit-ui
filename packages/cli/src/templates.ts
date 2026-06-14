@@ -21,14 +21,16 @@ const PACKAGE_JSON = `{
     "preview": "vite preview"
   },
   "dependencies": {
-    "@glasskit-ui/react": "^0.1.0",
+    "@glasskit-ui/react": "^0.4.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.0.0",
     "typescript": "~5.7.2",
     "vite": "^6.0.0"
   }
@@ -37,9 +39,10 @@ const PACKAGE_JSON = `{
 
 const VITE_CONFIG = `import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
 });
 `;
 
@@ -84,7 +87,6 @@ const INDEX_HTML = `<!doctype html>
 
 const MAIN_TSX = `import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "@glasskit-ui/react/styles.css";
 import "./index.css";
 import { App } from "./App";
 
@@ -108,15 +110,20 @@ export function App() {
   useDpad();
   return (
     <GlassViewport frame>
-      <div className="gk-screen">
-        <div className="gk-screen__stage">
-          <h2 className="t-title">__NAME__</h2>
-          <p className="t-body">Arrow keys move focus · Enter activates</p>
-          <button type="button" className="focusable gk-btn gk-btn--primary">
+      <div className="flex h-full flex-col gap-[14px] p-[22px]">
+        <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-5 text-center">
+          <h2 className="t-title text-foreground">__NAME__</h2>
+          <p className="t-body text-muted-foreground">
+            Arrow keys move focus · Enter activates
+          </p>
+          <button
+            type="button"
+            className="focusable press-scale btn-primary t-body inline-flex items-center justify-center rounded-2xl px-6 py-4"
+          >
             Get started
           </button>
         </div>
-        <div className="gk-screen__cue t-caption">
+        <div className="t-caption flex flex-none justify-center text-foreground-faint">
           Add components: glasskit add list button readout
         </div>
       </div>
@@ -125,9 +132,14 @@ export function App() {
 }
 `;
 
-const INDEX_CSS = `/* App-level styles. The lens design system ships with
- * @glasskit-ui/react/styles.css (imported in main.tsx) and is scoped under
- * .glass-viewport, so nothing here can break it. */
+const INDEX_CSS = `@import "tailwindcss";
+/* The lens design system: theme.css maps Tailwind utilities to the --gk-*
+ * design tokens; styles.css defines the scoped token values + primitives.
+ * Both are scoped under .glass-viewport, so nothing here can break the site.
+ * Re-theme by overriding --gk-* on .glass-viewport (see the Theming docs). */
+@import "@glasskit-ui/react/theme.css";
+@import "@glasskit-ui/react/styles.css";
+
 body {
   margin: 0;
   background: #000;

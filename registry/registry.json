@@ -38,7 +38,7 @@
     },
     {
       "name": "assistant-orb",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "AssistantOrb",
       "description": "the Meta-AI presence: a glowing gradient orb that animates per `state` (idle = gentle breathe, listening = pulse, thinking = swirl, speaking = quick pulse).",
       "dependencies": [],
@@ -48,7 +48,7 @@
       "files": [
         {
           "path": "registry/ui/assistant-orb.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/glasskit/assistant-orb.tsx"
         }
       ]
@@ -123,7 +123,7 @@
     },
     {
       "name": "call-card",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "CallCard",
       "description": "an incoming / active call: a big avatar, caller name, a status line (\"Incoming…\", \"02:14\"), and an action row (accept / decline via D-pad-focusable <Button>s).",
       "dependencies": [],
@@ -133,7 +133,7 @@
       "files": [
         {
           "path": "registry/ui/call-card.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/glasskit/call-card.tsx"
         }
       ]
@@ -157,7 +157,7 @@
     },
     {
       "name": "chat-bubble",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "ChatBubble",
       "description": "one message.",
       "dependencies": [],
@@ -167,7 +167,7 @@
       "files": [
         {
           "path": "registry/ui/chat-bubble.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/glasskit/chat-bubble.tsx"
         }
       ]
@@ -467,7 +467,7 @@
     },
     {
       "name": "media-thumb",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "MediaThumb",
       "description": "a photo / reel tile (Photos, Instagram).",
       "dependencies": [],
@@ -477,7 +477,7 @@
       "files": [
         {
           "path": "registry/ui/media-thumb.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/glasskit/media-thumb.tsx"
         }
       ]
@@ -520,7 +520,7 @@
     },
     {
       "name": "notification-card",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "NotificationCard",
       "description": "an incoming notification (message, mention, alert): a leading avatar/glyph, sender + time, a message preview, and optional quick actions.",
       "dependencies": [],
@@ -530,14 +530,14 @@
       "files": [
         {
           "path": "registry/ui/notification-card.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/glasskit/notification-card.tsx"
         }
       ]
     },
     {
       "name": "now-playing",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "NowPlaying",
       "description": "a media \"now playing\" card: album art, title + artist, a scrub bar, and elapsed / remaining times.",
       "dependencies": [],
@@ -547,7 +547,7 @@
       "files": [
         {
           "path": "registry/ui/now-playing.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/glasskit/now-playing.tsx"
         }
       ]

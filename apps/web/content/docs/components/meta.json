@@ -1,5 +1,5 @@
 {
-  "title": "Components",
+  "title": "Primitives",
   "pages": [
     "---Shell",
     "screen",
@@ -43,14 +43,6 @@
     "pin",
     "---Comms",
     "avatar",
-    "call-card",
-    "chat-bubble",
-    "notification-card",
-    "---Media",
-    "media-thumb",
-    "now-playing",
-    "---AI",
-    "assistant-orb",
     "---Input",
     "compose-flow",
     "permission-prompt",

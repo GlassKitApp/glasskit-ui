@@ -199,10 +199,17 @@ Decision rules (full guide: https://glasskit.app/ui/docs/conventions):
 
 ## 4. Style
 
-- No inline \`style={{}}\` — semantic \`gk-*\` classes + the token ramp.
-  Re-theme by re-declaring the accent ramp on \`.glass-viewport\`
-  (7 tokens; generator: https://glasskit.app/ui/playground).
-- The filled accent gradient means "pinch me" — only actions wear it.
+- Components are Tailwind utilities + the \`--gk-*\` design tokens (the shadcn
+  model). No inline \`style={{}}\`. Use token utilities (\`text-foreground\`,
+  \`text-muted-foreground\`, \`border-border\`, \`bg-primary\`, \`ring-ring\`,
+  \`rounded-lens\`) + the \`surface\` / \`btn-primary\` / \`press-scale\`
+  recipes; layout is logical utilities only (\`ps/pe\`, \`ms/me\`, \`text-start\`,
+  \`size-*\` — never \`pl/pr/ml/mr/text-left\`). Keep the \`focusable\` class
+  and the \`t-title/t-readout/t-body/t-caption\` type classes.
+- Re-theme by overriding the \`--gk-*\` tokens on \`.glass-viewport\` — one block
+  reskins everything, so any DESIGN.md applies (https://glasskit.app/ui/docs/theming).
+- The filled accent gradient (\`btn-primary\`) means "pinch me" — only actions
+  wear it.
 
 ## 5. Verify before declaring done
 

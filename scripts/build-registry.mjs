@@ -94,6 +94,18 @@ for (const file of readdirSync(LIB_DIR)
   });
 }
 
+// Tier (shadcn taxonomy): compositional, multi-region surfaces are blocks; the
+// rest are single-purpose ui primitives. Drives the registry item `type` and
+// the docs Primitives/Blocks split. Keep in sync with the docs tier field.
+const BLOCKS = new Set([
+  "now-playing",
+  "call-card",
+  "notification-card",
+  "chat-bubble",
+  "assistant-orb",
+  "media-thumb",
+]);
+
 for (const file of readdirSync(UI_DIR)
   .filter((f) => f.endsWith(".tsx"))
   .sort()) {
@@ -105,9 +117,11 @@ for (const file of readdirSync(UI_DIR)
     deps.add(m[1]);
   for (const m of src.matchAll(/from\s+["']\.\/([a-z-]+)["']/g)) deps.add(m[1]);
 
+  const type = BLOCKS.has(name) ? "registry:block" : "registry:ui";
+
   items.push({
     name,
-    type: "registry:ui",
+    type,
     title: pascal(name),
     description: description(src, pascal(name)),
     dependencies: npmDependencies(src),
@@ -115,7 +129,7 @@ for (const file of readdirSync(UI_DIR)
     files: [
       {
         path: `registry/ui/${file}`,
-        type: "registry:ui",
+        type,
         target: `components/glasskit/${file}`,
       },
     ],
@@ -162,7 +176,9 @@ for (const item of items) {
 // llms.txt — generated from a handwritten template + the live component
 // inventory, so the LLM-facing reference can't drift from the registry the
 // way a hand-maintained list does.
-const ui = items.filter((i) => i.type === "registry:ui");
+const ui = items.filter(
+  (i) => i.type === "registry:ui" || i.type === "registry:block",
+);
 const componentLines = ui
   .map((i) => `- **${i.title}** (\`${i.name}\`) — ${i.description}`)
   .join("\n");
