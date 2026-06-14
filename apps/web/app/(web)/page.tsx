@@ -3,6 +3,7 @@ import { ProductNav } from "@/components/product-nav";
 import { ProductFooter } from "@/components/product-footer";
 import { InstallCommand } from "@/components/install-command";
 import { CopyPromptButton } from "@/components/copy-prompt-button";
+import { setupRecipe } from "@/lib/llm-recipe";
 import { GithubIcon } from "@/components/icons";
 import { GITHUB } from "@/lib/config";
 import { COMPONENT_NAV } from "@/lib/component-nav";
@@ -74,7 +75,7 @@ export default function Home() {
             <Link href="/playground" className="btn btn-outline">
               Playground
             </Link>
-            <CopyPromptButton />
+            <CopyPromptButton recipe={setupRecipe()} />
           </div>
           <InstallCommand
             mode="exec"

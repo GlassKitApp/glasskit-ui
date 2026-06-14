@@ -41,27 +41,31 @@ function ExternalIcon({ className }: { className?: string }) {
 
 /**
  * "Copy for LLM" dropdown — the Clerk/shadcn affordance that lets a vibe coder
- * hand any docs page to an AI in one click. Copies the page as Markdown (or a
- * ready prompt when the raw Markdown isn't wired), or opens the prompt straight
- * in ChatGPT / Claude.
+ * hand any docs page to an AI in one click. "Copy prompt" copies a complete,
+ * self-contained agent recipe (install + usage + the hard platform rules);
+ * "Open in ChatGPT / Claude" launches the chat with a compact pointer prompt
+ * (the full recipe is too long for a URL, so the model fetches the page +
+ * llms.txt).
  *
  * Built on a real `<details>`/`<summary>` so it is keyboard-accessible and works
  * without JS; the effect below just closes it on outside-click / Escape.
  */
 export function CopyPageActions({
-  markdown,
+  recipe,
   pageUrl,
   title,
 }: {
-  markdown?: string;
+  /** The full, self-contained agent recipe copied by "Copy prompt". */
+  recipe: string;
   pageUrl: string;
   title: string;
 }) {
   const { copied, copy } = useCopyToClipboard();
   const ref = useRef<HTMLDetailsElement>(null);
 
-  const prompt = `I'm building a Meta Ray-Ban Display app with GlassKit UI. Read ${pageUrl} and the reference at ${SITE}/llms.txt, then help me use ${title}.`;
-  const encoded = encodeURIComponent(prompt);
+  // A compact prompt for the URL-launched chats (recipes are too long for ?q=).
+  const chatPrompt = `I'm building a Meta Ray-Ban Display (smart-glasses) app with GlassKit UI. Read ${pageUrl} and the reference at ${SITE}/llms.txt, then help me use ${title}. Hard rules: D-pad + Enter + middle-pinch back only (no mouse/touch/keyboard/camera/mic); keep the "focusable" class on every interactive element; navigate with <Navigator> (history-based); wrap the app in <GlassViewport>.`;
+  const encoded = encodeURIComponent(chatPrompt);
   const chatgptUrl = `https://chatgpt.com/?hints=search&q=${encoded}`;
   const claudeUrl = `https://claude.ai/new?q=${encoded}`;
 
@@ -110,29 +114,14 @@ export function CopyPageActions({
           type="button"
           role="menuitem"
           onClick={() => {
-            void copy(markdown ?? prompt);
+            void copy(recipe);
             close();
           }}
           className={item}
         >
           <CopyIcon className="size-4 shrink-0 text-ink-3" />
-          {markdown ? "Copy as Markdown" : "Copy prompt"}
+          Copy prompt
         </button>
-
-        {markdown ? (
-          <button
-            type="button"
-            role="menuitem"
-            onClick={() => {
-              void copy(prompt);
-              close();
-            }}
-            className={item}
-          >
-            <CopyIcon className="size-4 shrink-0 text-ink-3" />
-            Copy prompt
-          </button>
-        ) : null}
 
         <div className="my-1 border-t border-line" />
 

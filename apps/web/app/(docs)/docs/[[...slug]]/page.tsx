@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getMDXComponents } from "@/mdx-components";
 import { CopyPageActions } from "@/components/copy-page-actions";
+import { recipeForPage } from "@/lib/llm-recipe";
 import { SITE } from "@/lib/config";
 import { SEO, jsonLdGraph, breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
@@ -37,6 +38,12 @@ export default async function Page({ params }: { params: Params }) {
         <CopyPageActions
           pageUrl={`${SITE}${page.url}`}
           title={page.data.title}
+          recipe={recipeForPage({
+            url: page.url,
+            title: page.data.title,
+            description: page.data.description,
+            pageUrl: `${SITE}${page.url}`,
+          })}
         />
       </div>
       <DocsTitle>{page.data.title}</DocsTitle>
