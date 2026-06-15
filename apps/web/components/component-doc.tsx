@@ -45,7 +45,7 @@ export async function ComponentDoc({ slug }: { slug: string }) {
         </LensStage>
       </div>
 
-      <h2>Installation</h2>
+      <h2 id="installation">Installation</h2>
       <Tabs items={["CLI", "Manual"]}>
         <Tab value="CLI">
           <DynamicCodeBlock
@@ -73,10 +73,10 @@ export async function ComponentDoc({ slug }: { slug: string }) {
         </Tab>
       </Tabs>
 
-      <h2>Usage</h2>
+      <h2 id="usage">Usage</h2>
       <DynamicCodeBlock lang="tsx" code={doc.usage} />
 
-      <h2>Props</h2>
+      <h2 id="props">Props</h2>
       <table>
         <thead>
           <tr>

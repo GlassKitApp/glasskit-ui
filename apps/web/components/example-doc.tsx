@@ -26,7 +26,7 @@ export async function ExampleDoc({ slug }: { slug: string }) {
 
   return (
     <>
-      <h2>{ex.name}</h2>
+      <h2 id={ex.slug}>{ex.name}</h2>
       <p>{ex.summary}</p>
       <div className="not-prose my-6 flex justify-center">
         <LensStage
@@ -50,7 +50,7 @@ export async function ExampleDoc({ slug }: { slug: string }) {
         ))}
       </ul>
 
-      <h2>Installation</h2>
+      <h2 id="installation">Installation</h2>
       <Tabs items={["CLI", "Manual"]}>
         <Tab value="CLI">
           <DynamicCodeBlock
@@ -74,7 +74,7 @@ export async function ExampleDoc({ slug }: { slug: string }) {
         </Tab>
       </Tabs>
 
-      <h2>Usage</h2>
+      <h2 id="usage">Usage</h2>
       <DynamicCodeBlock lang="tsx" code={ex.usage} />
     </>
   );

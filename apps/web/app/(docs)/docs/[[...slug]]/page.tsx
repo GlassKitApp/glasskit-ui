@@ -8,8 +8,8 @@ import {
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getMDXComponents } from "@/mdx-components";
-import { CopyPageActions } from "@/components/copy-page-actions";
-import { recipeForPage } from "@/lib/llm-recipe";
+import { getComponentDoc } from "@/lib/component-docs";
+import { getExample } from "@/lib/examples";
 import { SITE } from "@/lib/config";
 import { SEO, jsonLdGraph, breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
@@ -31,21 +31,31 @@ export default async function Page({ params }: { params: Params }) {
     crumbs.push({ name: page.data.title, url: `${SITE}${page.url}` });
   }
 
+  // Component / example pages render their sections (Installation, Usage, Props)
+  // from the <ComponentDoc> / <ExampleDoc> React components, so those headings
+  // never land in the MDX-derived `page.data.toc`. Synthesize them here (matching
+  // the ids set on those <h2>s) so the right-rail "On this page" is populated.
+  const pageSlug = page.url.split("/").filter(Boolean).pop() ?? "";
+  const doc = getComponentDoc(pageSlug);
+  const example = getExample(pageSlug);
+  const sectionToc = doc
+    ? [
+        { title: "Installation", url: "#installation", depth: 2 },
+        { title: "Usage", url: "#usage", depth: 2 },
+        { title: "Props", url: "#props", depth: 2 },
+      ]
+    : example
+      ? [
+          { title: example.name, url: `#${example.slug}`, depth: 2 },
+          { title: "Installation", url: "#installation", depth: 2 },
+          { title: "Usage", url: "#usage", depth: 2 },
+        ]
+      : [];
+  const toc = [...sectionToc, ...page.data.toc];
+
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
+    <DocsPage toc={toc} full={page.data.full}>
       <JsonLd data={jsonLdGraph(breadcrumbSchema(crumbs))} />
-      <div className="mb-2 flex justify-end">
-        <CopyPageActions
-          pageUrl={`${SITE}${page.url}`}
-          title={page.data.title}
-          recipe={recipeForPage({
-            url: page.url,
-            title: page.data.title,
-            description: page.data.description,
-            pageUrl: `${SITE}${page.url}`,
-          })}
-        />
-      </div>
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
