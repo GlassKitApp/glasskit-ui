@@ -1,5 +1,12 @@
 # @glasskit-ui/web
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [95ee88b]
+  - @glasskit-ui/react@0.5.0
+
 ## 0.0.4
 
 ### Patch Changes
