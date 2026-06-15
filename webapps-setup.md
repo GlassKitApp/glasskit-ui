@@ -6,10 +6,10 @@ Login
 Register
 Web Apps
 Setup
-Web Apps MCP
 Build
 Test
 Troubleshoot
+Web Apps MCP
 Web Apps for Meta Ray-Ban Display glasses
 Overview
 Web Apps are an easy and familiar way to build and test unique experiences for Meta Ray-Ban Display (MRBD) glasses, especially with AI-assisted coding tools. Web Apps for Meta Ray-Ban Display glasses are standard HTML/CSS/JavaScript applications rendered on the glasses  built-in display.

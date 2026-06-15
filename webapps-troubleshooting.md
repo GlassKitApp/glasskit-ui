@@ -6,10 +6,10 @@ Login
 Register
 Web Apps
 Setup
-Web Apps MCP
 Build
 Test
 Troubleshoot
+Web Apps MCP
 Troubleshoot
 Updated
 :
