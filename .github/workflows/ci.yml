@@ -98,7 +98,7 @@ jobs:
 
       - name: Are the types wrong? (SDK)
         working-directory: packages/glasses-ui
-        run: pnpm dlx @arethetypeswrong/cli --pack . --profile esm-only --exclude-entrypoints styles.css
+        run: pnpm dlx @arethetypeswrong/cli --pack . --profile esm-only --exclude-entrypoints styles.css theme.css
 
       # The `init` scaffold must compile and fit the device budget: build a
       # real app from the template (SDK from the local tarball — it may not
