@@ -5,8 +5,10 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import { RootProvider } from "fumadocs-ui/provider/next";
+import { Analytics } from "@vercel/analytics/next";
 import { SITE } from "@/lib/config";
 import { SEO } from "@/lib/seo";
+import { DataFast } from "@/components/analytics/datafast";
 import "./docs-theme.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -71,6 +73,8 @@ export default function DocsRootLayout({
     >
       <body>
         <RootProvider>{children}</RootProvider>
+        <Analytics />
+        <DataFast />
       </body>
     </html>
   );
