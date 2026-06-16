@@ -5,8 +5,10 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import { SITE } from "@/lib/config";
 import { SEO } from "@/lib/seo";
+import { DataFast } from "@/components/analytics/datafast";
 import "../globals.css";
 
 // No-flash theme init — runs before paint, outside React's tree. Reads the
@@ -96,6 +98,8 @@ export default function WebLayout({
         </Script>
         {children}
         <div aria-hidden className="grain" />
+        <Analytics />
+        <DataFast />
       </body>
     </html>
   );
