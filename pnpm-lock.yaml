@@ -48,6 +48,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@datafast/ai-crawl':
+        specifier: ^1.0.5
+        version: 1.0.5
       '@glasskit-ui/react':
         specifier: workspace:*
         version: link:../../packages/glasses-ui
@@ -394,6 +397,9 @@ packages:
   '@csstools/css-tokenizer@3.0.4':
     resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
     engines: {node: '>=18'}
+
+  '@datafast/ai-crawl@1.0.5':
+    resolution: {integrity: sha512-y0rieHoij585C8raLYJ4eB8DBzj36nBCT3o28BBbbTy8kEjA3JzwmndKbh4mZlyjY4IKSKBzR3RLfWSZT+Gdew==}
 
   '@emnapi/runtime@1.10.0':
     resolution: {integrity: sha512-ewvYlk86xUoGI0zQRNq/mC+16R1QeDlKQy21Ki3oSYXNgLb45GV1P6A0M+/s6nyCuNDqe5VpaY84BzXGwVbwFA==}
@@ -4554,6 +4560,8 @@ snapshots:
       '@csstools/css-tokenizer': 3.0.4
 
   '@csstools/css-tokenizer@3.0.4': {}
+
+  '@datafast/ai-crawl@1.0.5': {}
 
   '@emnapi/runtime@1.10.0':
     dependencies:
