@@ -183,6 +183,9 @@ Decision rules (full guide: https://glasskit.app/ui/docs/conventions):
 - Confirm with irreversible consequences → \`<Confirm destructive …>\` (seeds
   the ring on cancel and reads red). Accept/decline on a call → Button
   \`variant="positive"\` / \`"danger"\`.
+- Two-action bars put the affirmative action at the logical **end** (cancel/deny
+  first, confirm/allow last — right in LTR, flips in RTL); focus still seeds on
+  the safe action. \`<Confirm>\` does this for you.
 - World-anchored components (Compass, Pin, DirectionArrow, MapView) never
   mirror in RTL; everything else uses logical CSS.
 

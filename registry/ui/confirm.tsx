@@ -6,9 +6,11 @@ import { cn } from "../lib/utils";
 import { Button } from "./button";
 
 /**
- * <Confirm> — a decision screen: a prompt + a two-button action bar (confirm /
- * cancel). Drop it into a <Screen> stage. Focus seeds on the primary action;
- * set `destructive` for irreversible decisions and the ring seeds on cancel
+ * <Confirm> — a decision screen: a prompt + a two-button action bar. The
+ * affirmative action sits at the logical end (cancel first, confirm last —
+ * right in LTR, flips for RTL), the library-wide order for action pairs. Drop
+ * it into a <Screen> stage. Focus seeds on the primary action; set
+ * `destructive` for irreversible decisions and the ring seeds on cancel
  * instead — a blind pinch must never destroy anything. Rendered inside a
  * FocusScope so the ring can't wander off the decision.
  */
@@ -45,15 +47,15 @@ export function Confirm({
           <p className="t-body max-w-[28ch] text-muted-foreground">{message}</p>
         ) : null}
         <div className="mt-1.5 flex gap-3">
+          <Button initialFocus={destructive} onClick={onCancel}>
+            {cancelLabel}
+          </Button>
           <Button
             variant={destructive ? "danger" : "primary"}
             initialFocus={!destructive}
             onClick={onConfirm}
           >
             {confirmLabel}
-          </Button>
-          <Button initialFocus={destructive} onClick={onCancel}>
-            {cancelLabel}
           </Button>
         </div>
       </div>

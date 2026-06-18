@@ -578,7 +578,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Stepper",
     category: "Action",
     summary:
-      "Adjust a value in discrete steps (glasses have no fine slider). The − and + are D-pad-focusable; bounds disable the ends. Controlled via value + onChange.",
+      "Adjust a value in discrete steps (glasses have no fine slider). One focus stop: focus it, then swipe ◀ / ▶ (ArrowLeft/Right) to change by step; bounds clamp the ends. Controlled via value + onChange.",
     preview: (
       <Screen>
         <Stepper label="Brightness" value={3} min={1} max={5} unit="/ 5" />
@@ -589,10 +589,10 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       {
         name: "onChange",
         type: "(next: number) => void",
-        desc: "Fires on ± (clamped).",
+        desc: "Fires on swipe ◀ / ▶ (clamped). Omit for a read-only readout.",
       },
-      { name: "min", type: "number", desc: "Lower bound (disables −)." },
-      { name: "max", type: "number", desc: "Upper bound (disables +)." },
+      { name: "min", type: "number", desc: "Lower bound (clamps −)." },
+      { name: "max", type: "number", desc: "Upper bound (clamps +)." },
       { name: "step", type: "number", default: "1", desc: "Increment." },
       {
         name: "label / unit",
@@ -652,7 +652,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     name: "Confirm",
     category: "Action",
     summary:
-      "A decision screen: a prompt plus a two-button action bar. Drop it into a Screen stage; useDpad seeds focus on the primary action. destructive seeds the ring on cancel, because a blind pinch must never destroy anything; the ring is scoped to the decision.",
+      "A decision screen: a prompt plus a two-button action bar. The affirmative action sits at the logical end (cancel first, confirm last). Drop it into a Screen stage; useDpad seeds focus on the primary action. destructive seeds the ring on cancel, because a blind pinch must never destroy anything; the ring is scoped to the decision.",
     preview: (
       <Screen>
         <Confirm
