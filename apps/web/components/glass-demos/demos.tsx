@@ -107,7 +107,7 @@ export function ListDemo() {
 export function StepperDemo() {
   const [zoom, setZoom] = useState(2);
   return (
-    <Screen cue="Focus − / + and press Enter">
+    <Screen cue="Swipe ◀ / ▶ to adjust">
       <Stepper
         value={zoom}
         onChange={setZoom}

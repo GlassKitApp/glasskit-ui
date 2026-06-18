@@ -54,7 +54,7 @@ Vendored shadcn-style. Live preview, props, and usage at `https://glasskit.app/u
 - **Clock** (`clock`) — the home time/date complication: a big tabular time and a quieter date line.
 - **Compass** (`compass`) — a heading rose that keeps North pointing at real north while a fixed top marker shows where you face.
 - **ComposeFlow** (`compose-flow`) — the working text-entry recipe for a platform with no keyboard or microphone: a focusable field that opens a picker of choices when activated; choosing writes the value back and returns to the field.
-- **Confirm** (`confirm`) — a decision screen: a prompt + a two-button action bar (confirm / cancel).
+- **Confirm** (`confirm`) — a decision screen: a prompt + a two-button action bar.
 - **Deck** (`deck`) — a horizontal paged flow (wizard / onboarding).
 - **DirectionArrow** (`direction-arrow`) — points toward a real-world direction.
 - **EmptyState** (`empty-state`) — the nothing-here screen: optional glyph + title + hint + one action.

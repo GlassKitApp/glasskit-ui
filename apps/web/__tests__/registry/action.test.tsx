@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { Toggle } from "@registry/ui/toggle";
 import { Stepper } from "@registry/ui/stepper";
 import { Segmented } from "@registry/ui/segmented";
@@ -25,7 +25,7 @@ describe("Toggle", () => {
 });
 
 describe("Stepper", () => {
-  it("increments and decrements by step, clamped to bounds", () => {
+  it("is a single spinbutton; swipe ◀ / ▶ changes by step", () => {
     const onChange = vi.fn();
     render(
       <Stepper
@@ -37,22 +37,23 @@ describe("Stepper", () => {
         onChange={onChange}
       />,
     );
-    screen.getByRole("button", { name: /Increase/ }).click();
-    screen.getByRole("button", { name: /Decrease/ }).click();
+    const control = screen.getByRole("spinbutton", { name: /Brightness/ });
+    fireEvent.keyDown(control, { key: "ArrowRight" });
+    fireEvent.keyDown(control, { key: "ArrowLeft" });
     expect(onChange).toHaveBeenNthCalledWith(1, 4);
     expect(onChange).toHaveBeenNthCalledWith(2, 2);
   });
 
-  it("disables the ends at the bounds", () => {
-    render(<Stepper label="V" value={5} min={1} max={5} onChange={() => {}} />);
-    expect(
-      (screen.getByRole("button", { name: /Increase/ }) as HTMLButtonElement)
-        .disabled,
-    ).toBe(true);
-    expect(
-      (screen.getByRole("button", { name: /Decrease/ }) as HTMLButtonElement)
-        .disabled,
-    ).toBe(false);
+  it("clamps at the bounds (no change past an end)", () => {
+    const onChange = vi.fn();
+    render(
+      <Stepper label="V" value={5} min={1} max={5} onChange={onChange} />,
+    );
+    const control = screen.getByRole("spinbutton", { name: /V/ });
+    fireEvent.keyDown(control, { key: "ArrowRight" }); // already at max
+    expect(onChange).not.toHaveBeenCalled();
+    fireEvent.keyDown(control, { key: "ArrowLeft" });
+    expect(onChange).toHaveBeenCalledWith(4);
   });
 });
 
