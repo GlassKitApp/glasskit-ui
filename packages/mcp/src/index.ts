@@ -47,15 +47,16 @@ const GUIDELINES = `# Building Meta Ray-Ban Display apps with GlassKit UI
 5. Vendor components from the registry (list_components / get_component); don't
    hand-roll a worse version.
 
-## Navigation = a history router
+## Navigation = a history router (a HOOK, not a component)
 The back gesture (middle pinch) pops browser history → \`popstate\`. So:
-- Multi-screen apps use \`<Navigator screens initial>\` + \`useNavigator()\`
-  (push/pop/popToTop/replace). Every push adds a history entry; the gesture
+- Multi-screen apps use the \`useNavigator("home")\` hook (from
+  \`@glasskit-ui/react\`) — \`nav.screen\`/\`params\` + push/pop/popToTop/replace; you
+  render screens off \`nav.screen\`. Every push adds a history entry; the gesture
   pops it — you never wire "back" by hand.
 - push(name, params) carries params; the stack rides history.state (reload
-  restores the screen); \`paths\` mirrors to the URL for deep links;
-  \`useBackHandler(fn)\` lets an overlay consume back (return true).
-- One nav model per screen: hierarchy → Navigator (only it touches history),
+  restores the screen); \`useBackHandler(fn)\` lets an overlay consume back
+  (return true).
+- One nav model per screen: hierarchy → useNavigator (only it touches history),
   peers → Tabs, linear flow → Deck, front door → Launcher.
 
 ## Other essentials

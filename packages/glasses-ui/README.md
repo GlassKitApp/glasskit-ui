@@ -16,6 +16,16 @@ npm install @glasskit-ui/react
   The Neural Band wristband translates pinches into these same keyboard
   events, so this hook is the same code path for desktop dev and
   on-device use.
+- `useNavigator(initial)` · `useBackHandler(fn)` — multi-screen navigation as a
+  HOOK, not a component (the routing primitive, like react-router's
+  `useNavigate` — you render your own screens). `useNavigator` returns the
+  current `screen` + `params` plus `push` / `pop` / `popToTop` / `replace`;
+  every `push` adds a real history entry, so the system back gesture (middle
+  pinch) and `Escape` in desktop dev pop the stack through one path
+  (history → `popstate` → stack). The stack rides in `history.state`, so a
+  mid-flow reload restores the screen the wearer was on, and focus memory
+  returns the ring to the element that opened a screen. `useBackHandler(() =>
+  …)` lets an overlay/sheet consume back (return `true` to keep the screen).
 - `useDeviceOrientation()` · `useDeviceMotion()` · `useGeolocation()` —
   standard W3C sensor APIs wrapped in a React-friendly shape. Each
   guards setState so a 60 Hz event stream doesn't re-render on every
