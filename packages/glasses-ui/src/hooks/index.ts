@@ -15,3 +15,9 @@ export {
   motionEqual,
 } from "./sensors";
 export { useFeedback, buzz, type FeedbackPattern } from "./feedback";
+export {
+  useNavigator,
+  useBackHandler,
+  type Navigator,
+  type NavEntry,
+} from "./navigation";

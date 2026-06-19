@@ -67,16 +67,19 @@ do not assume more than it grants.
 
 The system back gesture (middle pinch) **pops browser history** → your page
 gets \`popstate\`. So real back behavior comes from putting screens on the
-history stack. Use the **\`navigator\`** component for any multi-screen app:
+history stack. Use the **\`useNavigator\`** hook (from \`@glasskit-ui/react\`) for
+any multi-screen app — navigation is a HOOK, not a component (the routing
+primitive, like react-router's \`useNavigate\`); you render your own screens:
 
-- \`<Navigator screens={{…}} initial="home" />\` renders one screen at a time.
-  \`useNavigator()\` gives \`push / pop / popToTop / replace\`; **every \`push\`
-  adds a real history entry**, so the back gesture (and Escape in desktop dev)
-  pops it automatically — you don't wire back by hand.
-- \`push(name, params)\` carries params to the screen. The stack rides in
-  \`history.state\`, so a mid-flow reload restores the screen the wearer was on.
-  Opt-in \`paths={{ name: segment }}\` mirrors the stack into the URL for
-  deep-linkable screens.
+- \`const nav = useNavigator("home")\` — call ONCE near the app root. It returns
+  the current \`screen\` + \`params\` and \`push / pop / popToTop / replace\`; **every
+  \`push\` adds a real history entry**, so the back gesture (and Escape in desktop
+  dev) pops it automatically — you don't wire back by hand. Render the screen
+  yourself: \`nav.screen === "detail" ? <Detail .../> : <Home .../>\`.
+- \`nav.push(name, params)\` carries params (read them off \`nav.params\`). The
+  stack rides in \`history.state\`, so a mid-flow reload restores the screen the
+  wearer was on, and popping back restores the D-pad ring to the element that
+  opened the screen.
 - \`useBackHandler(fn)\` lets an overlay/sheet **consume** the back gesture
   (return \`true\` to keep the screen, e.g. close a sheet instead of leaving).
 - At the root screen the gesture falls through to the OS (app switcher) — like
@@ -194,14 +197,14 @@ Decision rules (full guide: https://glasskit.app/ui/docs/conventions):
 - Sensor components self-connect when their data prop is omitted
   (\`<Compass />\` is live; \`<Compass heading={290} />\` is controlled — the
   prop always wins).
-- Navigation = a **history router**: the back gesture pops browser history, so
-  \`<Navigator screens initial>\` + \`useNavigator()\` (\`push/pop/popToTop/replace\`)
-  is how back works — every \`push\` adds a history entry, the gesture pops it,
-  no manual wiring. \`push(name, params)\` carries params; the stack rides
-  \`history.state\` (reload restores the screen); \`paths\` mirrors to the URL for
-  deep links; \`useBackHandler(fn)\` lets an overlay consume back (return true);
-  pop restores focus to the row that pushed. At the root, let the gesture fall
-  through to the OS.
+- Navigation = a **history router**, exposed as a HOOK (not a component): the
+  back gesture pops browser history, so \`const nav = useNavigator("home")\`
+  (\`nav.screen\`/\`params\` + \`push/pop/popToTop/replace\`) is how back works — you
+  render screens off \`nav.screen\`; every \`push\` adds a history entry, the
+  gesture pops it, no manual wiring. \`push(name, params)\` carries params; the
+  stack rides \`history.state\` (reload restores the screen); \`useBackHandler(fn)\`
+  lets an overlay consume back (return true); pop restores focus to the row that
+  pushed. At the root, let the gesture fall through to the OS.
 - Haptics seam: \`buzz("tap" | "success" | "warning")\` at interaction points
   (no-op today, lights up when the platform ships haptics).
 - Prop vocabulary: \`variant\` = visual style · \`status\` = semantic state ·
