@@ -1,5 +1,6 @@
 export {
   useDpad,
+  useFocusedKey,
   seedFocus,
   scoreRect,
   getFocusables,
