@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
  * D-pad focus navigation for the Meta Ray-Ban Display.
@@ -247,4 +247,47 @@ export function useDpad(): { seedFocus: () => void } {
   }, []);
 
   return { seedFocus };
+}
+
+/**
+ * Read the D-pad cursor in React. Returns the `data-key` of the currently
+ * focused `.focusable` element (or null), and re-renders as the cursor moves.
+ *
+ * The cursor is real DOM focus, so this is the SINGLE source of truth. Use it
+ * to render decorations keyed off the focused item — a preview, a label, the
+ * legal-move dots for the focused board square — WITHOUT inventing a second
+ * "selected index" state that can drift out of sync with focus and paint a
+ * competing highlight. There is exactly one cursor (the focused element); this
+ * just lets you render against it.
+ *
+ * Give each focusable a stable `data-key`:
+ *   `<button className="focusable" data-key={id} …>`
+ */
+export function useFocusedKey(): string | null {
+  const [key, setKey] = useState<string | null>(null);
+  useEffect(() => {
+    let raf = 0;
+    const read = () => {
+      // Coalesce the focusout→focusin pair of a single move into one read of
+      // the settled activeElement, so the key never flickers to null mid-move.
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const el = document.activeElement as HTMLElement | null;
+        setKey(
+          el && el.classList.contains("focusable")
+            ? el.getAttribute("data-key")
+            : null,
+        );
+      });
+    };
+    read();
+    document.addEventListener("focusin", read);
+    document.addEventListener("focusout", read);
+    return () => {
+      cancelAnimationFrame(raf);
+      document.removeEventListener("focusin", read);
+      document.removeEventListener("focusout", read);
+    };
+  }, []);
+  return key;
 }

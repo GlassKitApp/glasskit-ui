@@ -15,7 +15,16 @@ npm install @glasskit-ui/react
   navigation between elements with the `focusable` class. Enter → click.
   The Neural Band wristband translates pinches into these same keyboard
   events, so this hook is the same code path for desktop dev and
-  on-device use.
+  on-device use. This is a single real-focus cursor over the WHOLE screen:
+  a grid/board is just many `focusable` cells, and `useDpad` handles moving
+  between cells AND out to surrounding chrome (back/menu buttons) by geometry —
+  do NOT hand-roll a separate keydown listener for a grid (that creates a
+  second cursor that fights this one).
+- `useFocusedKey()` — read the cursor in React: returns the `data-key` of the
+  currently focused `focusable` element (or null), re-rendering as it moves.
+  Use it to draw decorations keyed off the focused item (a preview, a label,
+  the legal-move dots for the focused square) without a competing "selected"
+  state. The focused element is the one cursor; this just renders against it.
 - `useNavigator(initial)` · `useBackHandler(fn)` — multi-screen navigation as a
   HOOK, not a component (the routing primitive, like react-router's
   `useNavigate` — you render your own screens). `useNavigator` returns the
