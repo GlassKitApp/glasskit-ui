@@ -1,5 +1,11 @@
 # @glasskit-ui/cli
 
+## 0.3.2
+
+### Patch Changes
+
+- 2e3a0d0: Agent skill: document the two-action button-order convention (affirmative action sits at the logical end; the D-pad ring still seeds on the safe action). Pairs with the Stepper swipe-to-adjust and Confirm button-order updates in the registry.
+
 ## 0.3.1
 
 ### Patch Changes
