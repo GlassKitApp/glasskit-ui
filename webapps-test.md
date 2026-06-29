@@ -13,9 +13,12 @@ Web Apps MCP
 Test
 Updated
 :
-May 18, 2026
+Jun 22, 2026
 Overview
 Once you’ve built a Web App, you will need to test it.
+Use this page with AI
+Copy this prompt into your AI coding tool to test a Web App before sharing it:
+Use https://wearables.developer.meta.com/docs/develop/webapps/test/, then use the Wearables MCP endpoint https://mcp.developer.meta.com/wearables to call search_webapps_docs for current Meta Ray-Ban Display Web Apps testing guidance. If search_webapps_docs is unavailable, use the linked test guide and state that MCP docs lookup was unavailable before proceeding. Inspect my app first, then create the smallest test plan for HTTPS hosting, 600 x 600 desktop browser checks, arrow-key and Enter navigation, Meta AI app connection, sharing, and optional display recording. Fix only issues found by the test plan and run the relevant local checks.
 Hosting your Web App
 Web Apps for Meta Ray-Ban Display glasses must be served over HTTPS from a publicly accessible URL. See
 Hosting your Web App

@@ -13,7 +13,7 @@ Web Apps MCP
 Build
 Updated
 :
-Jun 9, 2026
+Jun 22, 2026
 Overview
 Web Apps for Meta Ray-Ban Display (MRBD) use standard web APIs. The easiest way to build Web Apps is using AI coding tools.
 Learn how to build optimized Meta Ray-Ban Display Web Apps by understanding:
@@ -26,19 +26,22 @@ Location
 Local Storage
 App Icons
 Build with AI
-AI coding tools and platforms like Replit, Manus, Lovable, Claude Code, Vercel, and Cursor (among others) are great for building Web Apps for Meta Ray-Ban Display glasses. To do so, you can try any of the following options:
-Link directly to these docs:
-Simply share a link to this documentation with your AI coding tools, along with a description of what you want to build.
-Describe:
-Summarize key points in a few sentences.
-For example: “Build a simple 600 x 600 pixel web app that uses only arrow-key and enter inputs and uses dark mode style UX for an additive display. All navigation must be managed by these inputs. The web app should
-[insert what you want your Web App to do]
-”.
-AI Coding plugin:
-Use our pre-built
-AI Coding plugin available in GitHub
+AI coding tools and app platforms such as Replit, Manus, Lovable, Claude Code, Vercel, and Cursor can help build Web Apps for Meta Ray-Ban Display glasses when prompts include the platform constraints. The most reliable setup combines the
+Web Apps GitHub plugin
 ⁠
-, which comes with relevant details and best practices. This AI Coding plugin supports Claude Code, Codex, Cursor, and Copilot.
+, this guide, and the Wearables MCP endpoint https://mcp.developer.meta.com/wearables and its
+search_webapps_docs
+tool.
+Copy a starter prompt
+Use these prompts to get started quickly. They tell the assistant to inspect your project first, use the Wearables MCP endpoint https://mcp.developer.meta.com/wearables to call
+search_webapps_docs
+for current docs, handle unavailable MCP tools explicitly, and keep the first code change small.
+New Web App
+Use https://wearables.developer.meta.com/docs/develop/webapps/build/, then use the Wearables MCP endpoint https://mcp.developer.meta.com/wearables to call search_webapps_docs for current Meta Ray-Ban Display Web Apps constraints, setup, testing, and publishing guidance. If search_webapps_docs is unavailable, use the linked build guide and state that MCP docs lookup was unavailable before proceeding. Inspect my project first, then build the smallest working Web App for this idea: [describe the app]. It must render in a fixed 600 x 600 pixel viewport, avoid scrolling, use a dark additive-display UI, support arrow-key navigation and Enter activation, and keep all interactive elements reachable without mouse or touch input. Run the relevant local checks.
+Navigation and focus behavior
+Use https://wearables.developer.meta.com/docs/develop/webapps/build/, then use the Wearables MCP endpoint https://mcp.developer.meta.com/wearables to call search_webapps_docs for current Meta Ray-Ban Display Web Apps input, D-pad navigation, focus-management, viewport, and no-scroll guidance. If search_webapps_docs is unavailable, use the linked build guide and state that MCP docs lookup was unavailable before proceeding. Inspect this Web App first, then add the smallest reliable navigation fix. Preserve arrow-key movement, Enter activation, visible focus states, a fixed 600 x 600 pixel viewport, and no scrolling. Run the relevant local checks.
+Debug an existing Web App
+Use https://wearables.developer.meta.com/docs/develop/webapps/build/, then use the Wearables MCP endpoint https://mcp.developer.meta.com/wearables to call search_webapps_docs for current Meta Ray-Ban Display Web Apps constraints and troubleshooting guidance. If search_webapps_docs is unavailable, use the linked build guide and state that MCP docs lookup was unavailable before proceeding. Inspect this Web App first and identify whether the issue is layout, input navigation, storage, sensors, or deployment. Preserve the fixed 600 x 600 pixel viewport, no-scrolling behavior, arrow-key and Enter input model, and dark additive-display UI. Make the smallest fix and run the relevant local checks.
 HTML metadata
 Add the following metadata to the
 head

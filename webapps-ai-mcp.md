@@ -13,22 +13,27 @@ Web Apps MCP
 Web Apps MCP
 Updated
 :
-Jun 2, 2026
+Jun 22, 2026
 Overview
 Display Web Apps use the shared public Wearables MCP server for live documentation search. Use it when you want your editor or agent to query current Web Apps guides and references while building with the
 AI Coding plugin
 ⁠
 .
+For coding tasks, pair this MCP server with the Web Apps GitHub plugin. The plugin provides Display Web Apps implementation patterns and constraints; MCP provides current documentation lookup while the assistant works.
 The Web Apps docs tool is:
 search_webapps_docs
 — semantic search over Display Web Apps guides and references
+When your client exposes an output or response format option, choose Markdown. Markdown results preserve headings, links, tables, and code blocks, which makes it easier for the assistant to quote the docs accurately before editing code.
 The shared Wearables MCP server also includes DAT docs search, but use
 search_webapps_docs
 for Display Web Apps questions.
 The public endpoint is:
 https://mcp.developer.meta.com/wearables
 Use the direct MCP host above. Do not use the Wearables developer site URL as the MCP endpoint.
-The AI Coding plugin provides the coding skills for creating, testing, and publishing Web Apps. The MCP server complements those skills with live Web Apps documentation lookup.
+The AI Coding plugin provides the coding skills for creating, testing, and publishing Web Apps. The MCP server complements those skills with live Web Apps documentation lookup. Use both when your tool supports them.
+Use this page with AI
+Copy this prompt into your AI tool to connect live Web Apps docs search:
+Use https://wearables.developer.meta.com/docs/develop/webapps/ai-assisted-mcp/ to configure the public Wearables MCP server. Inspect this project and AI tool setup first, then help me add https://mcp.developer.meta.com/wearables, verify that search_webapps_docs is available, and run a test query for Meta Ray-Ban Display Web Apps viewport and input guidance with Markdown-formatted results if the client supports output formats. Also check whether the Web Apps GitHub plugin is installed for this project, because MCP should complement that coding context. Do not edit app code until the MCP connection works and the test query returns relevant Web Apps guidance.
 Claude Code
 Add the Wearables MCP server with the Claude CLI:
 claude mcp add --transport http wearables https://mcp.developer.meta.com/wearables
@@ -101,7 +106,7 @@ Run
 search_webapps_docs
 with a query such as
 viewport size
-.
+, and request Markdown output if your client exposes a format option.
 If your Inspector build labels the transport as
 HTTP
 instead of

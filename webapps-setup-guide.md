@@ -13,7 +13,7 @@ Web Apps MCP
 Setup
 Updated
 :
-May 18, 2026
+Jun 22, 2026
 Overview
 Setting up to build Web Apps for Meta Ray-Ban Display glasses (MRBD) takes three steps:
 Check your hardware.
@@ -22,6 +22,9 @@ Check your Meta AI app and enable Developer Mode.
 Verify the app version on your phone, then put the app into Developer Mode so it can load Web Apps onto the glasses.
 Prepare to host your Web App.
 Pick a hosting platform that serves your app over HTTPS so the glasses can load it.
+Use this page with AI
+Copy this prompt into your AI coding tool to prepare a Web App development setup:
+Use https://wearables.developer.meta.com/docs/develop/webapps/setup/, then use the Wearables MCP endpoint https://mcp.developer.meta.com/wearables to call search_webapps_docs for current Meta Ray-Ban Display Web Apps setup guidance. If search_webapps_docs is unavailable, use the linked setup guide and state that MCP docs lookup was unavailable before proceeding. Inspect my project and hosting plan first, then produce the smallest setup checklist for hardware, Meta AI app version, Developer Mode, HTTPS hosting, and local browser verification. Do not edit app code until the setup gaps are clear.
 Requirements
 Hardware
 Web Apps are supported only on Meta Ray-Ban Display (MRBD) glasses. Meta Neural Band is optional, though recommended for an optimal experience.
