@@ -1,14 +1,54 @@
-[Skip to main content](https://www.meta.com/help/ai-glasses/1809764829519902/?sid=829bf73a-124f-49f8-b6e8-343e9bd3d8af#mdc-main-content)
+[Skip to main content](https://www.meta.com/help/ai-glasses/1809764829519902/?sid=ac428d14-d19a-4c5e-bd54-efcb6350d522#mdc-main-content)
 Here'sanarticlethatmayhelp.Ifyouhaveaspecificquestion,feelfreetoask.
 AI glasses release notes
 Summary:This article contains the official release notes for all Meta AI glasses, including Ray-Ban Meta, Oakley Meta, Meta Ray-Ban Display glasses and Meta Neural Band, documenting new features and enhancements for each software version. Find a complete history of updates from the latest release back to December 2023, and learn what's new in each version to make the most of your glasses experience.
 Show full article
 # AI glasses release notes
-21 Likes
-Updated:4 weeks ago
+23 Likes
+Updated:3 days ago
 Wondering what's new with AI glasses? Check out our release notes to learn about the latest new features and enhancements we've made to your glasses experience.
 Make sure to [update your glasses](https://www.meta.com/help/ai-glasses/3487248634876136/) and the Meta AI mobile app to the latest version to take advantage of these improvements.
+# June 29, 2026
+* * *
+### Ray-Ban Meta, Oakley Meta and Meta Glasses v26 release notes
+These features and improvements will become available starting the week of June 29 2026.
+## Muse Spark
+Next-gen Meta AI on your glasses delivering smarter answers, with enhanced visual perception, and helping manage your daily life effortlessly.
+## Meta One subscription
+We're gradually rolling out Meta One to unlock premium features across Instagram, Facebook, and WhatsApp, as well as more access to AI capabilities across our apps and AI glasses. Subscribing to Meta One Premium plan will give you expanded access to conversation focus and premium device support. [Learn more](https://www.meta.com/help/ai-glasses/1384571770097740/)
+## Dynamic photo
+Dynamic photo automatically captures multiple frames with every snap. Choose your favorite shot and never miss what matters most.
+## Photo Ultra HDR
+Photo Ultra HDR brings your photos to life with deeper, realistic and more true-to-life colors.
+## Conversation focus
+Hear face-to-face conversations more clearly in noisy environments — like restaurants, busy offices, or crowded parties. Conversation focus amplifies voices directly in front of you so you can converse and connect easily anywhere. Gradually rolling out to: US, Canada, UK, Australia, Ireland, Austria, Belgium, Denmark, Finland, France, Germany, India, Italy, Japan, Mexico, Netherlands, Norway, South Korea, Spain, Sweden, and United Arab Emirates. [Learn more](https://www.meta.com/help/ai-glasses/1660846264628288/).
+## Instagram Instants
+Instants are a new way to share spontaneous, unfiltered photos with friends. Instants are ephemeral to viewers, but are saved in your archive for up to a year. Give it a try by saying "Hey Meta, Share an Instant."
+## WhatsApp voice chats
+Start a group voice chat from WhatsApp on your phone, then stash it and go. Stay connected to your group while you listen to music, take hands-free captures, and hear your workout stats. Mute and unmute by using your action button (if available) or your voice.
+## In-call voice commands
+While on a call, you can mute, unmute, toggle camera for video calls, and hang up calls hands-free using your voice.
+## Battery Saver Mode
+Turn on Battery Saver Mode in device settings to limit high-drain features and dramatically extend your runtime.
+## \[Early Access\] Wi-Fi Aware
+If you are in the [Early Access program](https://www.meta.com/help/ai-glasses/391918083181734/), imports and updates are now more seamless for iPhone users. Removes the "Meta AI wants to Join Wi-Fi network…" prompt iPhone users see when importing media. To enable this feature, go to Early Access in Device Settings and look for Wi-Fi Aware.
+## Hibernation on glasses
+Improved deep sleep mode to improve boot time in some scenarios.
+## Japanese and Korean language support
+Full device operation in Japanese and Korean. Speak naturally and enjoy a seamless experience in your preferred language.
+## New translation languages
+Live translation now supports 14 new languages, so you can have real-time conversations with people wherever you go. New languages: Arabic, Dutch, Finnish, Greek, Hindi, Indonesian, Japanese, Korean, Mandarin, Russian, Swedish, Thai, Turkish, Vietnamese. [Learn more](https://www.meta.com/help/ai-glasses/955732293123641/).
+* * *
 # May 14, 2026
+* * *
+### Ray-Ban Meta and Oakley Meta glasses v25 release notes
+These features and improvements will become available starting the week of May 14 2026.
+## Recall email
+Catch up on your inbox hands-free. Ask Meta AI to read your emails aloud and stay on top of important messages while you're on the go. Available in English in US and Canada.
+## Snow scene improvements
+Capture better photos and videos in snowy conditions. Improved scene detection and exposure adjustments ensure your shots look great even in bright, reflective winter settings.
+## \[Early Access\] Autocapture
+Live in the moment, while capturing it hands-free. If you are in the [Early Access program](https://www.meta.com/help/ai-glasses/391918083181734/), just say "Hey Meta, start autocapture" during your next hangout or puppy playdate and Meta AI will record moments, including anything you capture yourself, and create stunning highlight videos. Autocapture is available on Ray-Ban Meta (Gen 2), Oakley Meta HSTN, and Oakley Meta Vanguard in the US and Canada. [Learn more](https://www.meta.com/help/ai-glasses/1824727564872648/).
 * * *
 ### Meta Ray-Ban Display glasses v5 release notes
 These features and improvements will become available starting the week of May 14 2026.
@@ -44,8 +84,6 @@ The world is your page. Write with your finger on any surface - your palm, your 
 These features and improvements will become available starting the week of April 13 2026.
 ## Contact search
 Use your voice to search and message contacts directly from your glasses. Open the messaging app of your choice and dictate to find who you're looking for. If you have joined the Early Access program, you can also use neural handwriting to search for a contact. Learn [how to join the Early Access program](https://www.meta.com/help/ai-glasses/391918083181734/).
-## Meta AI web summaries
-You can now have Meta AI summarize web pages sent to you in chat threads. [Learn more](https://www.meta.com/help/ai-glasses/24607844482214792/).
 ## Adaptive display
 Your Meta Ray-Ban Display glasses now automatically adjust display contrast based on the lighting around you. Whether you're indoors or outside, content stays comfortable to view.
 ## Audible
