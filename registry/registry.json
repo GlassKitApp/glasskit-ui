@@ -193,7 +193,7 @@
       "title": "Compass",
       "description": "a heading rose that keeps North pointing at real north while a fixed top marker shows where you face.",
       "dependencies": [
-        "@glasskit-ui/react@^0.5.0"
+        "@glasskit-ui/react@^0.7.0"
       ],
       "registryDependencies": [
         "utils",
@@ -213,7 +213,7 @@
       "title": "ComposeFlow",
       "description": "the working text-entry recipe for a platform with no keyboard or microphone: a focusable field that opens a picker of choices when activated; choosing writes the value back and returns to the field.",
       "dependencies": [
-        "@glasskit-ui/react@^0.5.0"
+        "@glasskit-ui/react@^0.7.0"
       ],
       "registryDependencies": [
         "utils",
@@ -234,7 +234,7 @@
       "title": "Confirm",
       "description": "a decision screen: a prompt + a two-button action bar.",
       "dependencies": [
-        "@glasskit-ui/react@^0.5.0"
+        "@glasskit-ui/react@^0.7.0"
       ],
       "registryDependencies": [
         "utils",
@@ -254,7 +254,7 @@
       "title": "Deck",
       "description": "a horizontal paged flow (wizard / onboarding).",
       "dependencies": [
-        "@glasskit-ui/react@^0.5.0"
+        "@glasskit-ui/react@^0.7.0"
       ],
       "registryDependencies": [
         "utils",
@@ -274,7 +274,7 @@
       "title": "DirectionArrow",
       "description": "points toward a real-world direction.",
       "dependencies": [
-        "@glasskit-ui/react@^0.5.0"
+        "@glasskit-ui/react@^0.7.0"
       ],
       "registryDependencies": [
         "utils",
@@ -508,7 +508,7 @@
       "title": "Navigator",
       "description": "a screen stack for glasses apps (react-navigation semantics, glasses-native mechanics).",
       "dependencies": [
-        "@glasskit-ui/react@^0.5.0"
+        "@glasskit-ui/react@^0.7.0"
       ],
       "registryDependencies": [
         "utils",
@@ -562,7 +562,7 @@
       "title": "PermissionPrompt",
       "description": "an explicit access request (sensors, location, camera, mic), which MRBD apps must ask for before use.",
       "dependencies": [
-        "@glasskit-ui/react@^0.5.0"
+        "@glasskit-ui/react@^0.7.0"
       ],
       "registryDependencies": [
         "utils"
