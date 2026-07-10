@@ -4,29 +4,29 @@ import {
   type NextRequest,
 } from "next/server";
 import { trackAICrawlerRequest } from "@datafast/ai-crawl";
-import { clerkMiddleware } from "@clerk/nextjs/server";
 
 /**
- * Proxy (Next.js 16 middleware) for the /ui zone: Clerk auth context + DataFast
- * AI-crawler tracking.
+ * DataFast AI-crawler / bot-traffic tracking for the /ui zone.
  *
- * Clerk: the zone shares glasskit.app's production Clerk instance so the nav's
- * profile/sign-in reflects the same session. The whole zone is public (no
- * protected routes), so we never call auth.protect(); clerkMiddleware just
- * establishes the auth context.
+ * Auth is deliberately CLIENT-ONLY: ClerkProvider + the nav's Clerk
+ * components (SignInButton / UserButton / useAuth) run on the publishable key
+ * and the shared same-origin session, which ClerkJS refreshes itself. The
+ * zone has no protected routes and never calls auth() server-side, so it
+ * needs no clerkMiddleware — which keeps CLERK_SECRET_KEY out of this
+ * separately-deployed zone and removes the "missing secret 500s every route"
+ * failure class.
  *
- * DataFast: the browser script can't see server-rendered hits from AI crawlers
- * (GPTBot, ClaudeBot, …); this reports them to the same glasskit.app property.
- * Per DataFast's docs: call it, don't await it (it uses event.waitUntil).
+ * The browser analytics script can't see server-rendered hits from AI
+ * crawlers (GPTBot, ClaudeBot, …); this reports them to the same glasskit.app
+ * property. Per DataFast's docs: call it, don't await it (event.waitUntil).
+ * NOTE (Next.js 16): middleware is named proxy.ts.
  */
-export default clerkMiddleware(
-  (_auth, request: NextRequest, event: NextFetchEvent) => {
-    trackAICrawlerRequest(request, event, {
-      websiteId: "dfid_E92UlmE44RbHThkiHoKWy",
-    });
-    return NextResponse.next();
-  },
-);
+export function proxy(request: NextRequest, event: NextFetchEvent) {
+  trackAICrawlerRequest(request, event, {
+    websiteId: "dfid_E92UlmE44RbHThkiHoKWy",
+  });
+  return NextResponse.next();
+}
 
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
