@@ -21,9 +21,10 @@ import { AuthButton } from "@/components/auth-button";
  * `<a>` so they resolve against the shared glasskit.app origin and hard-navigate
  * out of this zone. UI is this zone, so its pill is always active.
  *
- * TODO(clerk): extract into a shared package + add the Clerk profile (top-right)
- * when auth lands. Session is shared via the same-domain cookie, so each zone
- * renders its own copy against the same session — see the deploy notes.
+ * The Clerk profile / sign-in (AuthButton) is wired top-right; the session is
+ * shared via the same-origin cookie, so each zone renders its own copy against
+ * the same session. TODO(shared): extract this nav into a shared package once a
+ * third zone needs it.
  */
 
 const PRODUCTS = [
