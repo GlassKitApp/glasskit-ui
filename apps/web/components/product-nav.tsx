@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { DISCORD_URL, X_URL } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { BrandLockup } from "@/components/brand-lockup";
+import { AuthButton } from "@/components/auth-button";
 
 /**
  * Umbrella product band — replicated from the parent glasskit app's
@@ -156,11 +157,12 @@ export function ProductNav() {
             </div>
           </nav>
 
-          {/* Right — social (desktop), hamburger (mobile) */}
+          {/* Right — social (desktop), sign-in/profile, hamburger (mobile) */}
           <div className="ml-auto flex items-center gap-1 md:ml-0">
             <div className="hidden items-center gap-1 md:flex">
               <SocialLinks />
             </div>
+            <AuthButton />
             <button
               type="button"
               onClick={() => setMenuOpen((o) => !o)}

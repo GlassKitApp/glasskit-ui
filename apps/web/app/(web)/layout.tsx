@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
 import {
   Bricolage_Grotesque,
   Hanken_Grotesk,
@@ -86,7 +87,7 @@ export const metadata: Metadata = {
 export default function WebLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return (
+  const tree = (
     <html
       lang="en"
       className={`${bricolage.variable} ${hanken.variable} ${jetbrains.variable}`}
@@ -103,4 +104,7 @@ export default function WebLayout({
       </body>
     </html>
   );
+  // Share glasskit.app's production Clerk instance (same origin via
+  // Multi-Zones) so the nav reflects the same session.
+  return <ClerkProvider>{tree}</ClerkProvider>;
 }
