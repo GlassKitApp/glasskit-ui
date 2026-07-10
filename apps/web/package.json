@@ -3,7 +3,7 @@
   "version": "0.0.5",
   "private": true,
   "type": "module",
-  "description": "ui.glasskit.app — the GlassKit UI docs + marketing site.",
+  "description": "ui.glasskit.app \u2014 the GlassKit UI docs + marketing site.",
   "scripts": {
     "dev": "next dev",
     "build": "node ../../scripts/build-registry.mjs && next build",
@@ -14,6 +14,7 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
+    "@clerk/nextjs": "^7.4.3",
     "@datafast/ai-crawl": "^1.0.5",
     "@glasskit-ui/react": "workspace:*",
     "@tabler/icons-react": "^3.44.0",
