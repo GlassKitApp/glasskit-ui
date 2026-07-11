@@ -105,6 +105,20 @@ export default function WebLayout({
     </html>
   );
   // Share glasskit.app's production Clerk instance (same origin via
-  // Multi-Zones) so the nav reflects the same session.
-  return <ClerkProvider>{tree}</ClerkProvider>;
+  // Multi-Zones) so the nav reflects the same session. `appearance` mirrors the
+  // parent app's ClerkProvider (forest-green primary, 5px radii, Hanken) so the
+  // modal + UserButton match across surfaces.
+  return (
+    <ClerkProvider
+      appearance={{
+        variables: {
+          colorPrimary: "#0b7e43",
+          borderRadius: "5px",
+          fontFamily: "var(--font-hanken)",
+        },
+      }}
+    >
+      {tree}
+    </ClerkProvider>
+  );
 }

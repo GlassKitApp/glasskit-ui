@@ -9,8 +9,11 @@ import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
  * signed in on the main site sees their avatar here too. A reserved slot
  * before Clerk loads avoids a layout jump.
  */
+// Matches the parent glasskit app's header Sign-in CTA: green accent fill
+// (bg-accent = #0b7e43 light / #36e27f dark, == the parent's --primary), white
+// label, brighter-green hover (accent-ink == the parent's --primary-bright).
 const BTN =
-  "ml-2 inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-ink px-5 text-[13px] font-semibold text-bg transition-opacity hover:opacity-90 active:scale-[0.98]";
+  "ml-2 inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-accent px-5 text-[13px] font-semibold text-accent-fg transition-colors hover:bg-accent-ink active:scale-[0.98]";
 
 export function AuthButton() {
   const { isLoaded, isSignedIn } = useAuth();

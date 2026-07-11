@@ -15,7 +15,14 @@ export function BrandLockup() {
         alt=""
         className="size-6 rounded-[5px]"
       />
-      <span className="font-display text-[15px] font-bold tracking-[-0.02em] text-ink">
+      {/* Weight pinned to 700 to match the parent glasskit app's wordmark:
+          the `.font-display` class forces font-weight:800 (unlayered, so it
+          beats a `font-bold` utility), which rendered heavier than the parent.
+          Inline style wins over the class without touching global headings. */}
+      <span
+        className="font-display text-[15px] tracking-[-0.02em] text-ink"
+        style={{ fontWeight: 700 }}
+      >
         GlassKit
       </span>
     </>
