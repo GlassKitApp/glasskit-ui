@@ -29,7 +29,13 @@ const WARN_PAGE_KB = 300; // headroom alarm — investigate before it's a crisis
 // scaffold build below; these /preview pages are Next.js docs renders whose
 // count includes framework/shared chunking, so the proxy budget is a touch
 // higher. The KB + SDK budgets remain the load-bearing checks.
-const MAX_SCRIPTS = 12; // Next preview-page proxy (framework chunking included)
+//
+// NOTE (2026-07): bumped 12 -> 14 when @clerk/nextjs entered the /ui zone's
+// (web) tree. Turbopack re-split the SHARED vendor chunk into 2 more files —
+// verified NO Clerk code lands in any /preview chunk (grep) and the worst page
+// stayed ~220 KB (well under the 500 KB hard budget), so this is a benign
+// request-count reshaping, not a payload regression on the glasses render.
+const MAX_SCRIPTS = 14; // Next preview-page proxy (framework chunking included)
 const HARD_SDK_KB = 25; // the SDK must stay a rounding error in any app
 
 const kb = (bytes) => bytes / 1024;
