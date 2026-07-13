@@ -13,7 +13,7 @@ Web Apps MCP
 Test
 Updated
 :
-Jun 22, 2026
+Jun 30, 2026
 Overview
 Once you’ve built a Web App, you will need to test it.
 Use this page with AI
@@ -50,6 +50,34 @@ Permissions
 button to manage permissions (if necessary)
 Testing on other devices
 Your Web App will run on any other browsers, like on your computer or mobile phone. If it works on your computer with up/down/left/right arrow keys and Enter, it should also work on your glasses. If you use Chrome debugging tools, set the viewport to 600 x 600 px.
+Testing with Display Simulator Chrome Extension
+The
+Meta Ray-Ban Display Web App Simulator
+is a Chrome extension that recreates the 600×600 pixel display surface of Meta Ray-Ban Display glasses directly in your browser. The glasses display is unlike any phone or desktop screen — additive (black = transparent), D-pad-only input, and viewed against the real world. The simulator closes this gap by letting you preview and QA your Web Apps with additive blending, environment backgrounds, D-pad input, display tuning, and recording, all without needing physical hardware.
+Installing the extension
+Visit the
+Meta Ray-Ban Display Web App Simulator
+⁠
+extension page in the Chrome Web Store.
+Click
+Add to Chrome
+.
+Navigate to your Web App in Chrome and click the extension icon in the toolbar to toggle the simulator on.
+Features
+600×600 px display frame
+: Exact MRBD resolution with optional frame overlay and additive blending.
+Environment backgrounds
+: Built-in scenes, custom image upload, animated backgrounds, and live webcam for real-world blending preview.
+D-pad input
+: On-screen directional buttons and Select that dispatch keyboard events into your Web App. These correspond with physical arrow keys and Enter.
+Display settings
+: App brightness, background brightness, background blur, and auto-dimming controls.
+Viewport recorder
+: Record the simulator viewport as a downloadable WebM video for demos or bug reports.
+View on Glasses QR
+: Generate a deeplink QR code to add your Web App to your MRBD via the Meta AI App, or share the QR code with others so they can add it too.
+QA checklist
+: Automated checks for viewport meta, favicon, D-pad-focusable elements, horizontal overflow, and visible focus styles.
 Sharing your Web App
 After testing your Web App, you can easily share it with other users:
 In the Meta AI app, go back to
