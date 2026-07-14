@@ -1,5 +1,16 @@
 @AGENTS.md
 
+## Platform claims
+
+Before writing or editing ANY content that states facts about the Meta
+Ray-Ban Display platform (docs, marketing copy, llms-template.md, JSON-LD,
+READMEs), read the validated Meta fact sheet in the sibling repo:
+`~/Documents/Github/glasskit/.claude/skills/platform-content/SKILL.md`
+(single source of truth for both repos — never write platform facts from
+model memory). Local reminder: `public/llms.txt` is GENERATED from
+`apps/web/llms-template.md` by `scripts/build-registry.mjs`; edit the
+template, never the output.
+
 ## Styling — Tailwind + tokens everywhere (shadcn model)
 
 - **Both the site and the lens are Tailwind utilities, always.** No inline
