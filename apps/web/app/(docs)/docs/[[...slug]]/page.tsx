@@ -11,7 +11,12 @@ import { getMDXComponents } from "@/mdx-components";
 import { getComponentDoc } from "@/lib/component-docs";
 import { getExample } from "@/lib/examples";
 import { SITE } from "@/lib/config";
-import { SEO, jsonLdGraph, breadcrumbSchema } from "@/lib/seo";
+import {
+  SEO,
+  jsonLdGraph,
+  breadcrumbSchema,
+  techArticleSchema,
+} from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
 
 type Params = Promise<{ slug?: string[] }>;
@@ -55,7 +60,17 @@ export default async function Page({ params }: { params: Params }) {
 
   return (
     <DocsPage toc={toc} full={page.data.full}>
-      <JsonLd data={jsonLdGraph(breadcrumbSchema(crumbs))} />
+      <JsonLd
+        data={jsonLdGraph(
+          techArticleSchema({
+            title: page.data.title,
+            description: page.data.description,
+            url: `${SITE}${page.url}`,
+            lastModified: page.data.lastModified,
+          }),
+          breadcrumbSchema(crumbs),
+        )}
+      />
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>

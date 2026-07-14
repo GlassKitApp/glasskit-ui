@@ -18,6 +18,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const docs: MetadataRoute.Sitemap = source.getPages().map((page) => ({
     url: `${SITE}${page.url}`,
+    // Real content date (git, via the fumadocs lastModified plugin); absent
+    // for files without history rather than a misleading build-time "now".
+    ...(page.data.lastModified
+      ? { lastModified: page.data.lastModified }
+      : {}),
     changeFrequency: "weekly",
     priority: page.url === "/docs" ? 0.9 : 0.7,
   }));
