@@ -48,6 +48,8 @@ Wearables Developer Terms
 Acceptable Use Policy
 Legal
 Privacy
+GitHub Discussions (iOS)
+GitHub Discussions (Android)
 Build with Meta
 Social Technologies
 Meta Horizon
@@ -63,6 +65,8 @@ Wearables Developer Terms
 Acceptable Use Policy
 Legal
 Privacy
+GitHub Discussions (iOS)
+GitHub Discussions (Android)
 Build with Meta
 Social Technologies
 Meta Horizon
@@ -78,5 +82,7 @@ Wearables Developer Terms
 Acceptable Use Policy
 Legal
 Privacy
+GitHub Discussions (iOS)
+GitHub Discussions (Android)
 English (US)
 © 2026 Meta
