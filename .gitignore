@@ -25,3 +25,4 @@ apps/web/public/r
 
 # fumadocs generated source
 apps/web/.source
+.env*

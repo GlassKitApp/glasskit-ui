@@ -26,3 +26,8 @@ export const ORIGIN =
  *  absolute links like the QR deep link to a live preview, and for every
  *  canonical / OG URL so they resolve unambiguously under basePath. */
 export const SITE = `${ORIGIN}${BASE_PATH}`;
+
+/** GlassKit Studio on the umbrella site. Absolute (not the nav/footer's
+ *  root-relative style) so it resolves even when the zone runs standalone in
+ *  dev; sibling links in ProductNav/ProductFooter should converge here too. */
+export const STUDIO_URL = `${ORIGIN}/studio`;

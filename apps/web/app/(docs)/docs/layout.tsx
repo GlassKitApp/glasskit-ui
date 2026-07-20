@@ -1,5 +1,6 @@
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import { source } from "@/lib/source";
+import { StudioCta } from "@/components/studio-cta";
 
 export default function DocsAppLayout({
   children,
@@ -15,6 +16,7 @@ export default function DocsAppLayout({
         ),
         url: "/",
       }}
+      sidebar={{ banner: <StudioCta /> }}
       githubUrl="https://github.com/GlassKitApp/glasskit-ui"
     >
       {children}

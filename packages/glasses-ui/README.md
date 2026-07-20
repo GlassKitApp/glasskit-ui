@@ -157,12 +157,12 @@ scoring + sensor no-op guards). Pure helpers, no DOM dependency.
 
 This is the free, open-source SDK. Need auth, a backend, payments, and
 deploy wired in? Ship the whole production app with the
-[GlassKit Starter Kit](https://glasskit.app).
+[GlassKit Starter Kit](https://glasskit.app/stack?ref=npm-readme).
 
 ## Documentation
 
 Full docs, live 600×600 previews, and the component registry live at
-[glasskit.app/ui](https://glasskit.app/ui).
+[glasskit.app/ui](https://glasskit.app/ui?ref=npm-readme).
 
 ## License
 

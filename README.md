@@ -11,7 +11,7 @@ shadcn-style registry of 44 components built for the 600×600 lens: a
 glasses-tuned D-pad focus engine, system-back-aware navigation, live sensor
 wiring, and a HUD visual language. Every component is QR-launchable as a
 working app on real glasses from its
-[docs page](https://glasskit.app/ui/docs/components).
+[docs page](https://glasskit.app/ui/docs/components?ref=github-readme).
 
 > **Built for the lens.** Black renders transparent on the Display's
 > waveguide, input is Neural Band gestures arriving as arrow/Enter keys, and
