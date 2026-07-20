@@ -14,7 +14,7 @@ import {
  */
 export const SEO = {
   name: "GlassKit UI",
-  tagline: "building blocks for Meta Ray-Ban Display",
+  tagline: "React components for Meta Ray-Ban Display web apps",
   description:
     "The open-source React component library for Meta Ray-Ban Display apps: a glasses-tuned focus engine, the Neural Band gesture vocabulary, and premium HUD components for the 600×600 lens. The building blocks Meta does not ship.",
   shortDescription:
