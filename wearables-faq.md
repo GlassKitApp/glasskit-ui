@@ -117,6 +117,8 @@ Developer Centers
 Documentation
 [Llama](https://www.llama.com/docs/overview/)
 [Unity](https://developers.meta.com/horizon/develop/unity/)
+[Unreal Engine](https://developers.meta.com/horizon/develop/unreal/)
+[Android apps](https://developers.meta.com/horizon/develop/android-apps/)
 [Worlds in Meta Horizon](https://developers.meta.com/horizon-worlds/learn/)
 [Meta Spatial SDK](https://developers.meta.com/horizon/develop/spatial-sdk/)
 [Wearables](https://wearables.developer.meta.com/docs)
@@ -142,6 +144,8 @@ Developer Centers
 Documentation
 [Llama](https://www.llama.com/docs/overview/)
 [Unity](https://developers.meta.com/horizon/develop/unity/)
+[Unreal Engine](https://developers.meta.com/horizon/develop/unreal/)
+[Android apps](https://developers.meta.com/horizon/develop/android-apps/)
 [Worlds in Meta Horizon](https://developers.meta.com/horizon-worlds/learn/)
 [Meta Spatial SDK](https://developers.meta.com/horizon/develop/spatial-sdk/)
 [Wearables](https://wearables.developer.meta.com/docs)
@@ -167,6 +171,8 @@ Developer Centers
 Documentation
 [Llama](https://www.llama.com/docs/overview/)
 [Unity](https://developers.meta.com/horizon/develop/unity/)
+[Unreal Engine](https://developers.meta.com/horizon/develop/unreal/)
+[Android apps](https://developers.meta.com/horizon/develop/android-apps/)
 [Worlds in Meta Horizon](https://developers.meta.com/horizon-worlds/learn/)
 [Meta Spatial SDK](https://developers.meta.com/horizon/develop/spatial-sdk/)
 [Wearables](https://wearables.developer.meta.com/docs)
