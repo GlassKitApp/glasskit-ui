@@ -11,4 +11,3 @@ https://wearables.developer.meta.com/docs/develop/webapps/setup
 https://wearables.developer.meta.com/docs/develop/webapps/test
 https://wearables.developer.meta.com/docs/develop/webapps/troubleshooting
 https://wearables.developer.meta.com/docs/reference
-https://wearables.developer.meta.com/docs/support

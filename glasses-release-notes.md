@@ -1,10 +1,6 @@
-[Skip to main content](https://www.meta.com/help/ai-glasses/1809764829519902/?sid=54234de0-530a-436f-854e-6fe8b481bb6a#mdc-main-content)
-Here'sanarticlethatmayhelp.Ifyouhaveaspecificquestion,feelfreetoask.
-AI glasses release notes
-Summary:This article contains the official release notes for all Meta AI glasses, including Ray-Ban Meta, Oakley Meta, Meta Ray-Ban Display glasses and Meta Neural Band, documenting new features and enhancements for each software version. Find a complete history of updates from the latest release back to December 2023, and learn what's new in each version to make the most of your glasses experience.
-Show full article
+[Skip to main content](https://www.meta.com/help/ai-glasses/1809764829519902/#mdc-main-content)
 # AI glasses release notes
-29 Likes
+20 Likes
 Updated:2 weeks ago
 Wondering what's new with AI glasses? Check out our release notes to learn about the latest new features and enhancements we've made to your glasses experience.
 Make sure to [update your glasses](https://www.meta.com/help/ai-glasses/3487248634876136/) and the Meta AI mobile app to the latest version to take advantage of these improvements.
@@ -496,14 +492,11 @@ Share
 ## Was this article helpful?
 Yes
 No
-What brings you here today?
-Select an option or type your question.
-What's new in updates?
-How to use contact search?
-Set up Audible integration
-Join Early Access program
-Use Be My Eyes feature
-Need help?
-Tell us what's going on. We'll help you find answers first.
+* * *
+### Still need help?
+Tell us what you need support with and we’ll find the best solution for you.
 [Get support](https://www.meta.com/help/support/)
-Ask your question
+### Get answers from the community
+If you're having trouble, find answers to your questions from AI Glasses users around the world.
+[Go to community forum](https://communityforums.atmeta.com/category/ai-glasses)
+Try "How do I update my AI glasses firmware?"
