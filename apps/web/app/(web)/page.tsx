@@ -5,7 +5,7 @@ import { InstallCommand } from "@/components/install-command";
 import { CopyPromptButton } from "@/components/copy-prompt-button";
 import { setupRecipe } from "@/lib/llm-recipe";
 import { GithubIcon } from "@/components/icons";
-import { GITHUB } from "@/lib/config";
+import { GITHUB, STACK_URL, STUDIO_URL } from "@/lib/config";
 import { COMPONENT_NAV } from "@/lib/component-nav";
 import { JsonLd } from "@/components/json-ld";
 import {
@@ -122,6 +122,29 @@ export default function Home() {
               <GithubIcon className="size-4" /> Star on GitHub
             </a>
           </div>
+          {/* The page used to END on "Free. Open source." — a dead end for the
+              ~78% of site traffic that lands in this zone. The library stays the
+              headline; this is the next step for readers who want more than
+              components. */}
+          <p className="mx-auto mt-8 max-w-xl text-[14px] leading-relaxed text-ink-3">
+            Want more than components?{" "}
+            <a
+              href={`${STUDIO_URL}?ref=ui-home`}
+              data-fast-goal="ui_to_studio"
+              className="font-medium text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-ink"
+            >
+              Studio
+            </a>{" "}
+            builds a whole glasses app from a prompt, and{" "}
+            <a
+              href={`${STACK_URL}?ref=ui-home`}
+              data-fast-goal="ui_to_stack"
+              className="font-medium text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-ink"
+            >
+              Stack
+            </a>{" "}
+            is the full boilerplate with auth, a backend, and payments.
+          </p>
         </div>
       </section>
 

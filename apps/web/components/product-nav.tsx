@@ -27,10 +27,26 @@ import { AuthButton } from "@/components/auth-button";
  * third zone needs it.
  */
 
+// `goal` tags the cross-zone clicks in DataFast. Without it these pills were
+// the primary cross-sell surface and contributed ZERO attribution, so there was
+// no way to tell whether /ui readers ignore the paid products or simply never
+// see a link to them.
 const PRODUCTS = [
-  { href: "/ui", short: "UI", name: "GlassKit UI", active: true },
-  { href: "/studio", short: "Studio", name: "GlassKit Studio", active: false },
-  { href: "/stack", short: "Stack", name: "GlassKit Stack", active: false },
+  { href: "/ui", short: "UI", name: "GlassKit UI", active: true, goal: null },
+  {
+    href: "/studio",
+    short: "Studio",
+    name: "GlassKit Studio",
+    active: false,
+    goal: "ui_to_studio",
+  },
+  {
+    href: "/stack",
+    short: "Stack",
+    name: "GlassKit Stack",
+    active: false,
+    goal: "ui_to_stack",
+  },
 ];
 
 const DiscordIcon = () => (
@@ -145,6 +161,7 @@ export function ProductNav() {
                   key={p.href}
                   href={p.href}
                   aria-current={p.active ? "page" : undefined}
+                  {...(p.goal ? { "data-fast-goal": p.goal } : {})}
                   className={cn(
                     "min-w-[76px] rounded-full px-3 py-1.5 text-center text-[13px] font-medium transition-colors",
                     p.active
@@ -205,6 +222,7 @@ export function ProductNav() {
               href={p.href}
               onClick={() => setMenuOpen(false)}
               aria-current={p.active ? "page" : undefined}
+              {...(p.goal ? { "data-fast-goal": p.goal } : {})}
               className={cn(
                 "block rounded-lg px-3 py-2.5 text-[15px] font-medium transition-colors",
                 p.active

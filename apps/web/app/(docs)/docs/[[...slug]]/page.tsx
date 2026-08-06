@@ -18,6 +18,7 @@ import {
   techArticleSchema,
 } from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
+import { StudioCta } from "@/components/studio-cta";
 
 type Params = Promise<{ slug?: string[] }>;
 
@@ -75,6 +76,11 @@ export default async function Page({ params }: { params: Params }) {
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         <MDX components={getMDXComponents()} />
+        {/* Cross-sell in the CONTENT column, at the end of every docs page.
+            The sidebar banner is desktop-only (fumadocs hides that container
+            below 768px), so this is the only cross-sell surface most readers
+            ever see — and these pages are ~78% of all site traffic. */}
+        <StudioCta variant="inline" campaign="ui-docs-inline" />
       </DocsBody>
     </DocsPage>
   );

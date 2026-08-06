@@ -31,3 +31,9 @@ export const SITE = `${ORIGIN}${BASE_PATH}`;
  *  root-relative style) so it resolves even when the zone runs standalone in
  *  dev; sibling links in ProductNav/ProductFooter should converge here too. */
 export const STUDIO_URL = `${ORIGIN}/studio`;
+
+/** GlassKit Stack on the umbrella site. Same absolute rationale as STUDIO_URL.
+ *  This zone is 78% of all site traffic and, until Aug 2026, linked Stack from
+ *  exactly one place (the npm README) — so a reader could exhaust the free
+ *  component docs without ever learning the paid products exist. */
+export const STACK_URL = `${ORIGIN}/stack`;

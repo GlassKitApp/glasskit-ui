@@ -9,7 +9,7 @@ import {
 import { PLAYGROUND_DEMOS } from "@/lib/playground-demos";
 import { qrSvg } from "@/lib/qr";
 import { mrbdDeepLink } from "@/lib/meta-deeplink";
-import { SITE } from "@/lib/config";
+import { SITE, STUDIO_URL } from "@/lib/config";
 
 const DESCRIPTION =
   "Live playground for GlassKit UI — pick a component, recolor the accent token, drive the focus ring with the keyboard or Neural Band, and copy the JSX.";
@@ -61,13 +61,20 @@ export default async function Playground() {
 
           <PlaygroundClient devices={devices} />
 
-          <div className="mt-16 flex justify-center gap-3">
+          <div className="mt-16 flex flex-wrap justify-center gap-3">
             <Link href="/docs" className="btn btn-solid">
               Get started <span aria-hidden>→</span>
             </Link>
-            <Link href="/" className="btn btn-outline">
-              Back home
-            </Link>
+            {/* Someone who just played with the components on a simulated lens
+                is the warmest possible Studio lead: they already want the app,
+                not the parts. */}
+            <a
+              href={`${STUDIO_URL}?ref=ui-playground`}
+              data-fast-goal="ui_to_studio"
+              className="btn btn-outline"
+            >
+              Build a whole app from a prompt
+            </a>
           </div>
         </div>
       </main>
