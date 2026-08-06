@@ -102,7 +102,7 @@ export function ProductFooter() {
                         {...(l.external
                           ? { target: "_blank", rel: "noopener noreferrer" }
                           : {})}
-                        {...(l.goal ? { "data-fast-goal": l.goal } : {})}
+                        data-fast-goal={l.goal ?? undefined}
                         className={colLink}
                       >
                         {l.label}

@@ -32,7 +32,7 @@ import { AuthButton } from "@/components/auth-button";
 // no way to tell whether /ui readers ignore the paid products or simply never
 // see a link to them.
 const PRODUCTS = [
-  { href: "/ui", short: "UI", name: "GlassKit UI", active: true, goal: null },
+  { href: "/ui", short: "UI", name: "GlassKit UI", active: true },
   {
     href: "/studio",
     short: "Studio",
@@ -161,7 +161,7 @@ export function ProductNav() {
                   key={p.href}
                   href={p.href}
                   aria-current={p.active ? "page" : undefined}
-                  {...(p.goal ? { "data-fast-goal": p.goal } : {})}
+                  data-fast-goal={p.goal ?? undefined}
                   className={cn(
                     "min-w-[76px] rounded-full px-3 py-1.5 text-center text-[13px] font-medium transition-colors",
                     p.active
@@ -222,7 +222,7 @@ export function ProductNav() {
               href={p.href}
               onClick={() => setMenuOpen(false)}
               aria-current={p.active ? "page" : undefined}
-              {...(p.goal ? { "data-fast-goal": p.goal } : {})}
+              data-fast-goal={p.goal ?? undefined}
               className={cn(
                 "block rounded-lg px-3 py-2.5 text-[15px] font-medium transition-colors",
                 p.active
