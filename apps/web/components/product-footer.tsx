@@ -17,15 +17,21 @@ import { BrandLockup } from "@/components/brand-lockup";
  * TODO(clerk): fold into the same shared package as ProductNav when extracted.
  */
 
-type FooterLink = { label: string; href: string; external?: boolean };
+type FooterLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+  /** DataFast goal for cross-zone product clicks (see ProductNav's PRODUCTS). */
+  goal?: string;
+};
 
 const COLS: { title: string; links: FooterLink[] }[] = [
   {
     title: "Products",
     links: [
       { label: "GlassKit UI", href: "/ui" },
-      { label: "GlassKit Studio", href: "/studio" },
-      { label: "GlassKit Stack", href: "/stack" },
+      { label: "GlassKit Studio", href: "/studio", goal: "ui_to_studio" },
+      { label: "GlassKit Stack", href: "/stack", goal: "ui_to_stack" },
     ],
   },
   {
@@ -96,6 +102,7 @@ export function ProductFooter() {
                         {...(l.external
                           ? { target: "_blank", rel: "noopener noreferrer" }
                           : {})}
+                        {...(l.goal ? { "data-fast-goal": l.goal } : {})}
                         className={colLink}
                       >
                         {l.label}

@@ -26,3 +26,8 @@ apps/web/public/r
 # fumadocs generated source
 apps/web/.source
 .env*
+# ...but DO track the examples. They are the only place this zone's required env
+# vars are written down, and NEXT_PUBLIC_CLERK_DOMAIN going undocumented is why
+# the sign-in button was silently dead (see components/auth-button.tsx).
+!.env.example
+!**/.env.example
