@@ -1,6 +1,6 @@
-# Meta Wearables Developer Platform v0.8
+# Meta Wearables Developer Platform v0.9
 > Two product journeys available. Choose DAT SDK for native mobile Android Kotlin or iOS Swift integration with Bluetooth Low Energy sessions, MWDATCore MWDATDevice MWDATCamera MWDATMedia MWDATDisplay MWDATState MWDATLogger MWDATMock MWDATKey, device registration via Meta AI app deeplink, permissions, camera photo video streaming, microphone HFP audio, speaker playback, display rendering, IMU sensors, device discovery, telemetry, Mock Device Kit, Ray-Ban Meta Gen 1 Gen 2 Optics Display. Choose WebApps SDK for web-based HTML CSS JavaScript experiences hosted over HTTPS specifically for Meta Ray-Ban Display MRBD only, 600 by 600 fixed viewport additive waveguide display, dark backgrounds transparent light opaque, Neural Band arrow keys Enter Escape navigation, temple swipe, DeviceMotionEvent DeviceOrientationEvent navigator.geolocation localStorage sessionStorage, PNG icons, AI coding plugin, no camera microphone text input offline notifications back navigation. Filter via ?product=dat or ?product=webapps if needed, ?sdk= alias supported for backward compat.
-# DAT SDK v0.8
+# DAT SDK v0.9
 ## Section 1: DAT Guides
 ### Setup
 ## Overview
@@ -28,22 +28,22 @@ Currently, the SDK supports the Ray-Ban Meta (Gen 1 and Gen 2), Ray-Ban Meta Opt
 ![Image of enabling developer mode on an android device](/images/wearables-devmode-android.png){: width="296"}
 ### Integration overview
 ## Overview
-The Wearables Device Access Toolkit lets your mobile app integrate with supported AI glasses. An integration establishes a session with the device so your app can access supported sensors on the user’s glasses. Users start a session from your app, and then interact through their glasses. They can:
+The Wearables Device Access Toolkit lets your mobile app integrate with supported AI glasses. An integration establishes a session with the device so your app can access supported sensors on the user's glasses. Users start a session from your app, and then interact through their glasses. They can:
 * Speak to your app through the device's microphones
 * Send video or photos from the device's camera
 * Pause, resume, or stop the session by tapping the glasses, taking them off, or closing the hinges
-* Play audio to the user through the device’s speakers
+* Play audio to the user through the device's speakers
 ## Supported devices
 Detailed support to devices and version of the Meta AI app and glasses firmware are located in the [Version Dependencies](/docs/develop/dat/version-dependencies/) page.
 ## Integration lifecycle
-1. **Registration**: The user connects your app to their wearable device by tapping a call-to-action in your app. This is a one‑time flow. After registration, your app can identify and connect to the user’s device when your app is open. The flow deeplinks the user to the Meta AI app for confirmation, then returns them to your app.
+1. **Registration**: The user connects your app to their wearable device by tapping a call-to-action in your app. This is a one‑time flow. After registration, your app can identify and connect to the user's device when your app is open. The flow deeplinks the user to the Meta AI app for confirmation, then returns them to your app.
 2. **Permissions**: The first time your app attempts to access the user's camera, you must request permission. The user can allow always, allow once, or deny. Your app deeplinks the user to the Meta AI app to confirm the requested permission, and then Meta AI returns them to your app. Microphone access uses the Hands‑Free Profile (HFP), so you request those permissions through iOS or Android platform dialogs.
 3. **Session**: After registration and permissions, the user can start a session. During a session, the user engages with your app on their device.
 ## Sessions
 All integrations with Meta AI glasses run as sessions. Only one session can run on a device at a time, and certain features are unavailable while your session is active. Users can pause, resume, or stop your session by closing the hinges, taking the glasses off (when wear detection is enabled), or tapping the glasses. Learn more in [Session lifecycle](/docs/develop/dat/lifecycle-events/).
 ## Key components
 `MWDATCore` is the foundation for your integration. It handles:
-- App registration with the user’s device and registration state
+- App registration with the user's device and registration state
 - Device discovery and management
 - Permission requests and state management
 - Telemetry
@@ -56,11 +56,11 @@ All integrations with Meta AI glasses run as sessions. Only one session can run 
 `MWDATDisplay` powers visual experiences on Meta Ray-Ban Display glasses, with support for:
 - Content rendering with support for components like FlexBox, Text, Image, Button, and Icon
 - Video playback of MP4 clips on the glasses display
-For more, check out our **API reference documentation**: [iOS](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8), [Android](https://wearables.developer.meta.com/docs/reference/android/dat/0.8).
+For more, check out our **API reference documentation**: [iOS](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest), [Android](https://wearables.developer.meta.com/docs/reference/android/dat/latest).
 ### Microphones and speakers
 Use mobile platform functions to access the device over Bluetooth. To use the device's microphones for input, use HFP (Hands-Free Profile). Audio is streamed as 8 kHz mono from the device to your app.
 ### App management
-After registration, your app appears in the user’s App Connections list in the Meta AI app, where permissions can be unregistered or managed.
+After registration, your app appears in the user's App Connections list in the Meta AI app, where permissions can be unregistered or managed.
 ## Next steps
 - See real-world integration concepts on [our blog](https://developers.meta.com/blog/introducing-meta-wearables-device-access-toolkit/).
 - Start building your first integration with our step‑by‑step guides for [iOS](/docs/develop/dat/build-integration-ios/) and [Android](/docs/develop/dat/build-integration-android/).
@@ -93,18 +93,19 @@ ClientToken
 $(CLIENT_TOKEN)
 TeamID
 $(DEVELOPMENT_TEAM)
-DAMEnabled
-UISupportedExternalAccessoryProtocols
-com.meta.ar.wearable
 UIBackgroundModes
-bluetooth-peripheral
-external-accessory
+bluetooth-central
 NSBluetoothAlwaysUsageDescription
 Needed to connect to Meta Wearables
+NSLocalNetworkUsageDescription
+Needed to stream from Meta Wearables over Wi-Fi
+NSBonjourServices
+_bonjour._tcp
 NSCameraUsageDescription
 This app needs camera access to stream from your phone's camera as a mock device feed.
 ```
-**Note:** The Device Access Toolkit App Model (DAM) flow is the default model for your app integration. This means that if `DAMEnabled` is missing in your `Info.plist` file, the *default* value is now `true`. If you already set `DAMEnabled` to `true`, there is no change. To opt-out of DAM, set `DAMEnabled` to `false`.
+Bluetooth LE is the baseline connection for discovery, session setup, and control (permission via `NSBluetoothAlwaysUsageDescription`, with `bluetooth-central` added to the `UIBackgroundModes` key for background operation). Wi-Fi is added for high-bandwidth features like camera streaming (permission via `NSLocalNetworkUsageDescription`, with the device's Bonjour service declared in `NSBonjourServices` for discovery).
+**Note:** The usage-description strings appear in the system permission prompts. If a user denies Local Network access, your app integration will continue over Bluetooth LE, but without streaming.
 ## Step 2: Add the SDK Swift package
 Add the SDK through Swift Package Manager.
 1. In Xcode, select **File** > **Add Package Dependencies...**
@@ -120,7 +121,7 @@ import MWDATCamera
 import MWDATCore
 ```
 ## Step 3: Initialize the SDK
-Call [`Wearables.configure()`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatcore_wearables#configure) once when your app launches.
+Call [`Wearables.configure()`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatcore_wearables#configure) once when your app launches.
 ```swift
 func configureWearables() {
 do {
@@ -167,8 +168,8 @@ cameraStatus = try await wearables.checkPermissionStatus(.camera)
 cameraStatus = try await wearables.requestPermission(.camera)
 ```
 ## Step 6: Create device session
-Use [`createSession`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatcore_wearablesinterface#createsession) to create a device session and access the capabilities of a Meta Wearable Device. You can also add a stream to a previously created session.
-You can use [`AutoDeviceSelector`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatcore_autodeviceselector) to make a smart decision for the user to select a device. Alternatively, you can use [`SpecificDeviceSelector`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatcore_specificdeviceselector) if you provide a UI for the user to manually select a specific device.
+Use [`createSession`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatcore_wearablesinterface#createsession) to create a device session and access the capabilities of a Meta Wearable Device. You can also add a stream to a previously created session.
+You can use [`AutoDeviceSelector`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatcore_autodeviceselector) to make a smart decision for the user to select a device. Alternatively, you can use [`SpecificDeviceSelector`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatcore_specificdeviceselector) if you provide a UI for the user to manually select a specific device.
 ```swift
 let deviceSelector = AutoDeviceSelector(wearables: wearables)
 let session = try wearables.createSession(deviceSelector: deviceSelector)
@@ -183,19 +184,20 @@ if state == .started {
 }
 ```
 ## Step 7: Start a camera stream
-Create a stream by adding it to an existing [`DeviceSession`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatcore_devicesession), and observe its state and display frames.
-You can request resolution and frame rate control using [`StreamConfiguration`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatcamera_streamconfiguration). Valid `frameRate` values are `2`, `7`, `15`, `24`, or `30` FPS. `resolution` can be set to:
+Create a stream by adding it to an existing [`DeviceSession`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatcore_devicesession), and observe its state and display frames.
+You can request resolution and frame rate control using [`StreamConfiguration`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatcamera_streamconfiguration). Valid `frameRate` values are `2`, `7`, `15`, `24`, or `30` FPS. `resolution` can be set to:
 - `high`: 720 x 1280 pixels
 - `medium`: 504 x 896 pixels
 - `low`: 360 x 640 pixels
-[`StreamState`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatcamera_streamstate) transitions through `stopping`, `stopped`, `waitingForDevice`, `starting`, `streaming`, and `paused`.
+[`StreamState`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatcamera_streamstate) transitions through `stopping`, `stopped`, `waitingForDevice`, `starting`, `streaming`, and `paused`.
 Register callbacks to collect frames and state events.
 ```swift
 let config = StreamConfiguration(
 videoCodec: VideoCodec.raw,
 resolution: StreamingResolution.low,
 frameRate: 24)
-guard let stream = try? session.addStream(config: config) else { return }
+guard let camera = try session.addCamera(config: config) else { return }
+let stream = camera.stream
 let stateToken = stream.statePublisher.listen { state in
 Task { @MainActor in
 // Update your streaming UI state
@@ -209,10 +211,10 @@ Task { @MainActor in
 }
 stream.start()
 ```
-Resolution and frame rate are constrained by the Bluetooth Classic connection between the user’s phone and their AI glasses. To manage limited bandwidth, an automatic ladder reduces quality as needed. It first lowers the resolution by one step (for example, from `high` to `medium`). If bandwidth remains constrained, it then reduces the frame rate (for example, 30 to 24), but never below 15 fps.
+Resolution and frame rate are constrained by the Bluetooth Classic connection between the user's phone and their AI glasses. To manage limited bandwidth, an automatic ladder reduces quality as needed. It first lowers the resolution by one step (for example, from `high` to `medium`). If bandwidth remains constrained, it then reduces the frame rate (for example, 30 to 24), but never below 15 fps.
 The image delivered to your app may appear lower quality than expected, even when the resolution reports `high` or `medium`. This is due to per‑frame compression that adapts to available Bluetooth Classic bandwidth. Requesting a lower resolution, a lower frame rate, or both can yield higher visual quality with less compression loss.
 ## Step 8: Capture and share photos
-Listen for [`photoDataPublisher`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatcamera_stream#photodatapublisher) events and handle the returned [`PhotoData`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatcamera_photodata). Then, when a stream session is active, call [`capturePhoto`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatcamera_stream#capturephoto).
+Listen for [`photoDataPublisher`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatcamera_stream#photodatapublisher) events and handle the returned [`PhotoData`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatcamera_photodata). Then, when a stream session is active, call [`capturePhoto`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatcamera_stream#capturephoto).
 ```swift
 _ = stream.photoDataPublisher.listen { photoData in
 let data = photoData.data
@@ -238,7 +240,6 @@ While an App Signature is *not required* for attestation, the Meta AI app will u
 **Note:** App attestation is *not* used in Developer Mode, since these apps rely on local logic, rather than connecting to a release channel. If you are using Developer Mode, you can omit these values or simply use `0`.
 ```xml
 ```
-**Note:** The Device Access Toolkit App Model (DAM) flow is the default model for your app integration. This means that if `DAM_ENABLED` is missing in your app's `AndroidManifest.xml` file, the *default* value is now `true`. If you already set `DAM_ENABLED` to `true`, there is no change. To opt-out of DAM, set the value for `DAM_ENABLED` to `false`.
 ## Step 2: Add the SDK to Gradle
 The Wearables Device Access Toolkit is distributed through [GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
 Add the Wearables Device Access Toolkit Maven repository to your app's Gradle repositories in `settings.gradle.kts`.
@@ -268,7 +269,7 @@ Next, declare the Wearables Device Access Toolkit artifacts in `libs.versions.to
 Check the available versions in [GitHub Packages](https://github.com/orgs/facebook/packages?repo_name=meta-wearables-dat-android).
 ```toml
 [versions]
-mwdat = "0.8.0"
+mwdat = "0.9.0"
 [libraries]
 mwdat-core = { group = "com.meta.wearable", name = "mwdat-core", version.ref = "mwdat" }
 mwdat-camera = { group = "com.meta.wearable", name = "mwdat-camera", version.ref = "mwdat" }
@@ -300,7 +301,7 @@ Initialize the SDK once per process at start up.
 ```kotlin
 Wearables.initialize(context)
 ```
-Invoking other Wearables Device Access Toolkit APIs before initialization yields [`WearablesError.NOT_INITIALIZED`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_core_types_wearableserror).
+Invoking other Wearables Device Access Toolkit APIs before initialization yields [`WearablesError.NOT_INITIALIZED`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_core_types_wearableserror).
 For lifecycle placement guidance, read [Session lifecycle](/docs/develop/dat/lifecycle-events/).
 ## Step 4: Launch registration from your app
 Register your application with the Meta AI app either at startup or when the user wants to turn on your wearables integration.
@@ -354,8 +355,8 @@ permissionsResultLauncher.launch(permission)
 }
 ```
 ## Step 6: Create device session
-Use [`createSession`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_core_wearables#createsession) to create a device session and access the capabilities of a Meta Wearable Device. You can also add a stream to a previously created session.
-You can use [`AutoDeviceSelector`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_core_selectors_autodeviceselector) to make a smart decision for the user to select a device. Alternatively, you can use [`SpecificDeviceSelector`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_core_selectors_specificdeviceselector) if you provide a UI for the user to select a device.
+Use [`createSession`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_core_wearables#createsession) to create a device session and access the capabilities of a Meta Wearable Device. You can also add a stream to a previously created session.
+You can use [`AutoDeviceSelector`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_core_selectors_autodeviceselector) to make a smart decision for the user to select a device. Alternatively, you can use [`SpecificDeviceSelector`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_core_selectors_specificdeviceselector) if you provide a UI for the user to select a device.
 ```kotlin
 val session = Wearables.createSession(AutoDeviceSelector()).getOrElse { error ->
 showError(error.description)
@@ -364,18 +365,19 @@ return
 session.start()
 ```
 ## Step 7: Start a camera stream
-Create a stream by adding it to an existing [`DeviceSession`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_core_session_devicesession), and observe its state and display frames.
-You can request resolution and frame rate control using [`StreamConfiguration`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_camera_types_streamconfiguration). Valid `frameRate` values are `2`, `7`, `15`, `24`, or `30` FPS. `videoQuality` can be set to:
+Create a stream by adding it to an existing [`DeviceSession`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_core_session_devicesession), and observe its state and display frames.
+You can request resolution and frame rate control using [`StreamConfiguration`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_camera_types_streamconfiguration). Valid `frameRate` values are `2`, `7`, `15`, `24`, or `30` FPS. `videoQuality` can be set to:
 - `HIGH`: 720 x 1280 pixels
 - `MEDIUM`: 504 x 896 pixels
 - `LOW`: 360 x 640 pixels
-[`StreamState`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_camera_types_streamstate) transitions through `STARTING`, `STARTED`, `STREAMING`, `STOPPING`, `STOPPED`, and `CLOSED`.
+[`StreamState`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_camera_types_streamstate) transitions through `STARTING`, `STARTED`, `STREAMING`, `PAUSED`, `STOPPING`, `STOPPED`, and `CLOSED`.
 Register callbacks to collect frames and state events.
 ```kotlin
 fun start(deviceId: DeviceIdentifier) {
 val config = StreamConfiguration(videoQuality = VideoQuality.MEDIUM, frameRate = 24)
-session.addStream(config).fold(
-onSuccess = { stream ->
+session.addCamera(config).fold(
+onSuccess = { camera ->
+val stream = camera.stream
 scope.launch {
 stream.videoStream.collect { frame ->
 displayFrame(frame)
@@ -391,14 +393,16 @@ stopStream()
 }
 stream.start()
 },
-onFailure = { error, _ -> showError(error.description) },
+onFailure = { error, _ ->
+showError(error.description)
+},
 )
 }
 ```
-Resolution and frame rate are constrained by the Bluetooth Classic connection between the user’s phone and their AI glasses. To manage limited bandwidth, an automatic ladder reduces quality as needed. It first lowers the resolution by one step (for example, from `HIGH` to `MEDIUM`). If bandwidth remains constrained, it then reduces the frame rate (for example, 30 to 24), but never below 15 fps.
+Resolution and frame rate are constrained by the Bluetooth Classic connection between the user's phone and their AI glasses. To manage limited bandwidth, an automatic ladder reduces quality as needed. It first lowers the resolution by one step (for example, from `HIGH` to `MEDIUM`). If bandwidth remains constrained, it then reduces the frame rate (for example, 30 to 24), but never below 15 fps.
 The image delivered to your app may appear lower quality than expected, even when the resolution reports `HIGH` or `MEDIUM`. This is due to per‑frame compression that adapts to available Bluetooth Classic bandwidth. Requesting a lower resolution, a lower frame rate, or both can yield higher visual quality with less compression loss.
 ## Step 8: Capture and share photos
-When a stream session is active, call [`capturePhoto`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_camera_stream#capturephoto) and handle the returned [`PhotoData`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_camera_types_photodata). Add `app/src/main/res/xml/file_paths.xml` so that the FileProvider can expose cached images.
+When a stream session is active, call [`capturePhoto`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_camera_stream#capturephoto) and handle the returned [`PhotoData`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_camera_types_photodata). Add `app/src/main/res/xml/file_paths.xml` so that the FileProvider can expose cached images.
 ```kotlin
 stream.capturePhoto()
 .onSuccess { data ->
@@ -481,7 +485,7 @@ The display transitions to `started` once the glasses accept the display capabil
 - **Provide visual feedback.** Use button style changes and icons to indicate interactive elements. Users interact through gestures, so make tappable areas obvious.
 ### Architecture
 - **One display per session.** Only one display capability can be attached to a session at a time. Remove the existing display before adding a new one.
-- **Send complete views.** Each [`send()`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_display#send) (iOS) / [`sendContent()`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_display#sendcontent) (Android) call replaces the entire display. There is no partial update mechanism, so always send the full layout.
+- **Send complete views.** Each [`send()`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_display#send) (iOS) / [`sendContent()`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_display#sendcontent) (Android) call replaces the entire display. There is no partial update mechanism, so always send the full layout.
 - **Manage state on the phone.** The glasses do not retain application state. Your app is the source of truth for navigation state, data, and user preferences.
 ## Sample app
 The SDK includes a **Display Access** sample app that demonstrates a complete display access integration. The sample shows:
@@ -497,19 +501,12 @@ Find the sample apps in GitHub:
 ## Overview
 This guide explains how to integrate display functionality into your existing iOS app. For a complete guide on adding Wearables Device Access Toolkit capabilities to an existing iOS app, including registration, streaming, and photo capture, check out the [iOS integration guide](/docs/develop/dat/build-integration-ios/).
 ## Create a visual display experience for your app
-### Step 1: Configure Info.plist
-The Device Access Toolkit App Model (DAM) flow is the default model for display integrations. This means that if `DAMEnabled` is missing from your `Info.plist` file, the *default* value is now `true`. If you already set `DAMEnabled` to `true`, there is no change.
-```xml
-MWDAT
-...
-DAMEnabled
-```
-### Step 2: Import modules
+### Step 1: Import modules
 ```swift
 import MWDATCore
 import MWDATDisplay
 ```
-### Step 3: Connect to the display
+### Step 2: Connect to the display
 Connect to the display by configuring the SDK, creating a session, and then initializing it.
 ```swift
 // Configure the SDK
@@ -529,7 +526,7 @@ Text("Hello, glasses!", style: .heading)
 }
 try await display.send(view)
 ```
-### Step 4: Observe state changes
+### Step 3: Observe state changes
 ```swift
 // Using async stream
 for await state in display.statePublisher.stream {
@@ -543,7 +540,7 @@ case .starting, .stopping:
 }
 }
 ```
-### Step 5: Stop display
+### Step 4: Stop display
 When your app is done using the display capabilities, clean up resources:
 ```swift
 display.stop()
@@ -552,10 +549,10 @@ session.stop()
 **Note:** The glasses display dims after 20 seconds of inactivity and enters sleep mode at 25 seconds. Display sleep does *not* end the Wearables Device Access Toolkit session. When the display wakes, your app can either show the previously displayed content or send a new view.
 ## Build content
 Wearables Device Access Toolkit uses a declarative component system to build UI layouts for display, so you compose views using a result builder in Swift.
-Each call to [`send()`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_display#functions-public) replaces the entire display, so there are no incremental updates. Views are presented one at a time with vertical scrolling. Horizontal scrolling is not supported.
+Each call to [`send()`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_display#functions-public) replaces the entire display, so there are no incremental updates. Views are presented one at a time with vertical scrolling. Horizontal scrolling is not supported.
 ### FlexBox
 **FlexBox** is the primary layout container for Meta Ray-Ban Display apps. It helps you build declarative UI trees with text, images, icons, and buttons. This means that every layout starts with a root FlexBox. Inside, you arrange either these child components or nested FlexBoxes using specific layout properties.
-[FlexBox](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_flexbox) arranges children along a main axis (row or column) with control over spacing, alignment, and wrapping.
+[FlexBox](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_flexbox) arranges children along a main axis (row or column) with control over spacing, alignment, and wrapping.
 ```swift
 FlexBox(
 direction: .column,       // .column, .row, .columnReverse, .rowReverse
@@ -570,12 +567,12 @@ padding: EdgeInsets(all: 16)
 ```
 ### Text
 Displays styled text. Three style presets match the glasses design system.
-| [`TextStyle`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_textstyle) | Description |
+| [`TextStyle`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_textstyle) | Description |
 |-------|-------------|
 | `heading` | Large, bold text for section titles |
 | `body` | Standard text for general content |
 | `meta` | Small text for captions and metadata |
-| [`TextColor`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_textcolor) | Description |
+| [`TextColor`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_textcolor) | Description |
 |-------|-------------|
 | `primary` | Default high-contrast text |
 | `secondary` | Lower-contrast supporting text |
@@ -586,11 +583,11 @@ Text("Step 1 of 5", style: .meta, color: .secondary)
 ```
 ### Images
 Display images loaded from URLs.
-| [`ImageSize`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_imagesize) | Description |
+| [`ImageSize`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_imagesize) | Description |
 |-------------|-------------|
 | `icon` | Small, inline-sized image |
 | `fill` | Fills the available space |
-| [`CornerRadius`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_cornerradius) | Description |
+| [`CornerRadius`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_cornerradius) | Description |
 |---------------|-------------|
 | `none` | Sharp corners |
 | `small` | Slightly rounded |
@@ -605,7 +602,7 @@ cornerRadius: .medium
 **Note:** The Meta Ray-Ban Display glasses render at 600x600 resolution. Use appropriately sized images — there is no benefit to sending larger images, and oversized assets introduce lag due to Bluetooth bandwidth constraints.
 ### Buttons
 Implement tappable buttons with corresponding labels, optional icons, and click handlers.
-| [`ButtonStyle`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_buttonstyle) | Description |
+| [`ButtonStyle`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_buttonstyle) | Description |
 |-------|-------------|
 | `primary` | High-emphasis filled button |
 | `secondary` | Medium-emphasis filled button |
@@ -620,7 +617,7 @@ Button(label: "Go back", style: .outline, iconName: .arrowLeft) {
 ```
 ### Icons
 Display a system icon from a built-in catalog of 100+ glyphs, covering navigation, media, weather, social, and more.
-| [`IconStyle`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_iconstyle) | Description |
+| [`IconStyle`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_iconstyle) | Description |
 |-------|-------------|
 | `filled` | Solid icon |
 | `outline` | Hollow icon |
@@ -631,7 +628,7 @@ Icon(name: .bell, style: .outline)
 See the [icon catalog](/docs/develop/dat/display-icons) for all available `IconName` values.
 If you need an icon outside the built-in catalog, you can also provide your own [custom image](#images).
 ### View Modifiers
-On iOS, padding and tap handlers can be applied to any component. [`Flex modifiers`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_flexbox) (`flexGrow`, `flexShrink`, `alignSelf`) only apply to `FlexBox` — wrap a non-`FlexBox` child in a `FlexBox` to opt into flex layout behavior.
+On iOS, padding and tap handlers can be applied to any component. [`Flex modifiers`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_flexbox) (`flexGrow`, `flexShrink`, `alignSelf`) only apply to `FlexBox` — wrap a non-`FlexBox` child in a `FlexBox` to opt into flex layout behavior.
 ```swift
 // Padding and tap handlers apply to any component.
 Text("Tappable text", style: .body)
@@ -653,7 +650,7 @@ Text("Flexible text", style: .body)
 ```
 ### Layouts
 #### Column layout
-Use [`direction`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_direction) to determine the main axis along which children are arranged. This code sample illustrates a *vertical* layout with a header, body text, and action button.
+Use [`direction`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_direction) to determine the main axis along which children are arranged. This code sample illustrates a *vertical* layout with a header, body text, and action button.
 ```swift
 let view = FlexBox(direction: .column, spacing: 12, padding: EdgeInsets(all: 16)) {
 Text("Oil Change Guide", style: .heading)
@@ -746,7 +743,7 @@ Video playback allows you to play video content from a URL on the full-screen vi
 - **URL scheme:** `https` only
 - **Concurrency:** One video at a time per display session
 ### Play video
-Play video using [`VideoPlayer`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_videoplayer).
+Play video using [`VideoPlayer`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_videoplayer).
 ```swift
 // Start video playback
 let video = VideoPlayer(
@@ -780,7 +777,7 @@ break
 ## Error handling
 Display operations may fail. Handle errors gracefully to provide a better experience for your users.
 ### Display errors
-[`DisplayError`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_displayerror) identifies errors for display operations on Meta AI glasses.
+[`DisplayError`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_displayerror) identifies errors for display operations on Meta AI glasses.
 ```swift
 do {
 try await display.send(view)
@@ -822,7 +819,7 @@ case .unexpectedError:
 }
 ```
 ### Video errors
-[`VideoError`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatdisplay_videoerror) outlines errors for video playback on Meta AI glasses.
+[`VideoError`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatdisplay_videoerror) outlines errors for video playback on Meta AI glasses.
 ```swift
 let video = VideoPlayer(
 provider: .uri(videoUrl),
@@ -858,11 +855,7 @@ implementation("com.meta.wearable:mwdat-display:
 ")
 }
 ```
-### Step 2: Configure AndroidManifest.xml
-The Device Access Toolkit App Model (DAM) flow is the default for display integrations. This means that if `DAM_ENABLED` is missing from your app's `AndroidManifest.xml` file, the *default* value is now `true`. If you already set `DAM_ENABLED` to `true`, there is no change.
-```xml
-```
-### Step 3: Import packages
+### Step 2: Import packages
 Import the required display packages.
 ```kotlin
 import com.meta.wearable.dat.core.*
@@ -870,7 +863,7 @@ import com.meta.wearable.dat.display.*
 import com.meta.wearable.dat.display.types.*
 import com.meta.wearable.dat.display.views.*
 ```
-### Step 4: Connect to the display
+### Step 3: Connect to the display
 Connect to the display by initializing the SDK, creating a session, and attaching the display capability.
 ```kotlin
 // Initialize the SDK
@@ -889,7 +882,7 @@ text("Hello, glasses!", style = TextStyle.HEADING)
 }
 }
 ```
-### Step 5: Observe state changes
+### Step 4: Observe state changes
 ```kotlin
 // Using Flow
 display.state.collect { state ->
@@ -910,7 +903,7 @@ DisplayState.CLOSED -> {
 }
 }
 ```
-### Step 6: Stop display
+### Step 5: Stop display
 When your app is done using the display capabilities, clean up resources.
 ```kotlin
 session.removeDisplay()
@@ -919,10 +912,10 @@ session.stop()
 **Note:** The glasses display dims after 20 seconds of inactivity and enters sleep mode at 25 seconds. Display sleep does *not* end a Wearables Device Access Toolkit session. When the display wakes, your app can either show the previously displayed content or send a new view.
 ## Build content
 Wearables Device Access Toolkit uses a declarative component system to build UI layouts for display, so you compose views using a result builder in Kotlin.
-Each call to [`sendContent()`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_display#sendcontent) replaces the entire display, so there are no incremental updates. Views are presented one at a time with vertical scrolling. Horizontal scrolling is not supported.
+Each call to [`sendContent()`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_display#sendcontent) replaces the entire display, so there are no incremental updates. Views are presented one at a time with vertical scrolling. Horizontal scrolling is not supported.
 ### FlexBox
 **FlexBox** is the primary layout container for Meta Ray-Ban Display apps. It helps you build declarative UI trees with text, images, icons, and buttons. This means that every layout starts with a root FlexBox. Inside, you arrange either these child components or nested FlexBoxes using specific layout properties.
-[`flexBox`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_views_flexboxscope) arranges children along a main axis (row or column) with control over spacing, alignment, and wrapping.
+[`flexBox`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_views_flexboxscope) arranges children along a main axis (row or column) with control over spacing, alignment, and wrapping.
 ```kotlin
 flexBox(
 direction = Direction.COLUMN,      // COLUMN, ROW, COLUMN_REVERSE, ROW_REVERSE
@@ -940,12 +933,12 @@ paddingEnd = 16
 ```
 ### Text
 Display styled text. Three style presets match the glasses design system.
-| [`TextStyle`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_views_textstyle) | Description |
+| [`TextStyle`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_views_textstyle) | Description |
 |-------|-------------|
 | `HEADING` | Large, bold text for section titles |
 | `BODY` | Standard text for general content |
 | `META` | Small text for captions and metadata |
-| [`TextColor`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_views_textcolor) | Description |
+| [`TextColor`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_views_textcolor) | Description |
 |-------|-------------|
 | `PRIMARY` | Default high-contrast text |
 | `SECONDARY` | Lower-contrast supporting text |
@@ -956,11 +949,11 @@ text("Step 1 of 5", style = TextStyle.META, color = TextColor.SECONDARY)
 ```
 ### Images
 Display images loaded from URLs.
-| [`ImageSize`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_views_imagesize) | Description |
+| [`ImageSize`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_views_imagesize) | Description |
 |-------------|-------------|
 | `ICON` | Small, inline-sized image |
 | `FILL` | Fills the available space |
-| [`CornerRadius`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_views_cornerradius) | Description |
+| [`CornerRadius`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_views_cornerradius) | Description |
 |---------------|-------------|
 | `NONE` | Sharp corners |
 | `SMALL` | Slightly rounded |
@@ -975,7 +968,7 @@ cornerRadius = CornerRadius.MEDIUM
 **Note:** The Meta Ray-Ban Display glasses render at 600x600 resolution. Use appropriately sized images — there is no benefit to sending larger images, and oversized assets introduce lag due to Bluetooth bandwidth constraints.
 ### Buttons
 Implement tappable buttons with corresponding labels, optional icons, and click handlers.
-| [`ButtonStyle`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_views_buttonstyle) | Description |
+| [`ButtonStyle`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_views_buttonstyle) | Description |
 |-------|-------------|
 | `PRIMARY` | High-emphasis filled button |
 | `SECONDARY` | Medium-emphasis filled button |
@@ -996,7 +989,7 @@ onClick = { /* Handle tap */ }
 ```
 ### Icons
 Display a system icon from a built-in catalog of 100+ glyphs, covering navigation, media, weather, social, and more.
-| [`IconStyle`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_views_iconstyle) | Description |
+| [`IconStyle`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_views_iconstyle) | Description |
 |-------|-------------|
 | `FILLED` | Solid icon |
 | `OUTLINE` | Hollow icon |
@@ -1007,7 +1000,7 @@ icon(name = IconName.BELL, style = IconStyle.OUTLINE)
 See the [icon catalog](/develop/dat/display-icons) for all available `IconName` enum values.
 If you need an icon outside the built-in catalog, you can also provide your own [custom image](#images).
 ### Flex layout properties
-[Flex properties](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_views_flexboxscope) (`flexGrow`, `flexShrink`) are constructor parameters on `flexBox`. To apply flex behavior to a non-`flexBox` child, wrap it in a `flexBox`.
+[Flex properties](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_views_flexboxscope) (`flexGrow`, `flexShrink`) are constructor parameters on `flexBox`. To apply flex behavior to a non-`flexBox` child, wrap it in a `flexBox`.
 ```kotlin
 flexBox(direction = Direction.ROW) {
 flexBox(flexGrow = 1f) {
@@ -1026,7 +1019,7 @@ text("Tappable area", style = TextStyle.BODY)
 ```
 ### Layouts
 #### Column layout
-Use [`Direction`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_views_direction) to determine the main axis along which children are arranged. This code sample illustrates a *vertical* layout with a header, body text, and action button.
+Use [`Direction`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_views_direction) to determine the main axis along which children are arranged. This code sample illustrates a *vertical* layout with a header, body text, and action button.
 ```kotlin
 display.sendContent {
 flexBox(direction = Direction.COLUMN, gap = 12, paddingAll = 16) {
@@ -1146,7 +1139,7 @@ Video playback allows you to play video content from a URL on the full-screen vi
 - **URL scheme:** `https` only
 - **Concurrency:** One video at a time per display session
 ### Play video
-Play video using [`VideoPlayer`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_views_videoplayer).
+Play video using [`VideoPlayer`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_views_videoplayer).
 ```kotlin
 val player = VideoPlayer(
 source = VideoSource.Url("https://example.com/tutorial-clip.mp4"),
@@ -1174,7 +1167,7 @@ player.close()
 ## Error handling
 Display operations may fail. Handle errors gracefully to provide a better experience for your users.
 ### Display errors
-Display operations return [`DatResult`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_core_types_datresult), which will contain a [`DisplayError`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_types_displayerror) if an error occurred during that operation.
+Display operations return [`DatResult`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_core_types_datresult), which will contain a [`DisplayError`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_types_displayerror) if an error occurred during that operation.
 ```kotlin
 display.sendContent {
 flexBox { text("Hello") }
@@ -1209,7 +1202,7 @@ onFailure = { error, _ -> showError(error.description) }
 )
 ```
 ### Video errors
-[`VideoPlayerError`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_display_types_videoplayererror) outlines errors for video playback on MRBD.
+[`VideoPlayerError`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_display_types_videoplayererror) outlines errors for video playback on MRBD.
 ```kotlin
 player.error.collect { error ->
 when (error) {
@@ -1360,7 +1353,7 @@ The Wearables Device Access Toolkit runs inside sessions. Meta AI glasses expose
 - **Transactions** are short, system-owned interactions (for example, notifications or "Hey Meta").
 When your app requests a device session, the glasses grant or revoke access as needed, the app observes state, and the system decides when to change it.
 ## Device session states
-`DeviceSessionState` is device-driven and delivered asynchronously. On Android, observe the state using [`state`](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_core_session_devicesession#state). On iOS, use [`stateStream()`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatcore_devicesession#statestream).
+`DeviceSessionState` is device-driven and delivered asynchronously. On Android, observe the state using [`state`](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_core_session_devicesession#state). On iOS, use [`stateStream()`](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatcore_devicesession#statestream).
 | State              | Meaning                                   | App expectation                       |
 |--------------------|--------------------------------------------|---------------------------------------|
 | `STOPPED`          | Session is inactive and not reconnecting.  | Free resources. Wait for user action. |
@@ -1448,7 +1441,7 @@ To create an integration, follow this guidance to build your first integration f
 ## Registration
 Your app registers with the Meta AI app to be an permitted integration. This establishes the connection between your app and the glasses platform. Registration happens once through Meta AI app with glasses connected. Users see your app name in the list of connected apps. They can unregister anytime through the Meta AI app. You can also implement an unregistration flow is desired.
 ## Device permissions
-After registration, request specific permissions (see possible values for [Android](https://wearables.developer.meta.com/docs/reference/android/dat/0.8/com_meta_wearable_dat_core_types_permission#enumeration_constants) and [iOS](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.8/mwdatcore_permission#enumeration_constants)). The Meta AI app runs the permission grant flow. Users choose **Allow once** (temporary) or **Allow always** (persistent).
+After registration, request specific permissions (see possible values for [Android](https://wearables.developer.meta.com/docs/reference/android/dat/latest/com_meta_wearable_dat_core_types_permission#enumeration_constants) and [iOS](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest/mwdatcore_permission#enumeration_constants)). The Meta AI app runs the permission grant flow. Users choose **Allow once** (temporary) or **Allow always** (persistent).
 ### User experience flow
 ![Illustrating the user experience flow for permissions and using features.](/images/wearables-permissions-request-1.png)
 - Without registration, permission requests fail.
@@ -1654,13 +1647,13 @@ Mock camera feeds let you verify streaming and capture workflows without video h
 ```swift
 let device = try MockDeviceKit.shared.pairGlasses(model: .rayBanMeta)
 let camera = device.services.camera
-await camera.setCameraFeed(fileURL: videoURL)
+camera.setCameraFeed(fileURL: videoURL)
 ```
 ### Provide a captured photo
 ```swift
 let device = try MockDeviceKit.shared.pairGlasses(model: .rayBanMeta)
 let camera = device.services.camera
-await camera.setCapturedImage(fileURL: imageURL)
+camera.setCapturedImage(fileURL: imageURL)
 ```
 ## MockDevice test server for XCUITest
 The MockDevice test server enables UI automation testing by allowing XCUITest processes to control mock devices at runtime via HTTP. This eliminates the need to hardcode mock device setup in your app, enabling dynamic test scenarios where each test can configure its own device state.
@@ -2134,7 +2127,7 @@ If your Inspector build labels the transport as `HTTP` instead of `Streamable HT
 ## Example queries
 These are representative queries we tested against the DAT MCP:
 - `How do I stream camera on Ray-Ban Meta glasses?`
-Returns the camera streaming guide, including `Session.addStream(...)`, `StreamConfiguration`, valid frame rates, quality levels, and device-side caveats such as hinge-close and doff behavior.
+Returns the camera streaming guide, including `Session.addCamera(...)`, `StreamConfiguration`, valid frame rates, quality levels, and device-side caveats such as hinge-close and doff behavior.
 - `How do I initialize the DAT SDK?`
 Returns SDK startup and device session details such as `Wearables.initialize(context)`, `WearablesError.NOT_INITIALIZED`, `SessionState`, and the platform-specific session state listeners.
 - `How do I test DAT integrations without physical glasses?`
@@ -2238,12 +2231,12 @@ needed.
 - The admin should sign up to Wearables Developer Center. During this process
 they will be redirected to the MMA setup in
 [work.meta.com](https://work.meta.com/).
-- Use your company’s official name for the organization.
+- Use your company's official name for the organization.
 ### 4. Invite developers to the MMA organization
 - The admin invites all developers and contributors who need access to Wearables
 Developer Center.
 - Invited members will receive prompts to create or link their MMA.
-- **Note:** Only members of your company’s MMA organization can join your
+- **Note:** Only members of your company's MMA organization can join your
 Wearables Developer Center team.
 ### 5. Access Wearables Developer Center
 - Once your MMA and organization membership are set up, log into Wearables
@@ -2264,7 +2257,7 @@ connectivity.
 - Manage integration versions (Major, Minor, Patch).
 - Invite testers to
 [release channels](https://wearables.developer.meta.com/docs/set-up-release-channels).
-## Invite team members: admin rights
+## Invite team members: Admin rights
 - **If you're an admin in Admin Center:**
 - **Option 1:** Set up the new member's MMA first, then invite them via
 Wearables Developer Center.
@@ -2306,8 +2299,8 @@ You can connect your own mobile apps with your Meta wearable device by defining 
 1. Click **Configuration** in the project sidebar.
 1. Add the requested details for a mobile app you want to integrate with Meta wearable devices.
 ### Application ID integration
-To register your application successfully (without using Developer Mode), you must include the Wearables Application ID in your app’s manifest and pass it in the registration call. Copy and paste the integration details into your iOS or Android application build to complete this step.
-If your bundle ID and package name are different for iOS and Android, respectively (e.g., com.myapp.android vs. com.myapp.ios), you will need to create two separate apps — one that defines only the Android platform and another that defines only the iOS platform.
+To register your application successfully (without using Developer Mode), you must include the Wearables Application ID in your app's manifest and pass it in the registration call. Copy and paste the integration details into your iOS or Android application build to complete this step.
+If your bundle ID and package name are different for iOS and Android, respectively (for example, com.myapp.android vs. com.myapp.ios), you will need to create two separate apps — one that defines only the Android platform and another that defines only the iOS platform.
 > **Note:** A hyphen `-` is *not* supported for iOS bundle IDs.
 ## Product listing
 **App name and icon**
@@ -2321,7 +2314,7 @@ These details will also be visible to other users in the Meta AI app when they
 If your app or project needs access to device functionality like the camera or microphone, you must provide a justification in the **Permissions** tab. This justification is for Meta's internal review only and is not shown to end-users. Reviewers use your explanation to determine if the permission is necessary and appropriate for your app's functionality.
 > **Note:** Available permissions include camera, microphone, and voice invocation. New device capabilities may be added in future iterations.
 ## Distribute
-When you’re ready for people to try your project, you need to
+When you're ready for people to try your project, you need to
 [set up release channels](https://wearables.developer.meta.com/docs/set-up-release-channels).
 Device Access Toolkit v0.7 and later automatically generate a corresponding Device Access Toolkit application for each new version. Builds usually complete within 10 minutes, but may take up to 30 minutes. Use a version with a release channel only after its Device Access Toolkit app finishes building. Monitor build status in the Distribution dashboard:
 - **N/A:** Version is missing build artifact.
@@ -2356,9 +2349,9 @@ Wearables Developer Center uses a versioning system that helps track changes and
 After you add and save these details you can find them by going to **Distribute > Version details > Project data**.
 When you change any of these details, you need to create a new version of the integration so you can distribute it to testers on a release channel.
 When selecting the version to use, the type of change you are making determines the category you should choose:
-- **Major (e.g., 2.3.4 to 3.0.0):** Choose this for significant changes or API revisions that are not guaranteed to maintain compatibility with previous versions. For example, select a major version if you change core app functionality in a way that breaks existing features.
-- **Minor (e.g., 2.3.4 to 2.4.0):** Select a minor version when introducing new features while still maintaining backwards compatibility. For example, if you add a new button or feature.
-- **Patch (e.g., 2.3.4 to 2.3.5):** Use a patch version for fixing bugs or delivering minor improvements that do not break compatibility, such as correcting a typo or a small bug fix.
+- **Major (for example, 2.3.4 to 3.0.0):** Choose this for significant changes or API revisions that are not guaranteed to maintain compatibility with previous versions. For example, select a major version if you change core app functionality in a way that breaks existing features.
+- **Minor (for example, 2.3.4 to 2.4.0):** Select a minor version when introducing new features while still maintaining backwards compatibility. For example, if you add a new button or feature.
+- **Patch (for example, 2.3.4 to 2.3.5):** Use a patch version for fixing bugs or delivering minor improvements that do not break compatibility, such as correcting a typo or a small bug fix.
 ## Create versions
 To create a new version of your integration:
 1. Log in to the [Meta Wearables Developer Center](https://wearables.developer.meta.com/).
@@ -2371,7 +2364,7 @@ To create a new version of your integration:
 Release channels let you control distribution of your versions. By creating and assigning versions to specific channels, you determine which user groups access each version. Each channel supports only one version at a time, but you can attach the same version to multiple channels if needed.
 ### Release channel options
 - **Invite-only channels:** Useful for alpha/beta testing. All release channels for Device Access Toolkit are currently invite-only.
-- **User invitations by email:** You can only invite testers who have [Meta accounts](https://developers.meta.com/horizon/blog/introducing-meta-accounts-what-developers-need-to-know/). Make sure to add the email associated with the tester’s Meta account when prompted to invite testers.
+- **User invitations by email:** You can only invite testers who have [Meta accounts](https://developers.meta.com/horizon/blog/introducing-meta-accounts-what-developers-need-to-know/). Make sure to add the email associated with the tester's Meta account when prompted to invite testers.
 - **Tester autonomy:** Testers may accept or decline invitations and can remove themselves at any time.
 - **Developer control:** You can revoke tester access at any point. You can also reinvite users you have previously revoked.
 - **Limitations:** The maximum number of release channels per integration and users per channel are configured per app. Check your project's distribution page for current limits.
@@ -2395,21 +2388,20 @@ People testing your integration can manage app permissions and switch release ch
 ## Manage permissions for connected apps
 As a test user, managing permissions lets you control what each integration can access on your device.
 To manage permissions:
-1. Open the Meta AI App.
+1. Open the Meta AI app.
 2. Go to the device menu and tap **Settings**.
-3. Select **Connected Apps** to see a list of all apps linked to your Meta AI account.
+3. Select **App connections** to see a list of all apps linked to your Meta AI account.
 4. Tap on an app to view its permissions.
-5. Adjust specific permissions, e.g., for the camera:
-- You may see options like:
+5. Adjust specific permissions. For example, for the camera, you may see options like:
 - Always allow
-- Always ask
-- Don’t allow
+- Allow once
+- Don't allow
 6. Click **Confirm** to save your changes.
 **Note:** Changes made to these settings will apply to all devices connected to your Meta AI app.
 ## Switch release channel
 Release channels let testers choose between different versions of your integration.
 ### To switch release channel
-1. Open the Meta AI App.
+1. Open the Meta AI app.
 2. Go to the device menu and tap **Settings**.
 3. Tap **Release Channel** to see available options.
 4. Select your preferred channel.
@@ -2424,13 +2416,12 @@ You can request a copy of your information related to Wearables Device Access To
 ## Overview
 This page describes the telemetry data that the Device Access Toolkit SDK collects from Android and iOS apps that integrate with Meta AI glasses.
 The SDK collects operational and diagnostic telemetry (for example, device discovery, registration flows, streaming session lifecycle, permission checks, attestation, and performance markers) to support reliability, performance monitoring, troubleshooting, and product improvement. In turn, telemetry helps Meta identify issues, measure SDK health, and improve the developer experience.
-Some of the data collected includes:
+Some of this collected data includes:
 * Device identifiers
 * Firmware versions
 * Session durations
 * Error types
 * Success/failure flags
-**Supported devices for telemetry:** Ray-Ban Meta glasses, Oakley Meta HSTN, Oakley Meta Vanguard, and Meta Ray-Ban Display (MRBD).
 ## Opt Out
 Telemetry collection is enabled by default, but you can disable it at the app level.
 ### Android
@@ -2446,9 +2437,9 @@ Analytics
 OptOut
 ```
 ## Data Categories
-We collect the following categories of telemetry data via the SDK:
+The following categories of telemetry data are collected via the SDK:
 ### Application and SDK identification
-Identifies which third-party app and SDK version generated an event, enabling usage attribution and version-specific issue diagnosis:
+Identifies which third-party app and SDK version generated an event, enabling usage attribution and version-specific issue diagnosis.
 **Examples:**
 * App bundle ID / package name, app name, and app version
 * Public-key SHA-256
@@ -2486,7 +2477,7 @@ Captures usage and quality signals for video and photo streaming.
 * Configuration: video codec, audio codec, resolution tier (`LOW` 360×640, `MEDIUM` 504×896, `HIGH` 720×1280), frame delivery method
 * Duration in seconds
 ### Display content delivery
-For glasses with display capabilities (Meta Ray-Ban Display glasses), logs display session usage.
+Logs display session usage for glasses with display capabilities (Meta Ray-Ban Display glasses).
 **Examples:**
 * Display event type (start, stop, send content, video playback states)
 * Display session ID and duration
@@ -2515,13 +2506,12 @@ When you use Mock Device Kit to test without physical hardware, separate events 
 | --- | --- |
 |Device Access Toolkit Wearables App installation fails if the device battery is below 10%.|Charge your glasses until the battery level exceeds 10%, then try again.|
 |Device Access Toolkit Wearables App installation may fail intermittently while setting or resetting device connections.|No current fix available. Future versions of Meta AI and Glasses firmware will include a more robust installation process.|
-|Android SDK crashes intermittently when multiple captures are taken in quick succession on long-running streams (>1 min).|Close the device session and start a new one.|
 |Android Device Access Toolkit Wearables App transfer may fail silently if Wi-Fi is off.|Enable Wi-Fi and try again.|
 ## Wearables Developer Center
 | Issue | Workaround |
 | --- | --- |
 |Beta testing: Distribution functionality requires minimum firmware v125| Update glasses firmware to v125 or higher. |
-|Beta testing: Device Access Toolkit doesn’t currently allow for an application to have both a unique package name and a different bundle ID.|In the Wearables Developer Center, developers should set up individual applications for the iOS and Android platforms.|
+|Beta testing: Device Access Toolkit doesn't currently allow for an application to have both a unique package name and a different bundle ID.|In the Wearables Developer Center, developers should set up individual applications for the iOS and Android platforms.|
 |Beta testing: Device Access Toolkit currently doesn't support the '-'  dash character in the iOS Bundle ID.|Don't use this character in the Bundle ID.|
 |Beta testing: For v272, if the Meta AI app is connected to multiple devices, registering an app will install the Device Access Toolkit Wearables App only on one device.|All other devices will require manual installation of the DAT Wearables App from the Meta AI app.|
 |Beta testing: New versions on Wearables Developer Center may not be compatible with apps that are not using the latest SDK and have the Device Access Toolkit Wearables App enabled.|Update your application to use the latest SDK.|
@@ -2531,15 +2521,26 @@ When you use Mock Device Kit to test without physical hardware, separate events 
 ### Version Dependencies
 ## Overview
 This page outlines the supported versions of the Meta AI app and glasses firmware for each release of the Meta Wearables Device Access Toolkit.
+## 0.9.0
+| App/Firmware | Support |
+| --- | --- |
+| Meta AI app (Android) | V282 |
+| Meta AI app (iOS) | V282 |
+| Ray-Ban Meta glasses | V126 |
+| Meta glasses | V126 |
+| Meta Ray-Ban Display glasses | V125 |
+| Oakley Meta HSTN glasses | V126 |
+| Oakley Meta Vanguard glasses | V126 |
 ## 0.8.0
 | App/Firmware | Support |
 | --- | --- |
-| Meta AI app (Android) | V272 |
-| Meta AI app (iOS) | V272 |
-| Ray-Ban Meta glasses | V127 |
-| Meta Ray-Ban Display glasses | V127 |
-| Oakley Meta HSTN glasses | V127 |
-| Oakley Meta Vanguard glasses | V127 |
+| Meta AI app (Android) | V275 |
+| Meta AI app (iOS) | V275 |
+| Ray-Ban Meta glasses | V125 |
+| Meta glasses | V125 |
+| Meta Ray-Ban Display glasses | V125 |
+| Oakley Meta HSTN glasses | V125 |
+| Oakley Meta Vanguard glasses | V125 |
 ## 0.7.0
 | App/Firmware | Support |
 | --- | --- |
@@ -2612,6 +2613,8 @@ Base exception class for the DAT (Device Access Toolkit) SDK.
 Configuration for a display capability on a Meta Wearables device.
 ### VideoSource
 Represents the source of video data for a [VideoPlayer](com_meta_wearable_dat_display_views_video...
+### ButtonGroupScope
+Scope for building the buttons inside a [FlexBoxScope.buttonGroup](com_meta_wearable_dat_display_...
 ### ContentScope
 Scope for building the root display content sent to a wearable device.
 ### FlexBoxScope
@@ -2624,6 +2627,8 @@ Configuration scope for video content within [ContentScope.video](com_meta_weara
 Configuration for MockDeviceKit behavior.
 ### MockDeviceKit
 Main entry point for managing simulated Meta Wearables devices.
+### CameraState (enum)
+Represents the current lifecycle state of a [Camera](com_meta_wearable_dat_camera_camera) capabil...
 ### StreamError (enum)
 Represents all possible stream error types that can occur during camera streaming operations.
 ### StreamState (enum)
@@ -2664,6 +2669,8 @@ Errors that can occur during [VideoPlayer](com_meta_wearable_dat_display_views_v
 Lifecycle state of a [VideoPlayer](com_meta_wearable_dat_display_views_videoplayer).
 ### Alignment (enum)
 Alignment options for positioning children within a FlexBox layout.
+### ButtonGroupAlignment (enum)
+Positioning of the buttons within a [FlexBoxScope.buttonGroup](com_meta_wearable_dat_display_view...
 ### ButtonStyle (enum)
 Visual style presets for button components on the wearable display.
 ### CornerRadius (enum)
@@ -2687,7 +2694,10 @@ Specifies which phone camera to use as the mock device camera source.
 ### GlassesModel (enum)
 Available glasses models that MockDeviceKit can simulate.
 ## Section 3: iOS Swift API Reference
-### CaptureError (enum)
+### Camera
+Consolidated camera capability for a Meta Wearables device.
+### CameraState (enum)
+Represents the current lifecycle state of a [Camera](/reference/ios_swift/dat/0.9/mwdatcamera_cam...
 ### PhotoCaptureFormat (enum)
 Supported formats for capturing photos from Meta Wearables devices.
 ### PhotoData
@@ -2715,7 +2725,7 @@ A token that can be used to cancel a listener subscription. When the token is no
 ### AutoDeviceSelector
 A device selector that automatically selects the best available device. Selects the first connect...
 ### CapabilityState (enum)
-Represents the state of a capability attached to a [DeviceSession](/reference/ios_swift/dat/0.8/m...
+Represents the state of a capability attached to a [DeviceSession](/reference/ios_swift/dat/0.9/m...
 ### Compatibility (enum)
 Indicates the compatibility status between AI glasses and the Wearables Device Access Toolkit.
 ### DatError
@@ -2727,16 +2737,17 @@ Protocol for selecting which device should be used for operations. Device select
 ### DeviceSession
 A session representing a connection to a specific wearable device.
 ### DeviceSessionError (enum)
-Errors that can occur during [DeviceSession](/reference/ios_swift/dat/0.8/mwdatcore_devicesession...
+Errors that can occur during [DeviceSession](/reference/ios_swift/dat/0.9/mwdatcore_devicesession...
 ### DeviceSessionState (enum)
-Represents the current state of a [DeviceSession](/reference/ios_swift/dat/0.8/mwdatcore_devicese...
+Represents the current state of a [DeviceSession](/reference/ios_swift/dat/0.9/mwdatcore_devicese...
 ### DeviceState
 Represents the current state of a connected device.
 ### DeviceType (enum)
-Represents the types of Meta Wearables devices supported by the Wearables Device Access Toolkit.
+Each device type corresponds to a specific Meta Wearables hardware variant with distinct capabili...
 ### LinkState (enum)
 Represents the connection state between a device and the Wearables Device Access Toolkit.
-### Mutex
+### ListenerTokenBag
+Groups listener tokens that share a lifecycle.
 ### NavigationError (enum)
 Errors that can occur when navigating to a screen in the Meta AI companion app.
 ### Permission (enum)
@@ -2749,8 +2760,6 @@ Represents the status of a permission request.
 Error conditions that can occur during the registration process.
 ### RegistrationState (enum)
 Represents the current state of user registration with the Meta Wearables platform.
-### SessionState (enum)
-Represents the current state of a device session in the Wearables Device Access Toolkit.
 ### SpecificDeviceSelector
 A device selector that always selects a specific, predetermined device. Use this when you want to...
 ### ThermalLevel (enum)
@@ -2766,19 +2775,25 @@ Errors that can occur during URL handling.
 ### WearablesInterface
 The primary interface for Wearables Device Access Toolkit.
 ### Alignment (enum)
-Alignment options for positioning children within a [FlexBox](/reference/ios_swift/dat/0.8/mwdatd...
+Alignment options for positioning children within a [FlexBox](/reference/ios_swift/dat/0.9/mwdatd...
 ### Background (enum)
-Background-style options for [FlexBox](/reference/ios_swift/dat/0.8/mwdatdisplay_flexbox).
+Background-style options for [FlexBox](/reference/ios_swift/dat/0.9/mwdatdisplay_flexbox).
 ### Button
 A tappable button component displayed on the wearable.
+### ButtonGroup
+A horizontal group of [Button](/reference/ios_swift/dat/0.9/mwdatdisplay_button)s rendered as a s...
+### ButtonGroupAlignment (enum)
+Alignment of the buttons within a [ButtonGroup](/reference/ios_swift/dat/0.9/mwdatdisplay_buttong...
+### ButtonGroupBuilder
+A result builder for composing [Button](/reference/ios_swift/dat/0.9/mwdatdisplay_button)s inside...
 ### ButtonStyle (enum)
 Visual style presets for button components on the wearable display.
 ### ComponentBuilder
-A result builder for composing view components inside a [FlexBox](/reference/ios_swift/dat/0.8/mw...
+A result builder for composing view components inside a [FlexBox](/reference/ios_swift/dat/0.9/mw...
 ### CornerRadius (enum)
 Corner radius presets for image components on the wearable display.
 ### Direction (enum)
-Layout direction for [FlexBox](/reference/ios_swift/dat/0.8/mwdatdisplay_flexbox) and container c...
+Layout direction for [FlexBox](/reference/ios_swift/dat/0.9/mwdatdisplay_flexbox) and container c...
 ### Display
 Manages rendering content on a Meta Wearables display.
 ### DisplayableView
@@ -2786,7 +2801,7 @@ A protocol for views that can be displayed on glasses.
 ### DisplayError (enum)
 Errors that can occur during display operations such as [Display.send(_:)](/reference/ios_swift/d...
 ### DisplayState (enum)
-The current lifecycle state of a [Display](/reference/ios_swift/dat/0.8/mwdatdisplay_display).
+The current lifecycle state of a [Display](/reference/ios_swift/dat/0.9/mwdatdisplay_display).
 ### Edge
 A set of edges for padding modifiers.
 ### EdgeInsets
@@ -2800,7 +2815,7 @@ Supported icon names for display.
 ### IconStyle (enum)
 Visual style for icon components on the wearable display.
 ### Image
-An image component loaded from a URI and displayed on the wearable.
+An image component displayed on the wearable.
 ### ImageSize (enum)
 Size presets for image components on the wearable display.
 ### Text
@@ -2810,11 +2825,11 @@ Color presets for text components on the wearable display.
 ### TextStyle (enum)
 Typography style presets for text components on the wearable display.
 ### VideoError (enum)
-Errors that occur during video playback via [VideoPlayer](/reference/ios_swift/dat/0.8/mwdatdispl...
+Errors that occur during video playback via [VideoPlayer](/reference/ios_swift/dat/0.9/mwdatdispl...
 ### VideoPlayer
 A video player configuration to be sent to the glasses via [Display.send(_:)](/reference/ios_swif...
 ### ViewComponent
-A protocol for components that can be arranged inside a [FlexBox](/reference/ios_swift/dat/0.8/mw...
+A protocol for components that can be arranged inside a [FlexBox](/reference/ios_swift/dat/0.9/mw...
 ### CameraFacing (enum)
 The camera to use for live streaming from the phone.
 ### GlassesModel (enum)
@@ -3191,6 +3206,21 @@ Select your Web App in MRBD to launch it. Once in the Web App, you can use up/do
 * A **Permissions** button to manage permissions (if necessary)
 ## Testing on other devices
 Your Web App will run on any other browsers, like on your computer or mobile phone. If it works on your computer with up/down/left/right arrow keys and Enter, it should also work on your glasses. If you use Chrome debugging tools, set the viewport to 600 x 600 px.
+## Testing with Display Simulator Chrome Extension
+The **Meta Ray-Ban Display Web App Simulator** is a Chrome extension that recreates the 600×600 pixel display surface of Meta Ray-Ban Display glasses directly in your browser. The glasses display is unlike any phone or desktop screen — additive (black = transparent), D-pad-only input, and viewed against the real world. The simulator closes this gap by letting you preview and QA your Web Apps with additive blending, environment backgrounds, D-pad input, display tuning, and recording, all without needing physical hardware.
+### Installing the extension
+1. Visit the [Meta Ray-Ban Display Web App Simulator](https://chromewebstore.google.com/detail/jpjlmmodokemlepklkdbimceggpbjcll) extension page in the Chrome Web Store.
+1. Click **Add to Chrome**.
+1. Navigate to your Web App in Chrome and click the extension icon in the toolbar to toggle the simulator on.
+### Features
+- **600×600 px display frame**: Exact MRBD resolution with optional frame overlay and additive blending.
+- **Environment backgrounds**: Built-in scenes, custom image upload, animated backgrounds, and live webcam for real-world blending preview.
+- **D-pad input**: On-screen directional buttons and Select that dispatch keyboard events into your Web App. These correspond with physical arrow keys and Enter.
+- **Display settings**: App brightness, background brightness, background blur, and auto-dimming controls.
+- **Viewport recorder**: Record the simulator viewport as a downloadable WebM video for demos or bug reports.
+- **View on Glasses QR**: Generate a deeplink QR code to add your Web App to your MRBD via the Meta AI App, or share the QR code with others so they can add it too.
+- **QA checklist**: Automated checks for viewport meta, favicon, D-pad-focusable elements, horizontal overflow, and visible focus styles.
+![Meta Ray-Ban Display Web App Simulator](/images/display-simulator-chrome-extension.png)
 ## Sharing your Web App
 After testing your Web App, you can easily share it with other users:
 1. In the Meta AI app, go back to **App Settings** > **App Connections**.

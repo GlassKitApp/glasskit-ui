@@ -13,7 +13,7 @@ Web Apps MCP
 Build
 Updated
 :
-Jun 22, 2026
+Aug 4, 2026
 Overview
 Web Apps for Meta Ray-Ban Display (MRBD) use standard web APIs. The easiest way to build Web Apps is using AI coding tools.
 Learn how to build optimized Meta Ray-Ban Display Web Apps by understanding:
@@ -60,7 +60,7 @@ Description and guidance
 Display
 Additive waveguide overlay. Use dark backgrounds/light, high-contrast UI colors. Fixed 600x600px viewport. Avoid scrolling.
 Input
-Navigation via Neural Band/captouch gestures translates to standard arrow key and Enter events. No mouse/touch/keyboard. All elements must be focusable.
+Navigation via Neural Band/captouch gestures translates to standard arrow key and Enter events. On-glasses composer provides text input. No mouse/touch/keyboard. All elements must be focusable.
 Sensors (IMU)
 Standard
 DeviceMotionEvent
@@ -87,10 +87,8 @@ not
 yet support:
 Camera
 Microphone
-Text Input
 Offline Support
 Notifications
-Back Navigation
 Also, there is no continuous cursor support for Web Apps.
 Display
 The display is an additive waveguide that overlays rendered pixels onto the wearer’s real-world view. This has a direct impact on how your app looks.
@@ -185,6 +183,195 @@ outline: none;
 border-color: #00d4ff;
 box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
 }
+Input: On-glasses composer for text
+Meta Ray-Ban Display (MRBD) glasses provide text input for Web Apps through an on-glasses composer, a systems-level handwriting and dictation panel that appears when users focus and tap on a standard HTML text field. Since MRBD glasses have no touchscreen or physical keyboard, users must use this composer to enter text into your Web App’s search boxes, forms, notes fields, and name prompts. No special integration is required.
+When the user focuses a text field and then taps (pinches), an
+on-glasses composer panel
+appears, allowing them to enter text via handwriting or voice dictation. The composed text is committed back to your field via standard DOM
+input
+and
+change
+events.
+Note:
+Text input requires glasses firmware
+v127+
+and Meta AI app
+v272+
+.
+Composer lifecycle
+flowchart TD
+A[ User navigates\nvia D-pad ] --  B[ Text field\nreceives focus ]
+B --  C{ User pinches\n(taps)? }
+C -- |No| D[ Field stays focused.\nComposer does not open ]
+C -- |Yes| E[ Composer panel opens\n(handwriting \+ voice) ]
+E --  F[ User enters text ]
+F --  G[ Text committed\nto field ]
+G --  H[  input  event fires\non your element ]
+H --  I{ More input\nneeded? }
+I -- |Yes| F
+I -- |No| J[ User navigates away.\nComposer closes ]
+J --  K[  change  event fires ]
+The composer opens on focus + tap,
+not
+on focus alone. Programmatic calls to
+.focus()
+will not surface the composer, so user-initiated activation is required.
+Input Types
+Supported input types
+The following HTML input types
+can
+open the composer.
+input type= text
+input type= search
+input type= email
+input type= url
+input type= tel
+input type= number
+textarea
+contenteditable
+elements
+Unsupported input types
+The following HTML input types
+can not
+open the composer.
+input type= password
+input type= date
+input type= checkbox
+input type= radio
+Text field implementation
+Add a standard HTML text field with a descriptive placeholder attribute. The placeholder text should help the user understand what to enter in the composer panel.
+HTML
+!-- Search field --
+input
+type= search
+id= search
+class= focusable
+placeholder= Tap to write or speak
+/
+!-- Multi-line notes field --
+textarea
+id= note
+class= focusable
+placeholder= Tap to write or speak
+/textarea
+JavaScript
+// Read the composed text using standard event listeners in JavaScript.
+const note = document.getElementById( note );
+//The composer commits text via the  input  event
+note.addEventListener( input , () =  {
+console.log( Current text: , note.value);
+});
+//  change  fires when the field loses focus after editing
+note.addEventListener( change , () =  {
+console.log( Final text: , note.value);
+});
+Best Practices
+Do
+Don’t
+Provide a clear, descriptive placeholder or aria-label
+Leave fields without hints
+Use supported input types (
+text
+,
+search
+,
+email
+,
+url
+,
+tel
+,
+number
+)
+Use
+type= password
+(since the composer won’t open)
+Listen for
+input
+events to read composed text
+Listen for
+keydown
+events (since no physical keyboard exists)
+Provide a fallback if the composer is unavailable
+Assume the composer will always be available
+Make fields focusable and navigable via D-pad
+Rely on mouse-click or touch to open fields
+Known Limitations
+The
+inputmode
+and
+enterkeyhint
+attributes do
+not
+affect the composer behavior. The
+type
+attribute controls only whether the field is eligible.
+On some firmware builds, the composer may be unavailable. Design your app to remain functional without it (for example, you can provide alternative navigation or pre-filled options).
+Complete example
+!DOCTYPE html
+html lang= en
+head
+meta charset= UTF-8  /
+meta name= viewport
+content= width=600, height=600, initial-scale=1.0, user-scalable=no  /
+title Search /title
+style
+.
+.
+.
+/style
+/head
+body
+!-- Text field: opens composer on focus + tap --
+input
+type= search
+id= search
+class= focusable
+placeholder= Tap to write
+/
+div id= results  aria-live= polite   /div
+script
+const searchField = document.getElementById( search );
+const results = document.getElementById( results );
+// Read composed text from the field
+searchField.addEventListener( input , () =  {
+results.textContent =  Searching:   + searchField.value;
+});
+// D-pad Navigation
+const focusables = Array.from(document.querySelectorAll( .focusable ));
+document.addEventListener( keydown , (e) =  {
+const idx = focusables.indexOf(document.activeElement);
+if (e.key ===  ArrowDown  || e.key ===  ArrowRight ) {
+focusables[(idx + 1) % focusables.length].focus();
+e.preventDefault();
+} else if (e.key ===  ArrowUp  || e.key ===  ArrowLeft ) {
+focusables[(idx - 1 + focusables.length) % focusables.length].focus();
+e.preventDefault();
+} else if (e.key ===  Enter ) {
+document.activeElement.click();
+e.preventDefault();
+}
+});
+focusables[0].focus();
+/script
+/body
+/html
+Text input troubleshooting
+| Issue | Cause | Solution |
+| :---- | :---- | :---- |
+| Composer does not open when field is focused. | Composer requires
+focus + tap
+(pinch). | Ensure the user pinches after focusing the field. |
+| Composer does not open on a password field. |
+type= password
+fields are excluded. | Use
+type= text
+if composer input is needed. |
+| Programmatic
+.focus()
+does not open composer. | Only user-initiated tap opens the composer. | Let the user navigate and tap the field. |
+| inputmode or enterkeyhint has no effect. | These attributes are not honored by the on-glasses composer. | Remove them or leave as progressive enhancement for other platforms. |
+| Text input features are simply not working. | Firmware version below v127. | Update glasses firmware to v127 or later. |
 Sensors
 Overview
 Meta Ray-Ban Display glasses expose access to accelerometer, gyroscope, and compass data through the standard
@@ -218,6 +405,18 @@ startIMU();
 }
 Note:
 The permission request must be triggered by a user gesture (for example, a button press via Enter key). It cannot be called automatically.
+Note:
+Do not trigger any browser history changes (such as
+history.pushState()
+or SPA routing) before the sensor permission request resolves. Doing so can leave the
+DeviceMotionEvent.requestPermission()
+promise pending indefinitely, causing the app to hang when sensors are requested. To avoid this:
+Serve the Web App without any
+history.pushState()
+or SPA routing before the sensor permission completes.
+Request permission from a user action and
+await
+it before changing browser history.
 DeviceMotionEvent
 DeviceMotionEvent
 provides real-time accelerometer and gyroscope readings. Use it to detect movement, measure G-forces, or track rotation speed.
@@ -419,6 +618,171 @@ localStorage
 sessionStorage
 : 5 MB
 As a general practice, keep stored data lightweight - avoid storing large blobs, images, or multi-megabyte datasets. Web storage is best suited for user preferences, small caches, and application state.
+Offline mode
+Web Apps can continue to work even when AI glasses lose their internet connection. By implementing offline support, your Web App will load reliably on flaky Wi-Fi, display cached content when connectivity drops, and provide a seamless experience regardless of network conditions.
+Offline mode uses standard web platform APIs -
+Service Workers
+and the
+Cache API
+- to save a copy of your app’s files directly on the device. Once cached, your app can load and render without a network request.
+Offline mode follows a three-stage lifecycle:
+Register:
+Your app registers a service worker (
+sw.js
+) that runs in the background.
+Install   precache:
+On first load, the service worker downloads and stores your app’s core files (HTML, CSS, JS) in a local cache.
+Serve from cache:
+On subsequent loads (including offline), the service worker intercepts network requests and serves cached files first, falling back to the network only when needed. This cache-first strategy means your app loads instantly from local storage, even with no connection.
+Requirements for Web App offline mode setup include the following:
+Requirement
+Details
+HTTPS
+Service workers only register in a secure context. Your app must be served over
+https://
+. Local
+file://
+URLs won’t work.
+Single app shell
+Your app’s core files must be identifiable as a cacheable set.
+No permission prompt
+Offline mode works in the background, so it does not require user permission.
+Setup
+Step 1: Register the service worker
+In your main app file (e.g.,
+index.html
+or
+app.js
+), register the
+serviceWorker
+:
+if ( serviceWorker  in navigator) {
+navigator.serviceWorker.register( /sw.js )
+.then((registration) =  {
+console.log( Service Worker registered: , registration.scope);
+})
+.catch((error) =  {
+console.log( Service Worker registration failed: , error);
+});
+}
+Step 2: Create a service worker file
+Create a file named
+sw.js
+at your app’s root. This file handles caching and request interception.
+// Define a versioned cache name and the files to precache.
+const CACHE_NAME =  my-app-v1 ;
+const APP_SHELL = [
+/ ,
+/index.html ,
+/app.js ,
+/styles.css
+];
+// Install: precache the app shell.
+self.addEventListener( install , (event) =  {
+event.waitUntil(
+caches.open(CACHE_NAME).then((cache) =  cache.addAll(APP_SHELL))
+);
+});
+// Activate: clean up old caches on version bump.
+self.addEventListener( activate , (event) =  {
+event.waitUntil(
+caches.keys().then((names) =
+Promise.all(
+names
+.filter((name) =  name !== CACHE_NAME)
+.map((name) =  caches.delete(name))
+)
+)
+);
+});
+// Fetch serve from cache first, fall back to network.
+self.addEventListener( fetch , (event) =  {
+event.respondWith(
+caches.match(event.request).then((cached) =  cached || fetch(event.request))
+);
+})
+Step 3: Show online/offline status in the UI
+Let the wearer know when they are offline and when connectivity returns.
+function updateConnectionStatus() {
+const status = document.getElementById( connection-status );
+if (navigator.onLine) {
+status.textContent =  ● Online ;
+status.style.color =  #00d4ff ;
+} else {
+status.textContent =  ● Offline ;
+status.style.color =  #ffaa00 ;
+}
+}
+window.addEventListener( online , updateConnectionStatus);
+window.addEventListener( offline , updateConnectionStatus);
+// Set initial state
+updateConnectionStatus();
+HTML for status indicator
+div id= connection-status  style= font-size: 14px; padding: 8px;   /div
+Updating your cached app
+When you release a new version of your app, update the
+CACHE_NAME
+(e.g., change
+my-app-v1
+to
+my-app-v2
+). The new service worker will install alongside the old one, precache the updated files, and clean up the outdated cache on activation.
+// Update this version string whenever you update your app
+const CACHE_NAME =  my-app-v2 ;
+Best practices
+Do
+Don’t
+Precache all files your app needs to render its initial screen.
+Assume every request will succeed. Always handle the offline case.
+Use a versioned cache name and clean old caches on activate.
+Leave stale caches accumulating on the device.
+Show a clear offline indicator, so your wearers know what to expect.
+Silently fail or show broken content when offline.
+Combine with
+localStorage
+for persisting user data between sessions.
+Depend solely on the cache for user-generated data.
+Decide which content makes sense offline and show a friendly message for content that requires fresh data.
+Try to cache everything, including API responses that change frequently.
+Other considerations
+Precache real subresource URLs:
+Ensure the file paths in your
+APP_SHELL
+array exactly match the URLs your app actually requests. Mismatched paths will cause cache misses, so your app won’t load offline.
+Storage Is per-app:
+Each Web App gets its own isolated cache. Combine offline caching with
+localStorage
+to persist user settings, notes, or preferences between sessions.
+Feature detection:
+The Service Worker API is present on supported builds, but always handle the case where registration fails gracefully, as illustrated here.
+if ( serviceWorker  in navigator) {
+// Safe to register
+} else {
+// Offline support not available — app still works, just requires a connection
+}
+Content that requires internet
+Some features (live data feeds, API calls, real-time updates) cannot work offline. Design your app to show a friendly message for those sections.
+async function fetchData(url) {
+try {
+const response = await fetch(url);
+return await response.json();
+} catch (error) {
+// Network unavailable -- show cached or placeholder content
+showOfflineMessage( This content requires an internet connection. );
+return null;
+}
+}
+Checklist
+Before publishing your Web App with offline support, verify the following:
+App is served over HTTPS.
+navigator.serviceWorker.register()
+resolves successfully.
+App shell files are precached on install (check DevTools → Application → Cache Storage).
+App loads and renders correctly after going offline (for example, airplane mode or disconnect Wi-Fi).
+Old caches are cleaned up when the cache version is bumped.
+Online/offline UI indicator updates correctly when connectivity changes.
+Content that requires a live connection shows a friendly fallback message.
+Service Worker registration failure is handled gracefully (app still works online).
 App Icons
 For app icons, use Unicode symbols or high-resolution PNG favicons (larger than 52x52 px). The system checks the Web App manifest and page source (not just
 favicon.ico
