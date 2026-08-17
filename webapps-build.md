@@ -859,5 +859,4 @@ Legal
 Privacy
 GitHub Discussions (iOS)
 GitHub Discussions (Android)
-English (US)
 © 2026 Meta
