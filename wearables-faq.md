@@ -1,15 +1,15 @@
 # Frequently Asked Questions
-[Getting started](https://developers.meta.com/wearables/faq/#getting-started)
-[Device Access Toolkit](https://developers.meta.com/wearables/faq/#device-access-toolkit)
-[Web Apps](https://developers.meta.com/wearables/faq/#web-apps)
-[Integrations & APIs](https://developers.meta.com/wearables/faq/#integration-apis)
-[Developer Preview & Publishing](https://developers.meta.com/wearables/faq/#developer-preview)
+- [Getting started](https://developers.meta.com/wearables/faq/#getting-started)
+- [Device Access Toolkit](https://developers.meta.com/wearables/faq/#device-access-toolkit)
+- [Web Apps](https://developers.meta.com/wearables/faq/#web-apps)
+- [Integrations & APIs](https://developers.meta.com/wearables/faq/#integration-apis)
+- [Developer Preview & Publishing](https://developers.meta.com/wearables/faq/#developer-preview)
 ## Getting started
 * * *
 ### What are the ways to build for Meta's portfolio of AI glasses?
 There are two ways to create experiences for Meta's portfolio of AI glasses:
-**The Meta Wearables Device Access Toolkit** — extends iOS and Android for developers to leverage the sensors on our AI glasses to build hands-free wearable experiences into their mobile applications.
-**Web Apps** (Display Glasses only) — Create standalone display experiences that run directly on Meta Ray-Ban Display glasses using standard HTML, CSS, and JavaScript.
+- **The Meta Wearables Device Access Toolkit** — extends iOS and Android for developers to leverage the sensors on our AI glasses to build hands-free wearable experiences into their mobile applications.
+- **Web Apps** (Display Glasses only) — Create standalone display experiences that run directly on Meta Ray-Ban Display glasses using standard HTML, CSS, and JavaScript.
 * * *
 ### Can I use AI coding tools to build for Meta's portfolio of AI glasses?
 Yes. We provide AI-ready documentation and coding skills for Claude Code, Cursor, GitHub Copilot, Codex, Gemini CLI, and more — across both the Device Access Toolkit and Web Apps. Details in our [GitHub repos⁠](https://github.com/facebookincubator/meta-wearables-webapp/tree/main).
@@ -24,10 +24,10 @@ While developers everywhere will be able to download the SDK, only those in [AI 
 * * *
 ### What devices will be supported by this toolkit?
 We plan to support our entire portfolio of AI glasses. Developers will initially have camera access via the toolkit and be able to access the microphone and speakers through iOS or Android Bluetooth profiles for
-Ray-Ban Meta (Gen 1 and Gen 2)
-Ray-Ban Meta Display
-Oakley Meta HSTN
-Oakley Meta Vanguard
+- Ray-Ban Meta (Gen 1 and Gen 2)
+- Ray-Ban Meta Display
+- Oakley Meta HSTN
+- Oakley Meta Vanguard
 * * *
 ### What are the system requirements (OS, hardware, dependencies)?
 Wearables Device Access Toolkit supports both [iOS⁠](https://wearables.developer.meta.com/docs/build-integration-ios) and [Android⁠](https://wearables.developer.meta.com/docs/build-integration-android) with the same OS version requirements as the Meta AI app. For full requirements, see [here⁠](https://wearables.developer.meta.com/docs/getting-started-toolkit).
@@ -73,9 +73,9 @@ See our [documentation⁠](https://wearables.developer.meta.com/) for latest.
 Yes, developers can process data locally or via cloud/edge platforms. However, the Meta AI app must be used to pair your glasses.
 * * *
 ### Where can I find the SDK and documentation?
-**Device Access Toolkit:** Available on [GitHub (Android)⁠](https://github.com/facebook/meta-wearables-dat-android) and [GitHub (iOS)⁠](https://github.com/facebook/meta-wearables-dat-ios)
-**Web Apps:** Starter kit and AI coding skills on [GitHub⁠](https://github.com/facebookincubator/meta-wearables-webapp)
-**Documentation:** [developer.meta.com/wearables](https://developers.meta.com/wearables)
+- **Device Access Toolkit:** Available on [GitHub (Android)⁠](https://github.com/facebook/meta-wearables-dat-android) and [GitHub (iOS)⁠](https://github.com/facebook/meta-wearables-dat-ios)
+- **Web Apps:** Starter kit and AI coding skills on [GitHub⁠](https://github.com/facebookincubator/meta-wearables-webapp)
+- **Documentation:** [developer.meta.com/wearables](https://developers.meta.com/wearables)
 * * *
 ## Developer Preview & Publishing
 * * *
@@ -83,9 +83,9 @@ Yes, developers can process data locally or via cloud/edge platforms. However, t
 Developer Preview means you can build and test experiences, but you cannot yet distribute them to end users. This phase is for prototyping, experimentation, and sharing feedback that shapes what comes next.
 * * *
 ### What can I expect in developer preview?
-**Download the SDK:** Streamline your development process with pre-built libraries and our sample app.
-**Access documentation:** Understand the API architecture, available endpoints, data structures, and best practices. Kick start your development with our sample app and tutorial.
-**Test with or without hardware:** Test applications in Developer Mode on glasses or by using our Mock Device Kit without hardware.
+- **Download the SDK:** Streamline your development process with pre-built libraries and our sample app.
+- **Access documentation:** Understand the API architecture, available endpoints, data structures, and best practices. Kick start your development with our sample app and tutorial.
+- **Test with or without hardware:** Test applications in Developer Mode on glasses or by using our Mock Device Kit without hardware.
 * * *
 ### Where is the Developer Preview available?
 While developers everywhere will be able to build, only those in [AI glasses supported countries⁠](https://www.meta.com/help/ai-glasses/4961066940605960/) ⁠ will have access to the full capabilities, including the Wearables Developers Center.
