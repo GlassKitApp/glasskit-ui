@@ -9,19 +9,20 @@ Setup
 Build
 Test
 Troubleshoot
-Web Apps MCP
+Documentation MCP
+Web Apps Game Plugin
 Build
 Updated
 :
-Aug 26, 2026
+Sep 19, 2026
 Overview
-Web Apps for Meta Ray-Ban Display glasses (MRBD) use standard web APIs. The easiest way to build Web Apps is with AI coding tools.
+Web Apps for Meta Ray-Ban Display glasses use standard web APIs. The easiest way to build Web Apps is with AI coding tools.
 Learn how to build optimized Meta Ray-Ban Display Web Apps by understanding:
 How to Build with AI
 Capabilities and Best Practices
 Display
-Neural band and captouch
-EMG pinch and drag
+Input and navigation
+Activation and continuous drag
 Back navigation
 Text composer
 Sensors
@@ -39,16 +40,19 @@ tool.
 Use these prompts to get started quickly. They tell the assistant to inspect your project first, use the Wearables MCP endpoint https://mcp.developer.meta.com/wearables to call
 search_webapps_docs
 for current docs, handle unavailable MCP tools explicitly, and keep the first code change small.
-New Web App
+_
+Build a new Web App
 Use https://wearables.developer.meta.com/docs/develop/webapps/build/, then use the Wearables MCP endpoint https://mcp.developer.meta.com/wearables to call search_webapps_docs for current Meta Ray-Ban Display Web Apps constraints, setup, testing, and publishing guidance. If search_webapps_docs is unavailable, use the linked build guide and state that MCP docs lookup was unavailable before proceeding. Inspect my project first, then build the smallest working Web App for this idea: [describe the app]. It must render in a fixed 600 x 600 pixel viewport, avoid scrolling, use a dark additive-display UI, support arrow-key navigation and Enter activation, and keep all interactive elements reachable without mouse or touch input. Run the relevant local checks.
-Navigation and focus behavior
-Use https://wearables.developer.meta.com/docs/develop/webapps/build/, then use the Wearables MCP endpoint https://mcp.developer.meta.com/wearables to call search_webapps_docs for current Meta Ray-Ban Display Web Apps input, D-pad navigation, focus-management, viewport, and no-scroll guidance. If search_webapps_docs is unavailable, use the linked build guide and state that MCP docs lookup was unavailable before proceeding. Inspect this Web App first, then add the smallest reliable navigation fix. Preserve arrow-key movement, Enter activation, visible focus states, a fixed 600 x 600 pixel viewport, and no scrolling. Run the relevant local checks.
+_
+Fix navigation and focus behaviour
+Use https://wearables.developer.meta.com/docs/develop/webapps/build/, then use the Wearables MCP endpoint https://mcp.developer.meta.com/wearables to call search_webapps_docs for current Meta Ray-Ban Display Web Apps input, directional navigation, focus-management, viewport, and no-scroll guidance. If search_webapps_docs is unavailable, use the linked build guide and state that MCP docs lookup was unavailable before proceeding. Inspect this Web App first, then add the smallest reliable navigation fix. Preserve arrow-key movement, Enter activation, visible focus states, a fixed 600 x 600 pixel viewport, and no scrolling. Run the relevant local checks.
+_
 Debug an existing Web App
 Use https://wearables.developer.meta.com/docs/develop/webapps/build/, then use the Wearables MCP endpoint https://mcp.developer.meta.com/wearables to call search_webapps_docs for current Meta Ray-Ban Display Web Apps constraints and troubleshooting guidance. If search_webapps_docs is unavailable, use the linked build guide and state that MCP docs lookup was unavailable before proceeding. Inspect this Web App first and identify whether the issue is layout, input navigation, storage, sensors, or deployment. Preserve the fixed 600 x 600 pixel viewport, no-scrolling behavior, arrow-key and Enter input model, and dark additive-display UI. Make the smallest fix and run the relevant local checks.
 HTML metadata
 Add the following metadata to the
 head
-of your HTML file. This allows your web app to support upcoming discovery surfaces and enables us to message users when a website isn’t compatible with MRBD.
+of your HTML file. This allows your web app to support upcoming discovery surfaces and enables us to message users when a website isn’t compatible with Meta Ray-Ban Display glasses.
 head
 !-- A brief description of your app --
 meta name= description  content= Description of your web app
@@ -56,7 +60,7 @@ meta name= description  content= Description of your web app
 meta name= mrbd-web-app-capable  content= yes
 /head
 Capabilities
-Web Apps on MRBDs
+Web Apps on Meta Ray-Ban Display glasses
 support
 these capabilities:
 Capability
@@ -64,7 +68,7 @@ Description and guidance
 Display
 Additive waveguide overlay. Use dark backgrounds/light, high-contrast UI colors. Fixed 600x600px viewport. Avoid scrolling.
 Input
-Navigation via Neural Band/captouch gestures translates to standard arrow key and Enter events.  EMG pinch and drag gestures are translated into standard web events. On-glasses composer provides text input. No mouse/touch/keyboard. All elements must be focusable.
+Directional navigation and activation from the touchpad or band translate into standard browser behavior. Optional continuous drag uses standard pointer events. The on-glasses composer provides text input. No mouse, touchscreen, or physical keyboard is available. All interactive elements must be focusable.
 Sensors (IMU)
 Standard
 DeviceMotionEvent
@@ -119,8 +123,8 @@ width: 600px;
 height: 600px;
 overflow: hidden;
 }
-Input: Neural band and captouch gesture
-MRBD UI navigation is driven by two input mechanisms: the Neural Band worn on the wrist and captouch, a touch strip on the glasses temple arm that senses swipe gestures. They produce directional and selection inputs that the glasses OS translates into standard arrow key (
+Input and navigation
+Meta Ray-Ban Display translates input from the touchpad and Meta Neural Band into directional navigation and activation. The glasses OS delivers those actions to your Web App as standard arrow key (
 ArrowUp
 ,
 ArrowDown
@@ -130,8 +134,8 @@ ArrowLeft
 ArrowRight
 ) and
 Enter
-events delivered to your Web App.
-Since MRBDs have no mouse, touch screen, or physical keyboard, every interactive element of your Web App must be reached and activated by gestures through these two mechanisms. These inputs are then translated into standard web platform events.
+events.
+Since the Meta Ray-Ban Display glasses have no mouse, touchscreen, or physical keyboard, every interactive element in your Web App must support directional navigation and activation through standard web platform behavior.
 JavaScript
 // — Input Constants —
 const DPAD = {
@@ -185,19 +189,19 @@ outline: none;
 border-color: #00d4ff;
 box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
 }
-EMG pinch and drag gestures
-MRBDs use EMG (electromyography) input from the Neural Band to detect hand gestures. These gestures are translated into standard web events that your Web App can respond to. No special SDK is required.
-Two gesture modes are available to your Web App:
-Pinch (always on):
-A quick pinch activates the currently-focused element, equivalent to pressing Enter. Works on any focusable element. Used to tap buttons, links, and other interactive elements. No opt-in needed.
+Activation and continuous drag
+Meta Ray-Ban Display provides standard web events for activation and optional continuous drag. No special SDK is required.
+Two interaction modes are available to your Web App:
+Activation (always on):
+Activating the focused element is equivalent to pressing Enter. It works on any focusable element, including buttons, links, and custom interactive controls. No opt-in is needed.
 Drag (opt-in):
-A pinch-and-hold with arm movement provides continuous positional input, delivered as
+Continuous arm movement provides positional input delivered as
 pointer events
-. Used for sliders, drawing, panning, or any other interaction that needs smooth, continuous control. Page-level opt-in only.
-Gesture
+. Use it for sliders, drawing, panning, or any other interaction that needs smooth, continuous control. Opt in at the page level.
+Interaction
 Web event
 Action
-Thumb swipe up/down/left/right
+Directional navigation
 ArrowUp
 /
 ArrowDown
@@ -207,25 +211,25 @@ ArrowLeft
 ArrowRight
 keydown
 Move focus between elements
-Index pinch (tap)
+Activation
 Enter
 keydown
 Activate focused element
-Pinch + hold + arm movement
+Continuous drag
 pointerdown
 /
 pointermove
 /
 pointerup
-Continuous drag (opt-in)
-Pinch (activate)
-A pinch fires
+Update a continuous position (opt-in)
+Activation
+Activation fires
 Enter
 on the currently focused element (
 document.activeElement
 ). It is
 not
-a positioned click, so there is no cursor or tap screen coordinate. The pinch targets the element currently with focus, so build your UI around focusable elements, not click targets.
+a positioned click, so there is no cursor or screen coordinate. Activation targets the element that currently has focus, so build your UI around focusable elements, not click targets.
 This means your app must:
 Make interactive elements
 focusable
@@ -246,11 +250,11 @@ events).
 Provide a
 visible focus indicator
 so the wearer knows which element is selected.
-For most apps, pinch works automatically if you build a standard accessible, focusable UI.
-!-- These elements are pinch-activatable by default --
+For most apps, activation works automatically if you build a standard accessible, focusable UI.
+!-- These elements support activation by default --
 button data-focusable onclick= doAction()  Start /button
 a href= /next  data-focusable Next Page /a
-!-- Make a custom element pinch-activatable --
+!-- Make a custom element activatable --
 div tabindex= 0  role= button  data-focusable onclick= doCustomAction()
 Custom Control
 /div
@@ -291,7 +295,7 @@ moveFocus(focusIndex + 1);
 break;
 case  Enter :
 e.preventDefault();
-// Pinch fires Enter on `document.activeElement`.
+// Activation fires Enter on `document.activeElement`.
 // Activating `activeElement` (not a cached `focusIndex`) ensures the element the wearer sees as focused is the one that receives the click.
 if (document.activeElement    document.activeElement.matches( [data-focusable] )) {
 document.activeElement.click();
@@ -353,7 +357,7 @@ with
 document.querySelectorAll( [data-focusable] )
 . Either way, keep the selector, the toggled class, and the CSS in sync, so the wearer always sees which element is focused.
 Drag (continuous input)
-When drag is enabled, the wearer can pinch and hold while moving their arm to generate a continuous stream of positional data. This is delivered to your app as standard
+When drag is enabled, the wearer can hold and move their arm to generate a continuous stream of positional data. This is delivered to your app as standard
 pointer events
 (
 pointerdown
@@ -364,7 +368,7 @@ pointerup
 ).
 Drag is
 off
-by default. The only interactions available without it are D-pad focus navigation and pinch-to-activate, meaning there is no free cursor or sliding motion unless you explicitly enable it.
+by default. The only interactions available without it are directional focus navigation and activation, meaning there is no free cursor or sliding motion unless you explicitly enable it.
 To enable drag, add
 touch-action: none
 to the
@@ -406,12 +410,12 @@ Simple freehand drawing or annotation
 Games:
 Control game elements with continuous positional input
 Considerations
-Text input and pinch interaction
-A pinch on a focused text input (like
+Text input and activation
+Activating a focused text input (such as
 input
-,
+or
 textarea
-) opens the on-glasses text composer instead of dispatching a click to your page.
+) opens the device text composer instead of dispatching a click to your page.
 Verify on-device
 The exact values in drag event fields (e.g.,
 movementX
@@ -427,7 +431,7 @@ by logging
 pointermove
 events before relying on specific coordinate behavior. Desktop emulation will not accurately represent the drag input.
 Feature availability
-Pinch and drag rely on EMG hardware that may not be available on all device builds. The APIs are always present (for example, pointer events exist in the browser), but the gesture input may not fire on some hardware. Always design your app to remain usable if drag events never arrive. Provide alternative navigation via D-pad focus for critical actions.
+Continuous drag relies on the band, which may not be available to every wearer. The APIs are always present (for example, pointer events exist in the browser), but drag input may not fire on some hardware. Always design your app to remain usable if drag events never arrive. Provide alternative directional navigation for critical actions.
 Best practices
 Do
 Don’t
@@ -437,8 +441,8 @@ button
 a
 , or
 tabindex= 0
-for pinch targets
-Rely on positioned click coordinates from a pinch
+for activation targets
+Rely on positioned click coordinates for activation
 Always show a visible focus indicator
 Use hover-only styles for interactive elements
 Set
@@ -457,25 +461,25 @@ requestPointerLock()
 , since it’s not supported.
 Test drag behavior on real glasses hardware
 Assume desktop pointer simulation matches device behavior
-Provide D-pad focus fallbacks for all critical actions
+Provide directional-navigation fallbacks for all critical actions
 Make drag the only way to complete an essential task
 Call
 e.preventDefault()
 on all handled key events
 Leave arrow key / Enter events unhandled (causes unexpected scrolling)
-In addition to these best practices, verify the following before publishing your Web App with gesture support:
-Pinch activates the currently focused element, so test every interactive element.
-If using drag,
+In addition to these best practices, verify the following before publishing your Web App with wearable input support:
+Activation uses the currently focused element, so test every interactive control.
+If using drag, test
 pointermove
-events arrive when pinch-holding and moving arm, so test directly on a device.
-If using drag, the app still works via D-pad focus + pinch if drag events never fire.
-All interactive elements are reachable from the home screen via gestures.
+events directly on a device.
+If using drag, the app still works through directional navigation and activation if drag events never fire.
+All interactive elements are reachable from the home screen through directional navigation.
 Back navigation
-The back gesture on Meta Ray-Ban Display glasses (MRBD) lets users move backward through a Web App’s screens, panels, and other navigable states.
+Back on Meta Ray-Ban Display glasses lets users move backward through a Web App’s screens, panels, and other navigable states.
 For standard Web Apps, the native shell checks
 navigation.canGoBack
 ⁠
-when the user performs a back gesture. If a previous navigation entry is available, the shell calls
+when the user invokes Back. If a previous navigation entry is available, the shell calls
 history.back()
 . Otherwise, it shows the native system menu overlay.
 Use the standard web
@@ -487,15 +491,15 @@ History API
 to manage navigation. No custom SDK is required. Your Web App is responsible for rendering the destination state and restoring app-managed state, including focus, scroll offsets, and page/carousel positions.
 User action
 System behavior
-Single back gesture with a previous history entry
+Back with a previous history entry
 Calls
 history.back()
 .
-Single back gesture with no previous history entry
+Back with no previous history entry
 Shows the native system menu overlay.
-Back gesture while the native menu is visible
+Back while the native menu is visible
 Exits the Web App.
-The native transient UI is handled before web history. For example, when the native text-input UI is open, the back gesture dismisses this UI before traversing the page’s history.
+The native transient UI is handled before web history. For example, when the native text-input UI is open, Back dismisses this UI before traversing the page’s history.
 Navigation history limit
 The shell guards entries created with
 history.pushState()
@@ -563,7 +567,7 @@ navigate
 event instead of
 popstate
 . Use one coordinated traversal strategy so the destination isn’t restored twice.
-When no previous history entry remains, the next back gesture shows the native system menu. This is the expected app boundary, so don’t add synthetic entries or push a new entry during Back handling to prevent the user from reaching it.
+When no previous history entry remains, the next Back action shows the native system menu. This is the expected app boundary, so don’t add synthetic entries or push a new entry during Back handling to prevent the user from reaching it.
 Best practices
 Do
 Don’t
@@ -611,8 +615,8 @@ Focus, scroll, pager, or carousel position is lost.
 The app did not save or restore that state, or restored it before rendering completed.
 Store stable IDs and numeric positions, then restore them after rendering the destination.
 Input: On-glasses composer for text
-Meta Ray-Ban Display (MRBD) glasses provide text input for Web Apps through an on-glasses composer, a systems-level handwriting and dictation panel that appears when users focus and tap on a standard HTML text field. Since MRBD glasses have no touchscreen or physical keyboard, users must use this composer to enter text into your app’s search boxes, forms, notes fields, and name prompts. No special integration is required.
-When the user focuses a text field and then taps (pinches), an
+Meta Ray-Ban Display glasses provide text input for Web Apps through an on-glasses composer, a systems-level handwriting and dictation panel that appears when users focus and activate a standard HTML text field. Since the glasses have no touchscreen or physical keyboard, users must use this composer to enter text into your app’s search boxes, forms, notes fields, and name prompts. No special integration is required.
+When the user focuses and activates a text field, an
 on-glasses composer panel
 appears, allowing them to enter text via handwriting or voice dictation. The composed text is committed back to your field via standard DOM
 input
@@ -627,8 +631,8 @@ v272+
 .
 Composer lifecycle
 flowchart TD
-A[ User navigates\nvia D-pad ] --  B[ Text field\nreceives focus ]
-B --  C{ User pinches\n(taps)? }
+A[ User navigates\ndirectionally ] --  B[ Text field\nreceives focus ]
+B --  C{ User activates\nthe field? }
 C -- |No| D[ Field stays focused.\nComposer does not open ]
 C -- |Yes| E[ Composer panel opens\n(handwriting \+ voice) ]
 E --  F[ User enters text ]
@@ -638,7 +642,7 @@ H --  I{ More input\nneeded? }
 I -- |Yes| F
 I -- |No| J[ User navigates away.\nComposer closes ]
 J --  K[  change  event fires ]
-The composer opens on focus + tap,
+The composer opens on focus and activation,
 not
 on focus alone. Programmatic calls to
 .focus()
@@ -673,13 +677,13 @@ input
 type= search
 id= search
 class= focusable
-placeholder= Tap to write or speak
+placeholder= Activate to write or speak
 /
 !-- Multi-line notes field --
 textarea
 id= note
 class= focusable
-placeholder= Tap to write or speak
+placeholder= Activate to write or speak
 /textarea
 JavaScript
 // Read the composed text using standard event listeners in JavaScript.
@@ -721,7 +725,7 @@ keydown
 events (since no physical keyboard exists)
 Provide a fallback if the composer is unavailable
 Assume the composer will always be available
-Make fields focusable and navigable via D-pad
+Make fields focusable and reachable through directional navigation
 Rely on mouse-click or touch to open fields
 Known limitations
 The
@@ -749,12 +753,12 @@ style
 /style
 /head
 body
-!-- Text field: opens composer on focus + tap --
+!-- Text field: opens composer on focus and activation --
 input
 type= search
 id= search
 class= focusable
-placeholder= Tap to write
+placeholder= Activate to write
 /
 div id= results  aria-live= polite   /div
 script
@@ -764,7 +768,7 @@ const results = document.getElementById( results );
 searchField.addEventListener( input , () =  {
 results.textContent =  Searching:   + searchField.value;
 });
-// D-pad Navigation
+// Directional navigation
 const focusables = Array.from(document.querySelectorAll( .focusable ));
 document.addEventListener( keydown , (e) =  {
 const idx = focusables.indexOf(document.activeElement);
@@ -789,9 +793,9 @@ Cause
 Solution
 Composer does not open when field is focused.
 Composer requires
-focus + tap
-(pinch).
-Ensure the user pinches after focusing the field.
+focus and activation
+.
+Ensure the user activates the field after focusing it.
 Composer does not open on a password field.
 type= password
 fields are excluded.
@@ -801,8 +805,8 @@ if composer input is needed.
 Programmatic
 .focus()
 does not open composer.
-Only user-initiated tap opens the composer.
-Let the user navigate and tap the field.
+Only user-initiated activation opens the composer.
+Let the user navigate to and activate the field.
 inputmode
 and
 enterkeyhint
@@ -840,17 +844,26 @@ startIMU();
 }
 });
 } else {
-// Glasses runtime and most Android browsers grant automatically
+//  Browsers that do not expose the iOS-style requestPermission() API.
 startIMU();
 }
+Meta Ray-Ban Display glasses provide
+requestPermission()
+, so the first branch is the one that runs on them. The AI glasses prompt wearers the first time your app requests sensors and then remembers the decision for your domain. Sensor access is
+never
+granted automatically.
+Use either
+DeviceOrientationEvent.requestPermission()
+or
+DeviceMotionEvent.requestPermission()
+to access. You don’t need to call both.
 Note:
 The permission request must be triggered by a user gesture (for example, a button press via Enter key). It cannot be called automatically.
-Note:
 Do not trigger any browser history changes (such as
 history.pushState()
 or SPA routing) before the sensor permission request resolves. Doing so can leave the
 DeviceMotionEvent.requestPermission()
-promise pending indefinitely, causing the app to hang when sensors are requested. To avoid this:
+promise pending indefinitely, causing the app to hang when sensors are requested. To avoid this, either:
 Serve the Web App without any
 history.pushState()
 or SPA routing before the sensor permission completes.
@@ -862,16 +875,18 @@ DeviceMotionEvent
 provides real-time accelerometer and gyroscope readings. Use it to detect movement, measure G-forces, or track rotation speed.
 window.addEventListener( devicemotion , function(e) {
 // Accelerometer (including gravity), in m/s²
-var ax = e.accelerationIncludingGravity.x;
-var ay = e.accelerationIncludingGravity.y;
-var az = e.accelerationIncludingGravity.z;
+var acc = e.accelerationIncludingGravity;
+if (acc) {
 // Compute magnitude in G-force
-var g = Math.sqrt(ax * ax + ay * ay + az * az) / 9.81;
+var g = Math.sqrt(acc.x * acc.x + acc.y * acc.y + acc.z * acc.z) / 9.81;
 document.getElementById( gforce ).textContent = g.toFixed(2) +   G ;
-// Gyroscope (rotation rate in degrees/second)
+}
+// Gyroscope (rotation rate in degrees/second). May be null — guard before use.
+if (e.rotationRate) {
 var yawRate   = e.rotationRate.alpha;
 var pitchRate = e.rotationRate.beta;
 var rollRate  = e.rotationRate.gamma;
+}
 });
 DeviceOrientationEvent
 DeviceOrientationEvent
@@ -903,7 +918,7 @@ Removing event listeners when sensor data is no longer needed
 Leaving listeners active in the background, which drains battery
 Location
 Overview
-MRBD glasses implement the standard
+Meta Ray-Ban Display glasses implement the standard
 navigator.geolocation
 web API. Location data is fetched from the wearer’s paired mobile device, since the glasses themselves do not have location-aware sensors. Use the API exactly as you would in any Web App. Like Sensor Data, Location also requires user permission.
 One-shot position
@@ -1014,11 +1029,11 @@ Request exceeded the specified timeout
 3
 TIMEOUT
 Storage
-Web Apps on MRBD glasses have access to standard Web Storage APIs, including both
+Web Apps on Meta Ray-Ban Display glasses have access to standard Web Storage APIs, including both
 localStorage
 and
 sessionStorage
-, to persist lightweight data on MRBD glasses:
+, to persist lightweight data on the glasses:
 localStorage
 persists data across sessions, even after the app is closed and reopened.
 sessionStorage

@@ -1,4 +1,4 @@
-Web Apps MCP
+Documentation MCP
 Build for Wearables
 API reference
 Support
@@ -9,11 +9,12 @@ Setup
 Build
 Test
 Troubleshoot
-Web Apps MCP
-Web Apps MCP
+Documentation MCP
+Web Apps Game Plugin
+Documentation MCP
 Updated
 :
-Aug 11, 2026
+Sep 18, 2026
 Overview
 The recommended AI-assisted setup for Display Web Apps combines the
 AI Coding plugin
@@ -31,6 +32,8 @@ https://mcp.developer.meta.com/wearables
 Use the direct MCP host above. Do not use the Wearables developer site URL as the MCP endpoint.
 Use this page with AI
 Copy this prompt into your AI tool to configure both parts of the recommended setup:
+_
+Configure Web Apps plugin and MCP
 Use https://wearables.developer.meta.com/docs/develop/webapps/ai-assisted-mcp/ to configure AI-assisted Meta Ray-Ban Display Web Apps development. Inspect this project and AI tool setup first. If the Web Apps AI Coding plugin is missing, install it using the instructions for my tool. Add the Wearables MCP endpoint https://mcp.developer.meta.com/wearables, verify that the plugin skills and search_webapps_docs are available, and ask search_webapps_docs what I should install and check before building my first Web App. Do not edit app code until both tools are ready and the test query returns relevant guidance.
 Claude Code
 In Claude Code, add the plugin marketplace and install the AI Coding plugin:
@@ -46,6 +49,8 @@ Start a fresh Claude Code session if the running session does not discover the p
 search_webapps_docs
 are available.
 Example prompt:
+_
+Verify Claude Web Apps prerequisites
 Use the installed Web Apps plugin for implementation guidance. Then ask search_webapps_docs what I should install and check before building my first Meta Ray-Ban Display Web App.
 Codex
 Add the AI Coding plugin marketplace with the Codex CLI:
@@ -62,6 +67,8 @@ Start a fresh Codex session if the running session does not discover the plugin 
 search_webapps_docs
 are available.
 Example prompt:
+_
+Verify Codex Web Apps prerequisites
 Use the installed Web Apps plugin for implementation guidance. Then ask search_webapps_docs what I should install and check before building my first Meta Ray-Ban Display Web App.
 Cursor
 Install the AI Coding plugin from the public repository:
@@ -141,7 +148,7 @@ instead of
 Streamable HTTP
 , use the HTTP option with the same URL.
 Example queries
-These are representative queries for the Web Apps MCP tool:
+These are representative queries for the Documentation MCP tool:
 I want to build my first Meta Ray-Ban Display Web App with an AI coding assistant. What should I install and check before I start?
 Returns the recommended AI Coding plugin and MCP setup before project scaffolding.
 What viewport size should a Display Web App use?

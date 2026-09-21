@@ -9,104 +9,99 @@ Setup
 Build
 Test
 Troubleshoot
-Web Apps MCP
+Documentation MCP
+Web Apps Game Plugin
 Setup
 Updated
 :
-Aug 11, 2026
-Overview
-The recommended AI-assisted setup for Meta Ray-Ban Display Web Apps takes four steps:
-Set up AI coding tools.
-Install the AI Coding plugin and connect the Wearables MCP server before scaffolding your first project.
-Check your hardware.
-Confirm your glasses, paired phone, and (optionally) Meta Neural Band meet the minimum requirements.
-Check your Meta AI app and enable Developer Mode.
-Verify the app version on your phone, then put the app into Developer Mode so it can load Web Apps onto the glasses.
-Prepare to host your Web App.
-Pick a hosting platform that serves your app over HTTPS so the glasses can load it.
-Set up AI coding tools
-The recommended workflow combines the
-AI Coding plugin
-⁠
-with the
-Wearables MCP server
-. The plugin provides Web Apps implementation and testing workflows. The MCP server provides current published documentation through
-search_webapps_docs
-.
-Use the
-Web Apps AI and MCP setup instructions
-to install both tools for Claude Code, Codex, or Cursor before asking the assistant to scaffold a project.
-Use this page with AI
-Copy this prompt into your AI coding tool to prepare a Web App development setup:
-Use https://wearables.developer.meta.com/docs/develop/webapps/setup/ and https://wearables.developer.meta.com/docs/develop/webapps/ai-assisted-mcp/ to prepare my Meta Ray-Ban Display Web Apps setup. Inspect my project and AI tool configuration first. If the Web Apps AI Coding plugin or Wearables MCP endpoint https://mcp.developer.meta.com/wearables is missing, help me configure it before proceeding. Verify that the plugin skills and search_webapps_docs are available, then ask search_webapps_docs for current first Web App setup guidance. Produce the smallest checklist for tooling, hardware, Meta AI app version, Developer Mode, HTTPS hosting, and local browser verification. Do not edit app code until the setup gaps are clear.
-Requirements
-Hardware
-Web Apps are supported only on Meta Ray-Ban Display (MRBD) glasses. Meta Neural Band is optional, though recommended for an optimal experience.
-Software
-Download the Meta AI app from the
-App Store (iOS)
+Sep 19, 2026
+Before loading a Web App on Meta Ray-Ban Display, prepare your device, the Meta
+AI app, and a secure URL for your project.
+Confirm that your glasses and Meta AI app meet the minimum versions.
+Enable Developer Mode in the Meta AI app.
+Publish your Web App at a publicly accessible HTTPS URL.
+Optionally configure AI coding tools for implementation and documentation
+guidance.
+Check your hardware and software
+Web Apps require Meta Ray-Ban Display glasses. Meta Neural Band is optional.
+Install the Meta AI app from the
+App Store
 ⁠
 or
-Play Store (Android)
+Google Play
 ⁠
-if you haven’t done so already.
-For the best experience, always update your glasses and Meta Neural Band with the latest software updates.
-Glasses
-The minimum glasses software version is
+,
+and keep your Meta Ray-Ban Display glasses, Meta AI app, and Meta Neural Band up to date.
+Check the Meta Ray-Ban Display glasses software version
+Your Meta Ray-Ban Display glasses must run software version
 v125
-+. To verify the glasses software version:
+or later.
 In the Meta AI app, tap
 Devices
-(the glasses icon), and select your device.
-Tap the gear icon to open
+and select your glasses.
+Open
 Device settings
-.
+by tapping the gear icon.
 Tap
 General
 About
 Release Version
 .
-Check for glasses software updates if your version is below
+If the version is earlier than
 v125
-.
-Meta AI App
-The minimum Meta AI app version is
+, install the available glasses update.
+Check the Meta AI app version
+The Meta AI app must be version
 v272
-+. To verify Meta AI app version:
-Open the
-Meta AI app
-.
+or later.
+Open the Meta AI app.
 Tap
 Settings
 App Info
 .
-Note the
+Check
 App version
-number. If it’s older than
+.
+If the version is earlier than
 v272
-, update the Meta AI app from the App Store (iOS) or Play Store (Android).
+, update the app from the App Store or
+Google Play.
 Enabling Developer Mode in the Meta AI app
-Developer Mode in the Meta AI app unlocks the menu options used to load and reload Web Apps on MRBD.
-Open the Meta AI app on your paired iOS or Android device.
-Select
+Developer Mode adds the controls used to load and reload Web Apps on your
+Meta Ray-Ban Display glasses.
+In the Meta AI app, tap
 Settings
 App Info
-, and then tap the
+.
+Tap
 App version
-number five times to display a pop-up that enables Developer Mode.
-Click
+five times.
+In the confirmation dialog, tap
 Enable
-to confirm.
-Note:
-Developer Mode persists across sessions, so you don’t need to re-enable it each time you open the Meta AI app.
+.
+Developer Mode remains enabled when you close and reopen the Meta AI app.
 Hosting your Web App
-Your Web App must be hosted on a publicly accessible HTTPS URL so MRBD can load it.
-Common options include: Replit, Lovable, Vercel, GitHub Pages, Netlify, Cloudflare Pages, or any static site host that serves over HTTPS. You can also host from your own server, as long as it serves the app over HTTPS with a valid TLS certificate.
-While it’s possible to point MRBD at any website, most sites are not configured to work well within the platform’s display and input constraints. See the
-Build guide
-for the design and runtime constraints to keep in mind.
-Note:
-HTTP-only URLs are not supported. The glasses runtime requires HTTPS for every Web App URL it loads.
+Publish your Web App at a publicly accessible HTTPS URL. The URL must use a
+valid TLS certificate; HTTP-only URLs are not supported.
+You can use a static hosting service such as GitHub Pages, Netlify, Cloudflare
+Pages, or Vercel, an app-building platform such as Replit or Lovable, or your
+own HTTPS server.
+A website that loads successfully might still need layout, input, and display
+work before it provides a good experience on Meta Ray-Ban Display glasses. Use the
+Test guide
+to load the URL on your Meta Ray-Ban Display glasses and
+validate the experience.
+Optional: Set up AI coding tools
+The
+Wearables Web App AI Toolkit
+⁠
+provides implementation and testing workflows. The public Wearables Documentation
+MCP Server lets a coding assistant search current Web Apps documentation through
+search_webapps_docs
+.
+Follow the
+combined AI Toolkit and Wearables Documentation MCP Server setup instructions
+to configure Claude Code, Codex, or Cursor.
 Build with Meta
 Social Technologies
 Meta Horizon

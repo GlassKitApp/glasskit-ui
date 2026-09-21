@@ -5,8 +5,9 @@ https://wearables.developer.meta.com/docs/develop/dat/manage-projects
 https://wearables.developer.meta.com/docs/develop/dat/onboarding-and-organization-management
 https://wearables.developer.meta.com/docs/develop/dat/set-up-release-channels
 https://wearables.developer.meta.com/docs/develop/webapps
-https://wearables.developer.meta.com/docs/develop/webapps/ai-assisted-mcp
+https://wearables.developer.meta.com/docs/develop/webapps/ai-assisted-game-plugin
 https://wearables.developer.meta.com/docs/develop/webapps/build
+https://wearables.developer.meta.com/docs/develop/webapps/documentation-mcp
 https://wearables.developer.meta.com/docs/develop/webapps/setup
 https://wearables.developer.meta.com/docs/develop/webapps/test
 https://wearables.developer.meta.com/docs/develop/webapps/troubleshooting

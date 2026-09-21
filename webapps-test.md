@@ -9,104 +9,128 @@ Setup
 Build
 Test
 Troubleshoot
-Web Apps MCP
+Documentation MCP
+Web Apps Game Plugin
 Test
 Updated
 :
-Aug 25, 2026
-Overview
-Once you’ve built a Web App, you will need to test it.
+Sep 19, 2026
+Test a Web App in layers: use a desktop browser for fast feedback, use the Meta
+Ray-Ban Display Simulator to preview display-specific behavior, and finish on the
+glasses. Desktop checks shorten the iteration loop, but they do not replace device
+validation.
 Use this page with AI
-Copy this prompt into your AI coding tool to test a Web App before sharing it:
-Use https://wearables.developer.meta.com/docs/develop/webapps/test/, then use the Wearables MCP endpoint https://mcp.developer.meta.com/wearables to call search_webapps_docs for current Meta Ray-Ban Display Web Apps testing guidance. If search_webapps_docs is unavailable, use the linked test guide and state that MCP docs lookup was unavailable before proceeding. Inspect my app first, then create the smallest test plan for HTTPS hosting, 600 x 600 desktop browser checks, arrow-key and Enter navigation, Meta AI app connection, sharing, and optional display recording. Fix only issues found by the test plan and run the relevant local checks.
+Copy this prompt into your coding tool to create and run a focused test plan:
+_
+Create and execute a Web App test plan
+Use https://wearables.developer.meta.com/docs/develop/webapps/test/, then use the Wearables Documentation MCP Server endpoint https://mcp.developer.meta.com/wearables to call search_webapps_docs for current Meta Ray-Ban Display Web Apps testing guidance. If search_webapps_docs is unavailable, use the linked test guide and state that documentation search was unavailable before proceeding. Inspect my app first. Create the smallest test plan that covers HTTPS hosting, responsive behavior at a 600 × 600 validation viewport, semantic controls, browser-managed directional navigation, visible focus, intentional overflow, Meta AI app connection, physical-device validation, and optional display recording. Fix only issues found by the test plan and run the relevant local checks.
+Publish an HTTPS build
+Your Web App must be available at a publicly accessible HTTPS URL before the
+glasses can load it. See
 Hosting your Web App
-Web Apps for Meta Ray-Ban Display glasses must be served over HTTPS from a publicly accessible URL. See
-Hosting your Web App
-for details.
-Accessing your Web App on Meta Ray-Ban Display glasses
-In the Meta AI app, after you’ve enabled Developer Mode (see
-Enabling Developer Mode in the Meta AI app
-):
-Tap
-App Settings
-(left panel)
-App Connections
-Select
-Web Apps
-Add a Web App
-Add an app name and your URL
-Tap
-Connect
-Your Web App will appear immediately at the bottom of your Meta Ray-Ban Display glasses app grid. You can then pin it for easier access.
-Select your Web App in MRBD to launch it. Once in the Web App, you can use up/down/left/right swipes and index pinch or tap. A middle pinch will surface a universal Web App menu with:
-A
-Restart
-button to reload the Web app
-A
-Resume
-button to return to the Web app
-A
-Permissions
-button to manage permissions (if necessary)
-Testing on other devices
-Your Web App will run on any other browsers, like on your computer or mobile phone. If it works on your computer with up/down/left/right arrow keys and Enter, it should also work on your glasses. If you use Chrome debugging tools, set the viewport to 600 x 600 px.
-Testing with Display Simulator Chrome Extension
+for
+requirements and hosting options.
+Test the same production build and URL that you intend to use. Confirm that the
+page loads without certificate, asset, or console errors before moving to the
+glasses.
+Preview in a desktop browser
+Open the Web App in a desktop or mobile browser to check ordinary web behavior.
+In Chrome DevTools, use a 600 × 600 viewport as a validation target, not as a fixed
+layout size. Resize around that target to verify that the layout responds to the
+available viewport and handles overflow intentionally.
+Use arrow keys and Enter for a quick keyboard check of focus order and activation.
+This is only an approximation: wearable input is handled by the browser and
+is not a page-level keyboard-event contract. On the device, verify the actual
+spatial order, focus feedback, activation, scrolling, Back behavior, and text
+input.
+Preview with the Meta Ray-Ban Display Simulator
 The
 Meta Ray-Ban Display Simulator
-is a Chrome extension that recreates the 600×600 pixel display surface of Meta Ray-Ban Display glasses directly in your browser. The glasses display is unlike any phone or desktop screen — additive (black = transparent), D-pad-only input, and viewed against the real world. The simulator closes this gap by letting you preview and QA your Web Apps with additive blending, environment backgrounds, D-pad input, display tuning, and recording, all without needing physical hardware.
-Installing the extension
-Visit the
+⁠
+is a Chrome extension that previews the 600 × 600 additive display surface. Use it
+to iterate on layout, readability, focus, display tuning, and input before loading
+every change onto the Meta Ray-Ban Display glasses.
+The simulator is not a substitute for device validation. A desktop display cannot
+reproduce the wearer’s surroundings, wearable input hardware, system composer,
+sensor data, or device performance exactly.
+Install the extension
+Open the
 Meta Ray-Ban Display Simulator
 ⁠
-extension page in the Chrome Web Store.
+page in the Chrome Web Store.
 Click
 Add to Chrome
 .
-Navigate to your Web App in Chrome and click the extension icon in the toolbar to toggle the simulator on.
-Features
-600×600 px display frame
-: Exact MRBD resolution with optional frame overlay and additive blending.
-Environment backgrounds
-: Built-in scenes, custom image upload, animated backgrounds, and live webcam for real-world blending preview.
-D-pad input
-: On-screen directional buttons and Select that dispatch keyboard events into your Web App. These correspond with physical arrow keys and Enter.
-Display settings
-: App brightness, background brightness, background blur, and auto-dimming controls.
-Viewport recorder
-: Record the simulator viewport as a downloadable WebM video for demos or bug reports.
+Open your Web App in Chrome.
+Click the extension icon in the toolbar to turn on the simulator.
+Use the simulator tools
+The extension provides:
+a 600 × 600 display frame with an optional frame overlay and additive blending;
+built-in scenes, custom images, animated backgrounds, and a live webcam for
+previewing the app over different surroundings;
+on-screen directional controls and Select, which dispatch keyboard events to
+the page like physical arrow keys and Enter;
+app brightness, background brightness, background blur, and auto-dimming
+controls;
+a viewport recorder that exports a WebM video for demos or bug reports;
 View on Glasses QR
-: Generate a deeplink QR code to add your Web App to your MRBD via the Meta AI App, or share the QR code with others so they can add it too.
-QA checklist
-: Automated checks for viewport meta, favicon, D-pad-focusable elements, horizontal overflow, and visible focus styles.
-Sharing your Web App
-After testing your Web App, you can easily share it with other users:
-In the Meta AI app, go back to
-App Settings
-App Connections
+, which generates a deep-link QR code for adding the
+Web App to your own glasses during development; and
+a quality checklist for viewport metadata, favicon configuration,
+directional-focus targets, horizontal overflow, and visible focus styles.
+Load the Web App on your glasses
+First,
+enable Developer Mode in the Meta AI app
 .
-Tap on your Web App.
-Tap the
-Share link
-button.
-Others who receive the link can also access your Web App. If they have Developer Mode enabled, they’ll be one tap away from adding your Web App. Otherwise, they’ll be asked to enable Developer Mode first.
-If you use the MRBD Web App
-AI Coding plugin
-⁠
-, it can generate the deeplink and QR code to scan with your phone to add the Web App in the Meta AI App.
-Recording your Web App
-You can now record video of your MRBD while running and using your Web App, in order to show others what the experience is like.
-From Meta AI app:
+Then add the Web App:
 In the Meta AI app, tap
+App Settings
+in the left panel, then tap
+Apps
+.
+Tap
+Web Apps
+Connect Web App
+.
+Enter the HTTPS URL.
+Tap
+Save
+.
+The Web App appears immediately at the bottom of the app grid on your Meta Ray-Ban
+Display glasses. Pin it for faster access if needed, then select it to launch.
+Validate on the Meta Ray-Ban Display glasses
+Navigate up, down, left, and right through the Web App, and activate each selected
+control. Verify that:
+every critical control is reachable in a sensible spatial order;
+selected controls have visible focus feedback, including near display edges;
+activation triggers each action once;
+content remains readable over bright and dark surroundings;
+overflow scrolls intentionally and does not hide required actions;
+Back reverses meaningful navigation and can return to the native app boundary;
+text fields open the system composer and process committed text; and
+optional sensors, location, speech, storage, and offline behavior fail
+gracefully when unavailable.
+Use a middle tap to open the universal Web App menu. It provides:
+Restart
+to reload the Web App;
+Resume
+to return to the Web App; and
+Permissions
+to manage permissions when the app requests them.
+Record the Web App
+Record the display when you need to demonstrate the experience or capture a bug.
+From the Meta AI app:
+Tap
 Devices
-(the glasses icon), and scroll to your MRBD glasses.
-Scroll the buttons underneath the glasses and tap the
+and select your Meta Ray-Ban Display glasses.
+Scroll through the controls below the glasses and tap
 Record Display
-button.
-From MRBD:
-From the glasses settings pane, tap the
+.
+From the glasses:
+Open the glasses settings pane and select
 Display Recording
-button.
-When you’re done recording, import the media to your camera roll.
+.
+When recording is complete, import the video to your phone’s camera roll.
 Build with Meta
 Social Technologies
 Meta Horizon
