@@ -6,11 +6,140 @@ Login
 Register
 Web Apps
 Setup
-Build
+Develop
+Overview
+Wearables Web App AI Toolkit
+Web Apps Game Plugin
+App icons
+Display and layout
+Input and navigation
+Sensors and location
+Text to speech
+Storage and offline support
+UI Toolkit for Meta Ray-Ban Display
+Overview
+Getting started
+What is the toolkit?
+Installation
+Coding-agent skills
+Semantic tokens
+Theming
+Guides
+Application structure
+Screen layout
+Navigation and focus
+Route navigation
+Screen patterns
+Application patterns
+Component authoring
+Customization and composition
+Theming and customization
+Materials, motion, focus, and portals
+Accessibility, performance, and validation
+Correct patterns
+Foundations
+Overview
+Theme
+Theme API
+Colors
+Typography
+Spacing
+Corner radius
+Materials
+Overview
+Default container material
+Material library
+Custom materials
+Shape providers
+Motion
+Overview
+Interpolated motion
+Spring motion
+Second-order motion
+Utilities
+Icons
+Accessibility
+Performance and validation
+Floating portals
+Smooth corners
+Components
+Overview
+Foundation components
+App
+Card
+CardStack
+Carousel
+Container
+FocusNavigationProvider
+IconImage
+IconWithContainerMaterial
+InteractableBase
+Interactions
+MediaWrapper
+Pager
+PageTransition
+Panel
+ScrollView
+Shimmer
+StaticContainer
+Surface
+TextSwitcher
+TextView
+VerticalList
+Vignette
+Meta Ray-Ban Display components
+Overview
+ActionHint
+AppBadge
+AppControlTile
+Avatar
+Button
+ButtonDivider
+ButtonGroup
+ButtonRail
+Chip
+CircularProgressBar
+ContainerHeader
+ContextMenu
+ContextMenuItemView
+ControlTile
+Divider
+Header
+IndeterminateLoader
+InputTextView
+IsolatedControl
+ListItem
+Modal
+NotificationBadge
+Page
+PaginationIndicator
+ProgressIndicator
+ProgressRing
+QuickReplyButton
+RadioButton
+ReadMoreTextView
+Scrim
+Scrubber
+SliderBar
+SubNavigation
+SubNavigationPager
+SwipeIndicator
+SwipeToReveal
+Switch
+Tag
+Toast
+Tooltip
+TooltipContainer
+VerticalMenu
+VerticalMenuButton
+VolumeIndicator
+WebAppIcon
+ZoomIndicator
 Test
 Troubleshoot
-Documentation MCP
-Web Apps Game Plugin
+WebMCP agent tools
+Wearables Documentation MCP
+Acceptable use
 Build
 Updated
 :
@@ -97,6 +226,19 @@ not yet support
 Camera
 Microphone
 Notifications
+Web Apps on Meta Ray-Ban Display glasses also
+support
+:
+Capability
+Description and guidance
+Text to speech
+Standard
+window.speechSynthesis
+Web Speech API. Audio plays through the glasses speaker. One English voice; no permission prompt.
+volume
+is ignored and
+boundary
+events never fire.
 Display
 The display is an additive waveguide that overlays rendered pixels onto the wearer’s real-world view. This has a direct impact on how your app looks.
 A pixel rendered as pure black is fully transparent, since it contributes zero light.
@@ -669,6 +811,81 @@ input type= password
 input type= date
 input type= checkbox
 input type= radio
+On-screen keyboard
+In addition to handwriting and dictation, the composer offers an on-screen QWERTY keyboard, which is part of the composer. Text arrives in your field the same way it does for handwriting and dictation, and your app needs no integration to support it.
+Note:
+The on-screen keyboard requires glasses firmware
+v129+
+.
+Opening the keyboard
+The keyboard is reached from the composer, not from your text field. Users focus and activate a text field to open the composer, then swipe down on the composer to raise the keyboard. Users on TalkBack can activate the chevron control on the composer instead of swiping.
+Note:
+There is no way for your app to open the keyboard directly, and the keyboard cannot be raised while the composer is in dictation mode.
+Typing
+The keyboard is a four-row grid with a letters layer and a numbers and symbols layer. Directional input moves focus from key to key, and activation selects the focused key. Up and down move to the key physically above or below the current one, so navigation follows cardinal directions even though rows may have different key counts.
+Key
+Behavior
+Shift
+Latches caps lock on and off. It is not a one-shot shift, so it stays on until the user turns it off.
+Backspace
+Deletes the selection, or the character before the caret when there is no selection.
+123
+/
+ABC
+Switches between the letters layer and the numbers/symbols layer. Focus stays on the toggle key across the switch.
+Space
+Inserts a space.
+Done
+Collapses the keyboard and leaves the composer open with the typed text intact.*
+*Swiping up while the focus is on the top row also collapses the keyboard.
+Available characters
+Layer
+Characters
+Letters
+a
+–
+z
+, space
+Numbers and symbols
+0
+–
+9
+@
+#
+$
+%
+*
+-
++
+(
+)
+=
+/
+:
+;
+,
+.
+?
+!
+The keyboard cannot type apostrophes, quotation marks, underscores, backslashes, angle brackets, square brackets, braces, pipes, tildes, carets, or backticks. Avoid requiring these characters in values entered with the on-screen keyboard, especially email addresses and URLs. Password fields cannot open the composer. See
+Input types
+below.
+Events your app receives
+Typed characters go into the composer’s own text buffer, not into your element, so your field remains unchanged while the user types.
+Text reaches your element only when the user confirms the composer, at which point
+input
+fires and then
+change
+fires, following the same process for handwriting and dictation. Your app receives the finished string in one update.
+Because the keyboard is a focus-driven overlay rather than an Android input method, no per-character key events reach the page. Do not rely on
+keydown
+,
+keypress
+, or
+keyup
+to observe typing, and do not implement per-keystroke behavior, like inline autocomplete that depends on them. Validate and react in your
+input
+handler instead.
 Text field implementation
 Add a standard HTML text field with a descriptive placeholder attribute. The placeholder text should help the user understand what to enter in the composer panel.
 HTML
@@ -888,6 +1105,51 @@ var pitchRate = e.rotationRate.beta;
 var rollRate  = e.rotationRate.gamma;
 }
 });
+Fields and nullability
+Not every field is populated on glasses. Guard grouped fields before reading
+x
+,
+y
+,
+z
+or
+alpha
+,
+beta
+,
+gamma
+off them. Otherwise, your handler will throw on the first event.
+Field
+Type
+Notes
+accelerationIncludingGravity.x/y/z
+number
+Acceleration including gravity, in m/s². Populated.
+acceleration.x/y/z
+number or
+null
+Acceleration with gravity removed.
+May be
+null
+.
+rotationRate.alpha/beta/gamma
+number or
+null
+Rotation rate in
+degrees per second
+, not radians.
+May be
+null
+.
+interval
+number
+Milliseconds between readings.
+rotationRate
+is reported in degrees per second, matching
+DeviceMotionEvent
+in mobile browsers. If you are porting code that used the Generic Sensor
+Gyroscope
+interface, note that it reports radians per second instead.
 DeviceOrientationEvent
 DeviceOrientationEvent
 provides the current orientation of the glasses relative to the Earth. Use it for compass heading, tilt detection, or spatial UI.
@@ -897,6 +1159,40 @@ var tilt    = e.beta;   // Forward/back tilt (rotation around x-axis): -180° to
 var roll    = e.gamma;  // Left/right tilt (rotation around y-axis): -90° to 90°
 document.getElementById( heading ).textContent = heading.toFixed(1) +  ° ;
 });
+Field
+Type
+Notes
+alpha
+number
+Compass heading in degrees, 0–360, where 0 is north.
+beta
+number
+Front-to-back tilt in degrees, -180 to 180.
+gamma
+number
+Left-to-right tilt in degrees, -90 to 90.
+absolute
+boolean
+Whether the reading is relative to the Earth frame.
+The glasses derive
+alpha
+from a dedicated compass sensor rather than from the rotation vector, so heading is usable for real navigation and orientation UI.
+deviceorientationabsolute
+is also available. It carries the same fields as
+deviceorientation
+but always reports Earth-relative values, so you can listen for it instead of checking
+absolute
+yourself.
+Losing sensor permission mid-session
+A wearer can revoke sensor permission while your app is running directly from the glasses permission management dialog. In turn, the runtime removes all sensor event listeners your app registered, and further readings will no longer arrive. Your listeners simply stop firing, and no event or callback tells you what happened.
+Design for sensor permission loss, rather than assuming permissions stay granted:
+Do not treat the last reading you received as still current. If your UI shows a heading or tilt, drive it from a timestamp and show a neutral or stale state when readings stop arriving.
+Do not block your app’s core flow on sensor data. Wearer functionality should be reachable to their completion without sensors.
+When permission is revoked, the runtime stops delivering sensor events, but retains your listener registrations. Reattaching listeners does not restore the stream. After the wearer re-enables sensors in the permission-management dialog, call either
+DeviceOrientationEvent.requestPermission()
+or
+DeviceMotionEvent.requestPermission()
+again. When it returns granted, the existing listeners resume.
 Best practices
 Consider
 Avoid
@@ -1008,7 +1304,7 @@ or setting it too low
 Handling
 PERMISSION_DENIED
 gracefully, since the wearer must grant permission
-Assuming wearer does not need to grant permissions
+Assuming the wearer does not need to grant permissions
 Ensuring permissions requests are triggered by a user gesture
 Assuming permission requests are triggered
 Notes
@@ -1028,6 +1324,198 @@ POSITION_UNAVAILABLE
 Request exceeded the specified timeout
 3
 TIMEOUT
+Text to speech
+Meta Ray-Ban Display glasses implement the standard
+window.speechSynthesis
+Web Speech API. Audio plays through the glasses speaker. There is no permission prompt and nothing to enable —
+speechSynthesis
+is available to every Web App.
+Text to speech is useful on glasses in a way it is not on a phone: the display is small, additive, and often glanced at rather than read. Speaking a short result out loud is frequently a better answer than rendering more text.
+var utterance = new SpeechSynthesisUtterance( Your train leaves in four minutes );
+utterance.lang =  en-US ;
+speechSynthesis.speak(utterance);
+Voices
+The glasses expose exactly one voice.
+Property
+Value
+name
+Default
+voiceURI
+default
+lang
+en-US
+localService
+true
+default
+true
+speechSynthesis.getVoices()
+returns this single-entry list synchronously, on the first call. You do not need to wait for voices to load, and the list never changes, so there is no reason to handle
+voiceschanged
+.
+Do not build a voice picker, and do not make speech conditional on finding a particular voice by name.
+Utterance properties
+Property
+Range
+Default
+Notes
+text
+—
+—
+The text to speak.
+lang
+BCP 47 tag
+—
+Only English is synthesized today. Other tags are accepted but do not change the voice.
+rate
+0.1–10
+1
+Values outside the range are clamped.
+pitch
+0.1–2
+1
+Values outside the range are clamped. Note the upper bound is 2, not 10.
+voice
+—
+—
+Optional. Leave unset to use the default voice.
+volume
+—
+1
+Ignored.
+Setting it has no effect. Speech plays at the wearer’s system volume.
+volume
+is the one to watch. The property exists and is writable because it is part of the Web Speech API, but the glasses do not read it. If your app needs quieter output you cannot achieve that from the page.
+Events
+Attach handlers to the
+utterance
+, not to
+speechSynthesis
+.
+Event
+Fires
+start
+Speech begins.
+end
+Speech finishes, or the utterance is cancelled.
+error
+Synthesis fails. See error codes below.
+pause
+speechSynthesis.pause()
+is called.
+resume
+speechSynthesis.resume()
+is called.
+boundary
+and
+mark
+are
+never fired
+. The underlying engine does not report word or SSML timing, so the properties exist and can be assigned but your handler will not run. Do not build word-level highlighting or karaoke-style captions — there is no timing signal to drive them.
+speechSynthesis.addEventListener()
+is a no-op on glasses. Registering a listener on the
+speechSynthesis
+object itself succeeds silently and never fires. Use the utterance’s own handlers:
+var utterance = new SpeechSynthesisUtterance( Directions ready );
+utterance.onstart = function() { showSpeakingIndicator(); };
+utterance.onend   = function() { hideSpeakingIndicator(); };
+utterance.onerror = function(e) { console.warn( TTS failed: , e.error); };
+speechSynthesis.speak(utterance);
+Pausing, resuming, and cancelling
+speechSynthesis.pause()
+and
+resume()
+work, but not the way they do in a desktop browser. The glasses engine cannot resume mid-utterance, so
+resume()
+restarts the current utterance from the beginning
+and then continues through the queue.
+For a short confirmation this is barely noticeable. For a long passage it means the wearer hears the opening again. Prefer splitting long content into several short utterances over offering a pause control.
+speechSynthesis.cancel()
+clears the queue and stops the active utterance. Every cancelled utterance receives
+end
+, not
+error
+, so an
+onend
+handler cannot by itself distinguish “finished speaking” from “was cancelled”. Track that yourself if you need to know:
+var cancelled = false;
+function stopSpeaking() {
+cancelled = true;
+speechSynthesis.cancel();
+}
+utterance.onend = function() {
+if (!cancelled) advanceToNextStep();
+};
+You can read
+speechSynthesis.speaking
+,
+.pending
+, and
+.paused
+to inspect current state.
+Error codes
+error
+events carry a standard Web Speech error code in
+event.error
+.
+Code
+Meaning
+canceled
+The utterance was removed from the queue before it started.
+interrupted
+Speech was stopped after it had started.
+audio-busy
+The audio output is unavailable, for example during a call.
+audio-hardware
+No usable audio output.
+network
+A network failure during synthesis.
+synthesis-unavailable
+The synthesis engine could not be reached.
+synthesis-failed
+The engine failed while producing audio.
+language-unavailable
+No voice for the requested
+lang
+.
+voice-unavailable
+The requested
+voice
+is not available.
+text-too-long
+The
+text
+is too long to synthesize.
+invalid-argument
+A property such as
+rate
+or
+pitch
+could not be used.
+not-allowed
+Synthesis was not permitted.
+Always attach an
+onerror
+handler.
+audio-busy
+in particular is routine rather than exceptional on glasses, because the wearer may be on a call, so treat it as a reason to fall back to on-screen text rather than as a bug.
+Best practices
+Consider
+Avoid
+Speaking short, self-contained sentences
+Reading long passages the wearer cannot pause or scrub
+Also showing the information on screen
+Making speech the only way to receive something important
+Handling
+error
+, especially
+audio-busy
+Assuming
+speak()
+always produces audio
+Cancelling before speaking something new
+Queueing utterances until they pile up behind each other
+Letting the wearer turn speech off in your app
+Speaking automatically on load, before any wearer action
 Storage
 Web Apps on Meta Ray-Ban Display glasses have access to standard Web Storage APIs, including both
 localStorage
@@ -1184,6 +1672,52 @@ my-app-v2
 ). The new service worker will install alongside the old one, precache the updated files, and clean up the outdated cache on activation.
 // Update this version string whenever you update your app
 const CACHE_NAME =  my-app-v2 ;
+Clearing cached data
+There is no “clear cache” control for individual Web Apps and no JavaScript API your app can call to erase its own storage. A Web App’s stored data can only be cleared by
+removing
+the Web App from the user’s glasses altogether.
+When that cleanup runs, it erases:
+Cookies
+localStorage
+IndexedDB
+HTTP cache
+Service Worker
+CacheStorage
+entries
+The other Web Apps on your domain determine how much is erased.
+The runtime will not wipe data belonging to a Web App that is still installed, so it narrows the scope when it has to.
+Situation
+What is erased
+No other installed Web App shares your registrable domain.
+The whole site, including
+HttpOnly
+cookies and the HTTP cache.
+Another installed Web App shares your registrable domain.
+Only your origin’s data —
+localStorage
+, IndexedDB,
+CacheStorage
+, and cookies visible to JavaScript.
+HttpOnly
+cookies and the shared HTTP cache survive.
+Essentially, if you host several Web Apps under a single domain, removing one of them is
+not
+a clean reset for that app. Server-set session cookies in particular can outlive any removal and just be picked up by the next install.
+Do not build on either outcome.
+The cleanup is behind a server-side configuration flag that is
+off
+by default, so on a given build, removal may clear nothing at all. Even if the server-side configuration flag is
+on
+, the scope narrows, and it runs in the background after removal, rather than at a point your app can observe. This means that your Web App is
+not notified
+and cannot run code during cleanup.
+What to do instead:
+Treat stored data as something that may or may not be there on any given launch. Read defensively and rebuild from the server when what you find is missing or unrecognized.
+Writing a schema version into your stored data and validating it on read is the only reliable way to detect data left behind by an older install.
+Keep using versioned
+CACHE_NAME
+values as described above, since cache versioning is under your control.
+Don’t store anything you would be uncomfortable leaving on a device after the wearer removes your Web App.
 Best practices
 Do
 Don’t
