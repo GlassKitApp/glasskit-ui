@@ -1799,7 +1799,7 @@ icons : [
 }
 Build with Meta
 Social Technologies
-Meta Horizon
+VR
 AI
 Worlds
 Wearables
@@ -1816,7 +1816,7 @@ GitHub Discussions (iOS)
 GitHub Discussions (Android)
 Build with Meta
 Social Technologies
-Meta Horizon
+VR
 AI
 Worlds
 Wearables
@@ -1833,7 +1833,7 @@ GitHub Discussions (iOS)
 GitHub Discussions (Android)
 Build with Meta
 Social Technologies
-Meta Horizon
+VR
 AI
 Worlds
 Wearables

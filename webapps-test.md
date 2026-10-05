@@ -262,7 +262,7 @@ Display Recording
 When recording is complete, import the video to your phone’s camera roll.
 Build with Meta
 Social Technologies
-Meta Horizon
+VR
 AI
 Worlds
 Wearables
@@ -279,7 +279,7 @@ GitHub Discussions (iOS)
 GitHub Discussions (Android)
 Build with Meta
 Social Technologies
-Meta Horizon
+VR
 AI
 Worlds
 Wearables
@@ -296,7 +296,7 @@ GitHub Discussions (iOS)
 GitHub Discussions (Android)
 Build with Meta
 Social Technologies
-Meta Horizon
+VR
 AI
 Worlds
 Wearables

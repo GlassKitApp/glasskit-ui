@@ -167,7 +167,7 @@ SVG favicons are not supported
 Use PNG favicons (larger than 52x52 px).
 Build with Meta
 Social Technologies
-Meta Horizon
+VR
 AI
 Worlds
 Wearables
@@ -184,7 +184,7 @@ GitHub Discussions (iOS)
 GitHub Discussions (Android)
 Build with Meta
 Social Technologies
-Meta Horizon
+VR
 AI
 Worlds
 Wearables
@@ -201,7 +201,7 @@ GitHub Discussions (iOS)
 GitHub Discussions (Android)
 Build with Meta
 Social Technologies
-Meta Horizon
+VR
 AI
 Worlds
 Wearables

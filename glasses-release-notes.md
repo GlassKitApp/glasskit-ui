@@ -1,39 +1,9 @@
 [Skip to main content](https://www.meta.com/help/ai-glasses/1809764829519902/#mdc-main-content)
 # AI glasses release notes
-4 Likes
-Updated:a week ago
+5 Likes
+Updated:4 days ago
 Wondering what's new with AI glasses? Check out our release notes to learn about the latest new features and enhancements we've made to your glasses experience.
 Make sure to [update your glasses](https://www.meta.com/help/ai-glasses/3487248634876136/) and the Meta AI mobile app to the latest version to take advantage of these improvements.
-# XXXX, 2026
-* * *
-### Meta Ray-Ban Display glasses v6 release notes
-These features and improvements will become available starting the week of XXXX 2026.
-## Muse Spark on Meta Ray-Ban Display
-Meta AI on your glasses delivers smarter answers, with enhanced visual perception, and helps manage your daily life effortlessly. Available in the US and Canada.
-## Threads App on Meta Ray-Ban Display
-Threads is now on your Meta Ray-Ban Display glasses. Browse your feed, view media, engage with posts, share to messaging, and use voice commands — all hands-free.
-## \[Early Access\] Neural Handwriting x Meta AI
-Ask Meta AI anything by doing double thumb tap and then writing with your finger on any surface. Instead of saying “Hey Meta,” get answers, play music, navigate, or send a message using just your handwriting. Available as an Early Access feature for Meta Ray-Ban Display glasses with the Meta Neural Band in the US (English).
-## New Languages for Live Translation
-Have real-time conversations in 14 more languages—now including Arabic, Dutch, Finnish, Greek, Hindi, Indonesian, Japanese, Korean, Mandarin, Russian, Swedish, Thai, Turkish, and Vietnamese. No need to download language packs to your glasses; all you need is network connectivity.
-## Share From Display Glasses to IG Instants
-Just say “Hey Meta, share an Instant” to capture a photo and share it to Instagram Instants — a low-pressure, no-editing way to share the moment with your closest friends.
-## Instagram Reels Updates
-Experience more of Instagram Reels right from your glasses. Now you can read and like comments and share your favorite reels with any of your friends. You can also say "Hey Meta, show me reels of" to specifically search for reels of your favorite topic.
-## Call logs in WA threads
-You can now see your recent and missed WhatsApp calls right inside your chats on your Meta Ray-Ban Display glasses, so it's easy to review call details at a glance - no need to pull out your phone.
-## Meta AI In Call Concurrency
-While on a call, you can mute, unmute, toggle camera for video calls, and hang up calls hands-free using your voice.
-## WhatsApp Voice Chats (fka Push to Talk, PTT)
-Start a group voice chat from WhatsApp on your phone, then stash it and go. Stay connected to your group while you listen to music, take hands-free captures, and hear your workout stats. Mute and unmute by using your voice.
-## Share your ETA while Navigating
-Let your friends know you’re on your way. You can now quickly share your ETA with someone while you're using in-lens navigation.
-* * *
-### Meta Neural Band v6 release notes
-These features and improvements will become available starting the week of XXXX 2026.
-## Meta Neural Band Orientation Detection on Display
-Your Meta Neural Band senses how it's being worn. You may get a notification on your display glasses if the band is incorrectly worn so that you can adjust it for the best signal possible.
-* * *
 # June 29, 2026
 * * *
 ### Ray-Ban Meta, Oakley Meta and Meta Glasses v26 release notes

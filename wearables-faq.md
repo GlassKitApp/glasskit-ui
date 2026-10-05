@@ -68,7 +68,7 @@ Web Apps run directly on Meta Ray-Ban Display glasses using standard HTML, CSS, 
 Your web app can tune into the wearer's context — device position, location, and wrist motion from the Meta Neural Band — and take text input however fits the moment: dictation, handwriting, or an on-screen keyboard. Capabilities ship regularly, so see our Web apps [page](https://developers.meta.com/wearables/web-apps) for the latest.
 * * *
 ### What tools are available for building Web Apps?
-The new [UI Toolkit for Meta Ray-Ban Display⁠](https://github.com/facebook/meta-wearables-webapp) and its accompanying skills help you build interactive experiences that feel at home on glasses, and a browser-based [simulator⁠](https://wearables.developer.meta.com/docs/develop/dat/display-simulation) lets you test without hardware.
+The new [UI Toolkit for Meta Ray-Ban Display⁠](https://github.com/facebook/meta-ray-ban-display-ui-toolkit-web) and its accompanying skills help you build interactive experiences that feel at home on glasses, and a browser-based [simulator⁠](https://wearables.developer.meta.com/docs/develop/dat/display-simulation) lets you test without hardware.
 * * *
 ### What input methods can I use in a Web App?
 Web Apps support navigation and selection from Meta Neural Band and captouch, plus text entry by dictation, handwriting, or on-screen keyboard. For the current list of supported inputs and gestures — and guidance on designing for them — see our [documentation⁠](https://wearables.developer.meta.com/docs/develop/webapps/build/input-and-navigation).
@@ -105,6 +105,9 @@ Yes, developers can process data locally or via cloud/edge platforms. However, t
 * * *
 ## Submission & Discovery
 * * *
+### Are there rules about what I can build?
+Yes. All integrations and apps must comply with the [Meta Wearables Developer Acceptable Use Policy⁠](https://wearables.developer.meta.com/acceptable-use-policy). Check the Acceptable Use Policy to learn more.
+* * *
 ### Can people discover what I build?
 Soon, yes. Two new discovery surfaces are coming: on Meta Ray-Ban Display glasses you'll be able to find select experiences right on the device, and in the Meta AI app you'll be able to find a list of curated experiences for connected AI glasses. These surfaces will continue to expand as we begin taking submissions and approving more experiences. Learn more about where your experience can appear and how to be featured [here](https://developers.meta.com/wearables/explore/).
 * * *
@@ -122,9 +125,10 @@ You can host your web app on a server, and then share the URL. If a Meta Ray-Ban
 [Facebook](https://www.facebook.com/MetaforDevelopers)[X](https://www.instagram.com/metafordevelopers/)[X](https://x.com/metafordevs)[LinkedIn](https://www.linkedin.com/showcase/meta-for-developers/)[LinkedIn](https://www.youtube.com/MetaDevelopers)
 Developer Centers
 [AI](https://www.llama.com/)
-[Meta Horizon OS](https://developers.meta.com/horizon/)
+[VR](https://developers.meta.com/horizon/)
 [Social technologies](https://developers.facebook.com/)
 [Wearables](https://developers.meta.com/wearables/)
+[Horizon](https://developers.meta.com/horizon-worlds/)
 Documentation
 [Llama](https://www.llama.com/docs/overview/)
 [Unity](https://developers.meta.com/horizon/develop/unity/)
@@ -142,16 +146,20 @@ Resources
 [Success stories](https://developers.meta.com/resources/success-stories/)
 [Videos](https://developers.meta.com/resources/videos/)
 [Programs](https://developers.meta.com/resources/programs/)
-Support
+Support and legal
 [AI](https://www.llama.com/docs/community-support-and-resources/)
-[Meta Horizon](https://developers.meta.com/horizon/support/)
-[Wearables](https://wearables.developer.meta.com/docs/support)
+[VR](https://developers.meta.com/horizon/support/)
 [Social technologies](https://developers.facebook.com/support/)
+[Wearables](https://wearables.developer.meta.com/docs/support)
+[Horizon](https://developers.meta.com/horizon-worlds/support/)
+[Wearables Developer Terms](https://wearables.developer.meta.com/terms/)
+[Acceptable Use Policy](https://wearables.developer.meta.com/acceptable-use-policy/)
 Developer Centers
 [AI](https://www.llama.com/)
-[Meta Horizon OS](https://developers.meta.com/horizon/)
+[VR](https://developers.meta.com/horizon/)
 [Social technologies](https://developers.facebook.com/)
 [Wearables](https://developers.meta.com/wearables/)
+[Horizon](https://developers.meta.com/horizon-worlds/)
 Documentation
 [Llama](https://www.llama.com/docs/overview/)
 [Unity](https://developers.meta.com/horizon/develop/unity/)
@@ -169,16 +177,20 @@ Resources
 [Success stories](https://developers.meta.com/resources/success-stories/)
 [Videos](https://developers.meta.com/resources/videos/)
 [Programs](https://developers.meta.com/resources/programs/)
-Support
+Support and legal
 [AI](https://www.llama.com/docs/community-support-and-resources/)
-[Meta Horizon](https://developers.meta.com/horizon/support/)
-[Wearables](https://wearables.developer.meta.com/docs/support)
+[VR](https://developers.meta.com/horizon/support/)
 [Social technologies](https://developers.facebook.com/support/)
+[Wearables](https://wearables.developer.meta.com/docs/support)
+[Horizon](https://developers.meta.com/horizon-worlds/support/)
+[Wearables Developer Terms](https://wearables.developer.meta.com/terms/)
+[Acceptable Use Policy](https://wearables.developer.meta.com/acceptable-use-policy/)
 Developer Centers
 [AI](https://www.llama.com/)
-[Meta Horizon OS](https://developers.meta.com/horizon/)
+[VR](https://developers.meta.com/horizon/)
 [Social technologies](https://developers.facebook.com/)
 [Wearables](https://developers.meta.com/wearables/)
+[Horizon](https://developers.meta.com/horizon-worlds/)
 Documentation
 [Llama](https://www.llama.com/docs/overview/)
 [Unity](https://developers.meta.com/horizon/develop/unity/)
@@ -196,11 +208,14 @@ Resources
 [Success stories](https://developers.meta.com/resources/success-stories/)
 [Videos](https://developers.meta.com/resources/videos/)
 [Programs](https://developers.meta.com/resources/programs/)
-Support
+Support and legal
 [AI](https://www.llama.com/docs/community-support-and-resources/)
-[Meta Horizon](https://developers.meta.com/horizon/support/)
-[Wearables](https://wearables.developer.meta.com/docs/support)
+[VR](https://developers.meta.com/horizon/support/)
 [Social technologies](https://developers.facebook.com/support/)
+[Wearables](https://wearables.developer.meta.com/docs/support)
+[Horizon](https://developers.meta.com/horizon-worlds/support/)
+[Wearables Developer Terms](https://wearables.developer.meta.com/terms/)
+[Acceptable Use Policy](https://wearables.developer.meta.com/acceptable-use-policy/)
 English (US)
 © 2026 Meta
 Facebook

@@ -239,11 +239,14 @@ HTTP-only URLs are not supported. The glasses runtime requires HTTPS for every W
 Installing a Web App
 Wearers add a Web App to their glasses in one of two ways: by scanning a QR code, or by activating an install control on a page they already have open. Both routes end at the same on-glasses confirmation, and neither can add an app without the wearer agreeing to it.
 QR code
-A Web App is added by scanning a QR code that encodes an install link — a plain QR of your site’s URL is not recognized. Rather than hand-crafting one, generate the install link and its QR code with a supported tool: the
+A Web App is added by scanning a QR code that encodes an install link, since a plain QR of your site’s URL is not recognized. Rather than hand-crafting one, generate the install link and its QR code with a supported tool: either the
 View on Glasses QR
-feature of the Meta Ray-Ban Display Simulator, or the MRBD Web App AI Coding plugin, both covered on the
+feature of the Meta Ray-Ban Display Simulator, or the MRBD Web App AI Coding plugin, both of which are covered in the
 Test page
-. Put the generated QR code somewhere a wearer can look at it — a page on your site, a slide, a printed card. The wearer looks at the code with their glasses, the glasses recognize it, and an add-to-glasses screen appears for them to confirm. What that screen shows depends on which surface handles it: the App Manager resolves an icon from your site’s appearance, or shows a placeholder when it can’t, while the legacy dialog shows your app’s name, an optional description, and its URL. An app icon is not guaranteed.
+. Put the generated QR code somewhere a wearer can look at it, like a page on your site, a slide, or a printed card. The deeplinking URL scheme for QR codes should follow this template:
+fb-viewapp://web_app_deep_link?appName= name  appUrl= https-url
+.
+When the wearer looks at the code with their glasses, the glasses recognize it, and an add-to-glasses screen appears for them to confirm. Screen content depends on which surface handles it. The App Manager resolves an icon from your site’s appearance, or shows a placeholder when it can’t. Meanwhile, the legacy dialog shows your app’s name, an optional description, and its URL. In this case, an app icon is not guaranteed.
 Because your app has not been reviewed, the confirmation screen marks it as unverified. Expect wearers to see that label and write your app name and description so they can tell it is yours.
 Serve the app over HTTPS. The QR parser rejects an HTTP inner URL, and HTTPS is required for Web Apps generally.
 navigator.install()
@@ -327,7 +330,7 @@ install
 is also not a real element on other browsers, where it renders as an inert inline box and does nothing when clicked, so anything you put inside it needs to make sense as plain text.
 Build with Meta
 Social Technologies
-Meta Horizon
+VR
 AI
 Worlds
 Wearables
@@ -344,7 +347,7 @@ GitHub Discussions (iOS)
 GitHub Discussions (Android)
 Build with Meta
 Social Technologies
-Meta Horizon
+VR
 AI
 Worlds
 Wearables
@@ -361,7 +364,7 @@ GitHub Discussions (iOS)
 GitHub Discussions (Android)
 Build with Meta
 Social Technologies
-Meta Horizon
+VR
 AI
 Worlds
 Wearables
