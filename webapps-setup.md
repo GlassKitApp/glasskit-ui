@@ -1,4 +1,4 @@
-Web Apps for Meta Ray-Ban Display glasses
+Web Apps for Meta Ray-Ban Display glasses | Meta Wearables Developers
 Build for Wearables
 API reference
 Support

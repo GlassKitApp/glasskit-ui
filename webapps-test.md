@@ -1,4 +1,4 @@
-Test
+Test | Meta Wearables Developers
 Build for Wearables
 API reference
 Support

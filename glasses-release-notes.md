@@ -1,7 +1,7 @@
 [Skip to main content](https://www.meta.com/help/ai-glasses/1809764829519902/#mdc-main-content)
 # AI glasses release notes
-5 Likes
-Updated:4 days ago
+17 Likes
+Updated:a week ago
 Wondering what's new with AI glasses? Check out our release notes to learn about the latest new features and enhancements we've made to your glasses experience.
 Make sure to [update your glasses](https://www.meta.com/help/ai-glasses/3487248634876136/) and the Meta AI mobile app to the latest version to take advantage of these improvements.
 # June 29, 2026
@@ -494,6 +494,6 @@ Tell us what you need support with and we’ll find the best solution for you.
 [Get support](https://www.meta.com/help/support/)
 ### Get answers from the community
 If you're having trouble, find answers to your questions from AI Glasses users around the world.
-[Go to community forum](https://communityforums.atmeta.com/category/ai-glasses)
+[Go to community forum](https://communityforums.atmeta.com/ai-glasses-2)
 Try "How do I update my AI glasses firmware?"
 Facebook

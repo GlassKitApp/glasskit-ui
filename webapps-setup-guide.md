@@ -1,4 +1,4 @@
-Setup
+Setup | Meta Wearables Developers
 Build for Wearables
 API reference
 Support
@@ -143,7 +143,7 @@ Acceptable use
 Setup
 Updated
 :
-Sep 21, 2026
+Oct 8, 2026
 The recommended AI-assisted setup for Meta Ray-Ban Display Web Apps takes four steps:
 Set up AI coding tools.
 Install the AI Coding plugin and connect the Wearables MCP server before scaffolding your first project.
@@ -167,7 +167,7 @@ Web Apps AI and MCP setup instructions
 to install both tools for Muse Code, Claude Code, Codex, or Cursor before asking the assistant to scaffold a project.
 Use this page with AI
 Copy this prompt into your AI coding tool to prepare a Web App development setup:
-Use https://wearables.developer.meta.com/docs/develop/webapps/setup/ and https://wearables.developer.meta.com/docs/develop/webapps/ai-assisted-mcp/ to prepare my Meta Ray-Ban Display Web Apps setup. Inspect my project and AI tool configuration first. If the Web Apps AI Coding plugin or Wearables MCP endpoint https://mcp.developer.meta.com/wearables is missing, help me configure it before proceeding. Verify that the plugin skills and search_webapps_docs are available, then ask search_webapps_docs for current first Web App setup guidance. Produce the smallest checklist for tooling, hardware, Meta AI app version, Developer Mode, HTTPS hosting, and local browser verification. Do not edit app code until the setup gaps are clear.
+Use https://wearables.developer.meta.com/docs/develop/webapps/setup/ and https://wearables.developer.meta.com/docs/develop/webapps/wearables-documentation-mcp/ to prepare my Meta Ray-Ban Display Web Apps setup. Inspect my project and AI tool configuration first. If the Web Apps AI Coding plugin or Wearables MCP endpoint https://mcp.developer.meta.com/wearables is missing, help me configure it before proceeding. Verify that the plugin skills and search_webapps_docs are available, then ask search_webapps_docs for current first Web App setup guidance. Produce the smallest checklist for tooling, hardware, Meta AI app version, Developer Mode, HTTPS hosting, and local browser verification. Do not edit app code until the setup gaps are clear.
 Requirements
 Hardware
 Web Apps are supported only on Meta Ray-Ban Display (MRBD) glasses. Meta Neural Band is optional, though recommended for an optimal experience.
