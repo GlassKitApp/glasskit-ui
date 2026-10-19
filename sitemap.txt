@@ -1,9 +1,5 @@
 https://wearables.developer.meta.com/docs/develop
 https://wearables.developer.meta.com/docs/develop/dat
-https://wearables.developer.meta.com/docs/develop/dat/getting-started-toolkit
-https://wearables.developer.meta.com/docs/develop/dat/manage-projects
-https://wearables.developer.meta.com/docs/develop/dat/onboarding-and-organization-management
-https://wearables.developer.meta.com/docs/develop/dat/set-up-release-channels
 https://wearables.developer.meta.com/docs/develop/webapps
 https://wearables.developer.meta.com/docs/develop/webapps/acceptable-use
 https://wearables.developer.meta.com/docs/develop/webapps/agent-tools

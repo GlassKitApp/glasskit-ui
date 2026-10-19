@@ -8,7 +8,7 @@ Web Apps
 Setup
 Develop
 Overview
-Wearables Web App AI Toolkit
+AI Toolkit
 Web Apps Game Plugin
 App icons
 Display and layout
