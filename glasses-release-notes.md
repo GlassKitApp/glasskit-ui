@@ -1,7 +1,7 @@
 [Skip to main content](https://www.meta.com/help/ai-glasses/1809764829519902/#mdc-main-content)
 # AI glasses release notes
-17 Likes
-Updated:2 weeks ago
+16 Likes
+Updated:2 days ago
 Wondering what's new with AI glasses? Check out our release notes to learn about the latest new features and enhancements we've made to your glasses experience.
 Make sure to [update your glasses](https://www.meta.com/help/ai-glasses/3487248634876136/) and the Meta AI mobile app to the latest version to take advantage of these improvements.
 # June 29, 2026

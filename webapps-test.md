@@ -14,6 +14,7 @@ App icons
 Display and layout
 Input and navigation
 Sensors and location
+Wrist orientation
 Text to speech
 Storage and offline support
 UI Toolkit for Meta Ray-Ban Display
@@ -143,7 +144,7 @@ Acceptable use
 Test
 Updated
 :
-Sep 19, 2026
+Oct 19, 2026
 Test a Web App in layers: use a desktop browser for fast feedback, use the Meta
 Ray-Ban Display Simulator to preview display-specific behavior, and finish on the
 glasses. Desktop checks shorten the iteration loop, but they do not replace device
@@ -167,11 +168,13 @@ Open the Web App in a desktop or mobile browser to check ordinary web behavior.
 In Chrome DevTools, use a 600 × 600 viewport as a validation target, not as a fixed
 layout size. Resize around that target to verify that the layout responds to the
 available viewport and handles overflow intentionally.
-Use arrow keys and Enter for a quick keyboard check of focus order and activation.
-This is only an approximation: wearable input is handled by the browser and
-is not a page-level keyboard-event contract. On the device, verify the actual
-spatial order, focus feedback, activation, scrolling, Back behavior, and text
-input.
+For a quick keyboard check of spatial navigation and activation, start Chrome with the
+--enable-spatial-navigation
+switch, then use the arrow keys and Enter. Chrome ignores the switch if it’s already running, so quit it first or start a second instance with its own
+--user-data-dir
+. The switch turns on the spatial navigation that the glasses use by default (see
+Input and navigation
+). Without it, the arrow keys scroll the page or step through radio groups instead of moving focus spatially, and Enter doesn’t activate checkboxes or radio buttons. On the device, verify the actual spatial order, focus feedback, activation, scrolling, Back behavior, and text input.
 Preview with the Meta Ray-Ban Display Simulator
 The
 Meta Ray-Ban Display Simulator

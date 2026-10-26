@@ -14,6 +14,7 @@ App icons
 Display and layout
 Input and navigation
 Sensors and location
+Wrist orientation
 Text to speech
 Storage and offline support
 UI Toolkit for Meta Ray-Ban Display

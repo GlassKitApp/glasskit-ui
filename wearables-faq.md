@@ -4,7 +4,7 @@
 - [Web Apps](https://developers.meta.com/wearables/faq/#web-apps)
 - [Meta AI Connectors](https://developers.meta.com/wearables/faq/#meta-ai-connectors)
 - [Integrations & APIs](https://developers.meta.com/wearables/faq/#integration-apis)
-- [Submission & Discovery](https://developers.meta.com/wearables/faq/#submission-and-discovery)
+- [Publishing & Discovery](https://developers.meta.com/wearables/faq/#submission-and-discovery)
 ## Getting started
 * * *
 ### What are the ways to build for Meta's portfolio of AI glasses?
@@ -22,7 +22,7 @@ You can record what you are seeing with the new 'Record display' button visible 
 ## Device Access Toolkit
 * * *
 ### What is the Meta Wearables Device Access Toolkit?
-The Meta Wearables Device Access Toolkit enables developers to utilize our AI glasses to build hands-free wearable experiences into their mobile applications. By integrating this toolkit, developers can leverage capabilities like video streaming, photo capture, microphone and audio, Once integration covers both display and displayless AI glasses.
+The Meta Wearables Device Access Toolkit enables developers to utilize our AI glasses to build hands-free wearable experiences into their mobile applications. By integrating this toolkit, developers can leverage capabilities like video streaming, photo capture, microphone and audio. One integration covers both display and displayless AI glasses.
 * * *
 ### Is the Device Access Toolkit still in developer preview?
 No. After a year in developer preview, Wearables Device Access Toolkit 1.0 is here — a stable, supported release to build on. It begins rolling out September 30, 2026. Details in our [developer documentation⁠](https://wearables.developer.meta.com/docs/develop/dat/).
@@ -33,7 +33,7 @@ While developers everywhere will be able to download the SDK, only those in [AI 
 ### What devices will be supported by this toolkit?
 We support our portfolio of AI glasses:
 - Ray-Ban Meta (Gen 1 and Gen 2)
-- Ray-Ban Meta Display
+- Meta Ray-Ban Display
 - Oakley Meta HSTN
 - Oakley Meta Vanguard
 New SKUs of these devices are supported as they become available. Capability availability varies by device.
@@ -103,7 +103,7 @@ Yes, developers can process data locally or via cloud/edge platforms. However, t
 - **Web Apps:** Starter kit and AI coding skills on [GitHub⁠](https://github.com/facebookincubator/meta-wearables-webapp)
 - **Documentation:** [https://wearables.developer.meta.com/docs/develop/⁠](https://wearables.developer.meta.com/docs/develop/)
 * * *
-## Submission & Discovery
+## Publishing & Discovery
 * * *
 ### Are there rules about what I can build?
 Yes. All integrations and apps must comply with the [Meta Wearables Developer Acceptable Use Policy⁠](https://wearables.developer.meta.com/acceptable-use-policy). Check the Acceptable Use Policy to learn more.
@@ -111,7 +111,7 @@ Yes. All integrations and apps must comply with the [Meta Wearables Developer Ac
 ### Can people discover what I build?
 Soon, yes. Two new discovery surfaces are coming: on Meta Ray-Ban Display glasses you'll be able to find select experiences right on the device, and in the Meta AI app you'll be able to find a list of curated experiences for connected AI glasses. These surfaces will continue to expand as we begin taking submissions and approving more experiences. Learn more about where your experience can appear and how to be featured [here](https://developers.meta.com/wearables/explore/).
 * * *
-### When can I submit and submit my experience?
+### When can I submit and publish my experience?
 You'll soon be able to submit your Device Access Toolkit and Web Apps experiences to be published on these surfaces. We'll have more to share on submission and publishing timing soon. Create an account in the [Wearables Developer Center⁠](https://wearables.developer.meta.com/) so you're ready the moment submissions open — we'll share timing and details there first.
 * * *
 ### Will there be any bootcamps or hackathons?

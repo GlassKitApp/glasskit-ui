@@ -11,6 +11,7 @@ https://wearables.developer.meta.com/docs/develop/webapps/build/overview
 https://wearables.developer.meta.com/docs/develop/webapps/build/sensors-and-location
 https://wearables.developer.meta.com/docs/develop/webapps/build/storage-and-offline-support
 https://wearables.developer.meta.com/docs/develop/webapps/build/text-to-speech
+https://wearables.developer.meta.com/docs/develop/webapps/build/wrist
 https://wearables.developer.meta.com/docs/develop/webapps/design/components/foundation/app
 https://wearables.developer.meta.com/docs/develop/webapps/design/components/foundation/card
 https://wearables.developer.meta.com/docs/develop/webapps/design/components/foundation/card-stack
