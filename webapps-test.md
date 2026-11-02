@@ -15,6 +15,7 @@ Display and layout
 Input and navigation
 Sensors and location
 Wrist orientation
+Battery
 Text to speech
 Storage and offline support
 UI Toolkit for Meta Ray-Ban Display
@@ -144,7 +145,7 @@ Acceptable use
 Test
 Updated
 :
-Oct 19, 2026
+Oct 28, 2026
 Test a Web App in layers: use a desktop browser for fast feedback, use the Meta
 Ray-Ban Display Simulator to preview display-specific behavior, and finish on the
 glasses. Desktop checks shorten the iteration loop, but they do not replace device
@@ -200,8 +201,13 @@ The extension provides:
 a 600 × 600 display frame with an optional frame overlay and additive blending;
 built-in scenes, custom images, animated backgrounds, and a live webcam for
 previewing the app over different surroundings;
-on-screen directional controls and Select, which dispatch keyboard events to
-the page like physical arrow keys and Enter;
+on-screen directional controls and
+Select
+, which send
+keydown
+and
+keyup
+events for the arrow keys and Enter to the focused element;
 app brightness, background brightness, background blur, and auto-dimming
 controls;
 a viewport recorder that exports a WebM video for demos or bug reports;
@@ -210,6 +216,15 @@ View on Glasses QR
 Web App to your own glasses during development; and
 a quality checklist for viewport metadata, favicon configuration,
 directional-focus targets, horizontal overflow, and visible focus styles.
+Your page’s key listeners receive the events from the directional controls and
+Select
+, but the browser doesn’t move focus, scroll, or activate the focused element. On pages that handle these keys themselves, such as those built with
+UI Toolkit
+, the directional controls move focus and
+Select
+activates the focused element. To check spatial navigation and activation, use the keyboard check in
+Preview in a desktop browser
+.
 Load the Web App on your glasses
 First,
 enable Developer Mode in the Meta AI app

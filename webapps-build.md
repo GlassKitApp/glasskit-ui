@@ -15,6 +15,7 @@ Display and layout
 Input and navigation
 Sensors and location
 Wrist orientation
+Battery
 Text to speech
 Storage and offline support
 UI Toolkit for Meta Ray-Ban Display
@@ -144,7 +145,7 @@ Acceptable use
 Overview
 Updated
 :
-Sep 19, 2026
+Oct 26, 2026
 Overview
 Web Apps for Meta Ray-Ban Display glasses run in a Chromium-based browser. Build with
 semantic HTML, responsive CSS, and the documented web APIs. Feature-detect
@@ -154,6 +155,7 @@ Use these guides to build and test an app:
 Display and layout
 Input and navigation
 Sensors and location
+Battery
 Text to speech
 Storage and offline support
 App icons
@@ -228,6 +230,14 @@ Location
 Permission-gated
 navigator.geolocation
 , normally sourced through the paired phone. Handle denied, unavailable, and timed-out requests.
+Battery
+The standard
+navigator.getBattery()
+reports the glasses’ battery level and charging state using
+levelchange
+and
+chargingchange
+events.
 Storage
 localStorage
 and

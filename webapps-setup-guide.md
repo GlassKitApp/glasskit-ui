@@ -15,6 +15,7 @@ Display and layout
 Input and navigation
 Sensors and location
 Wrist orientation
+Battery
 Text to speech
 Storage and offline support
 UI Toolkit for Meta Ray-Ban Display
@@ -144,7 +145,7 @@ Acceptable use
 Setup
 Updated
 :
-Oct 8, 2026
+Oct 29, 2026
 The recommended AI-assisted setup for Meta Ray-Ban Display Web Apps takes four steps:
 Set up AI coding tools.
 Install the AI Coding plugin and connect the Wearables MCP server before scaffolding your first project.

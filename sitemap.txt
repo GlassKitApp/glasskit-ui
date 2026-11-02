@@ -5,6 +5,7 @@ https://wearables.developer.meta.com/docs/develop/webapps/acceptable-use
 https://wearables.developer.meta.com/docs/develop/webapps/agent-tools
 https://wearables.developer.meta.com/docs/develop/webapps/build
 https://wearables.developer.meta.com/docs/develop/webapps/build/app-icons
+https://wearables.developer.meta.com/docs/develop/webapps/build/battery
 https://wearables.developer.meta.com/docs/develop/webapps/build/display-and-layout
 https://wearables.developer.meta.com/docs/develop/webapps/build/input-and-navigation
 https://wearables.developer.meta.com/docs/develop/webapps/build/overview

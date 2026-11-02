@@ -15,6 +15,7 @@ Display and layout
 Input and navigation
 Sensors and location
 Wrist orientation
+Battery
 Text to speech
 Storage and offline support
 UI Toolkit for Meta Ray-Ban Display
@@ -144,7 +145,7 @@ Acceptable use
 Troubleshoot
 Updated
 :
-Sep 30, 2026
+Oct 29, 2026
 Overview
 Start by narrowing the problem to the Web App, its hosted build, or the device. Reproduce the issue with the same HTTPS URL and the smallest reliable sequence of actions before changing code.
 Check the environment first
