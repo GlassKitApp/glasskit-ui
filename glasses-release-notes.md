@@ -1,9 +1,55 @@
 [Skip to main content](https://www.meta.com/help/ai-glasses/1809764829519902/#mdc-main-content)
 # AI glasses release notes
-6 Likes
-Updated:2 weeks ago
+8 Likes
+Updated:6 days ago
 Wondering what's new with AI glasses? Check out our release notes to learn about the latest new features and enhancements we've made to your glasses experience.
 Make sure to [update your glasses](https://www.meta.com/help/ai-glasses/3487248634876136/) and the Meta AI mobile app to the latest version to take advantage of these improvements.
+# November 11, 2026
+* * *
+### Ray-Ban Meta, Oakley Meta and Meta Glasses v30 release notes
+These features and improvements will become available starting the week of November 11 2026.
+## Meta AI now in more languages
+We are expanding Meta AI on AI glasses without displays to the following languages: Arabic, Hebrew, Indonesian, Malaysian, Mandarin, Polish, Portuguese, Tagalog, Thai, and Turkish.
+## Meta AI available in new regions
+Meta AI on AI glasses without displays is now available in Indonesia, Thailand, Portugal, Poland, Israel, Malaysia, New Zealand, Philippines, South Africa, Hong Kong, Turkey and Macau.
+* * *
+# October 5, 2026
+* * *
+### Ray-Ban Meta, Oakley Meta and Meta Glasses v29 release notes
+These features and improvements will become available starting the week of October 5 2026.
+## Mono audio
+Hear the same sound on both sides. Mono audio combines the left and right channels so nothing gets missed. Applies to sounds your glasses make, like Meta AI and notifications. Turn it on in Device settings › Audio › Accessibility.
+## Audio balance
+Shift sound toward your left or right ear, one step at a time, until the balance feels right for your hearing. Applies to sounds your glasses make like Meta AI responses. Adjust it in Device settings › Audio › Accessibility.
+* * *
+# September 2, 2026
+* * *
+### Ray-Ban Meta, Oakley Meta and Meta Glasses v28 release notes
+These features and improvements will become available starting the week of September 2 2026.
+## Anti-tampering
+Continuous improvements to protect against camera tampering.
+## Mandarin Chinese
+Mandarin Chinese is now available for Meta AI.
+## Pedestrian navigation
+Turn-by-turn pedestrian navigation is here! Get walking directions to your favorite places nearby. Just say “Hey Meta, navigate to Times Square.” For further away places, we’ll send a notification with driving directions to your phone. [Learn more](https://www.meta.com/help/ai-glasses/728826956444153/).
+## Share location from phone to glasses
+Open your phone's mapping app and find a location that you'd like to walk to. Tap Share. Select Meta AI from the list of applications. Navigation will start on your connected glasses.
+## Spatial audio
+You can now turn on spatial audio for a richer version of the stereo you already listen to. Immerse yourself in your favorite playlist or podcast. To get started, go to Settings \> Audio and select Spatial. Available on Ray-Ban Meta Optics and Meta Glasses.
+* * *
+# August 7, 2026
+* * *
+### Ray-Ban Meta, Oakley Meta and Meta Glasses v27 release notes
+These features and improvements will become available starting the week of August 7 2026.
+## Capture longer videos
+You can now set a maximum video length of up to 5 min for full HD, 30fps videos. To get started, go to Settings \> Media \> Video Settings \> Video Length and select 5 minutes. Available on Ray-Ban Meta (Gen 2+), Oakley Meta HSTN, Oakley Meta Vanguard, and Meta Glasses.
+## Golf with 18birdies and Arccos
+Get AI-powered golf insights without breaking your rhythm. Meta AI connects with top golf apps like 18Birdies and Arccos to deliver real-time course insights, including distance to green, club recommendations, score logging, and more, completely hands-free. After connecting to the golf app, to get started say “Hey Meta, start a round of golf.” [Learn more](https://www.meta.com/help/ai-glasses/1003277785741347/).
+## Start video calls with voice
+Start a WhatsApp, Messenger or Instagram Direct video call via voice while leaving your phone in your pocket. Try saying “Hey Meta, video call Jonah on WhatsApp.”
+## Turkish language support
+Turkish is now available as a supported language for Meta AI.
+* * *
 # June 29, 2026
 * * *
 ### Ray-Ban Meta, Oakley Meta and Meta Glasses v26 release notes
