@@ -1,7 +1,7 @@
 [Skip to main content](https://www.meta.com/help/ai-glasses/1809764829519902/#mdc-main-content)
 # AI glasses release notes
-8 Likes
-Updated:6 days ago
+33 Likes
+Updated:4 days ago
 Wondering what's new with AI glasses? Check out our release notes to learn about the latest new features and enhancements we've made to your glasses experience.
 Make sure to [update your glasses](https://www.meta.com/help/ai-glasses/3487248634876136/) and the Meta AI mobile app to the latest version to take advantage of these improvements.
 # November 11, 2026
@@ -244,7 +244,7 @@ Resolved various issues to enhance stability and performance.
 ### Ray-Ban Meta and Oakley Meta glasses v19 release notes
 These features and improvements will become available starting the week of October 2, 2025.
 ## Quick connect
-You can complete some of your most frequently used communication actions on your glasses in an even quicker and more discreet manner with quick connect. Send voice messages or text messages, place calls, and share captures with a 1-finger hold on your glasses' touchpad. Learn [how to set up quick connect](https://www.meta.com/help/ai-glasses/1296226131989237/).
+You can complete some of your most frequently used communication actions on your glasses in an even quicker and more discreet manner with quick connect. Send voice messages or text messages, place calls, and share captures with a 1-finger hold on your glasses' touchpad.
 ## New AI glasses community forum
 Meta Community Forums now has a [section for AI glasses](https://communityforums.atmeta.com/category/ai-glasses). Stay up to date on new announcements, find answers to your product questions, and get troubleshooting help from other AI glasses wearers.
 * * *
